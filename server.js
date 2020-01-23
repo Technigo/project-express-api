@@ -24,7 +24,22 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Welcome to the BOOKS API!')
+  const welcomeMessage = `Welcome to Björn's BOOKS API !
+
+    The following endpoints/paths (GET) are available:
+
+    /books
+    - returns all books in the dataset
+
+    /books?minRating=X
+    - returns all books with the minimum rating equal to or more than X
+
+    /isbn/:isbn
+    - returns the book with the given isbn number
+
+    I was hoping for this this message to go on multiple lines since it's a string/template literal.
+  `
+  res.send(welcomeMessage)
 })
 
 app.get('/books', (req, res) => {
