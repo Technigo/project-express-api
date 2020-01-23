@@ -44,9 +44,13 @@ app.get('/books', (req, res) => {
 
 app.get('/isbn/:isbn', (req, res) => {
   const isbn = req.params.isbn
-  console.log(isbn)
   const bookByIsbn = booksData.find(book => book.isbn === +isbn)
-  res.json(bookByIsbn)
+  if (bookByIsbn.length > 0) {
+    res.json(bookByIsbn)
+  } else {
+    res.send("No book found with that isbn number.")
+  }
+
 })
 
 // Start the server
