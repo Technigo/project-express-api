@@ -24,16 +24,13 @@ header {
 }
 
 section {
-  /* min-width: 395px; */
   padding: 1.5rem;
-  /* margin-bottom: 1.5rem; */
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.12);
   border-radius: 8px;
 }
 
 .app {
-  /* margin: 1.5rem; */
   padding: 1.5rem;
   background-color: transparent;
   display: grid;
@@ -69,7 +66,6 @@ li:last-of-type {
   display: inline-block;
   font-style: italic;
   color: blue;
-  border-bottom: 2px solid greenyellow;
   padding: 0.2rem 0.5rem;
   text-decoration: none;
   transition: all 300ms ease-in-out;
@@ -84,11 +80,22 @@ li:last-of-type {
   color: blue;
 }
 
+.endpoint {
+  text-decoration: underline;
+  text-underline-position: below;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: greenyellow;
+  -webkit-text-decoration-color: greenyellow;
+  -moz-text-decoration-color: greenyellow;
+  /* border-bottom: 2px solid greenyellow; */
+}
+
 code {
   display: inline-block;
   border-radius: 4px;
   padding: 0.5rem;
-  margin: 0.5rem 0;
+  margin: 0.7rem 0;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -98,8 +105,14 @@ code {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1295px) {
   .app {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1620px) {
+  .app {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 
 import netflixData from './data/netflix-titles.json';
+let movies = netflixData;
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -27,7 +28,6 @@ app.get('/api/movies', (req, res) => {
   const queryYear = +req.query.year;
   const queryDuration = +req.query.duration;
   let queryActor = req.query.actor;
-  let movies = netflixData;
 
   if (queryYear) {
     movies = movies.filter(movie => movie.release_year === queryYear);
@@ -93,11 +93,24 @@ app.get('/api/movies', (req, res) => {
 });
 
 app.get('/api/movies/:id', (req, res) => {
-  const id = req.params.id;
+  const id = +req.params.id;
   // console.log({ year });
-  const movie = netflixData.find(item => item.show_id === +id);
+  const movie = movies.find(item => item.show_id === id);
 
   if (movie) {
+    res.json(movie);
+  } else {
+    res.status(404).send(`No movie found with id ${id}.`);
+  }
+});
+
+app.delete('/api/movies/:id', (req, res) => {
+  const id = +req.params.id;
+  const movie = movies.find(item => item.show_id === id);
+
+  if (movie) {
+    movies = movies.filter(item => item.show_id !== id);
+    console.log(movie);
     res.json(movie);
   } else {
     res.status(404).send(`No movie found with id ${id}.`);
