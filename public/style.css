@@ -24,11 +24,10 @@ header {
 }
 
 section {
-  /* border: 1px solid red; */
   max-width: 400px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.12);
   border-radius: 8px;
 }
@@ -36,10 +35,8 @@ section {
 .app {
   margin: 1.5rem;
   background-color: transparent;
-  /* border: 1px solid green; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 420px));
-  /* grid-auto-rows: 1fr; */
   grid-gap: 1rem;
   justify-content: center;
 }
