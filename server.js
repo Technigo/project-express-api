@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world');
+  res.send('Welcome to the custom Netflix data API!');
 });
 
 app.get('/movies', (req, res) => {
