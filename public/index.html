@@ -8,69 +8,166 @@
     <title>Custom Netflix movie API</title>
   </head>
   <body>
-    <div class="app">
-      <h1>Custom Netflix movie API</h1>
-      <p class="list-description">
-        Available endpoints:
-      </p>
-      <ul>
-        <li>
-          <p class="endpoint-description">Get all movies</p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies">/api/movies</a>
-          </p>
-        </li>
-        <li>
-          <p class="endpoint-description">Get a specific movie</p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies/60020826"
-              >/api/movies/60020826</a
-            >
-          </p>
-        </li>
-        <li>
-          <p class="endpoint-description">
-            Get all movies with a specific actor
-          </p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies?actor=Anna"
-              >/api/movies?actor=Anna</a
-            >
-          </p>
-        </li>
-        <li>
-          <p class="endpoint-description">Get all movies for a specific year</p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies?year=2017"
-              >/api/movies?year=2017</a
-            >
-          </p>
-        </li>
-        <li>
-          <p class="endpoint-description">
-            Get all movies with a specific duration (min)
-          </p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies?duration=105"
-              >/api/movies?duration=105</a
-            >
-          </p>
-        </li>
-        <li>
-          <p class="endpoint-description">Get all movies with pagination</p>
-          <p>
-            e.g. GET
-            <a class="endpoint-url" href="/api/movies?page=1"
-              >/api/movies?page=1</a
-            >
-          </p>
-        </li>
-      </ul>
-    </div>
+    <header><h1>Custom Netflix movie API</h1></header>
+    <main class="app">
+      <section>
+        <h3 class="list-description">
+          GET endpoints
+        </h3>
+        <ul>
+          <li>
+            <p class="endpoint-description">Get all movies</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies">/api/movies</a>
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">Get a specific movie</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies/60020826"
+                >/api/movies/60020826</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies with a specific actor
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?actor=Anna"
+                >/api/movies?actor=Anna</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies for a specific year
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?year=2017"
+                >/api/movies?year=2017</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies with a specific duration (min)
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?duration=105"
+                >/api/movies?duration=105</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">Get all movies with pagination</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?page=1"
+                >/api/movies?page=1</a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="list-description">
+          POST endpoints
+        </h3>
+        <ul>
+          <li>
+            <p class="endpoint-description">Create a new movie</p>
+            <p>
+              e.g. POST /api/movies with payload:
+              <code>{ name: 'Fredrik' }</code>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="list-description">
+          PUT endpoints
+        </h3>
+        <ul>
+          <li>
+            <p class="endpoint-description">Update a specific movie</p>
+            <p>
+              e.g. PUT /api/movies/:id with payload:
+              <code>{ name: 'Fredrik' }</code>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="list-description">
+          DELETE endpoints
+        </h3>
+        <ul>
+          <li>
+            <p class="endpoint-description">Get all movies</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies">/api/movies</a>
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">Get a specific movie</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies/60020826"
+                >/api/movies/60020826</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies with a specific actor
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?actor=Anna"
+                >/api/movies?actor=Anna</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies for a specific year
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?year=2017"
+                >/api/movies?year=2017</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get all movies with a specific duration (min)
+            </p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?duration=105"
+                >/api/movies?duration=105</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">Get all movies with pagination</p>
+            <p>
+              e.g. GET
+              <a class="endpoint-url" href="/api/movies?page=1"
+                >/api/movies?page=1</a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
