@@ -24,7 +24,6 @@ body {
 .app {
   padding: 1.5rem;
   background-color: #fff;
-  /* border: 1px solid red; */
   box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.12);
   border-radius: 8px;
 }
@@ -52,15 +51,14 @@ li {
   font-style: italic;
   color: blue;
   border-bottom: 2px solid greenyellow;
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
   text-decoration: none;
+  transition: all 300ms ease-in-out;
 }
 
 .endpoint-url:hover {
   cursor: pointer;
   background: rgba(255, 255, 0, 1);
-  padding: 0.2rem;
-  transition: background 300ms ease-in-out;
 }
 
 .endpoint-url:visited {
