@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  /* border: 1px solid red; */
+  /* margin-top: 1rem; */
+  padding: 1rem;
+}
+
+.list-description {
+  margin: 1.5rem 0 2rem 0;
+}
+
+ul {
+  margin: 0rem;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+.endpoint-description {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.endpoint-url {
+  display: inline-block;
+  font-style: italic;
+  color: blue;
+  border-bottom: 2px solid greenyellow;
+  padding: 0.2rem;
+  text-decoration: none;
+}
+
+.endpoint-url:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 0, 1);
+  padding: 0.2rem;
+  transition: background 300ms ease-in-out;
+}
+
+.endpoint-url:visited {
+  /* color: black; */
+}

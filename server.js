@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 
 import netflixData from './data/netflix-titles.json';
 
@@ -10,13 +11,15 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Welcome to the custom Netflix data API!');
-});
+// app.get('/', (req, res) => {
+//   // res.send('Welcome to the custom Netflix data API!');
+//   res.sendFile(path.join(__dirname + '/index.html'));
+// });
 
-app.get('/movies', (req, res) => {
+app.get('/api/movies', (req, res) => {
   const queryPage = +req.query.page;
   const itemsPerPage = 20;
   const startIndex = queryPage * itemsPerPage - itemsPerPage;
@@ -89,7 +92,7 @@ app.get('/movies', (req, res) => {
   }
 });
 
-app.get('/movies/:id', (req, res) => {
+app.get('/api/movies/:id', (req, res) => {
   const id = req.params.id;
   // console.log({ year });
   const movie = netflixData.find(item => item.show_id === +id);

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Custom Netflix data API</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Custom Netflix API</h1>
+      <p class="list-description">
+        Down below is a complete list of available endpoints:
+      </p>
+      <ul>
+        <li>
+          <p class="endpoint-description">Get all movies</p>
+          <p>e.g. <a class="endpoint-url" href="/api/movies">/api/movies</a></p>
+        </li>
+        <li>
+          <p class="endpoint-description">Get a single movie</p>
+          <p>
+            e.g.
+            <a class="endpoint-url" href="/api/movies/60020826"
+              >/api/movies/60020826</a
+            >
+          </p>
+        </li>
+        <li>
+          <p class="endpoint-description">
+            Get all movies with a specific actor
+          </p>
+          <p>
+            e.g.
+            <a class="endpoint-url" href="/api/movies?actor=Anna"
+              >/api/movies?actor=Anna</a
+            >
+          </p>
+        </li>
+        <li>
+          <p class="endpoint-description">Get all movies for a specific year</p>
+          <p>
+            e.g.
+            <a class="endpoint-url" href="/api/movies?year=2017"
+              >/api/movies?year=2017</a
+            >
+          </p>
+        </li>
+        <li>
+          <p class="endpoint-description">
+            Get all movies with a specific duration (min)
+          </p>
+          <p>
+            e.g.
+            <a class="endpoint-url" href="/api/movies?duration=105"
+              >/api/movies?duration=105</a
+            >
+          </p>
+        </li>
+        <li>
+          <p class="endpoint-description">Get all movies with pagination</p>
+          <p>
+            e.g.
+            <a class="endpoint-url" href="/api/movies?page=1"
+              >/api/movies?page=1</a
+            >
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
