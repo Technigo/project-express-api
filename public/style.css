@@ -31,7 +31,7 @@ section {
 }
 
 .app {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   background-color: transparent;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
