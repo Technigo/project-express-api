@@ -1,7 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import netflixData from './data/netflix-titles.json'
 
+console.log(netflixData.length)
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
@@ -24,7 +26,30 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello world hej hej')
+})
+
+app.get('/types', (req, res) => {
+  res.json(netflixData)
+
+})
+
+// router  to finding specific year //
+http://localhost:8080/year/2019
+
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+
+  const releasesFromYear = netflixData.filter((item) => item.release_year === +year)
+  res.json(releasesFromYear)
+})
+
+
+// http://localhost:8080/country/Sweden
+app.get('/country/:country', (req, res) => {
+  const country = req.params.country
+  const fromCountry = netflixData.filter((item) => item.country === country)
+  res.json(fromCountry)
 })
 
 // Start the server
