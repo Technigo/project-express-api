@@ -24,6 +24,18 @@ app.get('/books', (req, res) => {
   res.json(books)
 })
 
+// Return the first half of the books (objects) from the array in books.json
+app.get('/books1', (req, res) => {
+  console.log(books.slice(0, 251))
+  res.json(books.slice(0, 251))
+})
+
+// Return the second half of books (objects) from the array in books.json
+app.get('/books2', (req, res) => {
+  console.log(books.slice(251, 500))
+  res.json(books.slice(251, 500))
+})
+
 // Return an individual book (an object), using :id as a placeholder for the bookID number
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
