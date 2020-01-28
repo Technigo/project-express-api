@@ -19,6 +19,8 @@ app.get('/', (req, res) => {
   res.send(netflixData)
 })
 
+
+// Shows routes
 app.get('/shows', (req, res) => {
 
   // Filter shows
@@ -40,6 +42,22 @@ app.get('/shows/:show', (req, res) => {
 
 })
 
+app.get('/shows/seasons/:season', (req, res) => {
+  const season = req.params.season
+
+  const seasons = netflixData.filter((item) => {
+    if (season === "1") {
+      return item.duration === `${season} Season`
+    } else {
+      return item.duration === `${season} Seasons`
+    }
+  })
+
+  res.json(seasons)
+})
+
+// Movies routes
+
 app.get('/movies', (req, res) => {
 
   // Filter movies
@@ -57,6 +75,20 @@ app.get('/movies/:movie', (req, res) => {
 
   // Send response
   res.json(movie)
+})
+
+
+// Countries route
+app.get('/countries/:country', (req, res) => {
+  const country = req.params.country
+
+  const showCountry = netflixData.filter((item) => {
+    const countries = item.country.split(',')
+
+    return countries.includes(country)
+  })
+
+  res.json(showCountry)
 })
 
 // Start the server
