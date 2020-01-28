@@ -1,13 +1,10 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+Building an API using Express with a couple of RESTful endpoints which return an array of data and single items.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
+## The problem by making an endpoint find a sigle item
+Found out I needed to use "let" instead of "const" to be able to make the single query work
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## View it live - lägga in länken från Heruku
