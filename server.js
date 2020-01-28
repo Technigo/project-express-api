@@ -94,7 +94,7 @@ app.get('/api/movies', (req, res) => {
 
 app.get('/api/movies/:id', (req, res) => {
   const id = +req.params.id;
-  // console.log({ year });
+  console.log({ year });
   const movie = movies.find(item => item.show_id === id);
 
   if (movie) {
