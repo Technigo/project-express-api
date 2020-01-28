@@ -2,18 +2,11 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
+
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -24,7 +17,24 @@ app.use(bodyParser.json())
 
 // ROOT ENDPOINT
 app.get('/', (req, res) => {
+  res.send('API for Netflix shows')
+})
+
+// GET ALL DATA
+app.get('/shows', (req, res) => {
   res.send(netflixData)
+})
+
+// GET A SPECIFIC SHOW
+// HOW TO USE THE STATUS CODE 404?
+app.get('/shows/:id', (req, res) => {
+  const id = req.params.id
+  const showId = netflixData.find((item) => item.show_id === +id)
+  if (showId) {
+    res.json(showId)
+  } else {
+    res.send('Show not found')
+  }
 })
 
 // GET TYPE OF SHOW (TV SHOW | MOVIE)
