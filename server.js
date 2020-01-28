@@ -117,6 +117,15 @@ app.delete('/api/movies/:id', (req, res) => {
   }
 });
 
+app.post('/api/movies', (req, res) => {
+  const movie = {
+    name: req.body.name
+  };
+
+  console.log(req.body.name);
+  res.send(movie);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
