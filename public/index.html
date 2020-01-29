@@ -83,23 +83,44 @@
           <li>
             <p class="endpoint-description">Create a new movie</p>
             <p>
-              e.g. POST <span class="endpoint">/api/movies</span> with the
-              following payload:
+              e.g. POST <span class="endpoint">/api/movies</span> with payload:
             </p>
-            <pre>
+            <div class="object correct">
+              <p>Object validates correctly</p>
+              <pre>
             <code>{ 
-  title: 'Microsoft Horror', 
-  director: 'Bill gates', 
-  cast: 'Val Kilmer, Tom Cruise', country: 'USA',
-  date_added: 'January 28, 2020',
-  release_year: 2020,
-  rating: 'TV-20',
-  duration: '120 min',
-  listed_in: 'Horror movies',
-  description: 'To big to describe in a few words.',
-  type: 'Movie' 
+  "title": "Microsoft Horror", 
+  "director": "Bill gates, 
+  "cast": "Val Kilmer, Tom Cruise",
+  "country": "USA",
+  "date_added": "January 28, 2020",
+  "release_year": 2020,
+  "rating": "TV-20",
+  "duration": "120 min",
+  "listed_in": "Horror movies",
+  "description": "To big to describe in a few words.",
+  "type": "Movie" 
 }</code>
            </pre>
+            </div>
+            <div class="object incorrect">
+              <p>Object validates incorrectly</p>
+              <pre>
+            <code>{ 
+  "title": "Microsoft Horror", 
+  "director": "Bill gates, 
+  "cast": "Val Kilmer, Tom Cruise",
+  "country": "USA",
+  "date_added": "January 28, 2020",
+  "release_year": 2020,
+  "rating": "",
+  "duration": "120 min",
+  "listed_in": "",
+  "description": "To big to describe in a few words.",
+  "type": "Movie" 
+}</code>
+           </pre>
+            </div>
           </li>
         </ul>
       </section>

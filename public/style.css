@@ -92,10 +92,27 @@ li:last-of-type {
   border-bottom: 2px solid greenyellow;
 }
 
+.object {
+  margin: 1rem 0;
+}
+
+.object p {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.correct p {
+  color: green;
+}
+
+.incorrect p {
+  color: red;
+}
+
 pre {
   display: flex;
   justify-content: flex-start;
-  margin: 0.8rem 0;
+  margin: 0.4rem 0;
 }
 
 code {
