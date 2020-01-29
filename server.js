@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 
 //Homepage
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Possible routes: /boardgames, /year/:year, /rating/:rating (change :rating to "average" or "rank" ')
 })
 
 //All boardgames
@@ -27,22 +27,45 @@ app.get('/', (req, res) => {
 // })
 
 //Specific boardgames, requires id
-// app.get("/boardgames/:id", (req, res) => {
-//   const id = req.params.id
-//   const headers = req.headers
-//   console.log("headers : " + JSON.stringify(headers, null, 2))
-//   const boardgame = boardgamesData.find((game) => game.id === +id)
-//   if (boardgame) {
-//     res.json(boardgame)
+app.get("/boardgames/:id", (req, res) => {
+  const id = req.params.id
+  // const headers = req.headers
+  // console.log("headers : " + JSON.stringify(headers, null, 2))
+  const boardgame = boardgamesData.find((game) => game.id === +id)
+  if (boardgame) {
+    res.json(boardgame)
+  } else {
+    res.status(404).send(`No game found with id: ${id}`)
+  }
+})
+
+// app.get("/boardgames", (req, res) => {
+//   const query = req.query.q
+//   if (query) {
+//     const filteredSearch = boardgamesData.filter(game => {
+//       const gameName = game.name.toString()
+//       return gameName.toLowerCase().includes(query.toLowerCase())
+//     })
+//     // console.log(filteredSearch)
+//     if (filteredSearch.length === 0) {
+//       res.status(404).send(`Couldn't find any boardgame with "${query}" in the name`)
+//     } else {
+//       res.json(filteredSearch)
+//     }
 //   } else {
-//     res.status(404).send(`No game found with id: ${id}`)
+//     res.json(boardgamesData)
 //   }
 // })
 
-//Trying pages
+
+//Pages or search
 app.get("/boardgames", (req, res) => {
-  //Makes the number written in url to integer
-  let page = parseInt(req.query.p)
+  //Query for name
+  const nameSearch = req.query.name
+
+  //Query for page Makes the number written in url to integer
+  let page = parseInt(req.query.page)
+
   //Checks how many pages there is when every page has 20 objects
   const pageCount = Math.ceil(boardgamesData.length / 20)
 
@@ -55,12 +78,40 @@ app.get("/boardgames", (req, res) => {
   else if (page > pageCount) {
     page = pageCount
   }
+
+  if (nameSearch) {
+    const filteredSearch = boardgamesData.filter(game => {
+      const gameName = game.name.toString()
+      return gameName.toLowerCase().includes(nameSearch.toLowerCase())
+    })
+    //Checks how many pages the filtered search have
+    const pageCount = Math.ceil(filteredSearch.length / 20)
+    // console.log(filteredSearch)
+
+    //If there's no query in the url, the page should be 1
+    if (!page) {
+      page = 1
+    }
+    //If the query is bigger than the pageCount it should show the last page
+    //Meaning: if it's 100 pages and someone writes 101, it should show p100
+    else if (page > pageCount) {
+      page = pageCount
+    }
+
+    if (filteredSearch.length === 0) {
+      res.status(404).send(`Couldn't find any boardgame with "${nameSearch}" in the name`)
+    } else {
+      res.json(filteredSearch.slice(page * 20 - 20, page * 20))
+    }
+  }
+
   //It slices the json, beginning on the page written in query
   //If page = 1, it should show 0-20
   //Eg. 5*20 -20, 5*20
   //If it's the 5th page it should show result 80 - 100
 
   res.json(boardgamesData.slice(page * 20 - 20, page * 20))
+
 
 })
 
@@ -127,26 +178,6 @@ app.get('/rating/:rating', (req, res) => {
 
 //Path of variable when you're searching for something specific
 //Query, when searching for something ambiguos, more options, like search strings
-
-app.get("/boardgames", (req, res) => {
-  const query = req.query.q
-  if (query) {
-    const filteredSearch = boardgamesData.filter(game => {
-      const gameName = game.name.toString()
-      return gameName.toLowerCase().includes(query.toLowerCase())
-    })
-    // console.log(filteredSearch)
-    if (filteredSearch.length === 0) {
-      res.status(404).send(`Couldn't find any boardgame with "${query}" in the name`)
-    } else {
-      res.json(filteredSearch)
-    }
-  } else {
-    res.json(boardgamesData)
-  }
-
-})
-
 
 
 // Start the server
