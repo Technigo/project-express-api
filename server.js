@@ -27,15 +27,61 @@ app.get('/', (req, res) => {
 // })
 
 //Specific boardgames, requires id
-app.get("/boardgames/:id", (req, res) => {
-  const id = req.params.id
-  const boardgame = boardgamesData.find((game) => game.id === +id)
-  if (boardgame) {
-    res.json(boardgame)
-  } else {
-    res.status(404).send(`No game found with id: ${id}`)
+// app.get("/boardgames/:id", (req, res) => {
+//   const id = req.params.id
+//   const headers = req.headers
+//   console.log("headers : " + JSON.stringify(headers, null, 2))
+//   const boardgame = boardgamesData.find((game) => game.id === +id)
+//   if (boardgame) {
+//     res.json(boardgame)
+//   } else {
+//     res.status(404).send(`No game found with id: ${id}`)
+//   }
+// })
+
+//Trying pages
+app.get("/boardgames", (req, res) => {
+  //Makes the number written in url to integer
+  let page = parseInt(req.query.p)
+  //Checks how many pages there is when every page has 20 objects
+  const pageCount = Math.ceil(boardgamesData.length / 20)
+
+  //If there's no query in the url, the page should be 1
+  if (!page) {
+    page = 1
   }
+  //If the query is bigger than the pageCount it should show the last page
+  //Meaning: if it's 100 pages and someone writes 101, it should show p100
+  else if (page > pageCount) {
+    page = pageCount
+  }
+  //It slices the json, beginning on the page written in query
+  //If page = 1, it should show 0-20
+  //Eg. 5*20 -20, 5*20
+  //If it's the 5th page it should show result 80 - 100
+
+  res.json(boardgamesData.slice(page * 20 - 20, page * 20))
+
 })
+
+//Didn't work
+// app.get("/boardgames/:id", (req, res) => {
+//   const id = req.params.id
+//   const year = req.query.year
+//   console.log(id)
+//   console.log(year)
+//   if (id) {
+//     const boardgame = boardgamesData.find((game) => game.id === +id)
+//     if (boardgame) {
+//       res.json(boardgame)
+//     } else {
+//       res.status(404).send(`No game found with id: ${id}`)
+//     }
+//   } else if (year) {
+//     const boardgamesFromYear = boardgamesData.filter((game) => game.year === +year)
+//     res.json(boardgamesFromYear)
+//   }
+// })
 
 //Boardgame from year, requires year
 app.get("/year/:year", (req, res) => {
@@ -89,7 +135,7 @@ app.get("/boardgames", (req, res) => {
       const gameName = game.name.toString()
       return gameName.toLowerCase().includes(query.toLowerCase())
     })
-    console.log(filteredSearch)
+    // console.log(filteredSearch)
     if (filteredSearch.length === 0) {
       res.status(404).send(`Couldn't find any boardgame with "${query}" in the name`)
     } else {
