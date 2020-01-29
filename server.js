@@ -24,18 +24,23 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World</h1>')
+  res.send('<h1>Hello There!📡</h1>')
 })
 
-app.get('/netflix-data', (req, res) => {
+// display all the netflix data
+app.get('/netflix', (req, res) => {
   res.json(netflixData)
 })
 
-app.get('/tv-shows', (req, res) => {
-  let showSeries = netflixData.filter((item) => item.type === "TV Show")
+//display the tv-shows and release-year
+app.get('/tv-shows/:year', (req, res) => {
+
+  const year = req.params.year
+  let showSeries = netflixData.filter((item) => item.type === "TV Show" && item.release_year === +year)
   res.json(showSeries)
 })
 
+//using params, to search the tv-shows and movies
 app.get('/netflix/:type', (req, res) => {
   const kind = req.params.type
   let show = netflixData.filter((item) => item.type.toLowerCase() === kind.toLowerCase())
