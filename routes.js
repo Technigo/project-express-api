@@ -167,68 +167,6 @@ router.post('/movies', (req, res) => {
       // data: Object.assign({ show_id }, value)
     });
   }
-
-  // Define validation schema
-  // const schema = Joi.object().keys({
-  //   title: Joi.string()
-  //     .trim()
-  //     .regex(/^[a-zA-Z, ]*$/, 'Letters, space and comma characters')
-  //     .min(2)
-  //     .max(20)
-  //     .required(),
-  //   director: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   cast: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   country: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   date_added: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   release_year: Joi.number()
-  //     .integer()
-  //     .required(),
-  //   rating: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   duration: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   listed_in: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   description: Joi.string()
-  //     .trim()
-  //     .required(),
-  //   type: Joi.string()
-  //     .trim()
-  //     .required()
-  // });
-
-  // Validate data request against the schema
-  // Joi.validate(payload, schema, (err, value) => {
-  //   // Create a random id
-  //   const show_id = uuid();
-
-  //   if (err) {
-  //     // Send a 422 error response if validation fails
-  //     res.status(422).json({
-  //       status: 'error',
-  //       message: 'Invalid request data',
-  //       data: data
-  //     });
-  //   } else {
-  //     // Send a success response if validation passes
-  //     res.json({
-  //       status: 'success',
-  //       message: 'Movie created successfully',
-  //       data: Object.assign({ show_id }, value)
-  //     });
-  //   }
-  // });
 });
 
 // PUT routes
