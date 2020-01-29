@@ -34,7 +34,8 @@ section {
   padding: 0 1.5rem 1.5rem 1.5rem;
   background-color: transparent;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  /* grid-template-columns: repeat(1, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(557px, 1fr));
   grid-gap: 1rem;
   justify-content: center;
 }
@@ -129,18 +130,18 @@ code {
 
 @media screen and (min-width: 960px) {
   .app {
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
   }
 }
 
 @media screen and (min-width: 1360px) {
   .app {
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
   }
 }
 
 @media screen and (min-width: 1879px) {
   .app {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   }
 }
