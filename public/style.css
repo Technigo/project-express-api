@@ -19,8 +19,11 @@ body {
 }
 
 header {
+  background-color: #0269a4;
+  color: white;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
   text-align: center;
-  padding: 2rem 0;
 }
 
 section {
