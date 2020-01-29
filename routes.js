@@ -104,8 +104,12 @@ router.delete('/movies/:id', (req, res) => {
 
   if (movie) {
     movies = movies.filter(item => item.show_id !== id);
-    console.log(movie);
-    res.json(movie);
+    // console.log(movie);
+    res.json({
+      status: 'success',
+      message: 'Movie deleted successfully',
+      data: movie
+    });
   } else {
     res.status(404).send(`No movie found with id ${id}.`);
   }
