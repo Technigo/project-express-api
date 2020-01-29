@@ -5,6 +5,7 @@ import uuid from 'uuid/v4';
 import netflixData from './data/netflix-titles.json';
 
 let movies = netflixData;
+let show_id = 100000000000;
 const router = express.Router();
 
 // GET routes
@@ -142,7 +143,8 @@ router.post('/movies', (req, res) => {
     });
   } else {
     // Create a random id
-    const show_id = uuid();
+    // const show_id = uuid();
+    show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
     // Update array with new movie
     const newMovie = {
@@ -227,28 +229,28 @@ router.post('/movies', (req, res) => {
 
 // PUT routes
 router.put('/movies/:id', (req, res) => {
-  // const payload = req.body;
+  const payload = req.body;
   const movie = movies.find(item => item.show_id === +req.params.id);
 
   // If movie does not exist, return 404
-  if (!movie) res.status(404).send(`No movie found with id ${id}.`);
+  if (!movie) res.status(404).send(`No movie found with id ${+req.params.id}.`);
 
   // Destructure show_id from movie to use in return response
   const { show_id } = movie;
 
-  const payload = {
-    title: 'Microsoft',
-    director: 'Bill Gates',
-    cast: 'Val Kilmer, Tom Cruise',
-    country: 'USA',
-    date_added: 'January 28, 2020',
-    release_year: 2020,
-    rating: 'TV-20',
-    duration: '120 min',
-    listed_in: 'Horror movies',
-    description: 'To big to describe in a few words.',
-    type: 'Movie'
-  };
+  // const payload = {
+  //   title: 'Microsoft',
+  //   director: 'Bill Gates',
+  //   cast: 'Val Kilmer, Tom Cruise',
+  //   country: 'USA',
+  //   date_added: 'January 28, 2020',
+  //   release_year: 2020,
+  //   rating: 'TV-20',
+  //   duration: '120 min',
+  //   listed_in: 'Horror movies',
+  //   description: 'To big to describe in a few words.',
+  //   type: 'Movie'
+  // };
 
   // Validate payload
   const { error, value } = validateMovie(payload);
@@ -263,11 +265,18 @@ router.put('/movies/:id', (req, res) => {
       error: error
     });
   } else {
+    // Update movie properties
+    const updatedMovie = {
+      show_id,
+      ...value
+    };
+
     // Send a success response if validation passes
     res.json({
       status: 'success',
       message: 'Movie updated successfully',
-      data: Object.assign({ show_id }, value)
+      data: updatedMovie
+      // data: Object.assign({ show_id }, value)
     });
   }
 });
@@ -321,6 +330,10 @@ const validateMovie = movie => {
 
   // Validate data request against the schema
   return Joi.validate(movie, schema);
+};
+
+const randomIntFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 module.exports = router;
