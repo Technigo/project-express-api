@@ -91,11 +91,9 @@ router.get('/movies/:id', (req, res) => {
   // console.log({ year });
   const movie = movies.find(item => item.show_id === id);
 
-  if (movie) {
-    res.json(movie);
-  } else {
-    res.status(404).send(`No movie found with id ${id}.`);
-  }
+  if (!movie) res.status(404).send(`No movie found with id ${id}.`);
+
+  res.json(movie);
 });
 
 // DELETE routes
@@ -114,11 +112,133 @@ router.delete('/movies/:id', (req, res) => {
 
 // POST routes
 router.post('/movies', (req, res) => {
-  // const data = req.body
+  const payload = req.body;
 
-  const data = {
-    title: 'Microsoft Horror',
-    director: 'Bill gates',
+  // const payload = {
+  //   title: 'Microsoft Horror',
+  //   director: 'Bill gates',
+  //   cast: 'Val Kilmer, Tom Cruise',
+  //   country: 'USA',
+  //   date_added: 'January 28, 2020',
+  //   release_year: 2020,
+  //   rating: 'TV-20',
+  //   duration: '120 min',
+  //   listed_in: 'Horror movies',
+  //   description: 'To big to describe in a few words.',
+  //   type: 'Movie'
+  // };
+
+  // Validate payload
+  const { error, value } = validateMovie(payload);
+
+  if (error) {
+    delete error.isJoi;
+
+    // Send a 422 error response if validation fails
+    res.status(422).json({
+      status: 'error',
+      message: 'Invalid request data',
+      error: error
+    });
+  } else {
+    // Create a random id
+    const show_id = uuid();
+
+    // Update array with new movie
+    const newMovie = {
+      show_id,
+      ...value
+    };
+
+    movies.push(newMovie);
+    // console.log(newMovie);
+
+    // Send a success response if validation passes
+    res.json({
+      status: 'success',
+      message: 'Movie created successfully',
+      data: newMovie
+      // data: Object.assign({ show_id }, value)
+    });
+  }
+
+  // Define validation schema
+  // const schema = Joi.object().keys({
+  //   title: Joi.string()
+  //     .trim()
+  //     .regex(/^[a-zA-Z, ]*$/, 'Letters, space and comma characters')
+  //     .min(2)
+  //     .max(20)
+  //     .required(),
+  //   director: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   cast: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   country: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   date_added: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   release_year: Joi.number()
+  //     .integer()
+  //     .required(),
+  //   rating: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   duration: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   listed_in: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   description: Joi.string()
+  //     .trim()
+  //     .required(),
+  //   type: Joi.string()
+  //     .trim()
+  //     .required()
+  // });
+
+  // Validate data request against the schema
+  // Joi.validate(payload, schema, (err, value) => {
+  //   // Create a random id
+  //   const show_id = uuid();
+
+  //   if (err) {
+  //     // Send a 422 error response if validation fails
+  //     res.status(422).json({
+  //       status: 'error',
+  //       message: 'Invalid request data',
+  //       data: data
+  //     });
+  //   } else {
+  //     // Send a success response if validation passes
+  //     res.json({
+  //       status: 'success',
+  //       message: 'Movie created successfully',
+  //       data: Object.assign({ show_id }, value)
+  //     });
+  //   }
+  // });
+});
+
+// PUT routes
+router.put('/movies/:id', (req, res) => {
+  // const payload = req.body;
+  const movie = movies.find(item => item.show_id === +req.params.id);
+
+  // If movie does not exist, return 404
+  if (!movie) res.status(404).send(`No movie found with id ${id}.`);
+
+  // Destructure show_id from movie to use in return response
+  const { show_id } = movie;
+
+  const payload = {
+    title: 'Microsoft',
+    director: 'Bill Gates',
     cast: 'Val Kilmer, Tom Cruise',
     country: 'USA',
     date_added: 'January 28, 2020',
@@ -130,77 +250,77 @@ router.post('/movies', (req, res) => {
     type: 'Movie'
   };
 
-  // "title": "Microsoft Horror",
-  // "director": "Bill gates",
-  // "cast": "Val Kilmer, Tom Cruise",
-  // "country": "USA",
-  // "date_added": "January 28, 2020",
-  // "release_year": 2020,
-  // "rating": "TV-20",
-  // "duration": "120 min",
-  // "listed_in": "Horror movies",
-  // "description": "To big to describe in a few words.",
-  // "type": "Movie"
+  // Validate payload
+  const { error, value } = validateMovie(payload);
 
+  if (error) {
+    delete error.isJoi;
+
+    // Send a 422 error response if validation fails
+    res.status(422).json({
+      status: 'error',
+      message: 'Invalid request data',
+      error: error
+    });
+  } else {
+    // Send a success response if validation passes
+    res.json({
+      status: 'success',
+      message: 'Movie updated successfully',
+      data: Object.assign({ show_id }, value)
+    });
+  }
+});
+
+const validateMovie = movie => {
   // Define validation schema
-  const schema = Joi.object().keys({
-    title: Joi.string()
-      .trim()
-      .regex(/^[a-zA-Z, ]*$/, 'Alphanumerics, space and comma characters')
-      .min(2)
-      .max(20)
-      .required(),
-    director: Joi.string()
-      .trim()
-      .required(),
-    cast: Joi.string()
-      .trim()
-      .required(),
-    country: Joi.string()
-      .trim()
-      .required(),
-    date_added: Joi.string()
-      .trim()
-      .required(),
-    release_year: Joi.number().required(),
-    rating: Joi.string()
-      .trim()
-      .required(),
-    duration: Joi.string()
-      .trim()
-      .required(),
-    listed_in: Joi.string()
-      .trim()
-      .required(),
-    description: Joi.string()
-      .trim()
-      .required(),
-    type: Joi.string()
-      .trim()
-      .required()
-  });
+  const schema = Joi.object()
+    .keys({
+      title: Joi.string()
+        .trim()
+        .regex(/^[a-zA-Z, ]*$/, 'Letters, space and comma characters')
+        .min(2)
+        .max(20)
+        .required(),
+      director: Joi.string()
+        .trim()
+        .min(2)
+        .max(30)
+        .required(),
+      cast: Joi.string()
+        .trim()
+        .required(),
+      country: Joi.string()
+        .trim()
+        .required(),
+      date_added: Joi.string()
+        .trim()
+        .required(),
+      release_year: Joi.number()
+        .integer()
+        .min(1900)
+        .max(2020)
+        .required(),
+      rating: Joi.string()
+        .trim()
+        .required(),
+      duration: Joi.string()
+        .trim()
+        .required(),
+      listed_in: Joi.string()
+        .trim()
+        .required(),
+      description: Joi.string()
+        .trim()
+        .required(),
+      type: Joi.string()
+        .trim()
+        .required()
+    })
+    .options({ abortEarly: false });
 
   // Validate data request against the schema
-  Joi.validate(data, schema, (err, value) => {
-    // Create a random id
-    const id = uuid();
-
-    if (err) {
-      // Send a 422 error response if validation fails
-      res.status(422).json({
-        status: 'error',
-        message: 'Invalid request data',
-        data: data
-      });
-    } else {
-      // Send a success response if validation passes
-      res.json({
-        status: 'success',
-        message: 'Movie created successfully',
-        data: Object.assign({ id }, value)
-      });
-    }
-  });
-});
+  return Joi.validate(movie, schema);
+};
 
 module.exports = router;
