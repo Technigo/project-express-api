@@ -19,52 +19,41 @@ app.get('/', (req, res) => {
   res.send('API for Netflix shows')
 })
 
-// GET ALL DATA
+// GET ALL DATA OR FILTERED WITH TYPE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
-  res.send(netflixData)
+  // Variable for qeury parameter
+  const typesSearchString = req.query.types
+  // Variable for all data
+  let filteredShows = netflixData
+  // If query is applied in endpoint, filter on that type
+  if (typesSearchString) {
+    filteredShows = netflixData.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesSearchString.toLowerCase())
+  }
+  // Return data (filtered or not depending on endpoint used)
+  res.json(filteredShows)
 })
 
+// SEARCH QUERY TO SEARCH FOR A SHOW TITLE?
+// watch out for errors when searching for title in string or number
+
 // GET A SPECIFIC SHOW
-// Find() searches through child elements (children of shows?)
+// Find() searches through child elements and returns the first matching child
 // HOW TO USE THE STATUS CODE 404?
+// For goal to return a single result:
+// Search for title, put the result in an array and fetch the id's of them..?
 app.get('/shows/:id', (req, res) => {
-  const id = req.params.id
-  const showId = netflixData.find((item) => item.show_id === +id)
-  if (showId) {
-    res.json(showId)
+  const showId = req.params.id
+  const show = netflixData.find((item) => item.show_id === +showId)
+  if (show) {
+    res.json(show)
   } else {
     res.send('Show not found')
   }
 })
 
-// GET RELEASE YEAR 
-app.get('/years/:year', (req, res) => {
-  const year = req.params.year
-  console.log({ year })
-  let releaseYear = netflixData.filter((item) => item.release_year === +year)
-  res.json(releaseYear)
-  console.log(releaseYear.length)
-})
 
-// GET TYPE OF SHOW (TV SHOW | MOVIE)
-// app.get('/types/:type', (req, res) => {
-//   // Variable to get data from selected type (for the route placeholder :type)
-//   const type = req.params.type
-//   console.log({ type })
-//   // Variable to filter out selcted type
-//   let typeOfShow = netflixData.filter((item) => item.type === type)
-//   // Return the filtered type
-//   res.json(typeOfShow)
-// })
-
-// GET GENRES
-// Create array for listed_in values?
-// Map the listed_in array?
-// app.get('/genres/:genre', (req, res) => {
-//   const genre = req.params.genre
-//   const showGenre = netflixData.filter((item) => item.listed_in === genre)
-//   res.json(showGenre)
-// })
+// If your dataset is large, try implementing 'pages' using .slice() to return only a selection of results from the array. 
+// You could then use a query parameter to allow the client to ask for the next 'page'.
 
 // START THE SERVER
 app.listen(port, () => {
