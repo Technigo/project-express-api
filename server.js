@@ -44,13 +44,13 @@ app.get('/books/:id', (req, res) => {
 })
 
 // Return all the books (objects) from the array in books.json sorted by average rating (from the highest to lowest)
-app.get('/books/rating', (req, res) => {
+app.get('/books/sort/rating', (req, res) => {
   const booksByRating = books.sort((a, b) => -(parseFloat(a.average_rating)-parseFloat(b.average_rating)))
   res.json(booksByRating)
 })
 
 // Return all the books (objects) from the array in books.json sorted by number of pages (from highest to lowest)
-app.get('/books/pages', (req, res) => {
+app.get('/books/sort/numberofpages', (req, res) => {
   const booksByPages = books.sort((a, b) => -(parseFloat(a.num_pages)-parseFloat(b.num_pages)))
   res.json(booksByPages)
 })
