@@ -42,11 +42,22 @@ app.get('/tv-shows/:year', (req, res) => {
 
 //using params, to search the tv-shows and movies
 app.get('/netflix/:type', (req, res) => {
-  const kind = req.params.type
-  let show = netflixData.filter((item) => item.type.toLowerCase() === kind.toLowerCase())
+  const type = req.params.type
+  let show = netflixData.filter((item) => item.type.toLowerCase() === type.toLowerCase())
   res.json(show)
 
 })
+
+
+app.get('/api/netflix', (req, res) => {
+  // http://localhost:8080/api/netflix?type=movie&country=nigeria&year=2018
+
+  let result = netflixData.filter((item) => item.type.toLowerCase() === req.query.type && item.country.toLowerCase() === req.query.country && item.release_year === +req.query.year)
+
+  res.json(result)
+})
+
+
 
 // Start the server
 app.listen(port, () => {
