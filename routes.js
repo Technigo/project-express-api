@@ -173,6 +173,8 @@ router.post('/movies', (req, res) => {
 router.put('/movies/:id', (req, res) => {
   const payload = req.body;
   const movie = movies.find(item => item.show_id === +req.params.id);
+  const index = movies.findIndex(item => item.show_id === movie.show_id);
+  console.log('Index: ', index);
 
   // If movie does not exist, return 404
   if (!movie) res.status(404).send(`No movie found with id ${+req.params.id}.`);
@@ -212,6 +214,8 @@ router.put('/movies/:id', (req, res) => {
       show_id,
       ...value
     };
+
+    movies.splice(index, 1, updatedMovie);
 
     // Send a success response if validation passes
     res.json({
