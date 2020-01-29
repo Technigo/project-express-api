@@ -127,19 +127,19 @@ code {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-@media screen and (min-width: 844px) {
+@media screen and (min-width: 915px) {
   .app {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (min-width: 1295px) {
+@media screen and (min-width: 1305px) {
   .app {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media screen and (min-width: 1620px) {
+@media screen and (min-width: 1730px) {
   .app {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
