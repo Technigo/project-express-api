@@ -1,15 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import boardgamesData from "./data/boardgames.json"
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -25,6 +17,32 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+//All boardgames
+app.get("/boardgames", (req, res) => {
+  res.json(boardgamesData)
+})
+
+//Specific boardgames, requires id
+app.get("/boardgames/:id", (req, res) => {
+  const id = req.params.id
+  console.log(id)
+  const boardgame = boardgamesData.find((game) => game.id === +id)
+  res.json(boardgame)
+})
+
+//Boardgame from year, requires year
+app.get("/year/:year", (req, res) => {
+  const year = req.params.year
+  const boardgamesFromYear = boardgamesData.filter((game) => game.year === +year)
+  res.json(boardgamesFromYear)
+})
+
+//All boardgames sorted by rating
+app.get("/rating", (req, res) => {
+  const rating = boardgamesData.sort((game) => game.average)
+  res.json(rating)
 })
 
 // Start the server
