@@ -35,7 +35,7 @@ section {
   background-color: transparent;
   display: grid;
   /* grid-template-columns: repeat(1, 1fr); */
-  grid-template-columns: repeat(auto-fill, minmax(557px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   grid-gap: 1rem;
   justify-content: center;
 }
