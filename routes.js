@@ -118,27 +118,13 @@ router.delete('/movies/:id', (req, res) => {
 router.post('/movies', (req, res) => {
   const payload = req.body;
 
-  // const payload = {
-  //   title: 'Microsoft Horror',
-  //   director: 'Bill gates',
-  //   cast: 'Val Kilmer, Tom Cruise',
-  //   country: 'USA',
-  //   date_added: 'January 28, 2020',
-  //   release_year: 2020,
-  //   rating: 'TV-20',
-  //   duration: '120 min',
-  //   listed_in: 'Horror movies',
-  //   description: 'To big to describe in a few words.',
-  //   type: 'Movie'
-  // };
-
   // Validate payload
   const { error, value } = validateMovie(payload);
 
   if (error) {
     delete error.isJoi;
 
-    // Send a 422 error response if validation fails
+    // Send a 422 error response when validation fails
     res.status(422).json({
       status: 'error',
       message: 'Invalid request data',
@@ -146,7 +132,6 @@ router.post('/movies', (req, res) => {
     });
   } else {
     // Create a random id
-    // const show_id = uuid();
     show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
     // Update array with new movie
@@ -155,15 +140,14 @@ router.post('/movies', (req, res) => {
       ...value
     };
 
+    // Add movie to array
     movies.push(newMovie);
-    // console.log(newMovie);
 
-    // Send a success response if validation passes
+    // Send a success response when validation succeeds
     res.json({
       status: 'success',
       message: 'Movie created successfully',
       data: newMovie
-      // data: Object.assign({ show_id }, value)
     });
   }
 });
