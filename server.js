@@ -19,15 +19,25 @@ app.get('/', (req, res) => {
   res.send('API for Netflix shows')
 })
 
-// GET ALL DATA OR FILTERED WITH TYPE IN QUERY PARAMETER
+// GET ALL DATA OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
-  const typesSearchString = req.query.types
+  const typesSearch = req.query.types
+  const titleSearchString = req.query.title
   // Variable for all data
   let filteredShows = netflixData
-  // If query is applied in endpoint, filter on that type
-  if (typesSearchString) {
-    filteredShows = netflixData.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesSearchString.toLowerCase())
+  // If types query is applied in endpoint
+  if (typesSearch) {
+    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesSearch.toLowerCase())
+  }
+  // If title query is applied in endpoint
+  // How to make the itemTItle I type in endpoint to also be lowercase?
+  // Need to set the input in native app to be lowercase when submitted
+  if (titleSearchString) {
+    filteredShows = filteredShows.filter((item) => {
+      const itemTitle = item.title.toString().toLowerCase()
+      return itemTitle.includes(titleSearchString)
+    })
   }
   // Return data (filtered or not depending on endpoint used)
   res.json(filteredShows)
