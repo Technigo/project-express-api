@@ -139,7 +139,7 @@ code {
   }
 }
 
-@media screen and (min-width: 1760px) {
+@media screen and (min-width: 1879px) {
   .app {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
