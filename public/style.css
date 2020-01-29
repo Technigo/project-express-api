@@ -109,6 +109,10 @@ li:last-of-type {
   color: red;
 }
 
+.incorrect pre code span {
+  color: red;
+}
+
 pre {
   display: flex;
   justify-content: flex-start;
