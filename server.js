@@ -51,8 +51,13 @@ app.get('/shows/:show', (req, res) => {
 
   const show = netflixData.filter((item) => item.show_id === +showId && item.type === "TV Show")
 
-  res.json(show)
+  if (show.length === 0) {
+    return res.status(404).json({
+      message: "Show not found"
+    })
+  }
 
+  res.json(show)
 })
 
 // Movies routes
@@ -80,6 +85,12 @@ app.get('/movies/:movie', (req, res) => {
   const movieId = req.params.movie
 
   const movie = netflixData.filter((item) => item.show_id === +movieId && item.type === "Movie")
+
+  if (movie.length === 0) {
+    return res.status(404).json({
+      message: "Movie not found"
+    })
+  }
 
   res.json(movie)
 
