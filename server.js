@@ -29,28 +29,60 @@ app.get('/', (req, res) => {
   res.send('Hello world hej hej')
 })
 
-app.get('/types', (req, res) => {
-  res.json(netflixData)
+// app.get('/types', (req, res) => {
+//   res.json(netflixData)
 
-})
+// })
 
 // router  to finding specific year //
-http://localhost:8080/year/2019
+//http://localhost:8080/year/2019
 
-app.get('/year/:year', (req, res) => {
-  const year = req.params.year
+// app.get('/year/:year', (req, res) => {
+//   const year = req.params.year
+//   const showCountry = req.query.country
+//   console.log('showCountry')
+//   let releasesFromYear = netflixData.filter((item) => item.release_year === +year)
+// res.json(releasesFromYear)
 
-  const releasesFromYear = netflixData.filter((item) => item.release_year === +year)
-  res.json(releasesFromYear)
+
+//   if (showCountry) {
+//     releasesFromYear = releasesFromYear.filter((item) => item.country)
+//   }
+//   res.json(releasesFromYear)
+// })
+
+//// TEST ///// 
+
+// path variable/path parameter
+app.get('/shows', (req, res) => {
+  // query parameter 
+  const searchString = req.query.search
+
+  let filteredShows = netflixData
+  // const searchString: any
+
+  if (searchString) {
+    // Filter once 
+    filteredShows = filteredShows.filter(item => {
+      const itemTitle = item.title.toString()
+      const itemCountry = item.country.toString()
+      const itemDescription = item.description.toString()
+
+      return itemTitle.includes(searchString) ||
+        itemCountry.includes(searchString) ||
+        itemDescription.includes(searchString)
+    })
+  }
+
+  res.json(filteredShows)
 })
-
 
 // http://localhost:8080/country/Sweden
-app.get('/country/:country', (req, res) => {
-  const country = req.params.country
-  const fromCountry = netflixData.filter((item) => item.country === country)
-  res.json(fromCountry)
-})
+// app.get('/country/:country', (req, res) => {
+//   const country = req.params.country
+//   const fromCountry = netflixData.filter((item) => item.country === country)
+//   res.json(fromCountry)
+// })
 
 // Start the server
 app.listen(port, () => {
