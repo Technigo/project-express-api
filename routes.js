@@ -87,7 +87,7 @@ router.get('/movies', (req, res) => {
     res.json(movies);
   } else {
     res.status(404).send({
-      status: 'Error',
+      status: 'Error - 404 Not Found',
       message: 'No movies found',
       query: req.query
     });
@@ -100,7 +100,7 @@ router.get('/movies/:id', (req, res) => {
 
   if (!movie)
     res.status(404).send({
-      status: 'Error',
+      status: 'Error - 404 Not Found',
       message: `No movie found with id ${id}.`
     });
 
@@ -115,13 +115,13 @@ router.delete('/movies/:id', (req, res) => {
   if (movie) {
     movies = movies.filter(item => item.show_id !== id);
     res.json({
-      status: 'Success',
+      status: 'Success - 200 OK',
       message: 'Movie deleted successfully',
       data: movie
     });
   } else {
     res.status(404).send({
-      status: 'Error',
+      status: 'Error - 404 Not Found',
       message: `No movie found with id ${id}.`
     });
   }
@@ -139,7 +139,7 @@ router.post('/movies', (req, res) => {
 
     // Send a 422 error response when validation fails
     res.status(422).json({
-      status: 'Error',
+      status: 'Error - 422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
@@ -158,7 +158,7 @@ router.post('/movies', (req, res) => {
 
     // Send a success response when validation succeeds
     res.json({
-      status: 'Success',
+      status: 'Success - 200 OK',
       message: 'Movie created successfully',
       data: newMovie
     });
@@ -182,6 +182,7 @@ router.put('/movies/:id', (req, res) => {
   // If movie does not exist, return 404
   if (!movie)
     res.status(404).send({
+      error: 'Error - 404 Not Found',
       message: `No movie found with id ${+id}.`
     });
 
@@ -194,7 +195,7 @@ router.put('/movies/:id', (req, res) => {
 
     // Send a 422 error response if validation fails
     res.status(422).json({
-      status: 'Error',
+      status: 'Error - 422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
@@ -210,7 +211,7 @@ router.put('/movies/:id', (req, res) => {
 
     // Send a success response if validation passes
     res.json({
-      status: 'Success',
+      status: 'Success - 200 OK',
       message: 'Movie updated successfully',
       data: updatedMovie
     });
