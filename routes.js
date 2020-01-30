@@ -107,11 +107,12 @@ router.get('/movies/:id', (req, res) => {
   // Reset movies array if any query filter has run in last client request
   resetMoviesArray(queryFilterHasRun);
 
-  if (!movie)
+  if (!movie) {
     res.status(404).send({
       status: 'Error - 404 Not Found',
       message: `No movie found with id ${id}.`
     });
+  }
 
   res.json(movie);
 });
@@ -215,7 +216,7 @@ router.put('/movies/:id', (req, res) => {
       error: error
     });
   } else {
-    // Update movie object
+    // Create updated movie object
     const updatedMovie = {
       show_id,
       ...value
@@ -224,7 +225,7 @@ router.put('/movies/:id', (req, res) => {
     // Replace existing movie object with updated movie object
     movies.splice(index, 1, updatedMovie);
 
-    // Send a success response if validation passes
+    // Send a success response if validation succeecds
     res.json({
       status: 'Success - 200 OK',
       message: 'Movie updated successfully',
