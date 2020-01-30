@@ -83,7 +83,10 @@ router.get('/movies', (req, res) => {
   if (movies.length > 0) {
     res.json(movies);
   } else {
-    res.status(404).send('No movies found.');
+    res.status(404).send({
+      message: 'No movies found',
+      query: req.query
+    });
   }
 });
 
@@ -92,7 +95,10 @@ router.get('/movies/:id', (req, res) => {
   // console.log({ year });
   const movie = movies.find(item => item.show_id === id);
 
-  if (!movie) res.status(404).send(`No movie found with id ${id}.`);
+  if (!movie)
+    res.status(404).send({
+      message: `No movie found with id ${id}.`
+    });
 
   res.json(movie);
 });
@@ -110,7 +116,9 @@ router.delete('/movies/:id', (req, res) => {
       data: movie
     });
   } else {
-    res.status(404).send(`No movie found with id ${id}.`);
+    res.status(404).send({
+      message: `No movie found with id ${id}.`
+    });
   }
 });
 
