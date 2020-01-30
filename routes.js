@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import Joi from 'joi';
-import uuid from 'uuid/v4';
+// import uuid from 'uuid/v4';
 import netflixData from './data/netflix-titles.json';
 
 let movies = netflixData;
@@ -92,7 +92,6 @@ router.get('/movies', (req, res) => {
 
 router.get('/movies/:id', (req, res) => {
   const id = +req.params.id;
-  // console.log({ year });
   const movie = movies.find(item => item.show_id === id);
 
   if (!movie)
@@ -142,7 +141,7 @@ router.post('/movies', (req, res) => {
     // Create a random id
     show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
-    // Update array with new movie
+    // Create movie object
     const newMovie = {
       show_id,
       ...value
@@ -165,32 +164,21 @@ router.put('/movies/:id', (req, res) => {
   const payload = req.body;
   const movie = movies.find(item => item.show_id === +req.params.id);
   const index = movies.findIndex(item => item.show_id === movie.show_id);
-  console.log('Index: ', index);
 
   // If movie does not exist, return 404
-  if (!movie) res.status(404).send(`No movie found with id ${+req.params.id}.`);
+  if (!movie)
+    res.status(404).send({
+      message: `No movie found with id ${+req.params.id}.`
+    });
 
   // Destructure show_id from movie to use in return response
   const { show_id } = movie;
-
-  // const payload = {
-  //   title: 'Microsoft',
-  //   director: 'Bill Gates',
-  //   cast: 'Val Kilmer, Tom Cruise',
-  //   country: 'USA',
-  //   date_added: 'January 28, 2020',
-  //   release_year: 2020,
-  //   rating: 'TV-20',
-  //   duration: '120 min',
-  //   listed_in: 'Horror movies',
-  //   description: 'To big to describe in a few words.',
-  //   type: 'Movie'
-  // };
 
   // Validate payload
   const { error, value } = validateMovie(payload);
 
   if (error) {
+    // Removing property
     delete error.isJoi;
 
     // Send a 422 error response if validation fails
