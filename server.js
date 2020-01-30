@@ -2,6 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
+import topMusic from './data/top-music.json'
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
@@ -26,6 +28,23 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+app.get('/top-music/', (req, res) => {
+  res.send(topMusic)
+})
+
+app.get('/top-music/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  res.send(topMusic.find(song => song.id === id))
+})
+
+app.get('/top-music/genre/:genre', (req, res) => {
+  const genre = req.params.genre
+  res.send(topMusic.filter(song => song.genre === genre))
+})
+
+
+
 
 // Start the server
 app.listen(port, () => {
