@@ -1,11 +1,9 @@
 import express from 'express';
 import path from 'path';
 import Joi from 'joi';
-// import uuid from 'uuid/v4';
 import netflixData from './data/netflix-titles.json';
 
 let movies = netflixData;
-let show_id = 100000000000;
 const router = express.Router();
 
 // GET routes
@@ -15,17 +13,17 @@ router.get('/', (req, res) => {
 
 router.get('/movies', (req, res) => {
   const queryPage = +req.query.page;
-  const itemsPerPage = 20;
-  const startIndex = queryPage * itemsPerPage - itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+
   const queryYear = +req.query.year;
   const queryDuration = +req.query.duration;
-  let queryActor = req.query.actor;
+  const queryActor = req.query.actor;
 
+  // Query - Year
   if (queryYear) {
     movies = movies.filter(movie => movie.release_year === queryYear);
   }
 
+  // Query - Actor
   if (queryActor) {
     movies = movies.filter(movie => {
       let actors = movie.cast.split(', ');
@@ -58,6 +56,7 @@ router.get('/movies', (req, res) => {
     });
   }
 
+  // Query - Duration
   if (queryDuration) {
     movies = movies.filter(movie => {
       const duration = movie.duration.split(' ');
@@ -70,7 +69,11 @@ router.get('/movies', (req, res) => {
     });
   }
 
+  // Query - Page
   if (queryPage) {
+    const itemsPerPage = 20;
+    const startIndex = queryPage * itemsPerPage - itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
     console.log('Page: ', queryPage);
     console.log('startIndex: ', startIndex);
     console.log('endIndex: ', endIndex);
@@ -84,6 +87,7 @@ router.get('/movies', (req, res) => {
     res.json(movies);
   } else {
     res.status(404).send({
+      status: 'Error',
       message: 'No movies found',
       query: req.query
     });
@@ -96,6 +100,7 @@ router.get('/movies/:id', (req, res) => {
 
   if (!movie)
     res.status(404).send({
+      status: 'Error',
       message: `No movie found with id ${id}.`
     });
 
@@ -110,12 +115,13 @@ router.delete('/movies/:id', (req, res) => {
   if (movie) {
     movies = movies.filter(item => item.show_id !== id);
     res.json({
-      status: 'success',
+      status: 'Success',
       message: 'Movie deleted successfully',
       data: movie
     });
   } else {
     res.status(404).send({
+      status: 'Error',
       message: `No movie found with id ${id}.`
     });
   }
@@ -123,22 +129,22 @@ router.delete('/movies/:id', (req, res) => {
 
 // POST routes
 router.post('/movies', (req, res) => {
-  const payload = req.body;
+  const { body } = req;
 
-  // Validate payload
-  const { error, value } = validateMovie(payload);
+  // Validate request bodyy
+  const { error, value } = validateMovie(body);
 
   if (error) {
     delete error.isJoi;
 
     // Send a 422 error response when validation fails
     res.status(422).json({
-      status: 'error',
+      status: 'Error',
       message: 'Invalid request data',
       error: error
     });
   } else {
-    // Create a random id
+    // Create random movie id
     show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
     // Create movie object
@@ -152,30 +158,35 @@ router.post('/movies', (req, res) => {
 
     // Send a success response when validation succeeds
     res.json({
-      status: 'success',
+      status: 'Success',
       message: 'Movie created successfully',
       data: newMovie
     });
   }
 });
 
-// PUT routes
+// PUT route
 router.put('/movies/:id', (req, res) => {
-  const payload = req.body;
-  const movie = movies.find(item => item.show_id === +req.params.id);
-  const index = movies.findIndex(item => item.show_id === movie.show_id);
+  const { body } = req;
+  const { id } = req.params;
+
+  // Find movie object to update
+  const movie = movies.find(item => item.show_id === +id);
+
+  // Destructure show_id to use in updated object
+  const { show_id } = movie;
+
+  // Find index of movie object to update
+  const index = movies.findIndex(item => item.show_id === show_id);
 
   // If movie does not exist, return 404
   if (!movie)
     res.status(404).send({
-      message: `No movie found with id ${+req.params.id}.`
+      message: `No movie found with id ${+id}.`
     });
 
-  // Destructure show_id from movie to use in return response
-  const { show_id } = movie;
-
-  // Validate payload
-  const { error, value } = validateMovie(payload);
+  // Validate request body
+  const { error, value } = validateMovie(body);
 
   if (error) {
     // Removing property
@@ -183,31 +194,36 @@ router.put('/movies/:id', (req, res) => {
 
     // Send a 422 error response if validation fails
     res.status(422).json({
-      status: 'error',
+      status: 'Error',
       message: 'Invalid request data',
       error: error
     });
   } else {
-    // Update movie properties
+    // Update movie object
     const updatedMovie = {
       show_id,
       ...value
     };
 
+    // Replace existing movie object with updated movie object
     movies.splice(index, 1, updatedMovie);
 
     // Send a success response if validation passes
     res.json({
-      status: 'success',
+      status: 'Success',
       message: 'Movie updated successfully',
       data: updatedMovie
-      // data: Object.assign({ show_id }, value)
     });
   }
 });
 
+/**
+ * @description validates a movie object against a predefined schema
+ * @parameters movie object to be validated
+ * @return value and error object
+ */
 const validateMovie = movie => {
-  // Define validation schema
+  // Define movie validation schema
   const schema = Joi.object()
     .keys({
       title: Joi.string()
@@ -253,10 +269,15 @@ const validateMovie = movie => {
     })
     .options({ abortEarly: false });
 
-  // Validate data request against the schema
+  // Validate movie object against the schema
   return Joi.validate(movie, schema);
 };
 
+/**
+ * @description creates random id for movie object
+ * @parameters min and max to define range
+ * @return id
+ */
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
