@@ -3,8 +3,9 @@ import path from 'path';
 import Joi from 'joi';
 import netflixData from './data/netflix-titles.json';
 
-let movies = netflixData;
 const router = express.Router();
+let movies = netflixData;
+let queryFilterHasRun = false;
 
 // GET routes
 router.get('/', (req, res) => {
@@ -13,14 +14,17 @@ router.get('/', (req, res) => {
 
 router.get('/movies', (req, res) => {
   const queryPage = +req.query.page;
-
   const queryYear = +req.query.year;
   const queryDuration = +req.query.duration;
   const queryActor = req.query.actor;
 
+  // Reset movies array if any query filter has run in last client request
+  resetMoviesArray(queryFilterHasRun);
+
   // Query - Year
   if (queryYear) {
     movies = movies.filter(movie => movie.release_year === queryYear);
+    queryFilterHasRun = true;
   }
 
   // Query - Actor
@@ -54,6 +58,7 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
+    queryFilterHasRun = true;
   }
 
   // Query - Duration
@@ -67,6 +72,7 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
+    queryFilterHasRun = true;
   }
 
   // Query - Page
@@ -97,6 +103,9 @@ router.get('/movies', (req, res) => {
 router.get('/movies/:id', (req, res) => {
   const id = +req.params.id;
   const movie = movies.find(item => item.show_id === id);
+
+  // Reset movies array if any query filter has run in last client request
+  resetMoviesArray(queryFilterHasRun);
 
   if (!movie)
     res.status(404).send({
@@ -130,6 +139,9 @@ router.delete('/movies/:id', (req, res) => {
 // POST routes
 router.post('/movies', (req, res) => {
   const { body } = req;
+
+  // Reset movies array if any query filter has run in last client request
+  resetMoviesArray(queryFilterHasRun);
 
   // Validate request bodyy
   const { error, value } = validateMovie(body);
@@ -169,6 +181,9 @@ router.post('/movies', (req, res) => {
 router.put('/movies/:id', (req, res) => {
   const { body } = req;
   const { id } = req.params;
+
+  // Reset movies array if any query filter has run in last client request
+  resetMoviesArray(queryFilterHasRun);
 
   // Find movie object to update
   const movie = movies.find(item => item.show_id === +id);
@@ -276,11 +291,18 @@ const validateMovie = movie => {
 
 /**
  * @description creates random id for movie object
- * @parameters min and max to define range
+ * @parameters min and max to define number range
  * @return id
  */
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+const resetMoviesArray = queryFilterHasRun => {
+  if (queryFilterHasRun) {
+    movies = netflixData;
+    queryFilterHasRun = false;
+  }
 };
 
 module.exports = router;
