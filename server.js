@@ -2,15 +2,16 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import goldenGlobesData from './data/golden-globes.json'
-
+import netflixData from './data/netflix-titles.json'
 console.log(goldenGlobesData.length)
+console.log(netflixData.length)
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -29,6 +30,8 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+// Golden Globes
+
 app.get('/nominations', (req, res) => {
   res.json(goldenGlobesData)
 })
@@ -43,6 +46,12 @@ app.get('/year/:year', (req, res) => {
   }
 
   res.json(nominationsFromYear)
+})
+
+// Netflix - Titles
+
+app.get('/movies', (req, res) => {
+  res.json(netflixData)
 })
 
 // Start the server
