@@ -4,17 +4,7 @@ import cors from 'cors'
 import athletesData from './data/athletes-data.json'
 
 console.log(athletesData.length)
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
+
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -28,6 +18,15 @@ app.get('/', (req, res) => {
 //http://localhost:8080/athletes
 app.get('/athletes', (req, res) => {
   // res.json(athletesData)
+
+  app.get('/athletes/:id', (req, res) => {
+    const showId = req.params.id 
+    console.log(showId)
+    const show = athletesData.filter(item => item.competitorid === +showId)
+    // console.log("id path parameter")
+    res.json(show)
+  })
+
   // Query parameter
   const searchString = req.query.search
 
