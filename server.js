@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 
 import topMusic from './data/top-music.json'
+import netflixTitles from './data/netflix-titles.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -24,13 +25,22 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+// Added for Heroku to work
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
+// To show the available end-points to the user
+const listEndpoints = require('express-list-endpoints')
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  // res.send('Hello world')
+  res.send(listEndpoints(app))
+})
+
+app.get('/api', (req, res) => {
+  
+  res.send(listEndpoints(app))
 })
 
 app.get('/top-music/', (req, res) => {
@@ -42,9 +52,25 @@ app.get('/top-music/:id', (req, res) => {
   res.send(topMusic.find(song => song.id === id))
 })
 
-app.get('/top-music/genre/:genre', (req, res) => {
+app.get('/top-music/by-genre/:genre', (req, res) => {
   const genre = req.params.genre
   res.send(topMusic.filter(song => song.genre === genre))
+})
+
+app.get('/netflix-titles', (req, res) => {
+  res.send(netflixTitles)
+})
+
+app.get('/netflix-titles/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  res.send(netflixTitles.find(title => title.show_id === id))
+})
+
+app.get('/netflix-titles/by-actor/:actor', (req, res) => {
+  const actor = req.params.actor
+  res.send(netflixTitles.filter(
+    title => title.cast.indexOf(actor) !== -1
+  ))
 })
 
 
