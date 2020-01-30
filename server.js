@@ -24,6 +24,10 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
