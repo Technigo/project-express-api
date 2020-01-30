@@ -19,6 +19,18 @@ app.get('/', (req, res) => {
   res.send('API for Netflix shows')
 })
 
+
+// Example of getting shows with limit
+// Should this be inside /shows below or a seperate?
+app.get('/shows', (req, res) => {
+  const limit = req.query.limit;
+  let showsReturned = netflixData;
+  if (limit) {
+    showsReturned = showsReturned.slice(0, limit);
+  }
+  res.json(showsReturned);
+})
+
 // GET ALL DATA OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
