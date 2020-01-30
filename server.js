@@ -27,22 +27,30 @@ app.get('/', (req, res) => {
 })
 //http://localhost:8080/athletes
 app.get('/athletes', (req, res) => {
-  res.json(athletesData)
+  // res.json(athletesData)
+  // Query parameter
+  const searchString = req.query.search
+
+  let filteredAthletes = athletesData
+
+  // console.log(searchString)
+
+  if (searchString) {
+    // Filter once
+    // http://localhost:8080/athletes?search=Ulwahn
+    filteredAthletes = filteredAthletes.filter(item => {
+      const athleteName = item.lastname.toString()
+      const athleteCountry = item.countryoforiginname.toString()
+      const athleteAffiliate = item.affiliatename.toString()
+      return athleteName.includes(searchString) ||
+        athleteCountry.includes(searchString) ||
+        athleteAffiliate.includes(searchString)
+    })
+  }
+
+  res.json(filteredAthletes)
 })
-// router  to finding specific country //
-// http://localhost:8080/countryoforiginname/Sweden //
-app.get('/countryoforiginname/:countryoforiginname', (req, res) => {
-  const countryoforiginname = req.params.countryoforiginname
-  const fromCountry = athletesData.filter((item) => item.countryoforiginname === countryoforiginname)
-  res.json(fromCountry)
-})
-// router  to finding specific athlete or name //
-// http://localhost:8080/lastname/Ulwahn //
-app.get('/lastname/:lastname', (req, res) => {
-  const lastname = req.params.lastname
-  const athleteName = athletesData.filter((item) => item.lastname === lastname)
-  res.json(athleteName)
-})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
