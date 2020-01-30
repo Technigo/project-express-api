@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 // GET ALL DATA OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
-  const typesSearch = req.query.types
+  const typesSearch = req.query.type
   const titleSearchString = req.query.title
   // Variable for all data
   let filteredShows = netflixData
@@ -31,7 +31,8 @@ app.get('/shows', (req, res) => {
     filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesSearch.toLowerCase())
   }
   // If title query is applied in endpoint
-  // How to make the itemTItle I type in endpoint to also be lowercase?
+  // How to make the itemTitle I type in endpoint to also be lowercase?
+  // toString since titles might be number
   // Need to set the input in native app to be lowercase when submitted
   if (titleSearchString) {
     filteredShows = filteredShows.filter((item) => {
@@ -42,9 +43,6 @@ app.get('/shows', (req, res) => {
   // Return data (filtered or not depending on endpoint used)
   res.json(filteredShows)
 })
-
-// SEARCH QUERY TO SEARCH FOR A SHOW TITLE?
-// watch out for errors when searching for title in string or number
 
 // GET A SPECIFIC SHOW
 // Find() searches through child elements and returns the first matching child
