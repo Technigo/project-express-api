@@ -4,6 +4,9 @@ import Joi from 'joi';
 import netflixData from './data/netflix-titles.json';
 
 const router = express.Router();
+const ITEMS_PER_PAGE = 20;
+let remainingPages = null;
+let totalPages = null;
 let movies = netflixData;
 
 // GET routes
@@ -73,12 +76,14 @@ router.get('/movies', (req, res) => {
 
   // Query - Page
   if (queryPage) {
-    const ITEMS_PER_PAGE = 20;
-    const startIndex = queryPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE;
+    const startIndex = queryPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE; // Page 1 starts at index 0
     const endIndex = startIndex + ITEMS_PER_PAGE;
     console.log('Page: ', queryPage);
     console.log('startIndex: ', startIndex);
     console.log('endIndex: ', endIndex);
+    totalPages = Math.ceil(filteredMovies.length / ITEMS_PER_PAGE);
+    remainingPages = totalPages - queryPage;
+    console.log('Remaining pages: ', remainingPages);
     filteredMovies = filteredMovies.slice(startIndex, endIndex);
     console.log('Sliced array length: ', filteredMovies.length);
   }
@@ -86,7 +91,16 @@ router.get('/movies', (req, res) => {
   console.log('Array length: ', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
-    res.json(filteredMovies);
+    res.json({
+      status: 'Success - 200 OK',
+      message: 'Movies fetched successfully',
+      totalPages: totalPages,
+      remainingPages: remainingPages,
+      query: req.query,
+      data: filteredMovies
+    });
+    totalPages = remainingPages = null;
+    console.log(totalPages, remainingPages);
   } else {
     res.status(404).send({
       status: 'Error - 404 Not Found',
@@ -107,7 +121,10 @@ router.get('/movies/:id', (req, res) => {
     });
   }
 
-  res.json(movie);
+  res.json({
+    status: 'Success - 200 OK',
+    data: movie
+  });
 });
 
 // DELETE routes
