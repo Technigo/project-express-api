@@ -16,31 +16,23 @@ app.use(bodyParser.json())
 
 // ROOT ENDPOINT
 app.get('/', (req, res) => {
-  res.send('API for Netflix shows')
-})
-
-
-// Example of getting shows with limit
-// Should this be inside /shows below or a seperate?
-app.get('/shows', (req, res) => {
-  const limit = req.query.limit;
-  let showsReturned = netflixData;
-  if (limit) {
-    showsReturned = showsReturned.slice(0, limit);
-  }
-  res.json(showsReturned);
+  res.send('API for Netflix shows, available endpoints: /shows, /shows/:id, ?limit=X (replace X with your choice of number), ?type=movie, ?type=tv-show, ')
 })
 
 // GET ALL DATA OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
-  const typesSearch = req.query.type
+  const limit = req.query.limit;
+  const typesFilter = req.query.type
   const titleSearchString = req.query.title
   // Variable for all data
   let filteredShows = netflixData
+  if (limit) {
+    filteredShows = filteredShows.slice(0, limit);
+  }
   // If types query is applied in endpoint
-  if (typesSearch) {
-    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesSearch.toLowerCase())
+  if (typesFilter) {
+    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesFilter.toLowerCase())
   }
   // If title query is applied in endpoint
   // How to make the itemTitle I type in endpoint to also be lowercase?
@@ -67,7 +59,7 @@ app.get('/shows/:id', (req, res) => {
   if (show) {
     res.json(show)
   } else {
-    res.send('Show not found')
+    res.status(404).send(`No show found with id: ${showId}`)
   }
 })
 
