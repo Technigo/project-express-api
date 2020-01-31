@@ -3,17 +3,6 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import netflixData from './data/netflix-titles.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -21,28 +10,36 @@ const app = express()
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
+app.set('view engine', 'ejs')
+app.use(express.static("public"))
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('<h1>Hello There!📡</h1>')
-})
+
 
 // display all the netflix data
 app.get('/netflix', (req, res) => {
-  res.json(netflixData)
+  res.render('pages/data', {
+    data: netflixData
+  })
 })
 
 
+app.get('/movies', (req, res) => {
+  let movies = netflixData.filter((item) => item.type === "Movie")
+
+  res.render('pages/movies', {
+    movies: movies
+  })
+})
 
 app.get('/tv-shows', (req, res) => {
   let TvShows = netflixData.filter((item) => item.type === "TV Show")
-  res.json(TvShows)
+
+  res.render('pages/tv-shows', {
+    tvshows: TvShows
+  });
 })
 
-app.get('/movies', (req, res) => {
-  let Movies = netflixData.filter((item) => item.type === "Movie")
-  res.json(Movies)
-})
+
 
 //display the tv-shows and release-year
 //http://localhost:8080/tv-shows/2015
@@ -93,11 +90,12 @@ app.get('/api/netflix', (req, res) => {
 })
 
 
-//http://localhost:8080/year/2019?listed_in=Docuseries
-app.get('/api/netflix/id/:id', (req, res) => {
+app.get('/netflix/id/:id', (req, res) => {
   const id = req.params.id
   const result = netflixData.find((item) => item.show_id === +id)
 
+  if (!result) {res.status(404).send()}
+  
   res.json(result)
 });
 
