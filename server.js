@@ -68,10 +68,6 @@ app.get('/shows/:id', (req, res) => {
   }
 })
 
-
-// If your dataset is large, try implementing 'pages' using .slice() to return only a selection of results from the array. 
-// You could then use a query parameter to allow the client to ask for the next 'page'.
-
 // START THE SERVER
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
