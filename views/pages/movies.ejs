@@ -1,19 +1,18 @@
 <%- include('../partials/head') -%>
 <%- include('../partials/header') -%>
 
+<main>
+  <h1> Movies </h1>
 
-<h1> Movies </h1>
+  <section class="wrapper movie-section">
+    <% movies.map(movie => { %>
+    <div class="card movies">
+      <div class="title"><%= movie.title %></div>
+      <div class="year"><%= movie.release_year %></div>
+    </div>
+    <% }); %>
 
-
-<div class="movie-section">
-  <% movies.map(movie => { %>
-  <div class="card movies">
-    <div class="title"><%= movie.title %></div>
-    <div class="year"><%= movie.release_year %></div>
-  </div>
-  <% }); %>
-
-</div>
-
+    </secion>
+</main>
 
 <%- include('../partials/footer') -%>

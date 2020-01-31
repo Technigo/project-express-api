@@ -1,19 +1,19 @@
 <%- include('../partials/head') -%>
 <%- include('../partials/header') -%>
+<main>
+  <h1> Netflix-data</h1>
 
-<h1> Netflix-data</h1>
+  <section class="wrapper netflix-section">
+    <% data.map(item => { %>
+    <a href="/netflix/id/<%= item.show_id %>">
+      <div class="card netflix">
+        <div class="title"><%= item.title %></div>
+        <div class="year"><%= item.release_year %></div>
+        <div class="type"><%= item.type %></div>
+      </div>
+    </a>
+    <% }); %>
 
-<div class="netflix-data-section">
-  <% data.map(item => { %>
-  <a href="/api/netflix/id/<%= item.show_id %>">
-    <div class="card netflix">
-      <div class="title"><%= item.title %></div>
-      <div class="year"><%= item.release_year %></div>
-      <div class="type"><%= item.type %></div>
-    </div>
-  </a>
-  <% }); %>
-
-</div>
-
+  </section>
+</main>
 <%- include('../partials/footer') -%>

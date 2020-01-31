@@ -1,4 +1,27 @@
+body {
+  margin: 0
+}
+
+header {
+  background-color: lightblue;
+}
+
+main {
+  padding: 10px;
+}
+
+footer {
+  height: 50px;
+  background-color: lightblue;
+}
+
 .card {
-  background-color: red;
-  margin: 5px;
+  background-color: lightcoral;
+  padding: 10px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem 2rem;
 }

@@ -1,16 +1,17 @@
 <%- include('../partials/head') -%>
 <%- include('../partials/header') -%>
 
-<h1> TV-Shows</h1>
+<main>
+  <h1> TV-Shows</h1>
 
-<div class="tv-shows-section">
-  <% tvshows.map(tvshow => { %>
-  <div class="card tv-show">
-    <div class="title"><%= tvshow.title %></div>
-    <div class="year"><%= tvshow.release_year %></div>
-  </div>
-  <% }); %>
+  <section class="wrapper tv-shows-section">
+    <% tvshows.map(tvshow => { %>
+    <div class="card tv-show">
+      <div class="title"><%= tvshow.title %></div>
+      <div class="year"><%= tvshow.release_year %></div>
+    </div>
+    <% }); %>
 
-</div>
-
+  </section>
+</main>
 <%- include('../partials/footer') -%>
