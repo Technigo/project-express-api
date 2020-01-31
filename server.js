@@ -24,7 +24,9 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello planet Earth!')
+  // res.send('Hello planet Earth!')
+  res.send("Try searches based on the routes: /books, /id/[a number], /author/[name of author], /titles/[name of title] or  query for any word in title or author: library?search=[type your search]")
+
 })
 
 // Example of JSON-structure 
@@ -61,39 +63,78 @@ app.get('/id/:id', (req, res) => {
   res.json(singleBook)
 })
 
+//creating a rest route for id (localhost:8080/booksid/5), https://sv.wikipedia.org/wiki/404_error
+app.get('/booksid/:id', (req, res) => {
+  const id = req.params.id
+  const findThatBook = booksData.find((book) => book.bookID === +id)
+  if (findThatBook) {
+    res.json(findThatBook)
+  } else {
+    res.status(404).send('There was no book with that id')
+  }
+
+})
+
+//creating a rest route for id (localhost:8080/titles/cc), https://sv.wikipedia.org/wiki/404_error
+app.get('/titles/:titles', (req, res) => {
+  const titles = req.params.titles
+  const findThatBookTitle = booksData.find((book) => book.title === titles)
+  if (findThatBookTitle) {
+    res.json(findThatBookTitle)
+  } else {
+    res.status(404).send('There was no book with that title, try to search with /library?search=[your search] instead. ')
+  }
+
+})
+
 
 //creating a rest route called rating (localhost:8080/ratings/4.47)
 app.get('/ratings/:ratings', (req, res) => {
   const ratings = req.params.ratings
   const ratingsNumber = booksData.filter((item) => item.average_rating === +ratings)
-  console.log(ratings)
+  // console.log(ratings)
   res.json(ratingsNumber)
-
 })
+
+//creating a sorted rating (localhost:8080/libraryratings)
+// app.get('/bookratings/:bookratings', (req, res) => {
+//   const bookRatings = req.params.bookratings
+//   const booksByRating = booksData.sort((a, b) => -(parseFloat(a.avarage_rating) - parseFloat(b.avarage_rating)))
+//   console.log(booksByRating)
+
+//   res.json(booksByRating)
+// })
 
 //creating a rest route called author localhost:8080/author/Exact name of author
 app.get('/author/:author', (req, res) => {
   const author = req.params.author
-  const filterAuthors = booksData.filter((item) => item.authors === +author)
-  console.log(filterAuthors)
-  res.json(filterAuthors)
+  const filterAuthors = booksData.filter((item) => item.authors === author)
+  // console.log(author, filterAuthors)
+  if (filterAuthors) {
+    res.json(filterAuthors)
+
+    if (filterAuthors === [])
+      res.status(404).send('There was no book written by the author')
+  }
+
 })
-
-
-// //creating a rest route called author (localhost:8080/books/J.K. Rowling-Mary GrandPré)
-// app.get('/books/:author', (req, res) => {
+//creating a rest route called author localhost:8080/author/Exact name of author
+// app.get('/author/:author', (req, res) => {
 //   const author = req.params.author
-//   const bookAuthor = booksData.filter((item) => item.authors === +author)
-//   console.log(author)
-
-//   res.json(bookAuthor)
+//   const findAuthors = booksData.find((item) => item.authors === author)
+//   // console.log(author, filterAuthors)
+//   if (findAuthors) {
+//     res.json(findAuthors)
+//   } else {
+//     res.status(404).send('There was no book written by the author')
+//   }
 // })
+
 
 //localhost:8080/library/
 app.get('/library', (req, res) => {
   //query parameter (localhost:8080/library?search=XXX)
   const searchString = req.query.search
-  //const authorSearchstring = req.query.authors
 
   let filteredBooks = booksData
 
@@ -109,15 +150,7 @@ app.get('/library', (req, res) => {
 
 })
 
-
-
-
-// app.get('/author/:author', (req, res) => {
-//   const author = req.params.author
-//   const findAuthors = booksData.filter((item) => item.authors === author)
-//   console.log(author)
-//   res.json(findAuthors)
-// })
+//
 
 // Start the server
 app.listen(port, () => {
