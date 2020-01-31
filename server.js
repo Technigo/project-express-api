@@ -18,32 +18,28 @@ app.get('/shows', (req, res) => {
   const seasonsSearchString = req.query.seasons
   const countrySearchString = req.query.country
 
-  let filteredShows = netflixData.filter((item) => item.type === "TV Show")
+  const shows = netflixData.filter((item) => item.type === "TV Show")
+  let filteredShows = shows
 
   if (seasonsSearchString) {
-    filteredShows = netflixData.filter((item) => {
-
+    filteredShows = shows.filter((show) => {
       // Replace all characters that are not digits from the duration string
-      const showSeasons = item.duration.replace(/\D+/, '')
+      const showSeasons = show.duration.replace(/\D+/, '')
 
-      return item.type === "TV Show" && showSeasons === seasonsSearchString
-
+      return showSeasons === seasonsSearchString
     })
   }
 
   if (countrySearchString) {
-    filteredShows = netflixData.filter((item) => {
+    filteredShows = shows.filter((show) => {
+      const showCountries = show.country.toLowerCase()
+      const searchString = countrySearchString.toLowerCase()
 
-      const formattedCountry = item.country.toLowerCase()
-      const formattedSearchString = countrySearchString.toLowerCase()
-
-      return item.type === "TV Show" && formattedCountry.includes(formattedSearchString)
-
+      return showCountries.includes(searchString)
     })
   }
 
   res.json(filteredShows)
-
 })
 
 app.get('/shows/:show', (req, res) => {
@@ -65,16 +61,15 @@ app.get('/shows/:show', (req, res) => {
 app.get('/movies', (req, res) => {
   const countrySearchString = req.query.country
 
-  let filteredMovies = netflixData.filter((item) => item.type === "Movie")
+  const movies = netflixData.filter((item) => item.type === "Movie")
+  let filteredMovies = movies
 
   if (countrySearchString) {
-    filteredMovies = netflixData.filter((item) => {
+    filteredMovies = movies.filter((movie) => {
+      const movieCountries = movie.country.toLowerCase()
+      const searchString = countrySearchString.toLowerCase()
 
-      const formattedCountry = item.country.toLowerCase()
-      const formattedSearchString = countrySearchString.toLowerCase()
-
-      return item.type === "Movie" && formattedCountry.includes(formattedSearchString)
-
+      return movieCountries.includes(searchString)
     })
   }
 
