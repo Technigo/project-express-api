@@ -16,6 +16,8 @@ router.get('/movies', (req, res) => {
   const queryYear = +req.query.year;
   const queryDuration = +req.query.duration;
   const queryActor = req.query.actor;
+
+  // Local copy of movies
   let filteredMovies = movies;
 
   // Query - Year
@@ -71,9 +73,9 @@ router.get('/movies', (req, res) => {
 
   // Query - Page
   if (queryPage) {
-    const itemsPerPage = 20;
-    const startIndex = queryPage * itemsPerPage - itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const ITEMS_PER_PAGE = 20;
+    const startIndex = queryPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
     console.log('Page: ', queryPage);
     console.log('startIndex: ', startIndex);
     console.log('endIndex: ', endIndex);
