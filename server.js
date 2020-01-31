@@ -5,28 +5,31 @@ import athletesData from './data/athletes-data.json'
 
 console.log(athletesData.length)
 
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
-// Start defining your routes here
+
+//Down below routes are defined
 app.get('/', (req, res) => {
   res.send('Hello world, hej hej')
 })
-//http://localhost:8080/athletes
+//Down below routes are defined
+// //http://localhost:8080/athletes
+// app.get('/athletes', (req, res) => {
+//   res.json(athletesData)
+// })
+
+app.get('/athletes/:id', (req, res) => {
+  const showId = req.params.id 
+  console.log(showId)
+  const show = athletesData.filter(item => +item.competitorid === +showId)
+  console.log("id path parameter")
+  res.json(show)
+})
+
 app.get('/athletes', (req, res) => {
-  // res.json(athletesData)
-
-  app.get('/athletes/:id', (req, res) => {
-    const showId = req.params.id 
-    console.log(showId)
-    const show = athletesData.filter(item => item.competitorid === +showId)
-    // console.log("id path parameter")
-    res.json(show)
-  })
-
   // Query parameter
   const searchString = req.query.search
 
