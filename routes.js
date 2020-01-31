@@ -91,6 +91,11 @@ router.get('/movies', (req, res) => {
   console.log('Array length: ', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
+    if (totalPages === null && remainingPages === null) {
+      totalPages = 1;
+      remainingPages = 0;
+    }
+
     res.json({
       status: 'Success - 200 OK',
       message: 'Movies fetched successfully',
