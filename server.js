@@ -31,10 +31,12 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+// The entire json
 app.get('/book', (req, res) => {
   res.json(booksData)
 })
 
+// Get one book from ID
 app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const book = booksData.find((item) => item.bookID === +bookId)
@@ -45,14 +47,30 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-app.get('/title', (req, res) => {
-  const title = req.params.title
-  console.log({ title })
-  const bookTitle = booksData.filter((item) => item.title === title)
+// Get language filterd on language_code
+app.get('/language/:language', (req, res) => {
+  const language = req.params.language
+  console.log({ language })
+  const bookLanguage = booksData.filter((item) => item.language_code === language)
 
-  res.json(bookTitle)
+  res.json(bookLanguage)
 })
 
+// Code along, search title and author with query
+app.get('/book', (req, res) => {
+  const searchString = req.query.search;
+
+  let filteredDetails = booksData;
+  if (searchString) {
+    filteredDetails = filteredDetails.filter(item => {
+      const itemTitle = item.title.toString();
+      const itemsAuthor = item.authors.toString();
+      return itemTitle.includes(searchString) ||
+        itemsAuthor.includes(searchString)
+    })
+  }
+  res.json(filteredDetails)
+})
 
 // Start the server
 app.listen(port, () => {
