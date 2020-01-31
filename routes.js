@@ -97,7 +97,7 @@ router.get('/movies', (req, res) => {
     }
 
     res.json({
-      status: 'Success - 200 OK',
+      status: '200 OK',
       message: 'Movies fetched successfully',
       totalPages: totalPages,
       remainingPages: remainingPages,
@@ -105,10 +105,10 @@ router.get('/movies', (req, res) => {
       data: filteredMovies
     });
     totalPages = remainingPages = null;
-    console.log(totalPages, remainingPages);
+    // console.log(totalPages, remainingPages);
   } else {
     res.status(404).send({
-      status: 'Error - 404 Not Found',
+      status: '404 Not Found',
       message: 'No movies found',
       query: req.query
     });
@@ -121,13 +121,14 @@ router.get('/movies/:id', (req, res) => {
 
   if (!movie) {
     res.status(404).send({
-      status: 'Error - 404 Not Found',
-      message: `No movie found with id ${id}.`
+      status: '404 Not Found',
+      message: `No movie found with id ${id}.`,
+      params: req.params
     });
   }
 
   res.json({
-    status: 'Success - 200 OK',
+    status: '200 OK',
     data: movie
   });
 });
@@ -140,13 +141,13 @@ router.delete('/movies/:id', (req, res) => {
   if (movie) {
     movies = movies.filter(item => item.show_id !== id);
     res.json({
-      status: 'Success - 200 OK',
+      status: '200 OK',
       message: 'Movie deleted successfully',
       data: movie
     });
   } else {
     res.status(404).send({
-      status: 'Error - 404 Not Found',
+      status: '404 Not Found',
       message: `No movie found with id ${req.params.id}.`
     });
   }
@@ -164,7 +165,7 @@ router.post('/movies', (req, res) => {
 
     // Send a 422 error response when validation fails
     res.status(422).json({
-      status: 'Error - 422 Unprocessable Entity',
+      status: '422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
@@ -173,19 +174,19 @@ router.post('/movies', (req, res) => {
     const show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
     // Create movie object
-    const newMovie = {
+    const createdMovie = {
       show_id,
       ...value
     };
 
     // Add movie to array
-    movies.push(newMovie);
+    movies.push(createdMovie);
 
     // Send a success response when validation succeeds
     res.json({
-      status: 'Success - 200 OK',
+      status: '200 OK',
       message: 'Movie created successfully',
-      data: newMovie
+      data: createdMovieghgQ
     });
   }
 });
@@ -207,7 +208,7 @@ router.put('/movies/:id', (req, res) => {
   // If movie does not exist, return 404
   if (!movie)
     res.status(404).send({
-      error: 'Error - 404 Not Found',
+      error: '404 Not Found',
       message: `No movie found with id ${+id}.`
     });
 
@@ -220,7 +221,7 @@ router.put('/movies/:id', (req, res) => {
 
     // Send a 422 error response when validation fails
     res.status(422).json({
-      status: 'Error - 422 Unprocessable Entity',
+      status: '422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
@@ -236,7 +237,7 @@ router.put('/movies/:id', (req, res) => {
 
     // Send a success response when validation succeecds
     res.json({
-      status: 'Success - 200 OK',
+      status: '200 OK',
       message: 'Movie updated successfully',
       data: updatedMovie
     });
