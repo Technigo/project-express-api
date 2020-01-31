@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import goldenGlobesData from './data/golden-globes.json'
+// import goldenGlobesData from './data/golden-globes.json'
 import netflixData from './data/netflix-titles.json'
 console.log(goldenGlobesData.length)
 console.log(netflixData.length)
@@ -36,6 +36,12 @@ app.get('/nominations', (req, res) => {
   res.json(goldenGlobesData)
 })
 
+// Netflix - Titles
+
+app.get('/movies', (req, res) => {
+  res.json(netflixData)
+})
+
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
   const showWon = req.query.won
@@ -46,12 +52,6 @@ app.get('/year/:year', (req, res) => {
   }
 
   res.json(nominationsFromYear)
-})
-
-// Netflix - Titles
-
-app.get('/movies', (req, res) => {
-  res.json(netflixData)
 })
 
 // Start the server
