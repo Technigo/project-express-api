@@ -43,7 +43,7 @@ app.get('/tv-shows', (req, res) => {
 
 //display the tv-shows and release-year
 //http://localhost:8080/tv-shows/2015
-app.get('/tv-shows/:year', (req, res) => {
+app.get('api/tv-shows/:year', (req, res) => {
   const year = req.params.year
 
   // Error handling - if year is not a number
@@ -57,7 +57,7 @@ app.get('/tv-shows/:year', (req, res) => {
   res.json(TvShows)
 })
 
-app.get('/movies/:year', (req, res) => {
+app.get('api/movies/:year', (req, res) => {
   const year = req.params.year
 
   // Error handling - if year is not a number
