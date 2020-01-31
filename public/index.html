@@ -18,15 +18,13 @@
           <li>
             <p class="endpoint-description">Get all movies</p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies">/api/movies</a>
+              e.g.<a class="endpoint-url" href="/api/movies">/api/movies</a>
             </p>
           </li>
           <li>
             <p class="endpoint-description">Get a specific movie</p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies/60020826"
+              e.g.<a class="endpoint-url" href="/api/movies/60020826"
                 >/api/movies/60020826</a
               >
             </p>
@@ -36,8 +34,7 @@
               Get all movies with a specific actor
             </p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies?actor=Anna"
+              e.g.<a class="endpoint-url" href="/api/movies?actor=Anna"
                 >/api/movies?actor=Anna</a
               >
             </p>
@@ -47,8 +44,7 @@
               Get all movies for a specific year
             </p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies?year=2017"
+              e.g.<a class="endpoint-url" href="/api/movies?year=2017"
                 >/api/movies?year=2017</a
               >
             </p>
@@ -58,18 +54,28 @@
               Get all movies with a specific duration (min)
             </p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies?duration=105"
+              e.g.<a class="endpoint-url" href="/api/movies?duration=105"
                 >/api/movies?duration=105</a
               >
             </p>
           </li>
           <li>
-            <p class="endpoint-description">Get all movies with pagination</p>
+            <p class="endpoint-description">GET all movies with pagination</p>
             <p>
-              e.g. GET
-              <a class="endpoint-url" href="/api/movies?page=1"
+              e.g.<a class="endpoint-url" href="/api/movies?page=1"
                 >/api/movies?page=1</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="endpoint-description">
+              Get movies with several parameters (error example)
+            </p>
+            <p>
+              e.g.<a
+                class="endpoint-url"
+                href="/api/movies?actor=Anna&duration=105&page=3"
+                >/api/movies?actor=Anna&duration=105&page=3</a
               >
             </p>
           </li>
@@ -82,9 +88,7 @@
         <ul>
           <li>
             <p class="endpoint-description">Create a new movie</p>
-            <p>
-              e.g. POST <span class="endpoint">/api/movies</span> with payload:
-            </p>
+            <p>e.g. <span class="endpoint">/api/movies</span> with payload:</p>
             <div class="object correct">
               <p>Object validates correctly</p>
               <pre>
@@ -132,7 +136,7 @@
           <li>
             <p class="endpoint-description">Update a specific movie</p>
             <p>
-              e.g. PUT <span class="endpoint">/api/movies/:id</span> with
+              e.g. <span class="endpoint">/api/movies/81193313</span> with
               payload:
             </p>
             <div class="object correct">
@@ -163,9 +167,7 @@
         <ul>
           <li>
             <p class="endpoint-description">Delete a specific movie</p>
-            <p>
-              e.g. DELETE <span class="endpoint">/api/movies/80233258</span>
-            </p>
+            <p>e.g. <span class="endpoint">/api/movies/81193313</span></p>
           </li>
         </ul>
       </section>
