@@ -16,28 +16,33 @@ app.use(bodyParser.json())
 
 // ROOT ENDPOINT
 app.get('/', (req, res) => {
-  res.send('API for Netflix shows, available endpoints: /shows, /shows/:id, ?limit=X (replace X with your choice of number), ?type=movie, ?type=tv-show, ')
+  res.send('API for Netflix shows, available endpoints: /shows, /shows/:id, ?page= for pagination, ?type=movie, ?type=tv-show, ')
 })
 
-// GET ALL DATA OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
+// GET ALL DATA WITH PAGINATION OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
-  const limit = req.query.limit;
+  const page = req.query.page;
   const typesFilter = req.query.type
   const titleSearchString = req.query.title
   // Variable for all data
   let filteredShows = netflixData
-  if (limit) {
-    filteredShows = filteredShows.slice(0, limit);
+  const PER_PAGE = 10
+
+  if (page) {
+    // Show 10 shows per page
+    // Set start index to 10 * the page we type in endpoint
+    const startIndex = PER_PAGE * +page
+    // StartIndex and the upcoming shows updates when increasing page number in endpoint
+    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
   }
+
   // If types query is applied in endpoint
   if (typesFilter) {
     filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesFilter.toLowerCase())
   }
-  // If title query is applied in endpoint
-  // How to make the itemTitle I type in endpoint to also be lowercase?
-  // toString since titles might be number
-  // Need to set the input in native app to be lowercase when submitted
+
+  // If title query is applied in endpoint, toString since titles might be number
   if (titleSearchString) {
     filteredShows = filteredShows.filter((item) => {
       const itemTitle = item.title.toString().toLowerCase()
@@ -45,14 +50,14 @@ app.get('/shows', (req, res) => {
     })
   }
   // Return data (filtered or not depending on endpoint used)
-  res.json(filteredShows)
+  res.json({
+    totalPages: Math.floor(netflixData.length / PER_PAGE),
+    filteredShows
+  })
 })
 
 // GET A SPECIFIC SHOW
 // Find() searches through child elements and returns the first matching child
-// HOW TO USE THE STATUS CODE 404?
-// For goal to return a single result:
-// Search for title, put the result in an array and fetch the id's of them..?
 app.get('/shows/:id', (req, res) => {
   const showId = req.params.id
   const show = netflixData.find((item) => item.show_id === +showId)
