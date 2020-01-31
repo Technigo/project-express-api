@@ -49,9 +49,9 @@ app.get('/Welcome', (req, res) => {
 })
 
 //SHOW ALL DATA IN JSON
-// app.get('/books', (req, res) => {
-//   res.json(booksData)
-// })
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
 
 //SHOW A BOOK BASED ON ID (WHY NOT WORKING WITH .FILTER?)
 app.get('/books/:id', (req, res) => {
@@ -66,21 +66,33 @@ app.get('/books/:id', (req, res) => {
   console.log(bookId)
 })
 
-//CODEALONG SEARCH TITLES
+// Filter based on title AND/OR country 
 app.get("/books", (req, res) => {
-  const query = req.query.q
-  if (query) {
-    const filteredSearch = booksData.filter(book => {
+  //Query parameter
+  const titleSearch = req.query.title
+  const authorsSearch = req.query.authors
+
+  let filteredBooks = booksData
+
+  if (titleSearch) {
+    filteredBooks = filteredBooks.filter(book => {
       const bookTitle = book.title.toString()
-      return bookTitle.toLowerCase().includes(query.toLowerCase())
+      return bookTitle.toLowerCase().includes(titleSearch.toLowerCase())
     })
-    res.json(filteredSearch)
-  } else {
-    res.json(booksData)
   }
+  if (authorsSearch) {
+    filteredBooks = filteredBooks.filter(book => {
+      const authorsName = book.authors.toString()
+      return authorsName.toLowerCase().includes(authorsSearch.toLowerCase())
+    })
+    res.json(filteredBooks)
+  } else {
+    res.status(404).send(`No book found with title: ${titleSearch}.`);
+  }
+  console.log(filteredBooks)
 })
 
-//Filters on language_code 
+//Filters on language_code.  http://localhost:8080/language/eng
 app.get('/language/:language', (req, res) => {
   const language = req.params.language
   const bookLanguage = booksData.filter((item) => item.language_code === language)
@@ -88,24 +100,19 @@ app.get('/language/:language', (req, res) => {
   res.json(bookLanguage)
 })
 
-//Filters on language_code , want it to filter on rating over 5.
-// app.get('/language/:language', (req, res) => {
-//   const language = req.params.language
-//   const showTopRate = req.query.avarage_rating
-//   let bookLanguage = booksData.filter((item) => item.language_code === language)
+//PAGINATION. URL = http://localhost:8080/books1?page=1
+const PER_PAGE = 10
 
-//   console.log(showTopRate)
-//   if (showTopRate) {
-//     bookLanguage = bookLanguage.filter((item) => item.avarage_rating)
-//   }
-//   res.json(bookLanguage)
-// })
-
-
-//Get 20 first results
 app.get('/books1', (req, res) => {
-  console.log(booksData)
-  res.json(booksData.slice(0, 20))
+  const { page } = req.query
+  const startIndex = PER_PAGE * +page
+  const data = booksData.slice(startIndex, startIndex + PER_PAGE)
+
+  res.json({
+    totalPages: Math.floor(booksData.length / PER_PAGE),
+    currentPage: +page,
+    data
+  })
 })
 
 // Start the server
