@@ -17,19 +17,22 @@ router.get('/movies', (req, res) => {
   const queryYear = +req.query.year;
   const queryDuration = +req.query.duration;
   const queryActor = req.query.actor;
+  let filteredMovies = movies;
 
   // Reset movies array if any query filter has run in last client request
-  resetMoviesArray(queryFilterHasRun);
+  // resetMoviesArray(queryFilterHasRun);
 
   // Query - Year
   if (queryYear) {
-    movies = movies.filter(movie => movie.release_year === queryYear);
-    queryFilterHasRun = true;
+    filteredMovies = filteredMovies.filter(
+      movie => movie.release_year === queryYear
+    );
+    // queryFilterHasRun = true;
   }
 
   // Query - Actor
   if (queryActor) {
-    movies = movies.filter(movie => {
+    filteredMovies = filteredMovies.filter(movie => {
       let actors = movie.cast.split(', ');
 
       // Convert actor names to lowercase
@@ -58,12 +61,12 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
-    queryFilterHasRun = true;
+    // queryFilterHasRun = true;
   }
 
   // Query - Duration
   if (queryDuration) {
-    movies = movies.filter(movie => {
+    filteredMovies = filteredMovies.filter(movie => {
       const duration = movie.duration.split(' ');
       if (
         +duration[0] === queryDuration &&
@@ -72,7 +75,7 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
-    queryFilterHasRun = true;
+    // queryFilterHasRun = true;
   }
 
   // Query - Page
@@ -83,14 +86,14 @@ router.get('/movies', (req, res) => {
     console.log('Page: ', queryPage);
     console.log('startIndex: ', startIndex);
     console.log('endIndex: ', endIndex);
-    movies = movies.slice(startIndex, endIndex);
-    console.log('Sliced array length: ', movies.length);
+    filteredMovies = filteredMovies.slice(startIndex, endIndex);
+    console.log('Sliced array length: ', filteredMovies.length);
   }
 
-  console.log('Array length: ', movies.length);
+  console.log('Array length: ', filteredMovies.length);
 
-  if (movies.length > 0) {
-    res.json(movies);
+  if (filteredMovies.length > 0) {
+    res.json(filteredMovies);
   } else {
     res.status(404).send({
       status: 'Error - 404 Not Found',
