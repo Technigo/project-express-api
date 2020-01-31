@@ -45,9 +45,10 @@ app.get('/shows', (req, res) => {
 app.get('/shows/:show', (req, res) => {
   const showId = req.params.show
 
-  const show = netflixData.filter((item) => item.show_id === +showId && item.type === "TV Show")
+  const shows = netflixData.filter((item) => item.type === "TV Show")
+  const show = shows.find((item) => item.show_id === +showId)
 
-  if (show.length === 0) {
+  if (!show) {
     return res.status(404).json({
       message: "Show not found"
     })
@@ -79,9 +80,10 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:movie', (req, res) => {
   const movieId = req.params.movie
 
-  const movie = netflixData.filter((item) => item.show_id === +movieId && item.type === "Movie")
+  const movies = netflixData.filter((item) => item.type === "Movie")
+  const movie = movies.find((item) => item.show_id === +movieId)
 
-  if (movie.length === 0) {
+  if (!movie) {
     return res.status(404).json({
       message: "Movie not found"
     })
