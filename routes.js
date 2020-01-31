@@ -5,7 +5,6 @@ import netflixData from './data/netflix-titles.json';
 
 const router = express.Router();
 let movies = netflixData;
-let queryFilterHasRun = false;
 
 // GET routes
 router.get('/', (req, res) => {
@@ -19,15 +18,11 @@ router.get('/movies', (req, res) => {
   const queryActor = req.query.actor;
   let filteredMovies = movies;
 
-  // Reset movies array if any query filter has run in last client request
-  // resetMoviesArray(queryFilterHasRun);
-
   // Query - Year
   if (queryYear) {
     filteredMovies = filteredMovies.filter(
       movie => movie.release_year === queryYear
     );
-    // queryFilterHasRun = true;
   }
 
   // Query - Actor
@@ -35,20 +30,18 @@ router.get('/movies', (req, res) => {
     filteredMovies = filteredMovies.filter(movie => {
       let actors = movie.cast.split(', ');
 
-      // Convert actor names to lowercase
-      actors = actors.map(actor => {
-        return actor.toLowerCase();
-      });
-
       // Check if current movie contains value in queryActor
       const result = actors.filter(item => {
+        // Create regular expression with dynamic parameter
         let regexp = new RegExp(
           '\\b(' + queryActor.toLowerCase() + ')\\b',
           'gi'
         );
-        const match = item.match(regexp);
-        console.log(item.match(regexp));
 
+        // Check for match
+        const match = item.toLowerCase().match(regexp);
+
+        // If actor is present in current movie item is returned
         if (match) {
           return item;
         } else {
@@ -61,7 +54,6 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
-    // queryFilterHasRun = true;
   }
 
   // Query - Duration
@@ -75,7 +67,6 @@ router.get('/movies', (req, res) => {
         return movie;
       }
     });
-    // queryFilterHasRun = true;
   }
 
   // Query - Page
@@ -107,9 +98,6 @@ router.get('/movies/:id', (req, res) => {
   const id = +req.params.id;
   const movie = movies.find(item => item.show_id === id);
 
-  // Reset movies array if any query filter has run in last client request
-  resetMoviesArray(queryFilterHasRun);
-
   if (!movie) {
     res.status(404).send({
       status: 'Error - 404 Not Found',
@@ -135,7 +123,7 @@ router.delete('/movies/:id', (req, res) => {
   } else {
     res.status(404).send({
       status: 'Error - 404 Not Found',
-      message: `No movie found with id ${id}.`
+      message: `No movie found with id ${req.params.id}.`
     });
   }
 });
@@ -143,9 +131,6 @@ router.delete('/movies/:id', (req, res) => {
 // POST routes
 router.post('/movies', (req, res) => {
   const { body } = req;
-
-  // Reset movies array if any query filter has run in last client request
-  resetMoviesArray(queryFilterHasRun);
 
   // Validate request bodyy
   const { error, value } = validateMovie(body);
@@ -161,7 +146,7 @@ router.post('/movies', (req, res) => {
     });
   } else {
     // Create random movie id
-    show_id = randomIntFromInterval(10000000000000, 90000000000000);
+    const show_id = randomIntFromInterval(10000000000000, 90000000000000);
 
     // Create movie object
     const newMovie = {
@@ -186,9 +171,6 @@ router.put('/movies/:id', (req, res) => {
   const { body } = req;
   const { id } = req.params;
 
-  // Reset movies array if any query filter has run in last client request
-  resetMoviesArray(queryFilterHasRun);
-
   // Find movie object to update
   const movie = movies.find(item => item.show_id === +id);
 
@@ -212,7 +194,7 @@ router.put('/movies/:id', (req, res) => {
     // Removing property
     delete error.isJoi;
 
-    // Send a 422 error response if validation fails
+    // Send a 422 error response when validation fails
     res.status(422).json({
       status: 'Error - 422 Unprocessable Entity',
       message: 'Invalid request data',
@@ -228,7 +210,7 @@ router.put('/movies/:id', (req, res) => {
     // Replace existing movie object with updated movie object
     movies.splice(index, 1, updatedMovie);
 
-    // Send a success response if validation succeecds
+    // Send a success response when validation succeecds
     res.json({
       status: 'Success - 200 OK',
       message: 'Movie updated successfully',
@@ -300,13 +282,6 @@ const validateMovie = movie => {
  */
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
-};
-
-const resetMoviesArray = queryFilterHasRun => {
-  if (queryFilterHasRun) {
-    movies = netflixData;
-    queryFilterHasRun = false;
-  }
 };
 
 module.exports = router;
