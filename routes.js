@@ -115,8 +115,15 @@ router.get('/movies', (req, res) => {
 });
 
 router.get('/movies/:id', (req, res) => {
-  const id = +req.params.id;
-  const movie = movies.find(item => item.show_id === id);
+  const { id } = req.params;
+
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      status: '400 Bad Request'
+    });
+  }
+
+  const movie = movies.find(item => item.show_id === +id);
 
   if (!movie) {
     res.status(404).send({

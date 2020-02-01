@@ -15,6 +15,8 @@ const mockupMovie = {
   type: 'Movie'
 };
 
+const INVALID_MOVIE_ID = 8101989409834509835;
+
 describe('API endpoint /', () => {
   it('Should respond to GET method with status code 200', () => {
     return request(app)
@@ -81,6 +83,41 @@ describe('API endpoint /api/movies', () => {
 });
 
 describe('API endpoint /api/movies/:id', () => {
+  describe('GET', () => {
+    it('Should respond to correct request with status code 200', () => {
+      return request(app)
+        .get('/api/movies/81019894')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status');
+          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('data');
+          expect(response.body.status).toBe('200 OK');
+          expect(response.body.message).toBe('Movie fetched successfully');
+        });
+    });
+    it('Should respond with status code 404 when movie is not found', () => {
+      return request(app)
+        .get(`/api/movies/${INVALID_MOVIE_ID}`)
+        .then(response => {
+          expect(response.status).toBe(404);
+          expect(response.body).toHaveProperty('status');
+          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('params');
+          expect(response.body.status).toBe('404 Not Found');
+          expect(response.body.message).toBe(
+            `No movie found with id ${INVALID_MOVIE_ID}.`
+          );
+        });
+    });
+    it('Should respond to incorrect request parameters with status code 400', () => {
+      return request(app)
+        .get('/api/movies/klsdjlfjsdfkjlsdf')
+        .then(response => {
+          expect(response.status).toBe(400);
+        });
+    });
+  });
   describe('DELETE', () => {
     it('Should respond to correct request with status code 200', () => {
       return request(app)
@@ -89,6 +126,7 @@ describe('API endpoint /api/movies/:id', () => {
           expect(response.status).toBe(200);
           expect(response.body).toHaveProperty('message');
           expect(response.body).toHaveProperty('data');
+          expect(response.body).toHaveProperty('status');
           expect(response.body.status).toBe('200 OK');
           expect(response.body.message).toBe('Movie deleted successfully');
         });
