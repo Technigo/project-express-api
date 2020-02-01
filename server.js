@@ -39,14 +39,12 @@ app.get('/shows', (req, res) => {
       return itemTitle.includes(titleSearchString)
     })
   }
-
   if (page) {
     // Set start index to 10 * the page we type in endpoint
     const startIndex = PER_PAGE * +page
     // StartIndex and the upcoming shows updates when increasing page number in endpoint
     showData = showData.slice(startIndex, startIndex + PER_PAGE);
   }
-
   // Return data and total pages of data
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
@@ -64,12 +62,10 @@ app.get('/shows/types/:type', (req, res) => {
   if (type) {
     showData = showData.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
   }
-
   if (page) {
     const startIndex = PER_PAGE * +page
     showData = showData.slice(startIndex, startIndex + PER_PAGE);
   }
-
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
     showData
