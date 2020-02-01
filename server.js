@@ -22,14 +22,23 @@ app.get('/', (req, res) => {
 
 // GET ALL DATA WITH PAGINATION OR FILTERED WITH TITLE IN QUERY
 app.get('/shows', (req, res) => {
-  // Variable for qeury parameter
+  // For qeury page
   const page = req.query.page
-  // const typesFilter = req.query.type
+  // For title search
   const titleSearchString = req.query.title
-  // Variable for all data
+  // All data
   let showData = netflixData
-  // Show 10 shows per page
+  // Set 10 shows per page
   const PER_PAGE = 10
+
+  // If title query is applied in endpoint
+  // toString since titles might be number
+  if (titleSearchString) {
+    showData = showData.filter((item) => {
+      const itemTitle = item.title.toString().toLowerCase()
+      return itemTitle.includes(titleSearchString)
+    })
+  }
 
   if (page) {
     // Set start index to 10 * the page we type in endpoint
@@ -38,15 +47,7 @@ app.get('/shows', (req, res) => {
     showData = showData.slice(startIndex, startIndex + PER_PAGE);
   }
 
-  // If title query is applied in endpoint, toString since titles might be number
-  if (titleSearchString) {
-    showData = showData.filter((item) => {
-      const itemTitle = item.title.toString().toLowerCase()
-      return itemTitle.includes(titleSearchString)
-    })
-  }
-
-  // Return data and total pages
+  // Return data and total pages of data
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
     showData
