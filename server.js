@@ -29,7 +29,7 @@ app.get('/shows', (req, res) => {
   // All data
   let filteredShows = netflixData
   // Set 10 shows per page
-  const PER_PAGE = 10
+  const PER_PAGE = 20
 
   // If title query is applied in endpoint
   // toString since titles might be number
