@@ -65,11 +65,11 @@ app.get('/shows/types/:type', (req, res) => {
 
   if (page) {
     const startIndex = PER_PAGE * +page
-    showData = showData.slice(startIndex, startIndex + PER_PAGE);
+    typesData = netflixData.slice(startIndex, startIndex + PER_PAGE);
   }
 
   res.json({
-    totalPages: Math.floor(showData.length / PER_PAGE),
+    totalPages: Math.floor(typesData.length / PER_PAGE),
     showData
   })
 })
