@@ -1,15 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -26,6 +18,22 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+app.get('/movies', (req, res) => {
+  res.json(netflixData)
+})
+
+app.get('/country/:country', (req, res) => {
+  const country = req.params.country
+
+  const movieFromCountry = netflixData.filter((item) => item.country === country)
+
+  res.json(movieFromCountry)
+  // if (country) {
+  //   movieFromCountry = movieFromCountry
+  // }
+})
+
 
 // Start the server
 app.listen(port, () => {
