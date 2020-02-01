@@ -14,10 +14,6 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-router.get('/test', (req, res) => {
-  res.json({ message: 'pass!' });
-});
-
 router.get('/movies', (req, res) => {
   const queryPage = +req.query.page;
   const queryYear = +req.query.year;
@@ -109,7 +105,6 @@ router.get('/movies', (req, res) => {
       data: filteredMovies
     });
     totalPages = remainingPages = null;
-    // console.log(totalPages, remainingPages);
   } else {
     res.status(404).send({
       status: '404 Not Found',
@@ -201,21 +196,28 @@ router.put('/movies/:id', (req, res) => {
   const { body } = req;
   const { id } = req.params;
 
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      error: '400 Bad Request'
+    });
+  }
+
   // Find movie object to update
   const movie = movies.find(item => item.show_id === +id);
+
+  // If movie does not exist, return 404
+  if (!movie) {
+    res.status(404).send({
+      error: '404 Not Found',
+      message: `No movie found with id ${+id}.`
+    });
+  }
 
   // Destructure show_id to use in updated object
   const { show_id } = movie;
 
   // Find index of movie object to update
   const index = movies.findIndex(item => item.show_id === show_id);
-
-  // If movie does not exist, return 404
-  if (!movie)
-    res.status(404).send({
-      error: '404 Not Found',
-      message: `No movie found with id ${+id}.`
-    });
 
   // Validate request body
   const { error, value } = validateMovie(body);

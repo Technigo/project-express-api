@@ -1,17 +1,33 @@
 const request = require('supertest');
 const app = require('./server');
 
-describe('API path /', () => {
-  it('Should respond to GET method with status 200', () => {
+const mockupMovie = {
+  title: 'Microsoft',
+  director: 'Bill gates',
+  cast: 'Val Kilmer, Tom Cruise',
+  country: 'USA',
+  date_added: 'January 28, 2020',
+  release_year: 2020,
+  rating: 'TV-20',
+  duration: '120 min',
+  listed_in: 'Comedy',
+  description: 'Intense movie!',
+  type: 'Movie'
+};
+
+describe('API endpoint /', () => {
+  it('Should respond to GET method with status code 200', () => {
     return request(app)
       .get('/')
-      .expect(200);
+      .then(response => {
+        expect(response.status).toBe(200);
+      });
   });
 });
 
-describe('API path /api/movies', () => {
-  describe('GET method', () => {
-    it('Should respond to correct request with status 200', () => {
+describe('API endpoint /api/movies', () => {
+  describe('GET', () => {
+    it('Should respond to correct request with status code 200', () => {
       return request(app)
         .get('/api/movies')
         .then(response => {
@@ -26,23 +42,11 @@ describe('API path /api/movies', () => {
         });
     });
   });
-  describe('POST method', () => {
-    it('Should respond to correct request with status 200', () => {
+  describe('POST', () => {
+    it('Should respond to correct request with status code 200', () => {
       return request(app)
         .post('/api/movies')
-        .send({
-          title: 'Microsoft',
-          director: 'Bill gates',
-          cast: 'Val Kilmer, Tom Cruise',
-          country: 'USA',
-          date_added: 'January 28, 2020',
-          release_year: 2020,
-          rating: 'TV-20',
-          duration: '120 min',
-          listed_in: 'Comedy',
-          description: 'Intense movie!',
-          type: 'Movie'
-        })
+        .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(200);
           expect(response.body).toHaveProperty('message');
@@ -51,7 +55,7 @@ describe('API path /api/movies', () => {
           expect(response.body.message).toBe('Movie created successfully');
         });
     });
-    it('Should respond to invalid request data with status 422', () => {
+    it('Should respond to invalid request data with status code 422', () => {
       return request(app)
         .post('/api/movies')
         .send({
@@ -76,9 +80,9 @@ describe('API path /api/movies', () => {
   });
 });
 
-describe('API path /api/movies/:id', () => {
-  describe('DELETE method', () => {
-    it('Should respond to correct request with status 200', () => {
+describe('API endpoint /api/movies/:id', () => {
+  describe('DELETE', () => {
+    it('Should respond to correct request with status code 200', () => {
       return request(app)
         .delete('/api/movies/70101696')
         .then(response => {
@@ -89,7 +93,7 @@ describe('API path /api/movies/:id', () => {
           expect(response.body.message).toBe('Movie deleted successfully');
         });
     });
-    it('Should respond to incorrect request with status 404', () => {
+    it('Should respond to incorrect request with status code 404', () => {
       return request(app)
         .delete('/api/movies/klsdjlfjsdfkjlsdf')
         .then(response => {
@@ -99,23 +103,11 @@ describe('API path /api/movies/:id', () => {
         });
     });
   });
-  describe('PUT method', () => {
-    it('Should respond to correct request with status 200', () => {
+  describe('PUT', () => {
+    it('Should respond to correct request with status code 200', () => {
       return request(app)
-        .put('/api/movies/81172908')
-        .send({
-          title: 'Microsoft',
-          director: 'Bill gates',
-          cast: 'Val Kilmer, Tom Cruise',
-          country: 'USA',
-          date_added: 'January 28, 2020',
-          release_year: 2020,
-          rating: 'TV-20',
-          duration: '120 min',
-          listed_in: 'Comedy',
-          description: 'Intense movie!',
-          type: 'Movie'
-        })
+        .put('/api/movies/70105132')
+        .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(200);
           expect(response.body).toHaveProperty('status');
@@ -125,25 +117,21 @@ describe('API path /api/movies/:id', () => {
           expect(response.body.message).toBe('Movie updated successfully');
         });
     });
-    // it('Should respond to incorrect PUT request with status 404', () => {
-    //   return request(app)
-    //     .put('/api/movies/8')
-    //     .send({
-    //       title: 'Microsoft',
-    //       director: 'Bill gates',
-    //       cast: 'Val Kilmer, Tom Cruise',
-    //       country: 'USA',
-    //       date_added: 'January 28, 2020',
-    //       release_year: 2020,
-    //       rating: 'TV-20',
-    //       duration: '120 min',
-    //       listed_in: 'Comedy',
-    //       description: 'Intense movie!',
-    //       type: 'Movie'
-    //     })
-    //     .then(response => {
-    //       expect(response.status).toBe(404);
-    //     });
-    // });
+    it('Should respond to incorrect request parameters with status code 400', () => {
+      return request(app)
+        .put('/api/movies/klsdjlfjsdfkjlsdf')
+        .send(mockupMovie)
+        .then(response => {
+          expect(response.status).toBe(400);
+        });
+    });
+    it('Should respond with status code 404 when movie is not found', () => {
+      return request(app)
+        .put('/api/movies/9999999999999999')
+        .send(mockupMovie)
+        .then(response => {
+          expect(response.status).toBe(404);
+        });
+    });
   });
 });
