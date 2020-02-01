@@ -1,7 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
 import netflixData from './data/netflix-titles.json'
 
 // PORT SETUP
@@ -21,20 +20,21 @@ app.get('/', (req, res) => {
 })
 
 // GET ALL DATA WITH PAGINATION OR FILTERED WITH TITLE IN QUERY
+// req = request-object, res = result-object
 app.get('/shows', (req, res) => {
   // For qeury page
   const page = req.query.page
   // For title search
   const titleSearchString = req.query.title
   // All data
-  let showData = netflixData
+  let filteredShows = netflixData
   // Set 10 shows per page
   const PER_PAGE = 10
 
   // If title query is applied in endpoint
   // toString since titles might be number
   if (titleSearchString) {
-    showData = showData.filter((item) => {
+    filteredShows = filteredShows.filter((item) => {
       const itemTitle = item.title.toString().toLowerCase()
       return itemTitle.includes(titleSearchString)
     })
@@ -43,12 +43,12 @@ app.get('/shows', (req, res) => {
     // Set start index to 10 * the page we type in endpoint
     const startIndex = PER_PAGE * +page
     // StartIndex and the upcoming shows updates when increasing page number in endpoint
-    showData = showData.slice(startIndex, startIndex + PER_PAGE);
+    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
   }
   // Return data and total pages of data
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
-    showData
+    filteredShows
   })
 })
 
@@ -56,19 +56,19 @@ app.get('/shows', (req, res) => {
 app.get('/shows/types/:type', (req, res) => {
   const type = req.params.type
   const page = req.query.page;
-  const PER_PAGE = 10
-  let showData = netflixData
+  const PER_PAGE = 20
+  let filteredShows = netflixData
 
   if (type) {
-    showData = showData.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
+    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
   }
   if (page) {
     const startIndex = PER_PAGE * +page
-    showData = showData.slice(startIndex, startIndex + PER_PAGE);
+    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
   }
   res.json({
-    totalPages: Math.floor(netflixData.length / PER_PAGE),
-    showData
+    totalPages: Math.floor(filteredShows.length / PER_PAGE),
+    filteredShows
   })
 })
 
