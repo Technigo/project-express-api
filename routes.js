@@ -14,6 +14,10 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+router.get('/test', (req, res) => {
+  res.json({ message: 'pass!' });
+});
+
 router.get('/movies', (req, res) => {
   const queryPage = +req.query.page;
   const queryYear = +req.query.year;
@@ -88,7 +92,7 @@ router.get('/movies', (req, res) => {
     console.log('Sliced array length: ', filteredMovies.length);
   }
 
-  console.log('Array length: ', filteredMovies.length);
+  // console.log('Array length: ', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
     if (totalPages === null && remainingPages === null) {
@@ -129,6 +133,7 @@ router.get('/movies/:id', (req, res) => {
 
   res.json({
     status: '200 OK',
+    message: 'Movie fetched successfully',
     data: movie
   });
 });
@@ -186,7 +191,7 @@ router.post('/movies', (req, res) => {
     res.json({
       status: '200 OK',
       message: 'Movie created successfully',
-      data: createdMovieghgQ
+      data: createdMovie
     });
   }
 });
