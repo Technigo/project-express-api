@@ -26,51 +26,57 @@ app.get('/shows', (req, res) => {
   const page = req.query.page
   // For title search
   const titleSearchString = req.query.title
+  // For type search
+  const typeSearchString = req.query.type
   // All data
   let filteredShows = netflixData
   // Set 10 shows per page
   const PER_PAGE = 20
 
-  // If title query is applied in endpoint
-  // toString since titles might be number
-  if (titleSearchString) {
-    filteredShows = filteredShows.filter((item) => {
-      const itemTitle = item.title.toString().toLowerCase()
-      return itemTitle.includes(titleSearchString)
-    })
-  }
   if (page) {
     // Set start index to 10 * the page we type in endpoint
     const startIndex = PER_PAGE * +page
     // StartIndex and the upcoming shows updates when increasing page number in endpoint
-    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
+    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE)
   }
+
+  if (titleSearchString) {
+    filteredShows = filteredShows.filter((item) => {
+      const itemTitle = item.title.toString().toLowerCase() // toString since titles might be number
+      return itemTitle.includes(titleSearchString)
+    })
+  }
+
+  if (typeSearchString) {
+    filteredShows = netflixData.filter((item) => item.type.toLowerCase().replace(' ', '-') === typeSearchString.toLowerCase())
+  }
+
   // Return data and total pages of data
-  res.json({
-    totalPages: Math.floor(netflixData.length / PER_PAGE),
-    filteredShows
-  })
-})
-
-// GET DATA FILTERED ON TYPE
-app.get('/shows/types/:type', (req, res) => {
-  const type = req.params.type
-  const page = req.query.page;
-  const PER_PAGE = 20
-  let filteredShows = netflixData
-
-  if (type) {
-    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
-  }
-  if (page) {
-    const startIndex = PER_PAGE * +page
-    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
-  }
   res.json({
     totalPages: Math.floor(filteredShows.length / PER_PAGE),
     filteredShows
   })
 })
+
+// GET DATA FILTERED ON TYPE
+// app.get('/shows/types/:type', (req, res) => {
+//   const type = req.params.type
+//   const page = req.query.page;
+//   const PER_PAGE = 20
+//   let filteredShows = netflixData
+
+//   if (type) {
+//     filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
+//   }
+//   if (page) {
+//     const startIndex = PER_PAGE * +page
+//     filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE)
+//   }
+//   res.json({
+//     totalPages: Math.floor(filteredShows.length / PER_PAGE),
+//     filteredShows
+//   })
+// })
 
 // GET A SPECIFIC SHOW
 app.get('/shows/:id', (req, res) => {
