@@ -16,43 +16,61 @@ app.use(bodyParser.json())
 
 // ROOT ENDPOINT
 app.get('/', (req, res) => {
-  res.send('API for Netflix shows, available endpoints: /shows, /shows/:id, ?page= for pagination, ?type=movie, ?type=tv-show, ')
+  res.send('API for Netflix shows, available endpoints: /shows, /:id, /types/:type, ?page=X for pagination')
 })
 
 // GET ALL DATA WITH PAGINATION OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
-  const page = req.query.page;
-  const typesFilter = req.query.type
+  const page = req.query.page
+  // const typesFilter = req.query.type
   const titleSearchString = req.query.title
   // Variable for all data
-  let filteredShows = netflixData
+  let showData = netflixData
+  // Show 10 shows per page
   const PER_PAGE = 10
 
   if (page) {
-    // Show 10 shows per page
     // Set start index to 10 * the page we type in endpoint
     const startIndex = PER_PAGE * +page
     // StartIndex and the upcoming shows updates when increasing page number in endpoint
-    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE);
-  }
-
-  // If types query is applied in endpoint
-  if (typesFilter) {
-    filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typesFilter.toLowerCase())
+    showData = showData.slice(startIndex, startIndex + PER_PAGE);
   }
 
   // If title query is applied in endpoint, toString since titles might be number
   if (titleSearchString) {
-    filteredShows = filteredShows.filter((item) => {
+    showData = showData.filter((item) => {
       const itemTitle = item.title.toString().toLowerCase()
       return itemTitle.includes(titleSearchString)
     })
   }
+
   // Return data (filtered or not depending on endpoint used)
   res.json({
-    totalPages: Math.floor(netflixData.length / PER_PAGE),
-    filteredShows
+    totalPages: Math.floor(showData.length / PER_PAGE),
+    showData
+  })
+})
+
+// Change to params for type ?
+app.get('/shows/types/:type', (req, res) => {
+  const type = req.params.type
+  const page = req.query.page;
+  const PER_PAGE = 10
+  let showData = netflixData
+
+  if (type) {
+    showData = showData.filter((item) => item.type.toLowerCase().replace(' ', '-') === type.toLowerCase())
+  }
+
+  if (page) {
+    const startIndex = PER_PAGE * +page
+    showData = showData.slice(startIndex, startIndex + PER_PAGE);
+  }
+
+  res.json({
+    totalPages: Math.floor(showData.length / PER_PAGE),
+    showData
   })
 })
 
