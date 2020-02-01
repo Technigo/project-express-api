@@ -47,7 +47,7 @@ app.get('/shows', (req, res) => {
 
   // Return data (filtered or not depending on endpoint used)
   res.json({
-    totalPages: Math.floor(showData.length / PER_PAGE),
+    totalPages: Math.floor(netflixData.length / PER_PAGE),
     showData
   })
 })
