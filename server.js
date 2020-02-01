@@ -10,7 +10,8 @@ import netflixData from './data/netflix-titles.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+// MIDDLEWARES 
+// To enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('API for Netflix shows, available endpoints: /shows, /:id, /types/:type, ?page=X for pagination')
 })
 
-// GET ALL DATA WITH PAGINATION OR FILTERED WITH TYPE/TITLE IN QUERY PARAMETER
+// GET ALL DATA WITH PAGINATION OR FILTERED WITH TITLE IN QUERY
 app.get('/shows', (req, res) => {
   // Variable for qeury parameter
   const page = req.query.page
@@ -45,14 +46,14 @@ app.get('/shows', (req, res) => {
     })
   }
 
-  // Return data (filtered or not depending on endpoint used)
+  // Return data and total pages
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
     showData
   })
 })
 
-// Change to params for type ?
+// GET DATA FILTERED ON TYPE
 app.get('/shows/types/:type', (req, res) => {
   const type = req.params.type
   const page = req.query.page;
@@ -75,7 +76,6 @@ app.get('/shows/types/:type', (req, res) => {
 })
 
 // GET A SPECIFIC SHOW
-// Find() searches through child elements and returns the first matching child
 app.get('/shows/:id', (req, res) => {
   const showId = req.params.id
   const show = netflixData.find((item) => item.show_id === +showId)
