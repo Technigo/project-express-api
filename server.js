@@ -69,7 +69,7 @@ app.get('/shows/types/:type', (req, res) => {
   }
 
   res.json({
-    totalPages: Math.floor(showData.length / PER_PAGE),
+    totalPages: Math.floor(netflixData.length / PER_PAGE),
     showData
   })
 })
