@@ -11,24 +11,21 @@
 </head>
 <%- include('../partials/header') -%>
 
-
-
 <main>
-
   <section class="show">
-    <button class="backBtn" onclick="window.history.back()"> back </button>
+    <button class="backBtn" onclick="window.history.back()"> Back </button>
 
     <div class="show-info">
-      <div>Title: <%= show.title %></div>
-      <div>Year: <%= show.release_year %></div>
-      <div>Description: <%= show.description %></div>
-      <div>Country: <%= show.country %></div>
-      <div>Director: <%= show.director %></div>
-      <div>Type: <%= show.type %></div>
-      <div>Duration: <%= show.duration %></div>
-      <div>Cast: <%= show.cast %></div>
-      <div>Genre: <%= show.listed_in %></div>
-      <div>Date added: <%= show.date_added %></div>
+      <div><span>Title: </span><%= show.title %></div>
+      <div><span>Year: </span> <%= show.release_year %></div>
+      <div><span>Description:</span> <%= show.description %></div>
+      <div><span>Country:</span> <%= show.country %></div>
+      <div><span>Director:</span> <%= show.director %></div>
+      <div><span>Type: </span><%= show.type %></div>
+      <div><span>Duration:</span> <%= show.duration %></div>
+      <div><span>Cast: </span><%= show.cast %></div>
+      <div><span>Genre: </span><%= show.listed_in %></div>
+      <div><span>Date added: </span><%= show.date_added %></div>
     </div>
   </section>
 

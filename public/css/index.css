@@ -59,7 +59,9 @@ main {
 }
 
 footer {
-  height: 50px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
   background-color: #ff9999;
 }
 
@@ -140,8 +142,24 @@ footer {
   width: 150px;
   position: relative;
   top: 0px;
+  background-color: transparent;
+  border: 2px solid #ff9999;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.backBtn:hover {
+  background-color: #ff9999;
+  border: 2px solid #3e41497a;
 }
 
 .show-info div {
   font-size: 20px;
+}
+
+.show-info div span {
+  font-size: 23px;
+  font-weight: bold;
 }
