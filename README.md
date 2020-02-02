@@ -1,13 +1,12 @@
-# Express API Project
+# Project 17 Express API Project build on Technigo Bootcamp spring 2020
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I have built my very first own API, and the main goal was to creade a data file and then to create different RESTful endpoints which either retrievs an array of data or a single item. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started this project by chosing which data to show and use for my API. 
+I chose to use two different sources to see if you could use that for your API, and it worked. In all fetches I used the HTTP verb GET method, since I did not update the data in any way, I just wanted to present it. If I would have more time, I definetly would experiment a bit more with the endpoints and use other verbs and other methods for filtering the outcome. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+This is my link to my deployed project at Heruko. 
