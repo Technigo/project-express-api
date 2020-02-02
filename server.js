@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 // ROOT ENDPOINT
 app.get('/', (req, res) => {
-  res.send('API for Netflix shows, available endpoints: /shows, /:id, /types/:type, ?page=X for pagination')
+  res.send('API for Netflix shows, available endpoints: /shows -> /:id, /movies, /tv-shows, ?title=X for search and ?page=X for pagination')
 })
 
 // GET ALL DATA WITH PAGINATION OR FILTERED WITH TITLE IN QUERY
