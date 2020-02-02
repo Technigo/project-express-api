@@ -118,10 +118,10 @@ app.get('/books1', (req, res) => {
   const startIndex = PER_PAGE * +page
   const data = booksData.slice(startIndex, startIndex + PER_PAGE)
   const pageCount = Math.ceil(booksData.length / 20)
+  console.log(page)
 
   if (page >= pageCount) {
-    res.status(404).send(`No books found`);
-
+    res.status(404).send(`No page ${page} found, last page is ${pageCount}.`);
   } else {
     res.json({
       totalPages: Math.floor(booksData.length / PER_PAGE),
