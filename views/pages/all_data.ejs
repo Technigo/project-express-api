@@ -2,17 +2,18 @@
 <%- include('../partials/header') -%>
 
 <main>
-  <h1> Movies </h1>
+  <h1> All media </h1>
 
   <section class="card-wrapper movie-section">
-    <% movies.map(movie => { %>
+    <% allData.map(item => { %>
     <div class="card movies">
-      <div class="title"><%= movie.title %></div>
-      <div class="year"><%= movie.release_year %></div>
+      <div class="title"><%= item.title %></div>
+      <div class="year"><%= item.release_year %></div>
     </div>
     <% }); %>
 
   </section>
   <%- include('../partials/pagination') -%>
 </main>
+
 <%- include('../partials/footer') -%>

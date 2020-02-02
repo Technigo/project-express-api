@@ -13,29 +13,59 @@ app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.use(express.static("public"))
 
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 // display all the netflix data
 app.get('/netflix', (req, res) => {
-  res.render('pages/data', {
-    data: netflixData
+
+  let page = parseInt(req.query["page"], 10) ?? 0;
+  let perPage = parseInt(req.query["perPage"], 10) ?? 5;
+
+  let sliceStart = page * perPage;
+  let sliceEnd = sliceStart + perPage;
+  res.render('pages/all_data', {
+    allData: netflixData.slice(sliceStart, sliceEnd),
+    endpoint: '/netflix'
   })
+
+  // res.json(netflixData.slice(sliceStart, sliceEnd));
+
+  // res.render('pages/data', {
+  //   data: netflixData
+  // })
 })
 
 
 app.get('/movies', (req, res) => {
   let movies = netflixData.filter((item) => item.type === "Movie")
 
+  let page = parseInt(req.query["page"], 10) ?? 0;
+  let perPage = parseInt(req.query["perPage"], 10) ?? 5;
+
+  let sliceStart = page * perPage;
+  let sliceEnd = sliceStart + perPage;
+
   res.render('pages/movies', {
-    movies: movies
+    movies: movies.slice(sliceStart, sliceEnd),
+    endpoint: '/movies'
   })
 })
 
 app.get('/tv-shows', (req, res) => {
-  let TvShows = netflixData.filter((item) => item.type === "TV Show")
+  let tvshows = netflixData.filter((item) => item.type === "TV Show")
+
+  let page = parseInt(req.query["page"], 10) ?? 0;
+  let perPage = parseInt(req.query["perPage"], 10) ?? 5;
+
+  let sliceStart = page * perPage;
+  let sliceEnd = sliceStart + perPage;
 
   res.render('pages/tv-shows', {
-    tvshows: TvShows
+    tvshows: tvshows.slice(sliceStart, sliceEnd),
+    endpoint: '/tv-shows'
+
   });
 })
 
@@ -94,8 +124,8 @@ app.get('/netflix/id/:id', (req, res) => {
   const id = req.params.id
   const result = netflixData.find((item) => item.show_id === +id)
 
-  if (!result) {res.status(404).send()}
-  
+  if (!result) { res.status(404).send() }
+
   res.json(result)
 });
 

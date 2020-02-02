@@ -4,7 +4,7 @@
 <main>
   <h1> TV-Shows</h1>
 
-  <section class="wrapper tv-shows-section">
+  <section class="card-wrapper tv-shows-section">
     <% tvshows.map(tvshow => { %>
     <div class="card tv-show">
       <div class="title"><%= tvshow.title %></div>
@@ -13,5 +13,7 @@
     <% }); %>
 
   </section>
+  <%- include('../partials/pagination') -%>
 </main>
+
 <%- include('../partials/footer') -%>

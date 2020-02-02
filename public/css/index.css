@@ -1,5 +1,7 @@
 body {
-  margin: 0
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -8,6 +10,7 @@ header {
 
 main {
   padding: 10px;
+  flex-grow: 1;
 }
 
 footer {
@@ -15,13 +18,20 @@ footer {
   background-color: lightblue;
 }
 
-.card {
-  background-color: lightcoral;
-  padding: 10px;
-}
-
-.wrapper {
+.card-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem 2rem;
+}
+
+.card {
+  background-color: rgb(249, 227, 227);
+  padding: 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.pagination {
+  margin-top: 15px;
 }
