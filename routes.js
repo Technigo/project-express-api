@@ -205,7 +205,7 @@ router.put('/movies/:id', (req, res) => {
 
   if (!Number.isInteger(+id)) {
     res.status(400).send({
-      error: '400 Bad Request'
+      status: '400 Bad Request'
     });
   }
 

@@ -15,21 +15,23 @@ const mockupMovie = {
   type: 'Movie'
 };
 
-const INVALID_MOVIE_ID = 8101989409834509835;
+const MOVIE_ID_NOT_FOUND = 8101989409834509835;
 
 describe('API endpoint /', () => {
-  it('Should respond to GET method with status code 200', () => {
-    return request(app)
-      .get('/')
-      .then(response => {
-        expect(response.status).toBe(200);
-      });
+  describe('GET', () => {
+    it('Should respond to request with status code 200', () => {
+      return request(app)
+        .get('/')
+        .then(response => {
+          expect(response.status).toBe(200);
+        });
+    });
   });
 });
 
 describe('API endpoint /api/movies', () => {
   describe('GET', () => {
-    it('Should respond to correct request with status code 200', () => {
+    it('Should respond to request with status code 200', () => {
       return request(app)
         .get('/api/movies')
         .then(response => {
@@ -45,7 +47,7 @@ describe('API endpoint /api/movies', () => {
     });
   });
   describe('POST', () => {
-    it('Should respond to correct request with status code 200', () => {
+    it('Should respond to request with status code 200', () => {
       return request(app)
         .post('/api/movies')
         .send(mockupMovie)
@@ -84,7 +86,7 @@ describe('API endpoint /api/movies', () => {
 
 describe('API endpoint /api/movies/:id', () => {
   describe('GET', () => {
-    it('Should respond to correct request with status code 200', () => {
+    it('Should respond to request with status code 200', () => {
       return request(app)
         .get('/api/movies/81019894')
         .then(response => {
@@ -98,7 +100,7 @@ describe('API endpoint /api/movies/:id', () => {
     });
     it('Should respond with status code 404 when movie is not found', () => {
       return request(app)
-        .get(`/api/movies/${INVALID_MOVIE_ID}`)
+        .get(`/api/movies/${MOVIE_ID_NOT_FOUND}`)
         .then(response => {
           expect(response.status).toBe(404);
           expect(response.body).toHaveProperty('status');
@@ -106,7 +108,7 @@ describe('API endpoint /api/movies/:id', () => {
           expect(response.body).toHaveProperty('params');
           expect(response.body.status).toBe('404 Not Found');
           expect(response.body.message).toBe(
-            `No movie found with id ${INVALID_MOVIE_ID}.`
+            `No movie found with id ${MOVIE_ID_NOT_FOUND}.`
           );
         });
     });
@@ -115,11 +117,12 @@ describe('API endpoint /api/movies/:id', () => {
         .get('/api/movies/klsdjlfjsdfkjlsdf')
         .then(response => {
           expect(response.status).toBe(400);
+          expect(response.body.status).toBe('400 Bad Request');
         });
     });
   });
   describe('DELETE', () => {
-    it('Should respond to correct request with status code 200', () => {
+    it('Should respond to request with status code 200', () => {
       return request(app)
         .delete('/api/movies/70101696')
         .then(response => {
@@ -142,7 +145,7 @@ describe('API endpoint /api/movies/:id', () => {
     });
   });
   describe('PUT', () => {
-    it('Should respond to correct request with status code 200', () => {
+    it('Should respond to request with status code 200', () => {
       return request(app)
         .put('/api/movies/70105132')
         .send(mockupMovie)
@@ -161,6 +164,8 @@ describe('API endpoint /api/movies/:id', () => {
         .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(400);
+          expect(response.body).toHaveProperty('status');
+          expect(response.body.status).toBe('400 Bad Request');
         });
     });
     it('Should respond with status code 404 when movie is not found', () => {
