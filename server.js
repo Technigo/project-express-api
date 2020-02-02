@@ -56,8 +56,8 @@ app.get('/language/:language', (req, res) => {
   res.json(bookLanguage)
 })
 
-// Code along, search title and author with query
-app.get('/book', (req, res) => {
+// Search title and author with query
+app.get('/detail', (req, res) => {
   const searchString = req.query.search;
 
   let filteredDetails = booksData;
@@ -65,12 +65,14 @@ app.get('/book', (req, res) => {
     filteredDetails = filteredDetails.filter(item => {
       const itemTitle = item.title.toString();
       const itemsAuthor = item.authors.toString();
+
       return itemTitle.includes(searchString) ||
         itemsAuthor.includes(searchString)
     })
   }
   res.json(filteredDetails)
 })
+
 
 // Start the server
 app.listen(port, () => {
