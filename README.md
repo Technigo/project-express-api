@@ -3,8 +3,14 @@
 
 Project week 17 @ Technigo Bootcamp 2020 was to start our backend journey by creating an API using Express.
 
-API: https://nyblad-express-api.herokuapp.com/
 Snack to try it out: https://snack.expo.io/@nyblad/nyblad-express-api
+
+API root: https://nyblad-express-api.herokuapp.com/
+All shows: https://nyblad-express-api.herokuapp.com/shows?page=0
+Movies: https://nyblad-express-api.herokuapp.com/shows/movies?page=0
+TV-shows: https://nyblad-express-api.herokuapp.com/shows/tv-shows?page=0
+Title search query example: https://nyblad-express-api.herokuapp.com/shows?title=king
+
 
 ## Learning objectives
 
