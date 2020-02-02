@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import netflixData from './data/netflix-titles.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -22,7 +23,38 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Start defining your RESTful end points/routes here
+app.get('/catalogue', (req, res) => {
+  res.json(netflixData)
+})
+
+app.get('/type/:type', (req, res) => {
+  let type = req.params.type.toLowerCase().replace(/[-_ ]/, "")
+  if (type === "tvshow" || type === "show" || type === "tv") {
+    type = "TV Show"
+  } else if (type === "movie") {
+    type = "Movie"
+  }
+  const catalogueType = netflixData.filter((item) => item.type === type)
+  res.json(catalogueType)
+})
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  let type = req.query.type
+  let catalogueYear = netflixData.filter((item) => item.release_year === +year)
+
+  if (type) {
+    type = type.toLowerCase().replace(/[-_]/, "")
+    if (type === "tvshow" || type === "show" || type === "tv") {
+      type = "TV Show"
+    } else if (type === "movie") {
+      type = "Movie"
+    }
+    catalogueYear = catalogueYear.filter((item) => item.type === type)
+  }
+  res.json(catalogueYear)
+
+})
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
