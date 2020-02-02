@@ -1,13 +1,15 @@
-# Express API Project
+# Project 16 - Barcode Scanner @ Technigo Bootcamp 2019
 
-Replace this readme with your own information about your project. 
+Link to the deployed site: https://express-api-project.herokuapp.com/
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Project week 17 was all about leaving the frontend and taking a look at the backend. The focus was on building our first API!
 
-## The problem
+## The requirements for the project:
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- Building an API in Node using Express
+- Creating routes in Express
 
-## View it live
+## Technologies used
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+- Express
+- JavaScript ES6
