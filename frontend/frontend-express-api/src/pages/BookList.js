@@ -50,7 +50,7 @@ export const BookList = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://tavferreira-bookstore-api.herokuapp.com/books?page=0${order !== "" ? `&rating=${order}` : ""}${title !== "" ? `&title=${title}` : ""}`)
+        fetch(`https://tavferreira-bookstore-api.herokuapp.com/books?page=1${order !== "" ? `&rating=${order}` : ""}${title !== "" ? `&title=${title}` : ""}`)
             .then(res => res.json())
             .then(json => {
                 setBooks(json);

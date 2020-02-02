@@ -24,31 +24,31 @@ const PER_PAGE = 10
 app.get('/books', (req, res) => {
   const { page } = req.query
   const startIndex = PER_PAGE * +page
-  let booksData = []
+  let booksData = books
 
   const language = req.query.lang
   const titleQuery = req.query.title
   const rating = req.query.rating
 
   if (rating === 'asc') {
-    booksData = books.sort(function (a, b) { return a.average_rating - b.average_rating })
+    booksData = booksData.sort(function (a, b) { return a.average_rating - b.average_rating })
   } else if (rating === 'desc') {
-    booksData = books.sort(function (a, b) { return b.average_rating - a.average_rating })
+    booksData = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
   }
 
   if (language) {
-    booksData = books.filter(book => book.language_code === language)
+    booksData = booksData.filter(book => book.language_code === language)
   }
 
   if (titleQuery) {
-    booksData = books.filter(book => book.title.toString().toLowerCase().includes(titleQuery.toLowerCase()))
+    booksData = booksData.filter(book => book.title.toString().toLowerCase().includes(titleQuery.toLowerCase()))
   }
 
-  booksData = books.slice(startIndex, startIndex + PER_PAGE)
+  booksData = booksData.slice(startIndex, startIndex + PER_PAGE)
 
   res.json({
-    totalPages: Math.floor(books.length / PER_PAGE),
-    currentPage: +page,
+    totalPages: Math.floor(booksData.length / PER_PAGE) + 1,
+    currentPage: +page + 1,
     booksData
   })
 })
