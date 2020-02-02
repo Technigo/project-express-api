@@ -43,7 +43,7 @@ const List = styled.ul`
 
 export const BookList = () => {
     const [books, setBooks] = useState([]);
-    const [order, setOrder] = useState("desc")
+    const [order, setOrder] = useState("")
     const [title, setTitle] = useState("")
     const [searching, setSearching] = useState(false)
     const [loading, setLoading] = useState(true)
@@ -73,6 +73,7 @@ export const BookList = () => {
                 <Order>
                     <label>Rating:
                         <Select value={order} onChange={(e) => setOrder(e.target.value)}>
+                            <option value="" disabled>Select order</option>
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </Select>
@@ -84,7 +85,7 @@ export const BookList = () => {
                 </Search>
             </NavBar>
             <List>
-                {books.map(book => (
+                {books.booksData.map(book => (
                     <Book key={book.bookID} book={book} />
                 ))}
             </List>
