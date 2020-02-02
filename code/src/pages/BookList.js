@@ -79,7 +79,10 @@ export const BookList = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        setSearching(!searching)
+        if (page !== 0) 
+            setPage(0)
+        else setSearching(!searching)
+
     }
 
     return (
