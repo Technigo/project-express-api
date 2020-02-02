@@ -19,27 +19,36 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+const PER_PAGE = 10
+
 app.get('/books', (req, res) => {
-  let resBooks = books
+  const { page } = req.query
+  const startIndex = PER_PAGE * +page
+  let booksData = books.slice(startIndex, startIndex + PER_PAGE)
+
   const language = req.query.lang
   const titleQuery = req.query.title
   const rating = req.query.rating
 
   if (rating === 'asc') {
-    resBooks = resBooks.sort(function (a, b) { return a.average_rating - b.average_rating })
+    booksData = booksData.sort(function (a, b) { return a.average_rating - b.average_rating })
   } else if (rating === 'desc') {
-    resBooks = resBooks.sort(function (a, b) { return b.average_rating - a.average_rating })
+    booksData = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
   }
 
   if (language) {
-    resBooks = resBooks.filter(book => book.language_code === language)
+    booksData = booksData.filter(book => book.language_code === language)
   }
 
   if (titleQuery) {
-    resBooks = resBooks.filter(book => book.title.toString().toLowerCase().includes(titleQuery.toLowerCase()))
+    booksData = booksData.filter(book => book.title.toString().toLowerCase().includes(titleQuery.toLowerCase()))
   }
 
-  res.send(resBooks)
+  res.json({
+    totalPages: Math.floor(books.length / PER_PAGE),
+    currentPage: +page,
+    booksData
+  })
 })
 
 app.get('/books/:id', (req, res) => {
