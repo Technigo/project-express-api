@@ -41,8 +41,22 @@ const List = styled.ul`
     padding: 0;
 `
 
+const Footer = styled.footer`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+`
+
+const Page = styled.p`
+    margin: 0px 24px;
+
+`
+
 export const BookList = () => {
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([])
+    const [page, setPage] = useState(0)
+    const [totalPages, setTotalPages] = useState()
     const [order, setOrder] = useState("")
     const [title, setTitle] = useState("")
     const [searching, setSearching] = useState(false)
@@ -50,13 +64,14 @@ export const BookList = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://tavferreira-bookstore-api.herokuapp.com/books?page=0${order !== "" ? `&rating=${order}` : ""}${title !== "" ? `&title=${title}` : ""}`)
+        fetch(`https://tavferreira-bookstore-api.herokuapp.com/books?page=${page}${order !== "" && order !== "unord" ? `&rating=${order}` : ""}${title !== "" ? `&title=${title}` : ""}`)
             .then(res => res.json())
             .then(json => {
                 setBooks(json);
+                setTotalPages(json.totalPages)
                 setLoading(false);
             });
-    }, [order, searching]);
+    }, [order, searching, page]);
 
     if (loading) {
         return <Loading><SyncLoader color='#000' /></Loading>
@@ -73,7 +88,7 @@ export const BookList = () => {
                 <Order>
                     <label>Rating:
                         <Select value={order} onChange={(e) => setOrder(e.target.value)}>
-                            <option value="">Unordered</option>
+                            <option value="" disabled>Select order</option>
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </Select>
@@ -89,6 +104,15 @@ export const BookList = () => {
                     <Book key={book.bookID} book={book} />
                 ))}
             </List>
+            <Footer>
+                {page > 0 && (
+                    <button type="button" onClick={() => setPage(page - 1)}>Previous page</button>
+                )}
+                <Page>Page {page + 1} / {totalPages + 1}</Page>
+                {page < totalPages && (
+                    <button type="button" onClick={() => setPage(page + 1)}>Next page</button>
+                )}
+            </Footer>
         </Main>
     )
 }
