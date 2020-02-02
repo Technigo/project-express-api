@@ -142,22 +142,32 @@ router.get('/movies/:id', (req, res) => {
 
 // DELETE routes
 router.delete('/movies/:id', (req, res) => {
-  const id = +req.params.id;
-  const movie = movies.find(item => item.show_id === id);
+  const { id } = req.params;
 
-  if (movie) {
-    movies = movies.filter(item => item.show_id !== id);
-    res.json({
-      status: '200 OK',
-      message: 'Movie deleted successfully',
-      data: movie
-    });
-  } else {
-    res.status(404).send({
-      status: '404 Not Found',
-      message: `No movie found with id ${req.params.id}.`
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      status: '400 Bad Request'
     });
   }
+
+  const movie = movies.find(item => item.show_id === +id);
+
+  if (!movie) {
+    res.status(404).send({
+      status: '404 Not Found',
+      message: `No movie found with id ${id}.`,
+      params: req.params
+    });
+  }
+
+  // Delete movie
+  movies = movies.filter(item => item.show_id !== +id);
+
+  res.json({
+    status: '200 OK',
+    message: 'Movie deleted successfully',
+    data: movie
+  });
 });
 
 // POST routes
@@ -212,11 +222,11 @@ router.put('/movies/:id', (req, res) => {
   // Find movie object to update
   const movie = movies.find(item => item.show_id === +id);
 
-  // If movie does not exist, return 404
   if (!movie) {
     res.status(404).send({
-      error: '404 Not Found',
-      message: `No movie found with id ${+id}.`
+      status: '404 Not Found',
+      message: `No movie found with id ${+id}.`,
+      params: +id
     });
   }
 
@@ -233,14 +243,12 @@ router.put('/movies/:id', (req, res) => {
     // Removing property
     delete error.isJoi;
 
-    // Send a 422 error response when validation fails
     res.status(422).json({
       status: '422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
   } else {
-    // Create updated movie object
     const updatedMovie = {
       show_id,
       ...value
@@ -249,7 +257,6 @@ router.put('/movies/:id', (req, res) => {
     // Replace existing movie object with updated movie object
     movies.splice(index, 1, updatedMovie);
 
-    // Send a success response when validation succeecds
     res.json({
       status: '200 OK',
       message: 'Movie updated successfully',
