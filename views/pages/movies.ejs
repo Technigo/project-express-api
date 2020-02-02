@@ -6,7 +6,7 @@
 
   <section class="card-wrapper movie-section">
     <% movies.map(movie => { %>
-    <div class="card movies">
+    <a class="card" href="/netflix/id/<%= movie.show_id %>">
       <div class="flex-top">
         <div class="title"><%= movie.title %></div>
         <div>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="description"><%= movie.description %></div>
-    </div>
+    </a>
     <% }); %>
 
   </section>
