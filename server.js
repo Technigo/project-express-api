@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 
 // Start defining the routes
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Books API')
 })
 
 // Return all the books (objects) from the array in books.json
@@ -38,9 +38,13 @@ app.get('/books2', (req, res) => {
 
 // Return an individual book (an object), using :id as a placeholder for the bookID number
 app.get('/books/:id', (req, res) => {
-  const id = req.params.id
-  const bookId = books.filter((item) => item.bookID === +id)
-  res.json(bookId)
+  const { id } = req.params
+  const bookId = books.find((item) => item.bookID === +id)
+  if(bookId) {
+    res.json(bookId)
+  } else {
+    res.status(404).json({message: 'Not found'})
+  }
 })
 
 // Return all the books (objects) from the array in books.json sorted by average rating (from the highest to lowest)
@@ -49,7 +53,7 @@ app.get('/books/sort/rating', (req, res) => {
   res.json(booksByRating)
 })
 
-// Return all the books (objects) from the array in books.json sorted by number of pages (from highest to lowest)
+// Return all the books (objects) from the array in books.json sorted by number of pages (from the highest to lowest)
 app.get('/books/sort/numberofpages', (req, res) => {
   const booksByPages = books.sort((a, b) => -(parseFloat(a.num_pages)-parseFloat(b.num_pages)))
   res.json(booksByPages)
