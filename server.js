@@ -31,7 +31,7 @@ app.get('/shows', (req, res) => {
   if (titleSearchString) {
     filteredShows = filteredShows.filter((item) => {
       const itemTitle = item.title.toString().toLowerCase() // toString since titles might be number
-      return itemTitle.includes(titleSearchString)
+      return itemTitle.includes(titleSearchString.toLowerCase())
     })
   }
 
