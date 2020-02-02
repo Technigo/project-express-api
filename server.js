@@ -4,20 +4,6 @@ import cors from 'cors'
 import booksData from './data/books.json'
 
 
-
-// {
-// "bookID": 1,
-// "title": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
-// "authors": "J.K. Rowling-Mary GrandPré",
-// "average_rating": 4.56,
-// "isbn": 439785960,
-// "isbn13": 9780439785969,
-// "language_code": "eng",
-// "num_pages": 652,
-// "ratings_count": 1944099,
-// "text_reviews_count": 26249
-// },
-
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -29,7 +15,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here. Below: 
 app.get('/', (req, res) => {
-  res.send('Possible routes: /books, /language/:language, /rating/:rating')
+  res.send('Possible routes: /books, /language/:language, /rating, /page')
 })
 
 //SHOW WELCOME 
@@ -37,10 +23,6 @@ app.get('/Welcome', (req, res) => {
   res.send('WELCOME')
 })
 
-//SHOW ALL DATA IN JSON
-// app.get('/books', (req, res) => {
-//   res.json(booksData)
-// })
 
 //SHOW A BOOK BASED ON ID
 app.get('/books/:id', (req, res) => {
@@ -72,12 +54,13 @@ app.get("/books", (req, res) => {
       const authorsName = book.authors.toString()
       return authorsName.toLowerCase().includes(authorsSearch.toLowerCase())
     })
+    //if array is empty show error message
   } if (filteredBooks.length === 0) {
     res.status(404).send(`No books found`);
   } else {
     res.json(filteredBooks)
   }
-}) //Why is not error message showing?
+})
 
 //Filters on language_code.  http://localhost:8080/language/eng
 app.get('/language/:language', (req, res) => {
@@ -102,11 +85,13 @@ app.get('/rating', (req, res) => {
 })
 
 
-//PAGINATION. URL = http://localhost:8080/books1?page=1
+//PAGINATION. Show 20 books per page. URL = http://localhost:8080/books1?page=1
 const PER_PAGE = 20
 
-app.get('/books1', (req, res) => {
+app.get('/page', (req, res) => {
+  //{page} = same as writing page = req.query.page
   const { page } = req.query
+  //+page turn string to a integer
   const startIndex = PER_PAGE * +page
   const data = booksData.slice(startIndex, startIndex + PER_PAGE)
   const pageCount = Math.ceil(booksData.length / 20)
@@ -122,7 +107,6 @@ app.get('/books1', (req, res) => {
     })
   }
 })
-
 
 // Start the server
 app.listen(port, () => {
