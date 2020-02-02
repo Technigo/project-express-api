@@ -1,15 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import books from './data/books.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -25,6 +17,37 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/books', (req, res) => {
+  let resBooks = books
+  const language = req.query.lang
+  const titleQuery = req.query.title
+  const rating = req.query.rating
+
+  if (rating === 'asc') {
+    resBooks = resBooks.sort(function (a, b) { return a.average_rating - b.average_rating })
+  } else if (rating === 'desc') {
+    resBooks = resBooks.sort(function (a, b) { return b.average_rating - a.average_rating })
+  }
+
+  if (language) {
+    resBooks = resBooks.filter(book => book.language_code === language)
+  }
+
+  if (titleQuery) {
+    resBooks = resBooks.filter(book => book.title.toString().toLowerCase().includes(titleQuery.toLowerCase()))
+  }
+
+  res.send(resBooks)
+})
+
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+
+  const book = books.filter((book) => book.bookID === +id)
+
+  res.send(book)
 })
 
 // Start the server
