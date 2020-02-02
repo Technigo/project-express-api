@@ -3,5 +3,5 @@
 # how it should build the JavaScript assets to deploy from.
 [build]
   base = "frontent/code/"
-  publish = "frontend/build/"
+  publish = "build/"
   command = "npm run build"
