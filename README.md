@@ -1,13 +1,15 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I created an API in node Express using different RESTful endpoints that returns an array of data and single items.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had problems with my query that was ignored and didn't print out the single result I wanted. I found out with some help that I had to include my query in the data, so I added the array method .include() to make it work.
+
+I also used other array methods such as .filter() in order to filter the items from the data.
+
+If I had more time I would have worked more on the frontend and would have build a pagination to the page.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+http://project-express-api.herokuapp.com/api
