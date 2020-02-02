@@ -47,8 +47,8 @@ app.get('/books', (req, res) => {
   booksData = booksData.slice(startIndex, startIndex + PER_PAGE)
 
   res.json({
-    totalPages: Math.floor(booksData.length / PER_PAGE) + 1,
-    currentPage: +page + 1,
+    totalPages: Math.floor(booksData.length / PER_PAGE),
+    currentPage: +page,
     booksData
   })
 })
