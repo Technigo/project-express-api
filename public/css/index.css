@@ -12,6 +12,7 @@ https://colorhunt.co/palette/12081
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -44,19 +45,9 @@ nav a {
   font-size: 25px;
 }
 
-nav a:hover {
+nav a:hover, nav a:active {
   color: #ffc8c8;
   text-decoration: underline;
-}
-
-nav a:active {
-  color: #ffc8c8;
-  text-decoration: underline;
-}
-
-nav a:link, nav a:visited {
-  color: #3e4149;
-  text-decoration: none;
 }
 
 main {
@@ -98,17 +89,12 @@ footer {
 
 .pagination a {
   padding: 0px 10px;
-  background-color: #3e4149;
+  background-color: #ffc8c8;
   border-radius: 50%;
 }
 
 .pagination a:hover, .pagination a:active {
-  color: #ffc8c8;
-  text-decoration: underline;
-}
-
-.pagination a:link, .pagination a:visited {
-  color: #ffc8c8;
+  color: #ff9999;
   text-decoration: none;
 }
 
@@ -134,4 +120,28 @@ footer {
 
 .description {
   margin-top: 10px;
+}
+
+.show {
+  background-color: #ffc8c8;
+  max-width: 800px;
+  min-width: 300px;
+  width: 80%;
+  padding: 40px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  flex-grow: 1;
+  align-self: center;
+}
+
+.backBtn {
+  height: 50px;
+  width: 150px;
+  position: relative;
+  top: 0px;
+}
+
+.show-info div {
+  font-size: 20px;
 }

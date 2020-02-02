@@ -14,7 +14,7 @@ app.set('view engine', 'ejs')
 app.use(express.static("public"))
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.redirect(301, '/netflix?page=1&perPage=12')
 })
 
 // display all the netflix data
@@ -25,7 +25,7 @@ app.get('/netflix', (req, res) => {
 
   let sliceStart = page * perPage;
   let sliceEnd = sliceStart + perPage;
-  res.render('pages/all_data', {
+  res.render('pages/shows', {
     allData: netflixData.slice(sliceStart, sliceEnd),
     endpoint: '/netflix'
   })
@@ -66,38 +66,17 @@ app.get('/tv-shows', (req, res) => {
 })
 
 
+app.get('/netflix/id/:id', (req, res) => {
+  const id = req.params.id
+  const show = netflixData.find((item) => item.show_id === +id)
 
-//display the tv-shows and release-year
-//http://localhost:8080/tv-shows/2015
-app.get('api/tv-shows/:year', (req, res) => {
-  const year = req.params.year
+  if (!show) { res.status(404).send() }
 
-  // Error handling - if year is not a number
-  if (isNaN(Number(year))) {
-    res.statusCode = 400
-    res.send("Error, must send a year")
-  }
-  let TvShows = netflixData.filter((item) => item.type === "TV Show" &&
-    item.release_year === +year)
+  res.render('pages/show', {
+    show: show,
+  });
+});
 
-  res.json(TvShows)
-})
-
-
-
-app.get('api/movies/:year', (req, res) => {
-  const year = req.params.year
-
-  // Error handling - if year is not a number
-  if (isNaN(Number(year))) {
-    res.statusCode = 400
-    res.send("Error, must send a year")
-  }
-  let Movies = netflixData.filter((item) => item.type === "Movie" &&
-    item.release_year === +year)
-
-  res.json(Movies)
-})
 
 
 // http://localhost:8080/api/netflix?country=nigeria&year=2018
@@ -116,19 +95,6 @@ app.get('/api/netflix', (req, res) => {
 
   res.json(result)
 })
-
-
-app.get('/netflix/id/:id', (req, res) => {
-  const id = req.params.id
-  const result = netflixData.find((item) => item.show_id === +id)
-
-  if (!result) { res.status(404).send() }
-
-  res.json(result)
-});
-
-
-
 
 
 

@@ -3,10 +3,9 @@
 
 <main>
   <h1> All media </h1>
-
   <section class="card-wrapper movie-section">
     <% allData.map(item => { %>
-    <div class="card movies">
+    <a class="card" href="/netflix/id/<%= item.show_id %>">
       <div class="flex-top">
         <div class="title"><%= item.title %></div>
         <div>
@@ -15,8 +14,7 @@
         </div>
       </div>
       <div class="description"><%= item.description %></div>
-    </div>
-
+    </a>
     <% }); %>
 
   </section>

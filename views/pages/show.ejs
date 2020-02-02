@@ -1,0 +1,37 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Express API by Nasim</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/css/index.css">
+
+</head>
+<%- include('../partials/header') -%>
+
+
+
+<main>
+
+  <section class="show">
+    <button class="backBtn" onclick="window.history.back()"> back </button>
+
+    <div class="show-info">
+      <div>Title: <%= show.title %></div>
+      <div>Year: <%= show.release_year %></div>
+      <div>Description: <%= show.description %></div>
+      <div>Country: <%= show.country %></div>
+      <div>Director: <%= show.director %></div>
+      <div>Type: <%= show.type %></div>
+      <div>Duration: <%= show.duration %></div>
+      <div>Cast: <%= show.cast %></div>
+      <div>Genre: <%= show.listed_in %></div>
+      <div>Date added: <%= show.date_added %></div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('../partials/footer') -%>
