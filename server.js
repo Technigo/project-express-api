@@ -30,11 +30,16 @@ app.get('/books', (req, res) => {
   const { title } = req.query
   const { rating } = req.query
 
-  if (rating === 'asc') {
-    booksData = booksData.sort(function (a, b) { return a.average_rating - b.average_rating })
-  } else if (rating === 'desc') {
-    booksData = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
-  } else { booksData = books }
+
+  if (rating) {
+    if (rating === 'asc') {
+      booksData.sort(function (a, b) { return a.average_rating - b.average_rating })
+    } else if (rating === 'desc') {
+      booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
+    }
+  } else {
+    booksData.sort(function (a, b) { return a.bookID - b.bookID })
+  }
 
   if (lang) {
     booksData = booksData.filter(book => book.language_code === lang)
