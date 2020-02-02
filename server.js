@@ -85,23 +85,15 @@ app.get('/language/:language', (req, res) => {
   const bookLanguage = booksData.filter((item) => item.language_code === language)
 
   if (bookLanguage.length === 0) {
-    res.status(404).send(`No book found.`);
+    res.status(404).send(`No books with the language: ${language} found.`);
 
   } else {
     res.json(bookLanguage)
-    console.log(bookLanguage)
   }
 })
 
-//Sort on avarage_rating.  http://localhost:8080/language/eng
-// app.get('/rating/:rating', (req, res) => {
-//   const ratingSearch = req.params.rating
-//   const bookRating = booksData.filter((item) => item.avarage_rating === rating)
-
-//   res.json(bookRating)
-// })
-
-app.get('/sort/rating', (req, res) => {
+//Sort books from highest rating to lowest. http://localhost:8080/sort/rating
+app.get('/rating', (req, res) => {
   const booksByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
   res.json({
     text: "Sorted by average rating",
@@ -118,8 +110,8 @@ app.get('/books1', (req, res) => {
   const startIndex = PER_PAGE * +page
   const data = booksData.slice(startIndex, startIndex + PER_PAGE)
   const pageCount = Math.ceil(booksData.length / 20)
-  console.log(page)
 
+  //How do I get it to show the last page even it you write page 300?
   if (page >= pageCount) {
     res.status(404).send(`No page ${page} found, last page is ${pageCount}.`);
   } else {
