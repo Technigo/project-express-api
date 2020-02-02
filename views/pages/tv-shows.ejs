@@ -6,9 +6,15 @@
 
   <section class="card-wrapper tv-shows-section">
     <% tvshows.map(tvshow => { %>
-    <div class="card tv-show">
-      <div class="title"><%= tvshow.title %></div>
-      <div class="year"><%= tvshow.release_year %></div>
+    <div class="card movies">
+      <div class="flex-top">
+        <div class="title"><%= tvshow.title %></div>
+        <div>
+          <div class="year"><%= tvshow.release_year %></div>
+          <div class="country"><%= tvshow.country %></div>
+        </div>
+      </div>
+      <div class="description"><%= tvshow.description %></div>
     </div>
     <% }); %>
 

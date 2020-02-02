@@ -29,12 +29,6 @@ app.get('/netflix', (req, res) => {
     allData: netflixData.slice(sliceStart, sliceEnd),
     endpoint: '/netflix'
   })
-
-  // res.json(netflixData.slice(sliceStart, sliceEnd));
-
-  // res.render('pages/data', {
-  //   data: netflixData
-  // })
 })
 
 
@@ -52,6 +46,8 @@ app.get('/movies', (req, res) => {
     endpoint: '/movies'
   })
 })
+
+
 
 app.get('/tv-shows', (req, res) => {
   let tvshows = netflixData.filter((item) => item.type === "TV Show")
@@ -86,6 +82,8 @@ app.get('api/tv-shows/:year', (req, res) => {
 
   res.json(TvShows)
 })
+
+
 
 app.get('api/movies/:year', (req, res) => {
   const year = req.params.year
@@ -128,9 +126,6 @@ app.get('/netflix/id/:id', (req, res) => {
 
   res.json(result)
 });
-
-
-
 
 
 

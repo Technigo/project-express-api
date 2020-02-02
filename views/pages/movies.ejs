@@ -7,8 +7,14 @@
   <section class="card-wrapper movie-section">
     <% movies.map(movie => { %>
     <div class="card movies">
-      <div class="title"><%= movie.title %></div>
-      <div class="year"><%= movie.release_year %></div>
+      <div class="flex-top">
+        <div class="title"><%= movie.title %></div>
+        <div>
+          <div class="year"><%= movie.release_year %></div>
+          <div class="country"><%= movie.country %></div>
+        </div>
+      </div>
+      <div class="description"><%= movie.description %></div>
     </div>
     <% }); %>
 
