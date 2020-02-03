@@ -5,6 +5,8 @@ import cors from 'cors'
 import topMusic from './data/top-music.json'
 import netflixTitles from './data/netflix-titles.json'
 
+const MAXPERPAGE = 10 /* max results to show per page */
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
@@ -43,6 +45,36 @@ app.get('/api', (req, res) => {
   res.send(listEndpoints(app))
 })
 
+app.get('/netflix-titles/', (req, res) => {
+  let results = []
+
+   /** Fetch query params */
+  const actor = req.query.actor
+  const page = req.query.page || 1
+  console.log("page", page)
+  
+  /* Handle filtering */
+  if (actor) {
+    results = netflixTitles.filter(title => title.cast.indexOf(actor) !== -1)
+  } else {
+      results = netflixTitles
+  }
+
+  /** Handle pages */
+  if (results.length > MAXPERPAGE) {
+    console.log(results.length)
+    results = results.slice((page - 1) * MAXPERPAGE, page * MAXPERPAGE)
+  }
+
+
+  res.json(results)
+})
+
+app.get('/netflix-titles/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  res.send(netflixTitles.find(title => title.show_id === id))
+})
+
 app.get('/top-music/', (req, res) => {
   res.send(topMusic)
 })
@@ -50,31 +82,6 @@ app.get('/top-music/', (req, res) => {
 app.get('/top-music/:id', (req, res) => {
   const id = parseInt(req.params.id)
   res.send(topMusic.find(song => song.id === id))
-})
-
-/** A nicer solution than this would be with query params (like netflix titles below) */
-app.get('/top-music/by-genre/:genre', (req, res) => {
-  const genre = req.params.genre
-  res.send(topMusic.filter(song => song.genre === genre))
-})
-
-
-app.get('/netflix-titles/', (req, res) => {
-  let results = []
-
-  const actor = req.query.actor
-  
-  if (actor) {
-    results = netflixTitles.filter(title => title.cast.indexOf(actor) !== -1)
-  } else {
-      results = netflixTitles
-  }
-  res.json(results)
-})
-
-app.get('/netflix-titles/:id', (req, res) => {
-  const id = parseInt(req.params.id)
-  res.send(netflixTitles.find(title => title.show_id === id))
 })
 
 
