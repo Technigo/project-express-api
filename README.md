@@ -5,7 +5,9 @@ Express server is a webframwork for Node.js. short FAQ about the server is found
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The idea was to create an API with endpoints in from a datafile of books. I started with an endpoint that responded with all the books and after that one book by calling the book's id.
+I implemented the methods .filter, .find and .slice. and to some extent I also implemented some status codes when there is no result.
+I found it challenging to understand concept of the params, and the needed switches integers <-> strings and to get the queries right.
 
 ## View it live
 https://ninamansster-book-api.herokuapp.com/
