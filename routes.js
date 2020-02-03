@@ -219,7 +219,7 @@ router.put('/movies/:id', (req, res) => {
     res.status(404).send({
       status: '404 Not Found',
       message: `No movie found with id ${+id}.`,
-      params: +id
+      params: req.params
     });
   }
 
