@@ -1,13 +1,15 @@
-# Express API Project
+# Express API - Learnings
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+How to build an API in Node using Express
+How to create routes in Express
+Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-deployment-linda.herokuapp.com
+20 books per page: https://express-deployment-linda.herokuapp.com/page?page=0
+Title or authors query: https://express-deployment-linda.herokuapp.com/books?title=harry
+https://express-deployment-linda.herokuapp.com/page?page=0
+Books based on language: https://express-deployment-linda.herokuapp.com/language/eng
+Books based on ID: https://express-deployment-linda.herokuapp.com/books/1 
+Books with highest to lowest rating: https://express-deployment-linda.herokuapp.com/rating
