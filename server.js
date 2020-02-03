@@ -2,15 +2,16 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
+import booksData from "./data/books.json";
+
+// SAVING OTHER DATA FOR LATER DEVELOPMENT OF THE PROJECT
 // import goldenGlobesData from "./data/golden-globes.json";
 // import avocadoSalesData from './data/avocado-sales.json'
-import booksData from "./data/books.json";
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -35,13 +36,13 @@ app.get("/books", (req, res) => {
     filteredBooks = filteredBooks.filter(item => {
       let itemTitle = item.title.toString().toLowerCase();
       let itemAuthor = item.authors.toString().toLowerCase();
+
       return (
         itemTitle.includes(searchString) || itemAuthor.includes(searchString)
       );
     });
   }
 
-  console.log(searchString);
   res.json(filteredBooks);
 });
 
@@ -71,12 +72,12 @@ app.get("/booksInfo", (req, res) => {
   const searchRating = req.query.rating;
   const searchPages = req.query.pages;
 
-  let rating = booksData.filter(
+  let info = booksData.filter(
     item =>
       item.average_rating === +searchRating || item.num_pages === +searchPages
   );
 
-  res.json(rating);
+  res.json(info);
 });
 
 app.get("/books/pages/:pages", (req, res) => {
