@@ -45,35 +45,43 @@ app.get('/', (req, res) => {
 
 //Parameters-explanained
 //Path variable or path parameter  = something specific; an individual/item or group
-// app.get('/shows/:id', (req, res) => {
-//   const showId = req.params.showId
-//   const show = netflixData.filter((item) => item.show_id === showId) 
-//Query parameter = a portion of a path (of a "thing")
 
-//creating a rest route called books (path variable)
-//(localhost:8080/books)
+// PAGE
+
+//const PER_PAGE = 20
+
+
+// GET /books
 app.get('/books', (req, res) => {
-  res.json(booksData)
+  const { page } = req.query
+  const startIndex = 20 * +page
+  res.json(booksData.slice(startIndex, startIndex + 20))
+  //res.json(booksData.slice(0, 20))
+
+  // res.json({
+  //   totalPages: Math.floor(booksData.length / PER_PAGE),
+  //   currentPage: +page,
+  //   data
+  // })
 })
 
-//creating a rest route for id (localhost:8080/books/5)
-app.get('/id/:id', (req, res) => {
-  const bookId = req.params.id
-  const singleBook = booksData.filter((item) => item.bookID === +bookId)
-  res.json(singleBook)
-})
 
-//creating a rest route for id (localhost:8080/booksid/5), https://sv.wikipedia.org/wiki/404_error
-app.get('/booksid/:id', (req, res) => {
-  const id = req.params.id
-  const findThatBook = booksData.find((book) => book.bookID === +id)
-  if (findThatBook) {
-    res.json(findThatBook)
-  } else {
-    res.status(404).send('There was no book with that id')
-  }
+// //creating a rest route called books (path variable)
+// //(localhost:8080/books)
+// app.get('/books', (req, res) => {
+//   res.json(booksData)
+// })
 
-})
+//creating a rest route for id (localhost:8080/books/5) https://sv.wikipedia.org/wiki/404_error
+// app.get('/books/:id', (req, res) => {
+//   const bookId = req.params.id
+//   const findThatBook = booksData.find((item) => item.bookID === +bookId)
+//   if (findThatBook) {
+//     res.json(findThatBook)
+//   } else {
+//     res.status(404).send('There was no book with that id')
+//   }
+// })
 
 //creating a rest route for id (localhost:8080/titles/cc), https://sv.wikipedia.org/wiki/404_error
 app.get('/titles/:titles', (req, res) => {
@@ -87,7 +95,6 @@ app.get('/titles/:titles', (req, res) => {
 
 })
 
-
 //creating a rest route called rating (localhost:8080/ratings/4.47)
 app.get('/ratings/:ratings', (req, res) => {
   const ratings = req.params.ratings
@@ -96,14 +103,12 @@ app.get('/ratings/:ratings', (req, res) => {
   res.json(ratingsNumber)
 })
 
-//creating a sorted rating (localhost:8080/libraryratings)
-// app.get('/bookratings/:bookratings', (req, res) => {
-//   const bookRatings = req.params.bookratings
-//   const booksByRating = booksData.sort((a, b) => -(parseFloat(a.avarage_rating) - parseFloat(b.avarage_rating)))
-//   console.log(booksByRating)
-
-//   res.json(booksByRating)
-// })
+//creating a sorted rating (localhost:8080/books/sort/rating)
+app.get('/books/sort/rating', (req, res) => {
+  const booksByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
+  //console.log(rating)
+  res.json(booksByRating)
+})
 
 //creating a rest route called author localhost:8080/author/Exact name of author
 app.get('/author/:author', (req, res) => {
@@ -131,6 +136,7 @@ app.get('/author/:author', (req, res) => {
 // })
 
 
+
 //localhost:8080/library/
 app.get('/library', (req, res) => {
   //query parameter (localhost:8080/library?search=XXX)
@@ -150,7 +156,7 @@ app.get('/library', (req, res) => {
 
 })
 
-//
+
 
 // Start the server
 app.listen(port, () => {
