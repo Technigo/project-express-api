@@ -4,10 +4,10 @@ This week's project is to start your backend journey by creating an API using Ex
 
 ## technology implemented
 
-**Javascript
-**API
-**Express
-**node.js
+Javascript
+API
+Express
+node.js
 
 ##
 
