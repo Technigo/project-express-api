@@ -1,4 +1,4 @@
-# Custom Netflix API
+# Netflix API with Express and Joi
 
 ### Summary
 
