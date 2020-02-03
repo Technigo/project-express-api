@@ -78,17 +78,10 @@ router.get('/movies', (req, res) => {
   if (queryPage) {
     const startIndex = queryPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE; // Page 1 starts at index 0
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    console.log('Page: ', queryPage);
-    console.log('startIndex: ', startIndex);
-    console.log('endIndex: ', endIndex);
     totalPages = Math.ceil(filteredMovies.length / ITEMS_PER_PAGE);
     remainingPages = totalPages - queryPage;
-    console.log('Remaining pages: ', remainingPages);
     filteredMovies = filteredMovies.slice(startIndex, endIndex);
-    console.log('Sliced array length: ', filteredMovies.length);
   }
-
-  // console.log('Array length: ', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
     if (totalPages === null && remainingPages === null) {
