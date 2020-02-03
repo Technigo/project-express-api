@@ -18,14 +18,12 @@ app.use(bodyParser.json())
 
 //Homepage
 app.get('/', (req, res) => {
-  res.send('Possible routes: /boardgames, /year/:year, /rating/:rating (change :rating to "average" or "rank" ')
+  res.send('Possible routes: /boardgames/:id, /year/:year, /rating/:rating (change :rating to "average" or "rank" ')
 })
 
 //Specific boardgames, requires id
 app.get("/boardgames/:id", (req, res) => {
   const id = req.params.id
-  // const headers = req.headers
-  // console.log("headers : " + JSON.stringify(headers, null, 2))
   const boardgame = boardgamesData.find((game) => game.id === +id)
   if (boardgame) {
     res.json(boardgame)
@@ -34,41 +32,37 @@ app.get("/boardgames/:id", (req, res) => {
   }
 })
 
-//Pages or search
+//Pages or search for name
 app.get("/boardgames", (req, res) => {
   //Query for name
   const nameSearch = req.query.name
-  //Query for page Makes the number written in url to integer
+
+  //Query for page
+  //Makes the number written in url to integer
   let pageSearch = parseInt(req.query.page)
 
-  //Checks how many pages there is when every page has 10 objects
+  //Checks how many pages there is if every page has 10 objects
   const pageCount = Math.ceil(boardgamesData.length / 10)
 
-  //If there's no query in the url, the page should be 1
+  //If there's no page-query in the url, show first page
   if (!pageSearch) {
     pageSearch = 1
   }
-  //If the query is bigger than the pageCount it should show the last page
-  //Meaning: if it's 100 pages and someone writes 101, it should show p100
+  //If the page-query is bigger than the pageCount it should show the last page
   else if (pageSearch > pageCount) {
     pageSearch = pageCount
   }
+
   //If a nameSearch, filter and return only the ones that includes the query
   if (nameSearch) {
     const filteredSearch = boardgamesData.filter(game => {
       const gameName = game.name.toString()
       return gameName.toLowerCase().includes(nameSearch.toLowerCase())
     })
-    //Checks how many pages the filtered search have
     const pageCount = Math.ceil(filteredSearch.length / 10)
-    // console.log(filteredSearch)
-
-    // If there's no query in the url, the page should be 1
     if (!pageSearch) {
       pageSearch = 1
     }
-    //If the query is bigger than the pageCount it should show the last page
-    //Meaning: if it's 100 pages and someone writes 101, it should show p100
     else if (pageSearch > pageCount) {
       pageSearch = pageCount
     }
@@ -80,10 +74,7 @@ app.get("/boardgames", (req, res) => {
     }
   }
 
-  //It slices the json, beginning on the page written in query
-  //If page = 1, it should show 0-10
-  //Eg. 5*10 -10, 5*10
-  //If it's the 5th page it should show result 40 - 50
+  //Slice the data, begin on the page written in query
   res.json(boardgamesData.slice(pageSearch * 10 - 10, pageSearch * 10))
 })
 
@@ -98,14 +89,10 @@ app.get("/year/:year", (req, res) => {
   //filter years
   const boardgamesFromYear = boardgamesData.filter((game) => game.year === +year)
 
-  //Check how many pages
   const pageCount = Math.ceil(boardgamesFromYear.length / 10)
-
-  //If there's no query in the url, the page should be 1
   if (!pageSearch) {
     pageSearch = 1
   }
-  //If the query is bigger than the pageCount it should show the last page
   else if (pageSearch > pageCount) {
     pageSearch = pageCount
   }
@@ -147,11 +134,6 @@ app.get('/rating/:rating', (req, res) => {
     res.json(gamesByRank.slice(pageSearch * 10 - 10, pageSearch * 10))
   }
 })
-
-
-//Path of variable when you're searching for something specific
-//Query, when searching for something ambiguos, more options, like search strings
-
 
 // Start the server
 app.listen(port, () => {
