@@ -1,9 +1,9 @@
 # Express API - Learnings
 
-How to build an API in Node using Express
-How to create routes in Express
-Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
-
+How to build an API in Node using Express  
+How to create routes in Express    
+Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays  
+  
 ## View it live
 
 https://express-deployment-linda.herokuapp.com  
