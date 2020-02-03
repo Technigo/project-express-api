@@ -12,17 +12,17 @@ https://ninamansster-book-api.herokuapp.com/
 
 ## Endpoints to use for calling the API
 Try searches based on the url above + the following routes
-###all the books###
+### all the books
 /books, 
-**top 50 books based on average rating**
+### top 50 books based on average rating
 /books/sort/rating,
-*10 books per page*
+### 10 books per page
 /booklists?page=[a number], 
-*Endpoint for the id-search*
+### Endpoint for the id-search
 books/id/[a number], 
-*find all the books an author has written*
+### find all the books an author has written
 /author/[name of author], 
-*find a specific title*
+### find a specific title
 /titles/[name of title],
-*Search for title or author*
+### Search for title or author
 query for any word in title or author: library?search=[type your search]
