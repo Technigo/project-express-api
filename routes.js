@@ -78,17 +78,10 @@ router.get('/movies', (req, res) => {
   if (queryPage) {
     const startIndex = queryPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE; // Page 1 starts at index 0
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    console.log('Page: ', queryPage);
-    console.log('startIndex: ', startIndex);
-    console.log('endIndex: ', endIndex);
     totalPages = Math.ceil(filteredMovies.length / ITEMS_PER_PAGE);
     remainingPages = totalPages - queryPage;
-    console.log('Remaining pages: ', remainingPages);
     filteredMovies = filteredMovies.slice(startIndex, endIndex);
-    console.log('Sliced array length: ', filteredMovies.length);
   }
-
-  console.log('Array length: ', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
     if (totalPages === null && remainingPages === null) {
@@ -105,7 +98,6 @@ router.get('/movies', (req, res) => {
       data: filteredMovies
     });
     totalPages = remainingPages = null;
-    // console.log(totalPages, remainingPages);
   } else {
     res.status(404).send({
       status: '404 Not Found',
@@ -116,8 +108,15 @@ router.get('/movies', (req, res) => {
 });
 
 router.get('/movies/:id', (req, res) => {
-  const id = +req.params.id;
-  const movie = movies.find(item => item.show_id === id);
+  const { id } = req.params;
+
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      status: '400 Bad Request'
+    });
+  }
+
+  const movie = movies.find(item => item.show_id === +id);
 
   if (!movie) {
     res.status(404).send({
@@ -129,28 +128,39 @@ router.get('/movies/:id', (req, res) => {
 
   res.json({
     status: '200 OK',
+    message: 'Movie fetched successfully',
     data: movie
   });
 });
 
 // DELETE routes
 router.delete('/movies/:id', (req, res) => {
-  const id = +req.params.id;
-  const movie = movies.find(item => item.show_id === id);
+  const { id } = req.params;
 
-  if (movie) {
-    movies = movies.filter(item => item.show_id !== id);
-    res.json({
-      status: '200 OK',
-      message: 'Movie deleted successfully',
-      data: movie
-    });
-  } else {
-    res.status(404).send({
-      status: '404 Not Found',
-      message: `No movie found with id ${req.params.id}.`
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      status: '400 Bad Request'
     });
   }
+
+  const movie = movies.find(item => item.show_id === +id);
+
+  if (!movie) {
+    res.status(404).send({
+      status: '404 Not Found',
+      message: `No movie found with id ${id}.`,
+      params: req.params
+    });
+  }
+
+  // Delete movie
+  movies = movies.filter(item => item.show_id !== +id);
+
+  res.json({
+    status: '200 OK',
+    message: 'Movie deleted successfully',
+    data: movie
+  });
 });
 
 // POST routes
@@ -186,7 +196,7 @@ router.post('/movies', (req, res) => {
     res.json({
       status: '200 OK',
       message: 'Movie created successfully',
-      data: createdMovieghgQ
+      data: createdMovie
     });
   }
 });
@@ -196,21 +206,28 @@ router.put('/movies/:id', (req, res) => {
   const { body } = req;
   const { id } = req.params;
 
+  if (!Number.isInteger(+id)) {
+    res.status(400).send({
+      status: '400 Bad Request'
+    });
+  }
+
   // Find movie object to update
   const movie = movies.find(item => item.show_id === +id);
+
+  if (!movie) {
+    res.status(404).send({
+      status: '404 Not Found',
+      message: `No movie found with id ${+id}.`,
+      params: +id
+    });
+  }
 
   // Destructure show_id to use in updated object
   const { show_id } = movie;
 
   // Find index of movie object to update
   const index = movies.findIndex(item => item.show_id === show_id);
-
-  // If movie does not exist, return 404
-  if (!movie)
-    res.status(404).send({
-      error: '404 Not Found',
-      message: `No movie found with id ${+id}.`
-    });
 
   // Validate request body
   const { error, value } = validateMovie(body);
@@ -219,14 +236,12 @@ router.put('/movies/:id', (req, res) => {
     // Removing property
     delete error.isJoi;
 
-    // Send a 422 error response when validation fails
     res.status(422).json({
       status: '422 Unprocessable Entity',
       message: 'Invalid request data',
       error: error
     });
   } else {
-    // Create updated movie object
     const updatedMovie = {
       show_id,
       ...value
@@ -235,7 +250,6 @@ router.put('/movies/:id', (req, res) => {
     // Replace existing movie object with updated movie object
     movies.splice(index, 1, updatedMovie);
 
-    // Send a success response when validation succeecds
     res.json({
       status: '200 OK',
       message: 'Movie updated successfully',
