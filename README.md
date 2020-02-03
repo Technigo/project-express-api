@@ -16,8 +16,10 @@ After deciding which API to use I started analysing the API and identifying what
 
 Once ready with the priject I deployed it at heroku.
 
+Tools used: Express, javaScript
+
 If I had more time I would have made queries. 
 
 ## View it live
 
-https://jennifers-express-deploy.herokuapp.com/  - Don't forget to add the above endpoints :)
+https://jennifers-express-deploy.herokuapp.com/  - Don't forget to add the above endpoints when viewing in the browser :)
