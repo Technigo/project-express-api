@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
 });
 app.get("/nominations", (req, res) => {
   res.json(goldenGlobesData);
+  res.send("happy");
 });
 
 app.get("/year/:year", (req, res) => {
@@ -38,6 +39,7 @@ app.get("/year/:year", (req, res) => {
   let nominationsFromYear = goldenGlobesData.filter(
     item => +item.year_award === +year
   );
+  // http://localhost:8080/year/2010/?win=true
 
   if (showWon) {
     nominationsFromYear = nominationsFromYear.filter(item => item.win);
@@ -59,12 +61,3 @@ app.get("/year/:year", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
-// year_film: 2009,
-//   year_award: 2010,
-//     ceremony: 67,
-//       category: "Best Motion Picture - Drama",
-//         nominee: "Hurt Locker, The",
-//           film: "",
-//             win: false
-// http://localhost:8080/year/2010/?win=true
