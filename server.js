@@ -68,7 +68,7 @@ app.get("/books/authors/:author", (req, res) => {
   res.json(filteredBooks);
 });
 
-app.get("/booksInfo", (req, res) => {
+app.get("/info", (req, res) => {
   const searchRating = req.query.rating;
   const searchPages = req.query.pages;
 
