@@ -151,16 +151,16 @@ router.delete('/movies/:id', (req, res) => {
       message: `No movie found with id ${id}.`,
       params: req.params
     });
+  } else {
+    // Delete movie
+    movies = movies.filter(item => item.show_id !== +id);
+
+    res.json({
+      status: '200 OK',
+      message: 'Movie deleted successfully',
+      data: movie
+    });
   }
-
-  // Delete movie
-  movies = movies.filter(item => item.show_id !== +id);
-
-  res.json({
-    status: '200 OK',
-    message: 'Movie deleted successfully',
-    data: movie
-  });
 });
 
 // POST routes
