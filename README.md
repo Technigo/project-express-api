@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+Project for Technigo - week 17 - first express API
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Guide
 
-## The problem
+https://express-deployment-vd.herokuapp.com/ or https://express-deployment-vd.herokuapp.com/api/ shows the API endpoints available.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+In addition, https://express-deployment-vd.herokuapp.com/netflix-titles/ takes two optional query params
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+page : page number, if no page is provided then page will default to 1
+actor : Actor name in plain text, filter results based on actor
