@@ -34,28 +34,15 @@ app.get('/shows/:id', (req, res) => {
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
   const anyTypeFromYear = netflixData.filter((item) => item.release_year === +year)
-
-
-
   res.json(anyTypeFromYear)
 })
 
 
-
-
-
-
-//BELOW FILTERS TO SHOW ONLY THE MOVIES
-app.get('/movies', (req, res) => { //req = request-object, res = result-object, 
-  //Here we use the response object to stat building up the response to send back to the browser/the one requesting the data by GET
-  // res.json(netflixData)
+app.get('/movies', (req, res) => {
   const movies = netflixData.filter(movies => (movies.type === "Movie"))
-
   res.json(movies)
 })
 
-
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
