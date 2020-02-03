@@ -28,7 +28,7 @@ app.get('/films', (req, res) => {
   res.json(netflixData)
 })
 
-//get film frpm specific year with for example the path "year/2019"
+//get film from specific year with for example the path "year/2019"
 app.get('/year/:year', (req, res) => {
  const year = req.params.year
  const filmsFromYear = netflixData.filter((item) => item.release_year === +year)
@@ -42,14 +42,14 @@ app.get('/film/:title', (req, res) => {
   res.json(film)
  })
 
- //get the type of show with for example the path "Movie"
+ //get the type of show with for example the path "type/Movie"
 app.get('/type/:type', (req, res) => {
   const type = req.params.type
   const typeOfFilm = netflixData.find((item) => item.type === type)
   res.json(typeOfFilm)
  })
 
- //get the first 10 films with the path "firstTenFilms"
+ //get the first 10 films with the path "films/firstTenFilms"
  app.get('/films/:firstTenFilms', (req, res) => {
   const firstTenFilms = netflixData.slice(0, 10)
   res.json(firstTenFilms)
