@@ -45,43 +45,50 @@ app.get('/', (req, res) => {
 
 //Parameters-explanained
 //Path variable or path parameter  = something specific; an individual/item or group
-
-// PAGE
-
-//const PER_PAGE = 20
-
-
-// GET /books
-app.get('/books', (req, res) => {
-  const { page } = req.query
-  const startIndex = 20 * +page
-  res.json(booksData.slice(startIndex, startIndex + 20))
-  //res.json(booksData.slice(0, 20))
-
-  // res.json({
-  //   totalPages: Math.floor(booksData.length / PER_PAGE),
-  //   currentPage: +page,
-  //   data
-  // })
-})
-
-
-// //creating a rest route called books (path variable)
-// //(localhost:8080/books)
+// Easiest way of creating a rest route called books (path variable) (localhost:8080/books)
 // app.get('/books', (req, res) => {
 //   res.json(booksData)
 // })
 
+
+
+// PAGE - to have the result on a page with x number of boooks.
+
+const PER_PAGE = 10
+
+
+// routte to GET books by page (http://localhost:8080/books?page=2)
+app.get('/books', (req, res) => {
+  const { page } = req.query
+  const startIndex = PER_PAGE * +page
+  console.log(startIndex)
+  const data = booksData.slice(startIndex, startIndex + PER_PAGE)
+
+  res.json({
+    totalPages: Math.floor(booksData.length / PER_PAGE),
+    currentPage: +page,
+    data
+  })
+})
+
+//creating a sorted rating (localhost:8080/books/sort/rating)
+app.get('/books/sort/rating', (req, res) => {
+  const booksByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
+  //console.log(rating)
+  res.json(booksByRating)
+})
+
+
 //creating a rest route for id (localhost:8080/books/5) https://sv.wikipedia.org/wiki/404_error
-// app.get('/books/:id', (req, res) => {
-//   const bookId = req.params.id
-//   const findThatBook = booksData.find((item) => item.bookID === +bookId)
-//   if (findThatBook) {
-//     res.json(findThatBook)
-//   } else {
-//     res.status(404).send('There was no book with that id')
-//   }
-// })
+app.get('/books/id/:id', (req, res) => {
+  const bookId = req.params.id
+  const findThatBook = booksData.find((item) => item.bookID === +bookId)
+  if (findThatBook) {
+    res.json(findThatBook)
+  } else {
+    res.status(404).send('There was no book with that id')
+  }
+})
 
 //creating a rest route for id (localhost:8080/titles/cc), https://sv.wikipedia.org/wiki/404_error
 app.get('/titles/:titles', (req, res) => {
@@ -92,51 +99,23 @@ app.get('/titles/:titles', (req, res) => {
   } else {
     res.status(404).send('There was no book with that title, try to search with /library?search=[your search] instead. ')
   }
-
-})
-
-//creating a rest route called rating (localhost:8080/ratings/4.47)
-app.get('/ratings/:ratings', (req, res) => {
-  const ratings = req.params.ratings
-  const ratingsNumber = booksData.filter((item) => item.average_rating === +ratings)
-  // console.log(ratings)
-  res.json(ratingsNumber)
-})
-
-//creating a sorted rating (localhost:8080/books/sort/rating)
-app.get('/books/sort/rating', (req, res) => {
-  const booksByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
-  //console.log(rating)
-  res.json(booksByRating)
 })
 
 //creating a rest route called author localhost:8080/author/Exact name of author
 app.get('/author/:author', (req, res) => {
   const author = req.params.author
-  const filterAuthors = booksData.filter((item) => item.authors === author)
-  // console.log(author, filterAuthors)
+  const filterAuthors = booksData.filter((items) => items.authors === author)
+
   if (filterAuthors) {
     res.json(filterAuthors)
-
-    if (filterAuthors === [])
-      res.status(404).send('There was no book written by the author')
+    // Can't get this status to work on a filter function
+  } else {
+    res.status(404).send('There was no book written by the author')
   }
-
 })
-//creating a rest route called author localhost:8080/author/Exact name of author
-// app.get('/author/:author', (req, res) => {
-//   const author = req.params.author
-//   const findAuthors = booksData.find((item) => item.authors === author)
-//   // console.log(author, filterAuthors)
-//   if (findAuthors) {
-//     res.json(findAuthors)
-//   } else {
-//     res.status(404).send('There was no book written by the author')
-//   }
-// })
 
 
-
+//Search function for Title or Author
 //localhost:8080/library/
 app.get('/library', (req, res) => {
   //query parameter (localhost:8080/library?search=XXX)
@@ -151,9 +130,7 @@ app.get('/library', (req, res) => {
       return itemTitle.includes(searchString) || itemAuthor.includes(searchString)
     })
   }
-
   res.json(filteredBooks)
-
 })
 
 
