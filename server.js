@@ -16,24 +16,42 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Find Netflix data')
 })
 
+// Search the whole data base
 app.get('/movies', (req, res) => {
   res.json(netflixData)
 })
 
+// Search on country and type Movie or TV Show
 app.get('/country/:country', (req, res) => {
   const country = req.params.country
-
-  const movieFromCountry = netflixData.filter((item) => item.country === country)
+  const showType = req.query.type
+  let movieFromCountry = netflixData.filter((item) => item.country === country)
+  
+  if (showType) {
+    movieFromCountry = movieFromCountry.filter((item) => item.type ===  showType)
+  }
 
   res.json(movieFromCountry)
-  // if (country) {
-  //   movieFromCountry = movieFromCountry
-  // }
 })
 
+// Query search on Titel always toLowerCase
+app.get('/search', (req, res) => {
+  const searchString = req.query.search
+
+  let filteredShows = netflixData
+
+  if (searchString) {
+    filteredShows = filteredShows.filter(item => {
+      console.log("in if")
+      const itemTitle = item.title.toString()
+      return itemTitle.toLowerCase().includes(searchString.toLowerCase())
+    })
+  }
+  res.json(filteredShows)
+})
 
 // Start the server
 app.listen(port, () => {
