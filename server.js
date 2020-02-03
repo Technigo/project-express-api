@@ -3,18 +3,6 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import sales from './data/avocado-sales.json'
 
-// {
-//   "id": 0,
-//   "date": "2015-12-27",
-//   "averagePrice": 1.33,
-//   "totalVolume": 64236.62,
-//   "totalBagsSold": 8696.87,
-//   "smallBagsSold": 8603.62,
-//   "largeBagsSold": 93.25,
-//   "xLargeBagsSold": 0,
-//   "region": "Albany"
-// },
-
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
@@ -27,7 +15,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-
 app.get('', (req, res) => {
   res.end('Learn about avocado sales. Jeeiij')
 })
@@ -46,6 +33,12 @@ app.get('/sales', (req, res) => {
   }
 })
 
+// average price, sorted from low to high
+app.get('/salesByAveragePrice', (req, res) => {
+  res.json(sales.sort((a, b) => a.averagePrice - b.averagePrice))
+})
+//combine this route with the sales route if there is time
+
 // /sales/5 - sale with id 5 in every region
 app.get('/sales/:id', (req, res) => {
   const id = req.params.id
@@ -54,8 +47,6 @@ app.get('/sales/:id', (req, res) => {
 })
 
 // /Albany/sales - all sales in Albany
-// /Albany/sales?totalBagsSoldMoreThan=8000 - alla sales i Albany med mer än 8000 sålda bags
-
 app.get('/:region/sales', (req, res) => {
   const region = req.params.region
   const salesInRegion = sales.filter(
@@ -67,7 +58,7 @@ app.get('/:region/sales', (req, res) => {
 // /Albany/sales/5 -  sale with id 5 in a specific region
 app.get('/:region/sales/:id', (req, res) => {
   const region = req.params.region
-  const { id } = req.params
+  const id = req.params.id
   let specificSale = sales.filter(
     (sale) => sale.region.toLowerCase() === region.toLowerCase()
   )
