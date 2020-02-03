@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.redirect(301, '/netflix?page=1&perPage=12')
 })
 
-// display all the netflix data
+// display all the
 app.get('/netflix', (req, res) => {
 
   let page = parseInt(req.query["page"], 10) ?? 0;
