@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   // res.send('Hello planet Earth!')
-  res.send("Try searches based on the routes: /books, /booklists?page=2, /id/[a number], /author/[name of author], /titles/[name of title] or  query for any word in title or author: library?search=[type your search]")
+  res.send("Try searches based on the routes: /books, /books/sort/rating, /booklists?page=2, /id/[a number], /author/[name of author], /titles/[name of title] or  query for any word in title or author: library?search=[type your search]")
 
 })
 
