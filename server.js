@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   // res.send('Hello planet Earth!')
-  res.send("Try searches based on the routes: /books, /id/[a number], /author/[name of author], /titles/[name of title] or  query for any word in title or author: library?search=[type your search]")
+  res.send("Try searches based on the routes: /books, /booklists?page=2, /id/[a number], /author/[name of author], /titles/[name of title] or  query for any word in title or author: library?search=[type your search]")
 
 })
 
@@ -46,10 +46,9 @@ app.get('/', (req, res) => {
 //Parameters-explanained
 //Path variable or path parameter  = something specific; an individual/item or group
 // Easiest way of creating a rest route called books (path variable) (localhost:8080/books)
-// app.get('/books', (req, res) => {
-//   res.json(booksData)
-// })
-
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
 
 
 // PAGE - to have the result on a page with x number of boooks.
@@ -57,11 +56,11 @@ app.get('/', (req, res) => {
 const PER_PAGE = 10
 
 
-// routte to GET books by page (http://localhost:8080/books?page=2)
-app.get('/books', (req, res) => {
+// routte to GET books by page (http://localhost:8080/booklists?page=2)
+app.get('/booklists', (req, res) => {
   const { page } = req.query
   const startIndex = PER_PAGE * +page
-  console.log(startIndex)
+  //console.log(startIndex)
   const data = booksData.slice(startIndex, startIndex + PER_PAGE)
 
   res.json({
@@ -74,8 +73,7 @@ app.get('/books', (req, res) => {
 //creating a sorted rating (localhost:8080/books/sort/rating)
 app.get('/books/sort/rating', (req, res) => {
   const booksByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
-  //console.log(rating)
-  res.json(booksByRating)
+  res.json(booksByRating.slice(0, 50))
 })
 
 
@@ -113,7 +111,6 @@ app.get('/author/:author', (req, res) => {
     res.status(404).send('There was no book written by the author')
   }
 })
-
 
 //Search function for Title or Author
 //localhost:8080/library/
