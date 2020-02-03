@@ -52,13 +52,24 @@ app.get('/top-music/:id', (req, res) => {
   res.send(topMusic.find(song => song.id === id))
 })
 
+/** A nicer solution than this would be with query params (like netflix titles below) */
 app.get('/top-music/by-genre/:genre', (req, res) => {
   const genre = req.params.genre
   res.send(topMusic.filter(song => song.genre === genre))
 })
 
-app.get('/netflix-titles', (req, res) => {
-  res.send(netflixTitles)
+
+app.get('/netflix-titles/', (req, res) => {
+  let results = []
+
+  const actor = req.query.actor
+  
+  if (actor) {
+    results = netflixTitles.filter(title => title.cast.indexOf(actor) !== -1)
+  } else {
+      results = netflixTitles
+  }
+  res.json(results)
 })
 
 app.get('/netflix-titles/:id', (req, res) => {
@@ -66,12 +77,6 @@ app.get('/netflix-titles/:id', (req, res) => {
   res.send(netflixTitles.find(title => title.show_id === id))
 })
 
-app.get('/netflix-titles/by-actor/:actor', (req, res) => {
-  const actor = req.params.actor
-  res.send(netflixTitles.filter(
-    title => title.cast.indexOf(actor) !== -1
-  ))
-})
 
 
 
