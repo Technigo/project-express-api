@@ -42,7 +42,7 @@ app.get('/salesByAveragePrice', (req, res) => {
 // /sales/5 - sale with id 5 in every region
 app.get('/sales/:id', (req, res) => {
   const id = req.params.id
-  const saleIdInAllRegions = sales.find((sale) => sale.id === +id)
+  const saleIdInAllRegions = sales.filter((sale) => sale.id === +id)
   res.json(saleIdInAllRegions)
 })
 
