@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Possible path/routes to take: /titles, id/:id, titles/:type (like TV Show or Movie) and titles/ search query for title, director or country')
 })
 
 app.get('/titles', (req, res) => {
@@ -50,7 +50,7 @@ app.get('/titles', (req, res) => {
 })
 
 
-//Filter out type: Tv Show or Movie (correct spelling needed)
+//Filter out type: TV Show or Movie (correct spelling needed)
 app.get('/titles/:type', (req, res) => {
   const type = req.params.type
   let typeOf = netflixData.filter((item) => item.type === type)
