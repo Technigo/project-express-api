@@ -1,13 +1,23 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This project incldues a set up of routes and endpoints for handling a chosen api from a json file. The json file is an api of listed movies and tv-shows from Netflix. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I have set up the following endpoints:
+
+- /shows
+- /shows/:id
+- /movies
+- /moives/:id
+- /year/:year
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+After deciding which API to use I started analysing the API and identifying what kind of endpoints would make sense and could be desirable for a user. Once decided on this, I got to work with the code after reading up on express and routes.
+
+Once ready with the priject I deployed it at heroku.
+
+If I had more time I would have made queries. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://jennifers-express-deploy.herokuapp.com/  - Don't forget to add the above endpoints :)
