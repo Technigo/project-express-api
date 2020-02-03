@@ -17,9 +17,4 @@ app.use(express.static('public'));
 // Load API routes
 app.use('/api', Routes);
 
-// // Start the server
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port}`);
-// });
-
 module.exports = app;

@@ -2,8 +2,8 @@ const request = require('supertest');
 const app = require('./server');
 
 const mockupMovie = {
-  title: 'Microsoft',
-  director: 'Bill gates',
+  title: 'Technigo Bootcamp',
+  director: 'Bill Watson',
   cast: 'Val Kilmer, Tom Cruise',
   country: 'USA',
   date_added: 'January 28, 2020',
@@ -11,7 +11,7 @@ const mockupMovie = {
   rating: 'TV-20',
   duration: '120 min',
   listed_in: 'Comedy',
-  description: 'Intense movie!',
+  description: 'How to become a frontend developer in 24 weeks.',
   type: 'Movie'
 };
 
