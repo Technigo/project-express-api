@@ -1,13 +1,16 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+First project with backend, an API built using express and Node.js. The result a Netflix movies and TV-shows API returning mulitple routes as id, year, and search end-pionts.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+# Learing objectives
+How to install and setup an Express server.
+How to create RESTful routes.
+How to deploy Node projects on Heroku
+
+
 
 ## View it live
+https://apinetflix.herokuapp.com/
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
