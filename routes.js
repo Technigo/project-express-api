@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import Joi from 'joi';
+import { requireJsonContent } from './middleware/index';
 import netflixData from './data/netflix-titles.json';
 
 const router = express.Router();
@@ -164,7 +165,7 @@ router.delete('/movies/:id', (req, res) => {
 });
 
 // POST routes
-router.post('/movies', (req, res) => {
+router.post('/movies', requireJsonContent(), (req, res, next) => {
   const { body } = req;
 
   // Validate request bodyy
@@ -202,7 +203,7 @@ router.post('/movies', (req, res) => {
 });
 
 // PUT route
-router.put('/movies/:id', (req, res) => {
+router.put('/movies/:id', requireJsonContent(), (req, res, next) => {
   const { body } = req;
   const { id } = req.params;
 
