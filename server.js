@@ -35,12 +35,12 @@ app.get('/art', (req, res) => {
   let filteredArt = data;
 
 
-  if (searchString.toLowerCase()) {
+  if (searchString) {
     // Filter once on multiple fields
     filteredArt = data.filter(artist => {
-      const artistName = artist.name.toString().toLowerCase();
-      const artistNationality = artist.nationality.toString().toLowerCase();
-      const artistGenre = artist.genre.toString().toLowerCase();
+      const artistName = artist.name.toString();
+      const artistNationality = artist.nationality.toString();
+      const artistGenre = artist.genre.toString();
       return artistName.includes(searchString) ||
         artistNationality.includes(searchString) || 
         artistGenre.includes(searchString);
