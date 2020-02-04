@@ -19,15 +19,7 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
-// app.get('/art', (req, res) => {
-//   // res.send('Hello world')
-//   res.json(data)
-//   // genre
-//   // country
-// })
-
 app.get('/genre/:genre', (req, res) => {
-// artist name
 const genre = req.params.genre
 const showGenre = data.filter(artist => artist.genre === genre)
 res.json(showGenre)
@@ -37,18 +29,18 @@ res.json(showGenre)
 // .com/art?search=impressionism
 // .com/art?search=Monet
 app.get('/art', (req, res) => {
-  // res.json(data)
-  // Query parameter
   const searchString = req.query.search;
+  
 
   let filteredArt = data;
 
-  if (searchString) {
+
+  if (searchString.toLowerCase()) {
     // Filter once on multiple fields
     filteredArt = data.filter(artist => {
-      const artistName = artist.name.toString();
-      const artistNationality = artist.nationality.toString();
-      const artistGenre = artist.genre.toString();
+      const artistName = artist.name.toString().toLowerCase();
+      const artistNationality = artist.nationality.toString().toLowerCase();
+      const artistGenre = artist.genre.toString().toLowerCase();
       return artistName.includes(searchString) ||
         artistNationality.includes(searchString) || 
         artistGenre.includes(searchString);
@@ -61,14 +53,3 @@ app.get('/art', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
-
-// {
-//   "id": 0,
-//   "name": "Amedeo Modigliani",
-//   "years": "1884 - 1920",
-//   "genre": "Expressionism",
-//   "nationality": "Italian",
-//   "bio": "Amedeo Clemente Modigliani (Italian pronunciatione.",
-//   "wikipedia": "http://en.wikipedia.org/wiki/Amedeo_Modigliani",
-//   "paintings": 193
-// }
