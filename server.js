@@ -29,22 +29,23 @@ app.get('/', (req, res) => {
 app.get('/genre/:genre', (req, res) => {
 // artist name
 const genre = req.params.genre
-const showGenre = data.filter((genre) => artist.genre == genre)
+const showGenre = data.filter(artist => artist.genre === genre)
 res.json(showGenre)
 })
 
-// Filter based on title OR country OR description
+// Filter based on title OR country OR name
 // .com/art?search=impressionism
+// .com/art?search=Monet
 app.get('/art', (req, res) => {
-  res.json(data)
+  // res.json(data)
   // Query parameter
   const searchString = req.query.search;
 
-  let art = data;
+  let filteredArt = data;
 
   if (searchString) {
     // Filter once on multiple fields
-    filteredArt = art.filter(artist => {
+    filteredArt = data.filter(artist => {
       const artistName = artist.name.toString();
       const artistNationality = artist.nationality.toString();
       const artistGenre = artist.genre.toString();
@@ -53,8 +54,6 @@ app.get('/art', (req, res) => {
         artistGenre.includes(searchString);
     });
   }
-
-
   res.json(filteredArt);
 });
 
