@@ -141,8 +141,8 @@ describe('API endpoint /api/movies', () => {
       return request(app)
         .post('/api/movies')
         .send({
-          title: 'Microsoft',
-          director: 'Bill gates',
+          title: 'Technigo Bootcamp 2',
+          director: 'Bill Watson',
           cast: 'Val Kilmer, Tom Cruise',
           country: 'USA',
           date_added: 'January 28, 2020',
