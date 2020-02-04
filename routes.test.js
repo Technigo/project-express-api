@@ -54,7 +54,61 @@ describe('API endpoint /api/movies', () => {
         .get('/api/movies?page=1')
         .then(response => {
           expect(response.status).toBe(200);
-          expect(response.body.status).toBe('200 OK');
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages');
+          expect(response.body.totalPages).toBeGreaterThan(0);
+          expect(response.body).toHaveProperty('remainingPages');
+          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
+        });
+    });
+    it('Should respond to actor query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?actor=Anna Claire Bartlam')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages');
+          expect(response.body.totalPages).toBeGreaterThan(0);
+          expect(response.body).toHaveProperty('remainingPages');
+          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
+        });
+    });
+    it('Should respond to year query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?year=2017')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages');
+          expect(response.body.totalPages).toBeGreaterThan(0);
+          expect(response.body).toHaveProperty('remainingPages');
+          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
+        });
+    });
+    it('Should respond to duration query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?duration=105')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status', '200 OK');
           expect(response.body).toHaveProperty(
             'message',
             'Movies fetched successfully'
