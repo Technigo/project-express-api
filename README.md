@@ -7,8 +7,9 @@ The purpose of this project was to build an API for a set of data using Node.js 
 The API I've built is for a static set of book data.
 I've built two different routes. One to show all the books and filter them by queries and another one to show a specific book.
 For the first route the results are shown in pages of 10 items.
-Example url for main route: /books?page=0&rating=desc&lang=eng
-Example url for specific book: /book/{id}
+
+- Example url for main route: /books?page=0&rating=desc&lang=eng
+- Example url for specific book: /book/{id}
 
 ## 3. Where can you see it in action?
 
