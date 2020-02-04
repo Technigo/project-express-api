@@ -39,12 +39,32 @@ describe('API endpoint /api/movies', () => {
         .then(response => {
           expect(response.status).toBe(200);
           expect(response.body.status).toBe('200 OK');
-          expect(response.body).toHaveProperty('message');
-          expect(response.body).toHaveProperty('totalPages');
-          expect(response.body).toHaveProperty('remainingPages');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
           expect(response.body).toHaveProperty('query');
           expect(response.body).toHaveProperty('data');
-          expect(response.body.message).toBe('Movies fetched successfully');
+        });
+    });
+    it('Should respond to page query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?page=1')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body.status).toBe('200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages');
+          expect(response.body.totalPages).toBeGreaterThan(0);
+          expect(response.body).toHaveProperty('remainingPages');
+          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
         });
     });
   });
@@ -55,10 +75,12 @@ describe('API endpoint /api/movies', () => {
         .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movie created successfully'
+          );
           expect(response.body).toHaveProperty('data');
-          expect(response.body.status).toBe('200 OK');
-          expect(response.body.message).toBe('Movie created successfully');
         });
     });
     it('Should respond to invalid request data with status code 422', () => {
@@ -76,11 +98,15 @@ describe('API endpoint /api/movies', () => {
         })
         .then(response => {
           expect(response.status).toBe(422);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty(
+            'status',
+            '422 Unprocessable Entity'
+          );
+          expect(response.body).toHaveProperty(
+            'message',
+            'Invalid request data'
+          );
           expect(response.body).toHaveProperty('error');
-          expect(response.body.status).toBe('422 Unprocessable Entity');
-          expect(response.body.message).toBe('Invalid request data');
         });
     });
   });
@@ -93,11 +119,12 @@ describe('API endpoint /api/movies/:id', () => {
         .get(`/api/movies/${MOVIE_ID_VALID}`)
         .then(response => {
           expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movie fetched successfully'
+          );
           expect(response.body).toHaveProperty('data');
-          expect(response.body.status).toBe('200 OK');
-          expect(response.body.message).toBe('Movie fetched successfully');
         });
     });
     it('Should respond with status code 404 when movie is not found', () => {
@@ -105,13 +132,12 @@ describe('API endpoint /api/movies/:id', () => {
         .get(`/api/movies/${MOVIE_ID_NOT_FOUND}`)
         .then(response => {
           expect(response.status).toBe(404);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
-          expect(response.body).toHaveProperty('params');
-          expect(response.body.status).toBe('404 Not Found');
-          expect(response.body.message).toBe(
+          expect(response.body).toHaveProperty('status', '404 Not Found');
+          expect(response.body).toHaveProperty(
+            'message',
             `No movie found with id ${MOVIE_ID_NOT_FOUND}.`
           );
+          expect(response.body).toHaveProperty('params');
         });
     });
     it('Should respond to incorrect request parameters with status code 400', () => {
@@ -119,7 +145,7 @@ describe('API endpoint /api/movies/:id', () => {
         .get(`/api/movies/${MOVIE_ID_INVALID}`)
         .then(response => {
           expect(response.status).toBe(400);
-          expect(response.body.status).toBe('400 Bad Request');
+          expect(response.body).toHaveProperty('status', '400 Bad Request');
         });
     });
   });
@@ -130,11 +156,12 @@ describe('API endpoint /api/movies/:id', () => {
         .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movie updated successfully'
+          );
           expect(response.body).toHaveProperty('data');
-          expect(response.body.status).toBe('200 OK');
-          expect(response.body.message).toBe('Movie updated successfully');
         });
     });
     it('Should respond with status code 404 when movie is not found', () => {
@@ -143,13 +170,12 @@ describe('API endpoint /api/movies/:id', () => {
         .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(404);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
-          expect(response.body).toHaveProperty('params');
-          expect(response.body.status).toBe('404 Not Found');
-          expect(response.body.message).toBe(
+          expect(response.body).toHaveProperty('status', '404 Not Found');
+          expect(response.body).toHaveProperty(
+            'message',
             `No movie found with id ${MOVIE_ID_NOT_FOUND}.`
           );
+          expect(response.body).toHaveProperty('params');
         });
     });
     it('Should respond to incorrect request parameters with status code 400', () => {
@@ -158,8 +184,7 @@ describe('API endpoint /api/movies/:id', () => {
         .send(mockupMovie)
         .then(response => {
           expect(response.status).toBe(400);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body.status).toBe('400 Bad Request');
+          expect(response.body).toHaveProperty('status', '400 Bad Request');
         });
     });
   });
@@ -169,11 +194,12 @@ describe('API endpoint /api/movies/:id', () => {
         .delete(`/api/movies/${MOVIE_ID_VALID}`)
         .then(response => {
           expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty('message');
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movie deleted successfully'
+          );
           expect(response.body).toHaveProperty('data');
-          expect(response.body).toHaveProperty('status');
-          expect(response.body.status).toBe('200 OK');
-          expect(response.body.message).toBe('Movie deleted successfully');
         });
     });
     it('Should respond with status code 404 when movie is not found', () => {
@@ -181,13 +207,12 @@ describe('API endpoint /api/movies/:id', () => {
         .delete(`/api/movies/${MOVIE_ID_NOT_FOUND}`)
         .then(response => {
           expect(response.status).toBe(404);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body).toHaveProperty('message');
-          expect(response.body).toHaveProperty('params');
-          expect(response.body.status).toBe('404 Not Found');
-          expect(response.body.message).toBe(
+          expect(response.body).toHaveProperty('status', '404 Not Found');
+          expect(response.body).toHaveProperty(
+            'message',
             `No movie found with id ${MOVIE_ID_NOT_FOUND}.`
           );
+          expect(response.body).toHaveProperty('params');
         });
     });
     it('Should respond to incorrect request parameters with status code 400', () => {
@@ -195,8 +220,7 @@ describe('API endpoint /api/movies/:id', () => {
         .delete(`/api/movies/${MOVIE_ID_INVALID}`)
         .then(response => {
           expect(response.status).toBe(400);
-          expect(response.body).toHaveProperty('status');
-          expect(response.body.status).toBe('400 Bad Request');
+          expect(response.body).toHaveProperty('status', '400 Bad Request');
         });
     });
   });
