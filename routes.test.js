@@ -77,10 +77,8 @@ describe('API endpoint /api/movies', () => {
             'message',
             'Movies fetched successfully'
           );
-          expect(response.body).toHaveProperty('totalPages');
-          expect(response.body.totalPages).toBeGreaterThan(0);
-          expect(response.body).toHaveProperty('remainingPages');
-          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
           expect(response.body).toHaveProperty('query');
           expect(response.body).toHaveProperty('data');
         });
@@ -95,10 +93,8 @@ describe('API endpoint /api/movies', () => {
             'message',
             'Movies fetched successfully'
           );
-          expect(response.body).toHaveProperty('totalPages');
-          expect(response.body.totalPages).toBeGreaterThan(0);
-          expect(response.body).toHaveProperty('remainingPages');
-          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
           expect(response.body).toHaveProperty('query');
           expect(response.body).toHaveProperty('data');
         });
@@ -113,10 +109,40 @@ describe('API endpoint /api/movies', () => {
             'message',
             'Movies fetched successfully'
           );
-          expect(response.body).toHaveProperty('totalPages');
-          expect(response.body.totalPages).toBeGreaterThan(0);
-          expect(response.body).toHaveProperty('remainingPages');
-          expect(response.body.remainingPages).toBeGreaterThanOrEqual(0);
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
+        });
+    });
+    it('Should respond to actor and year query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?actor=Anna&year=2019')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
+          expect(response.body).toHaveProperty('query');
+          expect(response.body).toHaveProperty('data');
+        });
+    });
+    it('Should respond to actor, year and duration query parameter request with status code 200', () => {
+      return request(app)
+        .get('/api/movies?actor=Anna&year=2019&duration=24')
+        .then(response => {
+          expect(response.status).toBe(200);
+          expect(response.body).toHaveProperty('status', '200 OK');
+          expect(response.body).toHaveProperty(
+            'message',
+            'Movies fetched successfully'
+          );
+          expect(response.body).toHaveProperty('totalPages', 1);
+          expect(response.body).toHaveProperty('remainingPages', 0);
           expect(response.body).toHaveProperty('query');
           expect(response.body).toHaveProperty('data');
         });
