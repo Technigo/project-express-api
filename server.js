@@ -1,15 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import data from './data/best-artworks.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -27,7 +19,57 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+// app.get('/art', (req, res) => {
+//   // res.send('Hello world')
+//   res.json(data)
+//   // genre
+//   // country
+// })
+
+app.get('/genre/:genre', (req, res) => {
+// artist name
+const genre = req.params.genre
+const showGenre = data.filter((genre) => artist.genre == genre)
+res.json(showGenre)
+})
+
+// Filter based on title OR country OR description
+// .com/art?search=impressionism
+app.get('/art', (req, res) => {
+  res.json(data)
+  // Query parameter
+  const searchString = req.query.search;
+
+  let art = data;
+
+  if (searchString) {
+    // Filter once on multiple fields
+    filteredArt = art.filter(artist => {
+      const artistName = artist.name.toString();
+      const artistNationality = artist.nationality.toString();
+      const artistGenre = artist.genre.toString();
+      return artistName.includes(searchString) ||
+        artistNationality.includes(searchString) || 
+        artistGenre.includes(searchString);
+    });
+  }
+
+
+  res.json(filteredArt);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
+
+// {
+//   "id": 0,
+//   "name": "Amedeo Modigliani",
+//   "years": "1884 - 1920",
+//   "genre": "Expressionism",
+//   "nationality": "Italian",
+//   "bio": "Amedeo Clemente Modigliani (Italian pronunciatione.",
+//   "wikipedia": "http://en.wikipedia.org/wiki/Amedeo_Modigliani",
+//   "paintings": 193
+// }
