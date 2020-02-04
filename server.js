@@ -1,7 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
+
+// FIGURE OUT HOW TO MAKE item.nominee TO A STRING
 
 // console.log(netflixData.length)
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -42,10 +44,34 @@ app.get('/year/:year', (req, res) => {
   let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
 
   if (showWon) {
-    fromYear = fromYear.filter((item) => item.nominee)
+    fromYear = fromYear.filter((item) => item.nominee.toString())
   }
 
   res.json(fromYear)
+})
+
+app.get('/shows', (req, res) => {
+  // Query parameter
+  const titleSearchString = req.query.title
+  const countrySearchString = req.query.country
+
+  let filteredShows = netflixData
+
+  if (titleSearchString) {
+    filteredShows = filteredShows.filter((item) => {
+      const itemTitle = item.title.toString()
+      return itemTitle.includes(titleSearchString)
+    })
+  }
+
+  if (countrySearchString) {
+    filteredShows = filteredShows.filter((item) => {
+      const itemCountry = item.country.toString()
+      return itemCountry.includes(countrySearchString)
+    })
+  }
+
+  res.json(filteredShows)
 })
 
 // Start the server
