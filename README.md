@@ -1,13 +1,15 @@
-# Express API Project
+## 1. What is this?
 
-Replace this readme with your own information about your project. 
+The purpose of this project was to build an API for a set of data using Node.js - Express framework.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## 2. What did I do?
 
-## The problem
+The API I've built is for a static set of book data.
+I've built two different routes. One to show all the books and filter them by queries and another one to show a specific book.
+For the first route the results are shown in pages of 10 items.
+Example url for main route: /books?page=0&rating=desc&lang=eng
+Example url for specific book: /book/{id}
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## 3. Where can you see it in action?
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+You can access the backend of the project [here](https://tavferreira-bookstore-api.herokuapp.com/books?page=0) and its frontend [here](https://dazzling-kepler-13501e.netlify.com/).
