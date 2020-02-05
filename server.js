@@ -18,7 +18,7 @@ import booksData from './data/books.json'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 9000
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
