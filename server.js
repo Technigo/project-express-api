@@ -27,16 +27,41 @@ app.get('/', (req, res) => {
   res.send('Possible path/routes to take: /titles, id/:id, titles/:type (like TV Show or Movie) and titles/ search query for title, director or country')
 })
 
+//Get pages of results
+
+// const PER_PAGE = 20
+
+// app.get('/', (req, res) => {
+//   const { page } = req.query
+//   const startIndex = PER_PAGE * +page
+//   const data = netflixData.slice(startIndex, startIndex + PER_PAGE)
+
+//   res.json({
+//     totalPages: Math.floor(netflixData.length / PER_PAGE),
+//     currentPage: +page,
+//     data
+//   })
+// })
+
+
 app.get('/titles', (req, res) => {
   //query parameter
   const searchString = req.query.search
+  const type = req.query.type
 
   let filtredTitles = netflixData
+
+  if (type) {
+    filtredTitles = filtredTitles.filter(item => {
+      return item.type.toString().toLowerCase().replace(/\s/, '-') === type
+    })
+  }
 
   if (searchString) {
     //Filter once on multiple fields
 
     filtredTitles = filtredTitles.filter(item => {
+
       const itemTitle = item.title.toString()
       const itemDirector = item.director.toString()
       const itemCountry = item.country.toString()
@@ -44,22 +69,14 @@ app.get('/titles', (req, res) => {
       return itemTitle.toLowerCase().includes(searchString) ||
         itemDirector.toLowerCase().includes(searchString) ||
         itemCountry.toLowerCase().includes(searchString)
+
     })
   }
   res.json(filtredTitles)
 })
 
-
-//Filter out type: TV Show or Movie (correct spelling needed)
-app.get('/titles/:type', (req, res) => {
-  const type = req.params.type
-  let typeOf = netflixData.filter((item) => item.type === type)
-  res.json(typeOf)
-})
-
-
 //Find a specific title id (ex. 81193313 )
-app.get('/id/:id', (req, res) => {
+app.get('/titles/:id', (req, res) => {
   let id = req.params.id
   let showId = netflixData.find((item) => item.show_id === +id)
   if (!showId) {
