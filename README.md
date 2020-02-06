@@ -1,13 +1,18 @@
-# Express API Project
+# Express API
 
-Replace this readme with your own information about your project. 
+### What is this?
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+An API with a few end-points leading to different books. There is a function that lets you sort out books with titles from A-Z.
 
-## The problem
+### What did I do?
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I wrote end-points to make the API more managable. I also used some methods as filter, charAT, toString and sort.
 
-## View it live
+### Wich technologies is used?
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+-Express
+-Node.js
+
+### What have I learned?
+
+- How to make end-points to an API
