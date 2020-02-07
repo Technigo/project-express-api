@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 })
 
 // display all the
-app.get('/netflix', (req, res) => {
+app.get('/shows', (req, res) => {
 
   let page = parseInt(req.query["page"], 10) ?? 0;
   let perPage = parseInt(req.query["perPage"], 10) ?? 5;
@@ -27,7 +27,7 @@ app.get('/netflix', (req, res) => {
   let sliceEnd = sliceStart + perPage;
   res.render('pages/shows', {
     allData: netflixData.slice(sliceStart, sliceEnd),
-    endpoint: '/netflix'
+    endpoint: '/shows'
   })
 })
 
@@ -66,7 +66,7 @@ app.get('/tv-shows', (req, res) => {
 })
 
 
-app.get('/netflix/id/:id', (req, res) => {
+app.get('/show/id/:id', (req, res) => {
   const id = req.params.id
   const show = netflixData.find((item) => item.show_id === +id)
 
@@ -83,7 +83,6 @@ app.get('/netflix/id/:id', (req, res) => {
 app.get('/api/netflix', (req, res) => {
 
   let result = netflixData
-  console.log(req.query.year)
 
   if (req.query.year != undefined) {
     result = result.filter((item) => item.release_year === Number(req.query.year))
