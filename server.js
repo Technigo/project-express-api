@@ -14,7 +14,7 @@ app.set('view engine', 'ejs')
 app.use(express.static("public"))
 
 app.get('/', (req, res) => {
-  res.redirect(301, '/netflix?page=1&perPage=12')
+  res.redirect(301, '/shows?page=1&perPage=12')
 })
 
 // display all the
