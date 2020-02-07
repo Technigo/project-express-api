@@ -1,4 +1,4 @@
-# Build an Express API
+# An Express API
 
 This is my first backend project, which is creating an API using Express. I'm using the Netflix data to make a couple of RESTful endpoints, which returns either an array of data, or a single item.
 
