@@ -15,6 +15,7 @@ To make sure that the logic is working properly and that the endpoints are respo
 ### Technologies used
 
 - JavaScript ES6+
+- Node.js
 - [Express](https://expressjs.com/)
 - [Joi](https://github.com/hapijs/joi)
 - [Jest](https://jestjs.io/)
