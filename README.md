@@ -10,7 +10,7 @@ In this project I have implemented API routes in Express to handle GET, POST, PU
 
 When building an API data validation is very important. To combat invalid data I have used Joi, a powerful schema description language and data validator for JavaScript, to validate data in POST and PUT requests.
 
-To make sure that the logic is working properly and that the endpoints are responding with correct data and status codes I have used the Jest Testing Framework for unit testing. The current implementation works really good and saves me a lot of time when I don't constantly have to test the endpoints manually.
+To make sure that the logic is working properly and that the endpoints are responding with correct data and status codes I have used the Jest Testing Framework for unit testing. The current implementation works really good and saves me a lot of time when I don't constantly have to test the endpoints manually when changing the logic.
 
 ### Technologies used
 
