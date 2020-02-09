@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
 app.get('/shows', (req, res) => {
   const page = req.query.page
   const titleSearchString = req.query.title
-  // const typeSearchString = req.query.type
   let filteredShows = netflixData
   const PER_PAGE = 20 // Sets 20 shows per page
   const startIndex = PER_PAGE * +page
@@ -44,7 +43,7 @@ app.get('/shows', (req, res) => {
   // Return data and total pages of data
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
-    filteredPages: Math.floor(filteredShows.length / PER_PAGE),
+    filteredPages: Math.floor(netflixData.length / PER_PAGE),
     filteredShows
   })
 })
