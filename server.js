@@ -27,6 +27,7 @@ app.get('/shows', (req, res) => {
   // const typeSearchString = req.query.type
   let filteredShows = netflixData
   const PER_PAGE = 20 // Sets 20 shows per page
+  const startIndex = PER_PAGE * +page
 
   if (titleSearchString) {
     filteredShows = filteredShows.filter((item) => {
@@ -35,12 +36,7 @@ app.get('/shows', (req, res) => {
     })
   }
 
-  // if (typeSearchString) {
-  //   filteredShows = filteredShows.filter((item) => item.type.toLowerCase().replace(' ', '-') === typeSearchString.toLowerCase())
-  // }
-
   if (page) {
-    const startIndex = PER_PAGE * +page
     // StartIndex and the upcoming shows updates when increasing page number in endpoint
     filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE)
   }
@@ -48,7 +44,7 @@ app.get('/shows', (req, res) => {
   // Return data and total pages of data
   res.json({
     totalPages: Math.floor(netflixData.length / PER_PAGE),
-    filteredPages: Math.floor(netflixData.length / PER_PAGE),
+    filteredPages: Math.floor(filteredShows.length / PER_PAGE),
     filteredShows
   })
 })
