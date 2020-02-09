@@ -31,7 +31,8 @@ app.get("/language/:language", (req, res) => {
 })
 
 app.get('/sort/rating', (req, res) => {
-  const sortByRating = booksData.sort((a, b) => -(parseFloat(a.average_rating)-parseFloat(b.average_rating)))
+  const copyBooksData = [...booksData]
+  const sortByRating = copyBooksData.sort((a, b) => -(parseFloat(a.average_rating)-parseFloat(b.average_rating)))
   res.json(sortByRating)
 })
 
