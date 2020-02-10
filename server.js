@@ -26,16 +26,13 @@ app.get('/books', (req, res) => {
   const startIndex = PER_PAGE * +page
   let booksData = books
 
-  const { lang } = req.query
-  const { title } = req.query
-  const { rating } = req.query
-
+  const { lang, title, rating } = req.query
 
   if (rating) {
     if (rating === 'asc') {
-      booksData.sort(function (a, b) { return a.average_rating - b.average_rating })
+      booksData.sort((a, b) => a.average_rating - b.average_rating)
     } else if (rating === 'desc') {
-      booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
+      booksData.sort((a, b) => b.average_rating - a.average_rating)
     }
   } else {
     booksData.sort(function (a, b) { return a.bookID - b.bookID })
@@ -61,9 +58,19 @@ app.get('/books', (req, res) => {
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
 
-  const book = books.filter((book) => book.bookID === +id)
+  const book = books.find((book) => book.bookID === +id)
 
-  res.send(book)
+  res.json(book)
+})
+
+app.get("/title/:title", (req, res) => {
+  const title = req.params.title
+  const titleLetter = books.filter(book => {
+    let bookTitle = book.title.toString()
+    return bookTitle.toLowerCase().charAt(0) === title.toLowerCase().charAt(0)
+  })
+
+  res.json(titleLetter)
 })
 
 // Start the server
