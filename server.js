@@ -25,27 +25,39 @@ app.get('/shows', (req, res) => {
   const page = req.query.page
   const titleSearchString = req.query.title
   let filteredShows = netflixData
+  // For pagination
   const PER_PAGE = 20 // Sets 20 shows per page
-  const startIndex = PER_PAGE * +page
+  const startIndex = PER_PAGE * +page // Sets startindex of each page
+  const endIndex = startIndex + PER_PAGE // Sets endindex of each page
+  const filteredPages = Math.floor(netflixData.length / PER_PAGE) // Sets filtered pages on all shows
 
   if (titleSearchString) {
     filteredShows = filteredShows.filter((item) => {
       const itemTitle = item.title.toString().toLowerCase() // toString since titles might be number
       return itemTitle.includes(titleSearchString.toLowerCase())
     })
+
+    const filteredPages = Math.floor(filteredShows.length / PER_PAGE) // Sets filtered pages on filtered shows
+    if (page) {
+      filteredShows = filteredShows.slice(startIndex, endIndex)
+    }
+    // Returns this if titleSearchString is applied
+    res.json({
+      filteredPages,
+      filteredShows
+    })
   }
 
   if (page) {
-    // StartIndex and the upcoming shows updates when increasing page number in endpoint
-    filteredShows = filteredShows.slice(startIndex, startIndex + PER_PAGE)
+    filteredShows = filteredShows.slice(startIndex, endIndex)
   }
 
-  // Return data and total pages of data
+  // Returns this if no query or just page query is applied
   res.json({
-    totalPages: Math.floor(netflixData.length / PER_PAGE),
-    filteredPages: Math.floor(netflixData.length / PER_PAGE),
+    filteredPages,
     filteredShows
   })
+
 })
 
 // GET DATA FROM TYPE MOVIE
