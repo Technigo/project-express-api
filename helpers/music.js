@@ -5,5 +5,5 @@ exports.getSongsList = (req, res) => {
 }
 
 exports.getSongDetails = (req, res) => {
-  res.json(topMusicData.filter((e) => e.id === +req.params.songId))
+  res.json(topMusicData.filter((e) => e.id === +req.params.songId)[0])
 }
