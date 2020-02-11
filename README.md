@@ -1,4 +1,4 @@
-# Project 17 - Express API @ Technigo Bootcamp 2019
+# Project 17 - Express API @ Technigo Bootcamp 2019-2020
 
 Link to the deployed site: https://express-api-project.herokuapp.com/
 
