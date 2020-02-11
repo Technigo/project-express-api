@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/athletes/:id', (req, res) => {
   const showId = req.params.id 
   console.log(showId)
-  const show = athletesData.filter(item => +item.competitorid === +showId)
+  const show = athletesData.find(item => +item.competitorid === +showId)
   console.log("id path parameter")
   res.json(show)
 })
