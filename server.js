@@ -2,21 +2,13 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/project-mongo"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
+// Defines the port the app will run on. Can be 
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
@@ -27,10 +19,78 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Mongoose model of books
+const Book = mongoose.model('Book', {
+  bookID: Number,
+  authors: String,
+  authors: String,
+  average_rating: Number,
+  isbn: Number,
+  isbn13: Number,
+  language_code: String,
+  num_pages: Number,
+  ratings_count: Number,
+  text_reviews_count: Number
 })
+
+if(process.env.RESET_DB) {
+  const seedDatabase = async () => {
+    await Book.deleteMany({})
+
+    booksData.forEach((bookData) => {
+      new Book(bookData).save()
+    })
+  }
+  seedDatabase()
+}
+
+// Start defining the routes
+app.get('/', (req, res) => {
+  res.send('Books API')
+})
+
+// Return the array with all the book objects
+app.get('/books', async (req, res) => {
+  const { language } = req.query
+  const queryAuthors = req.query.authors
+  const queryRegex = new RegExp(queryAuthors, "i")
+
+// Using query for language code
+  if(language) {
+   Book.find({'language_code': language})
+     .then((results) => {
+       res.json(results)
+      }) .catch((err) => {
+        res.json({message: 'Cannot find book', err: err}) 
+    }) 
+  }
+
+// Query for authors
+  Book.find({'authors': queryRegex})
+    .then((results) => {
+      if (!results) {
+        throw new Error('Author not found')
+      }
+      res.json(results)
+    }) .catch((err) => {
+       res.json({message: err.message}) 
+    })
+})
+
+// Find Book with a specific ID
+app.get('/books/id/:_id', (req, res) => {
+  const _id = req.params._id
+  Book.findOne({'_id': _id})
+    .then((results) => {
+      if (!results) {
+        throw new Error('Id not found')
+      }
+      res.json(results)
+    }) .catch((err) => {
+      res.json({message: err.message})
+    })
+})
+
 
 // Start the server
 app.listen(port, () => {
