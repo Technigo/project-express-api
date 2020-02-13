@@ -1,4 +1,4 @@
-# Netflix API with Express and Joi
+# API with Express, Joi and Jest (Part 1)
 
 ### Summary
 
