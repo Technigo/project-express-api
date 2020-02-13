@@ -44,6 +44,15 @@ if(process.env.RESET_DB) {
   seedDatabase()
 }
 
+//Return Error if connection fail
+  app.use((req, res, next) => {
+  if (mongoose.connection.readyState === 1) {
+    next()
+  } else {
+    res.status(503).json({ error: 'Service unavailable' })
+  }
+})
+
 // Start defining the routes
 app.get('/', (req, res) => {
   res.send('Books API')
@@ -61,19 +70,17 @@ app.get('/books', async (req, res) => {
      .then((results) => {
        res.json(results)
       }) .catch((err) => {
-        res.json({message: 'Cannot find book', err: err}) 
+        res.json({message: 'Book not found', err: err}) 
     }) 
   }
 
 // Query for authors
   Book.find({'authors': queryRegex})
     .then((results) => {
-      if (!results) {
-        throw new Error('Author not found')
-      }
       res.json(results)
     }) .catch((err) => {
-       res.json({message: err.message}) 
+
+       res.json({message: 'Author not found', err: err}) 
     })
 })
 
@@ -82,15 +89,11 @@ app.get('/books/id/:_id', (req, res) => {
   const _id = req.params._id
   Book.findOne({'_id': _id})
     .then((results) => {
-      if (!results) {
-        throw new Error('Id not found')
-      }
       res.json(results)
     }) .catch((err) => {
-      res.json({message: err.message})
+      res.json({message: 'Cannot find this book', err: err})
     })
 })
-
 
 // Start the server
 app.listen(port, () => {
