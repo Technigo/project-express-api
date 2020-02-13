@@ -1,8 +1,8 @@
-# API with Express and Joi (Part 1)
+# Custom Netflix API (Part 1)
 
 ### Summary
 
-A custom API created with Express and Joi to provide information about movies and TV shows on Netflix.
+A custom API created with Express, Joi and Jest to provide information about movies and TV shows on Netflix.
 
 ### Implementation details
 
