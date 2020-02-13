@@ -1,4 +1,4 @@
-# API with Express, Joi and Jest (Part 1)
+# API with Express and Joi (Part 1)
 
 ### Summary
 
