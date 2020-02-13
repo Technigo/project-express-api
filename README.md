@@ -16,9 +16,9 @@ To make sure that the logic is working properly and that the endpoints are respo
 
 - JavaScript ES6+
 - Node.js
-- [Express](https://expressjs.com/)
-- [Joi](https://github.com/hapijs/joi)
-- [Jest](https://jestjs.io/)
+- [Express](https://expressjs.com/) - A minimal and flexible Node JS web application framework
+- [Joi](https://github.com/hapijs/joi) - A powerful schema description language and data validator
+- [Jest](https://jestjs.io/) - A JavaScript testing framework
 
 ### Where can you see it in action?
 
