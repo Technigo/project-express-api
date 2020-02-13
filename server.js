@@ -14,7 +14,9 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Golden Globe!')
+  res.send(
+    'Golden Globe! /shows?country="Put in country" - /shows?title="Put in Title"'
+  )
 })
 
 app.get('/listlength', (req, res) => {
