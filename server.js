@@ -66,33 +66,32 @@ app.get('/books', async (req, res) => {
 
 // Using query for language code
   if(language) {
-   Book.find({'language_code': language})
-     .then((results) => {
-       res.json(results)
-      }) .catch((err) => {
-        res.json({message: 'Book not found', err: err}) 
-    }) 
+    const searchLanguage = await Book.find({'language_code': language})
+     if (searchLanguage.length) {
+       res.json(searchLanguage)
+     } else {
+        res.status(404).json({ error: 'Language not found' })
+     }
   }
 
 // Query for authors
-  Book.find({'authors': queryRegex})
-    .then((results) => {
-      res.json(results)
-    }) .catch((err) => {
-
-       res.json({message: 'Author not found', err: err}) 
-    })
+  const searchAuthor = await Book.find({'authors': queryRegex})
+  if (searchAuthor.length) {
+    res.json(searchAuthor)
+  } else {
+     res.status(404).json({ error: 'Author not found' })
+  }
 })
 
 // Find Book with a specific ID
-app.get('/books/id/:_id', (req, res) => {
+app.get('/books/id/:_id', async (req, res) => {
   const _id = req.params._id
-  Book.findOne({'_id': _id})
-    .then((results) => {
-      res.json(results)
-    }) .catch((err) => {
-      res.json({message: 'Cannot find this book', err: err})
-    })
+  const findId = await Book.findOne({'_id': _id})
+  if (findId.length) {
+    res.json(findId)
+  } else {
+     res.status(404).json({ error: 'ID not found' })
+  }
 })
 
 // Start the server
