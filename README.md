@@ -8,5 +8,4 @@ This is the first backend project I did. I created an API in Node using Express 
 
 ## View it live
 
-https://week-17-project.herokuapp.com/ 
-https://week-17-project.herokuapp.com/winners 
+https://week-17-project.herokuapp.com/ and with filter records https://week-17-project.herokuapp.com/winners 
