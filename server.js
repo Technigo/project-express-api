@@ -1,8 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-/* import goldenGlobesData from './data/golden-globes.json' */
-import netflixData from './data/netflix-titles.json'
+import goldenGlobesData from './data/golden-globes.json'
+// import netflixData from './data/netflix-titles.json'
 
 // Defining the port 
 const port = process.env.PORT || 8080
@@ -18,9 +18,10 @@ app.get('/', (req, res) => {
   res.end('First backend project') 
 })
 
-// Filter based on title
-app.get('/shows', (req, res) => {
-  // Query parameter
+// Filter based on title from code along with Van (netflix file)
+
+/* app.get('/shows', (req, res) => {
+  
   const titleSearchString = req.query.title;
 
   let filteredShows = netflixData;
@@ -33,7 +34,17 @@ app.get('/shows', (req, res) => {
   }
 
   res.json(filteredShows);
-  });
+  }); */
+
+app.get('/winners', (_, res) => {
+
+  let winners = goldenGlobesData.filter(item => {
+    return item.win === true
+  })
+  
+  res.json(winners)
+
+})  
 
 // Start the server
 app.listen(port, () => {
