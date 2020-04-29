@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import data from './data/books.json'
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -18,6 +20,7 @@ import cors from 'cors'
 const port = process.env.PORT || 8080
 const app = express()
 
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
@@ -25,6 +28,22 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/books', (req, res) => {
+  res.json(data)
+})
+
+app.get('/books/id/:id', (req, res) => {
+  const id = req.params.id
+  const bookId = data.find((item)=>item.bookID == id)
+  res.json(bookId)
+})
+
+app.get('/books/authors/:author', (req, res) => {
+  const author = req.params.author
+  const booksAuthor = data.filter((item)=>item.authors === author)
+  res.json(booksAuthor)
 })
 
 // Start the server
