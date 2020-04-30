@@ -3,15 +3,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import data from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
@@ -23,12 +14,13 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
+  // Displays all movies and shows
   res.json(data);
 });
 
 app.get("/IDs/:id", (req, res) => {
+  // Displays object with specific ID
   const id = req.params.id;
   const movieWithId = data.filter((item) => item.show_id === +id);
 
@@ -36,24 +28,40 @@ app.get("/IDs/:id", (req, res) => {
 });
 
 app.get("/actors/:actor", (req, res) => {
+  // Shows everything the specific actor has been casted in
   const actor = req.params.actor;
-  const moviesWithActor = data.filter((item) => item.cast.includes(actor));
+  const moviesWithActor = data.filter((item) =>
+    item.cast.toLowerCase().includes(actor)
+  );
 
   res.json(moviesWithActor);
 });
 
 app.get("/years/:year", (req, res) => {
+  // Shows everything from a specific year with the possibilty to filter on type of content.
   const year = req.params.year;
   const type = req.query.type;
 
   let contentFromYear = data.filter((item) => item.release_year === +year);
 
   if (type) {
-    contentFromYear = contentFromYear.filter((item) => item.type === type);
+    contentFromYear = contentFromYear.filter(
+      (item) => item.type.toLowerCase() === type.toLowerCase()
+    );
   }
 
   res.json(contentFromYear);
 });
+
+app.get("/duration/:minutes", (req, res) => {
+  const length = req.params.minutes;
+  const exactlyThatLong = data.filter(
+    (item) => item.duration === `${length} min`
+  );
+
+  res.json(exactlyThatLong);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
