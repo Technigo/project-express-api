@@ -21,6 +21,13 @@ app.get('/', (req, res) => {
   res.json(data)
 })
 
+// Route for single book, filtered using book id
+app.get('/book/:id', (req, res) => {
+  const id = req.params.id
+  const bookId = data.filter((item) => item.bookID === +id)
+  res.json(bookId)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
