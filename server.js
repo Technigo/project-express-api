@@ -28,6 +28,13 @@ app.get('/book/:id', (req, res) => {
   res.json(bookId)
 })
 
+// Route for books with pages >= route number
+app.get('/pages/:pages', (req, res) => {
+  const pages = req.params.pages
+  const numPages = data.filter((item) => item.num_pages >= +pages)
+  res.json(numPages)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
