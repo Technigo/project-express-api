@@ -41,6 +41,19 @@ app.get('/min_pages/:pages', (req, res) => {
   res.json(numPages)
 })
 
+// Same concept as route for pages but for rating
+app.get('/min_rating/:rating', (req, res) => {
+  const minRating = req.params.rating
+  const maxRating = req.query.max_rating
+  let bookRating = data.filter((item) => item.average_rating >= +minRating)
+
+  if (maxRating) {
+    bookRating = bookRating.filter((item) => item.average_rating <= +maxRating)
+  }
+
+  res.json(bookRating)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
