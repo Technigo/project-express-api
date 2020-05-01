@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 // MY API ENDPOINT:
 app.get("/", (req, res) => {
-  res.send("My API endpoint");
+  res.send("My API endpoint: /all, /all:id, /movie, /tv, /year/:year");
 });
 // ---------------------------------------------------- //
 
@@ -58,7 +58,7 @@ app.get("/all/:id", (req, res) => {
 // http://localhost:8080/movie/
 app.get("/movie", (req, res) => {
   // const movies = req.params.movies
-  const movieAll = netflixData.filter((item) => item.type === "Movie")
+  const movieAll = netflixData.filter((item) => item.type === "Movie")Add 
   // const filteredMovies = movies
   res.json(movieAll)
 })
