@@ -24,8 +24,13 @@ app.get('/', (req, res) => {
 // Route for single book, filtered using book id
 app.get('/book/:id', (req, res) => {
   const id = req.params.id
-  const bookId = data.filter((item) => item.bookID === +id)
-  res.json(bookId)
+  const book = data.find((item) => item.bookID === +id)
+
+  if (!book) {
+    return res.status(404).json({ error: 'There is no book with that id' })
+  }
+
+  res.json(book)
 })
 
 // Route for books based on min_pages. Accepting filter via query for max_pages, returning array of books between min and max no of pages
