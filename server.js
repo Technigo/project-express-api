@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import data from './data.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
