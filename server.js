@@ -25,17 +25,22 @@ app.get('/', (req, res) => {
 
 // Route for array of all books with pagination as default, possible to use queries to choose page and sort based on rating
 app.get('/books', (req, res) => {
-  const { page, sort } = req.query
+  const { page, sort, author } = req.query
   let booksList = booksData
   const startIndex = 10 * (+page - 1) || 0
   const endIndex = startIndex + 10
-  const booksListPaginated = booksList.slice(startIndex, endIndex)
 
   if (sort === 'rating_dsc') {
     booksList = booksList.sort((a, b) => (b.average_rating - a.average_rating))
   } else if (sort === 'rating_asc') {
     booksList = booksList.sort((a, b) => (a.average_rating - b.average_rating))
   }
+
+  if (author) {
+    booksList = booksList.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
+  }
+
+  const booksListPaginated = booksList.slice(startIndex, endIndex)
 
   res.json(booksListPaginated)
 })
