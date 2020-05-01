@@ -23,19 +23,27 @@ app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-// Route for array of all books with pagination as default
+// Route for array of all books with pagination as default, possible to use queries to choose page and sort based on rating
 app.get('/books', (req, res) => {
-  let page = parseInt(req.query.page)
-  const startIndex = 10 * (page - 1) || 0
-  const endIndex = startIndex + 10
-  const bookList = booksData.slice(startIndex, endIndex)
+  const { sort, page } = req.query
+  let booksList = booksData
 
-  res.json(bookList)
+  if (sort === 'rating_dsc') {
+    booksList = booksList.sort((a, b) => (b.average_rating - a.average_rating))
+  } else if (sort === 'rating_asc') {
+    booksList = booksList.sort((a, b) => (a.average_rating - b.average_rating))
+  }
+
+  const startIndex = 10 * (+page - 1) || 0
+  const endIndex = startIndex + 10
+  const booksListPaginated = booksList.slice(startIndex, endIndex)
+
+  res.json(booksListPaginated)
 })
 
 // Route for single book, filtered using book id
 app.get('/books/:id', (req, res) => {
-  const id = req.params.id
+  const { id } = req.params
   const book = booksData.find((item) => item.bookID === +id)
 
   if (!book) {
@@ -43,19 +51,6 @@ app.get('/books/:id', (req, res) => {
   }
 
   res.json(book)
-})
-
-// Route for books based on min rating. Accepting filter via query for max rating, returning array of books between min and max rating
-app.get('/books/min_rating/:rating', (req, res) => {
-  const minRating = req.params.rating
-  const maxRating = req.query.max_rating
-  let bookRating = booksData.filter((item) => item.average_rating >= +minRating)
-
-  if (maxRating) {
-    bookRating = bookRating.filter((item) => item.average_rating <= +maxRating)
-  }
-
-  res.json(bookRating)
 })
 
 // Start the server
