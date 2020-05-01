@@ -16,13 +16,25 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 
-// Route for array of all books
+// Root endpoint
 app.get('/', (req, res) => {
-  res.json(data)
+  res.send(
+    'Available book API endpoints: /books, /books/:id, /min_pages/:pages, /min_rating/:rating')
+})
+
+// Route for array of all books
+app.get('/books', (req, res) => {
+  let page = parseInt(req.query.page)
+  const startIndex = 10 * page || 0
+  const endIndex = startIndex + 10
+  const bookList = data.slice(startIndex, endIndex)
+
+  res.json(bookList)
+
 })
 
 // Route for single book, filtered using book id
-app.get('/book/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const id = req.params.id
   const book = data.find((item) => item.bookID === +id)
 
