@@ -31,7 +31,6 @@ app.get('/books', (req, res) => {
   const bookList = booksData.slice(startIndex, endIndex)
 
   res.json(bookList)
-
 })
 
 // Route for single book, filtered using book id
@@ -46,20 +45,7 @@ app.get('/books/:id', (req, res) => {
   res.json(book)
 })
 
-// Route for books based on min_pages. Accepting filter via query for max_pages, returning array of books between min and max no of pages
-app.get('/books/min_pages/:pages', (req, res) => {
-  const minPages = req.params.pages
-  const maxPages = req.query.max_pages
-  let numPages = booksData.filter((item) => item.num_pages >= +minPages)
-
-  if (maxPages) {
-    numPages = numPages.filter((item) => item.num_pages <= +maxPages)
-  }
-
-  res.json(numPages)
-})
-
-// Same concept as route for pages but for rating
+// Route for books based on min rating. Accepting filter via query for max rating, returning array of books between min and max rating
 app.get('/books/min_rating/:rating', (req, res) => {
   const minRating = req.params.rating
   const maxRating = req.query.max_rating
