@@ -14,12 +14,13 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+const listEndpoints = require('express-list-endpoints')
+
 // Start defining your routes here
 
 // Root endpoint
 app.get('/', (req, res) => {
-  res.send(
-    'Available book API endpoints: /books, /books/:id, /min_pages/:pages, /min_rating/:rating')
+  res.send(listEndpoints(app))
 })
 
 // Route for array of all books with pagination as default
@@ -46,7 +47,7 @@ app.get('/books/:id', (req, res) => {
 })
 
 // Route for books based on min_pages. Accepting filter via query for max_pages, returning array of books between min and max no of pages
-app.get('/min_pages/:pages', (req, res) => {
+app.get('/books/min_pages/:pages', (req, res) => {
   const minPages = req.params.pages
   const maxPages = req.query.max_pages
   let numPages = booksData.filter((item) => item.num_pages >= +minPages)
@@ -59,7 +60,7 @@ app.get('/min_pages/:pages', (req, res) => {
 })
 
 // Same concept as route for pages but for rating
-app.get('/min_rating/:rating', (req, res) => {
+app.get('/books/min_rating/:rating', (req, res) => {
   const minRating = req.params.rating
   const maxRating = req.query.max_rating
   let bookRating = booksData.filter((item) => item.average_rating >= +minRating)
