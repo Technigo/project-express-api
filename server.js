@@ -1,13 +1,18 @@
 import express from 'express'
+import React from 'react'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
+
+
+// import goldenGlobesData from './data/golden-globes.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
-// import goldenGlobesData from './data/golden-globes.json'
+
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -24,8 +29,49 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('okay')
 })
+
+app.get('/books', (req, res) => {
+  let orderedBooks = booksData
+  const order = req.query.order
+  const page = +req.query.page || 1
+  const selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+
+  if (order === 'highest') {
+    orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? -1 : 1)
+    res.json(selectedPage)
+  } else if (order === 'lowest') {
+    orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? 1 : -1)
+    res.json(selectedPage)
+  } else if (order === 'longest') {
+    orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? -1 : 1)
+    res.json(selectedPage)
+  } else if (order === 'shortest') {
+    orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? 1 : -1)
+    res.json(selectedPage)
+  } else {
+    orderedBooks = orderedBooks.sort((a, b) => (a.bookID > b.bookID) ? 1 : -1)
+    res.json(selectedPage)
+  }
+
+})
+
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  const book = booksData.find((book) => book.bookID === +id)
+
+  book ? res.json(book) : res.send('No book was found with that Id')
+})
+
+app.get('/authors/:author', (req, res) => {
+  const author = req.params.author.toLowerCase()
+  const regex = ' '
+  const books = booksData.filter((book) => book.authors.replace(regex, '_').toLowerCase().includes(author))
+  books.length > 0 ? res.json(books) : res.send('No authors with that name were found')
+})
+
+
 
 // Start the server
 app.listen(port, () => {
