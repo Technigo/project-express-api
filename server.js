@@ -58,7 +58,7 @@ app.get("/all/:id", (req, res) => {
 // http://localhost:8080/movie/
 app.get("/movie", (req, res) => {
   // const movies = req.params.movies
-  const movieAll = netflixData.filter((item) => item.type === "Movie")Add 
+  const movieAll = netflixData.filter((item) => item.type === "Movie") 
   // const filteredMovies = movies
   res.json(movieAll)
 })
