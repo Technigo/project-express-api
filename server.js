@@ -19,19 +19,30 @@ app.get("/", (req, res) => {
   res.json(data);
 });
 
+// Displays object(s) with specific title
+app.get("/titles/:title", (req, res) => {
+  const title = req.params.title;
+  // I dont know why I need to use toString on item.title and not on item.actore further down, would love to know why!
+  const contentWithTitle = data.filter(
+    (item) => item.title.toString().toLowerCase() === title.toLowerCase()
+  );
+
+  res.json(contentWithTitle);
+});
+
 app.get("/IDs/:id", (req, res) => {
   // Displays object with specific ID
   const id = req.params.id;
-  const movieWithId = data.filter((item) => item.show_id === +id);
+  const contentWithId = data.filter((item) => item.show_id === +id);
 
-  res.json(movieWithId);
+  res.json(contentWithId);
 });
 
 app.get("/actors/:actor", (req, res) => {
   // Shows everything the specific actor has been casted in
   const actor = req.params.actor;
   const moviesWithActor = data.filter((item) =>
-    item.cast.toLowerCase().includes(actor)
+    item.cast.toLowerCase().includes(actor.toLowerCase())
   );
 
   res.json(moviesWithActor);
@@ -51,6 +62,22 @@ app.get("/years/:year", (req, res) => {
   }
 
   res.json(contentFromYear);
+});
+
+app.get("/countries/:country", (req, res) => {
+  // Shows everything from a specific year with the possibilty to filter on type of content.
+  const country = req.params.country;
+  const type = req.query.type;
+
+  let contentFromCountry = data.filter((item) => item.country === country);
+
+  if (type) {
+    contentFromCountry = contentFromCountry.filter(
+      (item) => item.type.toLowerCase() === type.toLowerCase()
+    );
+  }
+
+  res.json(contentFromCountry);
 });
 
 app.get("/duration/:minutes", (req, res) => {
