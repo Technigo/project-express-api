@@ -28,6 +28,19 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+app.get('/books', (req, res) => {
+  res.json(data)
+})
+
+// Endpoint to display books by author
+app.get('/authors/:author', (req, res) => {
+  const author = req.params.author
+  const booksByAuthor = data.filter((item) => item.authors === author)
+  res.json(booksByAuthor)
+})
+
+
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
