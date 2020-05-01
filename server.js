@@ -25,15 +25,15 @@ app.use(bodyParser.json())
 
 //Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Endpoints:  /books, /books?sort=rating, /?author=x for search, /heavyreads, /toprated')
+  res.send('Endpoints:  /books, /books/:id, /ratings, authors/:author')
 })
 
-//list all the books in the api
+//List all the books in the api
 app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-//Show one book using :id as a placeholder for the bookID number
+//Show one book using an :id as a placeholder for the bookID number in the data
 app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const bookId = booksData.find((item) => item.bookID === +id)
@@ -44,14 +44,14 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-//Sort books after rating highest to lowest
-app.get('/rating', (req, res) => {
+//Sort books after rating, highest to lowest
+app.get('/ratings', (req, res) => {
   const bestRated = booksData.sort((a, b) => b.average_rating - a.average_rating);
   res.json(bestRated)
 })
 
 
-//Query by author
+//Filter books by author
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) =>
@@ -61,7 +61,7 @@ app.get('/authors/:author', (req, res) => {
 });
 
 
-//Show the top 10 long books
+//Query by title
 
 
 // Start the server
