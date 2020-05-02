@@ -3,15 +3,6 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import data from './data.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
@@ -32,10 +23,22 @@ app.get('/books', (req, res) => {
   res.json(data)
 })
 
-// Endpoint to display books by author
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  const book = data.filter((item) => item.bookID === +id)
+  res.json(book)
+})
+
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author
-  const booksByAuthor = data.filter((item) => item.authors === author)
+  const showRating = +req.query.rating
+  let booksByAuthor = data.filter((item) => item.authors === author)
+
+  // Rating query
+  if (showRating) {
+    booksByAuthor = booksByAuthor.filter((item) => item.average_rating === showRating)
+  }
+
   res.json(booksByAuthor)
 })
 
