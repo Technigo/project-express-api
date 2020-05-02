@@ -6,15 +6,6 @@ import netflixData from "./data/netflix-titles.json";
 
 //console.log(netflixData.length);
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
@@ -27,18 +18,27 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   res.send("Hello Kajsa");
-});
+});*/
 
-app.get("/shows", (req, res) => {
+app.get("/", (req, res) => {
+  // Displays all movies and shows
   res.json(netflixData);
 });
 
 app.get("/year/:year", (req, res) => {
   const year = req.params.year;
-  //const titelMovie = req
-  let showsFromYear = netflixData.filter((item) => item.release_year === +year); //byter från const till let, gör att man kan annvända igen
+  //const type = req.query.type;
+  //console.log(type);
+  //const showMovie = req.query.type;
+  let showsFromYear = netflixData.filter((item) => item.release_year === +year);
+  //byter från const till let, gör att man kan annvända igen
+
+  //if (showMovie) {
+  //showsFromYear = showsFromYear.filter((item) => item.type);
+  //}
+
   res.json(showsFromYear);
 });
 
@@ -46,6 +46,12 @@ app.get("/titleId/:titleId", (req, res) => {
   const id = req.params.titleId;
   const titleWithId = netflixData.filter((item) => item.show_id === +id);
   res.json(titleWithId);
+});
+
+app.get("/countries/:countries", (req, res) => {
+  const countries = req.params.countries;
+  const showCountry = netflixData.filter((item) => item.country === countries);
+  res.json(showCountry);
 });
 
 // Start the server
