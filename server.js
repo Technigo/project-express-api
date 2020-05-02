@@ -31,12 +31,16 @@ app.get('/books/:id', (req, res) => {
 
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author
-  const showRating = +req.query.rating
+  const showRating = req.query.rating
   let booksByAuthor = data.filter((item) => item.authors === author)
 
   // Rating query
   if (showRating) {
-    booksByAuthor = booksByAuthor.filter((item) => item.average_rating === showRating)
+    booksByAuthor = booksByAuthor.filter((item) =>
+      (+item.average_rating.toFixed(1)) === (+showRating)
+      // console.log(typeof item.average_rating.toFixed(1), typeof showRating)
+
+    )
   }
 
   res.json(booksByAuthor)
