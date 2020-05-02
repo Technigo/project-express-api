@@ -25,12 +25,26 @@ app.use(bodyParser.json())
 
 //Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Endpoints:  /books, /books/:id, /ratings, authors/:author')
+  res.send('Endpoints:  /books, /books/book, /books/:id, /ratings, authors/:author')
 })
 
 //List all the books in the api
 app.get('/books', (req, res) => {
   res.json(booksData)
+})
+
+//Query for title (can only find titles with lowercase and 1 word)
+app.get('/books/book', (req, res) => {
+  const title = req.query.title
+  let bookTitle = booksData.find((item) =>
+    item.title.toString().toLowerCase().includes(title))
+
+  if (bookTitle) {
+    res.json(bookTitle)
+
+  } else {
+    res.status(404).json({ message: 'Not found' })
+  }
 })
 
 //Show one book using an :id as a placeholder for the bookID number in the data
@@ -44,14 +58,15 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-//Sort books after rating, highest to lowest
+
+//Sort books after rating, highest to lowest (make this into a query in book)
 app.get('/ratings', (req, res) => {
   const bestRated = booksData.sort((a, b) => b.average_rating - a.average_rating);
   res.json(bestRated)
 })
 
 
-//Filter books by author
+//Filter books by one author
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) =>
@@ -59,9 +74,6 @@ app.get('/authors/:author', (req, res) => {
   );
   res.json(booksByAuthor);
 });
-
-
-//Query by title
 
 
 // Start the server
