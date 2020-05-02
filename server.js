@@ -7,7 +7,8 @@ import cors from 'cors'
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+import booksData from './data/books.json'
+console.log(booksData.length)
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -25,6 +26,23 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+app.get('/authur/:name', (req, res) => {
+  const name = req.params.name
+  const booksFromAuthur = booksData.filter(book => book.title.includes(name))
+  res.json(booksFromAuthur)
+})
+
+app.get('/books/:id', (req, res) => {
+  const id = +req.params.id
+  // const bookWithId = booksData.find(book => book.id === id)
+  const bookWithId = booksData.filter(book => book.bookID === id)
+  res.json(bookWithId)
 })
 
 // Start the server
