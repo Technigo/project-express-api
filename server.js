@@ -37,7 +37,7 @@ app.get('/books', (req, res) => {
 app.get('/books/book', (req, res) => {
   const title = req.query.title
   let bookTitle = booksData.find((item) =>
-    item.title.toString().toLowerCase().includes(title))
+    item.title.toString().toLowerCase().replace('%20', ' ').includes(title))
 
   if (bookTitle) {
     res.json(bookTitle)
