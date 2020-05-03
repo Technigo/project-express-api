@@ -7,7 +7,7 @@ import cors from 'cors'
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -26,6 +26,27 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+// Add new GET route to get all books
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+// Filter by ID
+// How to handle if the ID doesnt exist?
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  let booksById = booksData.filter((item) => item.bookID === +id)
+  res.json(booksById)
+})
+
+// Show average rating over x
+app.get('/rating/:rank', (req, res) => {
+  const rank = req.params.rank
+  let booksByRating = booksData.filter((item) => item.average_rating >= rank)
+  res.json(booksByRating)
+})
+
 
 // Start the server
 app.listen(port, () => {
