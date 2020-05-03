@@ -44,13 +44,25 @@ app.get("/titleId/:titleId", (req, res) => {
 
 app.get("/countries/:countries", (req, res) => {
   const countries = req.params.countries;
-  const showCountry = netflixData.filter((item) => item.country === countries);
+  const showYear = req.query.year;
+  let showCountry = netflixData.filter((item) => item.country === countries);
+
+  if (showYear) {
+    showCountry = showCountry.filter((item) => item.release_year === +showYear);
+  }
+
   res.json(showCountry);
 });
 
 app.get("/types/:types", (req, res) => {
   const types = req.params.types;
-  const showType = netflixData.filter((item) => item.type === types);
+  const showYear = req.query.year;
+  let showType = netflixData.filter((item) => item.type === types);
+
+  if (showYear) {
+    showType = showType.filter((item) => item.release_year === +showYear);
+  }
+
   res.json(showType);
 });
 
