@@ -6,7 +6,7 @@ import booksData from './data/books.json'
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
-//   PORT=9000 npm start
+// PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-// Route for array of all books with pagination as default, possible to use queries to choose page and sort based on rating
+// Route for array of all books with pagination as default, possible to use queries to choose page, sort based on rating, find books by author or title 
 app.get('/books', (req, res) => {
-  const { page, sort, author } = req.query
+  const { page, sort, author, title } = req.query
   let booksList = booksData
   const startIndex = 10 * (+page - 1) || 0
   const endIndex = startIndex + 10
@@ -37,7 +37,11 @@ app.get('/books', (req, res) => {
   }
 
   if (author) {
-    booksList = booksList.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
+    booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLowerCase()))
+  }
+
+  if (title) {
+    booksList = booksList.filter((item) => item.title.toString().toLowerCase().includes(title.toLowerCase()))
   }
 
   const booksListPaginated = booksList.slice(startIndex, endIndex)
@@ -51,7 +55,7 @@ app.get('/books/:id', (req, res) => {
   const book = booksData.find((item) => item.bookID === +id)
 
   if (!book) {
-    return res.status(404).json({ error: 'There is no book with that id' })
+    res.status(404).json({ error: 'There is no book with that id' })
   }
 
   res.json(book)
