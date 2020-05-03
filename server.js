@@ -33,27 +33,11 @@ app.get('/movies', (req, res) => {
   res.json(netflixData);
 });
 
-// route for getting data on a certain movie
-app.get('/movies/:movie', (req, res) => {
-  const movie = req.params.movie;
-  const chosenMovie = netflixData.filter((item) => item.title === movie);
-  res.json(chosenMovie);
-});
-
-// route for getting movies from a certain country
-app.get('/countries/:country', (req, res) => {
-  const country = req.params.country;
-  const chosenCountry = netflixData.filter((item) => item.country === country);
-  res.json(chosenCountry);
-});
-
 // route for getting movies from a certain category
-app.get('/categories/:category', (req, res) => {
-  const category = req.params.category;
-  const movieCategory = netflixData.filter(
-    (item) => item.listed_in === category
-  );
-  res.json(movieCategory);
+app.get('/genres/:genre', (req, res) => {
+  const genre = req.params.genre;
+  const movieGenre = netflixData.filter((item) => item.listed_in === genre);
+  res.json(movieGenre);
 });
 
 // route for getting movies from a certain year
@@ -62,6 +46,30 @@ app.get('/year/:year', (req, res) => {
   const releaseYear = netflixData.filter((item) => item.release_year === +year);
   res.json(releaseYear);
 });
+
+// Filter based on title AND/OR country
+// app.get('/shows', (req, res) => {
+//   // Query parameter
+//   const titleSearchString = req.query.title
+//   const countrySearchString = req.query.country
+
+//   let filteredShows = netflixData;
+
+//   if (titleSearchString) {
+//     filteredShows = filteredShows.filter(item => {
+//       const itemTitle = item.title.toString()
+//       return itemTitle.includes(titleSearchString)
+//     })
+//   }
+
+//   if (countrySearchString) {
+//     filteredShows = filteredShows.filter(item => {
+//       const itemCountry = item.country.toString()
+//       return itemCountry.includes(countrySearchString)
+//     })
+//   }
+
+//   res.json(filteredShows);
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
