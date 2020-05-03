@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
-app.get('/nominations', (req, res)=> {
+app.get('./nominations', (req, res)=> {
   res.json(goldenGlobesData)
 })
 
