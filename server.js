@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import data from "./data/golden-globes.json"
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -27,6 +29,21 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+app.get('/nominations', (req, res) => {
+  res.json(data)
+})
+
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  const showWon = req.query.won
+  let nominationsFromYear = data.filter((item)=> item.year_award ===  + year)
+
+  if (showWon) {
+    nominationsFromYear = nominationsFromYear.filter((item)=>item.win)
+  }
+  
+  res.json(nominationsFromYear)
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
