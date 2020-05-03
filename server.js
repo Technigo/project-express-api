@@ -34,6 +34,13 @@ app.get('/nominations', (req, res) => {
   res.json(goldenGlobesData)
 })
 
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  console.log({ year })
+  const fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+  res.json(fromYear)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
