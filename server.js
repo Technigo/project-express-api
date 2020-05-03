@@ -30,7 +30,9 @@ app.get("/year/:year", (req, res) => {
   let showsFromYear = netflixData.filter((item) => item.release_year === +year);
 
   if (showType) {
-    showsFromYear = showsFromYear.filter((item) => item.type === showType);
+    showsFromYear = showsFromYear.filter(
+      (item) => item.type.toLowerCase() === showType.toLowerCase()
+    );
   }
 
   res.json(showsFromYear);
@@ -45,10 +47,15 @@ app.get("/titleId/:titleId", (req, res) => {
 app.get("/countries/:countries", (req, res) => {
   const countries = req.params.countries;
   const showYear = req.query.year;
-  let showCountry = netflixData.filter((item) => item.country === countries);
+
+  let showCountry = netflixData.filter(
+    (item) => item.country.toString().toLowerCase() === countries.toLowerCase()
+  );
 
   if (showYear) {
-    showCountry = showCountry.filter((item) => item.release_year === +showYear);
+    showCountry = showCountry.filter(
+      (item) => item.release_year.toLowerCase() === +showYear.toLowerCase()
+    );
   }
 
   res.json(showCountry);
@@ -57,7 +64,10 @@ app.get("/countries/:countries", (req, res) => {
 app.get("/types/:types", (req, res) => {
   const types = req.params.types;
   const showYear = req.query.year;
-  let showType = netflixData.filter((item) => item.type === types);
+
+  let showType = netflixData.filter(
+    (item) => item.type.toString().toLowerCase() === types.toLowerCase()
+  );
 
   if (showYear) {
     showType = showType.filter((item) => item.release_year === +showYear);
