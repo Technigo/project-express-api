@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Golden Globe nominations 2010-2019')
 })
 
 app.get('/nominations', (req, res) => {
@@ -36,8 +36,14 @@ app.get('/nominations', (req, res) => {
 
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
-  console.log({ year })
-  const fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+  const showWin = req.query.won
+  console.log(showWin)
+  let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+
+  if (showWin) {
+    fromYear = goldenGlobesData.filter((item) => item.win)
+  }
+
   res.json(fromYear)
 })
 
