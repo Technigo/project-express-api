@@ -2,9 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
-//import data from "./data.json";
-
-//console.log(netflixData.length);
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -29,15 +26,12 @@ app.get("/", (req, res) => {
 
 app.get("/year/:year", (req, res) => {
   const year = req.params.year;
-  //const type = req.query.type;
-  //console.log(type);
-  //const showMovie = req.query.type;
+  const showType = req.query.type;
   let showsFromYear = netflixData.filter((item) => item.release_year === +year);
-  //byter från const till let, gör att man kan annvända igen
 
-  //if (showMovie) {
-  //showsFromYear = showsFromYear.filter((item) => item.type);
-  //}
+  if (showType) {
+    showsFromYear = showsFromYear.filter((item) => item.type === showType);
+  }
 
   res.json(showsFromYear);
 });
@@ -52,6 +46,12 @@ app.get("/countries/:countries", (req, res) => {
   const countries = req.params.countries;
   const showCountry = netflixData.filter((item) => item.country === countries);
   res.json(showCountry);
+});
+
+app.get("/types/:types", (req, res) => {
+  const types = req.params.types;
+  const showType = netflixData.filter((item) => item.type === types);
+  res.json(showType);
 });
 
 // Start the server
