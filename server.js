@@ -15,7 +15,7 @@ import cors from 'cors'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 3000
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -25,6 +25,14 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('This is my first api soon')
+})
+
+app.get('/users', (req, res) => {
+  res.json([
+    {name: "Alice"},
+    {name: "Bob" }, 
+    {name: "Chris"}
+  ])
 })
 
 // Start the server
