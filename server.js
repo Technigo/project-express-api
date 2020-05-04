@@ -38,9 +38,45 @@ app.get('/movies', (req, res) => {
   res.json(areMovies)
 })
 
+
+// Would like to only check the ids of the movies. Not filter through all the data
+// app.get('/movies/:id', (req, res) => {
+//   // const areMovies = netflixData.filter((item) => item.type === "Movie")
+//   const id = req.params.id
+//   const specificMovie = netflixData.filter((movie) => movie.show_id === +id)
+
+//   specificMovie ? res.json(specificMovie) : res.send("No movie was found with that Id")
+// })
+
+
+
+app.get('/movies/:movieTitle', (req, res) => {
+  const areMovies = netflixData.filter((item) => item.type === "Movie")
+  const movieTitle = req.params.movieTitle.toLowerCase()
+ 
+  const movieData = areMovies.filter((item) => item.title.toString().toLowerCase() === movieTitle)
+  
+  res.json(movieData)
+})
+
+// app.get('movies/:director', (req, res) => {
+//   const director = req.query.
+//   const byDirector = netflixData.filter((item) => item.director === {director})
+//   console.log(byDirector)
+// })
+
 app.get('/tv_shows', (req, res) => {
   const areTVShows = netflixData.filter((item) => item.type === "TV Show")
   res.json(areTVShows)
+})
+
+app.get('/tv_shows/:tvTitle', (req, res) => {
+  const areTVShows = netflixData.filter((item) => item.type === "TV Show")
+  const tvTitle = req.params.tvTitle.toLowerCase()
+  console.log(tvTitle)
+  const tvData = areTVShows.find((item) => item.title === tvTitle)
+
+  res.json(tvData)
 })
 
 app.get('/year/:year', (req, res) => {
@@ -54,7 +90,7 @@ app.get('/year/:year', (req, res) => {
 app.get('/title/:title', (req, res) => {
   const title = req.params.title
   console.log(title)
-  const showTitle = netflixData.filter((item) => item.show_id === +title)
+  const showTitle = netflixData.find((item) => item.title === title)
   console.log(showTitle)
   res.json(showTitle)
 })
