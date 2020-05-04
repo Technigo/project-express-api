@@ -1,13 +1,32 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+Book API built in Node using Express. The following endpoints are available:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Root: `/`
+Books: `/books`
+Book by id: `/books/:id`
+
+Queries can be used to limit the `/books` endpoint:
+Select page: `/books?page=:page`
+Search books by author: `/books?author=:author`
+Search books by title: `/books?title=:title`
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The task was to create an API with a couple of endpoints. The API uses a static data set stored as a JSON file. Using the array methods `.sort()`, `.filter()`, .`slice()` and `.find()`, the items returned in the responses are limited.
+
+## Learning objectives
+
+* How to build an API in Node using Express
+* How to create routes in Express
+* Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+
+## Tech
+
+* Node.js
+* Express
+* JavaScript ES6
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://fridamaria-book-api.herokuapp.com/
