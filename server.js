@@ -3,8 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-console.log(booksData.length)
-//   PORT=9000 npm start
+// PORT = 9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -14,14 +13,16 @@ app.use(bodyParser.json())
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('/books, /author /language/:language, /rating, /page')
+  res.send('Routes: /books, /language/:language, /rating, /page')
 })
 
+//Show all data
 app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-//Filter with ID
+//Filter on ID
+//http://localhost:8080/books/1
 app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const book = booksData.find((item) => item.bookID === +bookId)
@@ -37,13 +38,13 @@ app.get('/books/:id', (req, res) => {
 // http://localhost:8080/books?title=John
 app.get('books/', (req, res) => {
   const searchAuthor = req.query.authors
-  const searchTitle = req.query.searchTitle
+  const searchTitle = req.query.title
   let filteredBooks = booksdata
 
   if (searchAuthor) {
     filteredBooks = filteredBooks.filter(item => {
       const authorsName = item.authors.toString()
-      return authorsName.includes(SearchAuthor)
+      return authorsName.includes(searchAuthor)
     })
   }
 
@@ -55,7 +56,7 @@ app.get('books/', (req, res) => {
   }
 
   //if empty array
-  if (filteredBooks.lenght === 0) {
+  if (filteredBooks.length === 0) {
     res.status(404).send('Not found')
   } else {
     res.json(filteredBooks)
@@ -63,28 +64,31 @@ app.get('books/', (req, res) => {
 })
 
 
-
-
-
-
-
+//Filter on language
+//http://localhost:8080/language/spa
+//http://localhost:8080/language/eng
 app.get('/language/:language', (req, res) => {
   const language = req.params.language
   const bookLanguage = booksData.filter((item) => item.language_code === language)
-  res.json(bookLanguage)
 
   if (bookLanguage.length === 0) {
     res.status(404).send(`Not found. Your entry: ${language} is not valid.`)
+  } else {
+    res.json(bookLanguage)
   }
 })
 
+//Books from highest to lowest rating
+// http://localhost:8080/sort/ratings
+app.get('/ratings', (req, res) => {
+  const bookRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
+  res.json({
+    text: "Average rating", bookRating
+  })
+})
 
 
-
-
-
-
-// Start the server
+// START THE SERVER
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
