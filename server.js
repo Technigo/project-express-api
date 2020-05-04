@@ -15,8 +15,15 @@ app.get('/', (req, res) => {
   res.send('Books')
 })
 
-app.get('/library', (req, res) => {
-  res.json(booksData)
+app.get('/library/:page', (req, res) => {
+  const page = +req.params.page - 1
+  let showPage = booksData.slice(page*20, page*20+20)
+
+  if (showPage.length < 1 ) {
+    res.send('No books to show')
+  } else {
+    res.json(showPage)
+  }
 })
 
 app.get('/title/:title', (req, res) => {
