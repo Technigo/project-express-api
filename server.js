@@ -25,11 +25,31 @@ app.get('/', (req, res) => {
 })
 
 app.get('/nominations', (req, res) => { res.json(goldenGlobesData) }) 
-app.get('/year/:year', (req, res) => { const year = req.params.year 
+
+app.get('/nominee:nominee', (req, res) => {
+  const nominee = req.params.nominee
+  let result = globeData.filter((item) => item.nominee === +nominee)
+
+  res.json(result)
+})
+
+app.get('/year/:year', (req, res) => { 
+  const year = req.params.year 
   const showWon = req.query.won 
   let fromYear = globeData.filter((item) => item.year_award === +year) 
   if (showWon) { fromYear = fromYear.filter((item) => item.win) } res.json(fromYear) 
 })
+
+app.get('/winners', (_, res) => {
+
+  let winners = globeData.filter(item => {
+    return item.win === true
+  })
+  
+  res.json(winners)
+
+})
+
 
 // Start the server
 app.listen(port, () => {
