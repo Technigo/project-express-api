@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import data from "./data/netflix-titles.json";
 
+//I've left all coments so that I can go back to this project and read them if necessary in the future.
+
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
