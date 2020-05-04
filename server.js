@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.json('Hello world')
+  res.json('Possible routes: /books/:id – Query params: ')
 })
 
 
@@ -51,7 +51,6 @@ app.get('/books', (req, res) => {
       item.average_rating.toFixed() === rating
     )
   }
-
 
   // Filter on number of pages
   if (pages) {
