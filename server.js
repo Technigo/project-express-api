@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-import data from './data/golden-globes.json'
+import globeData from './data/golden-globes.json'
 // import data from './data/avocado-sales.json'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
@@ -21,24 +21,16 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Welcome')
 })
 
-app.get('/nominations', (req, res) => {
-  res.json(data)
+app.get('/nominations', (req, res) => { res.json(goldenGlobesData) }) 
+app.get('/year/:year', (req, res) => { const year = req.params.year 
+  const showWon = req.query.won 
+  let fromYear = globeData.filter((item) => item.year_award === +year) 
+  if (showWon) { fromYear = fromYear.filter((item) => item.win) } res.json(fromYear) 
 })
 
-app.get('/year/:year', (req, res) => {
-  const year = req.params.year
-  const showWon = req.query.won
-  const nominationsFromYear = data.filter((item) => item.year_award === +year)
-
-
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-  }
-  res.json(nominationsFromYear)
-})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
