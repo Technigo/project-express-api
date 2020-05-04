@@ -29,7 +29,7 @@ app.use(bodyParser.json())
 
 // // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Netflix data')
+  res.send('')
 })
 
 app.get('/titles', (req, res) => {
@@ -38,8 +38,8 @@ app.get('/titles', (req, res) => {
 
 app.get('/titles/:id', (req, res) => {
   const id = req.params.id
-  const title = netflixData.filter((item) => item.show_id === +id)
-  res.json(title)
+  const titleId = netflixData.filter((item) => item.show_id === +id)
+  res.json(titleId)
 })
 
 app.get('/year/:year', (req, res) => {

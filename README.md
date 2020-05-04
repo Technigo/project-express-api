@@ -1,13 +1,25 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+My first API built using Express! You can use the endpoints below to access different data (from netflix):
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+/titles - Data for all netflix titles included in the json file.
 
-## The problem
+/titles/${id} - Data for a specific title ID from the json file. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+/year/2019 - Data for a specific release year. 
+
+/type/movie - Data for only movies
+
+/type/tvshow - Data for only TV Shows
+
+## Tech learned
+
+- How to build API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://golden-globe-technigo.herokuapp.com/
+
+(confusing name? It was a golden globe API at first)
