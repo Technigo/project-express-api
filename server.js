@@ -81,6 +81,7 @@ app.get("/countries/:country", (req, res) => {
 });
 
 app.get("/duration/:minutes", (req, res) => {
+  //Shows content that has the exact length searched for
   const length = req.params.minutes;
   const exactlyThatLong = data.filter(
     (item) => item.duration === `${length} min`
