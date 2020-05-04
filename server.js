@@ -36,18 +36,25 @@ app.get('/titles', (req, res) => {
 // Gets an object with a specific id
 app.get('/titles/:id', (req, res) => {
   const id = req.params.id
-  let titleId = netflixData.filter((item) => item.show_id === +id)
-  res.json(titleId)
+  const titleId = netflixData.find((item) => item.show_id === +id)
+  if (titleId) {
+    res.json(titleId)
+  } else {
+    res.status(404).send('Sorry, no such title was found.')
+  }
 })
 
 // Gets objects released specific year
 app.get('/releaseyear/:year', (req, res) => {
   const year = req.params.year
-  // const showWon = req.query.won
+
+  // Query for type:
+  const showType = req.query.type
   let titlesFromYear = netflixData.filter((item) => item.release_year === + year)
-  // if (showWon) {
-  //   nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-  // }
+
+  if (showType) {
+    titlesFromYear = titlesFromYear.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
+  }
   res.json(titlesFromYear)
 })
 
