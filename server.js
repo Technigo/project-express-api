@@ -33,20 +33,6 @@ app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-//Query for title (can only find titles with lowercase and 1 word)
-app.get('/books/book', (req, res) => {
-  const title = req.query.title
-  let bookTitle = booksData.find((item) =>
-    item.title.toString().toLowerCase().replace('%20', ' ').includes(title))
-
-  if (bookTitle) {
-    res.json(bookTitle)
-
-  } else {
-    res.status(404).json({ message: 'Not found' })
-  }
-})
-
 //Show one book using an :id as a placeholder for the bookID number in the data
 app.get('/books/:id', (req, res) => {
   const { id } = req.params
@@ -58,15 +44,28 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
+//Query for title (can only find titles with lowercase and 1 word...)
+app.get('/books/book', (req, res) => {
+  const title = req.query.title
+  let bookTitle = booksData.find((item) =>
+    item.title.toString().toLowerCase().replace('%20', ' ').includes(title))
 
-//Sort books after rating, highest to lowest (make this into a query in book)
+  if (bookTitle) {
+    res.json(bookTitle)
+
+  } else {
+    res.status(404).json({ message: 'Book title not found' })
+  }
+})
+
+//Sort books after rating, highest to lowest (make this into a query in book instead?)
 app.get('/ratings', (req, res) => {
   const bestRated = booksData.sort((a, b) => b.average_rating - a.average_rating);
   res.json(bestRated)
 })
 
 
-//Filter books by one author
+//Get all books by one author
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) =>
