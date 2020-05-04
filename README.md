@@ -1,15 +1,16 @@
 # Express API Project
 
-Book API built in Node using Express. The following endpoints are available:
+Book API built in Node using Express.
 
-Root: /
-Books: /books
-Book by id: /books/:id
+The following endpoints are available:
+* Root: `/`
+* Books: `/books`
+* Book by id: `/books/:id`
 
 Queries can be used to limit the `/books` endpoint:
-Select page: /books?page=:page
-Search books by author: /books?author=:author
-Search books by title: /books?title=:title
+* Select page: `/books?page=:page`
+* Search books by author: `/books?author=:author`
+* Search books by title: `/books?title=:title`
 
 ## The problem
 
