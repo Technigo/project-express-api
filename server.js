@@ -29,29 +29,34 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('okay')
+  res.send('ELLO ELLO')
 })
 
 app.get('/books', (req, res) => {
   let orderedBooks = booksData
   const order = req.query.order
   const page = +req.query.page || 1
-  const selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+  let selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
 
   if (order === 'highest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? -1 : 1)
+    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
   } else if (order === 'lowest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? 1 : -1)
+    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
   } else if (order === 'longest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? -1 : 1)
+    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
   } else if (order === 'shortest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? 1 : -1)
+    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
   } else {
     orderedBooks = orderedBooks.sort((a, b) => (a.bookID > b.bookID) ? 1 : -1)
+    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
   }
 
@@ -66,9 +71,16 @@ app.get('/books/:id', (req, res) => {
 
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author.toLowerCase()
-  const regex = ' '
-  const books = booksData.filter((book) => book.authors.replace(regex, '_').toLowerCase().includes(author))
-  books.length > 0 ? res.json(books) : res.send('No authors with that name were found')
+  const selectedAuthor = booksData.filter((book) => book.authors.toLowerCase().replace(' ', '_').includes(author))
+  res.json(selectedAuthor)
+  selectedAuthor.length > 0 ? res.json(selectedAuthor) : res.send('No authors with that name were found')
+})
+
+app.put('/books/:id', (req, res) => {
+  const id = req.params.id
+  const foundBook = booksData.find((book) => book.bookID === +id)
+  foundBook.image_url = req.body.image_url
+  res.send(foundBook)
 })
 
 
@@ -77,3 +89,4 @@ app.get('/authors/:author', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
+
