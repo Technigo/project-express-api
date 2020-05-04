@@ -20,7 +20,16 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  res.json(data)
+  const numPages = req.query.pages
+  let allBooks = data
+
+  // Filter on number of pages
+  if (numPages) {
+    allBooks = allBooks.filter((item) =>
+      Math.floor(item.num_pages / 100) * 100 === +numPages) // Round down to nearest 100
+  }
+
+  res.json(allBooks)
 })
 
 
@@ -29,7 +38,7 @@ app.get('/books/:id', (req, res) => {
   const book = data.filter((item) => item.bookID === +bookId)
 
   // Ensure that no empty objects are shown
-  if (book.length !== 0) {
+  if (book.length !== 0) { // Tried (bookId) here but then it shows an empty object even though the id doesn't exist.
     res.json(book)
     // If book was not found
   } else {
@@ -40,9 +49,11 @@ app.get('/books/:id', (req, res) => {
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author
   const showRating = req.query.rating
-  let booksByAuthor = data.filter((item) => item.authors === author)
+  let booksByAuthor = data.filter((item) => // Check if items.author contains the value of author
+    item.authors.toLowerCase().includes(author)
+  )
 
-  // Rating query
+  // Filter on rating
   if (showRating) {
     booksByAuthor = booksByAuthor.filter((item) =>
       item.average_rating.toFixed(1) === showRating
