@@ -1,7 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import data from "./data/golden-globes.json"
 
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -10,7 +9,7 @@ import data from "./data/golden-globes.json"
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -26,24 +25,32 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('This is an API with 1375 Netflix titles. Have fun exploring them!')
 })
 
-app.get('/nominations', (req, res) => {
-  res.json(data)
+// Gets all objects in the API
+app.get('/titles', (req, res) => {
+  res.json(netflixData)
 })
 
-app.get('/year/:year', (req, res) => {
+// Gets an object with a specific id
+app.get('/titles/:id', (req, res) => {
+  const id = req.params.id
+  let titleId = netflixData.filter((item) => item.show_id === +id)
+  res.json(titleId)
+})
+
+// Gets objects released specific year
+app.get('/releaseyear/:year', (req, res) => {
   const year = req.params.year
-  const showWon = req.query.won
-  let nominationsFromYear = data.filter((item)=> item.year_award ===  + year)
-
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item)=>item.win)
-  }
-  
-  res.json(nominationsFromYear)
+  // const showWon = req.query.won
+  let titlesFromYear = netflixData.filter((item) => item.release_year === + year)
+  // if (showWon) {
+  //   nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+  // }
+  res.json(titlesFromYear)
 })
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
