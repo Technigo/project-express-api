@@ -80,7 +80,8 @@ app.put('/books/:id', (req, res) => {
   const id = req.params.id
   const foundBook = booksData.find((book) => book.bookID === +id)
   foundBook.image_url = req.body.image_url
-  res.send(foundBook)
+  res.json(foundBook)
+  console.log('recieved and sent')
 })
 
 
