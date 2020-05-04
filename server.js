@@ -24,39 +24,39 @@ app.get('/', (req, res) => {
 
 app.get('/books', (req, res) => {
   let books = data
-  const titleSearch = req.query.title
-  const authorSearch = req.query.author
-  const showRating = req.query.rating
-  const numPages = req.query.pages
+  const title = req.query.title
+  const author = req.query.author
+  const rating = req.query.rating
+  const pages = req.query.pages
   const sort = req.query.sort
 
   // Filter on title
-  if (titleSearch) {
+  if (title) {
     books = books.filter((item) => {
       const bookTitle = item.title.toString() // Not sure why .toString() is neccessary
-      return bookTitle.toLowerCase().includes(titleSearch.toLowerCase())
+      return bookTitle.toLowerCase().includes(title.toLowerCase())
     })
   }
 
   // Filter on author
-  if (authorSearch) {
+  if (author) {
     books = books.filter((item) =>
-      item.authors.toLowerCase().includes(authorSearch.toLowerCase())
+      item.authors.toLowerCase().includes(author.toLowerCase())
     )
   }
 
   // Filter on rating
-  if (showRating) {
+  if (rating) {
     books = books.filter((item) =>
-      item.average_rating.toFixed() === showRating
+      item.average_rating.toFixed() === rating
     )
   }
 
 
   // Filter on number of pages
-  if (numPages) {
+  if (pages) {
     books = books.filter((item) =>
-      Math.floor(item.num_pages / 100) * 100 === +numPages) // Round down to nearest 100
+      Math.floor(item.num_pages / 100) * 100 === +pages) // Round down to nearest 100
   }
 
   // Sorting
