@@ -23,11 +23,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
+// Displays all the data
 app.get("/nominations", (req, res) => {
   res.json(goldenGlobesData);
 });
@@ -35,7 +35,7 @@ app.get("/nominations", (req, res) => {
 //Only awards for a specific year, the + makes a string to a number
 app.get("/year/:year", (req, res) => {
   const year = req.params.year;
-  const showWon = req.params.won;
+  const showWon = req.query.won;
   let nominationsFromYear = goldenGlobesData.filter(
     (item) => item.year_award === +year
   );
