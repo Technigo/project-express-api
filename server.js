@@ -35,13 +35,12 @@ app.get('/nominations', (req, res) => {
 })
 
 app.get('/year/:year', (req, res) => {
-  const year = req.params.year
-  const showWin = req.query.won
-  console.log(showWin)
+  const year = req.params.year  
+  const showWin = req.query.win
   let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
 
   if (showWin) {
-    fromYear = goldenGlobesData.filter((item) => item.win)
+    fromYear = fromYear.filter((item) => item.win)
   }
 
   res.json(fromYear)
