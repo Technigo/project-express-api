@@ -1,15 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 import netflixData from './data/netflix-titles.json';
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -43,8 +35,26 @@ app.get('/movies/:movie', (req, res) => {
 // route for getting movies from a certain category
 app.get('/genres/:genre', (req, res) => {
   const genre = req.params.genre;
-  const movieGenre = netflixData.filter((item) => item.listed_in === genre);
+  const movieGenre = netflixData.filter((item) =>
+    item.listed_in.includes(genre)
+  );
   res.json(movieGenre);
+});
+
+// route for getting movies with a certain actor
+app.get('/actors/:actor', (req, res) => {
+  const actor = req.params.actor;
+  const chosenActor = netflixData.filter((item) => item.cast.includes(actor));
+  res.json(chosenActor);
+});
+
+// route for getting movies with a certain director
+app.get('/directors/:director', (req, res) => {
+  const director = req.params.director;
+  const chosenDirector = netflixData.filter((item) =>
+    item.director.includes(director)
+  );
+  res.json(chosenDirector);
 });
 
 // route for getting movies from a certain year
@@ -65,10 +75,6 @@ app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).render('404.ejs');
 });
-// app.get('*', (req, res) => {
-//   res.send({ error: 'No routes matched' });
-//   res.end();
-// });
 
 // app.use(function (err, req, res, next) {
 //   console.error(err.stack);
