@@ -16,17 +16,25 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.json('Hello world')
 })
 
 app.get('/books', (req, res) => {
   res.json(data)
 })
 
+
 app.get('/books/:id', (req, res) => {
-  const id = req.params.id
-  const book = data.filter((item) => item.bookID === +id)
-  res.json(book)
+  const bookId = req.params.id
+  const book = data.filter((item) => item.bookID === +bookId)
+
+  // Ensure that no empty objects are shown
+  if (book.length !== 0) {
+    res.json(book)
+    // If book was not found
+  } else {
+    res.status(404).send(`No book found with id ${bookId}`)
+  }
 })
 
 app.get('/authors/:author', (req, res) => {
@@ -37,9 +45,7 @@ app.get('/authors/:author', (req, res) => {
   // Rating query
   if (showRating) {
     booksByAuthor = booksByAuthor.filter((item) =>
-      (+item.average_rating.toFixed(1)) === (+showRating)
-      // console.log(typeof item.average_rating.toFixed(1), typeof showRating)
-
+      item.average_rating.toFixed(1) === showRating
     )
   }
 
