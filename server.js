@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 
 //Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Endpoints:  /books, /books/book, /books/:id, /ratings, authors/:author')
+  res.send('Endpoints:  /books, /titles, /books/:id, /ratings, authors/:author')
 })
 
 //List all the books in the api
@@ -44,8 +44,8 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-//Query for title (can only find titles with lowercase and 1 word...)
-app.get('/books/book', (req, res) => {
+//Query for title 
+app.get('/titles', (req, res) => {
   const title = req.query.title
   let bookTitle = booksData.find((item) =>
     item.title.toString().toLowerCase().replace('%20', ' ').includes(title))
@@ -58,14 +58,14 @@ app.get('/books/book', (req, res) => {
   }
 })
 
-//Sort books after rating, highest to lowest (make this into a query in book instead?)
+//Sort books after rating, highest to lowest 
 app.get('/ratings', (req, res) => {
   const bestRated = booksData.sort((a, b) => b.average_rating - a.average_rating);
   res.json(bestRated)
 })
 
 
-//Get all books by one author
+//Get all books by one author (example: https://express-book-api-hannaruter.herokuapp.com/authors/rowling)
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) =>
