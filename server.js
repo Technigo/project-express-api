@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Routes: /books, /language/:language, /rating, /page')
+  res.send('Routes: /books, /language/:language, /rating')
 })
 
 //Show all data
@@ -63,7 +63,6 @@ app.get('books/', (req, res) => {
   }
 })
 
-
 //Filter on language
 //http://localhost:8080/language/spa
 //http://localhost:8080/language/eng
@@ -79,12 +78,10 @@ app.get('/language/:language', (req, res) => {
 })
 
 //Books from highest to lowest rating
-// http://localhost:8080/sort/ratings
-app.get('/ratings', (req, res) => {
-  const bookRating = booksData.sort((a, b) => -(parseFloat(a.average_rating) - parseFloat(b.average_rating)))
-  res.json({
-    text: "Average rating", bookRating
-  })
+// http://localhost:8080/rating
+app.get('/rating', (req, res) => {
+  const booksRating = booksData.sort((a, b) => ((b.average_rating) - (a.average_rating)))
+  res.json(booksRating)
 })
 
 
