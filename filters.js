@@ -28,9 +28,9 @@ export const filterMoviesByCountry = (country, movieList) => {
   return movieList
 }
 
-export const filterMoviesByActor = (actor, movieList) => {
-  if (actor) {
-    return movieList.filter((item) => item.cast.includes(actor))
+export const filterMoviesByActor = (cast, movieList) => {
+  if (cast) {
+    return movieList.filter((item) => item.cast.includes(cast))
   }
   return movieList
 }

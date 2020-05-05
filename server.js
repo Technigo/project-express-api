@@ -1,4 +1,4 @@
-import express, { request, response } from 'express'
+import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 const path = require('path')
@@ -17,21 +17,21 @@ app.get('/', (request, response) => {
 })
 
 app.get('/shows', (request, response) => {
-  const actor = request.query.cast //?cast=Yoon Kye-sang
-  const releaseYear = request.query.year //?year=2019
-  const country = request.query.country //?country=South Korea
+  const { cast, year, country } = request.query //?cast=Yoon Kye-sang
+  // const releaseYear = request.query.year //?year=2019
+  // const country = request.query.country //?country=South Korea
   let movieList = netflixData;
 
-  movieList = filterMoviesOnYear(releaseYear, movieList);
+  movieList = filterMoviesOnYear(year, movieList);
   movieList = filterMoviesByCountry(country, movieList);
-  movieList = filterMoviesByActor(actor, movieList);
+  movieList = filterMoviesByActor(cast, movieList);
     
   response.json(mappedNetflix(movieList))
   
 })
 
 app.get('/shows/:id', (request, response) => {
-  const id = request.params.id
+  const { id } = request.params
   const movie = netflixData.find((item) => item.show_id === +id)
 
   if (movie === undefined) {
@@ -42,7 +42,7 @@ app.get('/shows/:id', (request, response) => {
 })
 
 app.get('/shows/:id/cast', (request, response) => {
-  const id = request.params.id
+  const { id } = request.params
   const movieId = netflixData.find((item) => item.show_id === +id)
 
   if (movieId === undefined) {
@@ -66,13 +66,13 @@ app.get('/categories', (request, response) => {
 })
 
 app.get('/categories/:category', (request, response) => {
-  const actor = request.query.cast //?cast=Yoon Kye-sang
-  const releaseYear = request.query.year //?year=2019
-  const country = request.query.country //?country=South Korea
+  const { cast, year, country, category } = request.query //?cast=Yoon Kye-sang
+  // const year = request.query.year //?year=2019
+  // const country = request.query.country //?country=South Korea
+  // const category = request.params.category
 
   let filteredCategory = netflixData;
 
-  const category = request.params.category
   filteredCategory = filteredCategory.filter((item) => item.type.toLowerCase() === category.toLowerCase())
 
   if (filteredCategory.length === 0) {
@@ -80,9 +80,9 @@ app.get('/categories/:category', (request, response) => {
     return
   }
 
-  filteredCategory = filterMoviesOnYear(releaseYear, filteredCategory);
+  filteredCategory = filterMoviesOnYear(year, filteredCategory);
   filteredCategory = filterMoviesByCountry(country, filteredCategory);
-  filteredCategory = filterMoviesByActor(actor, filteredCategory);
+  filteredCategory = filterMoviesByActor(cast, filteredCategory);
 
   response.json(mappedNetflix(filteredCategory))
 
