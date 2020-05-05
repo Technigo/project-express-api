@@ -1,16 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-import goldenGlobesData from "./data/golden-globes.json";
-
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import data from "./data/netflix-titles.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -24,29 +15,46 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  //Displays all awards
+  res.json(data);
 });
 
-// Displays all the data
+// Displays all the movies/shows
 app.get("/nominations", (req, res) => {
-  res.json(goldenGlobesData);
+  res.json(data);
 });
 
-//Only awards for a specific year, the + makes a string to a number
+//Displays movies/shows depending on year
 app.get("/year/:year", (req, res) => {
   const year = req.params.year;
-  const showWon = req.query.won;
-  let nominationsFromYear = goldenGlobesData.filter(
-    (item) => item.year_award === +year
-  );
+  const showType = req.query.type;
+  let showsYear = data.filter((item) => item.release_year === +year);
 
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win);
+  if (showType) {
+    showsYear = showsYear.filter(
+      (item) => item.type.toLowerCase() === showType.toLowerCase()
+    );
   }
-  res.json(nominationsFromYear);
+  res.json(showsYear);
 });
 
-//Only show the ones who won, skip the ones where win = false
+//Displays movies/shows from a specific country
+app.get("/countries/:countries", (req, res) => {
+  const countries = req.params.countries;
+
+  let showCountry = data.filter(
+    (item) => item.country.toString().toLowerCase() === countries.toLowerCase()
+  );
+
+  res.json(showCountry);
+});
+
+//Displays a movie/show with a specific show_id
+app.get("/showId/:showId", (req, res) => {
+  const id = req.params.showId;
+  const showWithId = data.filter((item) => item.show_id === +id);
+  res.json(showWithId);
+});
 
 // Start the server
 app.listen(port, () => {
