@@ -25,12 +25,24 @@ app.use(bodyParser.json())
 
 //Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Endpoints:  /books, /titles, /books/:id, /ratings, authors/:author')
+  res.send('Endpoints:  /books /books/:id, /ratings, authors/:author')
 })
 
-//List all the books in the api
+//List all the books in the api /books and query for title 
 app.get('/books', (req, res) => {
-  res.json(booksData)
+  const { title } = req.query
+  const bookTitle = booksData.filter((item) =>
+    item.title.toString().toLowerCase().includes(title))
+
+  if (bookTitle.length > 0) {
+    res.json(bookTitle)
+
+  } else if (!bookTitle) {
+    res.status(404).json({ message: 'Book title not found' })
+
+  } else {
+    res.json(booksData)
+  }
 })
 
 
@@ -45,19 +57,18 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-//Query for title 
-app.get('/titles', (req, res) => {
-  const { title } = req.query
-  const bookTitle = booksData.filter((item) =>
-    item.title.toString().toLowerCase().includes(title))
+//Query for title (moved this on up to the books endpoint instead)
+// app.get('/titles', (req, res) => {
+//   const { title } = req.query
+//   const bookTitle = booksData.filter((item) =>
+//     item.title.toString().toLowerCase().includes(title))
 
-  if (bookTitle.length > 0) {
-    res.json(bookTitle)
+//   if (bookTitle.length > 0) {
+//     res.json(bookTitle)
 
-  } else
-    res.status(404).json({ message: 'Book title not found' })
-
-})
+//   } else
+//     res.status(404).json({ message: 'Book title not found' })
+// })
 
 //Sort books after rating, highest to lowest 
 app.get('/ratings', (req, res) => {
