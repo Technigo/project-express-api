@@ -129,7 +129,7 @@ app.put('/books/:id', (req, res) => {
     // foundBook.average_rating = totalRating / foundBook.ratings_count
 
   }
-  res.json({ average: rating, total: totalRating })
+  res.json(rating)
 })
 
 
