@@ -33,18 +33,30 @@ app.get('/', (req, res) => {
 
 
 // Show tops songs 
-// Can filter on genres included in query
+// Can filter on queries
 app.get('/song', (req, res) => {
   const genre = req.query.genre
+  const popularity = req.query.popularity
 
   let filteringMusic = topMusicData
 
+  // Filter on genre
   if (genre) {
     filteringMusic = filteringMusic.filter(song => {
       const genreTitle = song.genre
       return genreTitle.includes(genre)
     }
   )}
+
+  // Filter on popularity, high or low
+  if (popularity) {
+    if (popularity === 'high') {
+      filteringMusic.sort((a, b) => b.popularity - a.popularity)
+    } else if (popularity === 'low') {
+      filteringMusic.sort((a, b) => a.popularity - b.popularity)
+    }
+  } 
+
   res.json(filteringMusic)
 })
 
