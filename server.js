@@ -23,33 +23,34 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// ROUTES
 
+// HOME
 app.get('/', (req, res) => {
   res.send('What a time to be alive!')
 })
 
+// ALL OF THE NETFLIX CONTENT (IN THIS DATASET)
 app.get('/content', (req, res) => {
   res.json(netflixData)
 })
 
+// ONLY THE MOVIES - THEN YOU CAN ADD THE YEAR IN THE URL QUERY
 app.get('/movies', (req, res) => {
-  const areMovies = netflixData.filter((item) => item.type === "Movie")
+  //FILTERS TO JUST SHOW THE MOVIES
+  let areMovies = netflixData.filter((item) => item.type === "Movie")
+  
+  //QUERY FOR THE YEAR
+  const showYear = req.query.year
+  
+  if (showYear) {
+    areMovies = areMovies.filter((item) => item.release_year === +showYear)
+  }
+
   res.json(areMovies)
 })
 
-
-// Would like to only check the ids of the movies. Not filter through all the data
-// app.get('/movies/:id', (req, res) => {
-//   // const areMovies = netflixData.filter((item) => item.type === "Movie")
-//   const id = req.params.id
-//   const specificMovie = netflixData.filter((movie) => movie.show_id === +id)
-
-//   specificMovie ? res.json(specificMovie) : res.send("No movie was found with that Id")
-// })
-
-
-
+// FIND A SPECIFIC TITLE IN MOVIES
 app.get('/movies/:movieTitle', (req, res) => {
   const areMovies = netflixData.filter((item) => item.type === "Movie")
   const movieTitle = req.params.movieTitle.toLowerCase()
@@ -59,62 +60,47 @@ app.get('/movies/:movieTitle', (req, res) => {
   res.json(movieData)
 })
 
-// app.get('movies/:director', (req, res) => {
-//   const director = req.query.
-//   const byDirector = netflixData.filter((item) => item.director === {director})
-//   console.log(byDirector)
-// })
-
+// ONLY THE TV-SHOWS - THEN YOU CAN ADD THE YEAR IN THE URL QUERY
 app.get('/tv_shows', (req, res) => {
-  const areTVShows = netflixData.filter((item) => item.type === "TV Show")
+  //FILTERS TO JUST SHOW THE TV-SHOWS
+  let areTVShows = netflixData.filter((item) => item.type === "TV Show")
+
+  //QUERY FOR THE YEAR
+  const showYear = req.query.year
+
+  if (showYear) {
+    areTVShows = areTVShows.filter((item) => item.type === +showYear)
+  }
   res.json(areTVShows)
 })
 
+// FIND A SPECIFIC TITLE IN THE TV SHOWS
 app.get('/tv_shows/:tvTitle', (req, res) => {
   const areTVShows = netflixData.filter((item) => item.type === "TV Show")
   const tvTitle = req.params.tvTitle.toLowerCase()
-  console.log(tvTitle)
-  const tvData = areTVShows.find((item) => item.title === tvTitle)
-
+  
+  const tvData = areTVShows.find((item) => item.title.toString().toLowerCase() === tvTitle)
+  
   res.json(tvData)
 })
 
+// SEARCH FOR A SPECIFIC YEAR IN ALL THE CONTENT
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
-  console.log(year)
+  
   const contentFromYear = netflixData.filter((item) => item.release_year === +year)
+
   res.json(contentFromYear)
 })
 
-
+// SEARCH FOR A SPECIFIC TITLE IN ALL THE CONTENT
 app.get('/title/:title', (req, res) => {
   const title = req.params.title
-  console.log(title)
+  
   const showTitle = netflixData.find((item) => item.title === title)
-  console.log(showTitle)
+  
   res.json(showTitle)
 })
-
-
-// app.get('/', (req, res) => {
-//   res.send('Hello world')
-// })
-
-// app.get('/nominations', (req, res) => {
-//   res.json(goldenGlobesData)
-// })
-
-// app.get('/year/:year', (req, res) => {
-//   const year = req.params.year
-//   const showWon = req.query.win
-//   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
-
-//   if (showWon) {
-//     nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-//   }
-
-//   res.json(nominationsFromYear)
-// })
 
 // Start the server
 app.listen(port, () => {
