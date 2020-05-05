@@ -40,6 +40,21 @@ app.get('/books', (req, res) => {
   let selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
 
   if (keyword) {
+    if (order === 'highest') {
+      orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? -1 : 1)
+
+    } else if (order === 'lowest') {
+      orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? 1 : -1)
+
+    } else if (order === 'longest') {
+      orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? -1 : 1)
+
+    } else if (order === 'shortest') {
+      orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? 1 : -1)
+
+    } else {
+      orderedBooks = orderedBooks.sort((a, b) => (a.bookID > b.bookID) ? 1 : -1)
+    }
     const firstResult = orderedBooks.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
     const secondResult = orderedBooks.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
     const finalResult = firstResult.concat(secondResult)
