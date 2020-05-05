@@ -65,8 +65,7 @@ app.get('/books', (req, res) => {
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
   const book = booksData.find((book) => book.bookID === +id)
-
-  book ? res.json(book) : res.send('No book was found with that Id')
+  book ? res.json(book) : res.json({ error: 'No book was found with that Id' })
 })
 
 app.get('/authors/:author', (req, res) => {
@@ -75,6 +74,7 @@ app.get('/authors/:author', (req, res) => {
   res.json(selectedAuthor)
   selectedAuthor.length > 0 ? res.json(selectedAuthor) : res.send('No authors with that name were found')
 })
+
 
 app.put('/books/:id', (req, res) => {
   const id = req.params.id
