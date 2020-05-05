@@ -100,7 +100,13 @@ app.get('/year/:year', (req, res) => {
   
   const contentFromYear = netflixData.filter((item) => item.release_year === +year)
 
+  console.log(contentFromYear)
+  //would like to show an error message when the contentFromYear is an empty array
+  if (contentFromYear === []){
+    res.status(404).json({ message: `No content found from the year:${year}`})
+  } else {
     res.json(contentFromYear)
+  }
 })
 
 // SEARCH FOR A SPECIFIC TITLE IN ALL THE CONTENT
