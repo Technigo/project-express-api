@@ -28,7 +28,7 @@ app.get('/titles/:id', (req, res) => {
   }
 })
 
-// Gets all titles in the API
+//Pages with all titles
 app.get('/titles', (req, res) => {
 
   // Queries for type, country and director:
@@ -37,17 +37,113 @@ app.get('/titles', (req, res) => {
   const showCountry = req.query.country
   const showDirector = req.query.director
 
+  //Query for page
+  //Makes the number written in url to integer
+  let pageSearch = parseInt(req.query.page)
+
+  //Checks how many pages there is if every page has 10 objects
+  const pageCount = Math.ceil(titles.length / 10)
+
+  //If there's no page-query in the url, show first page
+  if (!pageSearch) {
+    pageSearch = 1
+  }
+  //If the page-query is bigger than the pageCount it should show the last page
+  else if (pageSearch > pageCount) {
+    pageSearch = pageCount
+  }
+
+  // Query for type: filter and return only the ones included in the query
   if (showType) {
     titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
-  } if (showCountry) {
-    titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
-  } if (showDirector) {
-    titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLowerCase()))
+    const pageCount = Math.ceil(titles.length / 10)
+    if (!pageSearch) {
+      pageSearch = 1
+    }
+    else if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } else {
+      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
+    }
   }
-  res.json(titles)
+
+  // Query for country: filter and return only the ones included in the query
+  if (showCountry) {
+    titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
+    const pageCount = Math.ceil(titles.length / 10)
+    if (!pageSearch) {
+      pageSearch = 1
+    }
+    else if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } else {
+      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
+    }
+  }
+
+  // Query for director: filter and return only the ones included in the query
+  if (showDirector) {
+    titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLowerCase()))
+    const pageCount = Math.ceil(titles.length / 10)
+    if (!pageSearch) {
+      pageSearch = 1
+    }
+    else if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } else {
+      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
+    }
+  }
+
+  //Slice the data, begin on the page written in query
+  res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
 })
 
-// Gets everything a specific director has directed
+
+// // Gets everything a specific director has directed with pages
+// app.get("/directors/:director", (req, res) => {
+//   //query for pages
+//   let pageSearch = parseInt(req.query.page)
+
+//   const director = req.params.director
+//   const titlesWithDirector = netflixData.filter((item) =>
+//     item.director.toLowerCase().includes(director.toLowerCase()))
+//   const pageCount = Math.ceil(titlesWithDirector.length / 10)
+//   if (!pageSearch) {
+//     pageSearch = 1
+//   }
+//   else if (pageSearch > pageCount) {
+//     pageSearch = pageCount
+//   } else {
+//     res.json(titlesWithDirector.slice(pageSearch * 10 - 10, pageSearch * 10))
+//   }
+// })
+
+// // Gets titles released a specific year with pages
+// app.get('/releaseyear/:year', (req, res) => {
+//   //query for pages
+//   let pageSearch = parseInt(req.query.page)
+
+//   const year = req.params.release_year
+//   let titlesFromYear = netflixData.filter((item) => item.release_year === + year)
+
+//   // Query for type (TV show or movie):
+//   const showType = req.query.type
+//   if (showType) {
+//     titlesFromYear = titlesFromYear.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
+//     const pageCount = Math.ceil(titlesFromYear.length / 10)
+//     if (!pageSearch) {
+//       pageSearch = 1
+//     }
+//     else if (pageSearch > pageCount) {
+//       pageSearch = pageCount
+//     } else {
+//       res.json(titlesFromYear.slice(pageSearch * 10 - 10, pageSearch * 10))
+//     }
+//   }
+// })
+
+// Gets everything a specific director has directed (no pages)
 app.get("/directors/:director", (req, res) => {
   const director = req.params.director
   const titlesWithDirector = netflixData.filter((item) =>
@@ -56,7 +152,7 @@ app.get("/directors/:director", (req, res) => {
   res.json(titlesWithDirector);
 });
 
-// Gets titles released a specific year
+// Gets titles released a specific year (no pages)
 app.get('/releaseyear/:year', (req, res) => {
   const year = req.params.year
 
