@@ -16,7 +16,7 @@ import booksData from './data/books.json'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8088
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 
 //List all the books in the api
 app.get('/books', (req, res) => {
-
   res.json(booksData)
 })
+
 
 //Show one book using an :id as a placeholder for the bookID number in the data
 app.get('/books/:id', (req, res) => {
@@ -47,16 +47,16 @@ app.get('/books/:id', (req, res) => {
 
 //Query for title 
 app.get('/titles', (req, res) => {
-  const title = req.query.title
-  let bookTitle = booksData.find((item) =>
-    item.title.toString().toLowerCase().replace('%20', ' ').includes(title))
+  const { title } = req.query
+  const bookTitle = booksData.filter((item) =>
+    item.title.toString().toLowerCase().includes(title))
 
-  if (bookTitle) {
+  if (bookTitle.length > 0) {
     res.json(bookTitle)
 
-  } else {
+  } else
     res.status(404).json({ message: 'Book title not found' })
-  }
+
 })
 
 //Sort books after rating, highest to lowest 
