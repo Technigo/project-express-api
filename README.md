@@ -1,5 +1,5 @@
 # Express API Project
-This project was to create an API using Express.
+This project was to create an API using Express and creating different endpoints. 
 
 
 ## The problem
