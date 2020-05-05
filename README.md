@@ -1,8 +1,7 @@
-# Express API Project
+# Express API Project 17
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Mission was to start exploring Node.js and Express creating an API with a couple of 
+RESTful endpoints which return either an array of data, or a single item.
 
 ## The problem
 
