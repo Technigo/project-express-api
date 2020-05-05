@@ -28,9 +28,7 @@ app.get('/movies', (req, res) => {
 // route for getting data on a certain movie
 app.get('/movies/:movie', (req, res) => {
   const movie = req.params.movie;
-  const chosenMovie = netflixData.filter((item) =>
-    item.title.toLowerCase().includes(movie.toLowerCase())
-  );
+  const chosenMovie = netflixData.filter((item) => item.title === movie);
   res.json(chosenMovie);
 });
 
