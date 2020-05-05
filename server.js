@@ -118,9 +118,16 @@ app.get('/authors/:author', (req, res) => {
 app.put('/books/:id', (req, res) => {
   const id = req.params.id
   const foundBook = booksData.find((book) => book.bookID === +id)
-  foundBook.image_url = req.body.image_url
+  if (req.body.image_url) {
+    foundBook.image_url = req.body.image_url
+
+  } else if (req.body.user_rating) {
+    const totalRating = (foundBook.average_rating * foundBook.ratings_count) + req.body.user_rating
+    ++foundBook.ratings_count
+    foundBook.average_rating = totalRating / foundBook.ratings_count
+
+  }
   res.json(foundBook)
-  console.log('recieved and sent')
 })
 
 
