@@ -1,18 +1,17 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import goldenGlobesData from './data/golden-globes.json'
+import netflixData from './data/netflix-titles.json'
 
-// import BrazilianHousing from './data/BrazilianHousing.json'
+// import goldenGlobesData from './data/golden-globes.json'
 
-// console.log(BrazilianHousing)
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -31,25 +30,34 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
-app.get('/nominations', (req, res)=> {
-  res.json(goldenGlobesData)
+app.get('/shows', (req, res)=> {
+  // const title = req.params.title
+  // console.log(title)
+  res.json(netflixData)
+})
+
+app.get('/titles/:title', (req, res)=> {
+  const title = req.params.title
+  // console.log(title)
+  let movieTitle = netflixData.filter((item) => item.title.toString().toLowerCase() === title.toLowerCase())
+  res.json(movieTitle)
 })
 
  app.get('/year/:year', (req, res) => {
-   const year = req.params.year
-   const showWon = req.query.won
-   console.log(showWon)
-//   // console.log({year})
-   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+    const year = req.params.year
+    const showType = req.query.type
+    console.log(showType)
+// //   // console.log({year})
+   let release = netflixData.filter((item) => item.release_year === +year)
 
 
-   if (showWon) {
-     nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-   }
+   if (showType) {
+      release = release.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
+    }
 
-   res.json(nominationsFromYear)
+    res.json(release)
 
- })
+  })
 
 // Start the server
 app.listen(port, () => {
