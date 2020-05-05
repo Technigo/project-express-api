@@ -34,11 +34,18 @@ app.get('/', (req, res) => {
 
 app.get('/books', (req, res) => {
   let orderedBooks = booksData
+  const keyword = req.query.keyword
   const order = req.query.order
   const page = +req.query.page || 1
   let selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
 
-  if (order === 'highest') {
+  if (keyword) {
+    const firstResult = orderedBooks.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
+    const secondResult = orderedBooks.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
+    const finalResult = firstResult.concat(secondResult)
+    selectedPage = finalResult.slice((page * 20) - 20, page * 20)
+    res.json(selectedPage)
+  } else if (order === 'highest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? -1 : 1)
     selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
