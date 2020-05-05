@@ -122,6 +122,8 @@ app.put('/books/:id', (req, res) => {
     foundBook.image_url = req.body.image_url
 
   } else if (req.body.user_rating) {
+    const rating = +req.body.user_rating
+    console.log(rating)
     const totalRating = (foundBook.average_rating * foundBook.ratings_count) + req.body.user_rating
     ++foundBook.ratings_count
     foundBook.average_rating = totalRating / foundBook.ratings_count
