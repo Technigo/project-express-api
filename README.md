@@ -1,32 +1,33 @@
 # Express API Project 17
 
 Mission was to start exploring Node.js and Express creating an API with a couple of 
-RESTful endpoints which return either an array of data, or a single item.
+RESTful endpoints. Which return either an array of data, or a single item.
 
 Using VS Code, Postman and Chrome.
 
-#### Tech: 
+#### Tech used: 
 - Node.js, Express and JavaScript ES6
 
 ## 
 
 
 
-Start:
+- Root:
 https://project-w17-express-api.herokuapp.com/ <br>
-Year:
+- All:
 https://project-w17-express-api.herokuapp.com/all <br>
-Brad Pitt:
+- The Brad Pitt-query-selection(aka actor name):
 https://project-w17-express-api.herokuapp.com/all/star?name=Brad%20Pitt <br>
-Comedies:
+(*Yeeh, you can use other names but Brad is cool*) <br>
+- Comedies:
 https://project-w17-express-api.herokuapp.com/all/comedies <br>
-By id: (end error if no id match)
+- By id: (and handling error if no id match)
 https://project-w17-express-api.herokuapp.com/all/81193313 <br>
-Movies:
+- Movies:
 https://project-w17-express-api.herokuapp.com/movie <br>
-TV-shows:
+- TV-shows:
 https://project-w17-express-api.herokuapp.com/tv <br>
-By year:
+- By year:
 https://project-w17-express-api.herokuapp.com/year/2008 <br>
 
 

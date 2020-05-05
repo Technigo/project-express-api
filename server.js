@@ -9,10 +9,11 @@ const app = express();
 // Middle wares to enable cors and json body parsing
 app.use(cors());
 app.use(bodyParser.json());
+
 // ---------------------------------------------------- //
 app.get("/", (req, res) => {
   res.send(
-    "My API endpoints: /all , all/comedies/ , /all:id , all/star?name=Brad%20Pitt ,  /movie, /tv, /year/:year , and a res.status(404).send"
+    "My API endpoints: /all , all/comedies/ , /all:id , all/star?name=Brad%20Pitt ,  /movie, /tv, /year/:year , plus  handling error if no id match"
   );
 });
 // ---------------------------------------------------- //
@@ -32,10 +33,13 @@ app.get("/all/star", (req, res) => {
   const movieStar = netflixData.filter((person) => person.cast.includes(name));
   res.json(movieStar);
 });
+
 // http://localhost:8080/all/comedies
 app.get("/all/comedies", (req, res) => {
   // const movies = req.params.movies
-  const comedies = netflixData.filter((item) => item.listed_in.includes("Comedies"));
+  const comedies = netflixData.filter((item) =>
+    item.listed_in.includes("Comedies")
+  );
   // const filteredMovies = movies
   res.json(comedies);
 });
