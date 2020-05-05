@@ -28,47 +28,59 @@ app.get('/movies', (req, res) => {
 // route for getting data on a certain movie
 app.get('/movies/:movie', (req, res) => {
   const movie = req.params.movie;
-  const chosenMovie = netflixData.filter((item) => item.title === movie);
-  res.json(chosenMovie);
+  const chosenMovie = netflixData.filter(
+    (item) => item.title.toLowerCase() === movie.toLowerCase()
+  );
+  if (chosenMovie.length > 0) res.json(chosenMovie);
+  else res.status(404).json({ message: 'Movie not found' });
 });
 
 // route for getting movies from a certain category
 app.get('/genres/:genre', (req, res) => {
   const genre = req.params.genre;
   const movieGenre = netflixData.filter((item) =>
-    item.listed_in.includes(genre)
+    item.listed_in.toLowerCase().includes(genre.toLowerCase())
   );
-  res.json(movieGenre);
+  if (movieGenre.length > 0) res.json(movieGenre);
+  else res.status(404).json({ message: 'Genre not found' });
 });
 
 // route for getting movies with a certain actor
 app.get('/actors/:actor', (req, res) => {
   const actor = req.params.actor;
-  const chosenActor = netflixData.filter((item) => item.cast.includes(actor));
-  res.json(chosenActor);
+  const chosenActor = netflixData.filter((item) =>
+    item.cast.toLowerCase().includes(actor.toLowerCase())
+  );
+  if (chosenActor.length > 0) res.json(chosenActor);
+  else res.status(404).json({ message: 'Actor/Actress not found' });
 });
 
 // route for getting movies with a certain director
 app.get('/directors/:director', (req, res) => {
   const director = req.params.director;
   const chosenDirector = netflixData.filter((item) =>
-    item.director.includes(director)
+    item.director.toLowerCase().includes(director.toLowerCase())
   );
-  res.json(chosenDirector);
+  if (chosenDirector.length > 0) res.json(chosenDirector);
+  else res.status(404).json({ message: 'Director not found' });
 });
 
 // route for getting movies from a certain year
 app.get('/year/:year', (req, res) => {
   const year = req.params.year;
   const releaseYear = netflixData.filter((item) => item.release_year === +year);
-  res.json(releaseYear);
+  if (releaseYear.length > 0) res.json(releaseYear);
+  else res.status(404).json({ message: 'Year not found' });
 });
 
 // route for getting movies from a certain country
 app.get('/countries/:country', (req, res) => {
   const country = req.params.country;
-  const chosenCountry = netflixData.filter((item) => item.country === country);
-  res.json(chosenCountry);
+  const chosenCountry = netflixData.filter(
+    (item) => item.country.toLowerCase() === country.toLowerCase()
+  );
+  if (chosenCountry.length > 0) res.json(chosenCountry);
+  else res.status(404).json({ message: 'Country not found' });
 });
 
 app.use(function (err, req, res, next) {
