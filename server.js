@@ -69,14 +69,14 @@ app.get('/books', (req, res) => {
 
 })
 
-app.get('/books/search', (req, res) => {
-  const keyword = req.query.keyword
+// app.get('/books/search', (req, res) => {
+//   const keyword = req.query.keyword
 
-  const firstResult = booksData.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
-  const secondResult = booksData.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
-  const finalResult = firstResult.concat(secondResult)
-  res.json(finalResult)
-})
+//   const firstResult = booksData.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
+//   const secondResult = booksData.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
+//   const finalResult = firstResult.concat(secondResult)
+//   res.json(finalResult)
+// })
 
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
