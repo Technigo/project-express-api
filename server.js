@@ -21,7 +21,7 @@ app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-//Filter on ID
+// FILTER ON ID
 //http://localhost:8080/books/1
 app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
@@ -34,7 +34,7 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-// Filter on author and/or title
+// FILTER ON AUTHOR AND/OR TITLE
 // http://localhost:8080/books?title=John
 app.get('books/', (req, res) => {
   const searchAuthor = req.query.authors
@@ -63,7 +63,7 @@ app.get('books/', (req, res) => {
   }
 })
 
-//Filter on language
+//FILTER ON LANGUAGE
 //http://localhost:8080/language/spa
 //http://localhost:8080/language/eng
 app.get('/language/:language', (req, res) => {
@@ -77,7 +77,7 @@ app.get('/language/:language', (req, res) => {
   }
 })
 
-//Books from highest to lowest rating
+// BOOKS SORTED FROM HIGHEST TO LOWEST RATING
 // http://localhost:8080/rating
 app.get('/rating', (req, res) => {
   const booksRating = booksData.sort((a, b) => ((b.average_rating) - (a.average_rating)))
