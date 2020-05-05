@@ -30,39 +30,41 @@ app.get('/', (req, res) => {
 // localhost:8080/matches?stage=group
 
 app.get('/matches', (req, res) => {
-  res.json(fifaData)
-
   const { stage } = req.query
-  const getStage = fifaData.filter((item) =>
-    item.Stage.toString().toLowerCase().includes(stage))
 
-  if (getStage.length > 0) {
-    res.json(getStage)
+  if (stage) {
+    let getStage = fifaData.filter((item) =>
+      item.Stage.toString().toLowerCase().includes(stage)
+    )
+    if (getStage.length > 0) {
+      res.json(getStage)
+    } else {
+      res.status(404).json({ message: 'No game found' })
+    }
   }
-  else {
-    res.status(404).json({ message: 'No game' })
-  }
+
+  res.json(fifaData)
 })
 
 
 app.get('/matches/:id', (req, res) => {
-  const id = req.params.id
+  const { id } = req.params
   const matchesId = fifaData.filter((item) => item.MatchID === +id)
 
-  if (matchesId) {
+  if (matchesId.length > 0) {
     res.json(matchesId)
   }
   else {
-    res.status(404).send({ message: 'No match' })
+    res.status(404).send({ message: 'No game found' })
   }
 })
 
 
-app.get('/year/:year', (req, res) => {
+app.get('/matches/year/:year', (req, res) => {
   const { year } = req.params
   const matchesFromYear = fifaData.filter((item) => item.Year === +year)
 
-  if (matchesFromYear) {
+  if (matchesFromYear.length > 0) {
     res.json(matchesFromYear)
   }
   else {
