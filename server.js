@@ -125,7 +125,8 @@ app.put('/books/:id', (req, res) => {
     const rating = +req.body.user_rating
     const totalRating = (foundBook.average_rating * foundBook.ratings_count) + rating
     ++foundBook.ratings_count
-    foundBook.average_rating = totalRating / foundBook.ratings_count
+    const average = totalRating / foundBook.ratings_count
+    foundBook.average_rating = Math.round((average + Number.EPSILON) * 100) / 100
     res.json(foundBook)
 
   }
