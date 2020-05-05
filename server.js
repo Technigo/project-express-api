@@ -57,7 +57,12 @@ app.get('/movies/:movieTitle', (req, res) => {
  
   const movieData = areMovies.filter((item) => item.title.toString().toLowerCase() === movieTitle)
   
-  res.json(movieData)
+  if (movieData.length > 0) {
+    res.json(movieData)
+  } else {
+    res.status(404).json({ Message: `${movieTitle} not found in Movie Titles`})
+  }
+  
 })
 
 // ONLY THE TV-SHOWS - THEN YOU CAN ADD THE YEAR IN THE URL QUERY
@@ -81,7 +86,12 @@ app.get('/tv_shows/:tvTitle', (req, res) => {
   
   const tvData = areTVShows.find((item) => item.title.toString().toLowerCase() === tvTitle)
   
-  res.json(tvData)
+  if (tvData){
+    res.json(tvData)
+  } else {
+    res.status(404).json({ message: `${tvTitle} not found in TV-Show Titles`})
+  }
+  
 })
 
 // SEARCH FOR A SPECIFIC YEAR IN ALL THE CONTENT
@@ -90,7 +100,7 @@ app.get('/year/:year', (req, res) => {
   
   const contentFromYear = netflixData.filter((item) => item.release_year === +year)
 
-  res.json(contentFromYear)
+    res.json(contentFromYear)
 })
 
 // SEARCH FOR A SPECIFIC TITLE IN ALL THE CONTENT
