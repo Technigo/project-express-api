@@ -14,7 +14,18 @@ app.use(bodyParser.json())
 
 // Home page
 app.get('/', (req, res) => {
-  res.send('This is an API with 1375 Netflix titles. Have fun exploring it!')
+  res.send('This is an API with 1375 Netflix titles. Have fun exploring it! Possible routes: /titles, /titles/:id, /directors/:director, /releaseyear/:year')
+})
+
+// Gets the title with a specific id
+app.get('/titles/:id', (req, res) => {
+  const id = req.params.id
+  const titleId = netflixData.find((item) => item.show_id === +id)
+  if (titleId) {
+    res.json(titleId)
+  } else {
+    res.status(404).send(`Sorry, no title was found with id: ${id}.`)
+  }
 })
 
 // Gets all titles in the API
@@ -57,17 +68,6 @@ app.get('/releaseyear/:year', (req, res) => {
     titlesFromYear = titlesFromYear.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
   }
   res.json(titlesFromYear)
-})
-
-// Gets the title with a specific id
-app.get('/titles/:id', (req, res) => {
-  const id = req.params.id
-  const titleId = netflixData.find((item) => item.show_id === +id)
-  if (titleId) {
-    res.json(titleId)
-  } else {
-    res.status(404).send('Sorry, no such title was found.')
-  }
 })
 
 // Start the server
