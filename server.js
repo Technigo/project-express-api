@@ -28,11 +28,10 @@ app.get('/movies', (req, res) => {
 // route for getting data on a certain movie
 app.get('/movies/:movie', (req, res) => {
   const movie = req.params.movie;
-  const chosenMovie = netflixData.filter(
-    (item) => item.title.toLowerCase() === movie.toLowerCase()
+  const chosenMovie = netflixData.filter((item) =>
+    item.title.toLowerCase().includes(movie.toLowerCase())
   );
-  if (chosenMovie.length > 0) res.json(chosenMovie);
-  else res.status(404).json({ message: 'Movie not found' });
+  res.json(chosenMovie);
 });
 
 // route for getting movies from a certain category
@@ -41,8 +40,7 @@ app.get('/genres/:genre', (req, res) => {
   const movieGenre = netflixData.filter((item) =>
     item.listed_in.toLowerCase().includes(genre.toLowerCase())
   );
-  if (movieGenre.length > 0) res.json(movieGenre);
-  else res.status(404).json({ message: 'Genre not found' });
+  res.json(movieGenre);
 });
 
 // route for getting movies with a certain actor
@@ -51,8 +49,7 @@ app.get('/actors/:actor', (req, res) => {
   const chosenActor = netflixData.filter((item) =>
     item.cast.toLowerCase().includes(actor.toLowerCase())
   );
-  if (chosenActor.length > 0) res.json(chosenActor);
-  else res.status(404).json({ message: 'Actor/Actress not found' });
+  res.json(chosenActor);
 });
 
 // route for getting movies with a certain director
@@ -61,16 +58,14 @@ app.get('/directors/:director', (req, res) => {
   const chosenDirector = netflixData.filter((item) =>
     item.director.toLowerCase().includes(director.toLowerCase())
   );
-  if (chosenDirector.length > 0) res.json(chosenDirector);
-  else res.status(404).json({ message: 'Director not found' });
+  res.json(chosenDirector);
 });
 
 // route for getting movies from a certain year
 app.get('/year/:year', (req, res) => {
   const year = req.params.year;
   const releaseYear = netflixData.filter((item) => item.release_year === +year);
-  if (releaseYear.length > 0) res.json(releaseYear);
-  else res.status(404).json({ message: 'Year not found' });
+  res.json(releaseYear);
 });
 
 // route for getting movies from a certain country
@@ -79,19 +74,13 @@ app.get('/countries/:country', (req, res) => {
   const chosenCountry = netflixData.filter(
     (item) => item.country.toLowerCase() === country.toLowerCase()
   );
-  if (chosenCountry.length > 0) res.json(chosenCountry);
-  else res.status(404).json({ message: 'Country not found' });
+  res.json(chosenCountry);
 });
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).render('404.ejs');
 });
-
-// app.use(function (err, req, res, next) {
-//   console.error(err.stack);
-//   res.status(404).send('Something broke!');
-// });
 
 // Start the server
 app.listen(port, () => {
