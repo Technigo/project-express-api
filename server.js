@@ -56,7 +56,15 @@ app.get('/books', (req, res) => {
       orderedBooks = orderedBooks.sort((a, b) => (a.bookID > b.bookID) ? 1 : -1)
     }
     const firstResult = orderedBooks.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
-    const secondResult = orderedBooks.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
+    const secondResult = orderedBooks.filter((book) => {
+
+      if (book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword) && firstResult.indexOf(book) === -1) {
+        return true
+      } else {
+        return false
+      }
+    })
+
     const finalResult = firstResult.concat(secondResult)
     selectedPage = finalResult.slice((page * 20) - 20, page * 20)
     res.json(selectedPage)
