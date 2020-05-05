@@ -3,23 +3,20 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import topMusicData from './data/top-music.json'
-
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Middlewares to enable cors and json body parsing
+// Middle wares to enable cors and json body parsing
 app.use(cors());
 app.use(bodyParser.json());
 // ---------------------------------------------------- //
 app.get("/", (req, res) => {
-  res.send("My API endpoints: /all, all/comedies/, /all:id, /movie, /tv, /year/:year, and a res.status(404).send");
+  res.send(
+    "My API endpoints: /all , all/comedies/ , /all:id , all/star?name=Brad%20Pitt ,  /movie, /tv, /year/:year , and a res.status(404).send"
+  );
 });
 // ---------------------------------------------------- //
-// IF CHANGING THE ROUTE - restart server if error
+// IF CHANGING THE ROUTE and error - restart server
 // ---------------------------------------------------- //
 
 // Get ALL movies and tv shows:
@@ -32,12 +29,16 @@ app.get("/all", (req, res) => {
 // http://localhost:8080/all/star?name=Brad%20Pitt
 app.get("/all/star", (req, res) => {
   const { name } = req.query;
-
-  const movieStar = netflixData.filter((person) => person.cast.includes(name))
-
-  res.json(movieStar)
-})
-
+  const movieStar = netflixData.filter((person) => person.cast.includes(name));
+  res.json(movieStar);
+});
+// http://localhost:8080/all/comedies
+app.get("/all/comedies", (req, res) => {
+  // const movies = req.params.movies
+  const comedies = netflixData.filter((item) => item.listed_in.includes("Comedies"));
+  // const filteredMovies = movies
+  res.json(comedies);
+});
 
 // Get a specific id based on ("show_id"):
 // http://localhost:8080/all/81193313
@@ -47,7 +48,7 @@ app.get("/all/:id", (req, res) => {
   if (showId) {
     res.json(showId);
   } else {
-    res.status(404).send(`No info found for id: ${movieId}. Please try again!`)
+    res.status(404).send(`No info found for id: ${movieId}. Please try again!`);
   }
 });
 
@@ -55,33 +56,28 @@ app.get("/all/:id", (req, res) => {
 // http://localhost:8080/movie/
 app.get("/movie", (req, res) => {
   // const movies = req.params.movies
-  const movieAll = netflixData.filter((item) => item.type === "Movie") 
+  const movieAll = netflixData.filter((item) => item.type === "Movie");
   // const filteredMovies = movies
-  res.json(movieAll)
-})
+  res.json(movieAll);
+});
 
 // Get only Type: TV Show:
 // http://localhost:8080/tv/
 app.get("/tv", (req, res) => {
-  // const tvshow = req.params.movies
-  const tvAll = netflixData.filter((item) => item.type === "TV Show")
-  // const filteredMovies = movies
-  res.json(tvAll)
-})
-
+  const tvAll = netflixData.filter((item) => item.type === "TV Show");
+  res.json(tvAll);
+});
 
 // Get ALL per year:
 // http://localhost:8080/year/2008
 app.get("/year/:year", (req, res) => {
-  const year = req.params.year
+  const year = req.params.year;
   // console.log({year})
-  const releaseYear = netflixData.filter((item) => item.release_year === +year)
-  res.json(releaseYear)
-})
-
+  const releaseYear = netflixData.filter((item) => item.release_year === +year);
+  res.json(releaseYear);
+});
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
