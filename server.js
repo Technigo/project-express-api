@@ -9,7 +9,8 @@ import cors from 'cors'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import topMusicData from './data/top-music.json'
+console.log(topMusicData.length)
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -26,6 +27,45 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+// Get the whole dataset, all songs
+app.get("/songs", (req, res) => {
+  res.send(topMusicData)
+})
+
+// Get a specific song id, returns an object. +id makes id a number data type
+app.get("/songid/:id", (req, res) => {
+  const id = req.params.id
+  const songFound = topMusicData.find(
+    (song) => song.id === +id
+  )
+  res.send(songFound)
+})
+
+// Get the genre, returns an array, genre after the colon is a variable
+app.get("/genre/:genre", (req, res) => {
+  const genre = req.params.genre
+  const showFeelGood = req.query.feelgood
+
+  let songGenre = topMusicData.filter((song) => song.genre === genre)
+
+  // Filter songs with valence over 70
+  if (showFeelGood) {
+    songGenre = songGenre.filter((song) => song.valence >= 70)
+  }
+  res.send(songGenre)
+})
+
+// Get the FeelGood tracks, returns an array, feelgood after the colon is a variable
+/* app.get("/songs", (req, res) => {
+  const feelgood = req.query.feelgood */
+
+// Filter songs with valence over 70
+/* let songsWithHighValence = topMusicData.filter((song) => song.valence >= 70)
+
+res.send(songsWithHighValence)
+}) */
+
 
 // Start the server
 app.listen(port, () => {
