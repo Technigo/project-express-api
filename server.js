@@ -5,46 +5,48 @@ import goldenGlobesData from './data/golden-globes.json'
 
 console.log(goldenGlobesData.length)
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Golden Globe nominations 2010-2019')
 })
 
 app.get('/nominations', (req, res) => {
   res.json(goldenGlobesData)
-})
+});
 
 app.get('/year/:year', (req, res) => {
-  const year = req.params.year  
-  const showWin = req.query.win
+  const year = req.params.year
+  const win = req.query
   let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+  console.log(req.query)
 
-  if (showWin) {
+  if (win) {
     fromYear = fromYear.filter((item) => item.win)
   }
-
   res.json(fromYear)
 })
+
+app.get('/index/:index', (req, res) => {
+  const { index } = req.params
+  console.log(index)
+  res.json(goldenGlobesData[index])  
+})
+
+app.get('/nominated/:nominee', (req, res) =>{
+  const { nominee } = req.params
+  console.log(nominee)
+  const nominated = goldenGlobesData.filter((nom) => nom.nominee === nominee)
+  res.json(nominated)
+})
+
+
+
 
 // Start the server
 app.listen(port, () => {
