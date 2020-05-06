@@ -8,7 +8,7 @@ The API uses a hard-coded set of data, stored as a JSON file. The returned data 
 
 Available endpoints:
 
-Endpoint | Path
+Routes | Path
 --- | ---
 root | `/`
 books | `/books`
