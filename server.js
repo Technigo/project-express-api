@@ -75,15 +75,15 @@ app.get('/books', (req, res) => {
 
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
-  const book = data.filter((item) => item.bookID === +id)
+  const book = data.find((item) => item.bookID === +id)
 
-  // Ensure that no empty objects are shown
-  if (book.length > 0) {
-    res.json(book)
-    // If book was not found
-  } else {
+  // If book was not found
+  if (!book) {
     res.status(404).send({ error: `No book with id:${id} found` })
   }
+
+  res.json(book)
+
 })
 
 
