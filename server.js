@@ -46,7 +46,7 @@ app.get('/books', (req, res) => {
   }
 
   // slice used for pagination
-  const startIndex = 10 * +page || 0
+  const startIndex = 10 * (+page - 1) || 0
   const endIndex = startIndex + 10
   const booksListPaginated = booksList.slice(startIndex, endIndex)
 
