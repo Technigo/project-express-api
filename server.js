@@ -31,33 +31,36 @@ app.get('/', (req, res) => {
 })
 
 app.get('/shows', (req, res)=> {
-  // const title = req.params.title
-  // console.log(title)
   res.json(netflixData)
 })
 
+
 app.get('/titles/:title', (req, res)=> {
   const title = req.params.title
-  // console.log(title)
+
   let movieTitle = netflixData.filter((item) => item.title.toString().toLowerCase() === title.toLowerCase())
+  if (movieTitle.length > 0) {
   res.json(movieTitle)
+} else {
+  res.status(404).json({message: `${title} not found`})
+}
 })
+
 
  app.get('/year/:year', (req, res) => {
     const year = req.params.year
     const showType = req.query.type
-    console.log(showType)
-// //   // console.log({year})
    let release = netflixData.filter((item) => item.release_year === +year)
 
 
    if (showType) {
       release = release.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
     }
-
     res.json(release)
 
   })
+
+
 
 // Start the server
 app.listen(port, () => {
