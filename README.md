@@ -4,8 +4,11 @@ Netflix titles API built in Node using Express. The task was to create an API wi
 The following endpoints are available:
 
 Home: /
+
 Titles: /titles
+
 Title by id: /titles/:id
+
 Titles by year: /year/:year
 
 Queries can be used to limit the /titles endpoint:
