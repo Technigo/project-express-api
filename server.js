@@ -82,7 +82,7 @@ app.get('/books/:id', (req, res) => {
     res.json(book)
     // If book was not found
   } else {
-    res.status(404).send(`No book found with id ${id}`)
+    res.status(404).send({ error: `No book with id:${id} found` })
   }
 })
 
