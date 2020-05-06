@@ -5,21 +5,7 @@ import cors from 'cors'
 import booksData from './data/books.json'
 
 
-// import goldenGlobesData from './data/golden-globes.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-
-// import avocadoSalesData from './data/avocado-sales.json'
-
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -29,7 +15,15 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('ELLO ELLO')
+  res.json({
+    booklist: '/books',
+    orderQuery: '/books?order= //options: highest, lowest, shortest, longest',
+    keywordQuery: '/books?keyword= //Search keyword with underscores for spaces to find book/author',
+    pageQuery: '/books?page= //Defaults to 1, shows 20 entries at a time',
+    indidivualBook: '/books/booknumber',
+    putRequests: '/book/booknumber with an object key of either user_rating or image_url',
+    postBook: '/addbook with at least title and author object keys'
+  })
 })
 
 app.get('/books', (req, res) => {
@@ -37,7 +31,8 @@ app.get('/books', (req, res) => {
   const keyword = req.query.keyword
   const order = req.query.order
   const page = +req.query.page || 1
-  let selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+  const PAGE_SIZE = 20
+  let selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
 
   if (keyword) {
     if (order === 'highest') {
@@ -66,27 +61,27 @@ app.get('/books', (req, res) => {
     })
 
     const finalResult = firstResult.concat(secondResult)
-    selectedPage = finalResult.slice((page * 20) - 20, page * 20)
+    selectedPage = finalResult.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   } else if (order === 'highest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? -1 : 1)
-    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+    selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   } else if (order === 'lowest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.average_rating > b.average_rating) ? 1 : -1)
-    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+    selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   } else if (order === 'longest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? -1 : 1)
-    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+    selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   } else if (order === 'shortest') {
     orderedBooks = orderedBooks.sort((a, b) => (a.num_pages > b.num_pages) ? 1 : -1)
-    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+    selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   } else {
     orderedBooks = orderedBooks.sort((a, b) => (a.bookID > b.bookID) ? 1 : -1)
-    selectedPage = orderedBooks.slice((page * 20) - 20, page * 20)
+    selectedPage = orderedBooks.slice((page * PAGE_SIZE) - PAGE_SIZE, page * PAGE_SIZE)
     res.json(selectedPage)
   }
 
@@ -97,13 +92,6 @@ app.get('/books/:id', (req, res) => {
   const id = req.params.id
   const book = booksData.find((book) => book.bookID === +id)
   book ? res.json(book) : res.json({ error: 'No book was found with that Id' })
-})
-
-app.get('/authors/:author', (req, res) => {
-  const author = req.params.author.toLowerCase()
-  const selectedAuthor = booksData.filter((book) => book.authors.toLowerCase().replace(' ', '_').includes(author))
-  res.json(selectedAuthor)
-  selectedAuthor.length > 0 ? res.json(selectedAuthor) : res.send('No authors with that name were found')
 })
 
 
