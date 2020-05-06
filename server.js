@@ -1,25 +1,22 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-const path = require('path')
 import netflixData from './data/netflix-titles.json'
 import { filterMoviesOnYear, filterMoviesByCountry, filterMoviesByActor, mappedNetflix } from './filters'
 
+const path = require('path')
 const port = process.env.PORT || 8080
 const app = express()
 
 app.use(cors())
 app.use(bodyParser.json())
 
-
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname+'/index.html'))
 })
 
 app.get('/shows', (request, response) => {
-  const { cast, year, country } = request.query //?cast=Yoon Kye-sang
-  // const releaseYear = request.query.year //?year=2019
-  // const country = request.query.country //?country=South Korea
+  const { cast, year, country } = request.query //?year=2019&country=South Korea
   let movieList = netflixData;
 
   movieList = filterMoviesOnYear(year, movieList);
@@ -66,10 +63,7 @@ app.get('/categories', (request, response) => {
 })
 
 app.get('/categories/:category', (request, response) => {
-  const { cast, year, country, category } = request.query //?cast=Yoon Kye-sang
-  // const year = request.query.year //?year=2019
-  // const country = request.query.country //?country=South Korea
-  // const category = request.params.category
+  const { cast, year, country, category } = request.query 
 
   let filteredCategory = netflixData;
 
@@ -92,7 +86,6 @@ app.use(function (req, res, next) {
   res.status(404).send(`Sorry can't find ${req.path}!`)
 })
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
