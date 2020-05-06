@@ -92,14 +92,6 @@ app.get('/books', (req, res) => {
 
 })
 
-// app.get('/books/search', (req, res) => {
-//   const keyword = req.query.keyword
-
-//   const firstResult = booksData.filter((book) => book.authors.toLowerCase().replace(/ /gi, '_').includes(keyword))
-//   const secondResult = booksData.filter((book) => book.title.toString().toLowerCase().replace(/ /gi, '_').includes(keyword))
-//   const finalResult = firstResult.concat(secondResult)
-//   res.json(finalResult)
-// })
 
 app.get('/books/:id', (req, res) => {
   const id = req.params.id
@@ -132,6 +124,19 @@ app.put('/books/:id', (req, res) => {
   }
 })
 
+app.post('/books/addbook', (req, res) => {
+  const newBook = {
+    bookID: +booksData.length + 1,
+    title: req.body.title,
+    authors: req.body.author,
+    average_rating: 0,
+    ratings_count: 0,
+    image_url: req.body.image ? req.body.image : false,
+    num_pages: req.body.pages ? req.body.pages : 0
+  }
+  booksData.push(newBook)
+  res.json(booksData)
+})
 
 
 // Start the server
