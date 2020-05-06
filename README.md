@@ -22,4 +22,4 @@ Endpoints
 
 ## View it live
 
-[Link](https://express-api-books-demo.herokuapp.com/books)
+[Link](https://express-api-books-demo.herokuapp.com)
