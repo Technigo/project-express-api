@@ -17,35 +17,59 @@ app.get('/', (req, res) => {
 })
 
 app.get('/nominations', (req, res) => {
-  res.json(goldenGlobesData)
-});
+  const page = req.query.page ?? 1
+  console.log(`page=${page}`)
+  const pageSize = req.query.pageSize ?? 20
+  const startIndex = page * pageSize
+  const endIndex = startIndex + +pageSize
+  const nomineesForPage = goldenGlobesData.slice(startIndex, endIndex)
+  const returnObject = { 
+    pageSize: pageSize,
+    page: page,
+    maxPages: parseInt(goldenGlobesData.length/pageSize),
+    goldenGlobesNominees: goldenGlobesData.length, 
+    result: nomineesForPage, 
+  }
+  res.json(returnObject)
+})
 
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
-  const win = req.query
+  const { win } = req.query
   let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
-  console.log(req.query)
 
   if (win) {
     fromYear = fromYear.filter((item) => item.win)
   }
+
   res.json(fromYear)
-})
+  })
+
 
 app.get('/index/:index', (req, res) => {
   const { index } = req.params
-  console.log(index)
   res.json(goldenGlobesData[index])  
 })
 
+app.get('/winners/:win')
+
+
 app.get('/nominated/:nominee', (req, res) =>{
   const { nominee } = req.params
-  console.log(nominee)
   const nominated = goldenGlobesData.filter((nom) => nom.nominee === nominee)
   res.json(nominated)
 })
 
+/*
+let results = allResults
 
+if (quaryParameter) {
+  results = results.filter(...queryParameter)
+}
+
+if (quaryParameter) {
+  results = results.filter(...queryParameter)
+}*/
 
 
 // Start the server
