@@ -12,8 +12,11 @@ Title by id: /titles/:id
 Titles by year: /year/:year
 
 Queries can be used to limit the /titles endpoint:
+
 Select page: /titles?page=:page
+
 Search by country: /titles?country=:country
+
 Search by director: /titles?director=:director
 
 ## Learning objectives
