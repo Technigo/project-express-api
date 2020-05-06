@@ -61,8 +61,6 @@ app.get("/content", (req, res) => {
     );
   }
 
-  //I'm still a bit lost on this, will re-watch the code-a-long from today
-
   const startIndex = 10 * (+page - 1) || 0;
   const endIndex = startIndex + 10;
   const dataListPaginated = dataList.slice(startIndex, endIndex);
@@ -79,7 +77,13 @@ app.get("/content", (req, res) => {
 app.get("/content/:id", (req, res) => {
   // Displays object with specific ID
   const id = req.params.id;
-  const contentWithId = data.filter((item) => item.show_id === +id);
+  const contentWithId = data.find((item) => item.show_id === +id);
+
+  if (!contentWithId) {
+    res
+      .status(404)
+      .send({ error: `No movie or tv show found with id: "${id}" found` });
+  }
 
   res.json(contentWithId);
 });
