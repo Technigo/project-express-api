@@ -4,7 +4,8 @@ import cors from 'cors'
 import netflixData from './data/netflix-titles.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example: PORT=9000 npm start
+// overridden when starting the server. 
+// For example: PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('This is an API with 1375 Netflix titles. Have fun exploring it! Possible routes: /titles, /titles/:id, /directors/:director, /releaseyear/:year')
 })
 
-// Gets the title with a specific id
+// Endpoint, returns the title with a specific id
 app.get('/titles/:id', (req, res) => {
   const id = req.params.id
   const titleId = netflixData.find((item) => item.show_id === +id)
@@ -28,21 +29,16 @@ app.get('/titles/:id', (req, res) => {
   }
 })
 
-//Pages with all titles
+//Endpoint, returns all titles from netflix-titles.json
 app.get('/titles', (req, res) => {
-
-  // Queries for type, country and director:
   let titles = netflixData
-  const showType = req.query.type
-  const showCountry = req.query.country
-  const showDirector = req.query.director
 
   //Query for page
   //Makes the number written in url to integer
-  let pageSearch = parseInt(req.query.page)
+  let pageSearch = req.query.page
 
   //Checks how many pages there is if every page has 10 objects
-  const pageCount = Math.ceil(titles.length / 10)
+  const pageCount = titles.length / 10
 
   //If there's no page-query in the url, show first page
   if (!pageSearch) {
@@ -53,10 +49,14 @@ app.get('/titles', (req, res) => {
     pageSearch = pageCount
   }
 
-  // Query for type: filter and return only the ones included in the query
+  // Queries for type and country:
+  const showType = req.query.type
+  const showCountry = req.query.country
+
+  // Query for type: filter and return only TV shows or only movies 
   if (showType) {
     titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
-    const pageCount = Math.ceil(titles.length / 10)
+    const pageCount = titles.length / 10
     if (!pageSearch) {
       pageSearch = 1
     }
@@ -69,10 +69,10 @@ app.get('/titles', (req, res) => {
     }
   }
 
-  // Query for country: filter and return only the ones included in the query
+  // Query for country: filter and return only titles from the specified country
   if (showCountry) {
     titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
-    const pageCount = Math.ceil(titles.length / 10)
+    const pageCount = titles.length / 10
     if (!pageSearch) {
       pageSearch = 1
     }
@@ -85,27 +85,11 @@ app.get('/titles', (req, res) => {
     }
   }
 
-  // Query for director: filter and return only the ones included in the query
-  if (showDirector) {
-    titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLowerCase()))
-    const pageCount = Math.ceil(titles.length / 10)
-    if (!pageSearch) {
-      pageSearch = 1
-    }
-    else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
-      res.status(404).send(`Couldn't find any titles from ${showDirector}`)
-    } else {
-      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
-    }
-  }
-
   //Slice the data, begin on the page written in query
   res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
 })
 
-// Gets titles released a specific year
+// Endpoint, returns titles released a specific year (no pages)
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
   const titlesFromYear = netflixData.filter((item) =>
@@ -114,7 +98,7 @@ app.get('/year/:year', (req, res) => {
 })
 
 
-// Gets everything a specific director has directed (no pages)
+// Endpoint, returns everything a specific director has directed (no pages)
 app.get("/directors/:director", (req, res) => {
   const director = req.params.director
   const titlesWithDirector = netflixData.filter((item) =>
