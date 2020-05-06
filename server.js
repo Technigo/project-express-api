@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Possible endpoints /books | /books/pages?minPages=200 | /books/id/:id | /books/isbn/:isbn | /rating/:rating')
 })
 
 // Get all books

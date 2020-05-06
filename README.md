@@ -6,6 +6,14 @@ Created an API with RESTful endpoints that returns either an array or data or si
 
 Planning and identifying useful endpoints to create, thinking about query options and filtering the data, also how to handle with bad query requests.
 
+Endpoints
+* / (Info of each endpoint)
+* /books
+* /books/pages?minPages=200 or pages?maxPages=200
+* /books/id/:id
+* /books/isbn/:isbn
+* /rating/:rating
+
 ## Build with 
 
 * Javascript
@@ -14,4 +22,4 @@ Planning and identifying useful endpoints to create, thinking about query option
 
 ## View it live
 
-[Link](url)
+[Link](https://express-api-books-demo.herokuapp.com/books)
