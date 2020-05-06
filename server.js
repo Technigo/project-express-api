@@ -46,7 +46,7 @@ app.get('/books', (req, res) => {
   }
 
   // slice used for pagination
-  const startIndex = 10 * (+page - 1) || 0
+  const startIndex = 10 * +page || 0
   const endIndex = startIndex + 10
   const booksListPaginated = booksList.slice(startIndex, endIndex)
 
@@ -55,7 +55,7 @@ app.get('/books', (req, res) => {
     res.status(404).json({ error: 'No books found, please try a different query' })
   }
 
-  res.json(booksListPaginated)
+  res.json({ books: booksListPaginated })
 })
 
 // Route for single book, filtered using book id
