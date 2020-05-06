@@ -1,53 +1,47 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import netflixData from './data/netflix-titles.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
- import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-
-
-
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Netflix data. You can find all movies using /data, titles using /title, movies from a specific year with /year/[year] and a specific movie using /movie/[id]')
 })
 
-app.get('/nominations', (req, res) => {
-  res.json(goldenGlobesData)
+app.get('/data', (req, res) => {
+  res.json(netflixData)
 })
 
-app.get('/year/:year', (req, res) => {
+app.get('/title', (req, res) => {
+const titles = netflixData.map((item) => item.title)  
+res.json(titles)
+
+})
+
+ app.get('/year/:year', (req, res) => {
   const year = req.params.year
-  const showWon = req.query.won
+  let releaseYear = netflixData.filter((item ) => item.release_year === +year)
+  res.json(releaseYear)
+ })
+
+ app.get('/movie/:id', (req, res) => {
+   let id = req.params.id 
   
-  let nominationsFromYear = goldenGlobesData.filter((item ) => item.year_award === +year)
+   let movieId = netflixData.filter((item) => item.show_id === +id)
 
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-  }
+   if (movieId.lenght > 0) {
+     res.json(movieId)
+   } else {
+     res.status(404).json({ Message: 'Show not found'})
+   }
+     
+ })
 
-  res.json(nominationsFromYear)
-})
-
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
