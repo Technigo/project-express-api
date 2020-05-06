@@ -27,12 +27,8 @@ app.get('/', (req, res) => {
 // All books
 
 app.get('/books', (req, res) => {
+  const { title, author, rating, pages, sort } = req.query
   let books = data
-  const title = req.query.title
-  const author = req.query.author
-  const rating = req.query.rating
-  const pages = req.query.pages
-  const sort = req.query.sort
 
   // Filter on title
   if (title) {
@@ -78,15 +74,15 @@ app.get('/books', (req, res) => {
 // Single book by id
 
 app.get('/books/:id', (req, res) => {
-  const bookId = req.params.id
-  const book = data.filter((item) => item.bookID === +bookId)
+  const id = req.params.id
+  const book = data.filter((item) => item.bookID === +id)
 
   // Ensure that no empty objects are shown
   if (book.length > 0) {
     res.json(book)
     // If book was not found
   } else {
-    res.status(404).send(`No book found with id ${bookId}`)
+    res.status(404).send(`No book found with id ${id}`)
   }
 })
 
