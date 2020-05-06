@@ -1,13 +1,27 @@
 # Express API Project
+Netflix titles API built in Node using Express. The task was to create an API with different endpoints. The API uses a static data set stored as a JSON-file. Using the array methods .filter(), .slice() and .find(), the items returned in the responses are limited according to the endpoint or query.
 
-Replace this readme with your own information about your project. 
+The following endpoints are available:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Home: /
+Titles: /titles
+Title by id: /titles/:id
+Titles by year: /year/:year
 
-## The problem
+Queries can be used to limit the /titles endpoint:
+Select page: /titles?page=:page
+Search by country: /titles?country=:country
+Search by director: /titles?director=:director
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Learning objectives
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript (selecting, filtering, and limiting arrays)
+
+## Technologies used
+- Node.js
+- Express
+- JavaScript ES6
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://anna-project-express-api.herokuapp.com/
