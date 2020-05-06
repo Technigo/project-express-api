@@ -3,20 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import data from './data/books.json'
 
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+//   Any port but 8080 is the default
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -27,23 +14,47 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Try /books')
 })
 
+// 20 result per page
+//books?page=2
 app.get('/books', (req, res) => {
-  res.json(data)
+  let page = req.query.page ?? 1
+  const pageSize = 20
+  const maxPage = Math.ceil(data.length/pageSize)
+  page = (page<=maxPage && page>=1)?page : 1;
+  const startIndex = (page -1) * pageSize 
+  const endIndex = startIndex + pageSize
+  const resultPage = data.slice(startIndex, endIndex)
+  const result = {numBooks: resultPage.length, 
+  page : page,
+  maxPage: maxPage,
+  books: resultPage}
+  res.json(result)
 })
 
 app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
   const bookId = data.find((item)=>item.bookID == id)
+  if (bookId) {
   res.json(bookId)
+  }
+  else {
+    res.send("404 not found")
+  }
 })
 
 app.get('/books/authors/:author', (req, res) => {
   const author = req.params.author
   const booksAuthor = data.filter((item)=>item.authors === author)
-  res.json(booksAuthor)
+  if (booksAuthor) {
+    res.json(booksAuthor)
+  }
+  else {
+    res.send('404 not found')
+  }
+  
 })
 
 // Start the server
