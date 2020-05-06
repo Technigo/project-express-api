@@ -40,8 +40,14 @@ app.get('/content', (req, res) => {
   const endIndex = startIndex + +pageSize
 
   const contentForPage = netflixData.slice(startIndex, endIndex)
+  
   const returnObject = { 
-    numContent: contentForPage.length, contentForPage}
+    numContent: contentForPage.length,
+    page: page,
+    maxPages: parseInt(netflixData.length / pageSize),
+    results: contentForPage
+  }
+
   res.json(returnObject)
 })
 
