@@ -13,18 +13,13 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// const listEndpoints = require('express-list-endpoints')
-
 // Home page
+const listEndpoints = require('express-list-endpoints')
 app.get('/', (req, res) => {
-  res.send('This is an API with 1375 Netflix titles. Have fun exploring it! Possible routes: /titles, /titles/:id, /directors/:director, /releaseyear/:year')
+  res.send(listEndpoints(app))
 })
 
-// app.get('/', (req, res) => {
-//   res.send(listEndpoints(app))
-// })
-
-// Endpoint, returns the title with a specific id
+// Endpoint, returns a title with a specific id
 app.get('/titles/:id', (req, res) => {
   const id = req.params.id
   const titleId = netflixData.find((item) => item.show_id === +id)
@@ -40,7 +35,6 @@ app.get('/titles', (req, res) => {
   let titles = netflixData
 
   //Query for page
-  //Makes the number written in url to integer
   let pageSearch = req.query.page
 
   //Checks how many pages there is if every page has 10 objects
@@ -59,13 +53,8 @@ app.get('/titles', (req, res) => {
   const showType = req.query.type
   if (showType) {
     titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    }
-    else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
+
+    if (titles.length === 0) {
       res.status(404).send(`Couldn't find any ${showType}`)
     } else {
       res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
@@ -76,13 +65,8 @@ app.get('/titles', (req, res) => {
   const showCountry = req.query.country
   if (showCountry) {
     titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    }
-    else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
+   
+    if (titles.length === 0) {
       res.status(404).send(`Couldn't find any titles from ${showCountry}`)
     } else {
       res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
@@ -93,13 +77,8 @@ app.get('/titles', (req, res) => {
   const showDirector = req.query.director
   if (showDirector) {
     titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLocaleLowerCase()))
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    }
-    else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
+   
+    if (titles.length === 0) {
       res.status(404).send(`Couldn't find any titles from ${showDirector}`)
     } else {
       res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
