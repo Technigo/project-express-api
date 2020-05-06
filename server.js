@@ -53,11 +53,8 @@ app.get('/titles', (req, res) => {
   const showType = req.query.type
   if (showType) {
     titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
-
     if (titles.length === 0) {
       res.status(404).send(`Couldn't find any ${showType}`)
-    } else {
-      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
     }
   }
 
@@ -65,11 +62,8 @@ app.get('/titles', (req, res) => {
   const showCountry = req.query.country
   if (showCountry) {
     titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
-   
     if (titles.length === 0) {
       res.status(404).send(`Couldn't find any titles from ${showCountry}`)
-    } else {
-      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
     }
   }
 
@@ -77,12 +71,14 @@ app.get('/titles', (req, res) => {
   const showDirector = req.query.director
   if (showDirector) {
     titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLocaleLowerCase()))
-   
     if (titles.length === 0) {
       res.status(404).send(`Couldn't find any titles from ${showDirector}`)
-    } else {
-      res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
     }
+  }
+
+  //Slice the filtered data, begin on the page written in query
+  else {
+    res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
   }
 
   //Slice the data, begin on the page written in query
