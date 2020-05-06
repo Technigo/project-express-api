@@ -16,23 +16,13 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const listEndpoints = require("express-list-endpoints");
+
 app.get("/", (req, res) => {
-  // Displays all movies and shows
-  res.json(data);
+  res.send(listEndpoints(app));
 });
 
-// Displays object(s) with specific title
-app.get("/titles/:title", (req, res) => {
-  const title = req.params.title;
-  // I dont know why I need to use toString on item.title and not on item.actore further down, would love to know why!
-  const contentWithTitle = data.filter(
-    (item) => item.title.toString().toLowerCase() === title.toLowerCase()
-  );
-
-  res.json(contentWithTitle);
-});
-
-app.get("/IDs/:id", (req, res) => {
+app.get("/content/:id", (req, res) => {
   // Displays object with specific ID
   const id = req.params.id;
   const contentWithId = data.filter((item) => item.show_id === +id);
@@ -40,56 +30,58 @@ app.get("/IDs/:id", (req, res) => {
   res.json(contentWithId);
 });
 
-app.get("/actors/:actor", (req, res) => {
-  // Shows everything the specific actor has been casted in
-  const actor = req.params.actor;
-  const moviesWithActor = data.filter((item) =>
-    item.cast.toLowerCase().includes(actor.toLowerCase())
-  );
+app.get("/content/", (req, res) => {
+  // Sorts based on queries
+  const { page, actor, type, title, year, country, director } = req.query;
+  let dataList = data;
 
-  res.json(moviesWithActor);
-});
-
-app.get("/years/:year", (req, res) => {
-  // Shows everything from a specific year with the possibilty to filter on type of content.
-  const year = req.params.year;
-  const type = req.query.type;
-
-  let contentFromYear = data.filter((item) => item.release_year === +year);
-
+  if (actor) {
+    dataList = dataList.filter((item) =>
+      item.cast.toLowerCase().includes(actor.toLowerCase())
+    );
+  }
   if (type) {
-    contentFromYear = contentFromYear.filter(
-      (item) => item.type.toLowerCase() === type.toLowerCase()
+    dataList = dataList.filter((item) =>
+      item.type.toLowerCase().includes(type.toLowerCase())
+    );
+  }
+  if (title) {
+    dataList = dataList.filter((item) =>
+      item.title.toString().toLowerCase().includes(title.toLowerCase())
     );
   }
 
-  res.json(contentFromYear);
-});
-
-app.get("/countries/:country", (req, res) => {
-  // Shows everything from a specific year with the possibilty to filter on type of content.
-  const country = req.params.country;
-  const type = req.query.type;
-
-  let contentFromCountry = data.filter((item) => item.country === country);
-
-  if (type) {
-    contentFromCountry = contentFromCountry.filter(
-      (item) => item.type.toLowerCase() === type.toLowerCase()
+  if (year) {
+    dataList = dataList.filter((item) =>
+      item.release_year.toString().toLowerCase().includes(year.toLowerCase())
     );
   }
 
-  res.json(contentFromCountry);
-});
+  if (country) {
+    dataList = dataList.filter((item) =>
+      item.country.toString().toLowerCase().includes(country.toLowerCase())
+    );
+  }
 
-app.get("/duration/:minutes", (req, res) => {
-  //Shows content that has the exact length searched for
-  const length = req.params.minutes;
-  const exactlyThatLong = data.filter(
-    (item) => item.duration === `${length} min`
-  );
+  if (director) {
+    dataList = dataList.filter((item) =>
+      item.director.toString().toLowerCase().includes(director.toLowerCase())
+    );
+  }
 
-  res.json(exactlyThatLong);
+  //I'm still a bit lost on this, will re-watch the code-a-long from today
+
+  const startIndex = 10 * (+page - 1) || 0;
+  const endIndex = startIndex + 10;
+  const dataListPaginated = dataList.slice(startIndex, endIndex);
+
+  if (dataListPaginated.length === 0) {
+    res.status(404).json({
+      error: "No shows or series found, please try a different query",
+    });
+  }
+
+  res.json({ content: dataListPaginated });
 });
 
 // Start the server
