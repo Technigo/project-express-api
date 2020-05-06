@@ -1,13 +1,23 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A backend project where I've built my own API using Node.js and Express 🤓🌷🎺☄️
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Creating my very first API through Heroku using Top 50 songs. Used params and queries to be able to sort through the retrieved data. The first response is the list with all of the songs and their details. Here you're able to use queries to sort by popularity high or low and also filter on genres. Examples below. The genre filter will include country pop if you search for just pop to make it more inclusive.
+
+There's a preliminary frontend to look at where I've used this API with React.js:
+https://github.com/bealun/music-express-frontend 
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Frontend: https://music-express-bealun.netlify.app/
+Backend: https://bealun-express-api.herokuapp.com/
+
+API examples:
+  * To show data: https://bealun-express-api.herokuapp.com/song
+  * View details: https://bealun-express-api.herokuapp.com/song/{id}
+  * Filter on genre: https://bealun-express-api.herokuapp.com/song?genre=pop
+  * Sort on popularity: https://bealun-express-api.herokuapp.com/song?popularity=high
+

@@ -1,18 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-// import goldenGlobesData from './data/golden-globes.json'
-
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-
-// import goldenGlobesData from './data/golden-globes.json'
-// console.log(goldenGlobesData.length)
-
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
 import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -71,24 +59,6 @@ app.get('/song/:id', (req, res) => {
 })
 
 
-// app.get('/nominations', (req, res) => {
-//   res.json(goldenGlobesData)
-// })
-
-// app.get('/year/:year', (req, res) => {
-//   const year = req.params.year
-//   const showWon = req.query.won
-//   console.log(showWon)
-//   let nominationsFromYear = goldenGlobesData.filter((item) => 
-//   item.year_award === +year)
-
-//   if (showWon) {
-//     nominationsFromYear = nominationsFromYear.filter((item) =>
-//     item.win)
-// }
-
-//   res.json(nominationsFromYear)
-// })
 
 // Start the server
 app.listen(port, () => {
