@@ -19,62 +19,38 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('View these endpoints /netflixlist /year:year (try 2019)')
+  res.send('View these endpoints /netflixtitles /year/:year')
 })
 
-app.get('/netflixlist', (req, res) => {
+app.get('/netflixtitles', (req, res) => {
   res.json(netflixData)
 })
+
+// `/songs` - Returns an array of songs
+
+// `/songs/5` - Returns a single song whose ID is '5'
+
+
 
 app.get('/year/:year', (req, res) => {
 
   const year = req.params.year 
-  const netflixReleaseYear = netflixData.filter((item) => +item.release_year === +year)
+  const showType = req.query.type
+  let netflixReleaseYear = netflixData.filter((item) => +item.release_year === +year)
+
+  if (year > 2020) {
+    res.status(404).send('No netflix releses for this year but stay tuned');
+  }
+   
+  if (showType) {
+    netflixReleaseYear = netflixReleaseYear.filter((item) => item.type.toLowerCase() === showType.toLowerCase());
+  } else if (showType != null) {
+    res.status(404).send(`No ${showType} relesed year`);
+  }
+
+  
   res.json(netflixReleaseYear)
 })
-
-
-// app.get('/people', (req, res) => {
-//   const { name } = req.query;
-
-//   const personsFound = people.filter((person) => person.name.includes(name));
-
-//   res.send(personsFound);
-// });
-
-// app.get('/title', (req, res) => {
-
-//   const titles = netflixData.filter(item => item.title);
-
-//   res.send(netflixData(titles))
-// })
-
-
-// var jediPersonnel = personnel.filter(function (person) {
-//   return person.isForceUser;
-// });
-// Result: [{...}, {...}, {...}] (Luke, Ezra and Caleb)
-
-
-// const rebels = pilots.filter(pilot => pilot.faction === "Rebels");
-
-
-// const notTheCs = pokemons.filter(item => !item.startsWith("C"));
-// console.log(notTheCs);
-
-// app.get('/netflixlist/:show_id', (req, res) => {
-
-//   const { show_id } = req.params;
-
-//   const netflixidfound = netflixlist.find(
-//     (netflixid) => netflixid.show_id === +show_id
-//   );
-
-//   res.send(netflixidfound);
-// });
-
-
-
 
 // Start the server
 app.listen(port, () => {
