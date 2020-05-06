@@ -22,15 +22,7 @@ app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
-app.get("/content/:id", (req, res) => {
-  // Displays object with specific ID
-  const id = req.params.id;
-  const contentWithId = data.filter((item) => item.show_id === +id);
-
-  res.json(contentWithId);
-});
-
-app.get("/content/", (req, res) => {
+app.get("/content", (req, res) => {
   // Sorts based on queries
   const { page, actor, type, title, year, country, director } = req.query;
   let dataList = data;
@@ -82,6 +74,14 @@ app.get("/content/", (req, res) => {
   }
 
   res.json({ content: dataListPaginated });
+});
+
+app.get("/content/:id", (req, res) => {
+  // Displays object with specific ID
+  const id = req.params.id;
+  const contentWithId = data.filter((item) => item.show_id === +id);
+
+  res.json(contentWithId);
 });
 
 // Start the server
