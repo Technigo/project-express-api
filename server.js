@@ -18,28 +18,26 @@ app.get('/data', (req, res) => {
 })
 
 app.get('/title', (req, res) => {
-const titles = netflixData.map((item) => item.title)  
-res.json(titles)
+  const titles = netflixData.map((item) => item.title)  
+  res.json(titles)
 
 })
 
- app.get('/year/:year', (req, res) => {
+app.get('/year/:year', (req, res) => {
   const year = req.params.year
   let releaseYear = netflixData.filter((item ) => item.release_year === +year)
   res.json(releaseYear)
- })
+})
 
  app.get('/movie/:id', (req, res) => {
    let id = req.params.id 
-  
    let movieId = netflixData.filter((item) => item.show_id === +id)
 
    if (movieId.lenght > 0) {
      res.json(movieId)
    } else {
      res.status(404).json({ Message: 'Show not found'})
-   }
-     
+   } 
  })
 
 app.listen(port, () => {
