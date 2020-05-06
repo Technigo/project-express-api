@@ -14,9 +14,13 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+
+const listEndpoints = require('express-list-endpoints')
+
+
+// Root
 app.get('/', (req, res) => {
-  res.json('Possible routes: /books/:id – Query params: ')
+  res.send(listEndpoints(app))
 })
 
 
@@ -78,7 +82,7 @@ app.get('/books/:id', (req, res) => {
   const book = data.filter((item) => item.bookID === +bookId)
 
   // Ensure that no empty objects are shown
-  if (book.length !== 0) { // Tried (bookId) here but then it shows an empty object even though the id doesn't exist.
+  if (book.length > 0) {
     res.json(book)
     // If book was not found
   } else {
