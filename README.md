@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a book API built in Node using Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The task was to create an API with two endpoints. I used .filter() to be able to filter all the books by a certain author or by title with queries and .find() to make the id endpoint to be able to find a single books. If I had more time I would like to make more queries and pagination. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Take a look!
+https://github.com/emmapre/project-express-api
