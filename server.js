@@ -15,10 +15,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Start defining your routes here
-/*app.get("/", (req, res) => {
-  res.send("Hello Kajsa");
-});*/
-
 app.get("/", (req, res) => {
   // Displays all movies and shows
   res.json(netflixData);
