@@ -32,7 +32,17 @@ app.get('/', (req, res) => {
 
 // ALL OF THE NETFLIX CONTENT (IN THIS DATASET)
 app.get('/content', (req, res) => {
-  res.json(netflixData)
+  const page = req.query.page ?? 0
+  const pageSize = req.query.pageSize ?? 20
+
+  const startIndex = page * pageSize
+
+  const endIndex = startIndex + +pageSize
+
+  const contentForPage = netflixData.slice(startIndex, endIndex)
+  const returnObject = { 
+    numContent: contentForPage.length, contentForPage}
+  res.json(returnObject)
 })
 
 // ONLY THE MOVIES - THEN YOU CAN ADD THE YEAR IN THE URL QUERY
