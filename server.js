@@ -37,7 +37,6 @@ app.get('/year/:year', (req, res) => {
   if (win) {
     fromYear = fromYear.filter((item) => item.win.toString() === win)
   }
-
   res.json(fromYear)
   })
 
