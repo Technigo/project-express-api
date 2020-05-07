@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 //(Start page)
 app.get('/', (req, res) => {
-  res.send('View these endpoints /netflixtitles /year/:year/&=(movie or tv show)')
+  res.json('View these endpoints /netflixtitles /netflixtitles:id /year/:year/&=(movie or tv show)')
 })
 
 //(All netflixtitles)
@@ -24,6 +24,7 @@ app.get('/netflixtitles', (req, res) => {
   res.json(netflixData)
 })
 
+//(netflixtitles single id)
 app.get('/netflixtitles/:id', (req, res) => {
   const netflixId = req.params.id 
   const showID = netflixData.find((item) => item.show_id === +netflixId)
