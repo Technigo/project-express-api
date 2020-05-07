@@ -3,15 +3,14 @@ Netflix API built in Node using Express. The assignment was to get an introducti
 
 ## The problem
 
-The following endpoints are available:
-
 I used the array method filter() and includes() to get the result I wanted. 
 
-The following endpoints are available: /shows & /titles/title & year/year & cast/cast & genre/listed_in & country/country&type=Movie or TV Show
+The following endpoints are available: 
+/shows & /titles/title & year/year & cast/cast & genre/listed_in & country/country&type=Movie or TV Show
 
 I used a query to choose the type movie or TV Show in a certain country.
 
-If I would have more time I would have built a frontend page for this as well.
+If I had more time I would have built a frontend page for this as well as more querys.
 
 ## View it live
 
