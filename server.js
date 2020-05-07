@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send(
-    'Welcome! Wanna fetch some info about tv-shows and movies? Here some endpoints for you to use. http://localhost:8080/movies/ http://localhost:8080/movies/:title/ http://localhost:8080/movie/:year/'
+    'Welcome! Wanna fetch some info about tv-shows and movies? Here some endpoints for you to use. https://express-api-project-ingrid.herokuapp.com/movies/ https://express-api-project-ingrid.herokuapp.com/movies/:title https://express-api-project-ingrid.herokuapp.com/movie/:year'
   )
 })
 
