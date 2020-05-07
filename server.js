@@ -10,7 +10,7 @@ import cors from 'cors'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 import topMusicData from './data/top-music.json'
-console.log(topMusicData.length)
+/* console.log(topMusicData.length) */
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -29,11 +29,13 @@ app.get('/', (req, res) => {
 })
 
 // Get the whole dataset, all songs
+// localhost:8080/songs
 app.get("/songs", (req, res) => {
   res.send(topMusicData)
 })
 
 // Get a specific song id, returns an object. +id makes id a number data type
+// localhost:8080/songid/4
 app.get("/songid/:id", (req, res) => {
   const id = req.params.id
   const songFound = topMusicData.find(
@@ -42,14 +44,26 @@ app.get("/songid/:id", (req, res) => {
   res.send(songFound)
 })
 
+// Get the artist name, returns an array, artist after the colon is a variable
+// localhost:8080/artist
+app.get("/artist/:artist", (req, res) => {
+  const artist = req.params.artist
+
+  let artistName = topMusicData.filter((item) => item.artistName === artist)
+
+  res.send(artistName)
+})
+
 // Get the genre, returns an array, genre after the colon is a variable
+// localhost:8080/genre/pop
 app.get("/genre/:genre", (req, res) => {
   const genre = req.params.genre
   const showFeelGood = req.query.feelgood
 
   let songGenre = topMusicData.filter((song) => song.genre === genre)
 
-  // Filter songs with valence over 70
+  // Filter songs with valence over 70 
+  // localhost:8080/genre/pop?feelgood=true WORKS!
   if (showFeelGood) {
     songGenre = songGenre.filter((song) => song.valence >= 70)
   }
@@ -57,14 +71,15 @@ app.get("/genre/:genre", (req, res) => {
 })
 
 // Get the FeelGood tracks, returns an array, feelgood after the colon is a variable
-/* app.get("/songs", (req, res) => {
-  const feelgood = req.query.feelgood */
+app.get("/songs", (req, res) => {
+  const feelgood = req.query.feelgood
 
-// Filter songs with valence over 70
-/* let songsWithHighValence = topMusicData.filter((song) => song.valence >= 70)
+  // Filter songs with valence over 70
+  // localhost:8080/songs?feelgood=true DOES NOT WORK
+  let feelGoodSongs = topMusicData.filter((songs) => songs.valence >= 70)
 
-res.send(songsWithHighValence)
-}) */
+  res.send(feelGoodSongs)
+})
 
 
 // Start the server
