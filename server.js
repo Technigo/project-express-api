@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 //(Start page)
 app.get('/', (req, res) => {
-  res.json('View these endpoints /netflixtitles /netflixtitles:id /year/:year/&=(movie or tv show)')
+  res.json('View these endpoints /netflixtitles /netflixtitles:id /year/:year /?type=movie or tv show')
 })
 
 //(All netflixtitles)
