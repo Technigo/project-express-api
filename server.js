@@ -16,7 +16,7 @@ import netflixData from './data/netflix-titles.json'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8081
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -25,7 +25,9 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(
+    'Welcome! Wanna fetch some info about tv-shows and movies? Here some endpoints for you to use. http://localhost:8080/movies/ http://localhost:8080/movies/:title/ http://localhost:8080/movie/:year/'
+  )
 })
 
 //Return all the data
@@ -34,25 +36,16 @@ app.get('/movies', (req, res) => {
 })
 
 //Return a single movie/tv-show
-app.get('/movies/:movie', (req, res) => {
-  const { movie } = req.params
-  const chosenMovie = netflixData.filter((item) => item.title.toString().toLowerCase() === movie.toLowerCase())
-  //const showWon = req.query.won
-  //let nominationsFromYear = data.filter((item) => item.year_award === +year)
-
-  //if (showWon) {
-  // nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-  //}
-  //res.json(showId)
-
+app.get('/movies/:title', (req, res) => {
+  const { title } = req.params
+  let chosenMovie = netflixData.filter((item) => item.title.toString().toLowerCase() === title.toLowerCase())
   res.json(chosenMovie)
 })
 
 //Return all shows/movies from a chosen year
 app.get('/movie/:year', (req, res) => {
   const { year } = req.params
-  const showsFromYear = netflixData.filter((item) => item.release_year === +year)
-  console.log(showsFromYear)
+  let showsFromYear = netflixData.filter((item) => item.release_year === +year)
   res.json(showsFromYear)
 })
 
