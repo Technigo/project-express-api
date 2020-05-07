@@ -1,13 +1,18 @@
 # Express API Project
-
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Netflix API built in Node using Express. The assignment was to get an introduction to backend and creating an API using Express. The requirements was to create at least a couple of RESTful endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The following endpoints are available:
+
+I used the array method filter() and includes() to get the result I wanted. 
+
+The following endpoints are available: /shows & /titles/title & year/year & cast/cast & genre/listed_in & country/country&type=Movie or TV Show
+
+I used a query to choose the type movie or TV Show in a certain country.
+
+If I would have more time I would have built a frontend page for this as well.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-netflix.herokuapp.com/
