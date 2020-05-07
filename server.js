@@ -24,6 +24,18 @@ app.get('/netflixtitles', (req, res) => {
   res.json(netflixData)
 })
 
+app.get('/netflixtitles/:id', (req, res) => {
+  const netflixId = req.params.id 
+  const showID = netflixData.find((item) => item.show_id === +netflixId)
+ 
+  if(showID) {
+    res.json(showID)
+  } else {
+    res.status(404).send('ID not found');
+  }
+ 
+})
+
 //(filter on year)
 app.get('/year/:year', (req, res) => {
 
@@ -45,17 +57,6 @@ if (showType && netflixReleaseYear.length === 0) {
     res.status(404).send(`No ${showType} relesed this year`);
 }
 
-  // if (year > 2020) {
-  //   res.status(404).send('No netflix releses for this year but stay tuned');
-  // }
-   
-  // if (showType) {
-  //   netflixReleaseYear = netflixReleaseYear.filter((item) => item.type.toLowerCase() === showType.toLowerCase());
-  // } else if (showType === null) {
-  //   res.status(404).send(`No ${showType} relesed this year`);
-  // }
-
-  
   res.json(netflixReleaseYear)
 })
 
