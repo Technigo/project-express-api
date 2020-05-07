@@ -19,6 +19,9 @@ https://express-deployment-annesophie.herokuapp.com/books/45
 Link to the full books list:
 https://express-deployment-annesophie.herokuapp.com/books
 
+Link to 20 books per page:
+https://express-deployment-annesophie.herokuapp.com/page?page=3
+
 Link to data filtered by language:
 https://express-deployment-annesophie.herokuapp.com/language/eng
 
