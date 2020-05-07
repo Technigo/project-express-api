@@ -7,4 +7,7 @@ This was my first backend assignment, the goal was to learn more about heroku, e
 
 ## View it live
 note this is only the backend part...
-https://tech-avocado-sales.herokuapp.com/avocados/
+available endpoints are: 
+/avocados
+/avocados/{id}
+https://tech-avocado-sales.herokuapp.com
