@@ -13,12 +13,32 @@ app.use(bodyParser.json())
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Routes: /books, /language/:language, /rating')
+  res.send('Routes: /books, /language/:language, /rating, /page')
 })
 
 //Show all data
 app.get('/books', (req, res) => {
   res.json(booksData)
+})
+
+//PAGINATION http://localhost:8080/page?page=0
+
+app.get('/page', (req, res) => {
+  const PER_PAGE = 20
+  const page = req.query.page
+  const startIndex = PER_PAGE * +page
+  const data = booksData.slice(startIndex, startIndex + PER_PAGE)
+  const pageCount = Math.ceil(booksData.length / 20)
+
+  if (page >= pageCount) {
+    res.status(404).send(`The page ${page} is not found, the last page is ${pageCount}.`);
+  } else {
+    res.json({
+      totalPages: Math.floor(booksData.length / PER_PAGE),
+      currentPage: +page,
+      data
+    })
+  }
 })
 
 // FILTER ON ID
@@ -83,6 +103,8 @@ app.get('/rating', (req, res) => {
   const booksRating = booksData.sort((a, b) => ((b.average_rating) - (a.average_rating)))
   res.json(booksRating)
 })
+
+//PAGINATION / show 20 results per page
 
 
 // START THE SERVER
