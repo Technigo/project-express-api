@@ -3,12 +3,8 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import goldenGlobesData from './data/golden-globes.json'
 
-console.log(goldenGlobesData.length)
-
 const port = process.env.PORT || 8080;
 const app = express()
-
-
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -39,38 +35,22 @@ app.get('/year/:year', (req, res) => {
   let fromYear = goldenGlobesData.filter((item) => item.year_award === +year)
 
   if (win) {
-    fromYear = fromYear.filter((item) => item.win)
+    fromYear = fromYear.filter((item) => item.win.toString() === win)
   }
 
   res.json(fromYear)
   })
-
 
 app.get('/index/:index', (req, res) => {
   const { index } = req.params
   res.json(goldenGlobesData[index])  
 })
 
-app.get('/winners/:win')
-
-
 app.get('/nominated/:nominee', (req, res) =>{
   const { nominee } = req.params
   const nominated = goldenGlobesData.filter((nom) => nom.nominee === nominee)
   res.json(nominated)
 })
-
-/*
-let results = allResults
-
-if (quaryParameter) {
-  results = results.filter(...queryParameter)
-}
-
-if (quaryParameter) {
-  results = results.filter(...queryParameter)
-}*/
-
 
 // Start the server
 app.listen(port, () => {
