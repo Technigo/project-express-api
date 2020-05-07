@@ -1,13 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+For this project I chose to make my own data set using Kaggle and CSVJSON. The program is showing all living dogs in Zurich, Switzerland. With methods such as slice, filter, find the result is filtered depending on which routes are added in the request.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Using params I have several different routes. These uses params so that the user can filter the result depending on for example dog breed, birth year etc. The filtering is done with mehtods such as filter and find. I would've liked to move on to building and connecting a frontend part to the project. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-deployment.herokuapp.com/
