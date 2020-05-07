@@ -1,12 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This was a project I did while attending the Technigo frontend bootcamp. The assignment was to get an introduction to backend and creating an API using Express. The requirements was to create at least a couple of RESTful endpoints which return either an array of data, or a single item.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had some problems having returning any data at all and couldn´t find any bugs in my code. After a while I tried to use another port and it started working. Maybe something unexpected happend to my server/terminal.
 
 ## View it live
 
