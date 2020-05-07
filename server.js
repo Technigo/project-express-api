@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Endpoints = /Shows & /titles/titles & year/year & a 404 message if title is not found' )
 })
 
 app.get('/shows', (req, res)=> {
