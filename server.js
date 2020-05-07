@@ -34,8 +34,9 @@ app.get('/movies', (req, res) => {
 })
 
 //Return a single movie/tv-show
-app.get('/movies/:title', (req, res) => {
-  const { title } = req.params
+app.get('/movies/:movie', (req, res) => {
+  const { movie } = req.params
+  const chosenMovie = netflixData.filter((item) => item.title.toString().toLowerCase() === movie.toLowerCase())
   //const showWon = req.query.won
   //let nominationsFromYear = data.filter((item) => item.year_award === +year)
 
@@ -43,8 +44,16 @@ app.get('/movies/:title', (req, res) => {
   // nominationsFromYear = nominationsFromYear.filter((item) => item.win)
   //}
   //res.json(showId)
-  const movieFound = netflixData.includes(title)
-  res.send(movieFound)
+
+  res.json(chosenMovie)
+})
+
+//Return all shows/movies from a chosen year
+app.get('/movie/:year', (req, res) => {
+  const { year } = req.params
+  const showsFromYear = netflixData.filter((item) => item.release_year === +year)
+  console.log(showsFromYear)
+  res.json(showsFromYear)
 })
 
 // Start the server
