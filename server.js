@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 //(Start page)
 app.get('/', (req, res) => {
-  res.send('<h1>View these endpoints</h1> All netflixtitles <br> /netflixtitles <br> netflixtitles single id /netflixtitles/80025678 <br> filter on year and filter on movie and tv shows relesed on diffrent years /year/release_year/?type=movie or tv show')
+  res.send('<h1>View these endpoints</h1> <h3>All netflixtitles</h3> => /netflixtitles <br> netflixtitles single id  => /netflixtitles/80025678 <br> filter on year and filter on movie and tv shows relesed on diffrent years => /year/release_year/?type=movie or tv show')
 })
 
 //(All netflixtitles)
