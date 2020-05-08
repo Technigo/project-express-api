@@ -2,20 +2,15 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 import topMusicData from './data/top-music.json'
-/* console.log(topMusicData.length) */
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+// PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,7 +18,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Start defining routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
@@ -33,10 +28,11 @@ app.get('/', (req, res) => {
 // localhost:8080/songs
 // localhost:8080/songs?page=1
 app.get("/songs", (req, res) => {
-  // ?? to specify a default value
+  // ?? to specify a default value, same function as ternary operator
   const page = req.query.page ?? 0
 
   // 10 is default value
+  // localhost:8080/songs?pageSize=5
   const pageSize = req.query.pageSize ?? 10
 
   // Calculate startIndex
