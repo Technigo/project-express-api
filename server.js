@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 
 
 app.get('/', (req, res) => {
-  res.send('Books')
+  res.send('Technigo Book Club')
 })
 
 app.get('/library/:page', (req, res) => {

@@ -1,13 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A project which aim was to start learning backend by creating an API in Node using Express. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The aim of the project was to start learning backend by creating an API in Node using Express. As a start I created different routes in Express. I then practiced how to manipulate the data in JavaScript by using filter, slice, includes and more. I also practiced on how to set up conditionals to catch errors. To deploy my server I used Heroku. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://er-project-express-api.herokuapp.com/
