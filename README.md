@@ -25,5 +25,7 @@ https://ebbabw-express-deploy.herokuapp.com/netflixtitles/80025678
 Filter on year and filter on movie and tv shows relesed on diffrent years  
 
 https://ebbabw-express-deploy.herokuapp.com/year/2019 
+
 https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=movie
+
 https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=tv%20show
