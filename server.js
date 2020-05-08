@@ -21,10 +21,10 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Welcome')
+  res.send('Welcome to golden globe library')
 })
 
-const PER_PAGE = 10
+const PER_PAGE = 15
 
 /* All nominations */
 app.get('/nominations', (req, res) => { 
@@ -52,16 +52,31 @@ app.get('/winners', (_, res) => {
 
 })
 
-app.get("/nominee/:nominee", (req, res) => {
+app.get('/losers', (_, res) => {
+
+  let losers = globeData.filter(item => {
+    return item.win === false
+  })
+  
+  res.json(losers)
+
+})
+
+  app.get("/nominee/:nominee", (req, res) => {
   const nominee = req.params.nominee
   const nomineeLetter = globeData.filter(item => {
     let nomineeTitle = item.nominee.toString()
     return nomineeTitle.toLowerCase().charAt(0) === nominee.toLowerCase().charAt(0)
   })
-
+if (nomineeLetter.length > 0 ) {
   res.json(nomineeLetter)
+} else {
+  res.status(404).json({message: `sorry, ${nominee} is not found`})
+}
+  
 })
 
+/* Is this really working?? */
   app.get('/nominee/:nominee', (req, res) => {
   const nominee = req.params.nominee
   let resultTitle = globeData.filter((item) => item.nominee === +nominee)
