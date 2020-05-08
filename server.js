@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 // Root
 app.get('/', (req, res) => {
-  res.send('<code>Paths<br>"/books"<br>"/books/:id<br>"/isbn/:isbn"<code>')
+  res.send('<code>Paths:\n/books\n/books/:id\n/isbn/:isbn\n\nQueries:\n<code>')
 })
 
 
