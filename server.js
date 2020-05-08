@@ -15,11 +15,9 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
-// Endpoints begins here. Request is incomming (check), Response is outgoing (change)
-
 // Root
 app.get('/', (req, res) => {
-  res.send('<code>Paths:\n/books\n/books/:id\n/isbn/:isbn\n\nQueries:\n<code>')
+  res.send('<pre>Paths:\n/books\n/books/:id\n/isbn/:isbn\n\nQueries:\n?author\n?title\n?language\n?minpages\n?maxpages\n?rating\n?sort\n?page\n?results<pre>')
 })
 
 
@@ -88,7 +86,7 @@ app.get('/books', (req, res) => {
 })
 
 
-//Path parameter 
+// ID
 app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const bookFromId = booksData.find(book => book.bookID === +id)
@@ -97,6 +95,8 @@ app.get('/books/:id', (req, res) => {
   else res.status(404).json({ message: `Id ${id} not found` })
 })
 
+
+// ISBN
 app.get('/isbn/:isbn', (req, res) => {
   const { isbn } = req.params
   const bookFromIsbn = booksData.find(book => book.isbn.toString() === isbn.toUpperCase() || book.isbn13.toString() === isbn.toUpperCase())
