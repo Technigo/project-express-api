@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 // Books
 app.get('/books', (req, res) => {
-  const { title, author, language, minpages = 0, maxpages, rating, sort, page, results = 20 } = req.query
+  const { title, author, language, minpages = 0, maxpages = Infinity, rating, sort, page, results = 20 } = req.query
 
   const filterBooks = (array, filter) => {
     return array.toString().toLowerCase().includes(filter)
@@ -41,7 +41,7 @@ app.get('/books', (req, res) => {
   if (language) {
     filteredBooks = filteredBooks.filter(book => filterBooks(book.language_code, language))
   }
-  if (maxpages) {
+  if (maxpages || minpages) {
     filteredBooks = filteredBooks.filter(book => book.num_pages < +maxpages && book.num_pages > +minpages)
   }
   if (rating) {
