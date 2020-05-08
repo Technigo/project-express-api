@@ -45,17 +45,17 @@ app.get('/year/:year', (req, res) => {
   let netflixReleaseYear = netflixData.filter((item) => +item.release_year === +year)
 
    if (year && netflixReleaseYear.length === 0) {
-    res.status(404).send('No netflix releses for this year but stay tuned');
-  }
+      res.status(404).send('No netflix releses for this year but stay tuned');
+}
 
   //(filter on movie and tv shows relesed on diffrent years)
-  if (showType) {
+   if (showType) {
     netflixReleaseYear = netflixReleaseYear.filter((item) =>
       item.type.toLowerCase() === showType.toLowerCase());
 }
 
-if (showType && netflixReleaseYear.length === 0) {
-    res.status(404).send(`No ${showType} relesed this year`);
+   if (showType && netflixReleaseYear.length === 0) {
+      res.status(404).send(`No ${showType}s relesed this year`);
 }
 
   res.json(netflixReleaseYear)
