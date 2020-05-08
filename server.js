@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 //(Start page)
 app.get('/', (req, res) => {
-  res.send('<h1>View these endpoints</h1> All netflixtitles => https://ebbabw-express-deploy.herokuapp.com/netflixtitles <br> netflixtitles single id  =>  https://ebbabw-express-deploy.herokuapp.com/netflixtitles/80025678 <br> filter on year and filter on movie and tv shows relesed on diffrent years => https://ebbabw-express-deploy.herokuapp.com/year/2019 and https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=movie or https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=tv%20show')
+  res.send('<h1>View these endpoints</h1> All netflixtitles => https://ebbabw-express-deploy.herokuapp.com/netflixtitles <br> Netflixtitles single id  =>  https://ebbabw-express-deploy.herokuapp.com/netflixtitles/80025678 <br> Filter on year and filter on movie and tv shows relesed on diffrent years => https://ebbabw-express-deploy.herokuapp.com/year/2019 and https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=movie or https://ebbabw-express-deploy.herokuapp.com/year/2019/?type=tv%20show')
 })
 
 //(All netflixtitles)
