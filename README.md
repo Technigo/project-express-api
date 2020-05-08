@@ -1,13 +1,15 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was the first project I made with Node.js and Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project was just to start working with the basics of Node and Express. I used data from Netflix and build an API based on it. I created a couple of paths to target different things from the data.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+I used Heroku to deploy it, here's the link:
+https://first-express-project.herokuapp.com/
+
+I also made a simple front end part to try it out, it is deployed here:
+https://competent-beaver-d3f54d.netlify.app/

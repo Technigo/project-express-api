@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world');
+  res.send(
+    'paths: movies, movies/movie, genres/genre, actors/actor, directors/director, year/year, countries/country'
+  );
 });
 
 app.get('/movies', (req, res) => {
@@ -75,11 +77,6 @@ app.get('/countries/:country', (req, res) => {
     (item) => item.country.toLowerCase() === country.toLowerCase()
   );
   res.json(chosenCountry);
-});
-
-app.use(function (err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).render('404.ejs');
 });
 
 // Start the server
