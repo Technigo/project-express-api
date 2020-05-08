@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Golden globes nominations API 2010-2019')
 })
 // Show all the nominations 
 app.get('/nominations', (req, res) => {
@@ -32,6 +32,7 @@ app.get('/nominations/years/:year', (req, res) => {
   }
   res.json(nominationsFromYear)
 })
+
 //show the nominations within specific category 
 //use query to filter the results with specific year 
 app.get('/nominations/categories/:category', (req, res) => {
@@ -45,6 +46,7 @@ app.get('/nominations/categories/:category', (req, res) => {
   }
   res.json(nominationsBestForeign)
 })
+
 //show only 20 objects per request
 app.get('/startpage', (req, res) => {
   const page = req.query.page ?? 1
@@ -60,11 +62,7 @@ app.get('/startpage', (req, res) => {
   }
   res.json(returnObject)
 })
-/* app.get('/nominations:index', (req, res) => {
-  const { index } = req.params
-  console.log(index)
-  res.send(goldenGlobesData[index])
-}) */
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
