@@ -1,13 +1,35 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+API built with Node.js and Express.js.
+Data from a JSON-file and different routes and queries to sort and filter. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Route | Description 
+--- | ---
+/ | Api information
+/books | All books
+/book/:id | Book details
+/isbn/:isbn | Book details
 
-## The problem
+Query | Description 
+--- | ---
+?author | Filter on authors name
+?title | Filter on title
+?language | Filter on language code
+?minpages | Minimum number of pages
+?maxpages | Maximum number of pages
+?rating | Rating 0-5
+?sort | Sort on author, title, pages or rating
+?page | Result pagination
+?results | Results per page
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Core Tech
+* Express.js
+* Postman
+* Heruko
+* Javascript ES6
+
+## Screenshot
+![Screenshot](screenshot.png)
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://olle-api-books.herokuapp.com/
