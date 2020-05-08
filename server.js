@@ -38,7 +38,7 @@ app.get("/songs", (req, res) => {
   // Calculate startIndex
   const startIndex = page * pageSize
 
-  // Calculate endIndex, +pageSize makes it a number
+  // Calculate endIndex, +pageSize makes it a number instead of string
   const endIndex = startIndex + +pageSize
 
   // Slice results
@@ -53,7 +53,8 @@ app.get("/songs", (req, res) => {
     return
   }
 
-  // Returnobject with information and result
+  // Return object with information
+  // Useful for navigating through several pages with a large amount of data
   const returnObject = {
     pageSize: pageSize,
     page: page,
@@ -92,7 +93,7 @@ app.get("/genre/:genre", (req, res) => {
   let songGenre = topMusicData.filter((song) => song.genre === genre)
 
   // Filter songs with valence over 70 
-  // Returns songs with a hight feelgood value
+  // Returns songs in a genre with a hight feelgood value
   // localhost:8080/genre/pop?feelgood=true 
   if (showFeelGood) {
     songGenre = songGenre.filter((song) => song.valence >= 70)
