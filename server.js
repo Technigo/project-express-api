@@ -24,20 +24,20 @@ app.get('/', (req, res) => {
   res.send('Welcome')
 })
 
-app.get('/nominations', (req, res) => { res.json(goldenGlobesData) }) 
+/* All nominations */
+app.get('/nominations', (req, res) => { 
+  res.json(globeData) }) 
 
-app.get('/nominee:nominee', (req, res) => {
-  const nominee = req.params.nominee
-  let result = globeData.filter((item) => item.nominee === +nominee)
-
-  res.json(result)
-})
-
+/* All nominations for specific year it was nominated and if winner*/
 app.get('/year/:year', (req, res) => { 
   const year = req.params.year 
-  const showWon = req.query.won 
+  const winner = req.query.won 
   let fromYear = globeData.filter((item) => item.year_award === +year) 
-  if (showWon) { fromYear = fromYear.filter((item) => item.win) } res.json(fromYear) 
+  
+  if (winner) { 
+    fromYear = fromYear.filter((item) => item.win ) 
+  } 
+  res.json(fromYear) 
 })
 
 app.get('/winners', (_, res) => {
@@ -48,6 +48,23 @@ app.get('/winners', (_, res) => {
   
   res.json(winners)
 
+})
+
+app.get("/nominee/:nominee", (req, res) => {
+  const nominee = req.params.nominee
+  const nomineeLetter = globeData.filter(item => {
+    let nomineeTitle = item.nominee.toString()
+    return nomineeTitle.toLowerCase().charAt(0) === nominee.toLowerCase().charAt(0)
+  })
+
+  res.json(nomineeLetter)
+})
+
+  app.get('/nominee/:nominee', (req, res) => {
+  const nominee = req.params.nominee
+  let resultTitle = globeData.filter((item) => item.nominee === +nominee)
+
+  res.json(resultTitle)
 })
 
 
