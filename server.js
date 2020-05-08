@@ -24,6 +24,8 @@ app.get('/', (req, res) => {
   res.send('Welcome')
 })
 
+const PER_PAGE = 10
+
 /* All nominations */
 app.get('/nominations', (req, res) => { 
   res.json(globeData) }) 
