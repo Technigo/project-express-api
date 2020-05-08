@@ -8,7 +8,7 @@ I had problem with error message mostly how to code it nicely, I solved it by as
 
 ## View it live
 
-## View these endpoints
+View these endpoints
 
 Start page
 
