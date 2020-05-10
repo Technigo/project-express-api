@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 // My routes
 // "First page" - the "about" route - giving instructions on how to interpret the json for non german speaking.
 app.get('/', (req, res) => {
-  res.send("<strong>Hello!</strong> This project shows all living dogs in Zurich, Switzerland. <br><br> <i>Explaning the different values.</i> <ul><li>ALTER -> Age.</li> <li>GESCHLECHT -> Gender.</li> <li>STADTKREIS -> City Quarter or District.</li> <li>RASSE1 -> Dog's Primary Breed.</li> <li>RASSE2 -> Dog's Secondary Breed.</li> <li>GEBURTSJAHR_HUND -> Dog's Year of Birth.</li> <li>GESCHLECHT_HUND -> Dog's Gender.</li> <li>HUNDEFARBE -> Color of the Dog.</li></ul> <h4>Instructions</h4> Enter '/dogs' to see all dogs. Enter '/dogs/{id}' to single out ONE dog. Ex. '/dogs/126'. Enter '/year/{year}' to see all dogs born that year. Ex. '/year/2011'. <br> Enter '/dogs/{breed}' to see all dogs of a certain breed. Ex. '/dogs/Weimaraner' ")
+  res.send("<strong>Hello!</strong> This project shows all living dogs in Zurich, Switzerland. <br><br> <i>Explaning the different values.</i> <ul><li>ALTER -> Age.</li> <li>GESCHLECHT -> Gender.</li> <li>STADTKREIS -> City Quarter or District.</li> <li>RASSE1 -> Dog's Primary Breed.</li> <li>RASSE2 -> Dog's Secondary Breed.</li> <li>GEBURTSJAHR_HUND -> Dog's Year of Birth.</li> <li>GESCHLECHT_HUND -> Dog's Gender.</li> <li>HUNDEFARBE -> Color of the Dog.</li></ul> <h4>Instructions</h4> Enter '/dogs' to see all dogs. Enter '/dogs/{id}' to single out ONE dog. Ex. '/dogs/126'. Enter '/year/{year}' to see all dogs born that year. Ex. '/year/2011'. <br> Enter '/breed/{breed}' to see all dogs of a certain breed. Ex. '/breed/Weimaraner' ")
 })
 
 //Route in plural that shows the whole object with all dogs. Usage of slice-method to create pages.
