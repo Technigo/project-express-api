@@ -1,6 +1,6 @@
 # Express API Project
 
-Book API build with Node using Express.
+Book API built with Node using Express.
 
 ## Description
 
