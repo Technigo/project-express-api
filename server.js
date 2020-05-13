@@ -50,6 +50,9 @@ app.get('/books', (req, res) => {
   }
 
   // slice used for pagination
+  // startIndex: E.g. page 3: 10 * (3-1) = 20, sends 20 as a parameter to the .slice()
+  // as a result, page 3 starts with the book that has index 20
+  // if there is no page query, it defaults to 0
   const startIndex = 10 * (+page - 1) || 0
   const endIndex = startIndex + 10
   const booksListPaginated = booksList.slice(startIndex, endIndex)
