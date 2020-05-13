@@ -33,6 +33,10 @@ app.get('/books', (req, res) => {
     booksList = booksList.sort((a, b) => (b.average_rating - a.average_rating))
   } else if (sort === 'rating_asc') {
     booksList = booksList.sort((a, b) => (a.average_rating - b.average_rating))
+  } else if (sort === 'pages_dsc') {
+    booksList = booksList.sort((a, b) => (b.num_pages - a.num_pages))
+  } else if (sort === 'pages_asc') {
+    booksList = booksList.sort((a, b) => (a.num_pages - b.num_pages))
   }
 
   // find books by author using query, returns filtered booksList
