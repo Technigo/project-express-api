@@ -36,12 +36,12 @@ app.get('/books', (req, res) => {
 
 app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
-  const bookId = data.find((item)=>item.bookID == id)
-  if (bookId) {
-  res.json(bookId)
+  const book = data.find((item)=>item.bookID == id)
+  if (book) {
+  res.json(book)
   }
   else {
-    res.send("404 not found")
+    res.status(404).json({error:"book not found"})
   }
 })
 
@@ -52,7 +52,7 @@ app.get('/books/authors/:author', (req, res) => {
     res.json(booksAuthor)
   }
   else {
-    res.send('404 not found')
+    res.status(404).json({error:"book not found"})
   }
   
 })
