@@ -32,13 +32,13 @@ app.get('/', (req, res) => {
 
 app.get('/books', (req, res) => {
   const { title } = req.query
-  const bookTitle = booksData.filter((item) =>
+  const filteredBooks = booksData.filter((item) =>
     item.title.toString().toLowerCase().includes(title))
 
-  if (bookTitle.length > 0) {
-    res.json(bookTitle)
+  if (filteredBooks.length > 0) {
+    res.json(filteredBooks)
 
-  } else if (title && bookTitle.length === 0) {
+  } else if (title && filteredBooks.length === 0) {
     res.status(404).json({ message: 'Book title not found' })
 
   } else {
