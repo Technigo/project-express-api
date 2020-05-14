@@ -9,4 +9,4 @@ The task was to create an API with two endpoints. I used .filter() to be able to
 ## View it live
 
 Take a look!
-https://dashboard.heroku.com/apps/emma-books-api
+https://emma-books-api.herokuapp.com/
