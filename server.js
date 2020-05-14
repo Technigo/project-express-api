@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // Displays all the movies/shows
-app.get("/nominations", (req, res) => {
+app.get("/shows", (req, res) => {
   res.json(data);
 });
 
@@ -56,7 +56,7 @@ app.get("/countries/:countries", (req, res) => {
 });
 
 //Displays a movie/show with a specific show_id
-app.get("/showId/:showId", (req, res) => {
+app.get("/shows/:showId", (req, res) => {
   const id = req.params.showId;
   const showWithId = data.filter((item) => item.show_id === +id);
   res.json(showWithId);
