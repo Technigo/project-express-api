@@ -17,7 +17,7 @@ app.get('/data', (req, res) => {
   res.json(netflixData)
 })
 
-app.get('/title', (req, res) => {
+app.get('/titles', (req, res) => {
   const titles = netflixData.map((item) => item.title)  
   res.json(titles)
 
