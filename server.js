@@ -27,6 +27,13 @@ app.get('/movies', (req, res) => {
   res.json(netflixData);
 });
 
+// route for getting data on a title with specific id
+app.get('/movies/:id', (req, res) => {
+  const id = req.params.id;
+  const chosenId = netflixData.find((item) => item.show_id === +id);
+  res.json(chosenId);
+});
+
 // route for getting data on a certain movie
 app.get('/movies/:movie', (req, res) => {
   const movie = req.params.movie;
