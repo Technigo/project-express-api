@@ -9,4 +9,4 @@ The task was to create an API with two endpoints. I used .filter() to be able to
 ## View it live
 
 Take a look!
-https://github.com/emmapre/project-express-api
+https://dashboard.heroku.com/apps/emma-books-api
