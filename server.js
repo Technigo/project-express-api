@@ -41,7 +41,7 @@ app.get('/titles/:id', (req, res) => {
       .status(404)
       .send({ error: `No movie or tv show found with id: "${id}" found` });
   }
-  res.json(contentWithId);
+  res.json(titleId);
 });
 
 app.get('/year/:year', (req, res) => {
