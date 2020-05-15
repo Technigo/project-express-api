@@ -17,121 +17,44 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
-
-//GETS THE WHOLE DATA-SET UNFILTERED
-app.get('/collection', (req, res) => {
-  res.json(netflixData)
-})
-
-
-//GETS ALL MOVIES
-app.get('/movies', (req, res) => {
-  const onlyMovies = netflixData.filter((item) => item.type === "Movie")
-
-  res.json(onlyMovies)
-})
-
-
-//LOOKS FOR ALL MOVIES FROM A SPECIFIC YEAR AND ADDITIONAL QUERY FOR COUNTRY
-app.get('/movies/:year', (req, res) => {
-  const year = req.params.year
-  const onlyMovies = netflixData.filter((item) => item.type === "Movie")
-  let moviesFromYear = onlyMovies.filter((item) => item.release_year === +year)
-  const country = req.query.country
-
-  if (country) {
-    console.log(country)
-    moviesFromYear = moviesFromYear.filter((item) => item.country.toLowerCase() === country.toLowerCase())
-  }
-
-  res.json(moviesFromYear)
-})
-
-
-// !!THIS IS SUPPOST TO FILTER TYPE OF NETFLIX CONTENT AND COUNTRY WITH QUERIES BUT IT'S NOT WORKING
-//AND I DON'T UNDERSTAND WHY...
-
-// app.get('/collection', (req, res) => {
-//   let collection = netflixData
-//   const typeOfContent = req.query.type
-//   const showCountry = req.query.country
-
-//   if(typeOfContent) {
-//     collection = collection.filter((item) => item.type.toLowerCase() === typeOfContent.toLowerCase())
-//   }if(showCountry){
-//     collection = collection.filter((item) => item.country.toLowerCase() === showCountry.toLowerCase())
-//   }
-//   res.json(collection)
-// })
-
-
-//GETS ALL THE TV-SHOWS
-app.get('/tvshows', (req, res) => {
-  const onlyTvShows = netflixData.filter((item) => item.type === 'TV Show')
-  res.json(onlyTvShows)
-})
-
-
-//LOOKS FOR TV-SHOWS WITHIN A SPECIFIC GENRE
-app.get('/tvshows/:genre', (req, res) => {
-  const genre = req.params.genre.toString()
-  const onlyTvShows = netflixData.filter((item) => item.type === 'TV Show')
-  const specificGenreTv = onlyTvShows.filter((item) => item.listed_in.toLowerCase().includes(genre.toLowerCase()))
-
-  res.json(specificGenreTv)
-})
-
-
-//LOOKS FOR TV-SHOWS WITHIN A SPECIFIC GENRE AND FILTERS ON YEAR WITH QUERY
-//NOT WORKING!
-app.get('/tvshows:genre', (req, res) => {
-  const genre = req.params.genre
-  let onlyTvShows = netflixData.filter((item) => item.type === 'TV Show')
-  let specificGenreTv = onlyTvShows.filter((item) => item.listed_in.toLowerCase().includes(genre.toLowerCase()))
+app.get('/shows/', (req, res) => {
+  let shows = netflixData
+  const typeOfContent = req.query.type
+  const showCountry = req.query.country
   const year = req.query.year
-
-  if (year) {
-    specificGenreTv = specificGenreTv.filter((item) => item.release_year === +year)
+  const castMember = req.query.cast
+  
+  if(typeOfContent) {
+    shows = shows.filter((item) => item.type.toLowerCase() === typeOfContent.toLowerCase())
   }
-  res.json(specificGenreTv)
+  if(showCountry){
+    shows = shows.filter((item) => item.country.toLowerCase() === showCountry.toLowerCase())
+  }
+  if(castMember){
+    shows = shows.filter((item) => item.cast.toLowerCase().includes(castMember.toLocaleLowerCase()))
+  }
+  if(year != undefined){
+    shows = shows.filter((item) => item.release_year === +year)
+  }
+  else{
+    res.status(404).json({error:'not found'})
+  }
+
+  res.json(shows)
+
 })
+// http://localhost:8080/api/netflix?year=2018
+// app.get('/api/netflix', (req, res) => {
+//   let result = netflixData
+//   if (req.query.year != undefined) {
+//     result = result.filter((item) => item.release_year === Number(req.query.year))
+//   }
+  
 
-
-//LOOKS FOR A SPECIFIC TITLE IN THE ENTIRE COLLECTION. 
-//ERROR MESSAGE NOT WORKING
-
-app.get('/titles/:title', (req, res) => {
-  const title = req.params.title
-  const specTitle = netflixData.filter((item) => item.title === title)
-
-  if (specTitle) {
-    title.includes({ specTitle }) === true
-
-    console.log(specTitle)
-    res.json(specTitle)
-  }
-  else {
-    res.status(404).json({ message: `${title} is not included in the Netlix collection` })
-
-  }
-})
-
-//SAME AS ABOVE BUT WITH DIFFERENT APPROACH TO ERRORMESSAGE. 
-//NOT WORKING
-app.get('/titles/:title', (req, res) => {
-  const title = req.params.title
-  const specTitle = netflixData.filter((item) => item.title === title)
-
-  // if(!title){
-  //   res.status(404).json({message: `${title} is not included in the Netlix collection`})
-  //   console.log(title)
-
-  // }
-  // else{
-  //   title === (specTitle)
-  res.json(specTitle)
-
-  // }
+app.get('/shows/:id', (req, res) => {
+  const id = req.params.id
+  const showWithId = netflixData.find((item) => item.show_id === +id);
+  res.json(showWithId)
 })
 
 // Start the server
