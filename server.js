@@ -23,33 +23,26 @@ app.get('/shows/', (req, res) => {
   const showCountry = req.query.country
   const year = req.query.year
   const castMember = req.query.cast
-  
-  if(typeOfContent) {
+
+  if (typeOfContent) {
     shows = shows.filter((item) => item.type.toLowerCase() === typeOfContent.toLowerCase())
   }
-  if(showCountry){
+  if (showCountry) {
     shows = shows.filter((item) => item.country.toLowerCase() === showCountry.toLowerCase())
   }
-  if(castMember){
+  if (castMember) {
     shows = shows.filter((item) => item.cast.toLowerCase().includes(castMember.toLocaleLowerCase()))
   }
-  if(year != undefined){
+  if (year != undefined) {
     shows = shows.filter((item) => item.release_year === +year)
   }
-  else{
-    res.status(404).json({error:'not found'})
+  else {
+    res.status(404).json({ error: 'not found' })
   }
-
+ 
   res.json(shows)
 
 })
-// http://localhost:8080/api/netflix?year=2018
-// app.get('/api/netflix', (req, res) => {
-//   let result = netflixData
-//   if (req.query.year != undefined) {
-//     result = result.filter((item) => item.release_year === Number(req.query.year))
-//   }
-  
 
 app.get('/shows/:id', (req, res) => {
   const id = req.params.id
