@@ -4,13 +4,19 @@ Netflix titles API built in Node using Express. The task was to create an API wi
 The following endpoints are available:
 
 Home: /
+
 Titles: /titles
+
 Title by id: /titles/:id
+
 Titles by year: /years/:year
 
 Queries can be used to limit the /titles endpoint:
+
 Select page: /titles?page=:page
+
 Search by country: /titles?country=:country
+
 Search by director: /titles?director=:director
 Search by type: /titles?type=:type
 
