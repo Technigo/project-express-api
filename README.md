@@ -18,6 +18,7 @@ Select page: /titles?page=:page
 Search by country: /titles?country=:country
 
 Search by director: /titles?director=:director
+
 Search by type: /titles?type=:type
 
 ## Learning objectives
