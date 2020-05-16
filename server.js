@@ -13,6 +13,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+
 // Home page
 const listEndpoints = require('express-list-endpoints')
 app.get('/', (req, res) => {
@@ -30,73 +31,8 @@ app.get('/titles/:id', (req, res) => {
   }
 })
 
-//Endpoint, returns all titles from netflix-titles.json
-app.get('/titles', (req, res) => {
-  let titles = netflixData
-
-  //Query for page
-  let pageSearch = req.query.page
-
-  //Checks how many pages there is if every page has 10 objects
-  const pageCount = titles.length / 10
-
-  //If there's no page-query in the url, show first page
-  if (!pageSearch) {
-    pageSearch = 1
-  }
-  //If the page-query is bigger than the pageCount it should show the last page
-  else if (pageSearch > pageCount) {
-    pageSearch = pageCount
-  }
-
-  // Query for type: filter and return only TV shows or only movies 
-  const showType = req.query.type
-  if (showType) {
-    titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    } else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
-      res.status(404).send(`Couldn't find any ${showType}`)
-    }
-  }
-
-  // Query for country: filter and return only titles from the specified country
-  const showCountry = req.query.country
-  if (showCountry) {
-    titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    } else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
-      res.status(404).send(`Couldn't find any titles from ${showCountry}`)
-    }
-  }
-
-  // Query for director: filter and return only titles from the specified director
-  const showDirector = req.query.director
-  if (showDirector) {
-    titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLocaleLowerCase()))
-    const pageCount = titles.length / 10
-    if (!pageSearch) {
-      pageSearch = 1
-    } else if (pageSearch > pageCount) {
-      pageSearch = pageCount
-    } if (titles.length === 0) {
-      res.status(404).send(`Couldn't find any titles from ${showDirector}`)
-    }
-  }
-
-  //Slice the data, begin on the page written in query
-  res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
-})
-
 // Endpoint, returns titles released a specific year
-app.get('/year/:year', (req, res) => {
+app.get('/years/:year', (req, res) => {
   const year = req.params.year
   let pageSearch = req.query.page
   const titlesFromYear = netflixData.filter((item) => item.release_year === + year)
@@ -115,17 +51,73 @@ app.get('/year/:year', (req, res) => {
   }
 })
 
+//Endpoint, returns all titles from netflix-titles.json
+app.get('/titles', (req, res) => {
+  let titles = netflixData
 
-// // Endpoint, returns everything a specific director has directed (no pages)
-// //Commented this out as I decided to make a query for director instead
-// app.get("/directors/:director", (req, res) => {
-//   const director = req.params.director
-//   const titlesWithDirector = netflixData.filter((item) =>
-//     item.director.toLowerCase().includes(director.toLowerCase())
-//   )
-//   res.json(titlesWithDirector)
-// })
+  //Query for page
+  let pageSearch = req.query.page
 
+  //Checks how many pages there is if every page has 10 objects
+  const pageCount = titles.length / 10
+
+  //If there's no page-query in the url, show first page
+  if (!pageSearch) {
+    pageSearch = 1
+  }
+  //If the page-query is bigger than the pageCount it should show the last page
+  if (pageSearch > pageCount) {
+    pageSearch = pageCount
+  }
+
+  // Query for type: filter and return only TV shows or only movies 
+  const showType = req.query.type
+  if (showType) {
+    titles = titles.filter((item) => item.type.toLowerCase() === showType.toLowerCase())
+    const pageCount = titles.length / 10
+    if (!pageSearch) {
+      pageSearch = 1
+    } if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } 
+    if (titles.length === 0) {
+      res.status(404).send(`Couldn't find any ${showType}`)
+    }
+  }
+
+  // Query for country: filter and return only titles from the specified country
+  const showCountry = req.query.country
+  if (showCountry) {
+    titles = titles.filter((item) => item.country.toLowerCase().includes(showCountry.toLocaleLowerCase()))
+    const pageCount = titles.length / 10
+    if (!pageSearch) {
+      pageSearch = 1
+    } else if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } 
+    if (titles.length === 0) {
+      res.status(404).send(`Couldn't find any titles from ${showCountry}`)
+    }
+  }
+
+  // Query for director: filter and return only titles from the specified director
+  const showDirector = req.query.director
+  if (showDirector) {
+    titles = titles.filter((item) => item.director.toLowerCase().includes(showDirector.toLocaleLowerCase()))
+    const pageCount = titles.length / 10
+    if (!pageSearch) {
+      pageSearch = 1
+    } else if (pageSearch > pageCount) {
+      pageSearch = pageCount
+    } 
+    if (titles.length === 0) {
+      res.status(404).send(`Couldn't find any titles from ${showDirector}`)
+    }
+  }
+
+  //Slice the data, begin on the page written in query
+  res.json(titles.slice(pageSearch * 10 - 10, pageSearch * 10))
+})
 
 // Start the server
 app.listen(port, () => {
