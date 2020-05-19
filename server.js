@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import netflixData from './data/netflix-titles.json'
-import { filterMoviesOnYear, filterMoviesByCountry, filterMoviesByActor, mappedNetflix } from './filters'
+import { filterMovies, mappedNetflix } from './filters'
 
 const path = require('path')
 const port = process.env.PORT || 8080
@@ -19,9 +19,7 @@ app.get('/shows', (request, response) => {
   const { cast, year, country } = request.query //?year=2019&country=South Korea
   let movieList = netflixData;
 
-  movieList = filterMoviesOnYear(year, movieList);
-  movieList = filterMoviesByCountry(country, movieList);
-  movieList = filterMoviesByActor(cast, movieList);
+  movieList = filterMovies(year, country, cast, movieList)
     
   response.json(mappedNetflix(movieList))
   
@@ -74,12 +72,9 @@ app.get('/categories/:category', (request, response) => {
     return
   }
 
-  filteredCategory = filterMoviesOnYear(year, filteredCategory);
-  filteredCategory = filterMoviesByCountry(country, filteredCategory);
-  filteredCategory = filterMoviesByActor(cast, filteredCategory);
+  filteredCategory = filterMovies(year, country, cast, filteredCategory)
 
   response.json(mappedNetflix(filteredCategory))
-
 })
 
 app.use(function (req, res, next) {
@@ -89,9 +84,3 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
-
-
-
-
-
-

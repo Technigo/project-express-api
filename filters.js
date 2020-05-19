@@ -12,25 +12,19 @@ export const mappedNetflix = (arr) => {
     })
 }
 
-export const filterMoviesOnYear = (year, movies) => {
+export const filterMovies = (year, country, cast, movieList) => {
+
   if (year) {
-    return movies.filter((item) => item.release_year === +year)
+    return movieList.filter((item) => item.release_year === +year)
   }
 
-  return movies;
-}
-
-export const filterMoviesByCountry = (country, movieList) => {
   if (country) {
     return movieList.filter((item) => item.country.toLowerCase().includes(country.toLowerCase()))
   }
 
-  return movieList
-}
-
-export const filterMoviesByActor = (cast, movieList) => {
   if (cast) {
     return movieList.filter((item) => item.cast.includes(cast))
   }
-  return movieList
+
+  return movieList;
 }
