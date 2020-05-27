@@ -1,13 +1,29 @@
-# Express API Project
+# Express API
 
-Replace this readme with your own information about your project. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+
+## What I got to learn 🧠
+
+* How to build an API in Node using Express
+* How to install and setup an Express server
+* How to create routes in Express
+* Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+* How to deploy Node projects
+
+## Requirements reached 🧪
+
+* The api has a couple of RESTful endpoints which return either an array of data, or a single item
+* The API have at least 2 routes - with a minimum of one to return a collection of results, and one to return a single result
+* The API is deployed to Heroku
+* The API is RESTful
+
+## Strech goals reached 🧘
+
+* Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+* If your dataset is large, try implementing 'pages' using `.slice()` to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
+* On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+* Looking for a bigger stretch goal? Build a frontend which uses your API in some way to show the data in a nice way (use the [react-starter](https://github.com/Technigo/react-starter) template to get up and running fast).
