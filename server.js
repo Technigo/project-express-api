@@ -24,6 +24,12 @@ app.get('/titles', (req, res) => {
   res.send({ numTitles: titles.length, titles })
 })
 
+app.get('/titles/:id', (req, res) => {
+  const id = req.params.id
+  const title = jsonData.find(item => item.show_id === +id)
+  res.send(title)
+})
+
 // Pagination
 app.get('/titles/page', (req, res) => {
   const page = req.query.page || 1
