@@ -26,13 +26,15 @@ app.get('/titles', (req, res) => {
 
 // Pagination
 app.get('/titles/page', (req, res) => {
-  const page = req.query.page
-  const limit = req.query.limit
+  const page = req.query.page || 1
+  const limit = req.query.limit || 10
 
   const startIndex = (page - 1) * limit
   const endIndex = page * limit
 
-  const results = {}
+  const results = {
+    maxPages: parseInt(jsonData.length / limit)
+  }
 
   if (endIndex < jsonData.length) {
     results.next = {
