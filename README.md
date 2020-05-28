@@ -26,4 +26,4 @@
 * Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
 * If your dataset is large, try implementing 'pages' using `.slice()` to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
 * On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
-* Looking for a bigger stretch goal? Build a frontend which uses your API in some way to show the data in a nice way (use the [react-starter](https://github.com/Technigo/react-starter) template to get up and running fast).
+
