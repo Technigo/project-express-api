@@ -26,5 +26,6 @@ An API using Express with a couple of RESTful endpoints which return either an a
 * Implemented accepting filters via query parameters to filter the data you return from endpoints which return an array of data
 * Implemented pagination using `.slice()` to return only a selection of results from the array
 * Implemented next and previous page for the pagination, such as maximum pages
-* On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+* Implemented empty result when returning a single item and the item doesn't exist
+
 
