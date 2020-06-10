@@ -10,4 +10,4 @@ note this is only the backend part...
 available endpoints are: 
 /avocados
 /avocados/{id}
-https://tech-avocado-sales.herokuapp.com
+https://week17-api-backend-avocados.herokuapp.com/
