@@ -23,6 +23,3 @@
     "eslint-config-import": "^0.13.0"
   }
 }
-/* UPDATED:  "@babel/core": "^7.10.2",
-"@babel/node": "^7.10.1",
-"@babel/preset-env": "^7.10.2", */
