@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was my first backend assignment, the goal was to learn more about heroku, endpoints, using postman and handling data. 
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+ Back end is pretty far from the fornt-end we have been doing, Im intrigued and looking forward to putting more time into this. 
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+note this is only the backend part...
+available endpoints are: 
+/avocados
+/avocados/{id}
+https://tech-avocado-sales.herokuapp.com
