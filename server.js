@@ -18,7 +18,7 @@ import netflixData from './data/netflix-titles.json'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8090
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -34,6 +34,12 @@ app.get('/shows', (req, res)=> {
   res.json(netflixData)
 })
 
+
+app.get('/shows/:id', (req, res) => {
+  const id = req.params.id
+  let showId = netflixData.find((item) =>show_id === +id)
+  res.json(showId)
+})
 
 app.get('/titles/:title', (req, res)=> {
   const title = req.params.title
