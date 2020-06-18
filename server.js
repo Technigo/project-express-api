@@ -37,7 +37,7 @@ app.get('/shows', (req, res)=> {
 
 app.get('/shows/:id', (req, res) => {
   const id = req.params.id
-  let showId = netflixData.find((item) =>show_id === +id)
+  let showId = netflixData.find((item) =>item.show_id === +id)
   res.json(showId)
 })
 
