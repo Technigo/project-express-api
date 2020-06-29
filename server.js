@@ -3,47 +3,45 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-
-
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
 
-
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('It can be a beautiful start!')
+  res.send('Endpoints: /books/id, /books/')
 })
 
-app.get("/books", (req, res) => {
-  res.json(booksData);
-});
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  const bookId = booksData.find((item) => item.bookID === +id)
 
-app.get("/rating/:rating", (req, res) => {
-  const bookId = req.params.rating;
-  const book = booksData.find(item => item.average_rating.toString() === rating);
-  res.json(book);
-});
+  if (!bookId) {
+    res.status(404).send({ error: `No book with this id found, try another.` })
+  }
+  res.send(bookId)
+})
 
-app.get("/language/:language", (req, res) => {
-  const language = req.params.language;
-  const booksInLanguage = booksData.filter(item => item.language_code === language);
-  res.json(booksInLanguage);
-});
+app.get('/books', (req, res) => {
 
+  const { author, title } = req.query
+  let books = booksData
 
+  if (author) {
+    books = books.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase())
+    )
+  }
 
-// Start the server
+  if (title) {
+    books = books.filter((item) => item.title.toString().toLowerCase().includes(title.toLowerCase())
+    )
+  }
+
+  res.json(books)
+})
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
