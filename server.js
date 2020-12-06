@@ -11,10 +11,30 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
+// Routes start here:
+// Home: path /
 app.get('/', (req, res) => {
-  res.send('Hello world, this will be a books API!')
+  res.send("Hello world, this is Vanessa's books API!")
 });
+
+//Books: path /books - narrow down the data to the top 50 books from the 
+// booksData object
+app.get('/books', (req, res) => {
+  res.json(booksData.slice(0, 50))
+});
+
+// Show a single book based on the ID: path /books/7
+app.get('/books/:bookID', (req, res) => {
+  const bookID = req.params.bookID;
+  const singleBook = booksData.find((item => item.bookID === +bookID));
+
+  if (!singleBook) {
+    res.send("Sorry, could not find that book :(")
+  };
+  
+  res.json(singleBook);
+});
+
 
 // Start the server
 app.listen(port, () => {
