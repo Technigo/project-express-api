@@ -1,12 +1,10 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+The focus for this weeks project is to start learning backend by creating our very first API using Express. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The problem/How I solved it
+The task is to create an API that should have at least a couple of RESTful endpoints, which returns either an array of data or a single item. Since we're not using databases yet, we got a set of hard-coded data stored as a JSON files in the project. The API endpoints created use this file along with array methods such as .find(), .filter(), and .slice() to select, filter, or limit the items returned in the responses.
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
