@@ -24,14 +24,14 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello nerd')
+  res.send('Netflix Movie and Tv show API ')
 })
 
 // Endpoint showing all movies and handles query of release_year
-app.get ('/movies', (req, res) => {
+app.get ('/v1/movies', (req, res) => {
   let movies = netflixData.filter((item) => item.type === "Movie")
   const year = req.query.release_year
-  
+
   if (year) {
     movies = movies.filter((item) => item.release_year === +year)
 
@@ -39,7 +39,7 @@ app.get ('/movies', (req, res) => {
   res.json(movies)
 })
 // Endpoint showing all tv shows and handles query of country
-app.get ('/TvShows', (req, res) => {
+app.get ('/v1/TvShows', (req, res) => {
   let tvShows = netflixData.filter((item) => item.type === "TV Show")
   const selectedCountry = req.query.country
   
@@ -51,10 +51,15 @@ app.get ('/TvShows', (req, res) => {
 })
 
 // Endpoint showing netflix items by id
-app.get ('/id/:id', (req, res) => {
+app.get ('/v1/id/:id', (req, res) => {
   const id = req.params.id
-  res.json(netflixData.filter((item) => item.show_id === +id))
+  let idList = netflixData.filter((item) => item.show_id === +id)
+  // If id is not returing an item
+  if (idList.length === 0) { 
+    idList="No item with that id found"
+  }
 
+  res.json(idList)
 })
 
 // Start the server
