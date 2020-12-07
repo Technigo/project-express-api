@@ -309,6 +309,7 @@ app.get('/', (request, response) => {
 //Response to show top books
 app.get('/book', (request,response) => {
   const title = request.query.title
+  const average_rating = request.query.average_rating
 
   let filteredBooks = booksData
 
@@ -318,13 +319,21 @@ app.get('/book', (request,response) => {
       return bookTitle.includes(title)
     }
   )}
+
+  if(average_rating) {
+    if(average_rating === 'high') {
+      filteredBooks.sort((x,y) => y.average_rating - x.average_rating)
+    } else if (average_rating === 'low') {
+      filteredBooks.sort((x,y) => x.average_rating - y.average_rating)
+    }
+  }
     response.json(filteredBooks)
 })
 
 app.get('/book/:bookID', (request, response) => {
  const {bookID} = request.params.bookID
  const showBookId = booksData.filter((book) => book.bookID === +bookID)
- 
+
  response.json(showBookId)
 })
 
