@@ -27,7 +27,7 @@ app.get('/books', (req, res) => {
 })
 
 //Finding a single book by its id
-app.get('/books/book/:id', (req, res) => {
+app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
   const bookByID = booksData.find(item => item.bookID === +id);
 
