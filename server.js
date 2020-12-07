@@ -64,6 +64,15 @@ app.get('/tracks/:trackName', (request, response) => {
     console.log(`Found ${JSON.stringify(songs)}`)
   })
 
+app.get('/top/:number', (request, response) => {
+  const number = request.params.number
+  const sortedSongs = [...topMusicData]
+  sortedSongs.sort((a, b) => b.popularity - a.popularity)
+  const topTenSongs = sortedSongs.slice(0, number)
+
+  response.json(topTenSongs)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
