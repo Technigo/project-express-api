@@ -4,10 +4,10 @@ import cors from 'cors'
 
 import booksData from './data/books'
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8085
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+// Added middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -60,8 +60,8 @@ app.get('/books', (request, response) => {
   if (shortest) {
     const minPages = 20 // assuming pages less than 20 is an incorrect value
     const filteredBooksOnPages = booksData.filter(item => item.num_pages >= minPages)
-    if (+shortest < minPages) {
-      return response.send("You are dreaming..")
+    if (+shortest > filteredBooksOnPages.length) {
+      return response.send("That is just too many books")
     } else {
       const sortedBooksOnPages = filteredBooksOnPages.sort(function (a, b) { return a.num_pages - b.num_pages })
       const shortestBooks = sortedBooksOnPages.slice(0, shortest)
@@ -107,7 +107,7 @@ app.get('/books/:id/authors', (request, response) => {
   }
 })
 
-// Start the server
+// Starts the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
