@@ -32,32 +32,37 @@ app.get('/', (request /*Incoming*/, response /*Outgoing*/) => {
   response.send('Good morning, have a wonderful day')
 })
 
-// The entire array
-app.get('/topmusicData', (req, res) => {
+// All top music 
+app.get('/topmusic', (req, res) => {
   res.json(topMusicData)
 })
 
-// The id 
+// All artists
+app.get('/topmusic/artists', (request, response) => {
+  response.json(topMusicData.map(item => item.artistName))
+})
+
+// All tracks
+app.get('/topmusic/tracks', (request, response) => {
+  response.json(topMusicData.map(item => item.trackName))
+})
+
+// Search by id 
 app.get('/topMusicData/:id', (request, response) => {
-  console.log(request.params)
   const id = request.params.id
   const topmusicID = topMusicData.find((item) => item.id === +id)
   response.json(topmusicID)
-  console.log(`Found ${topmusicID}`)
-})
-//   const id = request.params.id;
-//   const topmusicID = topMusicData.find((item) => item.id === id)
-//   console.log(`Found ${topmusicID}`)
-//   response.json(topmusicID)
-// })
- 
-app.get('/topMusicData/:trackName', (request, response) => {
-  // console.log(request.params)
 
-  // const { trackName } = request.query;
-  // const name = topMusicData.filter((item) => item.songname.toString().includes(trackName) === trackName)
-  // response.json(name)
 })
+
+// Search by trackname
+app.get('/tracks/:trackName', (request, response) => {
+  // console.log(request.params)
+    const trackName = request.params.trackName
+    const songs = topMusicData.find((song) => song.trackName === trackName)
+    response.json(songs)
+    console.log(`Found ${JSON.stringify(songs)}`)
+  })
 
 // Start the server
 app.listen(port, () => {
