@@ -22,12 +22,58 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+
+/**
+ * @api {get} /  Request all Netflix items
+ * @apiName GetNetflixItems
+ * @apiGroup Netflix
+ *
+ * @apiParam none
+ *
+ * @apiSuccess {String} Netflix Movie and Tv show API .
+ *
+ */
 app.get('/', (req, res) => {
+
   res.send('Netflix Movie and Tv show API ')
 })
 
-// Endpoint showing all movies and handles query of release_year
+app.get('/v1/netflixItems', (req, res) => {
+  const page = req.query.page ?? 0
+  const pageSize = req.query.pageSize ?? 20
+
+  //Calculate the start index
+  const startIndex = page * pageSize
+
+  //Calculate the end index
+  const endIndex = startIndex + +pageSize
+  const netflixItemsPerPage= netflixData.slice(startIndex, endIndex)
+  const returnObject = {
+    pageSize: pageSize,
+    page: page,
+    maxPages: parseInt(netflixData.length/ pageSize),
+    numItems: netflixItemsPerPage.length,
+    results: netflixItemsPerPage,
+  } 
+  res.send(returnObject)
+
+})
+
+/**
+ * @api {get} /v1/movies Request all movies
+ * @apiName GetMovies
+ * @apiGroup Netflix
+ *
+ * @apiParam {Number} type Type for Movies are Movie
+ *
+ * @apiSuccess {String} show_id Id of the Movie
+ * @apiSuccess {String} title Title of the Movie
+ * @apiSuccess {String} director Name of the director of the Movie
+ * @apiSuccess {String} cast Cast of the Movie
+ * @apiSuccess {String} country Country where the the Movie is created.
+ * @apiSuccess {String} date_added Date when the Movie was added.
+ *
+ */
 app.get ('/v1/movies', (req, res) => {
   let movies = netflixData.filter((item) => item.type === "Movie")
   const year = req.query.release_year
@@ -38,6 +84,7 @@ app.get ('/v1/movies', (req, res) => {
   }
   res.json(movies)
 })
+
 // Endpoint showing all tv shows and handles query of country
 app.get ('/v1/TvShows', (req, res) => {
   let tvShows = netflixData.filter((item) => item.type === "TV Show")
