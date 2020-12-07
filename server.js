@@ -65,7 +65,7 @@ app.get('/books/:authorName', (req, res) => {
 });
 
 // Show a single book based on the ID - example path: /books/book/7
-app.get('/books/:bookID', (req, res) => {
+app.get('/books/book/:bookID', (req, res) => {
   const bookID = req.params.bookID;
   const singleBook = booksData.find((item => item.bookID === +bookID));
 
