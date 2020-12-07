@@ -38,6 +38,18 @@ app.get('/shows', (req, res) => {
   res.json(shows)
 })
 
+//all whows limited
+
+app.get('/shows/test', (req, res) => {
+  
+  
+  const page = req.query.page
+  let shows = data.slice(0, 50)
+  if(page) shows = data.slice(page*50, page*50 + 50)
+  console.log(shows.length)
+  res.json(shows)
+})
+
 //tv shows
 
 app.get('/shows/tvshows', (req, res) => {
