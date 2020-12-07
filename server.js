@@ -1,7 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import data from './data/golden-globes.json'
+//import data from './data/golden-globes.json'
+import data from './data/disney.json'
 
 const port = process.env.PORT || 8080
 const app = express()
