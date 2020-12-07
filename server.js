@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import booksData from './data/books'
 
-const port = process.env.PORT || 8082
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -111,9 +111,3 @@ app.get('/books/:id/authors', (request, response) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
-
-
-
-
-
-
