@@ -28,13 +28,19 @@ app.get('/', (req, res) => {
   res.send('Welcome to Books API')
 })
 
+
+
 app.get('/books', (req, res) => {
-  const {authors} = req.query;
+  const {authors, title} = req.query;
   if (authors) {
-    res.json(booksData.filter(item => item.authors.includes(authors)))
+    const filteredAuthors = booksData.filter(item => item.authors.includes(authors))
+    res.json(filteredAuthors)
+  } else if (title)  {
+    const filteredTitles = booksData.filter(item => item.title.toString().includes(title))
+    res.json(filteredTitles)
   }
-  else {
-  res.json(booksData)
+  else { 
+    res.json(booksData)
   }
 })
 
