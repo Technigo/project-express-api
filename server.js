@@ -1,33 +1,44 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+import express, { request, response } from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import data from './data/games.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+const port = process.env.PORT || 8080;
+const app = express();
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+// Middlewares to enable cors and json body parsing
+app.use(cors());
+app.use(bodyParser.json());
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Start Routes
+app.get('/', (request, response) => {
+  response.send('Hello world, my first backend project!');
+});
+
+// Show all data = Games Library 
+app.get('/games',(request, response) => { 
+  response.json(data)
+})
+
+// Show all favourite games
+app.get('/favorites', (request, response) => {  
+  const favorites = data.results.filter((game) => game.favorite)
+  response.json(favorites);
+})
+
+// Shows specific game 
+app.get('/games/:slug', (request, response) => {
+  const slug = request.params.slug; 
+  const showGame = data.results.filter((game) => game.slug === slug)
+  response.json(showGame);
 })
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+});
