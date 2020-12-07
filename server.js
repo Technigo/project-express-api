@@ -2,12 +2,13 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
+import booksData from './data/books.json'
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -22,9 +23,19 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Start defining your routes here - it starts the server
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get("/booksData", (req, res) => {
+  res.json(booksData)
+})
+
+app.get("/title/:title", (req, res) => {
+  const title = req.params.title
+  const pagesFromBook = booksData.filter((item) => item.num_pages === +title)
+  res.json(pagesFromBook)
 })
 
 // Start the server
