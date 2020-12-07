@@ -3,14 +3,15 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 
 //import data
+import profanityDictionary from './data/profanity-dictionary.json'
 
-const data = [
-  {id: 1, word: 'fuck', language: 'english', type: 'sex'},
-  {id: 2, word: 'cunt', language: 'english', type: 'sex'},
-  {id: 3, word: 'cock', language: 'english', type: 'sex'},
-  {id: 4, word: 'balls', language: 'english', type: 'sex'},
-  {id: 5, word: 'bellend', language: 'english', type: 'sex'},
-]
+// const data = [
+//   {id: 1, word: 'fuck', language: 'english', type: 'sex'},
+//   {id: 2, word: 'cunt', language: 'english', type: 'sex'},
+//   {id: 3, word: 'cock', language: 'english', type: 'sex'},
+//   {id: 4, word: 'balls', language: 'english', type: 'sex'},
+//   {id: 5, word: 'bellend', language: 'english', type: 'sex'},
+// ]
 
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080
@@ -28,14 +29,14 @@ app.get('/', (req, res) => {
 // entire list/collection/array of elements (first blue level req.)
 app.get('/curses', (req, res) => {
   // the server has a collection of data we can access from the client
-  res.json(data)
+  res.json(profanityDictionary)
 })
 
 // single item from collection/list (second blue level req.) 
 // this is not working yet.. "TypeError: Cannot read property 'get' of undefined"
 app.get('/curses/:id', (req, res) => {
   const { id } = req.params
-  const curseId = data.find((curses) => curses.id === +id)
+  const curseId = profanityDictionary.find((curses) => curses.id === +id)
   if (!curseId) {
     res
     .status(404)
@@ -45,19 +46,6 @@ app.get('/curses/:id', (req, res) => {
   // res.json(data[req.params["id"] - 1])
 })
 
-
-// app.get("/books/:id", (req, res) => {
-//   const id = req.params.id;
-//   const bookWithId = booksData.find((item) => item.bookID === +id);
-
-//   if (!bookWithId) {
-//     res
-//       .status(404)
-//       .send({ error: `No book with id: "${id}" found` });
-//   }
-
-//   res.json(bookWithId);
-// });
 
 // // Start the server
 app.listen(port, () => {
