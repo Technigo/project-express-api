@@ -1,33 +1,50 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import tedData from './data/ted.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
+// Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+const port = process.env.PORT || 8088;
+const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+  res.json(tedData);
+});
+
+app.get('/talks/:url', (req, res) => {
+  const paramString = req.params.url;
+  const url = `https://www.ted.com/talks/${paramString}`;
+  const filteredByUrl = tedData.filter((talk) => talk.url === url);
+  res.json(filteredByUrl);
+});
+
+// app.get('/:year', (req, res) => {
+//   const year = req.params.year;
+//   const filteredByYearOfEvent = tedData.filter(
+//     (talk) => talk.event === `TED${year}`
+//   );
+//   res.json(filteredByYearOfEvent);
+// });
+
+app.get('/:category', (req, res) => {
+  const category = req.params.category;
+  const filteredByCategory = tedData.filter((talk) =>
+    talk.tags.includes(category)
+  );
+  res.json(filteredByCategory);
+});
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+  console.log('Hej Karin! igen');
+});
