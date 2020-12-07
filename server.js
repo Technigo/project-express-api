@@ -51,6 +51,19 @@ app.get('/books/top-rated', (req, res) => {
   res.json(firstTwentyTopBooks);
 });
 
+// Show books by a specific author - example path: /books/:authorName
+app.get('/books/:authorName', (req, res) => {
+  const authorName = req.params.authorName;
+  const authorBooks = booksData.filter((item => item.authors === authorName));
+
+  // If no books are found, the response is an empty array. Use that data to show an error message instead
+  if (authorBooks.length === 0) {
+    res.send("Sorry, could not find books by that author :( - The author name entered is incorrect")
+  };
+  
+  res.json(authorBooks);
+});
+
 // Show a single book based on the ID - example path: /books/book/7
 app.get('/books/:bookID', (req, res) => {
   const bookID = req.params.bookID;
