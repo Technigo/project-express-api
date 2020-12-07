@@ -63,9 +63,10 @@ app.get('/albums',(req,res) => {
     albums = albums.filter((item) => item.Genre.toUpperCase().includes(filterGenre.toUpperCase()));
   }
 
-  //PAGINATION. Limit 100. Allow the user to ask for next page by adding parameter. If no parameter is provided, default page is 1. 
+  //PAGINATION. Limit 50 per request. 
+  //Allow the user to ask for next page by adding parameter. If no parameter is provided, default page is 1. 
   console.log({page});
-  const albums_paged = albums.slice(page > 1 ? (100*(+page)) : 0, (100*(+page)+100));
+  const albums_paged = albums.slice(page > 1 ? (50*(+page)) : 0, (50*(+page)+(+page === 1 ? 0 :50)));
   res.json(albums_paged);
 })
 
