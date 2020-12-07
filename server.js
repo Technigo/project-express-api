@@ -7,7 +7,7 @@ import error from './data/error.json'
 //https://karolin-top-albums.herokuapp.com/
 
 //   PORT=9000 npm start
-const port = process.env.PORT || 4800
+const port = process.env.PORT || 4700
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -29,7 +29,7 @@ app.get('/albums',(req,res) => {
   const filterYearTo = req.query.yearTo;
   const filterArtist = req.query.artist;
   const filterGenre = req.query.genre;
-  const page = req.query.page || 1;
+  const page = req.query.page || 0;
 
   if(filterYear)
   {
@@ -65,13 +65,13 @@ app.get('/albums',(req,res) => {
 
   //PAGINATION. Limit 100. Allow the user to ask for next page by adding parameter. If no parameter is provided, default page is 1. 
   console.log({page});
-  const albums_paged = albums.slice(page > 1 ? (100*(+page)) : page, (100*(+page)+100));
+  const albums_paged = albums.slice(page > 1 ? (100*(+page)) : 0, (100*(+page)+100));
   res.json(albums_paged);
 })
 
 //SINGLE ITEM
 //Get album based on placement on list using params
-app.get('/album/placement/:placement',(req,res) => {
+app.get('/albums/placement/:placement',(req,res) => {
   const placement = req.params.placement;
   console.log({placement});
   const album = albumData.find((item) => item.Number === +placement);
@@ -81,12 +81,18 @@ app.get('/album/placement/:placement',(req,res) => {
 })
 
 //Get album based on title using params
-app.get('/album/title/:title',(req,res) => {
+app.get('/albums/title/:title',(req,res) => {
   const title = req.params.title.replaceAll('+',' ');
   console.log({title});
-  const album = albumData.find((item) => item.Album.toString().toUpperCase() === title.toUpperCase());
+  const album = albumData.find((item) => item.Album.toString().toUpperCase().includes(title.toUpperCase()));
   console.log("album",album);
   album ? res.json(album) : res.json(error);
+})
+
+//get the top 10 albums
+app.get('/albums/top10',(req,res) => {
+  const albums = albumData.slice(0,10);
+  res.json(albums);
 })
 
 // Start the server

@@ -5,7 +5,7 @@
     "Album": "Sgt. Pepper's Lonely Hearts Club Band",
     "Artist": "The Beatles",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Psychedelic Rock"
+    "Subgenre": "Rock and Roll, Psychedelic Rock"
   },
   {
     "Number": 2,
@@ -53,7 +53,7 @@
     "Album": "Exile on Main St.",
     "Artist": "The Rolling Stones",
     "Genre": "Rock",
-    "Subgenre": "Blues Rock, Rock & Roll, Classic Rock"
+    "Subgenre": "Blues Rock, Rock and Roll, Classic Rock"
   },
   {
     "Number": 8,
@@ -69,7 +69,7 @@
     "Album": "Blonde on Blonde",
     "Artist": "Bob Dylan",
     "Genre": "Rock, Blues",
-    "Subgenre": "Folk Rock, Rhythm & Blues"
+    "Subgenre": "Folk Rock, Rhythm and Blues"
   },
   {
     "Number": 10,
@@ -77,7 +77,7 @@
     "Album": "The Beatles (\"The White Album\")",
     "Artist": "The Beatles",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Pop Rock, Psychedelic Rock, Experimental"
+    "Subgenre": "Rock and Roll, Pop Rock, Psychedelic Rock, Experimental"
   },
   {
     "Number": 11,
@@ -85,7 +85,7 @@
     "Album": "The Sun Sessions",
     "Artist": "Elvis Presley",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll"
+    "Subgenre": "Rock and Roll"
   },
   {
     "Number": 12,
@@ -98,7 +98,7 @@
   {
     "Number": 13,
     "Year": 1967,
-    "Album": "The Velvet Underground & Nico",
+    "Album": "The Velvet Underground and Nico",
     "Artist": "The Velvet Underground",
     "Genre": "Rock",
     "Subgenre": "Garage Rock, Art Rock, Experimental"
@@ -148,7 +148,7 @@
     "Year": 1968,
     "Album": "Astral Weeks",
     "Artist": "Van Morrison",
-    "Genre": "Jazz, Rock, Blues, Folk, World, & Country",
+    "Genre": "Jazz, Rock, Blues, Folk, World, Country",
     "Subgenre": "Acoustic, Classic Rock, Free Improvisation"
   },
   {
@@ -165,7 +165,7 @@
     "Album": "The Great Twenty_Eight",
     "Artist": "Chuck Berry",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll"
+    "Subgenre": "Rock and Roll"
   },
   {
     "Number": 22,
@@ -197,7 +197,7 @@
     "Album": "Live at the Apollo, 1962",
     "Artist": "James Brown",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 26,
@@ -244,7 +244,7 @@
     "Year": 1965,
     "Album": "Bringing It All Back Home",
     "Artist": "Bob Dylan",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Folk Rock, Folk"
   },
   {
@@ -261,7 +261,7 @@
     "Album": "Ramones",
     "Artist": "Ramones",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Punk"
+    "Subgenre": "Rock and Roll, Punk"
   },
   {
     "Number": 34,
@@ -300,7 +300,7 @@
     "Year": 2001,
     "Album": "The Anthology",
     "Artist": "Muddy Waters",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Folk"
   },
   {
@@ -309,7 +309,7 @@
     "Album": "Please Please Me",
     "Artist": "The Beatles",
     "Genre": "Rock",
-    "Subgenre": "Beat, Rock & Roll"
+    "Subgenre": "Beat, Rock and Roll"
   },
   {
     "Number": 40,
@@ -356,14 +356,14 @@
     "Year": 1969,
     "Album": "The Band (\"The Brown Album\")",
     "Artist": "The Band",
-    "Genre": "Classical, Stage & Screen",
+    "Genre": "Classical, Stage and Screen",
     "Subgenre": "Soundtrack, Modern Classical, Contemporary, Score"
   },
   {
     "Number": 46,
     "Year": 1984,
     "Album": "Legend: The Best of Bob Marley and The Wailers",
-    "Artist": "Bob Marley & The Wailers",
+    "Artist": "Bob Marley and The Wailers",
     "Genre": "Reggae",
     "Subgenre": "Reggae, Roots Reggae"
   },
@@ -397,13 +397,13 @@
     "Album": "Here's Little Richard",
     "Artist": "Little Richard",
     "Genre": "Rock, Blues",
-    "Subgenre": "Rock & Roll, Rhythm & Blues"
+    "Subgenre": "Rock and Roll, Rhythm and Blues"
   },
   {
     "Number": 51,
     "Year": 1970,
     "Album": "Bridge Over Troubled Water",
-    "Artist": "Simon & Garfunkel",
+    "Artist": "Simon and Garfunkel",
     "Genre": "Rock",
     "Subgenre": "Folk Rock, Classic Rock"
   },
@@ -421,7 +421,7 @@
     "Album": "Meet The Beatles!",
     "Artist": "The Beatles",
     "Genre": "Rock",
-    "Subgenre": "Beat, Rock & Roll"
+    "Subgenre": "Beat, Rock and Roll"
   },
   {
     "Number": 54,
@@ -429,7 +429,7 @@
     "Album": "The Birth of Soul",
     "Artist": "Ray Charles",
     "Genre": "Jazz, Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Big Band, Soul, Soul-Jazz"
+    "Subgenre": "Rhythm and Blues, Big Band, Soul, Soul-Jazz"
   },
   {
     "Number": 55,
@@ -445,7 +445,7 @@
     "Album": "Elvis Presley",
     "Artist": "Elvis Presley",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Rockabilly"
+    "Subgenre": "Rock and Roll, Rockabilly"
   },
   {
     "Number": 57,
@@ -475,7 +475,7 @@
     "Number": 60,
     "Year": 1969,
     "Album": "Trout Mask Replica",
-    "Artist": "Captain Beefheart & His Magic Band",
+    "Artist": "Captain Beefheart and His Magic Band",
     "Genre": "Rock, Blues",
     "Subgenre": "Dialogue, Field Recording, Avantgarde, Electric Blues, Psychedelic Rock, Experimental"
   },
@@ -483,9 +483,9 @@
     "Number": 61,
     "Year": 1970,
     "Album": "Greatest Hits",
-    "Artist": "Sly & The Family Stone",
+    "Artist": "Sly and The Family Stone",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Funk"
+    "Subgenre": "Rhythm and Blues, Funk"
   },
   {
     "Number": 62,
@@ -517,15 +517,15 @@
     "Album": "Back to Mono (1958-1969)",
     "Artist": "Phil Spector",
     "Genre": "Rock, Funk / Soul, Pop",
-    "Subgenre": "Doo Wop, Pop Rock, Ballad, Rhythm & Blues"
+    "Subgenre": "Doo Wop, Pop Rock, Ballad, Rhythm and Blues"
   },
   {
     "Number": 66,
     "Year": 1970,
     "Album": "Moondance",
     "Artist": "Van Morrison",
-    "Genre": "Jazz, Rock, Funk / Soul, Folk, World, & Country",
-    "Subgenre": "Folk Rock, Rhythm & Blues, Classic Rock, Contemporary Jazz"
+    "Genre": "Jazz, Rock, Funk / Soul, Folk, World, Country",
+    "Subgenre": "Folk Rock, Rhythm and Blues, Classic Rock, Contemporary Jazz"
   },
   {
     "Number": 67,
@@ -564,15 +564,15 @@
     "Year": 1986,
     "Album": "Graceland",
     "Artist": "Paul Simon",
-    "Genre": "Jazz, Rock, Funk / Soul, Pop, Folk, World, & Country",
-    "Subgenre": "Folk Rock, Pop Rock, African, Afrobeat, Zydeco, Funk, Rhythm & Blues"
+    "Genre": "Jazz, Rock, Funk / Soul, Pop, Folk, World, Country",
+    "Subgenre": "Folk Rock, Pop Rock, African, Afrobeat, Zydeco, Funk, Rhythm and Blues"
   },
   {
     "Number": 72,
     "Year": 1972,
     "Album": "Superfly",
     "Artist": "Curtis Mayfield",
-    "Genre": "Funk / Soul, Stage & Screen",
+    "Genre": "Funk / Soul, Stage and Screen",
     "Subgenre": "Soundtrack, Soul"
   },
   {
@@ -589,7 +589,7 @@
     "Album": "After the Gold Rush",
     "Artist": "Neil Young",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Country Rock"
+    "Subgenre": "Rock and Roll, Country Rock"
   },
   {
     "Number": 75,
@@ -604,7 +604,7 @@
     "Year": 1984,
     "Album": "Purple Rain",
     "Artist": "Prince and the Revolution",
-    "Genre": "Electronic, Rock, Funk / Soul, Stage & Screen",
+    "Genre": "Electronic, Rock, Funk / Soul, Stage and Screen",
     "Subgenre": "Pop Rock, Funk, Soundtrack, Synth-pop"
   },
   {
@@ -700,7 +700,7 @@
     "Year": 1968,
     "Album": "At Folsom Prison",
     "Artist": "Johnny Cash",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -733,7 +733,7 @@
     "Album": "20 Golden Greats",
     "Artist": "Buddy Holly",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll"
+    "Subgenre": "Rock and Roll"
   },
   {
     "Number": 93,
@@ -748,7 +748,7 @@
     "Year": 1984,
     "Album": "40 Greatest Hits",
     "Artist": "Hank Williams",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -772,7 +772,7 @@
     "Year": 1963,
     "Album": "The Freewheelin' Bob Dylan",
     "Artist": "Bob Dylan",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Folk"
   },
   {
@@ -787,9 +787,9 @@
     "Number": 99,
     "Year": 1971,
     "Album": "There's a Riot Goin' On",
-    "Artist": "Sly & The Family Stone",
+    "Artist": "Sly and The Family Stone",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Funk"
+    "Subgenre": "Rhythm and Blues, Funk"
   },
   {
     "Number": 100,
@@ -836,8 +836,8 @@
     "Year": 1962,
     "Album": "Modern Sounds in Country and Western Music",
     "Artist": "Ray Charles",
-    "Genre": "Funk / Soul, Folk, World, & Country",
-    "Subgenre": "Country, Rhythm & Blues"
+    "Genre": "Funk / Soul, Folk, World, Country",
+    "Subgenre": "Country, Rhythm and Blues"
   },
   {
     "Number": 106,
@@ -845,7 +845,7 @@
     "Album": "Rocket to Russia",
     "Artist": "Ramones",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Punk"
+    "Subgenre": "Rock and Roll, Punk"
   },
   {
     "Number": 107,
@@ -853,7 +853,7 @@
     "Album": "Portrait of a Legend 1951-1964",
     "Artist": "Sam Cooke",
     "Genre": "Latin, Funk / Soul",
-    "Subgenre": "Soul, Rhythm & Blues, Gospel, Cha-Cha"
+    "Subgenre": "Soul, Rhythm and Blues, Gospel, Cha-Cha"
   },
   {
     "Number": 108,
@@ -925,7 +925,7 @@
     "Album": "Out of Our Heads",
     "Artist": "The Rolling Stones",
     "Genre": "Rock",
-    "Subgenre": "Blues Rock, Rock & Roll"
+    "Subgenre": "Blues Rock, Rock and Roll"
   },
   {
     "Number": 117,
@@ -949,7 +949,7 @@
     "Album": "At Last!",
     "Artist": "Etta James",
     "Genre": "Funk / Soul, Blues",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 120,
@@ -963,7 +963,7 @@
     "Number": 121,
     "Year": 1969,
     "Album": "Stand!",
-    "Artist": "Sly & The Family Stone",
+    "Artist": "Sly and The Family Stone",
     "Genre": "Funk / Soul",
     "Subgenre": "Funk, Psychedelic, Disco"
   },
@@ -972,8 +972,8 @@
     "Year": 1972,
     "Album": "The Harder They Come",
     "Artist": "Various Artists",
-    "Genre": "Reggae,�Pop,�Folk, World, & Country,�Stage & Screen",
-    "Subgenre": "Reggae,�Roots Reggae,�Rocksteady,�Contemporary,�Soundtrack"
+    "Genre": "Reggae, Pop,Folk, World, Country, Stage and Screen",
+    "Subgenre": "Reggae, Roots Reggae, Rocksteady, Contemporary, Soundtrack"
   },
   {
     "Number": 123,
@@ -1052,13 +1052,13 @@
     "Year": 1977,
     "Album": "Saturday Night Fever: The Original Movie Sound Track",
     "Artist": "Various Artists",
-    "Genre": "Electronic,�Stage & Screen",
-    "Subgenre": "Soundtrack,�Disco"
+    "Genre": "Electronic, Stage and Screen",
+    "Subgenre": "Soundtrack, Disco"
   },
   {
     "Number": 133,
     "Year": 1973,
-    "Album": "The Wild, the Innocent & the E Street Shuffle",
+    "Album": "The Wild, the Innocent and the E Street Shuffle",
     "Artist": "Bruce Springsteen",
     "Genre": "Rock",
     "Subgenre": "None"
@@ -1171,7 +1171,7 @@
     "Number": 147,
     "Year": 1970,
     "Album": "Deja vu",
-    "Artist": "Crosby, Stills, Nash & Young",
+    "Artist": "Crosby, Stills, Nash and Young",
     "Genre": "Rock",
     "Subgenre": "Classic Rock"
   },
@@ -1285,7 +1285,7 @@
     "Album": "The Dock of the Bay",
     "Artist": "Otis Redding",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 162,
@@ -1323,7 +1323,7 @@
     "Number": 166,
     "Year": 1982,
     "Album": "Imperial Bedroom",
-    "Artist": "Elvis Costello & The Attractions",
+    "Artist": "Elvis Costello and The Attractions",
     "Genre": "Rock",
     "Subgenre": "Alternative Rock, New Wave"
   },
@@ -1347,7 +1347,7 @@
     "Number": 169,
     "Year": 1977,
     "Album": "Exodus",
-    "Artist": "Bob Marley & The Wailers",
+    "Artist": "Bob Marley and The Wailers",
     "Genre": "Reggae",
     "Subgenre": "Reggae, Roots Reggae"
   },
@@ -1421,7 +1421,7 @@
     "Album": "The Anthology: 1961-1977",
     "Artist": "Curtis Mayfield and The Impressions",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul, Funk"
+    "Subgenre": "Rhythm and Blues, Soul, Funk"
   },
   {
     "Number": 179,
@@ -1437,13 +1437,13 @@
     "Album": "The Rolling Stones, Now!",
     "Artist": "The Rolling Stones",
     "Genre": "Rock, Blues, Pop",
-    "Subgenre": "Pop Rock, Rhythm & Blues, Rock & Roll"
+    "Subgenre": "Pop Rock, Rhythm and Blues, Rock and Roll"
   },
   {
     "Number": 181,
     "Year": 1974,
     "Album": "Natty Dread",
-    "Artist": "Bob Marley & The Wailers",
+    "Artist": "Bob Marley and The Wailers",
     "Genre": "Reggae",
     "Subgenre": "Reggae, Roots Reggae"
   },
@@ -1460,7 +1460,7 @@
     "Year": 1975,
     "Album": "Red Headed Stranger",
     "Artist": "Willie Nelson",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -1483,9 +1483,9 @@
     "Number": 186,
     "Year": 1973,
     "Album": "Fresh",
-    "Artist": "Sly & The Family Stone",
+    "Artist": "Sly and The Family Stone",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Funk"
+    "Subgenre": "Rhythm and Blues, Funk"
   },
   {
     "Number": 187,
@@ -1516,7 +1516,7 @@
     "Year": 1969,
     "Album": "From Elvis in Memphis",
     "Artist": "Elvis Presley",
-    "Genre": "Rock, Funk / Soul, Folk, World, & Country",
+    "Genre": "Rock, Funk / Soul, Folk, World, Country",
     "Subgenre": "Country, Soul"
   },
   {
@@ -1532,7 +1532,7 @@
     "Year": 1969,
     "Album": "The Gilded Palace of Sin",
     "Artist": "The Flying Burrito Brothers",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Country Rock"
   },
   {
@@ -1555,9 +1555,9 @@
     "Number": 195,
     "Year": 1966,
     "Album": "Blues Breakers With Eric Clapton (\"The Beano Album\")",
-    "Artist": "John Mayall & The Bluesbreakers",
-    "Genre": "Rock,�Blues",
-    "Subgenre": "Blues Rock,�Electric Blues,�Harmonica Blues"
+    "Artist": "John Mayall and The Bluesbreakers",
+    "Genre": "Rock, Blues",
+    "Subgenre": "Blues Rock, Electric Blues, Harmonica Blues"
   },
   {
     "Number": 196,
@@ -1565,7 +1565,7 @@
     "Album": "Nuggets: Original Artyfacts From the First Psychedelic Era, 1965-1968",
     "Artist": "Various Artists",
     "Genre": "Rock",
-    "Subgenre": "Garage Rock,�Psychedelic Rock"
+    "Subgenre": "Garage Rock, Psychedelic Rock"
   },
   {
     "Number": 197,
@@ -1611,8 +1611,8 @@
     "Number": 202,
     "Year": 1966,
     "Album": "Parsley, Sage, Rosemary and Thyme",
-    "Artist": "Simon & Garfunkel",
-    "Genre": "Rock, Pop, Folk, World, & Country",
+    "Artist": "Simon and Garfunkel",
+    "Genre": "Rock, Pop, Folk, World, Country",
     "Subgenre": "Folk Rock, Pop Rock"
   },
   {
@@ -1660,7 +1660,7 @@
     "Year": 1970,
     "Album": "Tea for the Tillerman",
     "Artist": "Cat Stevens",
-    "Genre": "Rock, Stage & Screen",
+    "Genre": "Rock, Stage and Screen",
     "Subgenre": "Folk Rock, Pop Rock"
   },
   {
@@ -1675,7 +1675,7 @@
     "Number": 210,
     "Year": 1969,
     "Album": "Everybody Knows This Is Nowhere",
-    "Artist": "Neil Young & Crazy Horse",
+    "Artist": "Neil Young and Crazy Horse",
     "Genre": "Rock",
     "Subgenre": "Folk Rock, Country Rock, Classic Rock"
   },
@@ -1707,9 +1707,9 @@
     "Number": 214,
     "Year": 1991,
     "Album": "Proud Mary: The Best of Ike and Tina Turner",
-    "Artist": "Ike & Tina Turner",
+    "Artist": "Ike and Tina Turner",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Bayou Funk, Soul"
+    "Subgenre": "Rhythm and Blues, Bayou Funk, Soul"
   },
   {
     "Number": 215,
@@ -1725,7 +1725,7 @@
     "Album": "Bo Diddley / Go Bo Diddley",
     "Artist": "Bo Diddley",
     "Genre": "Rock, Blues",
-    "Subgenre": "Rhythm & Blues, Rock & Roll"
+    "Subgenre": "Rhythm and Blues, Rock and Roll"
   },
   {
     "Number": 217,
@@ -1733,7 +1733,7 @@
     "Album": "Two Steps From the Blues",
     "Artist": "Bobby \"Blue\" Bland",
     "Genre": "Funk / Soul, Blues",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 218,
@@ -1819,7 +1819,7 @@
     "Number": 228,
     "Year": 1987,
     "Album": "Paid in Full",
-    "Artist": "Eric B. & Rakim",
+    "Artist": "Eric B. and Rakim",
     "Genre": "Hip Hop",
     "Subgenre": "None"
   },
@@ -1853,7 +1853,7 @@
     "Album": "The Kink Kronikles",
     "Artist": "The Kinks",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Pop Rock"
+    "Subgenre": "Rock and Roll, Pop Rock"
   },
   {
     "Number": 233,
@@ -1867,7 +1867,7 @@
     "Number": 234,
     "Year": 1968,
     "Album": "Bookends",
-    "Artist": "Simon & Garfunkel",
+    "Artist": "Simon and Garfunkel",
     "Genre": "Rock",
     "Subgenre": "Folk Rock, Classic Rock"
   },
@@ -1876,7 +1876,7 @@
     "Year": 2000,
     "Album": "The Ultimate Collection",
     "Artist": "Patsy Cline",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "None"
   },
   {
@@ -1956,8 +1956,8 @@
     "Year": 1993,
     "Album": "All Killer No Filler! The Jerry Lee Lewis Anthology",
     "Artist": "Jerry Lee Lewis",
-    "Genre": "Rock, Blues, Folk, World, & Country",
-    "Subgenre": "Country Blues, Rock & Roll, Rhythm & Blues"
+    "Genre": "Rock, Blues, Folk, World, Country",
+    "Subgenre": "Country Blues, Rock and Roll, Rhythm and Blues"
   },
   {
     "Number": 246,
@@ -1965,7 +1965,7 @@
     "Album": "Freak Out!",
     "Artist": "The Mothers of Invention",
     "Genre": "Electronic, Rock",
-    "Subgenre": "Musique Concr?te, Avantgarde, Symphonic Rock, Rhythm & Blues, Psychedelic Rock, Experimental, Parody"
+    "Subgenre": "Musique Concr?te, Avantgarde, Symphonic Rock, Rhythm and Blues, Psychedelic Rock, Experimental, Parody"
   },
   {
     "Number": 247,
@@ -2026,7 +2026,7 @@
   {
     "Number": 254,
     "Year": 1966,
-    "Album": "Complete & Unbelievable: The Otis Redding Dictionary of Soul",
+    "Album": "Complete and Unbelievable: The Otis Redding Dictionary of Soul",
     "Artist": "Otis Redding",
     "Genre": "Funk / Soul",
     "Subgenre": "Soul"
@@ -2053,7 +2053,7 @@
     "Album": "Whitney Houston",
     "Artist": "Whitney Houston",
     "Genre": "Funk / Soul, Pop",
-    "Subgenre": "Synth-pop, Rhythm & Blues"
+    "Subgenre": "Synth-pop, Rhythm and Blues"
   },
   {
     "Number": 258,
@@ -2076,7 +2076,7 @@
     "Year": 1978,
     "Album": "Stardust",
     "Artist": "Willie Nelson",
-    "Genre": "Pop, Folk, World, & Country",
+    "Genre": "Pop, Folk, World, Country",
     "Subgenre": "Vocal"
   },
   {
@@ -2090,9 +2090,9 @@
   {
     "Number": 262,
     "Year": 1969,
-    "Album": "Crosby, Stills & Nash",
-    "Artist": "Crosby, Stills & Nash",
-    "Genre": "Rock, Folk, World, & Country",
+    "Album": "Crosby, Stills and Nash",
+    "Artist": "Crosby, Stills and Nash",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Folk Rock, Classic Rock"
   },
   {
@@ -2123,7 +2123,7 @@
     "Number": 266,
     "Year": 1968,
     "Album": "Child Is Father to the Man",
-    "Artist": "Blood, Sweat & Tears",
+    "Artist": "Blood, Sweat and Tears",
     "Genre": "Rock",
     "Subgenre": "Blues Rock, Jazz-Rock, Classic Rock"
   },
@@ -2157,7 +2157,7 @@
     "Album": "Some Girls",
     "Artist": "The Rolling Stones",
     "Genre": "Rock",
-    "Subgenre": "Blues Rock, Rock & Roll, Classic Rock, Disco"
+    "Subgenre": "Blues Rock, Rock and Roll, Classic Rock, Disco"
   },
   {
     "Number": 271,
@@ -2179,7 +2179,7 @@
     "Number": 273,
     "Year": 1966,
     "Album": "Going to a Go-Go",
-    "Artist": "Smokey Robinson & The Miracles",
+    "Artist": "Smokey Robinson and The Miracles",
     "Genre": "Funk / Soul",
     "Subgenre": "Soul"
   },
@@ -2220,7 +2220,7 @@
     "Year": 1997,
     "Album": "Anthology of American Folk Music",
     "Artist": "Various",
-    "Genre": "Blues, Folk, World, & Country",
+    "Genre": "Blues, Folk, World, Country",
     "Subgenre": "Cajun, Country, Field Recording, Gospel, Delta Blues, Folk"
   },
   {
@@ -2285,7 +2285,7 @@
     "Album": "I'm Still in Love With You",
     "Artist": "Al Green",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 287,
@@ -2293,7 +2293,7 @@
     "Album": "Los Angeles",
     "Artist": "X",
     "Genre": "Rock",
-    "Subgenre": "Punk, Rock & Roll"
+    "Subgenre": "Punk, Rock and Roll"
   },
   {
     "Number": 288,
@@ -2317,7 +2317,7 @@
     "Album": "Call Me",
     "Artist": "Al Green",
     "Genre": "Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 291,
@@ -2356,7 +2356,7 @@
     "Year": 1970,
     "Album": "Songs of Love and Hate",
     "Artist": "Leonard Cohen",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Folk Rock, Folk, Ballad"
   },
   {
@@ -2381,7 +2381,7 @@
     "Album": "The College Dropout",
     "Artist": "Kanye West",
     "Genre": "Hip Hop",
-    "Subgenre": "Pop Rap, Conscious, Contemporary R&B"
+    "Subgenre": "Pop Rap, Conscious, Contemporary RandB"
   },
   {
     "Number": 299,
@@ -2404,7 +2404,7 @@
     "Year": 1971,
     "Album": "Coat of Many Colors",
     "Artist": "Dolly Parton",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -2436,7 +2436,7 @@
     "Year": 1998,
     "Album": "Car Wheels on a Gravel Road",
     "Artist": "Lucinda Williams",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country, Folk"
   },
   {
@@ -2452,7 +2452,7 @@
     "Year": 1964,
     "Album": "A Hard Day's Night",
     "Artist": "The Beatles",
-    "Genre": "Rock, Stage & Screen",
+    "Genre": "Rock, Stage and Screen",
     "Subgenre": "Soundtrack, Beat, Pop Rock"
   },
   {
@@ -2469,7 +2469,7 @@
     "Album": "Willy and the Poor Boys",
     "Artist": "Creedence Clearwater Revival",
     "Genre": "Rock",
-    "Subgenre": "Blues Rock, Rock & Roll, Classic Rock"
+    "Subgenre": "Blues Rock, Rock and Roll, Classic Rock"
   },
   {
     "Number": 310,
@@ -2484,8 +2484,8 @@
     "Year": 1994,
     "Album": "The Sun Records Collection",
     "Artist": "Various",
-    "Genre": "Rock, Funk / Soul, Blues, Pop, Folk, World, & Country",
-    "Subgenre": "Country Blues, Rock & Roll, Rockabilly"
+    "Genre": "Rock, Funk / Soul, Blues, Pop, Folk, World, Country",
+    "Subgenre": "Country Blues, Rock and Roll, Rockabilly"
   },
   {
     "Number": 312,
@@ -2564,7 +2564,7 @@
     "Year": 1972,
     "Album": "Pink Moon",
     "Artist": "Nick Drake",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Folk, Folk Rock, Acoustic"
   },
   {
@@ -2644,15 +2644,15 @@
     "Year": 1965,
     "Album": "Help!",
     "Artist": "The Beatles",
-    "Genre": "Rock, Stage & Screen",
+    "Genre": "Rock, Stage and Screen",
     "Subgenre": "Beat, Soundtrack, Pop Rock"
   },
   {
     "Number": 332,
     "Year": 1982,
     "Album": "Shoot Out the Lights",
-    "Artist": "Richard & Linda Thompson",
-    "Genre": "Rock, Folk, World, & Country",
+    "Artist": "Richard and Linda Thompson",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Folk Rock"
   },
   {
@@ -2661,13 +2661,13 @@
     "Album": "Wild Gift",
     "Artist": "X",
     "Genre": "Rock",
-    "Subgenre": "Rock & Roll, Punk"
+    "Subgenre": "Rock and Roll, Punk"
   },
   {
     "Number": 334,
     "Year": 1979,
     "Album": "Squeezing Out Sparks",
-    "Artist": "Graham Parker & The Rumour",
+    "Artist": "Graham Parker and The Rumour",
     "Genre": "Rock, Blues",
     "Subgenre": "None"
   },
@@ -2699,7 +2699,7 @@
     "Number": 338,
     "Year": 1968,
     "Album": "Cheap Thrills",
-    "Artist": "Big Brother & the Holding Company",
+    "Artist": "Big Brother and the Holding Company",
     "Genre": "Rock",
     "Subgenre": "Folk Rock, Blues Rock, Psychedelic Rock"
   },
@@ -2708,7 +2708,7 @@
     "Year": 1974,
     "Album": "The Heart of Saturday Night",
     "Artist": "Tom Waits",
-    "Genre": "Jazz, Pop, Folk, World, & Country",
+    "Genre": "Jazz, Pop, Folk, World, Country",
     "Subgenre": "Contemporary Jazz, Spoken Word"
   },
   {
@@ -2803,7 +2803,7 @@
     "Number": 351,
     "Year": 1979,
     "Album": "Rust Never Sleeps",
-    "Artist": "Neil Young & Crazy Horse",
+    "Artist": "Neil Young and Crazy Horse",
     "Genre": "Rock",
     "Subgenre": "Hard Rock, Arena Rock"
   },
@@ -2866,10 +2866,10 @@
   {
     "Number": 359,
     "Year": 1972,
-    "Album": "Honky Ch�teau",
+    "Album": "Honky Ch teau",
     "Artist": "Elton John",
     "Genre": "Rock",
-    "Subgenre": "Pop Rock,�Classic Rock"
+    "Subgenre": "Pop Rock, Classic Rock"
   },
   {
     "Number": 360,
@@ -2924,7 +2924,7 @@
     "Year": 1994,
     "Album": "American Recordings",
     "Artist": "Johnny Cash",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country, Gospel, Folk"
   },
   {
@@ -3035,7 +3035,7 @@
     "Number": 380,
     "Year": 1973,
     "Album": "Funky Kingston",
-    "Artist": "Toots & The Maytals",
+    "Artist": "Toots and The Maytals",
     "Genre": "Reggae",
     "Subgenre": "Reggae Gospel, Reggae, Roots Reggae, Rocksteady"
   },
@@ -3100,7 +3100,7 @@
     "Year": 1985,
     "Album": "The Indestructible Beat of Soweto",
     "Artist": "Various Artists",
-    "Genre": "Funk / Soul,�Folk, World, & Country",
+    "Genre": "Funk / Soul, Folk, World, Country",
     "Subgenre": "African"
   },
   {
@@ -3229,7 +3229,7 @@
     "Album": "Dr. John's Gumbo",
     "Artist": "Dr. John",
     "Genre": "Funk / Soul",
-    "Subgenre": "Bayou Funk, Funk, Rhythm & Blues"
+    "Subgenre": "Bayou Funk, Funk, Rhythm and Blues"
   },
   {
     "Number": 405,
@@ -3253,7 +3253,7 @@
     "Album": "Sandinista!",
     "Artist": "The Clash",
     "Genre": "Rock, Reggae",
-    "Subgenre": "Rock & Roll, Dub, Punk"
+    "Subgenre": "Rock and Roll, Dub, Punk"
   },
   {
     "Number": 408,
@@ -3261,7 +3261,7 @@
     "Album": "I Do Not Want What I Haven't Got",
     "Artist": "Sinead O'Connor",
     "Genre": "Rock, Funk / Soul, Blues",
-    "Subgenre": "Blues Rock, Rhythm & Blues, Soul"
+    "Subgenre": "Blues Rock, Rhythm and Blues, Soul"
   },
   {
     "Number": 409,
@@ -3339,7 +3339,7 @@
     "Number": 418,
     "Year": 1973,
     "Album": "Band on the Run",
-    "Artist": "Paul McCartney & Wings",
+    "Artist": "Paul McCartney and Wings",
     "Genre": "Rock",
     "Subgenre": "Pop Rock"
   },
@@ -3357,14 +3357,14 @@
     "Album": "The \"Chirping\" Crickets",
     "Artist": "The Crickets",
     "Genre": "Rock, Pop",
-    "Subgenre": "Rockabilly, Rock & Roll"
+    "Subgenre": "Rockabilly, Rock and Roll"
   },
   {
     "Number": 421,
     "Year": 1990,
     "Album": "The Best of the Girl Groups, Volume 1",
     "Artist": "Various Artists",
-    "Genre": "Rock,�Pop",
+    "Genre": "Rock, Pop",
     "Subgenre": "Pop Rock, Vocal"
   },
   {
@@ -3373,13 +3373,13 @@
     "Album": "Presenting the Fabulous Ronettes Featuring Veronica",
     "Artist": "The Ronettes",
     "Genre": "Rock, Pop",
-    "Subgenre": "Rock & Roll, Vocal"
+    "Subgenre": "Rock and Roll, Vocal"
   },
   {
     "Number": 423,
     "Year": 2001,
     "Album": "Anthology",
-    "Artist": "Diana Ross & The Supremes",
+    "Artist": "Diana Ross and The Supremes",
     "Genre": "Electronic, Funk / Soul",
     "Subgenre": "Pop Rock, Soul, Disco"
   },
@@ -3396,7 +3396,7 @@
     "Year": 1974,
     "Album": "Grievous Angel",
     "Artist": "Gram Parsons",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Country Rock, Honky Tonk"
   },
   {
@@ -3514,9 +3514,9 @@
   {
     "Number": 440,
     "Year": 1985,
-    "Album": "Rum Sodomy & the Lash",
+    "Album": "Rum Sodomy and the Lash",
     "Artist": "The Pogues",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Folk Rock, Celtic, Punk"
   },
   {
@@ -3565,15 +3565,15 @@
     "Album": "Back in the USA",
     "Artist": "MC5",
     "Genre": "Rock",
-    "Subgenre": "Garage Rock, Rock & Roll"
+    "Subgenre": "Garage Rock, Rock and Roll"
   },
   {
     "Number": 447,
     "Year": 1964,
     "Album": "Getz / Gilberto",
-    "Artist": "Stan Getz�/�Joao Gilberto�featuring�Antonio Carlos Jobim",
+    "Artist": "Stan Getz / Joao Gilberto featuring Antonio Carlos Jobim",
     "Genre": "Jazz",
-    "Subgenre": "Bossa Nova,�Latin Jazz"
+    "Subgenre": "Bossa Nova, Latin Jazz"
   },
   {
     "Number": 448,
@@ -3589,7 +3589,7 @@
     "Album": "Third/Sister Lovers",
     "Artist": "Big Star",
     "Genre": "Rock",
-    "Subgenre": "Lo-Fi,�Indie Rock"
+    "Subgenre": "Lo-Fi, Indie Rock"
   },
   {
     "Number": 450,
@@ -3612,7 +3612,7 @@
     "Year": 1971,
     "Album": "John Prine",
     "Artist": "John Prine",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country, Folk"
   },
   {
@@ -3660,7 +3660,7 @@
     "Year": 1970,
     "Album": "Tumbleweed Connection",
     "Artist": "Elton John",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Soft Rock, Country Rock"
   },
   {
@@ -3669,7 +3669,7 @@
     "Album": "The Drifters' Golden Hits",
     "Artist": "The Drifters",
     "Genre": "Rock, Funk / Soul",
-    "Subgenre": "Rhythm & Blues, Soul"
+    "Subgenre": "Rhythm and Blues, Soul"
   },
   {
     "Number": 460,
@@ -3763,7 +3763,7 @@
     "Number": 471,
     "Year": 1974,
     "Album": "I Want to See the Bright Lights Tonight",
-    "Artist": "Richard & Linda Thompson",
+    "Artist": "Richard and Linda Thompson",
     "Genre": "Rock",
     "Subgenre": "Classic Rock, Folk Rock"
   },
@@ -3795,7 +3795,7 @@
     "Number": 475,
     "Year": 1979,
     "Album": "Armed Forces",
-    "Artist": "Elvis Costello & The Attractions",
+    "Artist": "Elvis Costello and The Attractions",
     "Genre": "Rock",
     "Subgenre": "New Wave, Pop Rock"
   },
@@ -3812,7 +3812,7 @@
     "Year": 1996,
     "Album": "Down Every Road",
     "Artist": "Merle Haggard",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -3820,7 +3820,7 @@
     "Year": 2002,
     "Album": "All Time Greatest Hits",
     "Artist": "Loretta Lynn",
-    "Genre": "Folk, World, & Country",
+    "Genre": "Folk, World, Country",
     "Subgenre": "Country"
   },
   {
@@ -3852,7 +3852,7 @@
     "Year": 1986,
     "Album": "Guitar Town",
     "Artist": "Steve Earle",
-    "Genre": "Rock, Folk, World, & Country",
+    "Genre": "Rock, Folk, World, Country",
     "Subgenre": "Country, Honky Tonk"
   },
   {
@@ -3883,7 +3883,7 @@
     "Number": 486,
     "Year": 1975,
     "Album": "That's the Way of the World",
-    "Artist": "Earth, Wind & Fire",
+    "Artist": "Earth, Wind and Fire",
     "Genre": "Funk / Soul",
     "Subgenre": "Soul, Funk, Disco"
   },
@@ -3925,7 +3925,7 @@
     "Album": "Born Under a Bad Sign",
     "Artist": "Albert King",
     "Genre": "Funk / Soul, Blues",
-    "Subgenre": "Electric Blues, Rhythm & Blues, Soul"
+    "Subgenre": "Electric Blues, Rhythm and Blues, Soul"
   },
   {
     "Number": 492,
