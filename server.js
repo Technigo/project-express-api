@@ -51,9 +51,11 @@ app.get('/books/authors/:author', (req, res) => {
 // Finding the top 10 books based on rating
 app.get('/books/toplist', (req, res) => {
   const highRating = booksData.filter(item => item.average_rating >= 4)
-  let topTenBooks = highRating.slice(0,10)
+  const sortedToplist = [...highRating]
+  sortedToplist.sort((a,b) => b.average_rating - a.average_rating)
+  let toplist = sortedToplist.slice(0,10)
 
-  res.json(topTenBooks);
+  res.json(toplist);
 })
 
 /* Filtering books by title -- this doesn't work, but author does... ?
