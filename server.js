@@ -28,9 +28,47 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+//all shows
+
 app.get('/shows', (req, res) => {
-  res.json(data)
+  let shows = data
+  const country = req.query.country
+  console.log(country)
+  if(country) shows = data.filter(item => item.country === country)
+  res.json(shows)
+})
+
+//tv shows
+
+app.get('/shows/tvshows', (req, res) => {
+  const tvData = data.filter(item => item.type == 'TV Show')
+  res.json(tvData)
 }) 
+
+//movies
+
+app.get('/shows/movies', (req, res) => {
+  const movieData = data.filter(item => item.type == 'Movie')
+  res.json(movieData)
+}) 
+
+//shows from a specific year
+
+app.get('/shows/year/:year', (req, res) => {
+  const year = req.params.year
+  const showsFromYear = data.filter(item => item.release_year == year)
+  res.json(showsFromYear)
+})
+
+//show with a specific title
+
+app.get('/shows/title/:title', (req, res) => {
+  const titleID = req.params.title
+  const titleWithID = data.find(item => item.show_id == +titleID)
+  console.log(titleWithID)
+  if(!titleWithID) res.send('Not Found!!')
+  else res.json(titleWithID)
+})
 
 // Start the server
 app.listen(port, () => {
