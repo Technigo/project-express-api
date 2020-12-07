@@ -43,14 +43,20 @@ app.get('/books/:id', (request, response) => {
 
 
 // returns filtered array based on rating
-app.get('/books/rating/:rating', (request, response) => {
+app.get('/rating/:rating', (request, response) => {
   const choosenRating = request.params.rating;
   let ratedArray = booksData.filter((book) => book.average_rating <= +choosenRating);
 
   response.json(ratedArray)
 })
 
-app.get('')
+// returns books by a choosen author
+app.get('/author/:author', (request, response) => {
+  const author = request.params.author;
+  const booksByAuthor = booksData.filter((book) => book.authors === author)
+  response.json(booksByAuthor)
+})
+
 // filtrera information ? blir mer än en i resultat
 // app.get('/users', (request, response) => {
 //   const { name } = request.query;
