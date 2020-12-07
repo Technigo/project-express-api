@@ -54,7 +54,7 @@ app.get('/books/top-rated', (req, res) => {
 // Show books by a specific author - example path: /books/:authorName
 app.get('/books/:authorName', (req, res) => {
   const authorName = req.params.authorName;
-  const authorBooks = booksData.filter((item => item.authors === authorName));
+  const authorBooks = booksData.filter((item) => item.authors.includes(authorName));
 
   // If no books are found, the response is an empty array. Use that data to show an error message instead
   if (authorBooks.length === 0) {
@@ -67,7 +67,7 @@ app.get('/books/:authorName', (req, res) => {
 // Show a single book based on the ID - example path: /books/book/7
 app.get('/books/book/:bookID', (req, res) => {
   const bookID = req.params.bookID;
-  const singleBook = booksData.find((item => item.bookID === +bookID));
+  const singleBook = booksData.find((item) => item.bookID === +bookID);
 
   if (!singleBook) {
     res.send("Sorry, could not find that book :( - The ID entered is incorrect")
