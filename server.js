@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import booksData from './data/books.json'
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 5000
 const app = express()
 
 
@@ -17,13 +17,12 @@ app.get('/', (request, response) => {
   response.send('My very first backend project & book-related API!')
 })
 
-//Response to show top books - http://localhost:8080/book
+//Response to show top books - http://localhost:5000/book
 app.get('/book', (request,response) => {
+  let filteredBooks = booksData
   const title = request.query.title
   const average_rating = request.query.average_rating
-  const filteredAuthors = request.query.authors
-
-  const filteredBooks = booksData
+  const num_pages = request.query.num_pages
 
   if(title) {
     filteredBooks = filteredBooks.filter(book => {
@@ -32,30 +31,33 @@ app.get('/book', (request,response) => {
     }
   )}
 
-   //Show books by authors - http://localhost:8080/book/:author
+   //Show books by authors - http://localhost:5000/book/:filteredAuthors
    app.get('/book/:filteredAuthors', (request, response) => {
     const filteredAuthors = request.params.filteredAuthors
-    const showBookAuthor = booksData.filter((book) => book.filteredAuthors === +filteredAuthors)
+    const showBooksByAuthor = booksData.filter((book) => book.authors.includes(filteredAuthors))
    
-    if (!showBookAuthor) {
+    if (showBooksByAuthor.length===0) {
       response.send("No such book author known to our database. Try searching for someone else!")
     }
    
-    response.json(showBookAuthor)
+    response.json(showBooksByAuthor)
    })
 
-  //Show books by rating - http://localhost:8080/book?average_rating=high
-  if(average_rating) {
+  //Show books by rating - http://localhost:5000/book?average_rating=high
+  //Show books by number of pages - http://localhost:5000/book?num_pages=lots
     if(average_rating === 'high') {
-      filteredBooks.sort((x,y) => y.average_rating - x.average_rating)
+      filteredBooks = filteredBooks.sort((x,y) => (y.average_rating - x.average_rating))
     } else if (average_rating === 'low') {
-      filteredBooks.sort((x,y) => x.average_rating - y.average_rating)
-    }
+      filteredBooks = filteredBooks.sort((x,y) => (x.average_rating - y.average_rating))
+    } else if (num_pages === 'lots') {
+      filteredBooks = filteredBooks.sort((x,y) => (y.num_pages - x.num_pages))
+    } else if (num_pages === 'few') {
+      filteredBooks = filteredBooks.sort((x,y) => (x.anum_pages - y.num_pages))
   }
     response.json(filteredBooks)
 })
 
-//Show books by bookID - http://localhost:8080/book/5
+//Show books by bookID - http://localhost:5000/book/5
 app.get('/book/:bookID', (request, response) => {
  const bookID = request.params.bookID
  const showBookID = booksData.find((book) => book.bookID === +bookID)
