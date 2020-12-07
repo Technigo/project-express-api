@@ -1,13 +1,13 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -306,21 +306,26 @@ app.get('/', (request, response) => {
   response.send('My very first backend project!')
 })
 
-app.get('/books', (request,response) => {
-  const {name} = request.query
-  if(name) {
-    const filteredBooks = books.filter(book => book.bookID === bookID)
-    response.json(filteredBooks)
-  } else {
-    response.json(books)
-  }
+//Response to show top books
+app.get('/book', (request,response) => {
+  const title = request.query.title
 
+  let filteredBooks = booksData
+
+  if(title) {
+    filteredBooks = filteredBooks.filter(book => {
+      const bookTitle = book.title
+      return bookTitle.includes(title)
+    }
+  )}
+    response.json(filteredBooks)
 })
 
-app.get('/books/:id', (request, response) => {
- const {bookID} = request.params
- const book = books.find((book) => books.bookID === +bookID)
- response.json(book)
+app.get('/book/:bookID', (request, response) => {
+ const {bookID} = request.params.bookID
+ const showBookId = booksData.filter((book) => book.bookID === +bookID)
+ 
+ response.json(showBookId)
 })
 
 // Start the server
