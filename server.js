@@ -5,9 +5,7 @@ import booksData from './data/books.json'
 
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+// overridden when starting the server. For example: PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -15,7 +13,9 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Routes
+//_______ Routes/endpoints starts here _______//
+
+//Start/First endpoint
 app.get('/', (req, res) => {
   res.send('👋 Welcome to my fist API with books and book reviews 📚🦉')
 })
@@ -29,7 +29,7 @@ app.get('/books', (req, res) => {
 //Finding a single book by its id
 app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
-  const bookByID = booksData.find(item => item.bookID === +id);
+  const bookByID = booksData.find(item => item.bookID === +id)
 
   if (!bookByID) {
     res.send('Error: Could not find any book with that ID. Try another ID!')
@@ -40,7 +40,7 @@ app.get('/books/id/:id', (req, res) => {
 //Filtering books by author
 app.get('/books/authors/:author', (req, res) => {
   const author = req.params.author
-  const booksByAuthor = booksData.filter(item => item.authors.includes(author));
+  const booksByAuthor = booksData.filter(item => item.authors.includes(author))
 
   if (booksByAuthor.length === 0) {
     res.send('Error: Could not find any books by that author. Try again!')
