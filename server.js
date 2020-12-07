@@ -54,7 +54,18 @@ app.get('/rating/:rating', (request, response) => {
 app.get('/author/:author', (request, response) => {
   const author = request.params.author;
   const booksByAuthor = booksData.filter((book) => book.authors === author)
+
   response.json(booksByAuthor)
+})
+
+// returns the ten books with highest rating
+app.get('/top/:number', (request, response) => {
+  const number = request.params.number;
+  const sortedBooks = [...booksData];
+  sortedBooks.sort((a, b) => b.average_rating - a.average_rating)
+  const topTenBooks = sortedBooks.slice(0, number);
+
+  response.json(topTenBooks)
 })
 
 // filtrera information ? blir mer än en i resultat
