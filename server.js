@@ -1,4 +1,4 @@
-import express, { request, response } from "express";
+import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -11,9 +11,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const myEndpoints = require('express-list-endpoints')
 // Start defining your routes here
 app.get("/", (request, response) => {
-  response.send("My very first backend project & book-related API!");
+  response.send(myEndpoints(app));
 });
 
 //Response to show top 50 books - http://localhost:5000/books
@@ -67,14 +68,15 @@ app.get("/books/id/:bookID", (request, response) => {
   response.json(queriedBook);
 });
 
+//Show authors by bookAuthor - http://localhost:5000/books/author/name
 app.get("/books/author/:author", (request,response) => {
   const bookAuthor = request.params.authors;
   const chosenAuthor = booksData.filter((book) => book.authors.includes(bookAuthor))
 
-  if(chosenAuthor.length === 0) {
+  if(!chosenAuthor) {
     response.send(
       "No such author. Search someone else perhaps?"
-    )
+    );
   }
 
   response.json(chosenAuthor)
