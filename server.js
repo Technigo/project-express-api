@@ -22,7 +22,15 @@ app.get('/', (request, response) => {
 
 // Show all data = Games Library 
 app.get('/games',(request, response) => { 
-  response.json(data)
+  response.json({
+    "results": data.results.map((game) => {
+      return {
+        "name": game.name, 
+        "slug": game.slug,
+        "background_image": game.background_image 
+      };
+    })
+  })
 })
 
 // Show all favourite games
