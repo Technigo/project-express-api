@@ -28,12 +28,21 @@ app.get('/', (req, res) => {
   } 
   else res.send(listEndpoints(app))
 })
+console.log(listEndpoints(app))
+
 
 // Route of books array, pagination as default
 app.get('/books', (req, res) => {
-  const { author, title } = req.query
+  const { sort, author, title } = req.query
   let booksList = booksData
 
+  //by rating dsc, asc
+  if(sort === "rating_dsc") {
+    booksList = booksList.sort((a, b) => (b.average_rating - a.average_rating))
+  } else if (sort === "rating_asc") {
+    booksList = booksList.sort((a, b) => (a.average_rating - b.average_rating))
+  }
+  
   //by author
   if (author) {
     booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLocaleLowerCase()))

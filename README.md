@@ -15,7 +15,7 @@ The following endpoints are available:
 - Practice data manipulation in JavaScript - filtering and limiting arrays
 - How to deploy Node projects
 
-## Learning Objectives
+## Tech
 
 - Heroku
 - Postman
