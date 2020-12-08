@@ -27,13 +27,12 @@ app.get('/', (req, res) => {
 })
 
 // entire list/collection/array of elements (first blue level req.)
+// add lenght per page?
 app.get('/curses', (req, res) => {
-  // the server has a collection of data we can access from the client
   res.json(profanityDictionary)
 })
 
-// single item from collection/list (second blue level req.) 
-// this is not working yet.. "TypeError: Cannot read property 'get' of undefined"
+// rout by single item from collection/list (second blue level req.) 
 app.get('/curses/:id', (req, res) => {
   const { id } = req.params
   const curseId = profanityDictionary.find((curses) => curses.id === +id)
@@ -46,6 +45,13 @@ app.get('/curses/:id', (req, res) => {
   // res.json(data[req.params["id"] - 1])
 })
 
+//rout by category_id
+// here I want to do q.
+app.get('/categories/:category_id', (req, res) => {
+  const { category_id } = req.params
+  const curseCategory = profanityDictionary.filter((curses) => curses.category_id === +category_id)
+  res.json(curseCategory)
+})
 
 // // Start the server
 app.listen(port, () => {
