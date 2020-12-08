@@ -16,15 +16,15 @@ app.get("/", (request, response) => {
   response.send("My very first backend project & book-related API!");
 });
 
-//Response to show top books - http://localhost:5000/book
-app.get("/book", (request, response) => {
+//Response to show top books - http://localhost:5000/books
+app.get("/books", (request, response) => {
   let filteredBooks = booksData.slice(0,50);
   const { author, title } = request.query;
   const average_rating = request.query.average_rating;
   const num_pages = request.query.num_pages;
 
-  //Show books by rating - http://localhost:5000/book?average_rating=high
-  //Show books by number of pages - http://localhost:5000/book?num_pages=lots
+  //Show bookss by rating - http://localhost:5000/books?average_rating=high
+  //Show bookss by number of pages - http://localhost:5000/books?num_pages=lots
   if (average_rating === "high") {
     filteredBooks = filteredBooks.sort(
       (x, y) => y.average_rating - x.average_rating
@@ -39,8 +39,8 @@ app.get("/book", (request, response) => {
     filteredBooks = filteredBooks.sort((x, y) => x.num_pages - y.num_pages);
   }
 
-  //Show books by author http://localhost:5000/book?author=author
-  //Show books by title http://localhost:5000/book?title=title
+  //Show books by author http://localhost:5000/books?author=author
+  //Show books by title http://localhost:5000/books?title=title
   if (title) {
     filteredBooks = filteredBooks.filter((item) =>
       item.title.toString().toLowerCase().includes(title.toLowerCase())
@@ -53,9 +53,9 @@ app.get("/book", (request, response) => {
   response.json(filteredBooks);
 });
 
-//Show books by bookID - http://localhost:5000/book/5
+//Show books by bookID - http://localhost:5000/books/5
 //Some IDs are not included in the array, such as for example 19 and 20.
-app.get("/book/:bookID", (request, response) => {
+app.get("/books/:bookID", (request, response) => {
   const bookID = request.params.bookID;
   const showBookID = booksData.find((book) => book.bookID === +bookID);
 
