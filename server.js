@@ -57,7 +57,7 @@ app.get('/books', (req, res) => {
   const booksListPage = booksList.slice(startIndex, endIndex)
   const returnObject = { 
     pageSize: pageSize,
-    page: page +1, 
+    page: +page, //hur gör jag så att det är sida noll men visas som sida 1 på ett logiskt sätt
     maxPage: parseInt(booksList.length / pageSize),
     numberOfBooks: booksListPage.length,
     results: booksListPage 
