@@ -2,19 +2,9 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,9 +13,62 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
+// request is incoming an res is outgoing
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello world, Im here now!')
 })
+
+//listing all books. Title is a possible param.
+//to String is needed since item.title is an object.
+app.get('/books', (req, res) => {
+  const title = req.query.title
+
+  if (title){
+    let filteredBooksTitle = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toLowerCase()))
+    if (filteredBooksTitle.length > 0) {
+      res.json(filteredBooksTitle)
+    } else{
+      res.status(404).json({ message: 'No such title found' })
+    }
+  } else {
+    res.json(booksData)
+  }
+})
+
+//listing books from a specific Author
+app.get('/:author', (req, res) => {
+  console.log(author)
+  const author = req.params.author
+
+
+  const booksFromAuthor = booksData.filter((item) => item.authors === author)
+
+  res.json(booksFromAuthor)
+  
+})
+
+//returning a single book filtered on id
+// using find instead of filter since I only want one result
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  const matchingId = booksData.find((item) => item.bookID === +id)
+
+  if (matchingId) {
+    res.json(matchingId)
+  } else {
+    res.status(404).json({ message: 'No such Id found' })
+  }
+  
+})
+
+
+/*app.get('/:rating', (req, res) => {
+  const rating = req.params.rating
+  const highRatingArray = booksData.filter((item) => item.average_rating > 4)
+  console.log(ratingArray)
+  //const highrating = ratingArray.sort((a,b) => a-b)
+  res.json(ratingArray)
+})*/
 
 // Start the server
 app.listen(port, () => {
