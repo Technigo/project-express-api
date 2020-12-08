@@ -1,13 +1,15 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
+
+console.log(`Book nr: ${booksData.length}`)
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -24,8 +26,29 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  //response object -> used for building the response we send to the browser
+  res.send('Good morning, Rebeka! Best of luck with this week\'s project')
 })
+
+app.get("/books", (req, res) => {
+  res.json(booksData)
+})
+
+app.get("/id/:isbn13", (req, res) => {
+  const bookId = req.params.isbn13
+  console.log(bookId)
+
+  //find a book based on its isbn13
+  const bookISBN13 = booksData.find(item => item.isbn13 === +bookId)
+
+  //sending back the data 9780060920081 (The lost continent)
+  res.json(bookISBN13)
+})
+
+app.get("/ranking/:avg_ranking", (req, res) => {
+
+})
+//filter books based on average ranking
 
 // Start the server
 app.listen(port, () => {
