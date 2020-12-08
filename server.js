@@ -29,7 +29,19 @@ app.get('/', (req, res) => {
 // entire list/collection/array of elements (first blue level req.)
 // add lenght per page?
 app.get('/curses', (req, res) => {
-  res.json(profanityDictionary)
+  const { language, category_id } = req.query
+  let curseList = profanityDictionary
+  
+
+  if (category_id) {
+    curseList = curseList.filter((curses) => curses.category_id === +category_id)
+  }
+
+  // by language
+  if (language) {
+    curseList = curseList.filter((curses) => curses.language.toString().toLocaleLowerCase().includes(language.toLocaleLowerCase()))
+  }
+  res.json(curseList)
 })
 
 // rout by single item from collection/list (second blue level req.) 
@@ -52,11 +64,11 @@ app.get('/categories/:category_id', (req, res) => {
   const { language } = req.query
   let curseCategory = profanityDictionary.filter((curses) => curses.category_id === +category_id)
 
+  // I want to have the same q. path on main curses too!
   if (language) {
     curseCategory = curseCategory.filter((curses) => curses.language.toString().toLocaleLowerCase().includes(language.toLocaleLowerCase()))
-
-    // booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLocaleLowerCase()))
   } 
+
   // this is not working - check this
   // if (!curseCategory) {
   //   res
