@@ -21,15 +21,17 @@ app.get('/', (request, response) => {
 app.get('/book', (request,response) => {
   let filteredBooks = booksData
   const title = request.query.title
+  const author = request.query.authors
   const average_rating = request.query.average_rating
   const num_pages = request.query.num_pages
 
   if(title) {
-    filteredBooks = filteredBooks.filter(book => {
-      const bookTitle = book.title
-      return bookTitle.includes(title)
-    }
-  )}
+    filteredBooks = filteredBooks.filter((book) => book.title.includes(title))
+  }
+  if(author) {
+    filteredBooks = filteredBooks.filter((book) => book.authors.toString().toLowerCase().includes(author.toLocaleLowerCase()))
+  }
+
 
    //Show books by authors - http://localhost:5000/book/:filteredAuthors
    app.get('/book/:filteredAuthors', (request, response) => {
@@ -52,7 +54,7 @@ app.get('/book', (request,response) => {
     } else if (num_pages === 'lots') {
       filteredBooks = filteredBooks.sort((x,y) => (y.num_pages - x.num_pages))
     } else if (num_pages === 'few') {
-      filteredBooks = filteredBooks.sort((x,y) => (x.anum_pages - y.num_pages))
+      filteredBooks = filteredBooks.sort((x,y) => (x.num_pages - y.num_pages))
   }
     response.json(filteredBooks)
 })
