@@ -2,14 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -26,6 +20,37 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+app.get('/authors', (req, res) => {
+  const authors = booksData.map(item =>item.authors)
+  const uniqueAuthors = [...new Set(authors)]
+  res.json(uniqueAuthors);
+})
+
+app.get('/authors/:author', (req, res) => {
+  const author = req.params.author
+  const booksByAuthor = booksData.filter(item => item.authors.includes(author));
+  const authors = booksByAuthor.map(item => item.authors);
+  const uniqueAuthors = [...new Set(authors)];
+  res.json(uniqueAuthors);
+})
+
+app.get('/authors/:author/books', (req, res) => {
+  const author = req.params.author
+  const booksByAuthor = booksData.filter(item => item.authors.includes(author));
+  res.json(booksByAuthor);
+})
+
+app.get('/books', (req, res) => {
+  res.json(booksData);
+})
+
+app.get('/books/:book', (req, res) => {
+  const bookId = parseInt(req.params.book);
+  const book = booksData.filter(item => item.bookID === bookId);
+  res.json(book);
+})
+
 
 // Start the server
 app.listen(port, () => {
