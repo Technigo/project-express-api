@@ -18,7 +18,7 @@ app.get("/", (request, response) => {
 
 //Response to show top books - http://localhost:5000/book
 app.get("/book", (request, response) => {
-  let filteredBooks = booksData;
+  let filteredBooks = booksData.slice(0,50);
   const { author, title } = request.query;
   const average_rating = request.query.average_rating;
   const num_pages = request.query.num_pages;
@@ -39,7 +39,8 @@ app.get("/book", (request, response) => {
     filteredBooks = filteredBooks.sort((x, y) => x.num_pages - y.num_pages);
   }
 
-  //Show books by title or author http://localhost:5000/book?author=author
+  //Show books by author http://localhost:5000/book?author=author
+  //Show books by title http://localhost:5000/book?title=title
   if (title) {
     filteredBooks = filteredBooks.filter((item) =>
       item.title.toString().toLowerCase().includes(title.toLowerCase())
@@ -48,7 +49,7 @@ app.get("/book", (request, response) => {
     filteredBooks = filteredBooks.filter((item) =>
       item.authors.toString().toLowerCase().includes(author.toLowerCase())
     );
-  }
+  } 
   response.json(filteredBooks);
 });
 
