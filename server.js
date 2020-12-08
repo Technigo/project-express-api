@@ -29,8 +29,27 @@ app.get('/', (req, res) => {
 });
 
 // A Collection of results - An array with book elements
+// that can be filtered by title or author
 app.get('/books', (req, res) => {
-  res.json(booksData);
+  const { author, title } = req.query;
+
+  console.log(`The title value is: ${title}`);
+  console.log(`The authors value is: ${author}`);
+
+  // Query parameter filters for author and title
+  if (author) {
+    const filteredAuthors = booksData.filter((item) =>
+      item.authors.toLowerCase().includes(author.toLowerCase())
+    );
+    res.json(filteredAuthors);
+  } else if (title) {
+    const filteredTitles = booksData.filter((item) =>
+      item.title.toString().toLowerCase().includes(title.toLowerCase())
+    );
+    res.json(filteredTitles);
+  } else {
+    res.json(booksData);
+  }
 });
 
 // A Single result - A single book element find by id
@@ -38,7 +57,13 @@ app.get('/books/:id', (req, res) => {
   const id = req.params.id;
   console.log(id);
 
-  const book = booksData.find((book) => book.bookID === +id);
+  const book = booksData.find((item) => item.bookID === +id);
+
+  // If the book doesn't exist, status set to 404 and returning a useful data in the response
+  if (!book) {
+    res.status(404).send({ error: `No book with id: ${id} found` });
+  }
+
   res.json(book);
 });
 
