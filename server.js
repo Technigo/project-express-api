@@ -37,7 +37,11 @@ app.get("/shows", (req, res) => {
 app.get("/shows/:id", (req, res) => {
   const id = req.params.id;
   const show = netflixData.find((item) => item.show_id === +id);
-  res.json(show);
+  if (!show) {
+    res.send("Unknown id");
+  } else {
+    res.json(show);
+  }
 });
 
 // This route will return a collection of shows with a certain type (Movie or TV Show)
