@@ -2659,7 +2659,7 @@
     "id": 333,
     "word/phrase": "Bandarra",
     "literal_english_translation": "Naughty",
-    "category_id": 10,
+    "category_id": 11,
     "category": "Miscellaneous profanity",
     "language": "Catalan"
   },
@@ -2683,7 +2683,7 @@
     "id": 336,
     "word/phrase": "Bufagaites",
     "literal_english_translation": "Bagpipe blower",
-    "category_id": 10,
+    "category_id": 11,
     "category": "Miscellaneous profanity",
     "language": "Catalan"
   },

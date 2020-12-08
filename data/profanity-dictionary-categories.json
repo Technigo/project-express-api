@@ -1,0 +1,46 @@
+[
+  {
+    "category_id": 1,
+    "category": "Female"
+  },
+  {
+    "category_id": 2,
+    "category": "Male"
+  },
+  {
+    "category_id": 3,
+    "category": "Poop"
+  },
+  {
+    "category_id": 4,
+    "category": "Sex and the Human body"
+  },
+  {
+    "category_id": 5,
+    "category": "Illness and IDD"
+  },
+  {
+    "category_id": 6,
+    "category": "An act of religion"
+  },
+  {
+    "category_id": 7,
+    "category": "Sex and the Human body"
+  },
+  {
+    "category_id": 8,
+    "category": "Earth and plants related"
+  },
+  {
+    "category_id": 9,
+    "category": "Ethnic and social slurs"
+  },
+  {
+    "category_id": 10,
+    "category": "Female/Male"
+  },
+  {
+    "category_id": 11,
+    "category": "Miscellaneous profanity"
+  }
+]
