@@ -9,6 +9,7 @@ import error from './data/error.json'
 //   PORT=9000 npm start
 const port = process.env.PORT || 4700
 const app = express()
+const apiVersion = 'V1';
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
 
 //Get all the albums, with queries to filter results. 
 //COLLECTION
-app.get('/albums',(req,res) => {
+app.get('/api/albums',(req,res) => {
   let albums = albumData;
 
   const filterYear = req.query.year;
@@ -72,7 +73,7 @@ app.get('/albums',(req,res) => {
 
 //SINGLE ITEM
 //Get album based on placement on list using params
-app.get('/albums/placement/:placement',(req,res) => {
+app.get('/api/albums/placement/:placement',(req,res) => {
   const placement = req.params.placement;
   console.log({placement});
   const album = albumData.find((item) => item.Number === +placement);
@@ -82,7 +83,7 @@ app.get('/albums/placement/:placement',(req,res) => {
 })
 
 //Get album based on title using params
-app.get('/albums/title/:title',(req,res) => {
+app.get('/api/albums/title/:title',(req,res) => {
   const title = req.params.title.replaceAll('+',' ');
   console.log({title});
   const album = albumData.find((item) => item.Album.toString().toUpperCase().includes(title.toUpperCase()));
@@ -91,7 +92,7 @@ app.get('/albums/title/:title',(req,res) => {
 })
 
 //get the top 10 albums
-app.get('/albums/top10',(req,res) => {
+app.get('/api/albums/top10',(req,res) => {
   const albums = albumData.slice(0,10);
   res.json(albums);
 })
