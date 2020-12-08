@@ -9,7 +9,6 @@ import error from './data/error.json'
 //   PORT=9000 npm start
 const port = process.env.PORT || 4700
 const app = express()
-const apiVersion = 'V1';
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
