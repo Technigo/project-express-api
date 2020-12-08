@@ -49,7 +49,20 @@ app.get('/curses/:id', (req, res) => {
 // here I want to do q.
 app.get('/categories/:category_id', (req, res) => {
   const { category_id } = req.params
-  const curseCategory = profanityDictionary.filter((curses) => curses.category_id === +category_id)
+  const { language } = req.query
+  let curseCategory = profanityDictionary.filter((curses) => curses.category_id === +category_id)
+
+  if (language) {
+    curseCategory = curseCategory.filter((curses) => curses.language.toString().toLocaleLowerCase().includes(language.toLocaleLowerCase()))
+
+    // booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLocaleLowerCase()))
+  } 
+  // this is not working - check this
+  // if (!curseCategory) {
+  //   res
+  //   .status(404)
+  //   .send({ error: `No source with category_id of "${category_id}" found`})
+  // }
   res.json(curseCategory)
 })
 
