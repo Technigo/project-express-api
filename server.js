@@ -9,6 +9,7 @@ import error from './data/error.json'
 //   PORT=9000 npm start
 const port = process.env.PORT || 4700
 const app = express()
+const myEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -16,7 +17,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(myEndpoints(app));
 })
 
 //Get all the albums, with queries to filter results. 
