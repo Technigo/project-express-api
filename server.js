@@ -8,7 +8,8 @@ import cors from 'cors'
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
+console.log (netflixData.length)
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -25,6 +26,16 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/shows', (req, res) => {
+  res.json(netflixData)
+})
+
+app.get('/id/:id', (req, res) => {
+  const id = req.params.id
+  const netflixId = netflixData.filter((item) => item.show_id === +id)
+  res.json(netflixId)
 })
 
 // Start the server
