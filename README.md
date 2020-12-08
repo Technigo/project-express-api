@@ -2,7 +2,7 @@
 
 Build an API in Node using Express
 
-The following endpoints are available:
+available endpoints:
 
 - Root: /
 - Books: /books
