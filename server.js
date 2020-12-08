@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
-console.log(booksData.length)
+//console.log(booksData[0].authors)
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -15,7 +15,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
 //https://www.npmjs.com/package/express-list-endpoints
-//npm install express-list-endpoints (updated in package.json)
 //documentation purpose of your api 
 const listEndpoints = require('express-list-endpoints')
 
@@ -29,8 +28,6 @@ app.get('/', (req, res) => {
   } 
   else res.send(listEndpoints(app))
 })
-console.log(listEndpoints(app))
-
 
 // Route of books array, pagination as default
 app.get('/books', (req, res) => {
@@ -56,8 +53,8 @@ app.get('/books', (req, res) => {
   console.log(startIndex + '--' + endIndex)
   const booksListPage = booksList.slice(startIndex, endIndex)
   const returnObject = { 
-    pageSize: pageSize,
-    page: +page, //hur gör jag så att det är sida noll men visas som sida 1 på ett logiskt sätt
+    pageSize: pageSize, //hur ändrar jag detta till t ex 7 om jag filtrerar på author "j.k"?
+    page: +page, //hur gör jag så att det är sida noll men visas som sida 1 på ett logiskt sätt och om jag skriver page=1 visas samma sida?
     maxPage: parseInt(booksList.length / pageSize),
     numberOfBooks: booksListPage.length,
     results: booksListPage 
@@ -70,6 +67,20 @@ app.get('/books', (req, res) => {
   } 
   res.json(returnObject)
 })
+
+//array of authors
+app.get("/books/authors", (req, res) => {
+  const authorsArray = booksData.map(item => {
+    return {...new Set(item.authors)}
+  })
+  res.send({authors: authorsArray.length, results: authorsArray})
+})
+  // const authorsArray = booksData.map(item => item.authors)
+  // const uniqueAuthorsArray = authorsArray.reduce((unique, item) => {
+  //   return unique.includes(item) ? unique : [...unique, item]
+  // })
+  //res.send({authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray})
+
 
 //Search by bookID
 app.get("/books/:id", (req, res) => {
