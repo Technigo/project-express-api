@@ -1,6 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
+
+console.log(booksData.length)
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -15,7 +18,7 @@ import cors from 'cors'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -25,6 +28,10 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/booksData', (req, res) => {
+  res.json(booksData)
 })
 
 // Start the server
