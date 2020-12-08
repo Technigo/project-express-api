@@ -14,9 +14,11 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+const myEndpoints = require('express-list-endpoints')
+
 // homepage router?
 app.get('/', (req, res) => {
-  res.send('asd API!')
+  res.send(myEndpoints(app))
 })
 
 // route entire list/collection/array of elements (first blue level req.)
