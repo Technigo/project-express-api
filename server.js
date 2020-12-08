@@ -1,4 +1,4 @@
-import express from "express";
+import express, { request, response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -16,12 +16,10 @@ app.get("/", (request, response) => {
   response.send("My very first backend project & book-related API!");
 });
 
-//Response to show top books - http://localhost:5000/books
+//Response to show top 50 books - http://localhost:5000/books
 app.get("/books", (request, response) => {
   let filteredBooks = booksData.slice(0,50);
-  const { author, title } = request.query;
-  const average_rating = request.query.average_rating;
-  const num_pages = request.query.num_pages;
+  const { author, title, average_rating, num_pages } = request.query;
 
   //Show bookss by rating - http://localhost:5000/books?average_rating=high
   //Show bookss by number of pages - http://localhost:5000/books?num_pages=lots
@@ -39,8 +37,8 @@ app.get("/books", (request, response) => {
     filteredBooks = filteredBooks.sort((x, y) => x.num_pages - y.num_pages);
   }
 
-  //Show books by author http://localhost:5000/books?author=author
-  //Show books by title http://localhost:5000/books?title=title
+  //Filter books by author http://localhost:5000/books?author=author
+  //Filter books by title http://localhost:5000/books?title=title
   if (title) {
     filteredBooks = filteredBooks.filter((item) =>
       item.title.toString().toLowerCase().includes(title.toLowerCase())
@@ -50,23 +48,37 @@ app.get("/books", (request, response) => {
       item.authors.toString().toLowerCase().includes(author.toLowerCase())
     );
   } 
+
   response.json(filteredBooks);
 });
 
-//Show books by bookID - http://localhost:5000/books/5
-//Some IDs are not included in the array, such as for example 19 and 20.
-app.get("/books/:bookID", (request, response) => {
+//Show books by bookID - http://localhost:5000/books/id/5
+//Some IDs are not included in the array, such as for example 19 and 20, that's when the error response will print.
+app.get("/books/id/:bookID", (request, response) => {
   const bookID = request.params.bookID;
-  const showBookID = booksData.find((book) => book.bookID === +bookID);
+  const queriedBook = booksData.find((book) => book.bookID === +bookID);
 
-  if (!showBookID) {
+  if (!queriedBook) {
     response.send(
       "Hmm, we can't find that book in our database. Try searching another ID!"
     );
   }
 
-  response.json(showBookID);
+  response.json(queriedBook);
 });
+
+app.get("/books/author/:author", (request,response) => {
+  const bookAuthor = request.params.authors;
+  const chosenAuthor = booksData.filter((book) => book.authors.includes(bookAuthor))
+
+  if(chosenAuthor.length === 0) {
+    response.send(
+      "No such author. Search someone else perhaps?"
+    )
+  }
+
+  response.json(chosenAuthor)
+})
 
 // Start the server
 app.listen(port, () => {
