@@ -40,6 +40,31 @@ app.get("/shows/:id", (req, res) => {
   res.json(show);
 });
 
+// This route will return a collection of shows with a certain type (Movie or TV Show)
+app.get("/type/:type", (req, res) => {
+  const type = req.params.type;
+  const showsOfType = netflixData.filter((item) => item.type === type);
+  res.json(showsOfType);
+})
+
+// This route will return a collection of shows released a certain year
+// It can even been filtered by type (Movie or TV Show).
+app.get("/year/:year", (req, res) => {
+  const year = req.params.year;
+  const showType = req.query.type;
+  let showsFromYear = netflixData.filter((item) => item.release_year === +year);
+
+  if (showType === "movie") {
+    showsFromYear = showsFromYear.filter((item) => item.type === "Movie");
+    console.log("Movie is true");
+  } else if (showType === "tvshow") {
+    showsFromYear = showsFromYear.filter((item) => item.type === "TV Show");
+    console.log("TV is true");
+  }
+
+  res.json(showsFromYear);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
