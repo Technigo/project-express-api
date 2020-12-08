@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import tedData from './data/ted.json';
+import data from './data/ted.json';
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -13,46 +13,52 @@ app.use(bodyParser.json());
 
 // ----------------------------------------------------------------
 
-// All tasks
+// ALL TASKS
 app.get('/', (req, res) => {
-  res.json(tedData);
+  res.json(data);
 });
 
-// To get single talk
+// SINGLE TALK
 app.get('/talks/:slug', (req, res) => {
   const slug = req.params.slug;
   const url = `https://www.ted.com/talks/${slug}`;
-  const filteredByUrl = tedData.filter((talk) => talk.url === url);
+  const filteredByUrl = data.filter((talk) => talk.url === url);
   res.json(filteredByUrl);
 });
 
-// Sort by yearly event
+// SPEAKER
+app.get('/speakers/', (req, res) => {
+  const speaker = req.query.speaker;
+  const filteredBySpeaker = data.filter((talk) =>
+    talk.main_speaker.includes(speaker)
+  );
+  res.json(filteredBySpeaker);
+});
+
+// YEARLY EVENT
 app.get('/events/:year', (req, res) => {
   const year = req.params.year;
-  const filteredByYearOfEvent = tedData.filter(
+  const filteredByYearOfEvent = data.filter(
     (talk) => talk.event === `TED${year}`
   );
   res.json(filteredByYearOfEvent);
 });
 
-// Sort by category
-app.get('/:category', (req, res) => {
-  const category = req.params.category;
-  const filteredByCategory = tedData.filter((talk) =>
-    talk.tags.includes(category)
-  );
-
-  // To add a second category
-  const secondCategory = req.query.category;
-  console.log(secondCategory);
-  const addedCategory = filteredByCategory.filter((talk) =>
-    talk.tags.includes(secondCategory)
-  );
-
-  if (secondCategory !== undefined) {
+// CATEGORY
+app.get('/categories/', (req, res) => {
+  if (typeof req.query.category === 'string') {
+    const category = req.query.category;
+    const filteredByCategory = data.filter((talk) =>
+      talk.tags.includes(category)
+    );
     res.json(filteredByCategory);
   } else {
-    res.json(addedCategory);
+    const categories = req.query.category;
+
+    const filteredByMultipleCategories = categories.map((category) =>
+      data.filter((talk) => talk.tags.includes(category))
+    );
+    res.json(filteredByMultipleCategories);
   }
 });
 
