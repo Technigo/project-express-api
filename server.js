@@ -37,6 +37,9 @@ app.get('/curses', (req, res) => {
     curseList = curseList.filter((curses) => curses.language.toString().toLocaleLowerCase().includes(language.toLocaleLowerCase()))
   }
 
+  // display total nrs of items in array
+  const totalCurses = curseList.length - 1
+
   // adding pagination using slice
   const page = req.query.page ?? 0 //otherwise 0 as default 
   const pageSize = req.query.pageSize ?? 20 //otherwise 20 as default 
@@ -48,7 +51,7 @@ app.get('/curses', (req, res) => {
   const endIndex = startIndex + pageSize
 
   const cursesPerPage = curseList.slice(startIndex, endIndex)
-  const returnObject = { startIndex: startIndex, endIndex: endIndex, numCurses: cursesPerPage.length, cursesPerPage}
+  const returnObject = { totalNumCurses: totalCurses, startIndex: startIndex, endIndex: endIndex, numCurses: cursesPerPage.length, cursesPerPage}
   res.json(returnObject)
 })
 
