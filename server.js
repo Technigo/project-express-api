@@ -1,4 +1,5 @@
 import express, { request, response } from 'express';
+import expressEndpoints from 'express-list-endpoints';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
@@ -16,8 +17,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Start Routes
-app.get('/', (request, response) => {
-  response.send('Hello world, my first backend project!');
+const endPoints = require('express-list-endpoints')
+app.get("/", (request, response) => {
+  response.send(endPoints(app));
 });
 
 // Show all data = Games Library 
@@ -45,6 +47,8 @@ app.get('/games/:slug', (request, response) => {
   const showGame = data.results.filter((game) => game.slug === slug)
   response.json(showGame);
 })
+
+//Dummy endpoints - Red Level Goal
 
 // Start the server
 app.listen(port, () => {
