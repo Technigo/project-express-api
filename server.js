@@ -22,7 +22,7 @@ app.get('/authors', (req, res) => {
 
 app.get('/authors/:author', (req, res) => {
   const author = req.params.author
-  const booksByAuthor = booksData.filter(item => item.authors.includes(author));
+  const booksByAuthor = booksData.filter(item => item.authors === author);
   const authors = booksByAuthor.map(item => item.authors);
   const uniqueAuthors = [...new Set(authors)];
   if (uniqueAuthors.length === 0) {
@@ -35,7 +35,7 @@ app.get('/authors/:author', (req, res) => {
 
 app.get('/authors/:author/books', (req, res, next) => {
   const author = req.params.author
-  const booksByAuthor = booksData.filter(item => item.authors.includes(author));
+  const booksByAuthor = booksData.filter(item => item.authors === author);
   if (booksByAuthor.length === 0) {
     const error = new Error("Author not found");
     error.status = 404;
