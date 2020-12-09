@@ -28,23 +28,46 @@ app.get('/', (req, res) => {
   res.send('Hello world');
 });
 
-// Get all the books in the list
+// Get all the books in the list & filter options
 app.get('/books', (req, res) => {
-  res.json(books);
-});
+  // get only books that have been ranked
+  const isRanked = req.query.isRanked
 
-// Get all books in a specific language
-app.get('/language/:language', (req, res) => {
-  const language = req.params.language;
-  const booksInLanguage = books.filter((book) => book.language_code === language);
-  res.json(booksInLanguage);
+  // get only books with a certain minimum ranking
+  const minRating = req.query.minRating;
+
+  // get only books by a certain author
+  const author = req.query.author.toLowerCase();
+
+  let filteredBooks = books;
+
+  if (isRanked) {
+    filteredBooks = filteredBooks.filter((book) => book.ratings_count !== 0)
+  };
+
+  if (minRating) {
+    filteredBooks = filteredBooks.filter((book) => book.average_rating >= minRating)
+  };
+
+  if (author) {
+    filteredBooks = filteredBooks.filter((book) => book.authors.toLowerCase().includes(author))
+  };
+
+  res.json(filteredBooks);
 });
 
 // Get a specific book usig the ID
-app.get('/id/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const id = req.params.id;
   const book = books.find((book) => book.bookID === +id);
   res.json(book);
+});
+
+// Get all books in a specific language
+app.get('/languages/:language', (req, res) => {
+  const language = req.params.language;
+  const booksInLanguage = books.filter((book) => book.language_code === language);
+  res.json(booksInLanguage);
 });
 
 // Start the server
