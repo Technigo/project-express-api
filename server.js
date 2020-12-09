@@ -68,8 +68,8 @@ app.get("/books/id/:bookID", (request, response) => {
   response.json(queriedBook);
 });
 
-//Show authors by bookAuthor - http://localhost:5000/books/author/name
-app.get("/books/author/:author", (request, response) => {
+//Show authors by bookAuthor - http://localhost:5000/books/authors/name
+app.get("/books/authors/:author", (request, response) => {
   const bookAuthor = request.params.author;
   let filteredBooks = booksData;
 
