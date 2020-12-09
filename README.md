@@ -4,10 +4,10 @@
 
 🌈Endpoints:
 
-*1.Root: `/`
-*2.Books: `/books` (shows first 50 books to prevent delayed response when API loading)
-*3.Book ID: `/books/id/(bookID number)`
-*4.Author(s): `/books/author/(name)`
+* 1.Root: `/`
+* 2.Books: `/books` (shows first 50 books to prevent delayed response when API loading)
+* 3.Book ID: `/books/id/(bookID number)`
+* 4.Author(s): `/books/author/(name)`
 
 *Filtering:*
 
