@@ -1,0 +1,40 @@
+import express from 'express';
+
+
+const app = express();
+
+const users = [
+  {id:1 , name: 'Claudia' , age: 28},
+  {id:2 , name: 'Kim' , age: 29},
+  {id:3 , name: 'Nora' , age: 28},
+  {id:4 , name: 'Olle' , age: 30},
+  {id:5 , name: 'Isabella' , age: 22},
+];
+
+// app is key to creating different endpoints, route set ups = modifying how our servers are running 
+// slash means there are no path after the adress.
+app.get('/', ( request, response) => {
+  response.send("Hello internet");
+});
+// Returns a collection or an "array" of elements  (blue level)
+app.get('/users', ( request, response) => {
+//don't forget to put your variable here if you want it to show in the browser 
+  response.json(users);
+});
+
+//difference between "filter" and "find"
+//filter returns several things, find returns one.
+
+// singels out one endpoint (blue level) 
+// :id = params are good for creating endpoints. 
+app.get('/users/:id', (request, response) => {
+  const { id } = request.params;
+  const user = users.find(user => user.id === +id);
+  response.json(user);
+});
+
+//The server has startd, what should it do now?  
+app.listen(8080, () => {
+  console.log("the server is runnin");
+
+});
