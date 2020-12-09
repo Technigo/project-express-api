@@ -11,6 +11,7 @@ import data from './data/games.json';
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const ERROR_GAME_NOT_FOUND = { error: 'No game with that name was found.' };
 
 // Middlewares to enable cors and json body parsing
 app.use(cors());
@@ -22,7 +23,7 @@ app.get("/", (request, response) => {
   response.send(endPoints(app));
 });
 
-// Show all data = Games Library 
+// Show data = Games Library 
 app.get('/games',(request, response) => { 
   response.json({
     "results": data.results.map((game) => {
@@ -34,6 +35,7 @@ app.get('/games',(request, response) => {
     }),
   "total": data.results.length
   })
+
 })
 
 // Show all favourite games
@@ -49,8 +51,13 @@ app.get('/favorites', (request, response) => {
 app.get('/games/:slug', (request, response) => {
   const slug = request.params.slug; 
   const showGame = data.results.filter((game) => game.slug === slug)
-  response.json(showGame);
-})
+
+  if (showGame.length === 0) {
+    response.status(404).json(ERROR_GAME_NOT_FOUND);
+  } else {
+    response.json(showGame);
+  }
+});
 
 //Dummy endpoints - Red Level Goal
 

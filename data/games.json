@@ -2188,7 +2188,7 @@
       "id": 591,
       "slug": "monument-valley",
       "name": "Monument Valley",
-      "favorite": false,
+      "favorite": true,
       "released": "2014-04-03",
       "background_image": "https://media.rawg.io/media/games/158/158e3d88feea5b59bd8c48205a37e341.jpg",
       "rating": 4.42,
