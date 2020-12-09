@@ -4,10 +4,10 @@
 
 🌈Endpoints:
 
-1.Root: `/`
-2.Books: `/books` (shows first 50 books to prevent delayed response when API loading)
-3.Book ID: `/books/id/(bookID number)`
-4.Author(s): `/books/author/(name)`
+*1.Root: `/`
+*2.Books: `/books` (shows first 50 books to prevent delayed response when API loading)
+*3.Book ID: `/books/id/(bookID number)`
+*4.Author(s): `/books/author/(name)`
 
 *Filtering:*
 
@@ -29,9 +29,9 @@
 
 ## How I went about it
 
->First step to handling the API response was to filter to the first 50 books by using the `.slice()` method, in order to prevent delay in response. By using the `.sort()` method and creating functions, I have used the average rating and the number of pages to iterate through the array of books and display the ones that match the criteria. 
+First step to handling the API response was to filter to the first 50 books by using the `.slice()` method, in order to prevent delay in response. By using the `.sort()` method and creating functions, I have used the average rating and the number of pages to iterate through the array of books and display the ones that match the criteria. 
 
->Next, I used the `.filter()` method and applied it similarily to filter both through authors and title. This was slightly more tricky to do, since I had to take in consideration that the user won't always enter the name of the author/title perfectly. 
+Next, I used the `.filter()` method and applied it similarily to filter both through authors and title. This was slightly more tricky to do, since I had to take in consideration that the user won't always enter the name of the author/title perfectly. 
 
 ## Tech
 
