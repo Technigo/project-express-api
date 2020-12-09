@@ -22,13 +22,14 @@ app.get('/', (request, response) => {
 // This endpoint shows all characters + will let you filter on name with query parameter
 app.get('/characters', (request, response) => {
   const { name } = request.query
-  if (name) {
-    const filteredName = harryData.filter(character => 
-      character.name.toLocaleLowerCase() && 
-      character.name.toLocaleLowerCase().includes(name))
-    response.json(filteredName)
+  const filteredName = harryData.filter(character => 
+    character.name.toLocaleLowerCase() && 
+    character.name.toLocaleLowerCase().includes(name))
+
+  if (filteredName.length === 0) {
+    response.status(404).json(ERROR_CHARACTERS_NOT_FOUND)
   } else {
-    response.json(harryData)
+    response.json(filteredName)
   }
 })
 
