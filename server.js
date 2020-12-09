@@ -45,7 +45,7 @@ app.get('/authors/:author', (req, res) => {
   res.json(uniqueAuthors);
 })
 
-app.get('/authors/:author/books', (req, res, next) => {
+app.get('/authors/:author/books', (req, res) => {
   const author = req.params.author
   const booksByAuthor = booksData.filter(item => item.authors === author);
 
@@ -68,7 +68,7 @@ app.get('/books', (req, res) => {
   res.json(booksData);
 })
 
-app.get('/books/:book', (req, res, next) => {
+app.get('/books/:book', (req, res) => {
   const bookId = parseInt(req.params.book);
   const books = booksData.filter(item => item.bookID === bookId);
 
@@ -87,13 +87,34 @@ app.get('/books/:book', (req, res, next) => {
   res.json(books)
 })
 
-app.use((req, res, next) => {
+app.get('/books/:book/ratings' , (req, res) => {
+  const bookId = parseInt(req.params.book);
+  const books = booksData.filter(item => item.bookID === bookId);
+  const bookRatings = books.map(item => [
+    {
+      "title": item.title,
+      "author": item.authors,
+      "average_rating": item.average_rating, 
+      "number_of_votes": item.ratings_count, 
+      "number_of_text_reviews": item.text_reviews_count
+    }
+  ]);
+     
+  if (books.length === 0) {
+    const error = new Error("Book not found");
+    error.status = 404;
+    throw error;
+   }
+  res.json(bookRatings);
+})
+
+app.use((next) => {
   const error = new Error(`Not found`);
   error.status = 404;
   next(error);
  });
 
- app.use((error, req, res, next) => {
+ app.use((error, res) => {
    res.status(error.status || 500).send({
     error: {
     status: error.status || 500,
