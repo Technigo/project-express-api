@@ -1,13 +1,33 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Created my first API with Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Spent some time with the data to understand what kind of API endpoints would make sense, whereafter I started creating the endpoints. Some of them were pretty straightforward, whilst some needed a lot of data analysis and testing in order to have meaningful filter functions. Example: make sure that when user types "HUDSON" when searching for a book title, "hudson:", and "(Hudson" should also be included.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-book-api.herokuapp.com/
+
+Endpoints:
+
+https://project-book-api.herokuapp.com/books - all books in the dataset
+
+https://project-book-api.herokuapp.com/books/id - replace id with a numeric value
+
+https://project-book-api.herokuapp.com/books/12/title - title of book with id 12
+
+https://project-book-api.herokuapp.com/books/5/authors - list with authors of book with id 5
+
+https://project-book-api.herokuapp.com/books?language=abc - replace abc with eng, en-US, en-GB or spa - case and character sensitive
+
+https://project-book-api.herokuapp.com/books?title=abc - replace abc with title (not case sensitive)
+
+https://project-book-api.herokuapp.com/books?author=abc - replace abc with author (not case sensitive)
+
+https://project-book-api.herokuapp.com/books?toprated=20 - lists top 20 best rated books in descending order, you can replace 20 with another numeric value
+
+https://project-book-api.herokuapp.com/books?shortest=10 - lists 10 shortest books in ascending order, you can replace 10 with another numeric value
+
+
