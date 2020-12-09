@@ -33,6 +33,20 @@ app.get('/books', (req, res) => {
   res.json(fiftyBooks);
 });
 
+// Show books by a specific author - example path: /books/search?author=Dan&20Brown
+// Added toLowerCase to make sure an author is found even if user types the name in lower case
+app.get('/books/search', (req, res) => {
+  const author = req.query.author;
+  const authorBooks = booksData.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()));
+
+  // If no books are found, the response is an empty array. Use that data to show an error message instead
+  if (authorBooks.length === 0) {
+    res.status(404).json("Sorry, could not find books by that author name :(")
+  };
+  
+  res.json(authorBooks);
+});
+
 // Show 20 Books with rating higher than 4: path /books/top-rated
 app.get('/books/top-rated', (req, res) => {
   const topRatedBooks = booksData.filter((item) => item.average_rating >= 4);
@@ -51,26 +65,13 @@ app.get('/books/top-rated', (req, res) => {
   res.json(firstTwentyTopBooks);
 });
 
-// Show books by a specific author - example path: /books/:authorName
-app.get('/books/:authorName', (req, res) => {
-  const authorName = req.params.authorName;
-  const authorBooks = booksData.filter((item) => item.authors.includes(authorName));
-
-  // If no books are found, the response is an empty array. Use that data to show an error message instead
-  if (authorBooks.length === 0) {
-    res.send("Sorry, could not find books by that author :( - The author name entered is incorrect")
-  };
-  
-  res.json(authorBooks);
-});
-
 // Show a single book based on the ID - example path: /books/book/7
 app.get('/books/book/:bookID', (req, res) => {
   const bookID = req.params.bookID;
   const singleBook = booksData.find((item) => item.bookID === +bookID);
 
   if (!singleBook) {
-    res.send("Sorry, could not find that book :( - The ID entered is incorrect")
+    res.status(404).json("Sorry, could not find books with that ID :(")
   };
   
   res.json(singleBook);
