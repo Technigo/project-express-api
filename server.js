@@ -1,9 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import booksData from './data/books.json'
+import netflixData from './data/netflix-titles.json'
 
-console.log(booksData.length)
+console.log(netflixData.length)
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -18,7 +18,7 @@ console.log(booksData.length)
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8081
+const port = process.env.PORT || 8083
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -30,9 +30,18 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
-app.get('/booksData', (req, res) => {
-  res.json(booksData)
+app.get('/production', (req, res) => {
+  res.json(netflixData)
 })
+
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  console.log({ year })
+  
+  const netflixProductionsFromYear = netflixData.filter((item) => item.release_year === +year)
+  res.json(netflixProductionsFromYear)
+})
+
 
 // Start the server
 app.listen(port, () => {
