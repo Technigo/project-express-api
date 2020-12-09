@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/', (request, response) => {
+app.get('/', (request, response) => { // root endpoint
   response.send("Welcome to Annika's books API")
 })
 
@@ -29,45 +29,59 @@ app.get('/books', (request, response) => {
     if (filteredBooksOnLanguage.length > 0) {
       return response.json(filteredBooksOnLanguage)
     } else if (filteredBooksOnLanguage.length === 0) {
-      return response.send("What is that language?")
+      return response.status(404).json({ "error": "What is that language?" })
     }
   }
+
   if (title) {
-    const filteredBooksOnTitle = booksData.filter(item => item.title.toString().toLowerCase().replace(/[^a-zA-Z0-9]/g, " ").split(" ").includes(title.toLowerCase())) // my first regex!! 
+    const filteredBooksOnTitle = booksData.filter(item => item.title.toString().toLowerCase().replace(/[^a-zA-Z0-9-']/g, " ").split(" ").includes(title.toLowerCase())) // my first regex!! 
     if (filteredBooksOnTitle.length > 0) {
       return response.json(filteredBooksOnTitle)
     } else if (filteredBooksOnTitle.length === 0) {
-      return response.send("No such title")
+      return response.status(404).json({ "error": "No such title" })
     }
   }
+
   if (author) {
     const filteredBooksOnAuthor = booksData.filter(item => item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase()))
     if (filteredBooksOnAuthor.length > 0) {
       return response.json(filteredBooksOnAuthor)
     } else if (filteredBooksOnAuthor.length === 0) {
-      return response.send("No such author")
+      return response.status.json({ "error": "No such author" })
     }
   }
+
   if (toprated) {
     if (+toprated > booksData.length) {
-      return response.send("That is just too many books")
+      return response.status.json({ "error": "That is just too many books" })
     } else {
       const sortedBooksOnRating = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
       const topratedBooks = sortedBooksOnRating.slice(0, toprated)
       return response.json(topratedBooks)
     }
   }
+
   if (shortest) {
     const minPages = 20 // assuming pages less than 20 is an incorrect value
     const filteredBooksOnPages = booksData.filter(item => item.num_pages >= minPages)
     if (+shortest > filteredBooksOnPages.length) {
-      return response.send("That is just too many books")
+      return response.status(404).json({ "error": "That is just too many books" })
     } else {
       const sortedBooksOnPages = filteredBooksOnPages.sort(function (a, b) { return a.num_pages - b.num_pages })
       const shortestBooks = sortedBooksOnPages.slice(0, shortest)
       return response.json(shortestBooks)
     }
   }
+
+  if (author && language) {
+    const filteredBooksOnAuthorAndLanguage = booksData.filter(item => item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase()) && item.language_code === language)
+    if (filteredBooksOnAuthorAndLanguage.length > 0) {
+      return response.json(filteredBooksOnAuthorAndLanguage)
+    } else {
+      return response.status(404).json({ "error": "No such combination" })
+    }
+  }
+
   else {
     return response.json(booksData)
   }
@@ -79,7 +93,7 @@ app.get('/books/:id', (request, response) => {
   if (book) {
     return response.json(book)
   } else {
-    return response.send("No such book")
+    return response.status(404).json({ "error": "No such book" })
   }
 })
 
@@ -91,7 +105,7 @@ app.get('/books/:id/title', (request, response) => {
   if (book) {
     return response.json(book.title)
   } else {
-    return response.send("No such book")
+    return response.status(404).json({ "error": "No such book" })
   }
 })
 
@@ -103,7 +117,7 @@ app.get('/books/:id/authors', (request, response) => {
   if (book) {
     return response.json(book.authors.split("-"))
   } else {
-    return response.send("No such book")
+    return response.status(404).json({ "error": "No such book" })
   }
 })
 
