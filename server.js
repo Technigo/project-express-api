@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 
 import booksData from './data/books.json'
+import { title } from 'process'
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -11,6 +12,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
+
   res.send('Hello world')
 })
 
@@ -25,6 +27,16 @@ app.get('/authors/:author', (req, res) => {
   const booksByAuthor = booksData.filter(item => item.authors === author);
   const authors = booksByAuthor.map(item => item.authors);
   const uniqueAuthors = [...new Set(authors)];
+
+  const searchedAuthor = req.query.author;
+  const searchedAuthorObject = booksData.filter(item => item.authors.includes(searchedAuthor));
+  const searchedAuthorList = searchedAuthorObject.map(item => item.authors);
+  const uniqueSearchedAuthor = [...new Set(searchedAuthorList)];
+
+  if (searchedAuthor) {
+    res.json(uniqueSearchedAuthor)
+  }
+
   if (uniqueAuthors.length === 0) {
     const error = new Error("Author not found");
     error.status = 404;
@@ -36,6 +48,14 @@ app.get('/authors/:author', (req, res) => {
 app.get('/authors/:author/books', (req, res, next) => {
   const author = req.params.author
   const booksByAuthor = booksData.filter(item => item.authors === author);
+
+  const searchedAuthor = req.query.author;
+  const booksBySearchedAuthor = booksData.filter(item => item.authors.includes(searchedAuthor));
+
+  if (searchedAuthor) {
+    res.json(booksBySearchedAuthor)
+  }
+
   if (booksByAuthor.length === 0) {
     const error = new Error("Author not found");
     error.status = 404;
@@ -51,6 +71,14 @@ app.get('/books', (req, res) => {
 app.get('/books/:book', (req, res, next) => {
   const bookId = parseInt(req.params.book);
   const books = booksData.filter(item => item.bookID === bookId);
+
+  const searchedTitles = req.query.title;
+  console.log(searchedTitles)
+  const searchedTitlesList = booksData.filter(item => item.title.includes(searchedTitles));
+  if (searchedTitles) {
+    res.json(searchedTitlesList)
+  }
+
   if (books.length === 0) {
     const error = new Error("Book not found");
     error.status = 404;
