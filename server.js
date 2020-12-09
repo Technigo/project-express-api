@@ -50,7 +50,7 @@ app.get('/favorites', (request, response) => {
 // Shows specific game 
 app.get('/games/:slug', (request, response) => {
   const slug = request.params.slug; 
-  const showGame = data.results.filter((game) => game.slug === slug)
+  const showGame = data.results.find((game) => game.slug === slug)
 
   if (showGame.length === 0) {
     response.status(404).json(ERROR_GAME_NOT_FOUND);
