@@ -41,7 +41,7 @@ app.get('/favorites', (request, response) => {
   const favorites = data.results.filter((game) => game.favorite)
   response.json({
     "results": favorites,
-    "total": results.length
+    "total": favorites.length
   });
 })
 
