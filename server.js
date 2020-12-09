@@ -3,7 +3,6 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 
 import booksData from './data/books.json'
-import { title } from 'process'
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -11,12 +10,12 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
+app.get('/', (res) => {
 
-  res.send('Hello world')
+  res.send('Welcome to Book Reviews API')
 })
 
-app.get('/authors', (req, res) => {
+app.get('/authors', (res) => {
   const authors = booksData.map(item =>item.authors)
   const uniqueAuthors = [...new Set(authors)]
   res.json(uniqueAuthors);
@@ -73,7 +72,6 @@ app.get('/books/:book', (req, res) => {
   const books = booksData.filter(item => item.bookID === bookId);
 
   const searchedTitles = req.query.title;
-  console.log(searchedTitles)
   const searchedTitlesList = booksData.filter(item => item.title.includes(searchedTitles));
   if (searchedTitles) {
     res.json(searchedTitlesList)
