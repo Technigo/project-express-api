@@ -1,8 +1,8 @@
 # Express API Project
 
-Build an API in Node using Express
+A book API build in Node using Express.
 
-available endpoints:
+Available endpoints:
 
 - Root: /
 - Books: /books
