@@ -2,19 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import avocadoSalesData from './data/avocado-sales.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -24,8 +13,19 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('We are advocates of avocados')
 })
+
+app.get('/avocados', (req, res) => {
+  res.json(avocadoSalesData)
+})
+
+app.get('/avocados/:id', (request, response) => {
+  console.log(request.params);
+  const { id } = request.params;
+  const user = avocadoSalesData.find((avocado) => avocado.id === +id);
+  response.json(user);
+});
 
 // Start the server
 app.listen(port, () => {
