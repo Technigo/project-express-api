@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 //all shows
 
 app.get('/shows', (req, res) => {
-  let shows = data
+  let shows = data.slice(0, 200)
   const country = req.query.country
   console.log(country)
   if(country) shows = data.filter(item => item.country === country)
