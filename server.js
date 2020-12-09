@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
 app.get('/curses', (req, res) => {
   const { language, category_id } = req.query
   let curseList = profanityDictionary
-
-  // don't I need some type of handling system if the search goes wrong here?
   
   // query by category_id
   if (category_id) {
@@ -38,7 +36,20 @@ app.get('/curses', (req, res) => {
   if (language) {
     curseList = curseList.filter((curses) => curses.language.toString().toLocaleLowerCase().includes(language.toLocaleLowerCase()))
   }
-  res.json(curseList)
+
+  // adding pagination using slice
+  const page = req.query.page ?? 0 //otherwise 0 as default 
+  const pageSize = req.query.pageSize ?? 20 //otherwise 20 as default 
+
+  // calculate start index
+  const startIndex = page * pageSize
+
+  // calculate and bound the end index
+  const endIndex = startIndex + pageSize
+
+  const cursesPerPage = curseList.slice(startIndex, endIndex)
+  const returnObject = { startIndex: startIndex, endIndex: endIndex, numCurses: cursesPerPage.length, cursesPerPage}
+  res.json(returnObject)
 })
 
 // rout by single item from collection/list (second blue level req.) 
