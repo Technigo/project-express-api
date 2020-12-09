@@ -30,19 +30,19 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 });
 
-// Return a collection (array) of elements
+// Return a collection (array) of elements - It is productions somehow, so I choosed to naming it productions. 
 app.get('/productions', (req, res) => {
   res.json(netflixData)
 });
 
-// Single production
-//app.get('/productions/:id', (req, res) => {
-  //const id = req.params.id;
+// Single (specific by id) production on Netflix
+app.get('/productions/:id', (req, res) => {
+  const id = req.params.id;
 
-  //const production = netflixData.find((production) => production.show_id === +id);
+  const production = netflixData.find((production) => production.show_id === +id);
 
-  //res.json(production)
-//});
+  res.json(production)
+});
 
 // Filter on release-year
 app.get('/release/:year', (req, res) => {
