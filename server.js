@@ -10,22 +10,14 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/', (res) => {
+app.get('/', (req, res) => {
 
-  res.send('Welcome to Book Reviews API')
+  res.send('Welcome to the Book Reviews [statistics] API')
 })
 
-app.get('/authors', (res) => {
+app.get('/authors', (req, res) => {
   const authors = booksData.map(item =>item.authors)
   const uniqueAuthors = [...new Set(authors)]
-  res.json(uniqueAuthors);
-})
-
-app.get('/authors/:author', (req, res) => {
-  const author = req.params.author
-  const booksByAuthor = booksData.filter(item => item.authors === author);
-  const authors = booksByAuthor.map(item => item.authors);
-  const uniqueAuthors = [...new Set(authors)];
 
   const searchedAuthor = req.query.author;
   const searchedAuthorObject = booksData.filter(item => item.authors.includes(searchedAuthor));
@@ -35,6 +27,14 @@ app.get('/authors/:author', (req, res) => {
   if (searchedAuthor) {
     res.json(uniqueSearchedAuthor)
   }
+  res.json(uniqueAuthors);
+})
+
+app.get('/authors/:author', (req, res, next) => {
+  const author = req.params.author
+  const booksByAuthor = booksData.filter(item => item.authors === author);
+  const authors = booksByAuthor.map(item => item.authors);
+  const uniqueAuthors = [...new Set(authors)];
 
   if (uniqueAuthors.length === 0) {
     const error = new Error("Author not found");
@@ -44,7 +44,7 @@ app.get('/authors/:author', (req, res) => {
   res.json(uniqueAuthors);
 })
 
-app.get('/authors/:author/books', (req, res) => {
+app.get('/authors/:author/books', (req, res, next) => {
   const author = req.params.author
   const booksByAuthor = booksData.filter(item => item.authors === author);
 
@@ -63,29 +63,29 @@ app.get('/authors/:author/books', (req, res) => {
   res.json(booksByAuthor);
 })
 
-app.get('/books', (req, res) => {
+app.get('/books', (req, res, next) => {
   res.json(booksData);
 })
 
-app.get('/books/:book', (req, res) => {
+app.get('/books/:book', (req, res, next) => {
   const bookId = parseInt(req.params.book);
-  const books = booksData.filter(item => item.bookID === bookId);
+  const filteredBookID = booksData.filter(item => item.bookID === bookId);
 
-  const searchedTitles = req.query.title;
-  const searchedTitlesList = booksData.filter(item => item.title.includes(searchedTitles));
-  if (searchedTitles) {
-    res.json(searchedTitlesList)
-  }
+  // const searchedTitles = req.query.title;
+  // const searchedTitlesList = booksData.filter(item => item.title.includes(searchedTitles));
+  // if (searchedTitles) {
+  //   res.json(searchedTitlesList)
+  // }
 
-  if (books.length === 0) {
+  if (filteredBookID === 0) {
     const error = new Error("Book not found");
     error.status = 404;
     throw error;
    }
-  res.json(books)
+  res.json(filteredBookID)
 })
 
-app.get('/books/:book/ratings' , (req, res) => {
+app.get('/books/:book/ratings' , (req, res, next) => {
   const bookId = parseInt(req.params.book);
   const books = booksData.filter(item => item.bookID === bookId);
   const bookRatings = books.map(item => [
@@ -112,7 +112,7 @@ app.use((next) => {
   next(error);
  });
 
- app.use((error, res) => {
+ app.use((error, req, res, next) => {
    res.status(error.status || 500).send({
     error: {
     status: error.status || 500,
