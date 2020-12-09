@@ -1,4 +1,4 @@
-import express from "express";
+import express, { request, response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -82,6 +82,11 @@ app.get("/books/author/:author", (request, response) => {
   response.json(filteredBooks);
 });
 
+//Dummy Endpoint
+app.get("books/isbn", (request, response) => {
+  //TODO: Include an endpoint for isbn search
+  response.send("Oops. Nothing to see here.")
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
