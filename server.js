@@ -31,14 +31,18 @@ app.get('/games',(request, response) => {
         "slug": game.slug,
         "background_image": game.background_image 
       };
-    })
+    }),
+  "total": data.results.length
   })
 })
 
 // Show all favourite games
 app.get('/favorites', (request, response) => {  
   const favorites = data.results.filter((game) => game.favorite)
-  response.json(favorites);
+  response.json({
+    "results": favorites,
+    "total": results.length
+  });
 })
 
 // Shows specific game 
