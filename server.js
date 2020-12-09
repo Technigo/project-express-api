@@ -17,20 +17,32 @@ app.get('/', (req, res) => {
   res.send("Hello world, welcome to Vanessa's Bookish API!")
 });
 
-// Books: path /books - narrow down the data to the first 50 books from the 
-// booksData object
+// Books: path /books - implemented pagination, each page will show 50 books
+// at a time (we have 500 books, so we have a max of 10 pages)
+// path example: /books?p=1
 app.get('/books', (req, res) => {
-  let fiftyBooks = booksData.slice(0, 50);
+  const postCount = booksData.length;
+  const perPage = 50;
+  // pageCount: counts amount of pages we end up with depending on our data's length
+  const pageCount = Math.ceil(postCount / perPage);
 
-  // Set a filter via query parameter - path: /books?reviewersChoice=true
-  // This query will show only books with more than 10,000 text reviews
-  const reviewersChoice = req.query.reviewersChoice;
+  // page: determines value for the p variable in query - path: /books?p=3
+  let page = parseInt(req.query.p);
+  if(page < 1) page = 1;
+  // page value can't go over pageCount (pageCount is max amount of pages we have)
+  if(page > pageCount) page = pageCount;
 
-  if (reviewersChoice) {
-    fiftyBooks = fiftyBooks.filter((item) => item.text_reviews_count > 10000);
-  };
+  // ex.: 44 - ((1 - 1) * 10) -1 = 43 (44 is count, 43 is index)
+  const from = postCount - ((page - 1) * perPage) - 1;
+  // ex.: 44 - (1 * 10) = 34
+  let to = postCount - (page * perPage);
+  if(to < 0) to = 0;
 
-  res.json(fiftyBooks);
+  res.json({
+    books: booksData.slice(to, from),
+    page,
+    pageCount
+  });
 });
 
 // Show books by a specific author - example path: /books/search?author=Dan&20Brown
@@ -63,6 +75,19 @@ app.get('/books/top-rated', (req, res) => {
   };
 
   res.json(firstTwentyTopBooks);
+});
+
+// Shows from the first 50 books in our data, which ones have more than 10,000 reviews
+// path: /books/reviews?choice=true
+app.get('/books/reviews', (req, res) => {
+  let fiftyBooks = booksData.slice(0, 50);
+  const choice = req.query.choice;
+
+  if (choice) {
+    fiftyBooks = fiftyBooks.filter((item) => item.text_reviews_count > 10000);
+  };
+
+  res.json(fiftyBooks);
 });
 
 // Show a single book based on the ID - example path: /books/book/7
