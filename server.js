@@ -32,14 +32,13 @@ app.get('/books', (req, res) => {
   // page value can't go over pageCount (pageCount is max amount of pages we have)
   if(page > pageCount) page = pageCount;
 
-  // ex.: 44 - ((1 - 1) * 10) -1 = 43 (44 is count, 43 is index)
-  const from = postCount - ((page - 1) * perPage) - 1;
-  // ex.: 44 - (1 * 10) = 34
-  let to = postCount - (page * perPage);
+  // Calcuates which items to show on the page (example from 0 to 50)
+  const from = perPage * (page - 1);
+  let to = page * perPage;
   if(to < 0) to = 0;
 
   res.json({
-    books: booksData.slice(to, from),
+    books: booksData.slice(from, to),
     page,
     pageCount
   });
