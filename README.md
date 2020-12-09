@@ -1,31 +1,31 @@
 # Express API Project 🚆
 
-For this project, I have used the book API dataset in the data file, and built my very first server using Node.js and Express.
+>For this project, I have used the book API dataset in the data file, and built my very first server using Node.js and Express.
 
 🌈Endpoints:
 
--Root: /
--Books: /books (shows first 50 books to prevent delayed response when API loading)
--Book ID: /books/id/(bookID number)
--Author(s): /books/author/(name)
+-Root: `/`
+-Books: `/books` (shows first 50 books to prevent delayed response when API loading)
+-Book ID: `/books/id/(bookID number)`
+-Author(s): `/books/author/(name)`
 
 *Filtering:*
 
-||By average ranking:
+* By average ranking:
 
-⚪️ High: /books?average_rating=high
-🔵 Low: /books?average_rating=low
+⚪️ High: `/books?average_rating=high`
+🔵 Low: `/books?average_rating=low`
 
-||By number of pages:
+* By number of pages:
 
-⚪️ High volume of pages: /books?num_pages=lots
-🔵 Fewer pages: /books?num_pages=few
+⚪️ High volume of pages: `/books?num_pages=lots`
+🔵 Fewer pages: `/books?num_pages=few`
 
-||By author:
-🧩 localhost:5000/books?author=author
+* By author:
+🧩 `/books?author=author`
 
-||By title:
-🧩 localhost:5000/books?title=title
+* By title:
+🧩 `/books?title=title`
 ## How I went about it
 
 First step to handling the API response was to filter to the first 50 books by using the .slice() method, in order to prevent delay in response. By using the .sort() method and creating functions, I have used the average rating and the number of pages to iterate through the array of books and display the ones that match the criteria. 
@@ -34,9 +34,9 @@ Next, I used the .filter() method and applied it similarily to filter both throu
 
 ## Tech
 
-✨JS
-✨Node.js
-✨Express
+* ✨JS
+* ✨Node.js
+* ✨Express
 ## View it live
 
 Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
