@@ -30,4 +30,6 @@ https://project-book-api.herokuapp.com/books?toprated=20 - lists top 20 best rat
 
 https://project-book-api.herokuapp.com/books?shortest=10 - lists 10 shortest books in ascending order, you can replace 10 with another numeric value
 
+https://project-book-api.herokuapp.com/books?author=abc&language=def - replace abc with author and def with language, see references on author and language above
+
 
