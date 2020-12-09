@@ -11,19 +11,19 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const myEndpoints = require('express-list-endpoints')
+const myEndpoints = require("express-list-endpoints");
 // Start defining your routes here
 app.get("/", (request, response) => {
   response.send(myEndpoints(app));
 });
 
-//Response to show top 50 books - http://localhost:5000/books
+//Show top 50 books - http://localhost:5000/books
 app.get("/books", (request, response) => {
-  let filteredBooks = booksData.slice(0,50);
+  let filteredBooks = booksData.slice(0, 50);
   const { author, title, average_rating, num_pages } = request.query;
 
-  //Show bookss by rating - http://localhost:5000/books?average_rating=high
-  //Show bookss by number of pages - http://localhost:5000/books?num_pages=lots
+  //Filter books by rating - http://localhost:5000/books?average_rating=high
+  //Filter books by number of pages - http://localhost:5000/books?num_pages=lots
   if (average_rating === "high") {
     filteredBooks = filteredBooks.sort(
       (x, y) => y.average_rating - x.average_rating
@@ -48,7 +48,7 @@ app.get("/books", (request, response) => {
     filteredBooks = filteredBooks.filter((item) =>
       item.authors.toString().toLowerCase().includes(author.toLowerCase())
     );
-  } 
+  }
 
   response.json(filteredBooks);
 });
@@ -69,18 +69,18 @@ app.get("/books/id/:bookID", (request, response) => {
 });
 
 //Show authors by bookAuthor - http://localhost:5000/books/author/name
-app.get("/books/author/:author", (request,response) => {
-  const bookAuthor = request.params.authors;
-  const chosenAuthor = booksData.filter((book) => book.authors.includes(bookAuthor))
+app.get("/books/author/:author", (request, response) => {
+  const bookAuthor = request.params.author;
+  let filteredBooks = booksData;
 
-  if(!chosenAuthor) {
-    response.send(
-      "No such author. Search someone else perhaps?"
-    );
+  if (bookAuthor) {
+    filteredBooks = filteredBooks.filter((book) => {
+      let thisAuthor = book.authors.toString().toLowerCase();
+      return thisAuthor.includes(bookAuthor);
+    });
   }
-
-  response.json(chosenAuthor)
-})
+  response.json(filteredBooks);
+});
 
 // Start the server
 app.listen(port, () => {
