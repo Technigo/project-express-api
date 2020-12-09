@@ -38,7 +38,7 @@ app.get('/curses', (req, res) => {
   }
 
   // display total nrs of items in array
-  const totalCurses = curseList.length - 1
+  const totalCurses = curseList.length
 
   // adding pagination using slice
   const page = req.query.page ?? 0 //otherwise 0 as default 
