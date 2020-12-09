@@ -16,7 +16,7 @@
 
 ## View it live
 
-*[VAPOUR API ROOT](https://express-vapour.herokuapp.com/)
-*[VAPOUR API Game library](https://express-vapour.herokuapp.com/games)
-*[VAPOUR API Favorites](https://express-vapour.herokuapp.com/favorites)
+* [VAPOUR API ROOT](https://express-vapour.herokuapp.com/)
+* [VAPOUR API Game library](https://express-vapour.herokuapp.com/games)
+* [VAPOUR API Favorites](https://express-vapour.herokuapp.com/favorites)
 
