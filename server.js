@@ -13,30 +13,71 @@ const ERROR_MSG = {
   error: 'no books found!'
 }
 
+const INPUT_ERROR = {
+  error: 'invalid input!'
+}
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
 //function for validating input
-const bookInputValidator = (book) => {
-    for (const property in book){
-      console.log(property, book[property])
+
+const bookDefinition = [
+  {
+    fieldName: "bookID",
+    fieldType: "number"
+  },
+  {
+    fieldName: "title",
+    fieldType: "string"
+  },
+  {
+    fieldName: "authors",
+    fieldType: "string"
+  },
+  {
+    fieldName: "average_rating",
+    fieldType: "number"
+  },
+  {
+    fieldName: "isbn",
+    fieldType: "number"
+  },
+  {
+    fieldName: "isbn13",
+    fieldType: "number"
+  },
+  {
+    fieldName: "language_code",
+    fieldType: "string"
+  },
+  {
+    fieldName: "num_pages",
+    fieldType: "number"
+  },
+  {
+    fieldName: "ratings_count",
+    fieldType: "number"
+  },
+  {
+    fieldName: "text_reviews_count",
+    fieldType: "number"
+  }
+]
+//Currently missing something, only returns undefined
+const validateBookInput = (bookDefinition, input) => {
+  const result = bookDefinition.map((property) => {
+    const test = input[property.fieldName]
+    return {
+      result: typeof test === property.fieldType,
+      fieldName: property.fieldName
     }
-    /* const fieldsOfNumbers = {bookdID, average_rating, isbn, isbn13, num_pages, ratings_count, text_reviews_count}
-  const fieldsOfStrings = {title, authors, language_code} */
-  /* if (typeof(fieldsOfNumbers) === 'number' && typeof(fieldsOfStrings) === 'string'){
-    console.log('valid input')
-  } console.log('invalid input') */
-  typeof(book.bookID) === 'number'? console.log('ID:', true): console.log('ID:', false)
-  typeof(book.title) === 'string'?console.log('title:',true):console.log('title:',false)
-  typeof(book.authors) === 'string'?console.log('author:',true):console.log('author:',false)
-  typeof(book.average_rating) === 'number'?console.log('rating:',true):console.log('rating:',false)
-  typeof(book.isbn) === 'number'?console.log('isbn:',true):console.log('isbn:',false)
-  typeof(book.isbn13) === 'number'?console.log('isbn13:',true):console.log('isbn13:',false)
-  typeof(book.language_code) === 'string'?console.log('lang:',true):console.log('lang:',false)
-  typeof(book.num_pages) === 'number'?console.log('pages:',true):console.log('pages:',false)
-  typeof(book.ratings_count) === 'number'?console.log('rating count:',true):console.log('rating count:',false)
-  typeof(book.text_reviews_count) === 'number'?console.log('reviews:',true):console.log('reviews:',false)
+  }) 
+  const invalids = result.filter((object) => !object.result)
+  if(invalids === 0){
+    return result
+  } return 'Invalid input'
 }
 
 // Start defining your routes here
@@ -49,26 +90,29 @@ app.get('/books', (req, res) => {
   const otherlanguages = req.query.otherlang
 
   let filteredBooks = booksData
-  if(language) {
+  if (language) {
     filteredBooks = booksData.filter((item) => item.language_code === language)
-  } else if (otherlanguages){
+  } else if (otherlanguages) {
     filteredBooks = booksData.filter((item) => item.language_code != language)
-  }res.json(filteredBooks)
+  } res.json(filteredBooks)
 })
 //res.status(404).json(ERROR_MSG)
 
 app.get('/books/:book', (req, res) => {
   const book = req.params.book
   const result = booksData.find((item) => item.bookID === +book)
-  if(!result) {
+  if (!result) {
     res.status(404).json(ERROR_MSG)
   }
   res.json(result)
 })
 
+//Currently not working properly due to function
 app.post('/books', (req, res) => {
   const input = req.body
-  bookInputValidator(input)
+  console.log(input)
+  const validationResult = validateBookInput(bookDefinition, input)
+  console.log(validationResult)
 })
 
 // Start the server
