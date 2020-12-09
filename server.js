@@ -71,6 +71,12 @@ app.get('/api/albums',(req,res) => {
   res.json(albums_paged);
 })
 
+//get the top 10 albums
+app.get('/api/albums/top10',(req,res) => {
+  const albums = albumData.slice(0,10);
+  res.json(albums);
+})
+
 //SINGLE ITEM
 //Get album based on placement on list using params
 app.get('/api/albums/placement/:placement',(req,res) => {
@@ -91,11 +97,6 @@ app.get('/api/albums/title/:title',(req,res) => {
   album ? res.json(album) : res.json(error);
 })
 
-//get the top 10 albums
-app.get('/api/albums/top10',(req,res) => {
-  const albums = albumData.slice(0,10);
-  res.json(albums);
-})
 
 // Start the server
 app.listen(port, () => {
