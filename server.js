@@ -24,6 +24,15 @@ app.get('/books', (request, response) => {
   const toprated = request.query.toprated
   const shortest = request.query.shortest
 
+  if (author && language) { // not working
+    const filteredBooksOnAuthorAndLanguage = booksData.filter(item => item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase()) && item.language_code === language)
+    if (filteredBooksOnAuthorAndLanguage.length > 0) {
+      return response.json(filteredBooksOnAuthorAndLanguage)
+    } else {
+      return response.status(404).json({ "error": "No such combination" })
+    }
+  }
+
   if (language) {
     const filteredBooksOnLanguage = booksData.filter(item => item.language_code === language)
     if (filteredBooksOnLanguage.length > 0) {
@@ -70,15 +79,6 @@ app.get('/books', (request, response) => {
       const sortedBooksOnPages = filteredBooksOnPages.sort(function (a, b) { return a.num_pages - b.num_pages })
       const shortestBooks = sortedBooksOnPages.slice(0, shortest)
       return response.json(shortestBooks)
-    }
-  }
-
-  if (author && language) {
-    const filteredBooksOnAuthorAndLanguage = booksData.filter(item => item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase()) && item.language_code === language)
-    if (filteredBooksOnAuthorAndLanguage.length > 0) {
-      return response.json(filteredBooksOnAuthorAndLanguage)
-    } else {
-      return response.status(404).json({ "error": "No such combination" })
     }
   }
 
