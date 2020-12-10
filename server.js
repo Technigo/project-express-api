@@ -10,6 +10,8 @@ import cors from "cors";
 // import booksData from "./data/books.json";
 import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
+// import spotifyData from "./data/spotify.json";
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -18,61 +20,90 @@ import netflixData from "./data/netflix-titles.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
+// error message
+const ERROR_SHOWS_NOT_FOUND = { error: "No show matched your request" };
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Welcome to the Netflixdata API");
 });
 
 // This route will return a collection of shows
 app.get("/shows", (req, res) => {
-  const shows = netflixData;
-  res.json(shows);
+  res.json(netflixData);
 });
 
-// This route will return a single show
+// This route will return a single show based on id
 app.get("/shows/:id", (req, res) => {
   const id = req.params.id;
-  const show = netflixData.find((item) => item.show_id === +id);
+  const show = netflixData.find(
+    (item) => item.show_id === +id
+  );
   if (!show) {
-    res.send("Unknown id");
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
   } else {
     res.json(show);
   }
 });
 
-// This route will return a collection of shows with a certain type (Movie or TV Show)
-app.get("/type/:type", (req, res) => {
-  const type = req.params.type;
-  const showsOfType = netflixData.filter((item) => item.type === type);
-  if (showsOfType.length === 0) {
-    res.send("Unknown type, choose between Movie or TV Show");
+// This route will return a collection of shows with the specified word in title
+app.get("/shows/titles/:title", (req, res) => {
+  const { title } = req.params;
+  const filteredShows = netflixData.filter(
+    (item) => item.title && item.title.toString().includes(title)
+  );
+  if (filteredShows.length === 0) {
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
   } else {
-    res.json(showsOfType);
+    res.json(filteredShows);
   }
-})
+});
 
-// This route will return a collection of shows released a certain year
-// It can even been filtered by type (Movie or TV Show).
-app.get("/year/:year", (req, res) => {
-  const year = req.params.year;
-  const showType = req.query.type;
-  let showsFromYear = netflixData.filter((item) => item.release_year === +year);
+// This route will return a collection of shows released the specified year in the specified country
+app.get("/shows/years/:year/countries/:country", (req, res) => {
+  const { year, country } = req.params;
 
-  if (showsFromYear.length === 0) {
-    res.send("No entry for this year, choose another one");
-  } else if (showType === "movie") {
-    showsFromYear = showsFromYear.filter((item) => item.type === "Movie");
-    console.log("Movie is true");
-  } else if (showType === "tv") {
-    showsFromYear = showsFromYear.filter((item) => item.type === "TV Show");
-    console.log("TV is true");
+  let filteredShows = netflixData;
+
+  filteredShows = filteredShows.filter(
+    (item) => item.release_year === +year
+  );
+  filteredShows = filteredShows.filter(
+    (item) => item.country === country
+  );
+  if (filteredShows.length === 0) {
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  } else {
+    res.json(filteredShows);
   }
+});
 
-  res.json(showsFromYear);
+
+// This route will return a collection of shows of the specified type and matching different query searches (year and country)
+app.get("/shows/types/:type", (req, res) => {
+  const { type } = req.params;
+  const { year, country } = req.query;
+
+  let filteredShows = netflixData;
+
+  filteredShows = filteredShows.filter(
+    (item) => item.release_year === +year
+  );
+  filteredShows = filteredShows.filter(
+    (item) => item.country === country
+  );
+  filteredShows = filteredShows.filter(
+    (item) => item.type === type
+  );
+  if (filteredShows.length === 0) {
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  } else {
+    res.json(filteredShows);
+  }
 });
 
 // Start the server
