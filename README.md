@@ -11,7 +11,7 @@ Available endpoints:
 ## Learning Objectives
 
 - How to install and set up Express server
-- How to create rotes
+- How to create routes
 - Practice data manipulation in JavaScript - filtering and limiting arrays
 - How to deploy Node projects
 
