@@ -53,14 +53,34 @@ app.get('/books', (req, res) => {
     );
   }
 
+  // Add pagination by using slice
+  const page = req.query.page ? req.query.page - 1 : 0; //otherwise 0 as default
+  const pageSize = req.query.pageSize ?? 30; //otherwise 30 as default
+
+  console.log(page);
+
+  // Calculate start index
+  const startIndex = page * pageSize;
+
+  // Calculate and bound the end index
+  const endIndex = startIndex + +pageSize;
+
+  console.log(startIndex + '--' + endIndex);
+
+  const booksListPerPage = booksList.slice(startIndex, endIndex);
   const returnObject = {
     totalNumberOfBooks: totalNumberOfBooks,
+    totalNumberOfPages: Math.ceil(booksList.length / pageSize), // Round a number upward to its nearest integer
+    currentPage: page + 1,
+    pageSize: pageSize,
+    startIndex: startIndex,
+    endIndex: endIndex,
     numberOfBooks: booksList.length,
-    results: booksList
+    results: booksListPerPage
   };
 
   // If the result is zero, status set to 404 and returning a useful data in the response
-  if (booksList.length === 0) {
+  if (booksListPerPage.length === 0) {
     res.status(404).send({
       error: 'Sorry, no books where found, please try a different query.'
     });
