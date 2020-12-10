@@ -18,10 +18,6 @@ app.get('/', (req, res) => {
   res.send('Welcome to TED-talks by Karin');
 });
 
-app.get('/endpoints', (req, res) => {
-  res.send(listEndpoints(app));
-});
-
 // ALL TALKS
 app.get('/talks/', (req, res) => {
   // FILTERED BY SPEAKER  ---------------------------------------------------------
@@ -65,13 +61,13 @@ app.get('/talks/', (req, res) => {
       // Filter talks by checking whether the category/categories that the user wrote
       // is present in the talk or not, return only those in which it is
       const multipleCategories = data.filter((item) => {
-        const booleanArray = categories.map((category) => {
+        const includesCategory = categories.map((category) => {
           if (item.tags.includes(category)) {
             return true;
           }
           return false;
         });
-        if (!booleanArray.includes(false)) {
+        if (!includesCategory.includes(false)) {
           return true;
         }
       });
@@ -142,6 +138,22 @@ app.get('/events', (req, res) => {
   } else {
     res.json(allEventsSet);
   }
+});
+
+// ALL CATEGORIES ---------------------------------------------------------
+app.get('/categories', (req, res) => {
+  const allCategories = data.map((talk) => talk.tags);
+
+  if (allCategories.length === 0) {
+    res.status(404).send(`Sorry, couldn't find any events. Try again!`);
+  } else {
+    res.json(allCategories);
+  }
+});
+
+// ENDPOINTS ---------------------------------------------------------
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app));
 });
 
 // Start the server
