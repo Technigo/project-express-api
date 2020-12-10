@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
 
 // INITIAL RESULT = ALL TALKS
 app.get('/talks/', (req, res) => {
-  !req && res.json(data);
-
   // TALKS BY SPEAKER
   if (req.query.speaker) {
     const speaker = req.query.speaker;
@@ -30,10 +28,8 @@ app.get('/talks/', (req, res) => {
       talk.main_speaker.includes(speaker)
     );
     res.json(filteredBySpeaker);
-  }
-
-  // TALKS BY ONE OR MORE CATEGORIES
-  if (req.query.category) {
+  } else if (req.query.category) {
+    // TALKS BY ONE OR MORE CATEGORIES
     // If there is one category in the query
     if (typeof req.query.category === 'string') {
       const category = req.query.category;
@@ -60,13 +56,13 @@ app.get('/talks/', (req, res) => {
       });
       res.json(multipleCategories);
     }
-  }
-
-  // TALKS  BY EVENT
-  if (req.query.event) {
+  } else if (req.query.event) {
+    // TALKS  BY EVENT
     const event = req.query.event;
     const filteredByEvent = data.filter((talk) => talk.event === event);
     res.json(filteredByEvent);
+  } else {
+    res.json(data);
   }
 });
 
