@@ -1,30 +1,49 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
+// Defines the port the app will run on (default is 8080)
+const port = process.env.PORT || 4040
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Endpoints/route that return a collection of results
+app.get('/', (request, response) => {
+  response.send('Welcome to my book API')
+})
+
+// Endpoint/route that return the first 200 books in the data 
+app.get('/books', (request, response) => {
+  const firstBooks = booksData.slice(0, 200)
+  response.json(firstBooks)
+})
+
+// Endpoint/route that return a single book based on the ID
+app.get('/books/id/:id', (request, response) => {
+  const id = request.params.id
+  const specificBook = booksData.find((specificBook) => specificBook.bookID === +id)
+    
+    response.json(specificBook)
+})
+
+// Endpoint/route that return a specific author
+app.get('/books/authors/:author', (request, response) => {
+  const author = request.params.author
+  const filteredAuthors = booksData.filter((item) => item.authors.includes(author))
+    
+    response.json(filteredAuthors)
+})
+
+// Endpoint/route that return the top ten books with a rating over 4
+app.get('books/top-ten', (request, response) => {
+  const sortedOnRating = booksData.filter((item) => item.average_rating >= 4)
+  let topTenBooks = sortedOnRating.slice(0,10)
+
+    response.json(topTenBooks)
 })
 
 // Start the server
