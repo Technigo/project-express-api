@@ -23,20 +23,23 @@ app.get("/", (request, response) => {
   response.send(endPoints(app));
 });
 
+// Function to build a smaller object fromn the original game object
+
+const shortGame = (game) => { 
+  return {
+    "name": game.name, 
+    "slug": game.slug,
+    "background_image": game.background_image
+  };
+};
+
 // Show data = Games Library 
 app.get('/games',(request, response) => { 
   response.json({
-    "results": data.results.map((game) => {
-      return {
-        "name": game.name, 
-        "slug": game.slug,
-        "background_image": game.background_image 
-      };
-    }),
-  "total": data.results.length
-  })
-
-})
+    "results": data.results.map(shortGame),
+    "total": data.results.length
+  });
+});
 
 // Show all favourite games
 app.get('/favorites', (request, response) => {  
@@ -45,7 +48,7 @@ app.get('/favorites', (request, response) => {
     "results": favorites,
     "total": favorites.length
   });
-})
+});
 
 // Shows specific game 
 app.get('/games/:slug', (request, response) => {
