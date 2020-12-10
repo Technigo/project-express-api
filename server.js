@@ -13,6 +13,10 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+app.get('/', (req, res) => {
+  res.send("hejsan och välkommen")
+})
+
 
 app.get('/books', (req, res) => {
   res.send(booksData)
