@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // Routes start here:
 // Home: path /
 app.get('/', (req, res) => {
-  res.send("Hello world, welcome to Vanessa's Bookish API!")
+  res.send("Hello world, welcome to Vanessa's Bookish API! - See this API live at: https://vane-bookish-app.netlify.app/")
 });
 
 // Books: path /books - implemented pagination, each page will show 50 books
