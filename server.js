@@ -27,7 +27,7 @@ app.get('/books/:id', (req, res) => {
 })
 
 //search for books by author
-app.get('books/authors/:author', (req, res) => {
+app.get('/books/authors/:author', (req, res) => {
   const { author } = req.params
   const filterByAuthor = booksData.filter((book) => {
     const lowercaseAuthors = book.authors.toLowerCase()
@@ -42,7 +42,7 @@ app.get('books/authors/:author', (req, res) => {
 })
 
 //search for books by title
-app.get('books/titles/:title', (req, res) => {
+app.get('/books/titles/:title', (req, res) => {
   const { title } = req.params
   const filterByTitle = booksData.filter((book) => {
     const titleString = String(book.title)
