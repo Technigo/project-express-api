@@ -13,9 +13,10 @@ For this project we were tasked to create a number of RESTful api endpoints usin
 5. Created error message if the data entered to the end point wasn't a match. Implemented this using if statement in my endpoints. 
 6. I ended up creating two endpoints, one which returns the whole array of data with four queries (author, title, language and average rating) and also an endpoint that returns a single result using the id. Each array element has a bookID. 
 If I was to create a frontend I could create a search field where the user can enter an author, title, language or average rating and they will get a specific response or maybe different buttons that filter on language. This is still something I would need to consider.
-7. Added the documentation to the "homepage" of the api url where the person using the api can understand better how to use the different endpoints.
+7. Added the documentation to it's own path so when someone is using the API they can understand better how to use the different endpoints.
 8. Finally I deployed server.js to heroku.com which was super fun and easy! 
 
 ## Check out my deployed API 💥
-This url will take you to the documentation. After that it's just a case of choosing which endpoint you want to use!
 https://books-deployment.herokuapp.com/
+
+This url will take you to the documentation. After that it's just a case of choosing which endpoint you want to use! https://books-deployment.herokuapp.com/documentation 
