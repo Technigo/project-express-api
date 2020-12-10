@@ -1,13 +1,25 @@
-# Express API Project
+# Dokumentation of the Golden Globe film nominations in my technigo Golden Globe API
 
-Replace this readme with your own information about your project. 
+Get all the nominated films   /nominations
+https://golden-globes-technigo.herokuapp.com/nominations
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Get all the nominated films per    /year/2010
+https://golden-globes-technigo.herokuapp.com/year/2010
 
-## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Get all the nominated films 2010 that won    /year/2010?won=true
+https://golden-globes-technigo.herokuapp.com/year/2010?won=true
 
-## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## The challange and the techniques
+Install and setup an Express server
+API using Express.
+Create routes and RESTful endpoints which return an array of data
+Deploy Node project
+Usage of Herokuapp
+Postman 
+
+
+
+## View it live:
+https://golden-globes-technigo.herokuapp.com/nominations
