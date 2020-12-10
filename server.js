@@ -100,7 +100,8 @@ const documentation = {
   "Endpoint 1 with average rating query": "https://books-deployment.herokuapp.com/books/search?averagerating=4 - Use this endpoint to return books with a specific average rating",
   "Endpoint 2": "https://books-deployment.herokuapp.com/books/:id - Use this endpoint to return books with a specific id and replace :id with a number",
 }
-
+ 
+// Path for my api documentation to be found which is the homepage of the url
 app.get('/', (request, response) => {
   response.json(documentation);
 });
