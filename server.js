@@ -1,20 +1,9 @@
-import express from 'express'
+import express, { request, response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,8 +12,45 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+app.get('/', (request, response) => {
+  response.send(`Hello, Welcome to Sandra's API for books`)
+})
+
+app.get('/books', (request, response) => {
+  const { title, author } = request.query
+  let filteredBooks = booksData
+  if (title) {
+    filteredBooks = filteredBooks.filter((book) => book.title.toString().includes(title))
+  }
+  if (author) {
+    filteredBooks = filteredBooks.filter((book) => book.authors.includes(author))
+  }
+  response.json(filteredBooks)
+})
+
+app.get('/books/:id', (request, response) => {
+  const { id } = request.params
+  const book = booksData.find((book) => book.bookID === +id)
+  if (book) {
+    response.json(book)
+  } else {
+    response.status(404).send({
+      message: 'This is an error!. No ID with that number!!!'
+    })
+  }
+})
+
+// Dummy endpoints
+app.get('/authors/:authorName/books', (request, response) => {
+  response.send()
+})
+
+app.get('/books/:id/authors', (request, response) => {
+  response.send()
+})
+
+app.get('/books/language/:language', (request, response) => {
+  response.send()
 })
 
 // Start the server

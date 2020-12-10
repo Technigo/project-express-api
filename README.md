@@ -1,13 +1,7 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is about working with backend and creating an API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+To create this API I had to work with NodeJs and express. I learned how to create API endpoints and how to return proper responses. When I got stucked with ideas or soultions I used Google and StackOverflow.
