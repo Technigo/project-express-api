@@ -16,31 +16,51 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello wo00000rld");
+  res.send("Hello w0rld");
 });
 
 // Books
 
 app.get("/books", (req, res) => {
-  const { author } = req.query;
+  const { author, title, rating } = req.query;
 
   let filteredBooks = booksData;
 
+  // Filter
+
   if (author) {
     filteredBooks = filteredBooks.filter((book) =>
-      book.authors.includes(author)
+      book.authors.toLowerCase().includes(author)
+    );
+  }
+
+  if (title) {
+    filteredBooks = filteredBooks.filter((book) =>
+      book.title.toString().toLowerCase().includes(title)
+    );
+  }
+
+  if (rating) {
+    filteredBooks = filteredBooks.filter(
+      (book) => Math.floor(book.average_rating) === +rating
     );
   }
 
   res.json(filteredBooks);
 });
 
+// Id
+
 app.get("/books/:id", (req, res) => {
   const id = req.params.id;
   const bookId = booksData.find((book) => book.bookID === +id);
 
-  res.json(bookId);
+  if (bookId) res.json(bookId);
+  else res.status(404).json({ message: `Id ${id} not found` });
 });
+
+//   res.json(bookId);
+// });
 
 // Start the server
 app.listen(port, () => {
