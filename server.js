@@ -15,51 +15,82 @@ app.use(bodyParser.json());
 
 // ALL TASKS
 app.get('/', (req, res) => {
-  res.json(data);
+  // res.json(data);
+  // TODO: Add a list of all endpoints here
+});
+
+// INITIAL RESULT = ALL TALKS
+app.get('/talks/', (req, res) => {
+  !req && res.json(data);
+
+  // TALKS BY SPEAKER
+  if (req.query.speaker) {
+    const speaker = req.query.speaker;
+    const filteredBySpeaker = data.filter((talk) =>
+      talk.main_speaker.includes(speaker)
+    );
+    res.json(filteredBySpeaker);
+  }
+
+  // TALKS BY ONE OR MORE CATEGORIES
+  if (req.query.category) {
+    // If there is one category in the query
+    if (typeof req.query.category === 'string') {
+      const category = req.query.category;
+      const filteredByCategory = data.filter((talk) =>
+        talk.tags.includes(category)
+      );
+      res.json(filteredByCategory);
+    } else {
+      // If there are multiple categories in the query
+      const categories = req.query.category;
+
+      // Filter talks by checking whether the category/categories that the user wrote
+      // is present in the talk or not, return only those in which it is
+      const multipleCategories = data.filter((item) => {
+        const booleanArray = categories.map((category) => {
+          if (item.tags.includes(category)) {
+            return true;
+          }
+          return false;
+        });
+        if (!booleanArray.includes(false)) {
+          return true;
+        }
+      });
+      res.json(multipleCategories);
+    }
+  }
+
+  // TALKS  BY EVENT
+  if (req.query.event) {
+    const event = req.query.event;
+    const filteredByEvent = data.filter((talk) => talk.event === event);
+    res.json(filteredByEvent);
+  }
 });
 
 // SINGLE TALK
-app.get('/talks/:slug', (req, res) => {
-  const slug = req.params.slug;
-  const url = `https://www.ted.com/talks/${slug}`;
-  const filteredByUrl = data.filter((talk) => talk.url === url);
-  res.json(filteredByUrl);
+app.get('/talks/:id', (req, res) => {
+  const id = req.params.id;
+  const filteredById = data.filter((talk) => talk.id === id);
+  res.json(filteredById);
 });
 
-// SPEAKER
-app.get('/speakers/', (req, res) => {
-  const speaker = req.query.speaker;
-  const filteredBySpeaker = data.filter((talk) =>
-    talk.main_speaker.includes(speaker)
-  );
-  res.json(filteredBySpeaker);
+// SPEAKERS
+app.get('/speakers', (req, res) => {
+  const allSpeakers = data.map((talk) => talk.main_speaker);
+  // New set to remove all dublicates
+  const allSpeakersSet = Array.from(new Set(allSpeakers)).sort();
+  res.json(allSpeakersSet);
 });
 
-// YEARLY EVENT
-app.get('/events/:year', (req, res) => {
-  const year = req.params.year;
-  const filteredByYearOfEvent = data.filter(
-    (talk) => talk.event === `TED${year}`
-  );
-  res.json(filteredByYearOfEvent);
-});
-
-// CATEGORY
-app.get('/categories/', (req, res) => {
-  if (typeof req.query.category === 'string') {
-    const category = req.query.category;
-    const filteredByCategory = data.filter((talk) =>
-      talk.tags.includes(category)
-    );
-    res.json(filteredByCategory);
-  } else {
-    const categories = req.query.category;
-
-    const filteredByMultipleCategories = categories.map((category) =>
-      data.filter((talk) => talk.tags.includes(category))
-    );
-    res.json(filteredByMultipleCategories);
-  }
+// EVENTS
+app.get('/events', (req, res) => {
+  const allEvents = data.map((talk) => talk.event);
+  // New set to remove all dublicates
+  const allEventsSet = Array.from(new Set(allEvents)).sort();
+  res.json(allEventsSet);
 });
 
 // Start the server
