@@ -25,10 +25,12 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
+
+//why can´t I write localhost:8080 and se my data?
 app.get('/', (req, res) => {
   res.send(data)
 })
-
+//why can´t i change "relese"
 app.get('/releases', (req, res) => {
   res.json(data)
 })
@@ -36,6 +38,7 @@ app.get('/releases', (req, res) => {
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
   const releaseYear = data.filter((item) => item.release_year === +year)
+  //why doesn not the error work?
   if(releaseYear.length === 0){
     res.status(404).json(ERROR_NOT_FOUND)
   }else {
@@ -43,8 +46,8 @@ app.get('/year/:year', (req, res) => {
   }
 })
 
-
-app.get('/types/:type', (req, res) => {
+//why does this not work as it does above?
+app.get('/type/:type', (req, res) => {
   const type = req.params.type
   const movieOrSeries = data.filter(item => item.type === type)
   res.json(movieOrSeries)
