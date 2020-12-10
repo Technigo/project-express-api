@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 // request is incoming an res is outgoing
-// experimented with listEndpoints to list all routes
+// used listEndpoints to list all routes
 
 const ERROR_MESSAGE = 'No such book found'
 
@@ -25,14 +25,23 @@ app.get('/', (req, res) => {
 //returning all books. query params added.
 //to String is needed since item.title is an object.
 app.get('/books', (req, res) => {
-  const { title, author } = req.query
+  const { title, author, languageCode, rating } = req.query
   let filteredBooks = booksData
 
   if (title) {
-    filteredBooks = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toLowerCase())) 
+    filteredBooks = filterArray(title, 'title')
   } 
   if (author) {
-    filteredBooks = booksData.filter(item => item.authors.toString().toLowerCase().includes(author.toLowerCase()))
+    filteredBooks = filterArray(author, 'authors')
+  }
+  if (languageCode) {
+    filteredBooks = filterArray(languageCode, 'language_code')
+  }
+  if (rating === 'high') {
+    filteredBooks = booksData.sort((a,b) => b.average_rating-a.average_rating)
+  }
+  if (rating === 'low') {
+    filteredBooks = booksData.sort((a,b) => a.average_rating-b.average_rating)
   }
 
   if (filteredBooks.length > 0) {
@@ -42,15 +51,11 @@ app.get('/books', (req, res) => {
   }
 })
 
-/*const test = ( author, authors) => {
-    return filteredBooks = booksData.filter(item => item.authors.toString().toLowerCase().includes(author.toLowerCase())) 
-}*/
-
-//returning a single book
+//returning a single book by id
 // using find instead of filter since I only want one result
-app.get('/books/:id', (req, res) => {
+app.get('/books/book/:id', (req, res) => {
   const { id } = req.params
-  const book = booksData.find((item) => item.bookID === +id)
+  const book = findUniqueItem(id, 'bookID')
 
   if (book) {
     res.json(book)
@@ -59,11 +64,10 @@ app.get('/books/:id', (req, res) => {
   }
 })
 
-//returning a single book
-/*QUESTION--> this function does the exact same thing as the one above but with different values. can I add other params in here and invoke the function with the values instead? */
+//returning a single book by isbn
 app.get('/books/isbn/:isbn', (req, res) => {
   const { isbn } = req.params
-  const book = booksData.find((item) => item.isbn === +isbn)
+  const book = findUniqueItem(isbn, 'isbn')
 
   if (book) {
     res.json(book)
@@ -71,14 +75,16 @@ app.get('/books/isbn/:isbn', (req, res) => {
     res.status(404).json({ message: ERROR_MESSAGE })
   }
 })
-//use this as a query param instead
-app.get('/books/rating/:high', (req, res) => {
-  const { high } = req.params
-  const highRating = booksData.sort((a,b) => b.average_rating-a.average_rating)
-  res.json(highRating)
-})
 
-/*const sortedBooksOnRating = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })*/
+//function to filter array
+const filterArray = ( valuteToFilter, propertyToFilter ) => {
+  return booksData.filter(item => item[propertyToFilter].toString().toLowerCase().includes(valuteToFilter.toLowerCase())) 
+}
+
+//function for finding Item in array
+const findUniqueItem = (valuteToFind, propertyToFind) => {
+  return booksData.find((item) => item[propertyToFind] === +valuteToFind)
+}
 
 // Start the server
 app.listen(port, () => {
