@@ -1,13 +1,18 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+### This project was built during the Technigo front-end developer bootcamp, Fall 2020
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Using Express, a RESTful API is created. The API has 3 endpoints, returning an array of data or one single item.
 
-## The problem
+## The Data
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The data comes from my personal  <a href="https://idsintehittapa.github.io/profanity_project/">profanity project</a>. Also, <a href="https://github.com/idsintehittapa/data-i-guess">on my github</a>
+
+## Tech used
+* Express
+* Swagger (open API for documentation)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+**Please note, the API contains strong language**
+<a href="https://profanity-dictionary.herokuapp.com">Access the API here</a>

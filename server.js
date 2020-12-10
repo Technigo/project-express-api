@@ -6,6 +6,9 @@ import cors from 'cors'
 import profanityDictionary from './data/profanity-dictionary.json'
 import profanityCategories from './data/profanity-dictionary-categories.json'
 
+//import doc
+import documentation from './documentation/idsintehittapa-profanity-dictionary-1.0.0-resolved.json'
+
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080
 const app = express()
@@ -14,11 +17,9 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-const myEndpoints = require('express-list-endpoints')
-
-// homepage router?
+// homepage
 app.get('/', (req, res) => {
-  res.send(myEndpoints(app))
+  res.send({documentation})
 })
 
 
@@ -52,12 +53,6 @@ app.get('/curses', (req, res) => {
   const cursesPerPage = curseList.slice(startIndex, endIndex)
   const returnObject = { totalNumCurses: totalCurses, startIndex: startIndex, endIndex: endIndex, numCurses: cursesPerPage.length, cursesPerPage}
 
-  // check this
-  // if (cursesPerPage.length === 0) {
-  //   res
-  //   .status(404)
-  //   .send({ error: 'Sorry, no curses found, please try a different query' })
-  // } 
   res.json(returnObject)
 })
 
@@ -78,8 +73,6 @@ app.get('/curses/:id', (req, res) => {
 app.get('/categories', (req, res) => {
   res.json(profanityCategories)
 })
-
-// red level dummy thing - SEARCH?
 
 // // Start the server
 app.listen(port, () => {

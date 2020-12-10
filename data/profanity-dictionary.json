@@ -673,6 +673,46 @@
   },
   {
     "id": 85,
+    "word/phrase": "Foda-se",
+    "literal_english_translation": "Fuck",
+    "category_id": 4,
+    "category": "Sex and the Human body",
+    "language": "Portuguese"
+  },
+  {
+    "id": 86,
+    "word/phrase": "Puta",
+    "literal_english_translation": "Whore",
+    "category_id": 1,
+    "category": "Female",
+    "language": "Portuguese"
+  },
+  {
+    "id": 87,
+    "word/phrase": "Cona",
+    "literal_english_translation": "Cunt",
+    "category_id": 1,
+    "category": "Female",
+    "language": "Portuguese"
+  },
+  {
+    "id": 88,
+    "word/phrase": "Vai pra cona da tua mãe",
+    "literal_english_translation": "Go to your mother's cunt",
+    "category_id": 1,
+    "category": "Female",
+    "language": "Portuguese"
+  },
+  {
+    "id": 89,
+    "word/phrase": "Merda",
+    "literal_english_translation": "Shit",
+    "category_id": 3,
+    "category": "Poop",
+    "language": "Portuguese"
+  },
+  {
+    "id": 90,
     "word/phrase": "Monte de Merda",
     "literal_english_translation": "Piece of Shit",
     "category_id": 3,
@@ -680,7 +720,7 @@
     "language": "Portuguese"
   },
   {
-    "id": 86,
+    "id": 91,
     "word/phrase": "Caralho",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -688,7 +728,23 @@
     "language": "Portuguese"
   },
   {
-    "id": 87,
+    "id": 92,
+    "word/phrase": "Colhão",
+    "literal_english_translation": "Cock",
+    "category_id": 2,
+    "category": "Male",
+    "language": "Portuguese"
+  },
+  {
+    "id": 93,
+    "word/phrase": "Paneleiro",
+    "literal_english_translation": "Fag",
+    "category_id": 2,
+    "category": "Male",
+    "language": "Portuguese"
+  },
+  {
+    "id": 94,
     "word/phrase": "Vai Para o Caralho",
     "literal_english_translation": "Go Fuck Yourself",
     "category_id": 4,
@@ -696,7 +752,7 @@
     "language": "Portuguese"
   },
   {
-    "id": 88,
+    "id": 95,
     "word/phrase": "Rego Do Cu",
     "literal_english_translation": "Ass Crack",
     "category_id": 4,
@@ -704,7 +760,7 @@
     "language": "Portuguese"
   },
   {
-    "id": 89,
+    "id": 96,
     "word/phrase": "Puta Que Pariu",
     "literal_english_translation": "Holy Shit",
     "category_id": 3,
@@ -712,7 +768,7 @@
     "language": "Portuguese"
   },
   {
-    "id": 90,
+    "id": 97,
     "word/phrase": "Chupa-mos",
     "literal_english_translation": "Suck it",
     "category_id": 4,
@@ -720,7 +776,7 @@
     "language": "Portuguese"
   },
   {
-    "id": 91,
+    "id": 98,
     "word/phrase": "Xуй (Khui)",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -728,7 +784,7 @@
     "language": "Russian"
   },
   {
-    "id": 92,
+    "id": 99,
     "word/phrase": "Хуй тебе́ (Khui tebé)",
     "literal_english_translation": "Fuck You",
     "category_id": 4,
@@ -736,7 +792,7 @@
     "language": "Russian"
   },
   {
-    "id": 93,
+    "id": 100,
     "word/phrase": "Cучка (Suchka)",
     "literal_english_translation": "Little Bitch",
     "category_id": 1,
@@ -744,7 +800,7 @@
     "language": "Russian"
   },
   {
-    "id": 94,
+    "id": 101,
     "word/phrase": "Oбосра́ться (Obosrat'sya)",
     "literal_english_translation": "Crapping One’s Pants",
     "category_id": 3,
@@ -752,7 +808,7 @@
     "language": "Russian"
   },
   {
-    "id": 95,
+    "id": 102,
     "word/phrase": "блядь (blyad')",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -760,7 +816,7 @@
     "language": "Russian"
   },
   {
-    "id": 96,
+    "id": 103,
     "word/phrase": "Pizda",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -768,7 +824,7 @@
     "language": "Russian"
   },
   {
-    "id": 97,
+    "id": 104,
     "word/phrase": "Lokh",
     "literal_english_translation": "Not a man, a loser",
     "category_id": 5,
@@ -776,7 +832,7 @@
     "language": "Russian"
   },
   {
-    "id": 98,
+    "id": 105,
     "word/phrase": "Kozel",
     "literal_english_translation": "Goat",
     "category_id": 7,
@@ -784,7 +840,7 @@
     "language": "Russian"
   },
   {
-    "id": 99,
+    "id": 106,
     "word/phrase": "Khren",
     "literal_english_translation": "Horse radish",
     "category_id": 8,
@@ -792,7 +848,7 @@
     "language": "Russian"
   },
   {
-    "id": 100,
+    "id": 107,
     "word/phrase": "Хуесос",
     "literal_english_translation": "Suck my dick",
     "category_id": 2,
@@ -800,7 +856,7 @@
     "language": "Russian"
   },
   {
-    "id": 101,
+    "id": 108,
     "word/phrase": "王八蛋 (wáng bā dàn)",
     "literal_english_translation": "Tortoise egg",
     "category_id": 7,
@@ -808,7 +864,7 @@
     "language": "Chinese"
   },
   {
-    "id": 102,
+    "id": 109,
     "word/phrase": "混蛋 (Hún dàn)",
     "literal_english_translation": "Mixed egg",
     "category_id": 7,
@@ -816,7 +872,7 @@
     "language": "Chinese"
   },
   {
-    "id": 103,
+    "id": 110,
     "word/phrase": "狗日 (gǒu rì)",
     "literal_english_translation": "Dog fucks",
     "category_id": 7,
@@ -824,7 +880,7 @@
     "language": "Chinese"
   },
   {
-    "id": 104,
+    "id": 111,
     "word/phrase": "操 (cào)",
     "literal_english_translation": "Fuck You",
     "category_id": 4,
@@ -832,7 +888,7 @@
     "language": "Chinese"
   },
   {
-    "id": 105,
+    "id": 112,
     "word/phrase": "禽兽 (qín shòu)",
     "literal_english_translation": "Beast",
     "category_id": 7,
@@ -840,7 +896,7 @@
     "language": "Chinese"
   },
   {
-    "id": 106,
+    "id": 113,
     "word/phrase": "我靠 or 我尻 (wǒ kào)",
     "literal_english_translation": "Holy Shit",
     "category_id": 3,
@@ -848,7 +904,7 @@
     "language": "Chinese"
   },
   {
-    "id": 107,
+    "id": 114,
     "word/phrase": "操你妈 (cào nǐ mā)",
     "literal_english_translation": "Fuck your mother",
     "category_id": 1,
@@ -856,7 +912,7 @@
     "language": "Chinese"
   },
   {
-    "id": 108,
+    "id": 115,
     "word/phrase": "傻逼 (shǎ bī)",
     "literal_english_translation": "Stupid cunt",
     "category_id": 1,
@@ -864,7 +920,7 @@
     "language": "Chinese"
   },
   {
-    "id": 109,
+    "id": 116,
     "word/phrase": "神经病 (shén jīng bìng)",
     "literal_english_translation": "Neuropathy",
     "category_id": 5,
@@ -872,7 +928,7 @@
     "language": "Chinese"
   },
   {
-    "id": 110,
+    "id": 117,
     "word/phrase": "白痴 (bái chī)",
     "literal_english_translation": "Idiot",
     "category_id": 5,
@@ -880,7 +936,7 @@
     "language": "Chinese"
   },
   {
-    "id": 111,
+    "id": 118,
     "word/phrase": "二百五 (èr bǎi wǔ)",
     "literal_english_translation": 250,
     "category_id": 11,
@@ -888,7 +944,7 @@
     "language": "Chinese"
   },
   {
-    "id": 112,
+    "id": 119,
     "word/phrase": "猪头 (zhū tóu)",
     "literal_english_translation": "Pig head",
     "category_id": 7,
@@ -896,7 +952,7 @@
     "language": "Chinese"
   },
   {
-    "id": 113,
+    "id": 120,
     "word/phrase": "贱人 (jiàn rén)",
     "literal_english_translation": "Slut",
     "category_id": 1,
@@ -904,7 +960,7 @@
     "language": "Chinese"
   },
   {
-    "id": 114,
+    "id": 121,
     "word/phrase": "变态 (biàn tài)",
     "literal_english_translation": "Abnormal",
     "category_id": 5,
@@ -912,7 +968,7 @@
     "language": "Chinese"
   },
   {
-    "id": 115,
+    "id": 122,
     "word/phrase": "不要脸 (bú yào liǎn)",
     "literal_english_translation": "No face",
     "category_id": 4,
@@ -920,7 +976,7 @@
     "language": "Chinese"
   },
   {
-    "id": 116,
+    "id": 123,
     "word/phrase": "三八 (sān bā)",
     "literal_english_translation": "3 to 8",
     "category_id": 11,
@@ -928,7 +984,7 @@
     "language": "Chinese"
   },
   {
-    "id": 117,
+    "id": 124,
     "word/phrase": "去死 (qǜ sǐ)",
     "literal_english_translation": "Go die",
     "category_id": 11,
@@ -936,7 +992,7 @@
     "language": "Chinese"
   },
   {
-    "id": 118,
+    "id": 125,
     "word/phrase": "畜生 (chù sheng)",
     "literal_english_translation": "Beast",
     "category_id": 7,
@@ -944,7 +1000,7 @@
     "language": "Chinese"
   },
   {
-    "id": 119,
+    "id": 126,
     "word/phrase": "くそじじい (Kusojijii)",
     "literal_english_translation": "Old fart",
     "category_id": 4,
@@ -952,7 +1008,7 @@
     "language": "Japanese"
   },
   {
-    "id": 120,
+    "id": 127,
     "word/phrase": "どインポ (Do'inpo)",
     "literal_english_translation": "Impotent",
     "category_id": 4,
@@ -960,7 +1016,7 @@
     "language": "Japanese"
   },
   {
-    "id": 121,
+    "id": 128,
     "word/phrase": "ちんぽこ (Chinpoko)",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -968,7 +1024,7 @@
     "language": "Japanese"
   },
   {
-    "id": 122,
+    "id": 129,
     "word/phrase": "あばずれ (Abazure)",
     "literal_english_translation": "Bitch",
     "category_id": 1,
@@ -976,7 +1032,7 @@
     "language": "Japanese"
   },
   {
-    "id": 123,
+    "id": 130,
     "word/phrase": "やりまん (Yariman)",
     "literal_english_translation": "Slut",
     "category_id": 1,
@@ -984,7 +1040,7 @@
     "language": "Japanese"
   },
   {
-    "id": 124,
+    "id": 131,
     "word/phrase": "まんこ (Manko)",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -992,7 +1048,7 @@
     "language": "Japanese"
   },
   {
-    "id": 125,
+    "id": 132,
     "word/phrase": "変態 (へんたい) (Hentai)",
     "literal_english_translation": "Perverted",
     "category_id": 4,
@@ -1000,7 +1056,7 @@
     "language": "Japanese"
   },
   {
-    "id": 126,
+    "id": 133,
     "word/phrase": "スケベ (Sukebe)",
     "literal_english_translation": "Lech",
     "category_id": 7,
@@ -1008,7 +1064,7 @@
     "language": "Japanese"
   },
   {
-    "id": 127,
+    "id": 134,
     "word/phrase": "くそくらえ (Kuso kurae)",
     "literal_english_translation": "Eat shit",
     "category_id": 3,
@@ -1016,7 +1072,7 @@
     "language": "Japanese"
   },
   {
-    "id": 128,
+    "id": 135,
     "word/phrase": "Huj",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -1024,7 +1080,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 129,
+    "id": 136,
     "word/phrase": "Pizda",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1032,7 +1088,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 130,
+    "id": 137,
     "word/phrase": "Bljat’",
     "literal_english_translation": "Fuck",
     "category_id": 4,
@@ -1040,7 +1096,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 131,
+    "id": 138,
     "word/phrase": "Bljat’",
     "literal_english_translation": "Whore (directed to a woman)",
     "category_id": 1,
@@ -1048,7 +1104,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 132,
+    "id": 139,
     "word/phrase": "Suka",
     "literal_english_translation": "Bitch",
     "category_id": 1,
@@ -1056,7 +1112,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 133,
+    "id": 140,
     "word/phrase": "Zhopa",
     "literal_english_translation": "Butt",
     "category_id": 4,
@@ -1064,7 +1120,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 134,
+    "id": 141,
     "word/phrase": "Hamno",
     "literal_english_translation": "Shit",
     "category_id": 3,
@@ -1072,7 +1128,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 135,
+    "id": 142,
     "word/phrase": "Debil",
     "literal_english_translation": "Idiot",
     "category_id": 5,
@@ -1080,7 +1136,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 136,
+    "id": 143,
     "word/phrase": "Підер",
     "literal_english_translation": "Homosexual man",
     "category_id": 2,
@@ -1088,7 +1144,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 137,
+    "id": 144,
     "word/phrase": "Пішов нахуй / Пішов нахєр",
     "literal_english_translation": "Go sit on a dick",
     "category_id": 2,
@@ -1096,7 +1152,7 @@
     "language": "Ukrainian"
   },
   {
-    "id": 138,
+    "id": 145,
     "word/phrase": "Kurva",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -1104,7 +1160,7 @@
     "language": "Czech"
   },
   {
-    "id": 139,
+    "id": 146,
     "word/phrase": "Doprdele",
     "literal_english_translation": "Fuck",
     "category_id": 4,
@@ -1112,7 +1168,7 @@
     "language": "Czech"
   },
   {
-    "id": 140,
+    "id": 147,
     "word/phrase": "Kokot",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -1120,7 +1176,7 @@
     "language": "Czech"
   },
   {
-    "id": 141,
+    "id": 148,
     "word/phrase": "Debil",
     "literal_english_translation": "Idiot",
     "category_id": 5,
@@ -1128,7 +1184,7 @@
     "language": "Czech"
   },
   {
-    "id": 142,
+    "id": 149,
     "word/phrase": "Hovno",
     "literal_english_translation": "Shit",
     "category_id": 3,
@@ -1136,7 +1192,7 @@
     "language": "Czech"
   },
   {
-    "id": 143,
+    "id": 150,
     "word/phrase": "Píča",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1144,7 +1200,7 @@
     "language": "Czech"
   },
   {
-    "id": 144,
+    "id": 151,
     "word/phrase": "Jävlar",
     "literal_english_translation": "Small devils",
     "category_id": 6,
@@ -1152,7 +1208,7 @@
     "language": "Swedish"
   },
   {
-    "id": 145,
+    "id": 152,
     "word/phrase": "Fitta",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1160,7 +1216,7 @@
     "language": "Swedish"
   },
   {
-    "id": 146,
+    "id": 153,
     "word/phrase": "Kuk",
     "literal_english_translation": "Cock",
     "category_id": 2,
@@ -1168,7 +1224,7 @@
     "language": "Swedish"
   },
   {
-    "id": 147,
+    "id": 154,
     "word/phrase": "Fan",
     "literal_english_translation": "The devil",
     "category_id": 2,
@@ -1176,7 +1232,7 @@
     "language": "Swedish"
   },
   {
-    "id": 148,
+    "id": 155,
     "word/phrase": "Helvete",
     "literal_english_translation": "Underworld punishment",
     "category_id": 6,
@@ -1184,7 +1240,7 @@
     "language": "Swedish"
   },
   {
-    "id": 149,
+    "id": 156,
     "word/phrase": "Hora",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -1192,7 +1248,7 @@
     "language": "Swedish"
   },
   {
-    "id": 150,
+    "id": 157,
     "word/phrase": "Skit",
     "literal_english_translation": "Shit",
     "category_id": 3,
@@ -1200,7 +1256,7 @@
     "language": "Swedish"
   },
   {
-    "id": 151,
+    "id": 158,
     "word/phrase": "Satan",
     "literal_english_translation": "Satan",
     "category_id": 2,
@@ -1208,7 +1264,7 @@
     "language": "Swedish"
   },
   {
-    "id": 152,
+    "id": 159,
     "word/phrase": "Idiot",
     "literal_english_translation": "Idiot",
     "category_id": 5,
@@ -1216,7 +1272,7 @@
     "language": "Swedish"
   },
   {
-    "id": 153,
+    "id": 160,
     "word/phrase": "Röv/Arsle",
     "literal_english_translation": "Ass/Arse",
     "category_id": 4,
@@ -1224,7 +1280,7 @@
     "language": "Swedish"
   },
   {
-    "id": 154,
+    "id": 161,
     "word/phrase": "Kukhuvud",
     "literal_english_translation": "Dickhead",
     "category_id": 2,
@@ -1232,7 +1288,7 @@
     "language": "Swedish"
   },
   {
-    "id": 155,
+    "id": 162,
     "word/phrase": "Kuken i fittan",
     "literal_english_translation": "Cock in pussy",
     "category_id": 10,
@@ -1240,7 +1296,7 @@
     "language": "Swedish"
   },
   {
-    "id": 156,
+    "id": 163,
     "word/phrase": "Piss",
     "literal_english_translation": "Piss",
     "category_id": 4,
@@ -1248,7 +1304,7 @@
     "language": "Swedish"
   },
   {
-    "id": 157,
+    "id": 164,
     "word/phrase": "As",
     "literal_english_translation": "Carcass",
     "category_id": 7,
@@ -1256,7 +1312,7 @@
     "language": "Swedish"
   },
   {
-    "id": 158,
+    "id": 165,
     "word/phrase": "Μαλάκας",
     "literal_english_translation": "Asshole",
     "category_id": 4,
@@ -1264,7 +1320,7 @@
     "language": "Greek"
   },
   {
-    "id": 159,
+    "id": 166,
     "word/phrase": "Αρχίδι",
     "literal_english_translation": "Testicle",
     "category_id": 2,
@@ -1272,7 +1328,7 @@
     "language": "Greek"
   },
   {
-    "id": 160,
+    "id": 167,
     "word/phrase": "Γαμώ την πουτάνα μου",
     "literal_english_translation": "Fuck my whore",
     "category_id": 1,
@@ -1280,7 +1336,7 @@
     "language": "Greek"
   },
   {
-    "id": 161,
+    "id": 168,
     "word/phrase": "Πούστης",
     "literal_english_translation": "Faggot",
     "category_id": 2,
@@ -1288,7 +1344,7 @@
     "language": "Greek"
   },
   {
-    "id": 162,
+    "id": 169,
     "word/phrase": "Καριολης",
     "literal_english_translation": "Motherfucker",
     "category_id": 1,
@@ -1296,7 +1352,7 @@
     "language": "Greek"
   },
   {
-    "id": 163,
+    "id": 170,
     "word/phrase": "Pis",
     "literal_english_translation": "Piss",
     "category_id": 4,
@@ -1304,7 +1360,7 @@
     "language": "Danish"
   },
   {
-    "id": 164,
+    "id": 171,
     "word/phrase": "Lort",
     "literal_english_translation": "Poop",
     "category_id": 3,
@@ -1312,7 +1368,7 @@
     "language": "Danish"
   },
   {
-    "id": 165,
+    "id": 172,
     "word/phrase": "Helvede",
     "literal_english_translation": "Hell",
     "category_id": 6,
@@ -1320,7 +1376,7 @@
     "language": "Danish"
   },
   {
-    "id": 166,
+    "id": 173,
     "word/phrase": "Fuck",
     "literal_english_translation": "Fuck",
     "category_id": 4,
@@ -1328,7 +1384,7 @@
     "language": "Danish"
   },
   {
-    "id": 167,
+    "id": 174,
     "word/phrase": "Satan",
     "literal_english_translation": "Satan",
     "category_id": 2,
@@ -1336,7 +1392,7 @@
     "language": "Danish"
   },
   {
-    "id": 168,
+    "id": 175,
     "word/phrase": "Farbandet",
     "literal_english_translation": "Cursed/Damned",
     "category_id": 6,
@@ -1344,7 +1400,7 @@
     "language": "Danish"
   },
   {
-    "id": 169,
+    "id": 176,
     "word/phrase": "Fatti rumpiri u culu",
     "literal_english_translation": "Go break your ass",
     "category_id": 4,
@@ -1352,7 +1408,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 170,
+    "id": 177,
     "word/phrase": "Fattilla mettiri nto culu",
     "literal_english_translation": "Go fuck youself",
     "category_id": 4,
@@ -1360,7 +1416,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 171,
+    "id": 178,
     "word/phrase": "Pacch'i to soru/matri/zia/nanna",
     "literal_english_translation": "Pussy of your sister/mother/uncle/granma",
     "category_id": 1,
@@ -1368,7 +1424,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 172,
+    "id": 179,
     "word/phrase": "Si nuddu ammiscatu cu nenti",
     "literal_english_translation": "you're no one mixed with nothing",
     "category_id": 5,
@@ -1376,7 +1432,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 173,
+    "id": 180,
     "word/phrase": "A non cia sucari",
     "literal_english_translation": "Do not suck my dick",
     "category_id": 2,
@@ -1384,7 +1440,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 174,
+    "id": 181,
     "word/phrase": "Facc'i minchia/Cazzu",
     "literal_english_translation": "Dick face",
     "category_id": 2,
@@ -1392,7 +1448,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 175,
+    "id": 182,
     "word/phrase": "Hai a facci a fomma di minchia",
     "literal_english_translation": "Dick-shaped face",
     "category_id": 2,
@@ -1400,7 +1456,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 176,
+    "id": 183,
     "word/phrase": "Scupina/Tappinara/Stuppagghiara/Stoccaceddi",
     "literal_english_translation": "Bitch",
     "category_id": 1,
@@ -1408,7 +1464,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 177,
+    "id": 184,
     "word/phrase": "Curnutazzu",
     "literal_english_translation": "Betrayed",
     "category_id": 11,
@@ -1416,7 +1472,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 178,
+    "id": 185,
     "word/phrase": "Letta sangu",
     "literal_english_translation": "Throw your blood",
     "category_id": 4,
@@ -1424,7 +1480,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 179,
+    "id": 186,
     "word/phrase": "Hai a testa sulu pi spaddari shampu",
     "literal_english_translation": "You have the head only to waste shampoo (basically, idiot)",
     "category_id": 5,
@@ -1432,7 +1488,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 180,
+    "id": 187,
     "word/phrase": "Figg'i setti patri",
     "literal_english_translation": "Seven father's son",
     "category_id": 2,
@@ -1440,7 +1496,7 @@
     "language": "Sicilian"
   },
   {
-    "id": 181,
+    "id": 188,
     "word/phrase": "Helvetti",
     "literal_english_translation": "Hell",
     "category_id": 6,
@@ -1448,7 +1504,7 @@
     "language": "Finnish"
   },
   {
-    "id": 182,
+    "id": 189,
     "word/phrase": "Hitto/Hiisi",
     "literal_english_translation": "Scary mythical creature",
     "category_id": 6,
@@ -1456,7 +1512,7 @@
     "language": "Finnish"
   },
   {
-    "id": 183,
+    "id": 190,
     "word/phrase": "Huora",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -1464,7 +1520,7 @@
     "language": "Finnish"
   },
   {
-    "id": 184,
+    "id": 191,
     "word/phrase": "Jumalauta",
     "literal_english_translation": "God help",
     "category_id": 6,
@@ -1472,7 +1528,7 @@
     "language": "Finnish"
   },
   {
-    "id": 185,
+    "id": 192,
     "word/phrase": "Kikkeli",
     "literal_english_translation": "Penis",
     "category_id": 2,
@@ -1480,7 +1536,7 @@
     "language": "Finnish"
   },
   {
-    "id": 186,
+    "id": 193,
     "word/phrase": "Kusi",
     "literal_english_translation": "Urine",
     "category_id": 4,
@@ -1488,7 +1544,7 @@
     "language": "Finnish"
   },
   {
-    "id": 187,
+    "id": 194,
     "word/phrase": "Kyrpä",
     "literal_english_translation": "Cock",
     "category_id": 2,
@@ -1496,7 +1552,7 @@
     "language": "Finnish"
   },
   {
-    "id": 188,
+    "id": 195,
     "word/phrase": "Mulkku",
     "literal_english_translation": "Penis",
     "category_id": 2,
@@ -1504,7 +1560,7 @@
     "language": "Finnish"
   },
   {
-    "id": 189,
+    "id": 196,
     "word/phrase": "Molopää",
     "literal_english_translation": "Dickhead",
     "category_id": 2,
@@ -1512,7 +1568,7 @@
     "language": "Finnish"
   },
   {
-    "id": 190,
+    "id": 197,
     "word/phrase": "Muna",
     "literal_english_translation": "Egg",
     "category_id": 7,
@@ -1520,7 +1576,7 @@
     "language": "Finnish"
   },
   {
-    "id": 191,
+    "id": 198,
     "word/phrase": "Paska",
     "literal_english_translation": "Shit",
     "category_id": 3,
@@ -1528,7 +1584,7 @@
     "language": "Finnish"
   },
   {
-    "id": 192,
+    "id": 199,
     "word/phrase": "Perkele",
     "literal_english_translation": "Alternate name for the thunder god (Ukko)",
     "category_id": 6,
@@ -1536,7 +1592,7 @@
     "language": "Finnish"
   },
   {
-    "id": 193,
+    "id": 200,
     "word/phrase": "Perse",
     "literal_english_translation": "Ass",
     "category_id": 4,
@@ -1544,7 +1600,7 @@
     "language": "Finnish"
   },
   {
-    "id": 194,
+    "id": 201,
     "word/phrase": "Pillu",
     "literal_english_translation": "Pussy",
     "category_id": 1,
@@ -1552,7 +1608,7 @@
     "language": "Finnish"
   },
   {
-    "id": 195,
+    "id": 202,
     "word/phrase": "Reva",
     "literal_english_translation": "Pussy",
     "category_id": 1,
@@ -1560,7 +1616,7 @@
     "language": "Finnish"
   },
   {
-    "id": 196,
+    "id": 203,
     "word/phrase": "Runkata",
     "literal_english_translation": "To masturbate",
     "category_id": 4,
@@ -1568,7 +1624,7 @@
     "language": "Finnish"
   },
   {
-    "id": 197,
+    "id": 204,
     "word/phrase": "Saatana",
     "literal_english_translation": "Satan",
     "category_id": 2,
@@ -1576,7 +1632,7 @@
     "language": "Finnish"
   },
   {
-    "id": 198,
+    "id": 205,
     "word/phrase": "Vittu",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1584,7 +1640,7 @@
     "language": "Finnish"
   },
   {
-    "id": 199,
+    "id": 206,
     "word/phrase": "Faen",
     "literal_english_translation": "The devil",
     "category_id": 2,
@@ -1592,7 +1648,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 200,
+    "id": 207,
     "word/phrase": "Helvete",
     "literal_english_translation": "Hell",
     "category_id": 6,
@@ -1600,7 +1656,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 201,
+    "id": 208,
     "word/phrase": "Jævel",
     "literal_english_translation": "Devil",
     "category_id": 2,
@@ -1608,7 +1664,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 202,
+    "id": 209,
     "word/phrase": "Forpulte",
     "literal_english_translation": "Cursed",
     "category_id": 6,
@@ -1616,7 +1672,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 203,
+    "id": 210,
     "word/phrase": "Satan",
     "literal_english_translation": "Satan",
     "category_id": 2,
@@ -1624,7 +1680,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 204,
+    "id": 211,
     "word/phrase": "Fitte",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1632,7 +1688,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 205,
+    "id": 212,
     "word/phrase": "Fittetryne",
     "literal_english_translation": "Cunt face",
     "category_id": 1,
@@ -1640,7 +1696,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 206,
+    "id": 213,
     "word/phrase": "Kukk",
     "literal_english_translation": "Cock",
     "category_id": 2,
@@ -1648,7 +1704,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 207,
+    "id": 214,
     "word/phrase": "Pikk",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -1656,7 +1712,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 208,
+    "id": 215,
     "word/phrase": "Dritt",
     "literal_english_translation": "Shit",
     "category_id": 3,
@@ -1664,7 +1720,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 209,
+    "id": 216,
     "word/phrase": "Hestkuk",
     "literal_english_translation": "Horse cock",
     "category_id": 2,
@@ -1672,7 +1728,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 210,
+    "id": 217,
     "word/phrase": "Kjerring",
     "literal_english_translation": "Old (ugly) woman",
     "category_id": 1,
@@ -1680,7 +1736,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 211,
+    "id": 218,
     "word/phrase": "Drittsekk",
     "literal_english_translation": "Scumbag",
     "category_id": 9,
@@ -1688,7 +1744,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 212,
+    "id": 219,
     "word/phrase": "Drittstøvel",
     "literal_english_translation": "Shit boot",
     "category_id": 3,
@@ -1696,7 +1752,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 213,
+    "id": 220,
     "word/phrase": "Fanken",
     "literal_english_translation": "Fuck",
     "category_id": 4,
@@ -1704,7 +1760,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 214,
+    "id": 221,
     "word/phrase": "Kuktryne",
     "literal_english_translation": "Cock face",
     "category_id": 2,
@@ -1712,7 +1768,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 215,
+    "id": 222,
     "word/phrase": "Rævhål",
     "literal_english_translation": "Asshole",
     "category_id": 4,
@@ -1720,7 +1776,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 216,
+    "id": 223,
     "word/phrase": "Skinkerytter",
     "literal_english_translation": "Ham rider",
     "category_id": 7,
@@ -1728,7 +1784,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 217,
+    "id": 224,
     "word/phrase": "Kuksuger",
     "literal_english_translation": "Cock sucker",
     "category_id": 2,
@@ -1736,7 +1792,7 @@
     "language": "Norwegian"
   },
   {
-    "id": 218,
+    "id": 225,
     "word/phrase": "Kurwa",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -1744,7 +1800,7 @@
     "language": "Polish"
   },
   {
-    "id": 219,
+    "id": 226,
     "word/phrase": "Jebać",
     "literal_english_translation": "To fuck",
     "category_id": 4,
@@ -1752,7 +1808,7 @@
     "language": "Polish"
   },
   {
-    "id": 220,
+    "id": 227,
     "word/phrase": "Wyjebać",
     "literal_english_translation": "To throw away",
     "category_id": 11,
@@ -1760,7 +1816,7 @@
     "language": "Polish"
   },
   {
-    "id": 221,
+    "id": 228,
     "word/phrase": "Zajebać",
     "literal_english_translation": "To steal",
     "category_id": 11,
@@ -1768,7 +1824,7 @@
     "language": "Polish"
   },
   {
-    "id": 222,
+    "id": 229,
     "word/phrase": "Pierdolić",
     "literal_english_translation": "To fuck",
     "category_id": 4,
@@ -1776,7 +1832,7 @@
     "language": "Polish"
   },
   {
-    "id": 223,
+    "id": 230,
     "word/phrase": "Spierdalaj",
     "literal_english_translation": "Fuck off",
     "category_id": 4,
@@ -1784,7 +1840,7 @@
     "language": "Polish"
   },
   {
-    "id": 224,
+    "id": 231,
     "word/phrase": "Spierdolić",
     "literal_english_translation": "To fuck something up",
     "category_id": 4,
@@ -1792,7 +1848,7 @@
     "language": "Polish"
   },
   {
-    "id": 225,
+    "id": 232,
     "word/phrase": "Chuj",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -1800,7 +1856,7 @@
     "language": "Polish"
   },
   {
-    "id": 226,
+    "id": 233,
     "word/phrase": "Kutas",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -1808,7 +1864,7 @@
     "language": "Polish"
   },
   {
-    "id": 227,
+    "id": 234,
     "word/phrase": "Pizda",
     "literal_english_translation": "Cunt",
     "category_id": 1,
@@ -1816,7 +1872,7 @@
     "language": "Polish"
   },
   {
-    "id": 228,
+    "id": 235,
     "word/phrase": "Godverdomme",
     "literal_english_translation": "May God damn",
     "category_id": 6,
@@ -1824,7 +1880,7 @@
     "language": "Dutch"
   },
   {
-    "id": 229,
+    "id": 236,
     "word/phrase": "Godver",
     "literal_english_translation": "God",
     "category_id": 6,
@@ -1832,7 +1888,7 @@
     "language": "Dutch"
   },
   {
-    "id": 230,
+    "id": 237,
     "word/phrase": "Tering",
     "literal_english_translation": "Tuberculosis",
     "category_id": 5,
@@ -1840,7 +1896,7 @@
     "language": "Dutch"
   },
   {
-    "id": 231,
+    "id": 238,
     "word/phrase": "Kanker",
     "literal_english_translation": "Cancer",
     "category_id": 5,
@@ -1848,7 +1904,7 @@
     "language": "Dutch"
   },
   {
-    "id": 232,
+    "id": 239,
     "word/phrase": "Klootzak",
     "literal_english_translation": "Ballsack",
     "category_id": 2,
@@ -1856,7 +1912,7 @@
     "language": "Dutch"
   },
   {
-    "id": 233,
+    "id": 240,
     "word/phrase": "Eikel",
     "literal_english_translation": "Male glans",
     "category_id": 2,
@@ -1864,7 +1920,7 @@
     "language": "Dutch"
   },
   {
-    "id": 234,
+    "id": 241,
     "word/phrase": "Kut",
     "literal_english_translation": "Vagina",
     "category_id": 1,
@@ -1872,7 +1928,7 @@
     "language": "Dutch"
   },
   {
-    "id": 235,
+    "id": 242,
     "word/phrase": "Pannekoek",
     "literal_english_translation": "Pancake (some does a inadequate job)",
     "category_id": 11,
@@ -1880,7 +1936,7 @@
     "language": "Dutch"
   },
   {
-    "id": 236,
+    "id": 243,
     "word/phrase": "Slet (i.e. slut)",
     "literal_english_translation": "Rag",
     "category_id": 11,
@@ -1888,7 +1944,7 @@
     "language": "Dutch"
   },
   {
-    "id": 237,
+    "id": 244,
     "word/phrase": "Hoer",
     "literal_english_translation": "Whore",
     "category_id": 1,
@@ -1896,7 +1952,7 @@
     "language": "Dutch"
   },
   {
-    "id": 238,
+    "id": 245,
     "word/phrase": "Lul",
     "literal_english_translation": "Penis",
     "category_id": 2,
@@ -1904,7 +1960,7 @@
     "language": "Dutch"
   },
   {
-    "id": 239,
+    "id": 246,
     "word/phrase": "Je moeder",
     "literal_english_translation": "Yo mama",
     "category_id": 1,
@@ -1912,7 +1968,7 @@
     "language": "Dutch"
   },
   {
-    "id": 240,
+    "id": 247,
     "word/phrase": "Paardenlul",
     "literal_english_translation": "Horse dick",
     "category_id": 7,
@@ -1920,7 +1976,7 @@
     "language": "Dutch"
   },
   {
-    "id": 241,
+    "id": 248,
     "word/phrase": "Sukkel",
     "literal_english_translation": "Idiot",
     "category_id": 5,
@@ -1928,7 +1984,7 @@
     "language": "Dutch"
   },
   {
-    "id": 242,
+    "id": 249,
     "word/phrase": "Mongool",
     "literal_english_translation": "A person with Down syndrome",
     "category_id": 5,
@@ -1936,7 +1992,7 @@
     "language": "Dutch"
   },
   {
-    "id": 243,
+    "id": 250,
     "word/phrase": "Flikker",
     "literal_english_translation": "Faggot",
     "category_id": 2,
@@ -1944,7 +2000,7 @@
     "language": "Dutch"
   },
   {
-    "id": 244,
+    "id": 251,
     "word/phrase": "Trut",
     "literal_english_translation": "Vagina",
     "category_id": 1,
@@ -1952,7 +2008,7 @@
     "language": "Dutch"
   },
   {
-    "id": 245,
+    "id": 252,
     "word/phrase": "Doos",
     "literal_english_translation": "Box (i.e. stupid woman)",
     "category_id": 11,
@@ -1960,7 +2016,7 @@
     "language": "Dutch"
   },
   {
-    "id": 246,
+    "id": 253,
     "word/phrase": "Kutwijf",
     "literal_english_translation": "Vagina woman",
     "category_id": 1,
@@ -1968,7 +2024,7 @@
     "language": "Dutch"
   },
   {
-    "id": 247,
+    "id": 254,
     "word/phrase": "Andskotans",
     "literal_english_translation": "By the devil",
     "category_id": 2,
@@ -1976,7 +2032,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 248,
+    "id": 255,
     "word/phrase": "Djöfulsins",
     "literal_english_translation": "By Satan",
     "category_id": 2,
@@ -1984,7 +2040,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 249,
+    "id": 256,
     "word/phrase": "Helvítis",
     "literal_english_translation": "By hell",
     "category_id": 6,
@@ -1992,7 +2048,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 250,
+    "id": 257,
     "word/phrase": "Skúrkur",
     "literal_english_translation": "Villain",
     "category_id": 11,
@@ -2000,7 +2056,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 251,
+    "id": 258,
     "word/phrase": "Móðurserðir",
     "literal_english_translation": "Motherfucker",
     "category_id": 1,
@@ -2008,7 +2064,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 252,
+    "id": 259,
     "word/phrase": "Drullusokkur",
     "literal_english_translation": "Toilet plunger",
     "category_id": 11,
@@ -2016,7 +2072,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 253,
+    "id": 260,
     "word/phrase": "Gunga",
     "literal_english_translation": "Coward",
     "category_id": 11,
@@ -2024,7 +2080,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 254,
+    "id": 261,
     "word/phrase": "Drulludeli",
     "literal_english_translation": "Shitty penis",
     "category_id": 2,
@@ -2032,7 +2088,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 255,
+    "id": 262,
     "word/phrase": "Drullukunta",
     "literal_english_translation": "Shitty vagina",
     "category_id": 1,
@@ -2040,7 +2096,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 256,
+    "id": 263,
     "word/phrase": "Hlandbrenndu",
     "literal_english_translation": "May you burn from your own urine",
     "category_id": 4,
@@ -2048,7 +2104,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 257,
+    "id": 264,
     "word/phrase": "Brundpró",
     "literal_english_translation": "Cum receptacle",
     "category_id": 2,
@@ -2056,7 +2112,7 @@
     "language": "Icelandic"
   },
   {
-    "id": 258,
+    "id": 265,
     "word/phrase": "Kwasia mpani",
     "literal_english_translation": "Good for nothing fool",
     "category_id": 5,
@@ -2064,7 +2120,7 @@
     "language": "Akan"
   },
   {
-    "id": 259,
+    "id": 266,
     "word/phrase": "Aboa",
     "literal_english_translation": "Beast",
     "category_id": 7,
@@ -2072,7 +2128,7 @@
     "language": "Akan"
   },
   {
-    "id": 260,
+    "id": 267,
     "word/phrase": "Bayifo",
     "literal_english_translation": "Witch",
     "category_id": 1,
@@ -2080,7 +2136,7 @@
     "language": "Akan"
   },
   {
-    "id": 261,
+    "id": 268,
     "word/phrase": "Me ne wo anum",
     "literal_english_translation": "I shit in your mouth",
     "category_id": 3,
@@ -2088,7 +2144,7 @@
     "language": "Akan"
   },
   {
-    "id": 262,
+    "id": 269,
     "word/phrase": "Wo papa",
     "literal_english_translation": "Your father",
     "category_id": 2,
@@ -2096,7 +2152,7 @@
     "language": "Akan"
   },
   {
-    "id": 263,
+    "id": 270,
     "word/phrase": "Wo maame twɛ",
     "literal_english_translation": "Your mother's vagina",
     "category_id": 1,
@@ -2104,7 +2160,7 @@
     "language": "Akan"
   },
   {
-    "id": 264,
+    "id": 271,
     "word/phrase": "Futu-ți gâtu’ măti",
     "literal_english_translation": "Fuck your mothers neck",
     "category_id": 1,
@@ -2112,7 +2168,7 @@
     "language": "Romanian"
   },
   {
-    "id": 265,
+    "id": 272,
     "word/phrase": "Futu-ți gura măti",
     "literal_english_translation": "Fuck you mother's mouth",
     "category_id": 1,
@@ -2120,7 +2176,7 @@
     "language": "Romanian"
   },
   {
-    "id": 266,
+    "id": 273,
     "word/phrase": "Futu-ți Dumnezeul mătii",
     "literal_english_translation": "Fuck your mother's god",
     "category_id": 1,
@@ -2128,7 +2184,7 @@
     "language": "Romanian"
   },
   {
-    "id": 267,
+    "id": 274,
     "word/phrase": "Du-te-n Pula mea",
     "literal_english_translation": "Go in my dick",
     "category_id": 2,
@@ -2136,7 +2192,7 @@
     "language": "Romanian"
   },
   {
-    "id": 268,
+    "id": 275,
     "word/phrase": "Pula",
     "literal_english_translation": "Dick",
     "category_id": 2,
@@ -2144,7 +2200,7 @@
     "language": "Romanian"
   },
   {
-    "id": 269,
+    "id": 276,
     "word/phrase": "Pizda",
     "literal_english_translation": "Pussy",
     "category_id": 1,
@@ -2152,7 +2208,7 @@
     "language": "Romanian"
   },
   {
-    "id": 270,
+    "id": 277,
     "word/phrase": "Coaie",
     "literal_english_translation": "Balls",
     "category_id": 2,
@@ -2160,7 +2216,7 @@
     "language": "Romanian"
   },
   {
-    "id": 271,
+    "id": 278,
     "word/phrase": "Dracu’",
     "literal_english_translation": "Devil",
     "category_id": 2,
@@ -2168,7 +2224,7 @@
     "language": "Romanian"
   },
   {
-    "id": 272,
+    "id": 279,
     "word/phrase": "Fututi Ceapa",
     "literal_english_translation": "To fuck onion",
     "category_id": 4,
@@ -2176,7 +2232,7 @@
     "language": "Romanian"
   },
   {
-    "id": 273,
+    "id": 280,
     "word/phrase": "Fututi Morții",
     "literal_english_translation": "fuck death (the dead people from “your mom’s” family)",
     "category_id": 4,
@@ -2184,7 +2240,7 @@
     "language": "Romanian"
   },
   {
-    "id": 274,
+    "id": 281,
     "word/phrase": "Fututi Crucea",
     "literal_english_translation": "fuck the cross (tombstone)",
     "category_id": 6,
@@ -2192,7 +2248,7 @@
     "language": "Romanian"
   },
   {
-    "id": 275,
+    "id": 282,
     "word/phrase": "Du-te in pizda ma-tii",
     "literal_english_translation": "Go into your mother twat",
     "category_id": 1,
@@ -2200,7 +2256,7 @@
     "language": "Romanian"
   },
   {
-    "id": 276,
+    "id": 283,
     "word/phrase": "Ananı sikeyim",
     "literal_english_translation": "I'll fuck your mom",
     "category_id": 1,
@@ -2208,7 +2264,7 @@
     "language": "Turkish"
   },
   {
-    "id": 277,
+    "id": 284,
     "word/phrase": "Orospu çocuğu",
     "literal_english_translation": "Son of a whore",
     "category_id": 1,
@@ -2216,7 +2272,7 @@
     "language": "Turkish"
   },
   {
-    "id": 278,
+    "id": 285,
     "word/phrase": "Göt lalesi",
     "literal_english_translation": "Ass tulip",
     "category_id": 4,
@@ -2224,7 +2280,7 @@
     "language": "Turkish"
   },
   {
-    "id": 279,
+    "id": 286,
     "word/phrase": "dalyarrak",
     "literal_english_translation": "Branch dick",
     "category_id": 2,
@@ -2232,7 +2288,7 @@
     "language": "Turkish"
   },
   {
-    "id": 280,
+    "id": 287,
     "word/phrase": "Kürtaj Gazisi",
     "literal_english_translation": "Abortion Veteran",
     "category_id": 9,
@@ -2240,7 +2296,7 @@
     "language": "Turkish"
   },
   {
-    "id": 281,
+    "id": 288,
     "word/phrase": "Gotum ye",
     "literal_english_translation": "Eat my ass",
     "category_id": 4,
@@ -2248,7 +2304,7 @@
     "language": "Turkish"
   },
   {
-    "id": 282,
+    "id": 289,
     "word/phrase": "Götünü eşekler siksin",
     "literal_english_translation": "Donkeys fuck you in the ass",
     "category_id": 7,
@@ -2256,7 +2312,7 @@
     "language": "Turkish"
   },
   {
-    "id": 283,
+    "id": 290,
     "word/phrase": "Ibne",
     "literal_english_translation": "Faggot",
     "category_id": 2,
@@ -2264,7 +2320,7 @@
     "language": "Turkish"
   },
   {
-    "id": 284,
+    "id": 291,
     "word/phrase": "Agzina sicayim",
     "literal_english_translation": "I shit in your mouth",
     "category_id": 3,
@@ -2272,7 +2328,7 @@
     "language": "Turkish"
   },
   {
-    "id": 285,
+    "id": 292,
     "word/phrase": "Amina koyayim",
     "literal_english_translation": "I put it in your cunt",
     "category_id": 1,
@@ -2280,7 +2336,7 @@
     "language": "Turkish"
   },
   {
-    "id": 286,
+    "id": 293,
     "word/phrase": "Siktir",
     "literal_english_translation": "Get fucked",
     "category_id": 4,
@@ -2288,7 +2344,7 @@
     "language": "Turkish"
   },
   {
-    "id": 287,
+    "id": 294,
     "word/phrase": "Götunu sikeyim",
     "literal_english_translation": "Fuck your ass",
     "category_id": 4,
@@ -2296,7 +2352,7 @@
     "language": "Turkish"
   },
   {
-    "id": 288,
+    "id": 295,
     "word/phrase": "Yarragım",
     "literal_english_translation": "My dick",
     "category_id": 2,
@@ -2304,7 +2360,7 @@
     "language": "Turkish"
   },
   {
-    "id": 289,
+    "id": 296,
     "word/phrase": "Allahini kitabini sikeyim",
     "literal_english_translation": "Fuck your god and book",
     "category_id": 6,
@@ -2312,7 +2368,7 @@
     "language": "Turkish"
   },
   {
-    "id": 290,
+    "id": 297,
     "word/phrase": "Göt",
     "literal_english_translation": "Ass",
     "category_id": 4,
@@ -2320,7 +2376,7 @@
     "language": "Turkish"
   },
   {
-    "id": 291,
+    "id": 298,
     "word/phrase": "Yavşak",
     "literal_english_translation": "Tick",
     "category_id": 7,
@@ -2328,7 +2384,7 @@
     "language": "Turkish"
   },
   {
-    "id": 292,
+    "id": 299,
     "word/phrase": "Jebemti mater krvavu",
     "literal_english_translation": "I fuck your bloody mother",
     "category_id": 1,
@@ -2336,7 +2392,7 @@
     "language": "Croatian"
   },
   {
-    "id": 293,
+    "id": 300,
     "word/phrase": "Jebemti Isusa",
     "literal_english_translation": "I fuck your Jesus",
     "category_id": 6,
@@ -2344,7 +2400,7 @@
     "language": "Croatian"
   },
   {
-    "id": 294,
+    "id": 301,
     "word/phrase": "Jebemti Isusovu krv",
     "literal_english_translation": "I fuck your blood of Jesus",
     "category_id": 6,
@@ -2352,7 +2408,7 @@
     "language": "Croatian"
   },
   {
-    "id": 295,
+    "id": 302,
     "word/phrase": "Jebemti kruh",
     "literal_english_translation": "I fuck your bread",
     "category_id": 6,
@@ -2360,7 +2416,7 @@
     "language": "Croatian"
   },
   {
-    "id": 296,
+    "id": 303,
     "word/phrase": "Goni se u tri pičke materine",
     "literal_english_translation": "Go into three cunts of your mother",
     "category_id": 1,
@@ -2368,7 +2424,7 @@
     "language": "Croatian"
   },
   {
-    "id": 297,
+    "id": 304,
     "word/phrase": "Napuši se debele nabrekle kurčine",
     "literal_english_translation": "Blow a fat, tumid dick",
     "category_id": 2,
@@ -2376,7 +2432,7 @@
     "language": "Croatian"
   },
   {
-    "id": 298,
+    "id": 305,
     "word/phrase": "Jebem ti i seme i pleme",
     "literal_english_translation": "Fuck your seed and tribe",
     "category_id": 2,
@@ -2384,7 +2440,7 @@
     "language": "Serbian"
   },
   {
-    "id": 299,
+    "id": 306,
     "word/phrase": "Idi u kurac",
     "literal_english_translation": "Go to/into the dick",
     "category_id": 2,
@@ -2392,7 +2448,7 @@
     "language": "Serbian"
   },
   {
-    "id": 300,
+    "id": 307,
     "word/phrase": "Pizda ti materina",
     "literal_english_translation": "Your mother’s pussy",
     "category_id": 1,
@@ -2400,7 +2456,7 @@
     "language": "Serbian"
   },
   {
-    "id": 301,
+    "id": 308,
     "word/phrase": "Jebem ti lebac",
     "literal_english_translation": "Fuck your bread",
     "category_id": 6,
@@ -2408,7 +2464,7 @@
     "language": "Serbian"
   },
   {
-    "id": 302,
+    "id": 309,
     "word/phrase": "Jebo ti pas mater",
     "literal_english_translation": "A dog fuck your mother",
     "category_id": 1,
@@ -2416,7 +2472,7 @@
     "language": "Serbian"
   },
   {
-    "id": 303,
+    "id": 310,
     "word/phrase": "Sto mu gromova",
     "literal_english_translation": "A hundred thunders",
     "category_id": 6,
@@ -2424,7 +2480,7 @@
     "language": "Serbian"
   },
   {
-    "id": 304,
+    "id": 311,
     "word/phrase": "Jebem ti miša",
     "literal_english_translation": "Fuck your mouse",
     "category_id": 4,
@@ -2432,7 +2488,7 @@
     "language": "Serbian"
   },
   {
-    "id": 305,
+    "id": 312,
     "word/phrase": "Teri maa ka bhosda",
     "literal_english_translation": "Your mom's pussy",
     "category_id": 1,
@@ -2440,7 +2496,7 @@
     "language": "Hindi"
   },
   {
-    "id": 306,
+    "id": 313,
     "word/phrase": "Bhenchod",
     "literal_english_translation": "Sisterfucker",
     "category_id": 1,
@@ -2448,7 +2504,7 @@
     "language": "Hindi"
   },
   {
-    "id": 307,
+    "id": 314,
     "word/phrase": "Maderchod",
     "literal_english_translation": "Motherfucker",
     "category_id": 1,
@@ -2456,7 +2512,7 @@
     "language": "Hindi"
   },
   {
-    "id": 308,
+    "id": 315,
     "word/phrase": "Teri maa ki chut",
     "literal_english_translation": "Your mom's pussy",
     "category_id": 1,
@@ -2464,7 +2520,7 @@
     "language": "Hindi"
   },
   {
-    "id": 309,
+    "id": 316,
     "word/phrase": "Randi saala",
     "literal_english_translation": "Bloody whore",
     "category_id": 1,
@@ -2472,7 +2528,7 @@
     "language": "Hindi"
   },
   {
-    "id": 310,
+    "id": 317,
     "word/phrase": "Kya jhaatu hai saala",
     "literal_english_translation": "What a pubic hair",
     "category_id": 4,
@@ -2480,7 +2536,7 @@
     "language": "Hindi"
   },
   {
-    "id": 311,
+    "id": 318,
     "word/phrase": "Kya Chutiya hai saala",
     "literal_english_translation": "What an asshole",
     "category_id": 4,
@@ -2488,7 +2544,7 @@
     "language": "Hindi"
   },
   {
-    "id": 312,
+    "id": 319,
     "word/phrase": "Goh nakhor",
     "literal_english_translation": "Shut the fuck up, you are no shit",
     "category_id": 3,
@@ -2496,7 +2552,7 @@
     "language": "Persian"
   },
   {
-    "id": 313,
+    "id": 320,
     "word/phrase": "Goh khordam",
     "literal_english_translation": "I eat shit",
     "category_id": 3,
@@ -2504,7 +2560,7 @@
     "language": "Persian"
   },
   {
-    "id": 314,
+    "id": 321,
     "word/phrase": "Goh khordi",
     "literal_english_translation": "You eat shit everyday?",
     "category_id": 3,
@@ -2512,7 +2568,7 @@
     "language": "Persian"
   },
   {
-    "id": 315,
+    "id": 322,
     "word/phrase": "To cheghadr ani",
     "literal_english_translation": "You are such a shit",
     "category_id": 3,
@@ -2520,7 +2576,7 @@
     "language": "Persian"
   },
   {
-    "id": 316,
+    "id": 323,
     "word/phrase": "Nariniiiiii",
     "literal_english_translation": "Do not shit",
     "category_id": 3,
@@ -2528,7 +2584,7 @@
     "language": "Persian"
   },
   {
-    "id": 317,
+    "id": 324,
     "word/phrase": "Kir gholo shekasti",
     "literal_english_translation": "You broke a monsters dick",
     "category_id": 2,
@@ -2536,7 +2592,7 @@
     "language": "Persian"
   },
   {
-    "id": 318,
+    "id": 325,
     "word/phrase": "Khak to saret",
     "literal_english_translation": "Soil on your head",
     "category_id": 8,
@@ -2544,7 +2600,7 @@
     "language": "Persian"
   },
   {
-    "id": 319,
+    "id": 326,
     "word/phrase": "Madar jende",
     "literal_english_translation": "You are a horrible villain",
     "category_id": 11,
@@ -2552,7 +2608,7 @@
     "language": "Persian"
   },
   {
-    "id": 320,
+    "id": 327,
     "word/phrase": "Elahi jezze jigar begiri",
     "literal_english_translation": "I hope your liver burns on fire",
     "category_id": 4,
@@ -2560,7 +2616,7 @@
     "language": "Persian"
   },
   {
-    "id": 321,
+    "id": 328,
     "word/phrase": "Kos - kesh",
     "literal_english_translation": "Pulling the pussy",
     "category_id": 1,
@@ -2568,7 +2624,7 @@
     "language": "Persian"
   },
   {
-    "id": 322,
+    "id": 329,
     "word/phrase": "Kos Lis",
     "literal_english_translation": "Pussy licker",
     "category_id": 1,
@@ -2576,7 +2632,7 @@
     "language": "Persian"
   },
   {
-    "id": 323,
+    "id": 330,
     "word/phrase": "Jakesh",
     "literal_english_translation": "Whore bringer",
     "category_id": 1,
@@ -2584,7 +2640,7 @@
     "language": "Persian"
   },
   {
-    "id": 324,
+    "id": 331,
     "word/phrase": "Kiri",
     "literal_english_translation": "Dickhead",
     "category_id": 2,
@@ -2592,7 +2648,7 @@
     "language": "Persian"
   },
   {
-    "id": 325,
+    "id": 332,
     "word/phrase": "Poca vergonya",
     "literal_english_translation": "With little shame",
     "category_id": 11,
@@ -2600,7 +2656,7 @@
     "language": "Catalan"
   },
   {
-    "id": 326,
+    "id": 333,
     "word/phrase": "Carallot",
     "literal_english_translation": "Simpleton",
     "category_id": 5,
@@ -2608,7 +2664,7 @@
     "language": "Catalan"
   },
   {
-    "id": 327,
+    "id": 334,
     "word/phrase": "Cara de mico",
     "literal_english_translation": "Monkeyface",
     "category_id": 7,
@@ -2616,7 +2672,7 @@
     "language": "Catalan"
   },
   {
-    "id": 328,
+    "id": 335,
     "word/phrase": "Mico filós",
     "literal_english_translation": "Monkey with threads",
     "category_id": 7,
@@ -2624,7 +2680,7 @@
     "language": "Catalan"
   },
   {
-    "id": 329,
+    "id": 336,
     "word/phrase": "Gamarús",
     "literal_english_translation": "Tawny owl",
     "category_id": 7,
@@ -2632,7 +2688,7 @@
     "language": "Catalan"
   },
   {
-    "id": 330,
+    "id": 337,
     "word/phrase": "Tita fluixa",
     "literal_english_translation": "Soft penis",
     "category_id": 2,
@@ -2640,7 +2696,7 @@
     "language": "Catalan"
   },
   {
-    "id": 331,
+    "id": 338,
     "word/phrase": "Pixapins",
     "literal_english_translation": "Pine tree peer",
     "category_id": 8,
@@ -2648,7 +2704,7 @@
     "language": "Catalan"
   },
   {
-    "id": 332,
+    "id": 339,
     "word/phrase": "Desvirga gallines",
     "literal_english_translation": "Chicken deflower",
     "category_id": 7,
@@ -2656,7 +2712,7 @@
     "language": "Catalan"
   },
   {
-    "id": 333,
+    "id": 340,
     "word/phrase": "Bandarra",
     "literal_english_translation": "Naughty",
     "category_id": 11,
@@ -2664,7 +2720,7 @@
     "language": "Catalan"
   },
   {
-    "id": 334,
+    "id": 341,
     "word/phrase": "Pallús",
     "literal_english_translation": "Dumb",
     "category_id": 5,
@@ -2672,7 +2728,7 @@
     "language": "Catalan"
   },
   {
-    "id": 335,
+    "id": 342,
     "word/phrase": "Alifardeu",
     "literal_english_translation": "Naughty (someone capable of doing whatever, usually not good things)",
     "category_id": 11,
@@ -2680,7 +2736,7 @@
     "language": "Catalan"
   },
   {
-    "id": 336,
+    "id": 343,
     "word/phrase": "Bufagaites",
     "literal_english_translation": "Bagpipe blower",
     "category_id": 11,
@@ -2688,7 +2744,7 @@
     "language": "Catalan"
   },
   {
-    "id": 337,
+    "id": 344,
     "word/phrase": "Cap de carbassa",
     "literal_english_translation": "Pumpkinhead",
     "category_id": 8,
@@ -2696,11 +2752,43 @@
     "language": "Catalan"
   },
   {
-    "id": 338,
+    "id": 345,
     "word/phrase": "Figaflor",
     "literal_english_translation": "It’s a plant, you’d use it to say someone is weak",
     "category_id": 8,
     "category": "Earth and plants related",
     "language": "Catalan"
+  },
+  {
+    "id": 346,
+    "word/phrase": "Puka",
+    "literal_english_translation": "Ass",
+    "category_id": 4,
+    "category": "Sex and the Human body",
+    "language": "Sinhalese"
+  },
+  {
+    "id": 347,
+    "word/phrase": "Huththi",
+    "literal_english_translation": "Whore",
+    "category_id": 1,
+    "category": "Female",
+    "language": "Sinhalese"
+  },
+  {
+    "id": 348,
+    "word/phrase": "Balli",
+    "literal_english_translation": "Bitch",
+    "category_id": 1,
+    "category": "Female",
+    "language": "Sinhalese"
+  },
+  {
+    "id": 349,
+    "word/phrase": "Hukanna",
+    "literal_english_translation": "Fuck",
+    "category_id": 4,
+    "category": "Sex and the Human body",
+    "language": "Sinhalese"
   }
 ]
