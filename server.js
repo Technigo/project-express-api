@@ -20,6 +20,11 @@ const port = process.env.PORT || 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
+// Welcome message when you enter the url
+app.get('/', (request, response) => {
+  response.json("Welcome to Claire's book API");
+});
+
 /* ---- First endpoint ----
 Endpoint that returns the whole array of data and also for books based on author, title, language or average rating when using the query paramater. 
 Each if statement is checked and if true will either return the results or an error message as the array returned is empty (e.g. if the user has entered an incorrect author, title, langauage etc).
@@ -100,9 +105,11 @@ const documentation = {
   "Endpoint 1 with average rating query": "https://books-deployment.herokuapp.com/books/search?averagerating=4 - Use this endpoint to return books with a specific average rating",
   "Endpoint 2": "https://books-deployment.herokuapp.com/books/:id - Use this endpoint to return books with a specific id and replace :id with a number",
 }
- 
-// Path for my api documentation to be found which is the homepage of the url
-app.get('/', (request, response) => {
+
+/* --- Third endpoint --
+Path for my api documentation to be found which is the homepage of the url
+*/
+app.get('/documentation', (request, response) => {
   response.json(documentation);
 });
 
