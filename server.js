@@ -5,18 +5,6 @@ import data from './data.json'
 
 console.log(data.length)
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 //set up server
@@ -27,16 +15,18 @@ app.use(cors())
 //to read json
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Start defining routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+//Endpoints getting all data
 app.get('/nominations', (req, res) => {
   res.json(data)
 
 })
 
+//Endpoint getting year and film won
 app.get('/year/:year', (req, res) => {
   const year = req.params.year 
   const showWon =req.query.won
