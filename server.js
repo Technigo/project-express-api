@@ -30,7 +30,7 @@ app.get('/books', (req, res) => {
 app.get('/books/filter', (req, res) => {
   // Slice to set the 50 first books
   let filteredBooks = books.slice(0, 50);
-  
+
   // Set a filter with query parameter to filter on
   // only the books with average_rating > 4.0
   // Access this query by '/books?average_rating=high'
@@ -38,7 +38,7 @@ app.get('/books/filter', (req, res) => {
   if (average_rating === 'high') {
     filteredBooks = filteredBooks.filter((item) => item.average_rating > 4.0);
   };
-  
+
   // Set query for which site to see, with 50 on each.
   // Total 500 books divided on 10 pages
   if (page === '1') {
@@ -70,7 +70,7 @@ app.get('/books/filter', (req, res) => {
 app.get('/books/book/:id', (req, res) => {
   const bookID = req.params.id;
   const bookById = books.find((item) => item.bookID === +bookID);
-  
+
   // If bookID wasn't found
   if (!bookById) {
     res.send("Sorry, we cannot find any book with that ID :( Please try another ID!");
@@ -83,7 +83,7 @@ app.get('/books/book/:id', (req, res) => {
 app.get('/books/author/:author', (req, res) => {
   const authors = req.params.author;
   const booksFromAuthors = books.filter((item) => item.authors === authors);
-  
+
   // If authors is not found
   if (booksFromAuthors.length === 0) {
     res.send("Sorry, we cannot find any books from that author in our list. Try by entering the name in another way or search for another author.")
@@ -94,18 +94,20 @@ app.get('/books/author/:author', (req, res) => {
 
 // Top rated books, the 20 highest 
 app.get('/books/top-rated', (req, res) => {
-  const topRated = books.filter((item) => item.average_rating >=4);
-  const top20Books = topRated.slice(0, 20);
+  const topRated = books.filter((item) => item.average_rating >= 4);
+  const sortedBooks = topRated.sort((a, b) => b.average_rating - a.average_rating);
+  const top20Books = sortedBooks.slice(0, 20);
   res.json(top20Books);
 });
 
-// Empty/dummy endpoints
+// Empty/dummy endpoints to create and use later on if wanted
 app.get('/books/isbn/:isbn', (req, res) => {
-// To search by isbn number
+  // To search by isbn number
   res.send('This endpoint does not have any content yet!')
 });
 
-app.get('/books/lesspages', (req, res) => {
+// To search on books with few pages
+app.get('/books/fewpages', (req, res) => {
   res.send('This endpoint does not have any content yet!')
 });
 
