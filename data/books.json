@@ -5986,5 +5986,29 @@
     "num_pages": 34,
     "ratings_count": 2,
     "text_reviews_count": 0
+  },
+  {
+    "bookID": 1462,
+    "title": "Hejkon Bejkon Story",
+    "authors": "Emelie Svensson",
+    "average_rating": 3.4,
+    "isbn": 345678901,
+    "isbn13": 234567890123,
+    "language_code": "swe",
+    "num_pages": 43,
+    "ratings_count": 32,
+    "text_reviews_count": 234
+  },
+  {
+    "bookID": 1463,
+    "title": "Hejkon Bejkon Story 2",
+    "authors": "Emelie Svensson",
+    "average_rating": 4,
+    "isbn": 345678901,
+    "isbn13": 234567890123,
+    "language_code": "swe",
+    "num_pages": 43,
+    "ratings_count": 32,
+    "text_reviews_count": 234
   }
 ]

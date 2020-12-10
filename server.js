@@ -7,8 +7,8 @@ import booksData from './data/books.json'
 
 const port = process.env.PORT || 8080
 const app = express()
+const fs = require('file-system')
 
-/* const endpoints = require('express-list-endpoints') */
 const ERROR_MSG = {
   error: 'no books found!'
 }
@@ -20,8 +20,6 @@ const INPUT_ERROR = {
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
-
-//function for validating input
 
 const bookDefinition = [
   {
@@ -65,7 +63,7 @@ const bookDefinition = [
     fieldType: "number"
   }
 ]
-//Currently missing something, only returns undefined
+
 const validateBookInput = (bookDefinition, input) => {
   const result = bookDefinition.map((property) => {
     const test = input[property.fieldName]
@@ -73,11 +71,8 @@ const validateBookInput = (bookDefinition, input) => {
       isValid: typeof test === property.fieldType,
       fieldName: property.fieldName
     }
-  }) 
-  const invalids = result.filter((object) => !object.isValid)
-  if(invalids.length === 0){
-    return result
-  } return 'Invalid input'
+  })
+  return result
 }
 
 // Start defining your routes here
@@ -89,14 +84,19 @@ app.get('/books', (req, res) => {
   const language = req.query.lang
   const otherlanguages = req.query.otherlang
 
-  let filteredBooks = booksData
   if (language) {
-    filteredBooks = booksData.filter((item) => item.language_code === language)
+    let booksInChosenLang = booksData.filter((item) => item.language_code === language)
+    if (booksInChosenLang.length === 0) {
+      res.status(404).json(ERROR_MSG)
+    } res.json(booksInChosenLang)
   } else if (otherlanguages) {
-    filteredBooks = booksData.filter((item) => item.language_code != language)
-  } res.json(filteredBooks)
+    let booksInOtherLang = booksData.filter((item) => item.language_code != language)
+    if (booksInOtherLang.length === 0) {
+      res.status(404).json(ERROR_MSG)
+    } res.json(booksInOtherLang)
+  } res.json(booksData)
+
 })
-//res.status(404).json(ERROR_MSG)
 
 app.get('/books/:book', (req, res) => {
   const book = req.params.book
@@ -107,14 +107,19 @@ app.get('/books/:book', (req, res) => {
   res.json(result)
 })
 
-//Currently not working properly due to function
 app.post('/books', (req, res) => {
   const input = req.body
   const validationResult = validateBookInput(bookDefinition, input)
-  if(!validationResult){
-    res.status(400).json(INPUT_ERROR)
-  }
-  res.json(validationResult)
+  const invalids = validationResult.filter((object) => !object.isValid)
+  
+  if (invalids.length === 0) {
+    const result = JSON.parse(fs.readFileSync('./data/books.json'))
+    result.push(input)
+    const resultJSON = JSON.stringify(result)
+    fs.writeFileSync('./data/books.json', resultJSON)
+    res.status(200).json(validationResult)
+  } else
+      res.status(400).json(INPUT_ERROR)
 })
 
 // Start the server
