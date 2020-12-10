@@ -40,7 +40,7 @@ http://localhost:8081/books/search?averagerating=4.5 - Searches for books based 
 request, response is callback function
 */
 app.get('/books/search', (request, response) => {
-  const {author, title, language, averagerating} = request.query;
+  const {author, title, language, averagerating, pageone, pagetwo, pagethree, pagefour, pagefive, pagesix, pageseven, pageeight, pagenine, pageten} = request.query;
 
   if (author) {
     const authorResults = booksData.filter((item) => item.authors.toLocaleLowerCase().includes(author.toLocaleLowerCase()));
@@ -78,7 +78,41 @@ app.get('/books/search', (request, response) => {
       response.json(aveRatingResults);
     }
   } 
-  response.json(booksData);
+
+const page1 = booksData.slice(0,51);
+const page2 = booksData.slice(51,102);
+const page3 = booksData.slice(102,153);
+const page4 = booksData.slice(153,204);
+const page5 = booksData.slice(204,256);
+const page6 = booksData.slice(256,307);
+const page7 = booksData.slice(307,358);
+const page8 = booksData.slice(358,409);
+const page9 = booksData.slice(409,460);
+const page10 = booksData.slice(460,499);
+
+ if (pageone) {
+  response.json(page1);
+} else if (pagetwo) {
+  response.json(page2);
+} else if (pagethree) {
+  response.json(page3);
+} else if (pagefour) {
+  response.json(page4);
+} else if (pagefive) {
+  response.json(page5);
+} else if (pagesix) {
+  response.json(page6);
+} else if (pageseven) {
+  response.json(page7);
+} else if (pageeight) {
+  response.json(page8);
+} else if (pagenine) {
+  response.json(page9);
+} else if (pageten) {
+  response.json(page10);
+} else {
+  response.json(booksData)
+}
 });
 
 /* ---- Second endpoint ----
