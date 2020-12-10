@@ -1,9 +1,10 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
 console.log(`Book nr: ${booksData.length}`)
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -24,7 +25,9 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// --- ALL the routes ---
+
+
 app.get('/', (req, res) => {
   //response object -> used for building the response we send to the browser
   res.send('Good morning, Rebeka! Best of luck with this week\'s project')
@@ -36,19 +39,38 @@ app.get("/books", (req, res) => {
 
 app.get("/id/:isbn13", (req, res) => {
   const bookId = req.params.isbn13
-  console.log(bookId)
+  console.log({ bookId })
+
 
   //find a book based on its isbn13
   const bookISBN13 = booksData.find(item => item.isbn13 === +bookId)
 
+
+  //if the book is not found error
   //sending back the data 9780060920081 (The lost continent)
-  res.json(bookISBN13)
+
+  if (!bookISBN13) {
+    //want to return response with the entered isbn13 number
+    //STH WRONG with THIS SYNTAX
+    response.status(404).json({ error: 'No books with ISBN13 were found.' });
+  }
+  else {
+    res.json(bookISBN13)
+  }
+
 })
 
-app.get("/ranking/:avg_ranking", (req, res) => {
+//empty endpoint (to be added in the future)
+// app.get("/books/:thumbnail", (req, res)) {
+//   //gets the data with all book cover images and 
+//   response.send()
+// }
 
-})
 //filter books based on average ranking
+// app.get("/ranking/:avg_ranking", (req, res) => {
+
+// })
+
 
 // Start the server
 app.listen(port, () => {
