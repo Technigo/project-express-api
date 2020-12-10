@@ -15,7 +15,9 @@ app.use(bodyParser.json());
 // --------------------------------------------------------------------------------
 
 app.get('/', (req, res) => {
-  res.send('Welcome to TED-talks by Karin');
+  res.send(
+    'Welcome to TED-talks API - by Karin! Read full documentation here: 👉 https://github.com/karinnordkvist/Technigo-16-24-API/blob/master/Documentation.md'
+  );
 });
 
 // ALL TALKS
