@@ -1,31 +1,122 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
+const ERROR_DATA_NOT_FOUND = { error: 'Data not found'}
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+app.get('/books', (req, res) => {
+  res.json(booksData)
 })
+
+//search for books by Id
+app.get('/books/:id', (req, res) => {
+  const bookId = req.params.id
+  const filterById = booksData.filter((book) => book.bookID === +bookId)
+  
+  if (filterById.length === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND)
+  } else {
+    res.json(filterById) 
+  }
+})
+
+//search for books by author
+app.get('books/authors/:author', (req, res) => {
+  const { author } = req.params
+  const filterByAuthor = booksData.filter((book) => {
+    const lowercaseAuthors = book.authors.toLowerCase()
+    return lowercaseAuthors.includes(author);
+  })
+
+  if (filterByAuthor.length === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND)
+  } else {
+    res.json(filterByAuthor)
+  }
+})
+
+//search for books by title
+app.get('books/titles/:title', (req, res) => {
+  const { title } = req.params
+  const filterByTitle = booksData.filter((book) => {
+    const titleString = String(book.title)
+    const lowercaseTitle = titleString.toLowerCase()
+    return lowercaseTitle.includes(title);
+  })
+  if (filterByTitle.length === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND)
+  } else {
+    res.json(filterByTitle)
+  }
+})
+
+//search for books by language
+//take the first two character of the query and compare to the first two letter in the language_code
+app.get('/books/language/search', (req, res) => {
+  const language = req.query.lang
+  const splitLangInput = language.split('')
+  const sliceLangInput = splitLangInput.slice(0, 2)
+  
+  const filterByLanguage = booksData.filter((book) => {
+    const langString = String(book.language_code)
+    const lowercaseLang = langString.toLowerCase()
+    const splitLangData = lowercaseLang.split('')
+    const sliceLangData = splitLangData.slice(0, 2)
+
+    return sliceLangInput[0] === sliceLangData[0] && sliceLangInput[1]=== sliceLangData[1]
+  })
+
+  if (filterByLanguage.length === 0) {
+      return res.status(404).json(ERROR_DATA_NOT_FOUND)
+    } else {
+      res.json(filterByLanguage)
+    }
+})
+
+//sort books by average_rating
+app.get('/books/rating/sort', (req, res) => {
+  const { sortorder } = req.query
+  const sortbyRating = booksData.sort(function(a,b) {
+    if (sortorder === 'asc') {
+      return +a.average_rating - +b.average_rating
+    } else if ( sortorder === 'des') {
+      return +b.average_rating - a.average_rating
+    } 
+  })
+
+  if (sortbyRating.length === 0) {
+    return res.status(404).json(ERROR_DATA_NOT_FOUND)
+  } else {
+    res.json(sortbyRating)
+  }
+})
+
+//sort books by number of pages
+app.get('/books/pages/sort', (req, res) => {
+  const { sortorder } = req.query
+  const sortbyPages = booksData.sort(function(a,b){
+    if (sortorder === 'asc') {
+      return +a.num_pages - +b.num_pages
+    } else if ( sortorder === 'des') {
+      return +b.num_pages - +a.num_pages
+    }
+  })
+
+  if (sortbyPages.length === 0) {
+    return res.status(404).json(ERROR_DATA_NOT_FOUND)
+  } else {
+    res.json(sortbyPages)
+  }
+})
+
+//red level requirement: create empty/dummy endpoint
+
 
 // Start the server
 app.listen(port, () => {
