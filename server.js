@@ -59,9 +59,17 @@ app.get('/games/:slug', (request, response) => {
   }
 });
 
-//Dummy endpoints - Red Level Goal
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+//Dummy endpoints - Red Level Goal
+// filter games by tag
+// app.get('games/tag');
+
+// filter games by playing platform 
+// app.get('games/platform')
+
+//filter games by rating
+// app.get('games/rating')
