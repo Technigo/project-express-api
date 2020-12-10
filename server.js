@@ -51,7 +51,7 @@ app.get("/shows/:id", (req, res) => {
 });
 
 // This route will return a collection of shows with the specified word in title
-app.get("/shows/titles/:title", (req, res) => {
+app.get("/shows/title/:title", (req, res) => {
   const { title } = req.params;
   const filteredShows = netflixData.filter(
     (item) => item.title && item.title.toString().includes(title)
@@ -64,7 +64,7 @@ app.get("/shows/titles/:title", (req, res) => {
 });
 
 // This route will return a collection of shows released the specified year in the specified country
-app.get("/shows/years/:year/countries/:country", (req, res) => {
+app.get("/shows/year/:year/country/:country", (req, res) => {
   const { year, country } = req.params;
 
   let filteredShows = netflixData;
@@ -84,7 +84,7 @@ app.get("/shows/years/:year/countries/:country", (req, res) => {
 
 
 // This route will return a collection of shows of the specified type and matching different query searches (year and country)
-app.get("/shows/types/:type", (req, res) => {
+app.get("/shows/type/:type", (req, res) => {
   const { type } = req.params;
   const { year, country } = req.query;
 
@@ -104,6 +104,23 @@ app.get("/shows/types/:type", (req, res) => {
   } else {
     res.json(filteredShows);
   }
+});
+
+//Dummy endpoints for red level
+app.get("/types", (req, res) => {
+  res.send("Dummy endpoint that will return a list of available types");
+});
+
+app.get("/countries", (req, res) => {
+  res.send("Dummy endpoint that will return a list of available countries");
+});
+
+app.get("/year", (req, res) => {
+  res.send("Dummy endpoint that will return a list of available years");
+});
+
+app.get("/titles", (req, res) => {
+  res.send("Dummy endpoint that will return a list of available titles");
 });
 
 // Start the server
