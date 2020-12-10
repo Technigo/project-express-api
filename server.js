@@ -19,7 +19,8 @@ app.get('/', (request, response) => {
 // Endpoint/route that return the first 200 books in the data 
 app.get('/books', (request, response) => {
   const firstBooks = booksData.slice(0, 200)
-  response.json(firstBooks)
+  
+    response.json(firstBooks)
 })
 
 // Endpoint/route that return a single book based on the ID
