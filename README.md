@@ -17,8 +17,8 @@ I've added costume error messages to show to the user when there is no matching 
 
 
 ## View it live
-https://new-disney-api.herokuapp.com/
-https://new-disney-api.herokuapp.com/movies
-https://new-disney-api.herokuapp.com/movies/Cinderella
-https://new-disney-api.herokuapp.com/movies/genre/Musical
+- https://new-disney-api.herokuapp.com/
+- https://new-disney-api.herokuapp.com/movies
+- https://new-disney-api.herokuapp.com/movies/Cinderella
+- https://new-disney-api.herokuapp.com/movies/genre/Musical
 
