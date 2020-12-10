@@ -15,16 +15,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //https://www.npmjs.com/package/express-list-endpoints
-//documentation purpose of your api 
 const listEndpoints = require('express-list-endpoints');
 
 // Start defining your routes here
 app.get('/', (req, res) => {
   //sätta en specifik timeout? 
   if(!res) {
-    res
-    .status(404)
-    .send({ Error: 'Sorry, a problem occured, try again later' });
+    setTimeout(() => { //bad practice?
+      res
+      .status(404)
+      .send({ Error: 'Sorry, a problem occured try again later' });
+    }, 3000) 
   } 
   else res.send(listEndpoints(app));
 });
@@ -36,7 +37,7 @@ app.get('/books', (req, res) => {
   let booksList = booksData;
   const totalOfBooks = booksList.length 
 
-  //sort by rating dsc, asc
+  //sort by rating
   if(sort === "rating_dsc") {
     booksList = booksList.sort((a, b) => (b.average_rating - a.average_rating));
   } else if (sort === "rating_asc") {
@@ -45,12 +46,12 @@ app.get('/books', (req, res) => {
   
   //filter by author
   if (author) {
-    booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author));
+    booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLowerCase()));
   } 
   
   //filter by title
   if (title) {
-    booksList = booksList.filter((item) => item.title.toString().toLowerCase().includes(title.toLocaleLowerCase()));
+    booksList = booksList.filter((item) => item.title.toString().toLowerCase().includes(title.toLowerCase()));
   }
 
   //PAGINATION limit of 20 results per page
@@ -82,26 +83,6 @@ app.get('/books', (req, res) => {
   res.json(returnObject);
 });
 
-//array of authors
-//första författaren J.K Rowling-Mary Grand Pré, varje bokstav delas upp på separat rad varför? 
-app.get("/authors", (req, res) => {
-  // const authorsArray = booksData.map(item => {
-  //   return [...new Set(item.authors)];
-  // });
-  // res.send({authors: authorsArray.length, results: authorsArray});
-  const authorsArray = booksData.map(item => item.authors)
-  const uniqueAuthorsArray = authorsArray.reduce((unique, item) => {
-    return unique.includes(item) ? unique : [...unique, item]
-  })
-  res.send({authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray})
-});
-
-
-//future endpoint
-app.get("/books/isbn", (req, res) => {
-  res.json("filtering on ISBN for the future.")
-})
-  
 //Search by bookID
 app.get("/books/:id", (req, res) => {
   const { id } = req.params;
@@ -131,6 +112,30 @@ app.post('/books/addbook', (req, res) => {
   }
   booksData.push(AddNewBook)
   res.send(booksData)
+})
+
+//array of authors
+app.get("/authors", (req, res) => {
+  // const authorsArray = booksData.map(item => item.authors)
+  // const uniqueAuthorsArray = authorsArray.reduce((unique, item) => (
+  //   unique.includes(item) ? unique : [...unique, item]
+  // ), [])
+
+  ///Enklare sett, new Set inbyggt att ta bort dupliceringar////
+  const authorsArray = booksData.map(item => item.authors)
+  const uniqueAuthorsArray = [...new Set(authorsArray)]
+  
+  if (!authorsArray) {
+    res
+    .status(404)
+    .send({Error: "something went wrong"})
+  }
+  res.send({authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray})
+});
+
+//future endpoint
+app.get("/isbn", (req, res) => {
+  res.json("ISBN filtering soon to come.")
 })
 
 // Start the server
