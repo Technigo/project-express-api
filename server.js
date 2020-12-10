@@ -14,7 +14,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
-app.get('/', (req, res) => {
+app.get('/books', (req, res) => {
   res.send(booksData)
 })
 
@@ -41,6 +41,27 @@ app.get('/books/:title', (req, res) => {
     res.send(filteredBooks)
   }
 })
+
+app.get('/books/:author', (req, res) => {
+  const { title } = req.params
+  const filteredBooks = booksData.filter((book) => {
+    const bookAuthors = `${book.authors}`.toLowerCase()
+    return bookAuthors.includes(authors.toLowerCase())
+  })
+  if (filteredBooks.length === 0) {
+    res.status(404).json(ERROR_404)
+  } else {
+    res.send(filteredBooks)
+  }
+})
+app.get('/books/rating/:rating', (req, res ) => {
+  const { rating } = req.params
+  const averageRating = booksData.filter((book) => {
+
+  })
+  res.send(rating)
+})
+
 
 
 
