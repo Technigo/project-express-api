@@ -9,8 +9,8 @@ https://tedtalks-by-karin.herokuapp.com/
 ## TALKS
 `https://tedtalks-by-karin.herokuapp.com/talks/`
 
-##### TALK QUERIES
-Query for talks filtered by following:
+
+#### Query for talks filtered by following:
 
 **Category (category)** 
 
