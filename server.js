@@ -28,7 +28,7 @@ app.get("/authors", (req, res) => {
     const searchedAuthorList = searchedAuthorObject.map((item) => item.authors);
     const uniqueSearchedAuthor = [...new Set(searchedAuthorList)];
 
-    // Error if no unique searched authors found
+    // Error when no unique searched authors found
     if (uniqueSearchedAuthor.length === 0) {
       const error = new Error(`${searchedAuthor} not found`);
       error.status = 404;
@@ -59,14 +59,14 @@ app.get("/authors/:author/books", (req, res, next) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) => item.authors === author);
 
-  // Query string - try: /author/author/books?author="Rowling"
+  // Query string - for example: /author/author/books?author="Rowling"
   const searchedAuthor = req.query.author;
   if (searchedAuthor) {
     const booksBySearchedAuthor = booksData.filter((item) =>
       item.authors.includes(searchedAuthor)
     );
 
-    // Error when searched author not found
+    // Error when query not found
     if (booksBySearchedAuthor.length === 0) {
       const error = new Error(`${searchedAuthor} not found`);
       error.status = 404;
@@ -74,7 +74,8 @@ app.get("/authors/:author/books", (req, res, next) => {
     }
     res.json(booksBySearchedAuthor);
   } else {
-    // Error when no author
+
+    // Error when author not found 
     if (booksByAuthor.length === 0) {
       const error = new Error(`${author} not found`);
       error.status = 404;
@@ -85,16 +86,14 @@ app.get("/authors/:author/books", (req, res, next) => {
 });
 
 // Books endpoints
-
-//authors?author=kkfkfkfkfk
-
-//books?sort=ratings
-
 app.get("/books", (req, res, next) => {
+
+  // Query to sort books, for now only on average_rating
   const sort = req.query.sort;
   if (sort && sort === "average_rating") {
     const sortRatings = booksData.sort((a, b) => b[sort] - a[sort]);
 
+        // Error when query not found
     if (sortRatings.length === 0) {
       const error = new Error("Not found");
       error.status = 404;
@@ -116,6 +115,8 @@ app.get("/books/:book", (req, res, next) => {
     const searchedTitlesList = booksData.filter((item) =>
       item.title.toString().toLowerCase().includes(searchedTitles.toLowerCase())
     );
+
+    // Error when query not found
     if (searchedTitlesList.length === 0) {
       const error = new Error("Book not found");
       error.status = 404;
@@ -158,7 +159,7 @@ app.get("/books/:book/ratings", (req, res, next) => {
   res.json(bookRatings);
 });
 
-// Error handling fall back when req is not found
+// Default error when not found
 app.use((next) => {
   const error = new Error(`Not found`);
   error.status = 404;
