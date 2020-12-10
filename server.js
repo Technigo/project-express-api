@@ -27,17 +27,22 @@ app.get('/books/id/:id', (req, res) => {
   } else {
     res.json(book)
   }
-
 })
 
 app.get('/books/:title', (req, res) => {
   const { title } = req.params
-  const filterBooks = booksData.filter((book) => {
+  const filteredBooks = booksData.filter((book) => {
     const bookTitle = `${book.title}`.toLowerCase()
     return bookTitle.includes(title.toLowerCase())
   })
-  res.send(filterBooks)
+  if (filteredBooks.length === 0) {
+    res.status(404).json(ERROR_404)
+  } else {
+    res.send(filteredBooks)
+  }
 })
+
+
 
 
 
