@@ -79,16 +79,16 @@ app.get('/books/search', (request, response) => {
     }
   } 
 
-const page1 = booksData.slice(0,51);
-const page2 = booksData.slice(51,102);
-const page3 = booksData.slice(102,153);
-const page4 = booksData.slice(153,204);
-const page5 = booksData.slice(204,256);
-const page6 = booksData.slice(256,307);
-const page7 = booksData.slice(307,358);
-const page8 = booksData.slice(358,409);
-const page9 = booksData.slice(409,460);
-const page10 = booksData.slice(460,499);
+const page1 = booksData.slice(0,50);
+const page2 = booksData.slice(50,101);
+const page3 = booksData.slice(101,152);
+const page4 = booksData.slice(152,203);
+const page5 = booksData.slice(203,255);
+const page6 = booksData.slice(255,306);
+const page7 = booksData.slice(306,357);
+const page8 = booksData.slice(357,408);
+const page9 = booksData.slice(408,459);
+const page10 = booksData.slice(459,499);
 
  if (pageone) {
   response.json(page1);
