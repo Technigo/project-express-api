@@ -1,13 +1,24 @@
-# Express API Project
+# Express API Project 🚆
 
-Replace this readme with your own information about your project. 
+I have created an API with disney data from kaggle.com in Node using Express.
+I've added costume error messages to show to the user when there is no matching movie/genre. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Endpoints 
+- Welcomepage: / 
+- All movies: /movies
+- One movie: /movies/:name of specific movie 
+- Movies on genre: /movies/genre/:specific gengre
 
-## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## TECH
+- JavaScript
+- Node.js
+- Express
+
 
 ## View it live
+https://new-disney-api.herokuapp.com/
+https://new-disney-api.herokuapp.com/movies
+https://new-disney-api.herokuapp.com/movies/Cinderella
+https://new-disney-api.herokuapp.com/movies/genre/Musical
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.

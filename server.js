@@ -13,20 +13,54 @@ app.use(bodyParser.json())
 
 //routes 
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('DISNEY TIME')
 })
 
-app.get('/nominations', (req, res) => {
+// all movies
+app.get('/movies', (req, res) => {
   res.json(data)
 })
 
-app.get('/nominations/:nominee', (req, res) => {
-  const nominee = req.params.nominee
-  const oneNominee = data.filter((item) => item.nominee === nominee)
+//movie name
+app.get('/movies/:movie', (req, res) => {
+  const { movie } =req.params
+  const oneMovie = data.filter((item) => item.movie_title === movie)
 
-  res.json(oneNominee)
+  if (oneMovie.length > 0 ) {
+    res.json(oneMovie)
+  }
+  else {
+    res.status(404).send({message: 'no movie found'})
+  }
 })
 
+//genre 
+app.get('/movies/genre/:genre', (req, res) => {
+  const genre = req.params.genre
+  const oneGenre = data.filter((item) => item.genre === genre)
+
+  if (oneGenre.length > 0 ) {
+    res.json(oneGenre)
+  }
+  else {
+    res.status(404).send({message: 'no genre found'})
+  }
+})
+
+
+//endpoints for redlevel
+
+app.get('/movies/release/:release', (req, res) => {
+  // release date 
+})
+
+app.get('/movies/rating/:rating', (req, res) => {
+  // mpaa_rating
+})
+
+app.get('/movies/total/total-gross', (req, res) => {
+  // total gross 
+})
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
