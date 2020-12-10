@@ -83,8 +83,9 @@ app.get('/', (req, res) => {
 app.get('/books', (req, res) => {
   const language = req.query.lang
   const otherlanguages = req.query.otherlang
-  const sortedAscending = req.query.sorted_acending
+  const sorted = req.query.sorted
 
+  //FIX SORTINGFUNCTION
   if (language) {
     const booksInChosenLang = booksData.filter((item) => item.language_code === language)
     if (booksInChosenLang.length === 0) {
@@ -95,10 +96,15 @@ app.get('/books', (req, res) => {
     if (booksInOtherLang.length === 0) {
       res.status(404).json(ERROR_MSG)
     } res.json(booksInOtherLang)
-  } else if (sortedAscending){
-    const sortedBooks = booksData.sort((a, b) => { return a.num_pages - b.num_pages })
-    const sortedPage = sortedBooks.slice(0, sortedAscending)
-    res.json(sortedPage)
+  } //Sortingfunction doesn't work!
+  else if (sorted) {
+    const sortByNumPages = booksData.sort((a,b) => {
+      if (sorted === 'asc') {
+        return +a.num_pages - +b.num_pages
+      } else if (sorted === 'des') {
+        return +b.num_pages - +a.num_pages
+      } res.json(sortByNumPages)
+    })
   }res.json(booksData)
 })
 
