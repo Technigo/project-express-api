@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   } else res.send(myEndpoints(app));
 });
 
-// A Collection of results - An array with book elements
+// A Collection of results - An array with books
 // that can be filtered by title or author.
 // Returns an object with the fields booksData, filteredAuthors and filteredTitles
 // plus number of books listed.
@@ -87,6 +87,36 @@ app.get('/books', (req, res) => {
   }
 
   res.json(returnObject);
+});
+
+// A Collection of results - An array with authors
+app.get('/authors', (req, res) => {
+  const authorsArray = booksData.map((item) => item.authors);
+
+  // 3 ways to get unique values from an array
+  // https://www.youtube.com/watch?v=IorhmUhPgFs
+
+  // # 1 - Filter function
+  // const uniqueAuthorsArray = authorsArray.filter(
+  //   (currentValue, index, arr) => arr.indexOf(currentValue) === index
+  // );
+
+  // # 2 - Reduce and includes funtion
+  // const uniqueAuthorsArray = authorsArray.reduce(
+  //   (acc, currentValue) =>
+  //     acc.includes(currentValue) ? acc : [...acc, currentValue],
+  //   []
+  // );
+
+  // #3 same as #2 but with other naming convention and a return
+  // const uniqueAuthorsArray = authorsArray.reduce((unique, item) => {
+  //   return unique.includes(item) ? unique : [...unique, item];
+  // }, []);
+
+  // #4 - Set
+  const uniqueAuthorsArray = [...new Set(authorsArray)];
+
+  res.send({ authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray });
 });
 
 // A Single result - A single book element find by id
