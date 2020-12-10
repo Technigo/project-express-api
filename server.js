@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
@@ -24,17 +24,13 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (request /*Incoming*/, response /*Outgoing*/) => {
-  //Any code we want
-  //Database connections
-  //Data lookups
-  //Third third api request
-  response.send('Good morning, have a wonderful day')
+app.get('/', (request, response) => {
+  response.send('Welcome, /topmusic will show you the top tracks!')
 })
 
-// All top music 
-app.get('/topmusic', (req, res) => {
-  res.json(topMusicData)
+// The first endpoint returns a collection of all top music 
+app.get('/topmusic', (request, response) => {
+  response.json(topMusicData)
 })
 
 // All artists
@@ -52,18 +48,21 @@ app.get('/topMusicData/:id', (request, response) => {
   const id = request.params.id
   const topmusicID = topMusicData.find((item) => item.id === +id)
   response.json(topmusicID)
-
 })
 
 // Search by trackname
 app.get('/tracks/:trackName', (request, response) => {
-  // console.log(request.params)
-    const trackName = request.params.trackName
-    const songs = topMusicData.find((song) => song.trackName === trackName)
-    response.json(songs)
-    console.log(`Found ${JSON.stringify(songs)}`)
-  })
+  const trackName = request.params.trackName
+  const songs = topMusicData.find((song) => song.trackName === trackName)
 
+  // If track is not found
+  if (songs.length === 0) {
+    res.send("Sorry we are not able to find the track you are looking for :(")
+  }
+  response.json(songs)
+})
+
+// Filter by popularity, /number will tell how many top songs to show
 app.get('/top/:number', (request, response) => {
   const number = request.params.number
   const sortedSongs = [...topMusicData]
@@ -72,6 +71,21 @@ app.get('/top/:number', (request, response) => {
 
   response.json(topTenSongs)
 })
+
+// Shows the top 3 most popular songs
+app.get('/top3', (request, response) => {
+  const three = request.params.three
+  const sortedSongs = [...topMusicData]
+  sortedSongs.sort((a, b) => b.popularity - a.popularity)
+  const topThreeSongs = sortedSongs.slice(0, 3)
+
+  response.json(topThreeSongs)
+})
+
+// Empty endpoints to create in future
+app.get('/music/trending', (req, res) => {
+  res.send('This does not exist yet!')
+});
 
 // Start the server
 app.listen(port, () => {
