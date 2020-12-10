@@ -65,20 +65,20 @@ app.get("/id/:isbn13", (req, res) => {
 app.get("/books/rating", (req, res) => {
 
   //sorting the numbers 
-  const ratingArray = booksData.map(book => book.average_rating)
+  const ratingArray = booksData.sort(compare)
   console.log(`Rating array: ${ratingArray}`)
 
-  // function compare(a, b) {
-  //   if (a.average_rating < b.average_rating) {
-  //     return -1
-  //   }
-  //   if (a.average_rating > b.average_rating) {
-  //     return 1
-  //   }
-  //   else {
-  //     return 0
-  //   }
-  // }
+  function compare(a, b) {
+    if (a.average_rating > b.average_rating) {
+      return -1
+    }
+    if (a.average_rating < b.average_rating) {
+      return 1
+    }
+    else {
+      return 0
+    }
+  }
 
   // const sortedArray = booksData.sort(compare)
   // console.log(`soret array; ${sortedArray}`)
