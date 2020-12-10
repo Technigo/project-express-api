@@ -36,4 +36,3 @@ Search books low to high: /books?sort=rating_asc
 
 [Rating high to low](https://andrea-books-api.herokuapp.com/books?sort=rating_dsc)
 
-
