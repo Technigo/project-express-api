@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 // Welcome message when you enter the url
 app.get('/', (request, response) => {
-  response.json("Welcome to Claire's book API");
+  response.json("Welcome to Claire's book API 🌼 For documentation go to https://books-deployment.herokuapp.com/documentation");
 });
 
 /* ---- First endpoint ----
