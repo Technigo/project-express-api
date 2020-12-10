@@ -44,14 +44,14 @@ app.get('/topmusic/tracks', (request, response) => {
 })
 
 // Search by id 
-app.get('/topMusicData/:id', (request, response) => {
+app.get('/topmusic/:id', (request, response) => {
   const id = request.params.id
   const topmusicID = topMusicData.find((item) => item.id === +id)
   response.json(topmusicID)
 })
 
 // Search by trackname
-app.get('/tracks/:trackName', (request, response) => {
+app.get('/topmusic/:trackName', (request, response) => {
   const trackName = request.params.trackName
   const songs = topMusicData.find((song) => song.trackName === trackName)
 
@@ -63,7 +63,7 @@ app.get('/tracks/:trackName', (request, response) => {
 })
 
 // Filter by popularity, /number will tell how many top songs to show
-app.get('/top/:number', (request, response) => {
+app.get('/topmusic/:number', (request, response) => {
   const number = request.params.number
   const sortedSongs = [...topMusicData]
   sortedSongs.sort((a, b) => b.popularity - a.popularity)
@@ -83,7 +83,7 @@ app.get('/top3', (request, response) => {
 })
 
 // Empty endpoints to create in future
-app.get('/music/trending', (req, res) => {
+app.get('/topmusic/trending', (req, res) => {
   res.send('This does not exist yet!')
 });
 
