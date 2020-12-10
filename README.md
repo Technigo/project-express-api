@@ -19,5 +19,7 @@ My first challenge was to determine which dataset to work with. It felt very rel
 ## View it live
 
 My Bookish API is live in Heroku, you can find it here: https://vane-bookish-api.herokuapp.com/
+
 You can also find the Frontend repository here: https://github.com/VanessaSue27/vane-bookish-api-frontend
+
 And a Live website using this API here - 📕 Vane's Bookish App: https://vane-bookish-app.netlify.app/
