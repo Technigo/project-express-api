@@ -17,6 +17,11 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
+  if (!res) {
+    res
+      .status(404)
+      .send({ error: 'Sorry, seems like there is an issue, try again later!' });
+  } 
   res.send(myEndpoints(app));
 })
 
@@ -68,12 +73,31 @@ app.get('/api/albums',(req,res) => {
   //Allow the user to ask for next page by adding parameter. If no parameter is provided, default page is 1. 
   console.log({page});
   const albums_paged = albums.slice(page > 1 ? (50*(+page)) : 0, (50*(+page)+(+page === 1 ? 0 :50)));
-  res.json(albums_paged);
+
+  //Return an object with information 
+  const returnObj = {
+    totalAlbums: albumData.length,
+    albumsReturned: albums_paged.length,
+    results: albums_paged
+  };
+
+  //No results to show
+  if(albums_paged.length < 1){
+    res.status(404).send({
+      error: 'Sorry, no albums found, please try a different query.'
+    });
+  }
+  else res.json(returnObj);
 })
 
 //get the top 10 albums
 app.get('/api/albums/top10',(req,res) => {
   const albums = albumData.slice(0,10);
+  if(albums.length < 1){
+    res.status(404).send({
+      error: 'Sorry, not found, please try later.'
+    })
+  }
   res.json(albums);
 })
 
@@ -84,7 +108,7 @@ app.get('/api/albums/placement/:placement',(req,res) => {
   console.log({placement});
   const album = albumData.find((item) => item.Number === +placement);
   console.log("album",album);
-  album ? res.json(album) : res.json(error);
+  album ? res.json(album) : res.status(404).send({ error: `No album with placement: ${placement} found.` });
  // res.json(album);
 })
 
@@ -94,7 +118,7 @@ app.get('/api/albums/title/:title',(req,res) => {
   console.log({title});
   const album = albumData.find((item) => item.Album.toString().toUpperCase().includes(title.toUpperCase()));
   console.log("album",album);
-  album ? res.json(album) : res.json(error);
+  album ? res.json(album) : res.status(404).send({ error: `No album with title: ${title} found.` });
 })
 
 
