@@ -6,7 +6,7 @@ This project's goal is to create my first **RESTful API** using **Node in Expres
 
 I've also put together a Documentation Page for this API 🤓, which includes more information about the endpoints, core resources, etc. **Find it here:** https://vane-bookish-app.netlify.app/documentation
 
-## The problem
+## How I built it - What I learned
 
 My first challenge was to determine which dataset to work with. It felt very relevant that the dataset contained enough information in order to come up with good endpoints.
 
