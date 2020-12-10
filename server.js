@@ -16,13 +16,15 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const myEndpoints = require('express-list-endpoints');
+
 // Start defining your routes here
 app.get('/', (req, res) => {
   if (!res) {
     res
       .status(404)
       .send({ error: 'Sorry, seems like there is an issue, try agian later!' });
-  } else res.send('Hello API');
+  } else res.send(myEndpoints(app));
 });
 
 // A Collection of results - An array with book elements
