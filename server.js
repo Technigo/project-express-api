@@ -70,12 +70,12 @@ const validateBookInput = (bookDefinition, input) => {
   const result = bookDefinition.map((property) => {
     const test = input[property.fieldName]
     return {
-      result: typeof test === property.fieldType,
+      isValid: typeof test === property.fieldType,
       fieldName: property.fieldName
     }
   }) 
-  const invalids = result.filter((object) => !object.result)
-  if(invalids === 0){
+  const invalids = result.filter((object) => !object.isValid)
+  if(invalids.length === 0){
     return result
   } return 'Invalid input'
 }
@@ -110,9 +110,11 @@ app.get('/books/:book', (req, res) => {
 //Currently not working properly due to function
 app.post('/books', (req, res) => {
   const input = req.body
-  console.log(input)
   const validationResult = validateBookInput(bookDefinition, input)
-  console.log(validationResult)
+  if(!validationResult){
+    res.status(400).json(INPUT_ERROR)
+  }
+  res.json(validationResult)
 })
 
 // Start the server
