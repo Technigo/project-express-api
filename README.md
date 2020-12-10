@@ -1,13 +1,33 @@
-# Express API Project
+# The Project
 
-Replace this readme with your own information about your project. 
+A backend project where I got to build my own API through Heroku. 
+The project has a several of RESTful endpoints which returns either an array of books or a single item. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+# Express API
 
-## The problem
+Available endpoints:
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Search books by author: /books?author= "author"
+Search books by title: /books?title= "title name"
+Search books by ID : /books/ "id number"
+Search books high to low: /books?sort=rating_dsc
+Search books low to high: /books?sort=rating_asc 
+
+## Tech
+
+* Node.js
+* Postman
+* Heroku
+* Javascript
+* Restful API
+* Express
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Book API](https://andrea-books-api.herokuapp.com/)
+[Example author](https://andrea-books-api.herokuapp.com/books?author=douglas)
+[Example title](https://andrea-books-api.herokuapp.com/books?title=Shakespeare)
+[Example id](https://andrea-books-api.herokuapp.com/524)
+[Rating low to high](https://andrea-books-api.herokuapp.com/books?sort=rating_asc)
+[Rating high to low](https://andrea-books-api.herokuapp.com/books?sort=rating_dsc)
+
