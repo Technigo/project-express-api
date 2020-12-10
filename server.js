@@ -26,14 +26,35 @@ app.get('/', (req, res) => {
   res.send(data)
 })
 
-app.get('/years', (req, res) => {
+app.get('/year', (req, res) => {
   res.json(data)
 })
 app.get('/years/:year', (req, res) => {
   const year = req.params.year
+  const type = req.query.type
+
   const releaseYear = data.filter((item) => item.release_year === +year)
+
+if (type) {
+   releaseYear.filter((item) => item.type)
+}
     res.json(releaseYear)
 })
+
+//why does this not work as it does above?
+// app.get('/types/:type', (req, res) => {
+//   const type = req.params.type
+//   const movieOrSeries = data.filter(item => item.type.toLowerCase() === type.toLowerCase())
+//   res.json(movieOrSeries)
+// })
+
+
+
+// app.get('/titles/:title', (req, res) => {
+//   const title = req.params.title
+//   const titles = data.filter(item => item.title.toLowerCase() === title.toLowerCase())
+//   res.json(titles)
+// })
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
@@ -47,12 +68,7 @@ app.listen(port, () => {
 
 
 
-//why does this not work as it does above?
-// app.get('/type/:type', (req, res) => {
-//   const type = req.params.type
-//   const movieOrSeries = data.filter(item => item.type === type)
-//   res.json(movieOrSeries)
-// })
+
 // const ERROR_NOT_FOUND = {error : 'Nothin found'}
 // Add middlewares to enable cors and json body parsing
   //why doesn not the error work?
