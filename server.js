@@ -19,6 +19,7 @@ console.log (netflixData.length)
 const port = process.env.PORT || 8080
 const app = express()
 
+//Error message that is reused in every route
 const ERROR_SHOWS_NOT_FOUND = { error: 'No results were found' }
 
 // Add middlewares to enable cors and json body parsing
@@ -35,7 +36,7 @@ app.get('/shows', (req, res) => {
   res.json(netflixData)
 })
 
-//Shows all objects with the release date of a specific year
+//Shows all objects (movies and tv-shows) with the release date from a specific year
 app.get('/shows/year/:year', (req, res) => {
   const year = req.params.year
   const releaseYear = netflixData.filter((item) => item.release_year === +year)
@@ -76,9 +77,9 @@ app.get('/shows/country/:country', (req, res) => {
   }
 })
 
-/* app.get('/shows/:year/countries', (req, res) => {
+/* app.get('/shows/:year/type/:movie', (req, res) => {
     const { year } = req.params
-    const { country } = req.query
+    const { type } = req.query
 
     let filteredShows = netflixData
 
@@ -87,18 +88,31 @@ app.get('/shows/country/:country', (req, res) => {
     )
     
     filteredShows = filteredShows.filter(
-      (test) => test.country === country
+      (test) => test.type === country
     )
     res.json(filteredShows)
 }) 
  */
-/* app.get('/shows/:year/country/:country', (req, res) => {
-  const { year, country } = req.params;
-  const countryShows = netflixData.find(
-    (countryShows) => +countryShows.year === +year && countryShows.country === +country)
-    res.json(countryShows)
+
+ //Two params are used to return movies that are of the type "movie" and from a specified year.
+app.get('/shows/:year/type/:type', (req, res) => {
+  const { year, type } = req.params;
+  const yearType = netflixData.filter((yearType) => {
+    return +yearType.release_year === +year && yearType.type === type
+  })
+//error message that is displayed if one or two of the parameteras don't exist
+  if (yearType.length === 0) {
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND)
+  } else {
+    res.json(yearType)
+  } 
 })
- */
+
+ //DUMMY ENDPOINT: Create some empty/dummy endpoints which could contain more complex operations in the future.  Find good names for them
+ app.get('/shows/:maxduration', (req, res) => {
+//Suggestion:Here we could do a conditional that all movies with the maximum duration of 90 min should be shown.
+  res.json()
+ })
 
 
 // Start the server
