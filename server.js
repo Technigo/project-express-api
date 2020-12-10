@@ -14,16 +14,14 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// const myEndpoints = require('express-list-endpoints')
+const myEndpoints = require('express-list-endpoints')
 
 // homepage router?
 app.get('/', (req, res) => {
-  // res.send(myEndpoints(app))
-  res.send('asd API!')
+  res.send(myEndpoints(app))
 })
 
-// route entire list/collection/array of elements (first blue level req.)
-// add lenght per page?
+
 app.get('/curses', (req, res) => {
   const { language, category_id } = req.query
   let curseList = profanityDictionary
@@ -63,7 +61,7 @@ app.get('/curses', (req, res) => {
   res.json(returnObject)
 })
 
-// rout by single item from collection/list (second blue level req.) 
+// rout by single item from collection
 app.get('/curses/:id', (req, res) => {
   const { id } = req.params
   const curseId = profanityDictionary.find((curses) => curses.id === +id)
