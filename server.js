@@ -91,6 +91,20 @@ app.get('/books/:id', (request, response) => {
   response.json(specificBook);    
 });
 
+// Created an object outlining the documentation. Can be found on the start page of the api url
+const documentation = {
+  "Endpoint 1": "https://books-deployment.herokuapp.com/books/search - Use this endpoint to return the entire array of data",
+  "Endpoint 1 with author query": "https://books-deployment.herokuapp.com/books/search?author=Rowling - Use this endpoint to return books by a specific author",
+  "Endpoint 1 with title query": "https://books-deployment.herokuapp.com/books/search?title=HarryPotter - Use this endpoint to return books with a specific title",
+  "Endpoint 1 with language query": "https://books-deployment.herokuapp.com/books/search?language=eng - Use this endpoint to return books written in a specific language: eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul",
+  "Endpoint 1 with average rating query": "https://books-deployment.herokuapp.com/books/search?averagerating=4 - Use this endpoint to return books with a specific average rating",
+  "Endpoint 2": "https://books-deployment.herokuapp.com/books/:id - Use this endpoint to return books with a specific id and replace :id with a number",
+}
+
+app.get('/', (request, response) => {
+  response.json(documentation);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running!`)
