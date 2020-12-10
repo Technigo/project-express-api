@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 // Books
 
 app.get("/books", (req, res) => {
-  const { author, title, rating, page, results = 20 } = req.query;
+  const { author, title, rating, page, limit = 20 } = req.query;
 
   let filteredBooks = booksData;
 
@@ -49,7 +49,7 @@ app.get("/books", (req, res) => {
   // Pagination
 
   if (page) {
-    filteredBooks = filteredBooks.slice((page - 1) * results, results * page);
+    filteredBooks = filteredBooks.slice((page - 1) * limit, page * limit);
   }
 
   res.json(filteredBooks);
@@ -64,9 +64,6 @@ app.get("/books/:id", (req, res) => {
   if (bookId) res.json(bookId);
   else res.status(404).json({ message: `Id ${id} not found` });
 });
-
-//   res.json(bookId);
-// });
 
 // Start the server
 app.listen(port, () => {
