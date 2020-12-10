@@ -24,9 +24,9 @@ app.get('/books', (request, response) => {
 })
 
 // Endpoint/route that return a single book based on the ID
-app.get('/books/id/:id', (request, response) => {
-  const id = request.params.id
-  const specificBook = booksData.find((specificBook) => specificBook.bookID === +id)
+app.get('/books/book/:bookID', (request, response) => {
+  const bookID = request.params.bookID
+  const specificBook = booksData.find((specificBook) => specificBook.bookID === +bookID)
     
     response.json(specificBook)
 })
