@@ -27,8 +27,7 @@ app.use(bodyParser.json())
 
 // --- ALL the routes ---
 
-
-app.get('/', (req, res) => {
+app.get('/', (request /* incoming */, res /* outgoing */) => {
   //response object -> used for building the response we send to the browser
   res.send('Good morning, Rebeka! Best of luck with this week\'s project')
 })
