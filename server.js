@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 // Books
 
 app.get("/books", (req, res) => {
-  const { author, title, rating } = req.query;
+  const { author, title, rating, page, results = 20 } = req.query;
 
   let filteredBooks = booksData;
 
@@ -44,6 +44,12 @@ app.get("/books", (req, res) => {
     filteredBooks = filteredBooks.filter(
       (book) => Math.floor(book.average_rating) === +rating
     );
+  }
+
+  // Pagination
+
+  if (page) {
+    filteredBooks = filteredBooks.slice((page - 1) * results, results * page);
   }
 
   res.json(filteredBooks);
