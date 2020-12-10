@@ -4,7 +4,8 @@ import cors from 'cors';
 import netflixData from './data/netflix-titles.json'
 // console.log(netflixData.length);
 
-const ERROR_ID_NOT_FOUND = {error: 'Id not found'};
+const ERROR_DATA_NOT_FOUND = {error: 'Data not found'};
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
@@ -18,7 +19,7 @@ const ERROR_ID_NOT_FOUND = {error: 'Id not found'};
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -27,27 +28,54 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello Api endpoints')
+  res.send('Api endpoints: /shows && /shows/:id && /shows/year/:year')
 })
 
-//the entire array of obejcts / http://localhost:8080/shows/
+//the entire array of objects / http://localhost:8080/shows/
 app.get('/shows', (req, res) => {
   res.json(netflixData);  
 })
 
 //point to single object id / http://localhost:8080/shows/81193313
-app.get('/shows/:id', (req, res) => {
-  const { id } = req.params.id;
-  let showId = netflixData.find((item) => item.show_id === +id);
+app.get('/shows/:id/', (req, res) => {
+  const { id } = req.params;
+
+  let showId = netflixData.find(
+    (item) => item.show_id === +id);
   // console.log(showId);
 
-  if(showId) {
-    res.json(showId);
+  if(showId.length === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND)
   } else {
-    res.status(404).json(ERROR_ID_NOT_FOUND)
+    res.json(showId);
   }
 })
 
+
+//point to year and search type / http://localhost:8081/shows/year/2011?movie
+app.get('/shows/year/:year/', (req, res) => {
+  const { year } = req.params;
+  const { type } = req.query
+
+
+  let showReleaseYear = netflixData.filter(
+    (item) => +item.release_year === +year 
+  );
+
+  // let showType = showReleaseYear.filter(
+  //   (item) => item.type === type
+  // );
+
+  if(year && showReleaseYear.length === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND);
+  } 
+
+  // if(!showType) {
+  //   res.status(404).json(ERROR_DATA_NOT_FOUND)
+  // } else {
+  //   res.json(showReleaseYear)
+  // }
+});
 
 // Start the server
 app.listen(port, () => {
