@@ -32,10 +32,12 @@ app.get('/', (request /* incoming */, res /* outgoing */) => {
   res.send('Good morning, Rebeka! Best of luck with this week\'s project')
 })
 
+//all the books
 app.get("/books", (req, res) => {
   res.json(booksData)
 })
 
+//specific book (one object)
 app.get("/id/:isbn13", (req, res) => {
   const bookId = req.params.isbn13
   console.log({ bookId })
@@ -44,19 +46,43 @@ app.get("/id/:isbn13", (req, res) => {
   //find a book based on its isbn13
   const bookISBN13 = booksData.find(item => item.isbn13 === +bookId)
 
-
+  res.json(bookISBN13)
   //if the book is not found error
   //sending back the data 9780060920081 (The lost continent)
 
-  if (!bookISBN13) {
-    //want to return response with the entered isbn13 number
-    //STH WRONG with THIS SYNTAX
-    response.status(404).json({ error: 'No books with ISBN13 were found.' });
-  }
-  else {
-    res.json(bookISBN13)
-  }
+  // if (!bookISBN13) {
+  //want to return response with the entered isbn13 number
+  //STH WRONG with THIS SYNTAX
+  // response.status(404).json({ error: `No books with ISBN13 were found.` });
+  // }
+  // else {
+  //   res.json(bookISBN13)
+  // }
 
+})
+
+//filter books based on average rating
+app.get("/books/rating", (req, res) => {
+
+  //sorting the numbers 
+  const ratingArray = booksData.map(book => book.average_rating)
+  console.log(`Rating array: ${ratingArray}`)
+
+  // function compare(a, b) {
+  //   if (a.average_rating < b.average_rating) {
+  //     return -1
+  //   }
+  //   if (a.average_rating > b.average_rating) {
+  //     return 1
+  //   }
+  //   else {
+  //     return 0
+  //   }
+  // }
+
+  // const sortedArray = booksData.sort(compare)
+  // console.log(`soret array; ${sortedArray}`)
+  // res.json(sortedArray)
 })
 
 //empty endpoint (to be added in the future)
@@ -64,11 +90,6 @@ app.get("/id/:isbn13", (req, res) => {
 //   //gets the data with all book cover images and 
 //   response.send()
 // }
-
-//filter books based on average ranking
-// app.get("/ranking/:avg_ranking", (req, res) => {
-
-// })
 
 
 // Start the server
