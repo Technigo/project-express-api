@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Book Reviews [statistics] API");
 });
 
-
 // Authors endpoints
 app.get("/authors", (req, res) => {
   const authors = booksData.map((item) => item.authors);
@@ -75,7 +74,6 @@ app.get("/authors/:author/books", (req, res, next) => {
     }
     res.json(booksBySearchedAuthor);
   } else {
-
     // Error when no author
     if (booksByAuthor.length === 0) {
       const error = new Error(`${author} not found`);
@@ -87,8 +85,25 @@ app.get("/authors/:author/books", (req, res, next) => {
 });
 
 // Books endpoints
+
+//authors?author=kkfkfkfkfk
+
+//books?sort=ratings
+
 app.get("/books", (req, res, next) => {
-  res.json(booksData);
+  const sort = req.query.sort;
+  if (sort && sort === "average_rating") {
+    const sortRatings = booksData.sort((a, b) => b[sort] - a[sort]);
+
+    if (sortRatings.length === 0) {
+      const error = new Error("Not found");
+      error.status = 404;
+      throw error;
+    }
+    res.json(sortRatings);
+  } else {
+    res.json(booksData);
+  }
 });
 
 app.get("/books/:book", (req, res, next) => {
@@ -98,15 +113,16 @@ app.get("/books/:book", (req, res, next) => {
   const searchedTitles = req.query.title;
 
   if (searchedTitles) {
-    const searchedTitlesList = booksData.filter(item => item.title.toString().toLowerCase().includes(searchedTitles.toLowerCase()));
-    if (searchedTitlesList.length === 0){
+    const searchedTitlesList = booksData.filter((item) =>
+      item.title.toString().toLowerCase().includes(searchedTitles.toLowerCase())
+    );
+    if (searchedTitlesList.length === 0) {
       const error = new Error("Book not found");
       error.status = 404;
       throw error;
     }
-    res.json(searchedTitlesList)
+    res.json(searchedTitlesList);
   } else {
-
     //Error when no bookID
     if (filteredBookID.length === 0) {
       const error = new Error("Book not found");
