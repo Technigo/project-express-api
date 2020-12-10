@@ -34,10 +34,10 @@ app.get('/nominations', (request, response) => {
 // const year and category lets us get the input value from the placeholder year and category, 
 // and then we can filter our data using year and category.
 
-// url: /category/[category name]/year/[year]?win=true
+// url endpoint: /category/[category name]/year/[year]?win=true
 // The url without the query: returns all nominees for category and year
 
-app.get('/category/:category/year/:year', (request, response) => {
+app.get('/categories/category/:category/years/year/:year', (request, response) => {
   const { category, year } = request.params;
   const showWon = request.query.win
 
@@ -50,15 +50,15 @@ app.get('/category/:category/year/:year', (request, response) => {
 // Tried < 0 but got an empty array back. Cause filter returns an array.
   if (bestCategoriesFromYear < 1) {
     response.status(404).json(ERROR_NOT_FOUND);
-  } else if (showWin) {
+  } else if (showWon) {
     bestCategoriesFromYear = bestCategoriesFromYear.find((item) => item.win)
   }
     response.json(bestCategoriesFromYear) 
 });
 
 // First year is the path, second year is a placeholder for a value. Filters on year and winners.
-// The url: /year/[year]?win=true
-app.get('/year/:year', (request, response) => {
+// The url endpoint: /year/[year]?win=true
+app.get('/years/year/:year', (request, response) => {
   const year = request.params.year
   const showWon = request.query.win
   console.log(showWon)
