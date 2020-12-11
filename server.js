@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import booksData from './data/books.json';
-console.log(booksData.length)
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -14,28 +13,25 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//https://www.npmjs.com/package/express-list-endpoints
 const listEndpoints = require('express-list-endpoints');
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  //sätta en specifik timeout? 
   if(!res) {
-    setTimeout(() => { //bad practice?
+    setTimeout(() => {
       res
       .status(404)
       .send({ Error: 'Sorry, a problem occured try again later' });
-    }, 3000) 
-  } 
+    }, 8000);
+  }
   else res.send(listEndpoints(app));
 });
 
 // Route of books array, pagination as default
-///books?title=Harry&author=j.k för att kombinera titel och författare i urlen
 app.get('/books', (req, res) => {
   const { sort, author, title } = req.query;
   let booksList = booksData;
-  const totalOfBooks = booksList.length 
+  const totalOfBooks = booksList.length ;
 
   //sort by rating
   if(sort === "rating_dsc") {
@@ -47,46 +43,39 @@ app.get('/books', (req, res) => {
   //filter by author
   if (author) {
     booksList = booksList.filter((item) => item.authors.toString().toLowerCase().includes(author.toLowerCase()));
-  } 
+  };
   
   //filter by title
   if (title) {
     booksList = booksList.filter((item) => item.title.toString().toLowerCase().includes(title.toLowerCase()));
-  }
+  };
 
   //PAGINATION limit of 20 results per page
-  //const page = req.query.page ?? 0; 
-  const page = req.query.page ? req.query.page -1 : 0
+  const page = req.query.page ? req.query.page -1 : 0;
   const pageSize = req.query.pageSize ?? 20;
-  //const numberOfBooks = booksList.lenght < 20 ? numberOfBooks === pageSize
   const startIndex = page * pageSize;
   const endIndex = startIndex + (+pageSize);
-
-  //console.log(startIndex + '--' + endIndex)
   const booksListPage = booksList.slice(startIndex, endIndex);
   const returnObject = { 
     totalNumberOfBooks: totalOfBooks,
-    //totalNumberOfPages: parseInt(booksList.length / pageSize), //rundar ner exempel ?title=ha
-    totalNumberOfPages: Math.ceil(booksList.length / pageSize), //to round up TotalNumberOfPages if results is not able to divid by 20.
-    pageSize: pageSize, //hur ändrar jag detta till t ex 7 om jag filtrerar på author "j.k"?
-    //currentPage: +page, //hur gör jag så att det är sida noll men visas som sida 1 på ett logiskt sätt och om jag skriver page=1 visas samma sida?
+    totalNumberOfPages: Math.ceil(booksList.length / pageSize), 
+    pageSize: pageSize, 
     currentPage: page + 1,
     numberOfBooks: booksList.length,
-    results: booksListPage 
+    results: booksListPage,
   };
 
   if (booksListPage.length === 0) {
     res
     .status(404)
     .send({ Error: 'Sorry, no books found, please try a different query' });
-  } 
+  };
   res.json(returnObject);
 });
 
 //Search by bookID
 app.get("/books/:id", (req, res) => {
   const { id } = req.params;
-  //const id = req.params.id --- the same as line above
   const bookId = booksData.find(item => item.bookID === +id);
 
   if (!bookId) {
@@ -96,7 +85,7 @@ app.get("/books/:id", (req, res) => {
   } else res.json(bookId);
 });
 
-//is this correct?
+//POST a new book
 app.post('/books/addbook', (req, res) => {
   const AddNewBook = {
     bookID: booksData.length + 1,
@@ -110,33 +99,27 @@ app.post('/books/addbook', (req, res) => {
     ratings_count: 0,
     text_reviews_count: 0,
   }
-  booksData.push(AddNewBook)
-  res.send(booksData)
-})
+  booksData.push(AddNewBook);
+  res.send(booksData);
+});
 
 //array of authors
 app.get("/authors", (req, res) => {
-  // const authorsArray = booksData.map(item => item.authors)
-  // const uniqueAuthorsArray = authorsArray.reduce((unique, item) => (
-  //   unique.includes(item) ? unique : [...unique, item]
-  // ), [])
-
-  ///Enklare sett, new Set inbyggt att ta bort dupliceringar////
-  const authorsArray = booksData.map(item => item.authors)
-  const uniqueAuthorsArray = [...new Set(authorsArray)]
+  const authorsArray = booksData.map(item => item.authors);
+  const uniqueAuthorsArray = [...new Set(authorsArray)];
   
   if (!authorsArray) {
     res
     .status(404)
-    .send({Error: "something went wrong"})
-  }
-  res.send({authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray})
+    .send({Error: "something went wrong"});
+  };
+  res.send({authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray});
 });
 
 //future endpoint
 app.get("/isbn", (req, res) => {
-  res.json("ISBN filtering soon to come.")
-})
+  res.json("ISBN filtering soon to come.");
+});
 
 // Start the server
 app.listen(port, () => {

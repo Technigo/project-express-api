@@ -7,6 +7,8 @@ Available endpoints:
 - Root: /
 - Books: /books
 - Book by id: /books/:id
+- Add new book: /books/addbook
+- Authors: /authors
 
 ## Learning Objectives
 
