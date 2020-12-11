@@ -100,7 +100,7 @@ app.get('/shows/genre/:genre', (req, res) => {
   })
 
 
-// g) Similar to the one above but here you will only get the movies/shows which is defined with only one genre, for example Comedies(written exactly like that). If you write comedies (with lowercase c you will get an error message)
+// g) Similar to the one above but here you will only get the movies/shows which is defined with only one genre, for example Comedies (but has to be written exactly like that).
 app.get('/genre/:genre', (req, res) => {
   const genre = req.params.genre
   const movieGenre = netflixData.filter((item) => item.listed_in === genre)
@@ -126,7 +126,7 @@ app.get('/shows/title', (req, res) => {
 })
 
 
- // i) Two params are used to return movies that are of the type "movie" and from a specified year.
+ // i) Two params are used to return movies that are of the type "Movie" or"TV Show" and from a specified year.
 app.get('/shows/:year/type/:type', (req, res) => {
   const { year, type } = req.params;
   const yearType = netflixData.filter((yearType) => {
