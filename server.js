@@ -33,9 +33,9 @@ app.get('/sales', (request, response) => {
   }
   if (region){
     const salesByRegion = avocadoSalesData.filter((item) => item.region === region);
-    if(salesByRegion > 0) {
+    if(salesByRegion.length > 0) {
       return response.json(salesByRegion)
-    } else if (salesByRegion === 0) {
+    } else if (salesByRegion.length === 0) {
       return response.status(404).json("ERROR_NO_SALES_BY_THIS_REGION_FOUND")
     }
   } 
