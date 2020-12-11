@@ -1,4 +1,3 @@
-import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
@@ -66,7 +65,6 @@ app.get('/curses/:id', (req, res) => {
     .send({ error: `No source with id "${id}" found`})
   }
   res.json(curseId)
-  // res.json(data[req.params["id"] - 1])
 })
 
 //rout by category
