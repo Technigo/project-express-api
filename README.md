@@ -1,6 +1,6 @@
 # Express API Project
 
-This project's focus was to create my own RESTful API in Node using Express. 
+This project is made as a part of the Technigo boot camp. The focus for this project was to create my own RESTful API in Node using Express. 
 
 ## Endpoints
 
