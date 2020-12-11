@@ -39,7 +39,7 @@ app.get('/books', (req, res) => {
   const minRating = req.query.minRating;
 
   // get only books by a certain author
-  const author = req.query.author.toLowerCase();
+  const author = req.query.author;
 
   let filteredBooks = books;
 
@@ -52,7 +52,7 @@ app.get('/books', (req, res) => {
   };
 
   if (author) {
-    filteredBooks = filteredBooks.filter((book) => book.authors.toLowerCase().includes(author))
+    filteredBooks = filteredBooks.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
   };
 
   res.json(filteredBooks);
