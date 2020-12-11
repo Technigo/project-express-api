@@ -22,10 +22,11 @@ app.get('/', (request, response) => {
   response.send('Hello, welcome to my api! Find some information about avocado sales here. ')
 })
 
+//plural data returned endpoint
+
 app.get('/sales', (request, response) => {
   const { date } = request.query;
   const { region } = request.query;
-  const { id } = request.query;
 
   if (date) {
     const salesByDate = avocadoSalesData.filter((item) => item.date === date);
@@ -38,17 +39,34 @@ app.get('/sales', (request, response) => {
   }
 });
 
-app.get('/sales/:region/ids/:id', (request,response) => {
-const {region, id} = request.params;
-const sale = avocadoSalesData.find(
-  (sale) => sale.region === region && +sale.id === +id
-);
-response.json(sale);
+//singular piece of data returned endpoint
+app.get('/sales/:region/by_id/:id', (request,response) => {
+  const {region, id} = request.params;
+  const saleById = avocadoSalesData.find(
+    (sale) => sale.region === region && +sale.id === +id
+  );
+//this does not work
+  if(!id) {
+    response.status(404).send(ERROR_ID_NOT_FOUND)
+  } else {
+    response.json(saleById);
+  };
 });
 
-// app.get('/sales/:region/:date', (request,response) => {
+//MY QUESTIONS
+//is it ok to write _ bettween words in an endpoint
+//is it possible to combine paths and query parameters 
+//is it good practice to do it as i did in lines 27-40
+//line 43 by_id ?
+//does it make sense to create specific endpoint for things that a client can find in a search
 
-// });
+app.get('/sales/:region/:date', (request,response) => {
+  const {region, date} = request.params;
+  const saleByDate = avocadoSalesData.find(
+  (sale) => sale.region === region && sale.date === date
+);
+response.json(saleByDate);
+});
 
 //Dummy endpoint - red level
 // app.get('/sales/:xlargebagssold', (request,response) => {
@@ -57,21 +75,12 @@ response.json(sale);
 // });
 
 
-//sales/region/id unique 
-//sales/averageprice asc
+// /sales?sorted=true
+
+//sales/region/averageprice-sorted asc
 //sales/averageprice_low <1
 //sales/averageprice_high >1
 
-// app.get('/sales/:region',(request,response) => {
-//   const region = request.params;
-//   const salesByRegion = avocadoSalesData.filter((item) => item.region === region);
-//   response.json(salesByRegion);
-// })
-// app.get('/region/:region',(request,response) => {
-//   const region = req.params.region;
-//   const salesByRegion = avocadoSalesData.filter((item) => item.region === region);
-//   response.json(salesByRegion);
-// })
 
 // app.get('/sorted_by_price', (req, res) => {
 //   const price = req.query.price;
@@ -79,7 +88,6 @@ response.json(sale);
 //   res.json(sortedByPrice);
 // })
 
-// full-date       = date-fullyear "-" date-month "-" date-mday
 
 // Start the server
 app.listen(port, () => {
