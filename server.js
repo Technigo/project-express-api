@@ -5,6 +5,7 @@ import endpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 import { pagination, filterOnLanguage, filterOtherLanguages, sortByNumPages } from './bookqueries'
+import { addBook, validateBookInput } from './postBook'
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -72,16 +73,7 @@ const bookDefinition = [
   }
 ]
 
-const validateBookInput = (bookDefinition, input) => {
-  const result = bookDefinition.map((property) => {
-    const test = input[property.fieldName]
-    return {
-      isValid: typeof test === property.fieldType,
-      fieldName: property.fieldName
-    }
-  })
-  return result
-}
+
 
 app.get('/', (req, res) => {
   res.send(endpoints(app))
@@ -114,14 +106,8 @@ app.post('/books', (req, res) => {
   const validationResult = validateBookInput(bookDefinition, input)
   const invalids = validationResult.filter((object) => !object.isValid)
 
-  if (invalids.length === 0) {
-    const result = JSON.parse(fs.readFileSync('./data/books.json'))
-    result.push(input)
-    const resultJSON = JSON.stringify(result)
-    fs.writeFileSync('./data/books.json', resultJSON)
-    res.status(201).json(validationResult)
-  } else
-    res.status(400).json(INPUT_ERROR)
+  const newBook = addBook(invalids, fs, validationResult, input, res, INPUT_ERROR)
+  res.status(201).json(newBook)
 })
 
 app.get('/books/:book', (req, res) => {

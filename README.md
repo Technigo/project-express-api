@@ -20,7 +20,7 @@ Then I also implemented the following:
 I started working on dummy-enpoints as well, but then I made the decision to actually create the post-method in one of the paths instead. This was a bit complex, since I had to figure out how to update a file and add objects to that array without using a database. The solution was to install the file-system dependencies and use it to read and write to local files.
 
 ## Next up
-If I had more time, I'd like to have written a documentation about this API. However, I might updated the project with a documentation later on.
+If I had more time, I'd like to have written a documentation about this API. However, I might update the project with a documentation later on.
 
 ## Tech
 * Node.js
