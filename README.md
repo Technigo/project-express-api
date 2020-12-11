@@ -14,5 +14,5 @@ I found this week a bit tricky of knowing what data to choose, therfor I only co
 
 #1 https://caroline-books-deployment.herokuapp.com/books (All the data from the API)
 #2 https://caroline-books-deployment.herokuapp.com/books/authors (Data that shows all the authors)
-#3 https://caroline-books-deployment.herokuapp.com/books/books/id/1 (Data filtered by id. 1 is an example.)
+#3 https://caroline-books-deployment.herokuapp.com/books/id/1 (Data filtered by id. 1 is an example.)
 #4 https://caroline-books-deployment.herokuapp.com/books/pages/245 (Data filtered by number of pages. 245 is an example.)
