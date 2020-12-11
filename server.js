@@ -19,14 +19,16 @@ app.use(bodyParser.json())
 
 // --- ALL THE ROUTES ---
 
-//the basic endpoint
+//front page
 app.get('/', (request /* incoming */, response /* outgoing */) => {
   //response object -> used for building the response we send to the browser
-  response.send('Good morning, Rebeka! Best of luck with this week\'s project')
+  response.send('Good morning, Rebeka! Best of luck with this week\'s project!')
 })
 
-//search by TITLE using query selectors
-//localhost8080/books?title=Harry
+
+// --- search by TITLE using QUERY SELECTORS ---
+//localhost:8080/books?title=freakonomics
+
 app.get("/books", (request, response) => {
 
   const titleSearch = request.query.title
@@ -36,51 +38,39 @@ app.get("/books", (request, response) => {
   }
   else if (titleSearch !== undefined) {
     const titleLowerCase = titleSearch.toLowerCase()
+
+    //feels like this could be written more clear
     const titleArray = booksData.filter(book => book.title.toString().toLowerCase().includes(titleLowerCase))
 
     if (titleArray.length > 0) {
       response.json(titleArray)
     }
     else if (titleArray.length === 0) {
-      response.json(`Ups, no keyword called "${titleLowerCase}" in a title.`)
+      response.status(404).json(`Ups, no keyword called '${titleLowerCase}' in a title.`)
     }
   }
 })
 
 
-//all books sorted asc by bookId
-app.get("/books", (request, response) => {
-  //WHY DOESN'T THIS WORK AS A PAGE?
-  // response.send({ all_books: booksData.length })
-  response.json(booksData)
-})
+// --- getting SPECIFIC books (one object) based on ISBN13 ---
+//localhost:8080/id/:isbn13
 
-//specific book (one object)
 app.get("/id/:isbn13", (request, response) => {
-  const bookId = req.params.isbn13
-  console.log({ bookId })
 
+  const bookId = request.params.isbn13
 
   //find a book based on its isbn13
   const bookISBN13 = booksData.find(item => item.isbn13 === +bookId)
 
-  response.json(bookISBN13)
-
-  //if the book is not found error
-  //sending back the data 9780060920081 (The lost continent)
-
-  // if (!bookISBN13) {
-  //want to return response with the entered isbn13 number
-  //STH WRONG with THIS SYNTAX
-  // response.status(404).json({ error: `No books with ISBN13 were found.` });
-  // }
-  // else {
-  //   response.json(bookISBN13)
-  // }
-
+  if (bookISBN13) {
+    response.json(bookISBN13)
+  }
+  else {
+    response.status(404).json(`No books with ISBN13 ${bookId} were found.`);
+  }
 })
 
-//sort books based on average rating (descending)
+// --- SORTED books based on AVERGAE RATING (descending) ---
 app.get("/books/rating", (request, response) => {
 
   const compare = (a, b) => {
