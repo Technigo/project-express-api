@@ -1,13 +1,32 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we began our journey into backend development. The project goal was to create our first **RESTful API** using **Express**. The API, which uses hard-coded set of data, stored as a JSON - should have a number of endpoints and using array methods should return both an array of all data and also individual objects.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created a /books route and wanted to implement pagination and allow the client to query the page number, and also the amount of results shown by page. I also included x2 query's which allow you to search by book author or book title thanks to **filter** and **includes** methods.
+
+I added 404 status errors, and installed the Express List Endpoints libuary, so that my end points display to the user on the root page.
+
+If I had more time I would of loved to have created a frontend so that I could show the data neatly on the client side.
+
+Available endpoints:
+
+- Root: /
+- Books: /books
+- Book by id: /books/:id
+- Title: /books/booktitle
+- Authors: /books/bookauthor
+
+## Tech
+
+- Node
+- Express
+- Express List Endpoints
+- JavaScript
+- Heroku
+- Postman
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://jamie-books-api.herokuapp.com/

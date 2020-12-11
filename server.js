@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 
 app.get("/books", (req, res) => {
   let page = req.query.page ?? 1;
-  const pageSize = req.query.pageSize ?? 20; // this allows http://localhost:8080/books?page=1&pageSize=10
+  const pageSize = req.query.pageSize ?? 20; // this allows you to query page numbers, example: http://localhost:8080/books?page=1&pageSize=10
   page = +page - 1;
   let bookList = booksData;
   console.log(`page = ${page}`);
