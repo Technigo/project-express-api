@@ -34,8 +34,8 @@ app.get('/books', (req, res) => {
   if (author) {
     filteredBooks = filterArray(author, 'authors')
   }
-  if (languageCode) {
-    filteredBooks = filterArray(languageCode, 'language_code')
+  if (language_code) { 
+    filteredBooks = filterArray(language_code, 'language_code')
   }
   if (rating === 'high') {
     filteredBooks = booksData.sort((a,b) => b.average_rating-a.average_rating)
