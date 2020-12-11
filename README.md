@@ -25,11 +25,10 @@ Learning Objectives:
 
 
 ## Requirements Completed
-🔵  Blue Level
-<!-- - Your API should be deployed to Heroku or similar hosting service. -->
+🔵  Blue Leve- Your API should be deployed to Heroku or similar hosting service.
 - Your API should have at least 2 routes. Try to push yourself to do more, though!
 - A minimum of one endpoint to return a **collection** of results (array of elements)
-<!-- - A minimum of one endpoint to return a **single** result (single element). -->
+- A minimum of one endpoint to return a **single** result (single element).
 - Your API should be [RESTful](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)
 
 🔴  Red Level (Intermediary Goals)
