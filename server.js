@@ -69,7 +69,7 @@ app.get('/release/:year', (req, res) => {
 });
 
 // 5 // Filter on categories (ex. Movie, TV Shows ... ) + Error-message if not found
-app.get('/content/:category', (req, res) => {
+app.get('c', (req, res) => {
   const { category } = req.params;
   const filteredOnCategory = netflixData.filter(
     (content) => content.type === category
