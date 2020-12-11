@@ -13,6 +13,7 @@ The API gives access to a list of about 500 random books in different languages 
 - number of pages
 - number of ratings
 - number of text reviews.
+
 The dataset was provided by my tech school who gave me this project, so I don't have more information about how the books in the list were chosen. If you access the API through your browser, you will find a list of endpoints. 
 
 ## The approach
