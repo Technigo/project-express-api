@@ -1,44 +1,62 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+import express, { response } from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
 
-import booksData from './data/books.json'
+import booksData from "./data/books.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+const ERROR_PAGES_NOT_FOUND = { error: "No book have that number of pages" };
+const ERROR_NOT_FOUND = {
+  error:
+    "The result you're looking for is nowhere to find. Please try something else!",
+};
+const port = process.env.PORT || 8081;
+const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
-// Start defining your routes here - it starts the server
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+// Starting route
+app.get("/", (req, res) => {
+  res.send("API of Books");
+});
 
-app.get("/booksData", (req, res) => {
-  res.json(booksData)
-})
+// Endpoint that shows all of the books in the API.
+app.get("/books", (req, res) => {
+  res.json(booksData);
+});
 
-app.get("/title/:title", (req, res) => {
-  const title = req.params.title
-  const pagesFromBook = booksData.filter((item) => item.num_pages === +title)
-  res.json(pagesFromBook)
-})
+// Endpoint that shows all the authors, sorted in alphabetic order
+app.get("/books/authors/", (req, res) => {
+  const allAuthors = booksData.map((item) => item.authors).sort();
+  res.json(allAuthors);
+});
 
-// Start the server
+// Endpoint that shows one book from a specifik id
+app.get("/books/id/:id", (req, res) => {
+  const id = req.params.id;
+  const filteredById = booksData.find((item) => item.bookID === +id);
+
+  if (filteredById.length === 0) {
+    res.status(404).json(ERROR_NOT_FOUND);
+  } else {
+    res.json(filteredById);
+  }
+});
+
+// Endpoint that shows the books that have a specific number of pages
+app.get("/books/pages/:pages", (req, res) => {
+  const pages = req.params.pages;
+  const filteredByPages = booksData.filter((item) => item.num_pages === +pages);
+
+  if (filteredByPages.length === 0) {
+    res.status(404).json(ERROR_PAGES_NOT_FOUND);
+  } else {
+    res.json(filteredByPages);
+  }
+});
+
+// Starts the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+});
