@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 // Starting route
 app.get('/', (request, response) => {
-  response.send('Hello world')
+  response.send('Hello, this is an API with Harry Potter characters. Go to https://lindas-project-express-api.herokuapp.com/characters to see all the characters. For more documentation, visit: https://github.com/lindahz/project-express-api')
 })
 
 // This endpoint shows all characters + will let you filter on name with query parameter
