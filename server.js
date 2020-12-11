@@ -4,7 +4,6 @@ import cors from 'cors'
 
 import avocadoSalesData from './data/avocado-sales.json'
 
-
 //console.log(avocadoSalesData.length);
 const port = process.env.PORT || 8080
 const app = express()
@@ -32,7 +31,7 @@ app.get('/sales', (request, response) => {
     if(salesByDate.length > 0) {
       return response.json(salesByDate)
     } else if (salesByDate.length === 0) {
-      return response.status(404).json(ERROR_NO_SALES_BY_THIS_DATE_FOUND)
+      return response.status(404).json("ERROR_NO_SALES_BY_THIS_DATE_FOUND")
     }
   }
   if (region){
@@ -40,7 +39,7 @@ app.get('/sales', (request, response) => {
     if(salesByRegion > 0) {
       return response.json(salesByRegion)
     } else if (salesByRegion === 0) {
-      return response.status(404).json(ERROR_NO_SALES_BY_THIS_REGION_FOUND)
+      return response.status(404).json("ERROR_NO_SALES_BY_THIS_REGION_FOUND")
     }
   } 
   else {
@@ -55,13 +54,16 @@ app.get('/sales/regions', (request, response) => {
   response.json(uniqueRegions);
 })
 
-// SORT NOT WORKING sorted by average price '/sales?sorted=true'
+// SORT NOT WORKING sorted by average price '/sales?sorted=desc'
 app.get('/sales', (request,response ) => {
   const { sorted } = request.query;
-  if(sorted === true) {
-    const sortedByPrice = avocadoSalesData.sort(function (a, b) { return b.averagePrice - a.averagePrice})
+  if(sorted === "desc") {
+    const sortedByPrice = avocadoSalesData.sort((a, b) => Number(b.averagePrice) - Number(a.averagePrice))
     response.json(sortedByPrice)
-  } else {
+  } else if (sorted === "asc") {
+    const sortedByPriceAsc = avocadoSalesData.sort((a, b) => Number(a.averagePrice) - Number(b.averagePrice))
+    response.json(sortedByPriceAsc)
+  } else  {
     response.json(avocadoSalesData);
   }
 });
@@ -74,10 +76,8 @@ app.get('/sales/:region/by_id/:id', (request,response) => {
   const saleById = avocadoSalesData.find(
     (sale) => sale.region === region && +sale.id === +id
   );
-
-//ERROR UNDEFINED
   if(!saleById ) {
-    response.status(404).send(ERROR_ID_NOT_FOUND);
+    response.status(404).send("ERROR_ID_NOT_FOUND");
   } else {
     response.json(saleById);
   };
@@ -94,7 +94,11 @@ app.get('/sales/:region/:date', (request,response) => {
   const saleByDate = avocadoSalesData.find(
   (sale) => sale.region === region && sale.date === date
 );
-response.json(saleByDate);
+  if(!saleByDate ) {
+    response.status(404).send("ERROR_DATE_NOT_FOUND");
+  } else {
+    response.json(saleByDate);
+  };
 });
 
 //Dummy endpoint - red level
@@ -108,14 +112,6 @@ response.json(saleByDate);
 //sales/averageprice_low <1
 //sales/averageprice_high >1
 //i want to get only regions sales/regions
-
-
-// app.get('/sorted_by_price', (req, res) => {
-//   const price = req.query.price;
-//   const sortedByPrice = avocadoSalesData.sort(function (a, b) { return b.price - a.price})
-//   res.json(sortedByPrice);
-// })
-
 
 // Start the server
 app.listen(port, () => {
