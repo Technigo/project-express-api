@@ -32,9 +32,35 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Netflixdata API");
 });
 
-// This route will return a collection of shows
+// This route will return a collection of shows. It can be filtered by type, year and country.
 app.get("/shows", (req, res) => {
-  res.json(netflixData);
+  const { type, year, country } = req.query;
+
+  let filteredShows = netflixData;
+
+  if (type) {
+    filteredShows = filteredShows.filter(
+      (item) => item.type === type
+    );
+  };
+  if (year) {
+    filteredShows = filteredShows.filter(
+      (item) => item.release_year === +year
+    );
+  };
+  if (country) {
+    filteredShows = filteredShows.filter(
+      (item) => item.country === country
+    );
+  };
+  if (filteredShows.length === 0) {
+    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  } else {
+    res.json({
+      total: filteredShows.length,
+      shows: filteredShows
+    });
+  }
 });
 
 // This route will return a single show based on id
@@ -59,8 +85,11 @@ app.get("/shows/title/:title", (req, res) => {
   if (filteredShows.length === 0) {
     res.status(404).json(ERROR_SHOWS_NOT_FOUND);
   } else {
-    res.json(filteredShows);
-  }
+    res.json({
+      total: filteredShows.length,
+      shows: filteredShows
+    });
+  };
 });
 
 // This route will return a collection of shows released the specified year in the specified country
@@ -78,49 +107,58 @@ app.get("/shows/year/:year/country/:country", (req, res) => {
   if (filteredShows.length === 0) {
     res.status(404).json(ERROR_SHOWS_NOT_FOUND);
   } else {
-    res.json(filteredShows);
-  }
+    res.json({
+      total: filteredShows.length,
+      shows: filteredShows
+    });
+  };
 });
 
-
-// This route will return a collection of shows of the specified type and matching different query searches (year and country)
-app.get("/shows/type/:type", (req, res) => {
-  const { type } = req.params;
-  const { year, country } = req.query;
-
-  let filteredShows = netflixData;
-
-  filteredShows = filteredShows.filter(
-    (item) => item.release_year === +year
-  );
-  filteredShows = filteredShows.filter(
-    (item) => item.country === country
-  );
-  filteredShows = filteredShows.filter(
-    (item) => item.type === type
-  );
-  if (filteredShows.length === 0) {
-    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
-  } else {
-    res.json(filteredShows);
-  }
-});
-
-//Dummy endpoints for red level
+//Dummy endpoints for red level (not so dummy after all...)
 app.get("/types", (req, res) => {
-  res.send("Dummy endpoint that will return a list of available types");
+  const allTypes = netflixData.map((item) => item.type);
+  const types = [...new Set(allTypes)].sort();
+  res.json({
+    total: types.length,
+    types
+  });
+  // res.send("Dummy endpoint that will return a list of available types");
 });
 
 app.get("/countries", (req, res) => {
-  res.send("Dummy endpoint that will return a list of available countries");
+  const allCountries = netflixData.map((item) => item.country)
+    .join()
+    .replace(/(, )/g, ",")
+    .replace(/,+/g, ",")
+    .split(",");
+  const countries = allCountries.filter((item, index) => allCountries.indexOf(item) === index).sort();
+  res.json({
+    total: countries.length,
+    countries
+  });
+  // res.send("Dummy endpoint that will return a list of available countries");
 });
 
-app.get("/year", (req, res) => {
-  res.send("Dummy endpoint that will return a list of available years");
+app.get("/years", (req, res) => {
+  const allYears = netflixData.map((item) => item.release_year);
+  const years = allYears.reduce(
+    (unique, item) => unique.includes(item) ? unique : [...unique, item], []
+  ).sort();
+  res.json({
+    total: years.length,
+    years
+  });
+  // res.send("Dummy endpoint that will return a list of available years");
 });
 
 app.get("/titles", (req, res) => {
-  res.send("Dummy endpoint that will return a list of available titles");
+  const titles = netflixData.map((item) => item.title.toString())
+    .sort();
+  res.json({
+    total: titles.length,
+    titles
+  });
+  // res.send("Dummy endpoint that will return a list of available titles");
 });
 
 // Start the server
