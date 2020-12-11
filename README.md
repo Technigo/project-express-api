@@ -1,7 +1,7 @@
 # The Project
 
 A backend project where I got to build my own API through Heroku. 
-The project has a several RESTful endpoints which returns either an array of books or a single item. 
+The project has several RESTful endpoints which returns either an array of books or a single item. 
 
 # Express API
 
