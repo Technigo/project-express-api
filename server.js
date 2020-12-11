@@ -23,20 +23,22 @@ app.get("/", (request, response) => {
   response.send(endPoints(app));
 });
 
-// Function to build a smaller object fromn the original game object
-
-const shortGame = (game) => { 
-  return {
-    "name": game.name, 
-    "slug": game.slug,
-    "background_image": game.background_image
-  };
-};
+// Function to build a smaller object from the original game object to send the frontend
+// I did this initially due to the fact that each game object is very large and I took the 
+// decision to just display the properties that I needed to build the frontend as 
+// I didn't want to have ALL the data loading and affect performance
+// const shortGame = (game) => { 
+//   return {
+//     "name": game.name, 
+//     "slug": game.slug,
+//     "background_image": game.background_image
+//   };
+// };
 
 // Show data = Games Library 
 app.get('/games',(request, response) => { 
   response.json({
-    "results": data.results.map(shortGame),
+    "results": data.results,
     "total": data.results.length
   });
 });
@@ -49,6 +51,18 @@ app.get('/favorites', (request, response) => {
     "total": favorites.length
   });
 });
+
+// Another approach to favorites as a request query
+// // Show data = Games Library 
+// app.get('/games',(request, response) => { 
+//   const { favorites } = request.query;
+//   const results = favorites ? data.results.filter((game)=> game.favorite) : data.results;
+//   response.json({
+//     "results": results,
+//     "total": results.length
+//   });
+// });
+
 
 // Shows specific game 
 app.get('/games/:slug', (request, response) => {
