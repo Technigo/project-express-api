@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 });
 
 // Authors endpoints
+// 1. List of authors & query string for author name
 app.get("/authors", (req, res) => {
   const authors = booksData.map((item) => item.authors);
   const uniqueAuthors = [...new Set(authors)];
@@ -40,6 +41,7 @@ app.get("/authors", (req, res) => {
   }
 });
 
+// 2. One specific author
 app.get("/authors/:author", (req, res, next) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) => item.authors === author);
@@ -55,11 +57,12 @@ app.get("/authors/:author", (req, res, next) => {
   res.json(uniqueAuthors);
 });
 
+// 3. Books by specific author + query for author name to get all books associated with that name
 app.get("/authors/:author/books", (req, res, next) => {
   const author = req.params.author;
   const booksByAuthor = booksData.filter((item) => item.authors === author);
 
-  // Query string - for example: /author/author/books?author="Rowling"
+  // Query string - for example: /authors/author/books?author="Rowling"
   const searchedAuthor = req.query.author;
   if (searchedAuthor) {
     const booksBySearchedAuthor = booksData.filter((item) =>
@@ -86,37 +89,30 @@ app.get("/authors/:author/books", (req, res, next) => {
 });
 
 // Books endpoints
+
+// 1. /books + sort + find title 
 app.get("/books", (req, res, next) => {
 
-  // Query to sort books, for now only on average_rating
+  // Query to sort books on average rating - books?sort=average_rating
   const sort = req.query.sort;
-  if (sort && sort === "average_rating") {
-    const sortRatings = booksData.sort((a, b) => b[sort] - a[sort]);
 
-        // Error when query not found
+  // Query to find book with word in title - books?title=love
+  const searchedTitles = req.query.title;
+
+  // Conditioning for sorting on average rating
+  if (sort && sort === "average_rating") {
+    const sortRatings = booksData.sort((a, b) => b[sort] - a[sort]);    // Error when query not found
     if (sortRatings.length === 0) {
       const error = new Error("Not found");
       error.status = 404;
       throw error;
     }
     res.json(sortRatings);
-  } else {
-    res.json(booksData);
-  }
-});
-
-app.get("/books/:book", (req, res, next) => {
-  const bookId = parseInt(req.params.book);
-  const filteredBookID = booksData.filter((item) => item.bookID === bookId);
-
-  const searchedTitles = req.query.title;
-
-  if (searchedTitles) {
+  } else if (searchedTitles) {
+    // Conditioning to find books with word in title
     const searchedTitlesList = booksData.filter((item) =>
-      item.title.toString().toLowerCase().includes(searchedTitles.toLowerCase())
-    );
-
-    // Error when query not found
+      item.title.toString().toLowerCase().includes(searchedTitles.toLowerCase()));
+      // Error when query not found
     if (searchedTitlesList.length === 0) {
       const error = new Error("Book not found");
       error.status = 404;
@@ -124,39 +120,22 @@ app.get("/books/:book", (req, res, next) => {
     }
     res.json(searchedTitlesList);
   } else {
-    //Error when no bookID
-    if (filteredBookID.length === 0) {
-      const error = new Error("Book not found");
-      error.status = 404;
-      throw error;
-    }
-    res.json(filteredBookID);
+    res.json(booksData);
   }
 });
 
-// For it to be RESTful it should've been a list of actual ratings,
-// but am going with the data I have at hand.
-
-app.get("/books/:book/ratings", (req, res, next) => {
+// 2. One specific book
+app.get("/books/:book", (req, res, next) => {
   const bookId = parseInt(req.params.book);
-  const books = booksData.filter((item) => item.bookID === bookId);
-  const bookRatings = books.map((item) => [
-    {
-      title: item.title,
-      author: item.authors,
-      average_rating: item.average_rating,
-      number_of_votes: item.ratings_count,
-      number_of_text_reviews: item.text_reviews_count,
-    },
-  ]);
+  const filteredBookID = booksData.filter((item) => item.bookID === bookId);
 
-  // Error when wrong bookID
-  if (books.length === 0) {
+  //Error when no bookID
+  if (filteredBookID.length === 0) {
     const error = new Error("Book not found");
     error.status = 404;
     throw error;
   }
-  res.json(bookRatings);
+  res.json(filteredBookID);
 });
 
 // Default error when not found
