@@ -38,7 +38,6 @@ app.get('/titles', (request, response) => {
 //Here we are using path parameter to get only one title that has the exact ID
 app.get('/titles/id/:id', (request, response) => {
   const { id } = request.params;
-  // console.log(id);
   const title = netflixData.find(title => title.show_id === +id);
   if (!title) {
     response.status(404).json(ERROR);
@@ -50,26 +49,11 @@ app.get('/titles/id/:id', (request, response) => {
 //Here we are using path parameter to get all titles for a specific release year
 app.get('/titles/year/:year', (request, response) => {
   const { year } = request.params;
-  // console.log(year);
   const titlesOfYear = netflixData.filter(title => title.release_year === +year);
   response.json(titlesOfYear);
 });
 
-//Here we are using path parameter to get all movies for a specific release year
-// app.get('/titles', (request, response) => {
-//   const { type } = request.query;
-//   if (type) {
-//     const filteredTitles = netflixData.filter((title) => title.type === type);
-//     response.json(filteredTitles);
-//   } else  {
-//     response.json(netflixData);
-//   }
-// });
-
-//Here we are using path parameter to get all TV-shows for a specific release year
-
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
-})
+});
