@@ -26,7 +26,9 @@ app.get('/', (request, response) => {
 });
 
 /* --- First endpoint ---
-Endpoint that returns different data depending on the query e.g. author, title, language, average rating and page. 
+Endpoint that returns whole books array http://localhost:8081/books
+
+or different data depending on the query string parameter e.g. author, title, language, average rating and page. 
 
 Example routes for author, title, language and average rating:
 http://localhost:8081/books?author=rowling
@@ -93,15 +95,11 @@ app.get('/books', (request, response) => {
     booksData.slice(459,499)
   ];
 
-  response.json(pageArray[page-1]);
+  if(page) {
+    response.json(pageArray[page-1]);
+  }
 
-  // if(page === 1) {
-  //   response.json(pageArray[0])
-  // } else if (page === 2) {
-  //   response.json(pageArray[1])
-  // } else if (page === 3) {
-  //   response.json(pageArray[2])
-  // }
+  response.json(booksData);
 });
 
 /* ---- Second endpoint ----
@@ -121,20 +119,27 @@ app.get('/books/:id', (request, response) => {
 
 // Created an object outlining the documentation. Can be found on the start page of the api url
 const documentation = {
-  "Endpoint 1 with author query string parameter": "https://books-deployment.herokuapp.com/books?author=Rowling - Use this endpoint to return books by a specific author using the author query parameter. It will return an array with one or more elements, if the author isn't valid then you will get an error message.",
+  "Endpoint 1": {
+    "https://books-deployment.herokuapp.com/books": "Returns the entire books array",
 
-  "Endpoint 1 with title query string parameter": "https://books-deployment.herokuapp.com/books?title=HarryPotter - Use this endpoint to return books with a specific title using the title query parameter. It will return an array with one or more elements, if the author isn't valid then you'll get an error message.",
+    "https://books-deployment.herokuapp.com/books?author=choose": "Returns books by a specific author using the author query string parameter. It will return an array with one or more elements, if the author isn't valid then you will get an error message.",
 
-  "Endpoint 1 with language query string parameter": "https://books-deployment.herokuapp.com/books?language=eng - Use this endpoint to return books written in a specific language using the title query parameter. It will return an array with one or more elements. The following languages are valid: eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul. If the language isn't valid then you'll get an error message.",
+    "https://books-deployment.herokuapp.com/books?title=choose": "Use this endpoint to return books with a specific title using the title query string parameter. It will return an array with one or more elements, if the author isn't valid then you'll get an error message.",
 
-  "Endpoint 1 with average rating query string parameter": "https://books-deployment.herokuapp.com/books?averagerating=4 - Use this endpoint to return books with a specific average rating using the averagerating query parameter. It will return an array with one or more elements. If the average rating isn't found you'll get an error message.",
+    "https://books-deployment.herokuapp.com/books?language=choose":  "Use this endpoint to return books written in a specific language using the title query string parameter. It will return an array with one or more elements. The following languages are valid: eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul. If the language isn't valid then you'll get an error message.",
+    
+    "https://books-deployment.herokuapp.com/books?averagerating=choose": "Use this endpoint to return books with a specific average rating using the averagerating query string parameter. It will return an array with one or more elements. If the average rating isn't found you'll get an error message.",
 
-  "Endpoint 1 with page query string parameter": "https://books-deployment.herokuapp.com/books?page=1 - This endpoint uses the page query parameter and allows you to query up to 10 pages which will return 50 books per page. You can use this to implement pages in the frontend.",
+    "https://books-deployment.herokuapp.com/books?page=choose": "This endpoint uses the page query parameter and allows you to query up to 10 pages which will return 50 books per page. You can use this to implement pages in the frontend.",
+  },
+  
+  "Endpoint 2": {
+    "https://books-deployment.herokuapp.com/books/:id": " Use this endpoint to return books with a specific id and replace :id with a number.",
+  },
+};
 
-  "Endpoint 2": "https://books-deployment.herokuapp.com/books/:id - Use this endpoint to return books with a specific id and replace :id with a number",
-}
 
-/* --- Third endpoint --
+  /* --- Third endpoint --
 Path for my api documentation to be found which is the homepage of the url
 */
 app.get('/documentation', (request, response) => {
