@@ -4,7 +4,8 @@ import cors from 'cors'
 
 import booksData from './data/books'
 
-const port = process.env.PORT || 8083
+const port = process.env.PORT || 8086
+
 const app = express()
 
 // Added middlewares to enable cors and json body parsing
@@ -26,8 +27,9 @@ app.get('/books', (request, response) => {
   if (author && language) {
     const filteredBooksOnAuthorAndLanguage = booksData.filter(item => {
       return (
-        item.authors.toLowerCase().split("-").includes(author.toLowerCase()) ||
-        item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase()) && item.language_code === language
+        RegExp("\\b" + author.toLowerCase() + "\\b").test(item.authors.toLowerCase())
+        &&
+        item.language_code === language
       )
     })
     if (filteredBooksOnAuthorAndLanguage.length > 0) {
@@ -49,14 +51,9 @@ app.get('/books', (request, response) => {
   if (title) {
     const filteredBooksOnTitle = booksData.filter(item => {
       return (
-        item.title.toString().toLowerCase().replace(/[^a-zA-Z0-9-']/g, " ").split(" ").includes(title.toLowerCase()) || // matches against one word in the title
-        item.title.toString().toLowerCase().split().includes(title.toLowerCase())) // matches against full title
+        RegExp("\\b" + title.toLowerCase() + "\\b").test(item.title.toString().toLowerCase())
+      )
     })
-
-    // Not working, trying regex to have an exact match of the search word/words - this would be the best solution I think:
-    // item.title.toString().toLowerCase().replace(/[^a-zA-Z0-9-']/g, " ").split(" ").match(`/^${title.toLowerCase()}$/`)
-    // item.title.toString().toLowerCase().replace(/[^a-zA-Z0-9-']/g, " ").match(`/^\s${title.toLowerCase()}\s$/`))
-
     if (filteredBooksOnTitle.length > 0) {
       return response.json(filteredBooksOnTitle.slice(0, 20))
     } else if (filteredBooksOnTitle.length === 0) {
@@ -67,8 +64,8 @@ app.get('/books', (request, response) => {
   if (author) {
     const filteredBooksOnAuthor = booksData.filter(item => {
       return (
-        item.authors.toLowerCase().replace("-", " ").split(" ").includes(author.toLowerCase())) || // matches against one name in the author name
-        item.authors.toLowerCase().split("-").includes(author.toLowerCase()) // matches against full author name
+        RegExp("\\b" + author.toLowerCase() + "\\b").test(item.authors.toLowerCase())
+      )
     })
     if (filteredBooksOnAuthor.length > 0) {
       return response.json(filteredBooksOnAuthor.slice(0, 20))
