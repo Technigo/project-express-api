@@ -1,13 +1,28 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This project's focus was to create my own RESTful API in Node using Express. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Endpoints
 
-## The problem
+https://ellens-express-deployment.herokuapp.com/ --> All endpoints for the API
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+https://ellens-express-deployment.herokuapp.com/books --> All books
+https://ellens-express-deployment.herokuapp.com/books?title=title --> filters books on title name. Does not have to be exact and is not case sensitive.
+https://ellens-express-deployment.herokuapp.com/books?author=auhtor --> filters books on author name. Does not have to be exact and is not case sensitive.
+https://ellens-express-deployment.herokuapp.com/books?language_code=languagecode -->  filters books on language code. Does not have to be exact and is not case sensitive.
+https://ellens-express-deployment.herokuapp.com/books?rating=high --> sorts books on highest average rating.
+https://ellens-express-deployment.herokuapp.com/books?rating=high --> sorts books on lowest average rating.
+
+https://ellens-express-deployment.herokuapp.com/books/book/bookIDnr --> fins one unique book with uniqe bookID.
+
+https://ellens-express-deployment.herokuapp.com/books/isbn/isbnnr --> fins one unique book with uniqe isbn.
+
+
+## Tech 
+- JavaScript
+- Node.js
+- Express
 
 ## View it live
+https://ellens-express-deployment.herokuapp.com/
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
