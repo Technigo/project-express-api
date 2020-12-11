@@ -29,19 +29,10 @@ export const filterOtherLanguages = (data, langQuery, error, res) => {
 }
 
 export const sortByNumPages = (data, sortedQuery) => {
-    const sortedBooks = data.sort((a, b) => {
-        if(sortedQuery === 'asc') {
-            return +a.num_pages - +b.num_pages
-        } else if(sortedQuery === 'des') {
-            return +b.num_pages - +a.num_pages
-        } return sortedBooks
-    })
+    if (sortedQuery === "dsc") {
+        data.sort((a, b) => b.num_pages - a.num_pages);
+      } else if (sortedQuery === "asc") {
+        data.sort((a, b) => a.num_pages - b.num_pages);
+      }
+      return data;
 }
-/* else if (sorted) {
-    const sortByNumPages = booksData.sort((a, b) => {
-      if (sorted === 'asc') {
-        return +a.num_pages - +b.num_pages
-      } else if (sorted === 'des') {
-        return +b.num_pages - +a.num_pages
-      } res.json(sortByNumPages)
-    }) */

@@ -105,7 +105,6 @@ app.get('/books', (req, res) => {
   }
 
   const currentPage = pagination(books, page)
-  console.log('this is currentpage:', currentPage)
   
   res.json(currentPage)
 })
