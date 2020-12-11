@@ -40,7 +40,7 @@ app.get('/books/authors/:author', (request, response) => {
 })
 
 // Endpoint/route that return the top ten books with a rating over 4
-app.get('books/top-ten', (request, response) => {
+app.get('/books/top-ten', (request, response) => {
   const sortedOnRating = booksData.filter((item) => item.average_rating >= 4)
   let topTenBooks = sortedOnRating.slice(0,10)
 
