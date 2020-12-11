@@ -3,8 +3,8 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-// Defines the port the app will run on (default is 8080)
-const port = process.env.PORT || 4040
+// Defines the port the app will run on (8080 is default)
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -32,9 +32,9 @@ app.get('/books/book/:bookID', (request, response) => {
 })
 
 // Endpoint/route that return a specific author
-app.get('/books/authors/:author', (request, response) => {
-  const author = request.params.author
-  const filteredAuthors = booksData.filter((item) => item.authors.includes(author))
+app.get('/books/search', (request, response) => {
+  const author = request.query.author
+  const filteredAuthors = booksData.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
     
     response.json(filteredAuthors)
 })
