@@ -19,6 +19,12 @@ const INPUT_ERROR = {
   error: 'invalid input!'
 }
 
+const ERROR_PAGE = {
+  status_code: 400,
+  error: 'Please define a page',
+  example: 'books?page=1'
+}
+
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -81,11 +87,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
+  const page = req.query.page || 0
   const language = req.query.lang
   const otherlanguages = req.query.otherlang
   const sorted = req.query.sorted
 
-  //FIX SORTINGFUNCTION
+  const pageSize = 20
+  const startindex = page * pageSize
+  const endindex = startindex + pageSize
+  const booksPerPage = booksData.slice(startindex, endindex)
+
+  const returnObject = { 
+    page_size: pageSize,
+    page: page,
+    max_pages: parseInt(booksData.length/pageSize),
+    num_books: booksPerPage.length, 
+    results: booksPerPage 
+  }
+
   if (language) {
     const booksInChosenLang = booksData.filter((item) => item.language_code === language)
     if (booksInChosenLang.length === 0) {
@@ -96,16 +115,15 @@ app.get('/books', (req, res) => {
     if (booksInOtherLang.length === 0) {
       res.status(404).json(ERROR_MSG)
     } res.json(booksInOtherLang)
-  } //Sortingfunction doesn't work!
-  else if (sorted) {
-    const sortByNumPages = booksData.sort((a,b) => {
+  } else if (sorted) {
+    const sortByNumPages = booksData.sort((a, b) => {
       if (sorted === 'asc') {
         return +a.num_pages - +b.num_pages
       } else if (sorted === 'des') {
         return +b.num_pages - +a.num_pages
       } res.json(sortByNumPages)
     })
-  }res.json(booksData)
+  } else res.json(returnObject)
 })
 
 app.post('/books', (req, res) => {
@@ -120,7 +138,7 @@ app.post('/books', (req, res) => {
     fs.writeFileSync('./data/books.json', resultJSON)
     res.status(201).json(validationResult)
   } else
-      res.status(400).json(INPUT_ERROR)
+    res.status(400).json(INPUT_ERROR)
 })
 
 app.get('/books/:book', (req, res) => {
