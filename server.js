@@ -4,7 +4,7 @@ import cors from 'cors';
 import netflixData from './data/netflix-titles.json'
 // console.log(netflixData.length);
 
-const ERROR_DATA_NOT_FOUND = {error: 'Data not found'};
+const ERROR_DATA_NOT_FOUND = {error: 'No data found'};
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -44,7 +44,7 @@ app.get('/shows/:id/', (req, res) => {
     (item) => item.show_id === +id);
   // console.log(showId);
 
-  if(showId.length === 0) {
+  if(!showId) {
     res.status(404).json(ERROR_DATA_NOT_FOUND)
   } else {
     res.json(showId);
@@ -52,29 +52,35 @@ app.get('/shows/:id/', (req, res) => {
 })
 
 
-//point to year and search type / http://localhost:8081/shows/year/2011?movie
+//point to year and filter type for that specific year / http://localhost:8081/shows/year/2019?type=movie
 app.get('/shows/year/:year/', (req, res) => {
   const { year } = req.params;
-  const { type } = req.query
-
+  const { type, listed } = req.query;
 
   let showReleaseYear = netflixData.filter(
     (item) => +item.release_year === +year 
   );
 
-  // let showType = showReleaseYear.filter(
-  //   (item) => item.type === type
-  // );
+  
+    if(type) {
+      showReleaseYear = showReleaseYear.filter(
+        (item) => item.type.toLowerCase() === type.toLowerCase());
+    };
+
+    if(listed) {
+      showReleaseYear = showReleaseYear.filter(
+        (item) => item.listed_in === listed)
+    }
 
   if(year && showReleaseYear.length === 0) {
     res.status(404).json(ERROR_DATA_NOT_FOUND);
   } 
 
-  // if(!showType) {
-  //   res.status(404).json(ERROR_DATA_NOT_FOUND)
-  // } else {
-  //   res.json(showReleaseYear)
-  // }
+  if(type && showReleaseYear.lenght === 0) {
+    res.status(404).json(ERROR_DATA_NOT_FOUND);
+  } else {
+    res.json(showReleaseYear)
+  }
 });
 
 // Start the server
