@@ -15,23 +15,6 @@ app.use(bodyParser.json());
 
 // --------------------------------------------------------------------------------
 
-let newData = null;
-
-fs.readFile('./data/ted.json', 'utf8', (err, fileContents) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  try {
-    newData = JSON.parse(fileContents);
-    // console.log(Array.of(newData.map((content) => content.tags).join(', ')));
-    newData = Array.of(newData.map((content) => content.tags).join(', '));
-    // console.log(newData);
-  } catch (err) {
-    console.error(err);
-  }
-});
-
 app.get('/', (req, res) => {
   res.send(
     'Welcome to TED-talks API - by Karin! Read full documentation here: 👉 https://github.com/karinnordkvist/Technigo-16-24-API/blob/master/Documentation.md'
@@ -170,14 +153,41 @@ app.get('/events', (req, res) => {
 });
 
 // ALL CATEGORIES ---------------------------------------------------------
+let newData = null;
+
+// Parse entire file to parse tags-string
+fs.readFile('./data/ted.json', 'utf8', (err, fileContents) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  try {
+    newData = JSON.parse(fileContents);
+    newData = Array.of(
+      newData.map((content) => content.tags).join(', ')
+    ).map((item) => item.replace(/\[/g, '').replace(/]/g, ''));
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 app.get('/categories', (req, res) => {
-  const allCategories = data.map((talk) => talk.tags);
-  const allNewCategories = newData;
+  const allCategories = newData.map((item) => item.replace(/,/g, ''));
+  const all = allCategories[0]
+    .split('"')
+    .reduce((unique, item) =>
+      unique.includes(item) ? unique : [...unique, item, null]
+    )
+    .filter((item) => item !== null)
+    .filter((item) => item.length > 1);
 
   if (allCategories.length === 0) {
     res.status(404).send(`Sorry, couldn't find any categories. Try again!`);
   } else {
-    res.json(allNewCategories);
+    res.send({
+      'Total amount of categories': all.length,
+      data: all,
+    });
   }
 });
 
