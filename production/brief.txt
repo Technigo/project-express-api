@@ -1,21 +1,14 @@
 Build an API using Express
 
-Since we're not using databases yet, you'll need to use a hard-coded set of data, stored as a JSON file in your project. The API endpoints you create will use this file along with array methods such as `[.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)`, `[.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)`, and `[.slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)` to select, filter, or limit the items returned in your responses.
+https://dashboard.heroku.com/apps/pw-c19-api/deploy/github
 
-It's up to you to decide what sort of data you'd like to return from your API endpoints. In the repository, we've included some datasets you can use if you'd like:
+Since we're not using databases yet, you'll need to use a hard-coded set of data, stored as a JSON file in your project. The API endpoints you create will use this file along with array methods such as to select, filter, or limit the items returned in your responses.
 
-- Golden globes nominations 2010-2019 (used in this week's codealong)
-- 500 book reviews
-- Avocado sales and average prices from a selection of US states
-- 1375 Netflix titles and some data about them
-- 50 popular Spotify tracks and some data about the music type
+It's up to you to decide what sort of data you'd like to return from your API endpoints.
 
-If you'd like to build your own data set - feel free! You could write it yourself, or find data on a site such as [Kaggle](https://www.kaggle.com/datasets). We used Kaggle to get the datasets above by downloading CSV files from datasets, renaming columns to be more JSON friendly, and then using a service to [convert from CSV to JSON](https://www.csvjson.com/csv2json).
-
+If you'd like to build your own data set - feel free! You could write it yourself,
 
 ## How to get started 💪🏼
-1. Fork [the repo](https://github.com/Technigo/project-express-api)
-2. Clone the repo into your projects folder on your computer
 3. Open up VS Code and start coding!
 4. Install dependencies: `npm install`
 5. Start the development server: `npm run dev`
@@ -28,29 +21,5 @@ RESTful routing can take a little time to get used to. Try to think of what the 
 `/songs/5` - Returns a single song whose ID is '5'
 
 ## How to hand in the code 🎯
-- When you’re finished with the project, push your code to GitHub
 - Navigate to your repo and create a Pull Request into the Technigo repo
-- Wait for the code review
-
-
-## Requirements 🧪
-- Contribute by helping others with this project on Stack Overflow.
-- If selected; demo your solution for your team.
-- Code follows Technigo’s code guidelines:
-
 - Your API should be deployed to Heroku or similar hosting service.
-
-
-🚨 Don't forget to add, commit and push the changes to GitHub when you're done. 🏁
-
-
-
-// by datatype
-
-// by country
-
-//a list of countries?
-
-// by region
-
-// all data

@@ -17,7 +17,7 @@ app.listen(port, () => {
 
 // Route definition
 app.get('/', (req, res) => {
-  res.send('Hello world! covid-19 data abou this api and endpoints, when the data was pulled and credits to where the data is from')
+  res.send('Hello world! covid-19 data about this api and endpoints, when the data was pulled and credits to where the data is from')
 })
 
 // Route for entire array
