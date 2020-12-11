@@ -18,3 +18,6 @@ Tech I've used this week:
 
 ## View it live
 https://johanna-rexin-spotify-popular.herokuapp.com/
+https://johanna-rexin-spotify-popular.herokuapp.com/songs
+https://johanna-rexin-spotify-popular.herokuapp.com/songs/1
+https://johanna-rexin-spotify-popular.herokuapp.com/genre/pop
