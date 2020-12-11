@@ -55,7 +55,7 @@ app.get("/books", (request, response) => {
 // --- getting SPECIFIC books (one object) based on ISBN13 ---
 //localhost:8080/id/:isbn13
 
-app.get("/id/:isbn13", (request, response) => {
+app.get("/books/id/:isbn13", (request, response) => {
 
   const bookId = request.params.isbn13
 
@@ -71,6 +71,8 @@ app.get("/id/:isbn13", (request, response) => {
 })
 
 // --- SORTED books based on AVERGAE RATING (descending) ---
+//localhost:8080/books/rating
+
 app.get("/books/rating", (request, response) => {
 
   const compare = (a, b) => {
