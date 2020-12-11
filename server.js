@@ -5,6 +5,7 @@ import booksData from './data/books.json'
 
 const port = process.env.PORT || 8080
 const app = express()
+const ERROR_BOOKS_NOT_FOUND = {error: "Sorry, we couldn't find any books matching your search"}
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -17,11 +18,11 @@ app.get('/', (req, res) => {
 app.get('/books', (req, res) => {
   const {authors, title} = req.query;
   if (authors) {
-    const filteredAuthors = booksData.filter(item => item.authors.includes(authors))
-    res.json(filteredAuthors)
+    const filteredAuthors = booksData.filter(item => item.authors.toLowerCase().includes(authors.toLowerCase()))
+    filteredAuthors.length === 0 ? res.status(404).json(ERROR_BOOKS_NOT_FOUND) : res.json(filteredAuthors);
   } else if (title)  {
-    const filteredTitles = booksData.filter(item => item.title.toString().toUpperCase().includes(title.toString().toUpperCase()))
-    res.json(filteredTitles)
+    const filteredTitles = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toString().toLowerCase()))
+    filteredTitles.length === 0 ? res.status(404).json(ERROR_BOOKS_NOT_FOUND) : res.json(filteredTitles);
   }
   else { 
     res.json(booksData)
@@ -36,7 +37,12 @@ app.get('/books/top-rated', (req, res) => {
 
 app.get('/books/:id', (req, res) => {
   const {id} = req.params;
-  res.json(booksData.find(item => item.bookID === +id))
+  const foundBook = booksData.find(item => item.bookID === +id)
+  if (!foundBook) {
+    res.status(404).json(ERROR)
+  } else {
+    res.json(foundBook)
+  }
 })
 
 
