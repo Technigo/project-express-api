@@ -118,7 +118,7 @@ app.get("/authors", (req, res) => {
 
 //future endpoint
 app.get("/isbn", (req, res) => {
-  res.json("ISBN filtering soon to come.");
+  res.send("ISBN filtering soon to come.");
 });
 
 // Start the server
