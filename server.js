@@ -26,7 +26,7 @@ fs.readFile('./data/ted.json', 'utf8', (err, fileContents) => {
     newData = JSON.parse(fileContents);
     // console.log(Array.of(newData.map((content) => content.tags).join(', ')));
     newData = Array.of(newData.map((content) => content.tags).join(', '));
-    console.log(newData);
+    // console.log(newData);
   } catch (err) {
     console.error(err);
   }
@@ -39,9 +39,9 @@ app.get('/', (req, res) => {
 });
 
 // ALL TALKS
-app.get('/talks/', (req, res) => {
-  // FILTERED BY SPEAKER  ---------------------------------------------------------
+app.get('/talks', (req, res) => {
   if (req.query.speaker) {
+    // FILTERED BY SPEAKER  ---------------------------------------------------------
     const speaker = req.query.speaker;
     const filteredBySpeaker = data.filter((talk) =>
       talk.main_speaker.includes(speaker)
@@ -64,12 +64,11 @@ app.get('/talks/', (req, res) => {
       const filteredByCategory = data.filter((talk) =>
         talk.tags.includes(category)
       );
-
       if (filteredByCategory.length === 0) {
         res
           .status(404)
-          .send(
-            `Sorry, couldn't find any talks matching your search. Try again!`
+          .json(
+            `Sorry, couldn't find any talks matching '${category}'. Try again!`
           );
       } else {
         res.json(filteredByCategory);
@@ -94,8 +93,8 @@ app.get('/talks/', (req, res) => {
       if (multipleCategories.length === 0) {
         res
           .status(404)
-          .send(
-            `Sorry, couldn't find any talks matching your search. Try again!`
+          .json(
+            `Sorry, couldn't find any talks matching '${categories}'. Try again!`
           );
       } else {
         res.json(multipleCategories);
@@ -109,21 +108,31 @@ app.get('/talks/', (req, res) => {
     if (filteredByEvent.length === 0) {
       res
         .status(404)
-        .send(
-          `Sorry, couldn't find any talks matching your search. Try again!`
-        );
+        .json(`Sorry, couldn't find any talks matching '${event}'. Try again!`);
     } else {
       res.json(filteredByEvent);
     }
   } else {
-    res.json(data);
+    const page = req.query.page ?? 1;
+    const pageSize = 50;
+    const startIndex = page * pageSize - pageSize;
+    const endIndex = startIndex + pageSize;
+    const talksForPage = data.slice(startIndex, endIndex);
+    const returnData = {
+      Page: `${page}/${data.length / pageSize}`,
+      Talks: `${startIndex}-${endIndex}`,
+      'Total amount of talks': data.length,
+      data: talksForPage,
+    };
+    res.json(returnData);
   }
 });
 
 // SINGLE TALK ---------------------------------------------------------
 app.get('/talks/:id', (req, res) => {
   const id = req.params.id;
-  const filteredById = data.filter((talk) => talk.id === id);
+  const filteredById = data.filter((talk) => JSON.stringify(talk.id) === id);
+  // console.log(filteredById);
 
   if (filteredById.length === 0) {
     res
@@ -138,7 +147,7 @@ app.get('/talks/:id', (req, res) => {
 app.get('/speakers', (req, res) => {
   const allSpeakers = data.map((talk) => talk.main_speaker);
   // New set to remove all dublicates
-  const allSpeakersSet = Array.from(new Set(allSpeakers)).sort();
+  const allSpeakersSet = Array.from(new Set(allSpeakers));
 
   if (allSpeakersSet.length === 0) {
     res.status(404).send(`Sorry, couldn't find any speakers. Try again!`);
@@ -151,7 +160,7 @@ app.get('/speakers', (req, res) => {
 app.get('/events', (req, res) => {
   const allEvents = data.map((talk) => talk.event);
   // New set to remove all dublicates
-  const allEventsSet = Array.from(new Set(allEvents)).sort();
+  const allEventsSet = Array.from(new Set(allEvents));
 
   if (allEventsSet.length === 0) {
     res.status(404).send(`Sorry, couldn't find any events. Try again!`);
