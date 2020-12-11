@@ -3,23 +3,9 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import topMusicData from './data/top-music.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// const ERROR_GAME_NOT_FOUND = { error: 'No such XX was found.' }
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -27,24 +13,29 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world, welcome to Johanna Rexins API! ')
+  res.send('Hello, welcome to an API about popular Spotify tracks.')
 })
 
+// Endpoint 1, all the data with 50 popular songs on Spotify 
 app.get('/songs', (req, res) => {
   res.json(topMusicData)
 })
 
+console.log(topMusicData.genre)
+
+// Endpoint 2, sorting the data on music genre
 app.get('/genre/:genre', (req, res) => {
   const genre = req.params.genre
   const songGenre = topMusicData.filter((item) => item.genre === genre)
   res.json(songGenre)
 })
 
-// app.get('/artist/:artistName', (req, res) => {
-//   const artist = req.params.artistName
-//   const artistName = topMusicData.filter((item) => item.artistName === artist)
-//   res.json(artistName)
-// })
+// Endpoint 3, showing only one song identified by id
+app.get('/songs/:id', (req, res) => {
+  const id = req.params.id
+  const singleSong = topMusicData.find((song) => song.id === +id)
+    res.json(singleSong)
+})
 
 // Start the server
 app.listen(port, () => {
