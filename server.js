@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 // homepage
 app.get('/', (req, res) => {
-  res.send({documentation})
+  res.send(documentation)
 })
 
 
