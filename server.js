@@ -4,7 +4,6 @@ import cors from 'cors'
 
 import avocadoSalesData from './data/avocado-sales.json'
 
-//console.log(avocadoSalesData.length);
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -15,17 +14,15 @@ app.use(bodyParser.json())
 console.log("this is node working")
 
 
-// Start defining your routes here
+// Start defining routes
 app.get('/', (request, response) => {
-  response.send('Hello, welcome to my api! Find some information about avocado sales here. ')
+  response.send('Hello, welcome to my api! Find some information about avocado sales in the US here. ')
 })
 
 //plural data returned endpoint
 app.get('/sales', (request, response) => {
   const { date } = request.query;
   const { region } = request.query;
-
-  //ERRORS ARE UNDEFINED
   if (date) {
     const salesByDate = avocadoSalesData.filter((item) => item.date === date);
     if(salesByDate.length > 0) {
@@ -54,8 +51,8 @@ app.get('/sales/regions', (request, response) => {
   response.json(uniqueRegions);
 })
 
-// SORT NOT WORKING sorted by average price '/sales?sorted=desc'
-app.get('/sales', (request,response ) => {
+// sorted by average price in desc/asc order
+app.get('/sales/price', (request,response ) => {
   const { sorted } = request.query;
   if(sorted === "desc") {
     const sortedByPrice = avocadoSalesData.sort((a, b) => Number(b.averagePrice) - Number(a.averagePrice))
@@ -68,9 +65,7 @@ app.get('/sales', (request,response ) => {
   }
 });
 
-//app.get('/sales?sorted_by_price=high', (request,response ) => 
-
-//singular piece of data returned endpoint
+//single result returned endpoint, a sales found by id in a specific region
 app.get('/sales/:region/by_id/:id', (request,response) => {
   const {region, id} = request.params;
   const saleById = avocadoSalesData.find(
@@ -83,12 +78,7 @@ app.get('/sales/:region/by_id/:id', (request,response) => {
   };
 });
 
-//MY QUESTIONS
-//is it ok to write _ bettween words in an endpointline 43 by_id ?
-//is it possible to combine paths and query parameters 
-//is it good practice to do it as i did in lines 27-40
-//does it make sense to create specific endpoint for things that a client can find in a search
-
+//single result returned endpoint, a sales found by date in a specific region
 app.get('/sales/:region/:date', (request,response) => {
   const {region, date} = request.params;
   const saleByDate = avocadoSalesData.find(
@@ -102,16 +92,11 @@ app.get('/sales/:region/:date', (request,response) => {
 });
 
 //Dummy endpoint - red level
-// app.get('/sales/:xlargebagssold', (request,response) => {
-// //This will return count of xlarge bags sold in the US in total
+// app.get('/sales/average_price', (request,response) => {
+// This will return multiple results that comply with a condition where averagePrice is lower or higher than 1
+// The endpoints will look like localhost:8080/sales/average_price/price?=low and localhost:8080/sales/average_price/price?=high 
 //response.send();
 // });
-
-
-//sales/region/averageprice-sorted asc
-//sales/averageprice_low <1
-//sales/averageprice_high >1
-//i want to get only regions sales/regions
 
 // Start the server
 app.listen(port, () => {
