@@ -26,8 +26,8 @@ Search books low to high: /books?sort=rating_asc
 
 [Book API](https://andrea-books-api.herokuapp.com/)
 [Example author](https://andrea-books-api.herokuapp.com/books?author=douglas)
-[Example title](https://andrea-books-api.herokuapp.com/books?title=Shakespeare)
-[Example id](https://andrea-books-api.herokuapp.com/524)
+[Example title](https://andrea-books-api.herokuapp.com/books?title=harry)
+[Example id](https://andrea-books-api.herokuapp.com/books/524)
 [Rating low to high](https://andrea-books-api.herokuapp.com/books?sort=rating_asc)
 [Rating high to low](https://andrea-books-api.herokuapp.com/books?sort=rating_dsc)
 
