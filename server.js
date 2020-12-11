@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import fs from 'fs';
 
 import data from './data/ted.json';
 
@@ -13,6 +14,23 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // --------------------------------------------------------------------------------
+
+let newData = null;
+
+fs.readFile('./data/ted.json', 'utf8', (err, fileContents) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  try {
+    newData = JSON.parse(fileContents);
+    // console.log(Array.of(newData.map((content) => content.tags).join(', ')));
+    newData = Array.of(newData.map((content) => content.tags).join(', '));
+    console.log(newData);
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 app.get('/', (req, res) => {
   res.send(
@@ -145,11 +163,12 @@ app.get('/events', (req, res) => {
 // ALL CATEGORIES ---------------------------------------------------------
 app.get('/categories', (req, res) => {
   const allCategories = data.map((talk) => talk.tags);
+  const allNewCategories = newData;
 
   if (allCategories.length === 0) {
-    res.status(404).send(`Sorry, couldn't find any events. Try again!`);
+    res.status(404).send(`Sorry, couldn't find any categories. Try again!`);
   } else {
-    res.json(allCategories);
+    res.json(allNewCategories);
   }
 });
 

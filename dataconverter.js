@@ -6,7 +6,6 @@ data.forEach((talk, index) => {
   talk.tags = talk.tags.replace(/'/g, '"');
   talk.ratings = talk.ratings.replace(/'/g, '"');
   talk.related_talks = talk.related_talks.replace(/'/g, '"');
-  talk.tags = talk.tags.toString();
 
   // New objects
   talk.id = parseInt(`${index + 1 * 10000}`, 10);
