@@ -40,7 +40,7 @@ app.get('/titles/id/:id', (request, response) => {
   const { id } = request.params;
   // console.log(id);
   const title = netflixData.find(title => title.show_id === +id);
-  if (title === 0) {
+  if (!title) {
     response.status(404).json(ERROR);
     } else {
     response.json(title);
