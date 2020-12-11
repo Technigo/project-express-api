@@ -1,12 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is made by me on my 17th week of Technigo Boot Camp. 
+It was my first experience with backend development.
+The assignment was to create an API using Express and return an array of data and a single item. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Since the assigment was to return an array of data. For the whole list of shows was no bigger challenge, I just rendered for the data,  but to get out movies from a specific year I had to filter them. 
+And to whenever you misspell a title or search for a show that is not in the database I have a '404' message fetch with a conditional 'if-statement'. 
 
 ## View it live
 
