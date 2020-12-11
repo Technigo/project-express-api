@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import topMusicData from './data/top-music.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -18,14 +19,32 @@ import cors from 'cors'
 const port = process.env.PORT || 8080
 const app = express()
 
+// const ERROR_GAME_NOT_FOUND = { error: 'No such XX was found.' }
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello world, welcome to Johanna Rexins API! ')
 })
+
+app.get('/songs', (req, res) => {
+  res.json(topMusicData)
+})
+
+app.get('/genre/:genre', (req, res) => {
+  const genre = req.params.genre
+  const songGenre = topMusicData.filter((item) => item.genre === genre)
+  res.json(songGenre)
+})
+
+// app.get('/artist/:artistName', (req, res) => {
+//   const artist = req.params.artistName
+//   const artistName = topMusicData.filter((item) => item.artistName === artist)
+//   res.json(artistName)
+// })
 
 // Start the server
 app.listen(port, () => {
