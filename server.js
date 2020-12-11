@@ -83,7 +83,7 @@ app.get("/books/authors/:author", (request, response) => {
 });
 
 //Dummy Endpoint
-app.get("books/isbn/:isbn", (request, response) => {
+app.get("/books/isbn/:isbn", (request, response) => {
   //TODO: Include an endpoint for isbn search
   response.send("Oops. Nothing to see here.")
 })
