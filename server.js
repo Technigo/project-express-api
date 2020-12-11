@@ -25,22 +25,23 @@ app.get('/', (request, response) => {
   response.json("Welcome to Claire's book API 🌼 For documentation go to https://books-deployment.herokuapp.com/documentation");
 });
 
-/* ---- First endpoint ----
-Endpoint that returns the whole array of data and also for books based on author, title, language or average rating when using the query paramater. 
-Each if statement is checked and if true will either return the results or an error message as the array returned is empty (e.g. if the user has entered an incorrect author, title, langauage etc).
+/* --- First endpoint ---
+Endpoint that returns different data depending on the query e.g. author, title, language, average rating and page. 
 
-Example routes:
-http://localhost:8081/books/search - Returns the whole data set/array
-http://localhost:8081/books/search?author=Rowling - Searches for books based on author
-http://localhost:8081/books/search?title=Harry - Searches for books based on title
-http://localhost:8081/books/search?language=eng  - Searches for books based on language
+Example routes for author, title, language and average rating:
+http://localhost:8081/books?author=rowling
+http://localhost:8081/books?title=harry
+http://localhost:8081/books?language=eng
 eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul
-http://localhost:8081/books/search?averagerating=4.5 - Searches for books based on avergage rating.
+http://localhost:8081/books?averagerating=4
 
-request, response is callback function
+For the the page query a list of 50 results will be returned from the books array that have been pre-sliced using the slice method. 
+What data is returned depends on what number the user has queried in the endpoint. The number specified will have a 1 subtracted from it. The number will be then matched with the index number of one of the pageArray elements. This will the return the 50 books that have been sliced in that array index 
+e.g. http://localhost:8081/books?page=1 will have 1 subrtracted from it so it will be 0, then it will look for that index number and return the data that is being sliced in that array element.
 */
-app.get('/books/search', (request, response) => {
-  const {author, title, language, averagerating, pageone, pagetwo, pagethree, pagefour, pagefive, pagesix, pageseven, pageeight, pagenine, pageten} = request.query;
+
+app.get('/books', (request, response) => {
+  const { author, title, language, averagerating, page } = request.query;
 
   if (author) {
     const authorResults = booksData.filter((item) => item.authors.toLocaleLowerCase().includes(author.toLocaleLowerCase()));
@@ -79,40 +80,28 @@ app.get('/books/search', (request, response) => {
     }
   } 
 
-const page1 = booksData.slice(0,50);
-const page2 = booksData.slice(50,101);
-const page3 = booksData.slice(101,152);
-const page4 = booksData.slice(152,203);
-const page5 = booksData.slice(203,255);
-const page6 = booksData.slice(255,306);
-const page7 = booksData.slice(306,357);
-const page8 = booksData.slice(357,408);
-const page9 = booksData.slice(408,459);
-const page10 = booksData.slice(459,499);
+  const pageArray = [
+    booksData.slice(0,50),
+    booksData.slice(50,101),
+    booksData.slice(101,152),
+    booksData.slice(152,203),
+    booksData.slice(203,255),
+    booksData.slice(255,306),
+    booksData.slice(306,357),
+    booksData.slice(357,408), 
+    booksData.slice(408,459),
+    booksData.slice(459,499)
+  ];
 
- if (pageone) {
-  response.json(page1);
-} else if (pagetwo) {
-  response.json(page2);
-} else if (pagethree) {
-  response.json(page3);
-} else if (pagefour) {
-  response.json(page4);
-} else if (pagefive) {
-  response.json(page5);
-} else if (pagesix) {
-  response.json(page6);
-} else if (pageseven) {
-  response.json(page7);
-} else if (pageeight) {
-  response.json(page8);
-} else if (pagenine) {
-  response.json(page9);
-} else if (pageten) {
-  response.json(page10);
-} else {
-  response.json(booksData)
-}
+  response.json(pageArray[page-1]);
+
+  // if(page === 1) {
+  //   response.json(pageArray[0])
+  // } else if (page === 2) {
+  //   response.json(pageArray[1])
+  // } else if (page === 3) {
+  //   response.json(pageArray[2])
+  // }
 });
 
 /* ---- Second endpoint ----
