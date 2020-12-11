@@ -46,11 +46,11 @@ app.get('/productions/:id', (req, res) => {
     res.json(production)
 });
 
-// 3 // Map on directors 
-app.get('/productions/:directors', (req, res) => {
+// 3 // Map on directors (... And I wont to interger this on into Movie category to avoid empty values)
+app.get('/directors', (req, res) => {
   const { directors } = req.params;
   const directorsOfProductions = netflixData.map(
-    (director) => director.director === directors
+    (director) => director.director
     );
     res.json(directorsOfProductions)
 
