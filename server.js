@@ -4,6 +4,7 @@ import cors from 'cors'
 import endpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
+import { pagination, filterOnLanguage, filterOtherLanguages, sortByNumPages } from './bookqueries'
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -87,43 +88,26 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
+  let books = booksData
   const page = req.query.page || 0
   const language = req.query.lang
   const otherlanguages = req.query.otherlang
-  const sorted = req.query.sorted
-
-  const pageSize = 20
-  const startindex = page * pageSize
-  const endindex = startindex + pageSize
-  const booksPerPage = booksData.slice(startindex, endindex)
-
-  const returnObject = { 
-    page_size: pageSize,
-    page: page,
-    max_pages: parseInt(booksData.length/pageSize),
-    num_books: booksPerPage.length, 
-    results: booksPerPage 
+  const sorted = req.query.sort
+  
+  if (language) {
+    books = filterOnLanguage(books, language, ERROR_MSG, res)
+  } else if (otherlanguages){
+    books = filterOtherLanguages(books, language, ERROR_MSG, res)
   }
 
-  if (language) {
-    const booksInChosenLang = booksData.filter((item) => item.language_code === language)
-    if (booksInChosenLang.length === 0) {
-      res.status(404).json(ERROR_MSG)
-    } res.json(booksInChosenLang)
-  } else if (otherlanguages) {
-    const booksInOtherLang = booksData.filter((item) => item.language_code != language)
-    if (booksInOtherLang.length === 0) {
-      res.status(404).json(ERROR_MSG)
-    } res.json(booksInOtherLang)
-  } else if (sorted) {
-    const sortByNumPages = booksData.sort((a, b) => {
-      if (sorted === 'asc') {
-        return +a.num_pages - +b.num_pages
-      } else if (sorted === 'des') {
-        return +b.num_pages - +a.num_pages
-      } res.json(sortByNumPages)
-    })
-  } else res.json(returnObject)
+  if(sorted) {
+    books = sortByNumPages(books, sorted)
+  }
+
+  const currentPage = pagination(books, page)
+  console.log('this is currentpage:', currentPage)
+  
+  res.json(currentPage)
 })
 
 app.post('/books', (req, res) => {
