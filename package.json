@@ -16,11 +16,11 @@
     "check": "*",
     "cors": "*",
     "express": "*",
-    "nodemon": "^2.0.6"
+    "nodemon": "*"
   },
   "devDependencies": {
-    "eslint": "^7.15.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-import": "^0.13.0"
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-import": "*"
   }
 }
