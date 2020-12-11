@@ -4,6 +4,19 @@ This project is made by me on my 17th week of Technigo Boot Camp.
 It was my first experience with backend development.
 The assignment was to create an API using Express and return an array of data and a single item. 
 
+## Documentation
+
+    # Show all data - 
+    https://netflix-dummy-data.herokuapp.com/shows
+
+    # Search by Titles -
+    https://netflix-dummy-data.herokuapp.com/titles/<title-name>
+    example : https://netflix-dummy-data.herokuapp.com/titles/Chocolate
+
+    # Search by Years -
+    https://netflix-dummy-data.herokuapp.com/year/<year>
+    example : https://netflix-dummy-data.herokuapp.com/year/2001
+
 ## The problem
 
 Since the assigment was to return an array of data. For the whole list of shows was no bigger challenge, I just rendered for the data,  but to get out movies from a specific year I had to filter them. 
@@ -11,4 +24,4 @@ And to whenever you misspell a title or search for a show that is not in the dat
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://netflix-dummy-data.herokuapp.com/
