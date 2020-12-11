@@ -13,19 +13,26 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('We are advocates of avocados')
+  res.send('We are advocates of avocados. /avocados for full list. /id/:id for specific id, /regions/:region for specific region')
 })
 
 app.get('/avocados', (req, res) => {
   res.json(avocadoSalesData)
 })
 
-app.get('/avocados/:id', (request, response) => {
-  console.log(request.params);
-  const { id } = request.params;
-  const user = avocadoSalesData.find((avocado) => avocado.id === +id);
-  response.json(user);
-});
+app.get('/avocados/id/:id', (request, response) => {
+  const { id } = request.params
+  const specificID = avocadoSalesData.find((avocado) => avocado.id === +id)
+  response.json(specificID)
+})
+
+app.get('/avocados/regions/:region', (request, response) => {
+  const { region } = request.params
+
+  let specificRegion = avocadoSalesData.filter((avocado) => avocado.region === region)
+  response.json(specificRegion)
+})
+
 
 // Start the server
 app.listen(port, () => {
