@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 
 import booksData from './data/books.json';
-console.log(`Number of books: ${booksData.length}`);
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -18,7 +17,8 @@ app.use(bodyParser.json());
 
 const myEndpoints = require('express-list-endpoints');
 
-// Start defining your routes here
+// / endpoint (Root - Homepage)
+// RETURNS: A list of available endpoints (in an array)
 app.get('/', (req, res) => {
   if (!res) {
     res
@@ -27,46 +27,42 @@ app.get('/', (req, res) => {
   } else res.send(myEndpoints(app));
 });
 
-// A Collection of results - An array with books
-// that can be filtered by title or author.
-// Returns an object with the fields booksData, filteredAuthors and filteredTitles
-// plus number of books listed.
+// /books endpoint
+// RETURNS: A list of books from books.json with PAGINATION as default with 30 results per page
+//
+// PARAMETERS:
+//  - page
+//     usage: /books/?page=4
+//  - pageSize
+//     usage: /books/?pageSize=10
+//  - author
+//     usage: /books/?author=douglas adams
+//  - title
+//     usage: /books/?title=harry
 app.get('/books', (req, res) => {
   const { author, title } = req.query;
-  console.log(`The author value is: ${author}`);
-  console.log(`The title value is: ${title}`);
-
   let booksList = booksData;
   const totalNumberOfBooks = booksList.length;
 
-  // Query parameter to filter by author
+  // Query by author
   if (author) {
     booksList = booksList.filter((item) =>
       item.authors.toLowerCase().includes(author.toLowerCase())
     );
   }
 
-  // Query parameter to filter by title
+  // Query by title
   if (title) {
     booksList = booksList.filter((item) =>
       item.title.toString().toLowerCase().includes(title.toLowerCase())
     );
   }
 
-  // Add pagination by using slice
-  const page = req.query.page ? req.query.page - 1 : 0; //otherwise 0 as default
-  const pageSize = req.query.pageSize ?? 30; //otherwise 30 as default
-
-  console.log(page);
-
-  // Calculate start index
-  const startIndex = page * pageSize;
-
-  // Calculate and bound the end index
-  const endIndex = startIndex + +pageSize;
-
-  console.log(startIndex + '--' + endIndex);
-
+  // PAGINATION by using slice - Default with 30 results per page
+  const page = req.query.page ? req.query.page - 1 : 0; // 0 as default
+  const pageSize = req.query.pageSize ?? 30; // 30 as default
+  const startIndex = page * pageSize; // Calculate start index
+  const endIndex = startIndex + +pageSize; // Calculate and bound the end index
   const booksListPerPage = booksList.slice(startIndex, endIndex);
   const returnObject = {
     totalNumberOfBooks: totalNumberOfBooks,
@@ -89,7 +85,38 @@ app.get('/books', (req, res) => {
   res.json(returnObject);
 });
 
-// A Collection of results - An array with authors
+// /books/top-20-rated endpoint
+// RETURNS: A list of 20 top rated books from books.json
+app.get('/books/top-20-rated', (req, res) => {
+  const sortedOnRating = booksData.sort(
+    (a, b) => b.average_rating - a.average_rating
+  );
+  const topRatedArray = sortedOnRating.slice(0, 20);
+
+  if (topRatedArray.length === 0) {
+    res.status(404).send({
+      error: 'Sorry, no books where found.'
+    });
+  } else
+    res.json({
+      topTwentyRated: 'A list of 20 top rated books from books.json',
+      results: topRatedArray
+    });
+});
+
+// /books/:id endpoint
+// RETURNS: A single book by id from books.json
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params;
+  const bookId = booksData.find((item) => item.bookID === +id);
+
+  if (!bookId) {
+    res.status(404).send({ error: `No book with id: ${id} found.` });
+  } else res.json(bookId);
+});
+
+// /authors endpoint
+// RETURNS: A list of unique authors from books.json
 app.get('/authors', (req, res) => {
   const authorsArray = booksData.map((item) => item.authors);
 
@@ -108,28 +135,23 @@ app.get('/authors', (req, res) => {
   //   []
   // );
 
-  // #3 same as #2 but with other naming convention and a return
+  // same as #2 but with other naming convention and a return
   // const uniqueAuthorsArray = authorsArray.reduce((unique, item) => {
   //   return unique.includes(item) ? unique : [...unique, item];
   // }, []);
 
-  // #4 - Set
+  // #3 - Set
   const uniqueAuthorsArray = [...new Set(authorsArray)];
 
-  res.send({ authors: uniqueAuthorsArray.length, results: uniqueAuthorsArray });
-});
-
-// A Single result - A single book element find by id
-app.get('/books/:id', (req, res) => {
-  const { id } = req.params;
-  console.log(`The id value is: ${id}`);
-
-  const bookId = booksData.find((item) => item.bookID === +id);
-
-  // If the book doesn't exist, status set to 404 and returning a useful data in the response
-  if (!bookId) {
-    res.status(404).send({ error: `No book with id: ${id} found.` });
-  } else res.json(bookId);
+  if (uniqueAuthorsArray.length === 0) {
+    res.status(404).send({
+      error: 'Sorry, no authors where found.'
+    });
+  } else
+    res.json({
+      numberOfAuthors: uniqueAuthorsArray.length,
+      results: uniqueAuthorsArray
+    });
 });
 
 // Start the server
