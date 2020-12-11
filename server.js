@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello, welcome to Gabriella´s API with books! Possible endpoints to use: /books (for seeing all books), /books/book/:id, (to search by Book ID) /books/author/:author (to search by author) and /books/top-rated (to see the 20 highest rated books)')
+  res.send('Hello, welcome to Gabriella´s API with books! Possible endpoints to use: /books (for seeing all books), /books/book/:id, (to search by Book ID) /books/author/:author (to search by author) and /books/top-rated (to see the 20 highest rated books) With filter and query parameter you can find search =high to get 50 books with high rating and you can use page=pagenumber to se 50 per page where it exist 10 pages in total')
 });
 
 // The first endpoint, returns a collection of books
@@ -67,7 +67,7 @@ app.get('/books/filter', (req, res) => {
 });
 
 // The second endpoint, returns a single book based on bookID
-app.get('/books/book/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const bookID = req.params.id;
   const bookById = books.find((item) => item.bookID === +bookID);
 
