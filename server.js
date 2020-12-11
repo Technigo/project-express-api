@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 //returning all books. query params added.
 //to String is needed since item.title is an object.
 app.get('/books', (req, res) => {
-  const { title, author, languageCode, rating } = req.query
+  const { title, author, language_code, rating } = req.query
   let filteredBooks = booksData
 
   if (title) {
