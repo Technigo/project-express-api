@@ -59,9 +59,8 @@ app.get('/books', (req, res) => {
   const returnObject = { 
     totalNumberOfBooks: totalOfBooks,
     totalNumberOfPages: Math.ceil(booksList.length / pageSize), 
-    pageSize: pageSize, 
+    booksReturned: pageSize, 
     currentPage: page + 1,
-    numberOfBooks: booksList.length,
     results: booksListPage,
   };
 
