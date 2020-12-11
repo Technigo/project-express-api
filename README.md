@@ -13,9 +13,9 @@ This project's focus was to create my own RESTful API in Node using Express.
 - https://ellens-express-deployment.herokuapp.com/books?rating=high --> sorts books on highest average rating.
 - https://ellens-express-deployment.herokuapp.com/books?rating=high --> sorts books on lowest average rating.
 
-- https://ellens-express-deployment.herokuapp.com/books/book/bookIDnr --> fins one unique book with uniqe bookID.
+- https://ellens-express-deployment.herokuapp.com/books/book/bookIDnr --> finds a unique book with uniqe bookID.
 
-- https://ellens-express-deployment.herokuapp.com/books/isbn/isbnnr --> fins one unique book with uniqe isbn.
+- https://ellens-express-deployment.herokuapp.com/books/isbn/isbnnr --> finds a unique book with uniqe isbn.
 
 
 ## Tech 
