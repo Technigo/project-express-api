@@ -21,8 +21,6 @@ app.get('/songs', (req, res) => {
   res.json(topMusicData)
 })
 
-console.log(topMusicData.genre)
-
 // Endpoint 2, sorting the data on music genre
 app.get('/genre/:genre', (req, res) => {
   const genre = req.params.genre
