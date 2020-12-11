@@ -6,7 +6,7 @@ import harryData from './data/harry-potter-characters.json'
 
 const ERROR_CHARACTERS_NOT_FOUND = {error : 'No character results were found, please try again.'}
 
-// Defines the port the app will run on. 
+// Defines the port the app will run on
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -27,7 +27,7 @@ app.get('/characters', (request, response) => {
     character.name.toLocaleLowerCase().includes(name))
 
   if (filteredName.length === 0) {
-    response.status(404).json(ERROR_CHARACTERS_NOT_FOUND)
+    response.json(harryData)
   } else {
     response.json(filteredName)
   }
