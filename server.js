@@ -9,6 +9,7 @@ import profanityCategories from './data/profanity-dictionary-categories.json'
 import documentation from './documentation/idsintehittapa-profanity-dictionary-1.0.0-resolved.json'
 
 // Defines the port the app will run on.
+import express from 'express'
 const port = process.env.PORT || 8080
 const app = express()
 
