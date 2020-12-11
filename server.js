@@ -1,4 +1,5 @@
 import express from 'express';
+import expressEndpoints from 'express-list-endpoints';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import books from './data/books.json';
@@ -24,8 +25,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world');
+const endPoints = require('express-list-endpoints')
+app.get("/", (request, response) => {
+  response.send(endPoints(app));
 });
 
 // Get all the books in the list & filter options
