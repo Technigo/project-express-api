@@ -9,10 +9,13 @@ I chose data already given about Netflix movies and TV-shows. Then I started wit
 ## Endpoints
 
 • Root: /
+
 • titles: /titles (This gives data about all the TV-shows and movies of Netflix)
+
 • type: /titles?=type=(Choose Movie or TV Show as the type to get only data about all the movies or all the TV Shows) 
 
 • year: titles/year (Choose year to only get movies/TV Shows for a specific year)
+
 • id: titles/id (Choose id to get a specific TV show/Movie)
 
 
