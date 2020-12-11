@@ -1,13 +1,18 @@
 # Express API Project
+This week was the first week with backend and the brief was to create our own API using Express, with RESTful endpoints. 
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+We learned: 
+– How to install and setup an Express server.
+– How to create your first routes.
+– How to deploy Node projects.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I found this week a bit tricky of knowing what data to choose, therfor I only come up with 4 endpoints. But I will work on some more when I've sorted my mind. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+#1 https://caroline-books-deployment.herokuapp.com/books (All the data from the API)
+#2 https://caroline-books-deployment.herokuapp.com/books/authors (Data that shows all the authors)
+#3 https://caroline-books-deployment.herokuapp.com/books/books/id/1 (Data filtered by id. 1 is an example.)
+#4 https://caroline-books-deployment.herokuapp.com/books/pages/245 (Data filtered by number of pages. 245 is an example.)

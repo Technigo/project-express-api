@@ -9,6 +9,7 @@ const ERROR_NOT_FOUND = {
   error:
     "The result you're looking for is nowhere to find. Please try something else!",
 };
+
 const port = process.env.PORT || 8081;
 const app = express();
 
