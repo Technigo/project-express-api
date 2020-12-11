@@ -121,15 +121,15 @@ app.get('/books/:id', (request, response) => {
 
 // Created an object outlining the documentation. Can be found on the start page of the api url
 const documentation = {
-  "Endpoint 1 with author query": "https://books-deployment.herokuapp.com/books?author=Rowling - Use this endpoint to return books by a specific author using the author query parameter. It will return an array with one or more elements, if the author isn't valid then you will get an error message.",
+  "Endpoint 1 with author query string parameter": "https://books-deployment.herokuapp.com/books?author=Rowling - Use this endpoint to return books by a specific author using the author query parameter. It will return an array with one or more elements, if the author isn't valid then you will get an error message.",
 
-  "Endpoint 1 with title query": "https://books-deployment.herokuapp.com/books?title=HarryPotter - Use this endpoint to return books with a specific title using the title query parameter. It will return an array with one or more elements, if the author isn't valid then you'll get an error message.",
+  "Endpoint 1 with title query string parameter": "https://books-deployment.herokuapp.com/books?title=HarryPotter - Use this endpoint to return books with a specific title using the title query parameter. It will return an array with one or more elements, if the author isn't valid then you'll get an error message.",
 
-  "Endpoint 1 with language query": "https://books-deployment.herokuapp.com/books?language=eng - Use this endpoint to return books written in a specific language using the title query parameter. It will return an array with one or more elements. The following languages are valid: eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul. If the language isn't valid then you'll get an error message.",
+  "Endpoint 1 with language query string parameter": "https://books-deployment.herokuapp.com/books?language=eng - Use this endpoint to return books written in a specific language using the title query parameter. It will return an array with one or more elements. The following languages are valid: eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul. If the language isn't valid then you'll get an error message.",
 
-  "Endpoint 1 with average rating query": "https://books-deployment.herokuapp.com/books?averagerating=4 - Use this endpoint to return books with a specific average rating using the averagerating query parameter. It will return an array with one or more elements. If the average rating isn't found you'll get an error message.",
+  "Endpoint 1 with average rating query string parameter": "https://books-deployment.herokuapp.com/books?averagerating=4 - Use this endpoint to return books with a specific average rating using the averagerating query parameter. It will return an array with one or more elements. If the average rating isn't found you'll get an error message.",
 
-  "Endpoint 1 with page query": "https://books-deployment.herokuapp.com/books?page=1 - This endpoint uses the page query parameter and allows you to query up to 10 pages which will return 50 books per page. You can use this to implement pages in the frontend.",
+  "Endpoint 1 with page query string parameter": "https://books-deployment.herokuapp.com/books?page=1 - This endpoint uses the page query parameter and allows you to query up to 10 pages which will return 50 books per page. You can use this to implement pages in the frontend.",
 
   "Endpoint 2": "https://books-deployment.herokuapp.com/books/:id - Use this endpoint to return books with a specific id and replace :id with a number",
 }
