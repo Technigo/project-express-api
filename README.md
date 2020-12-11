@@ -1,13 +1,43 @@
-# Express API Project
+## Project 15: Express API Project
 
-Replace this readme with your own information about your project. 
+Created my first API using Express
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The process
 
-## The problem
+- I got familiar with the data I was going to work with
+- Thought about some endpoint that would make sense
+- Created endpoint returning multiple and single results
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Focus
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering arrays and using methods like map, find etc.
+
+## Challenges to solve
+
+Add more endpoints and connect the API to Frontend
 
 ## View it live
+https://express-api-avocado-sales-liza.herokuapp.com/
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Endpoints:
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales - all the avocado sales
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales?date=2015-12-27 - replace the date to get all sales on that date
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales?region=Indianapolis - replace the region to get all sales in that region
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales/regions - get all the regions where avocado sales occur
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales/price?sorted=desc - sales sorted by averagePrice in a descending order
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales/price?sorted=asc -  sales sorted by averagePrice in a ascending order
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales/Albany/by_id/1 - replace the region Albany and the id 1 to get a single result found by a combination of region and id
+
+https://express-api-avocado-sales-liza.herokuapp.com/sales/Albany/2015-12-20 - replace the region Albany and the date to get a single result found by a combination of region and date
+
+
+
+
