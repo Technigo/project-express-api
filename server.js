@@ -44,9 +44,9 @@ app.get('/shows/any', (req, res) => {
   res.json(shows)
 })
 
-//all whows limited
+//all shows limited
 
-app.get('/shows/test', (req, res) => {
+app.get('/shows/page', (req, res) => {
   const page = req.query.page
   let shows = data.slice(0, 50)
   if(page) shows = data.slice(page*50, page*50 + 50)
