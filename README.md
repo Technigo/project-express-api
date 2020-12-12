@@ -30,6 +30,6 @@ If I'd have more time I'd love to dive into the data even further and explore re
 
 ## View it live
 
-Live server/API: https://tedtalks-by-karin.herokuapp.com/
-Live frontend demo: https://tedtalks-by-karin.netlify.app/
-Frontend repo: https://github.com/karinnordkvist/karinnordkvist-Technigo-16-24-API_Frontend
+* Live server/API: https://tedtalks-by-karin.herokuapp.com/
+* Live frontend demo: https://tedtalks-by-karin.netlify.app/
+* Frontend repo: https://github.com/karinnordkvist/karinnordkvist-Technigo-16-24-API_Frontend
