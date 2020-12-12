@@ -59,6 +59,10 @@ Listing all events.
 
 Listing all talks for chosen event.
 
+## CATEGORIES
+`https://tedtalks-by-karin.herokuapp.com/categories/`
+
+Listing all categories.
 
 ----------------------------------------------------------------
 
