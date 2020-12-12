@@ -26,67 +26,66 @@ app.use(bodyParser.json())
 // Start defining your routes here
 // accepting get requests to this endpoint, / means no path after the address
 app.get('/', (request, response) => {
-  response.send('Hello world')
+  response.send('Welcome to my books API // Anna Hellqvist 📚')
 })
 
-// return whole book array
+// retrieves the whole books array
 app.get('/books', (request, response) => {
   response.json(booksData);
 })
 
-//returns one book based on ID
+//retrieves one book based on ID
 app.get('/books/:id', (request, response) => {
-  const bookId = request.params.id;
-  const book = booksData.find(book => book.bookID === +bookId);
-  response.json(book);
+  const { id } = request.params;
+  const bookFound = booksData.find(book => book.bookID === +id);
+
+  bookFound ? response.json(bookFound) : response.json({ error: 'No book was found' })
 })
 
+//------------------------------------------------------------------------------------------------------
+// QUERIES
 
-// returns filtered array based on rating
-app.get('/rating/:rating', (request, response) => {
-  const choosenRating = request.params.rating;
-  let ratedArray = booksData.filter((book) => book.average_rating <= +choosenRating);
-
-  response.json(ratedArray)
-})
-
-// returns books by a choosen author
-app.get('/author/:author', (request, response) => {
-  const author = request.params.author;
+// /authors?author=Bill Bryson returns books by a choosen author
+app.get('/authors', (request, response) => {
+  const { author } = request.query;
   const booksByAuthor = booksData.filter((book) => book.authors === author)
 
-  response.json(booksByAuthor)
+  response.json(booksByAuthor);
 })
 
-// returns the ten books with highest rating
-app.get('/top/:number', (request, response) => {
-  const number = request.params.number;
+// /top-list?list=20 retrieves the 20 books with highest rating
+app.get('/top-list', (request, response) => {
+  const { list } = request.query;
   const sortedBooks = [...booksData];
   sortedBooks.sort((a, b) => b.average_rating - a.average_rating)
-  const topTenBooks = sortedBooks.slice(0, number);
+  const topList = sortedBooks.slice(0, list);
 
-  response.json(topTenBooks)
+  response.json(topList);
 })
 
-// filtrera information ? blir mer än en i resultat
-// app.get('/users', (request, response) => {
-//   const { name } = request.query;
-//   if (name) {
-//     const filteredUsers = users.filter((user) => user.name === name)
-//     response.json(filteredUsers)
-//   } else {
-//     response.json(users)
-//   }
-// })
+// /ratings?rating=4 shows books with rating between 4-5, retrieves filtered array based on rating
+app.get('/ratings', (request, response) => {
+  const { rating } = request.query;
 
-// hitta en user
-// app.get('/users:id', (request, response) => {
-//   const { id } = request.params.id;
-//   const user = users.find(user => user.id === +id);
-//   response.json(user)
-// })
+  if (rating < 5) {
+    const filteredBooks = booksData.filter((book) => Math.floor(book.average_rating) === +rating);
+    response.json(filteredBooks)
+  } else {
+    response.json({ error: 'No books with that rating were found' })
+  }
+})
 
+//Query for language ex. /language/lang=en-US
+app.get('/language', (request, response) => {
+  const { lang } = request.query;
+  const filteredLanguage = booksData.filter((book) => book.language_code === lang);
+  response.json(filteredLanguage);
+})
 
+// empty/dummy endpoints
+app.get('/books/:year', (request, response) => {
+  // This should return all the books released in a specific year
+})
 
 // Start the server
 app.listen(port, () => {
