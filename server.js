@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 // --------------------------------------------------------------------------------
 
 app.get('/', (req, res) => {
-  res.send(
-    'Welcome to TED-talks API - by Karin! Read full documentation here: 👉 https://github.com/karinnordkvist/Technigo-16-24-API/blob/master/Documentation.md'
+  res.json(
+    'Welcome to TED-talks API - by Karin! Read full documentation here: 👉 https://github.com/karinnordkvist/Technigo-16-24-API/blob/master/Documentation.md, to see all endpoints, go to /endpoints.'
   );
 });
 
@@ -33,7 +33,7 @@ app.get('/talks', (req, res) => {
     if (filteredBySpeaker.length === 0) {
       res
         .status(404)
-        .send(
+        .json(
           `Sorry, couldn't find any talks by ${req.query.speaker}. Try again! (or find the whole list of speakers under /speakers)`
         );
     } else {
@@ -111,18 +111,20 @@ app.get('/talks', (req, res) => {
   }
 });
 
-// SINGLE TALK ---------------------------------------------------------
+// SINGLE TALK BY ID -----------------------------------------------------
 app.get('/talks/:id', (req, res) => {
   const id = req.params.id;
-  const filteredById = data.filter((talk) => JSON.stringify(talk.id) === id);
-  // console.log(filteredById);
+  const filteredById = data.find((talk) => JSON.stringify(talk.id) === id);
 
   if (filteredById.length === 0) {
     res
       .status(404)
-      .send(`Sorry, couldn't find any talks matching that id. Try again!`);
+      .json(`Sorry, couldn't find any talk matching that id. Try again!`);
   } else {
-    res.json(filteredById);
+    res.json({
+      name: filteredById.name,
+      data: filteredById,
+    });
   }
 });
 
@@ -133,9 +135,28 @@ app.get('/speakers', (req, res) => {
   const allSpeakersSet = Array.from(new Set(allSpeakers));
 
   if (allSpeakersSet.length === 0) {
-    res.status(404).send(`Sorry, couldn't find any speakers. Try again!`);
+    res.status(404).json(`Sorry, couldn't find any speakers. Try again!`);
   } else {
-    res.json(allSpeakersSet);
+    res.json({
+      'Total amount of categories': allSpeakersSet.length,
+      data: allSpeakersSet,
+    });
+  }
+});
+
+// TALKS BY SPEAKER ---------------------------------------------------------
+app.get('/speakers/:speaker/talks', (req, res) => {
+  const speaker = req.params.speaker;
+  const talksBySpeaker = data.filter((talk) => talk.main_speaker === speaker);
+  if (talksBySpeaker.length === 0) {
+    res
+      .status(404)
+      .json(`Sorry, couldn't find any talks matching that speaker. Try again!`);
+  } else {
+    res.json({
+      'amount of talks': talksBySpeaker.length,
+      data: talksBySpeaker,
+    });
   }
 });
 
@@ -146,9 +167,30 @@ app.get('/events', (req, res) => {
   const allEventsSet = Array.from(new Set(allEvents));
 
   if (allEventsSet.length === 0) {
-    res.status(404).send(`Sorry, couldn't find any events. Try again!`);
+    res.status(404).json(`Sorry, couldn't find any events. Try again!`);
   } else {
-    res.json(allEventsSet);
+    res.json({
+      'Total amount of events': allEventsSet.length,
+      data: allEventsSet,
+    });
+  }
+});
+
+// TALKS BY EVENT ---------------------------------------------------------
+app.get('/events/:event/talks', (req, res) => {
+  const event = req.params.event;
+  const talksByEvent = data.filter((talk) => talk.event === event);
+  if (talksByEvent.length === 0) {
+    res
+      .status(404)
+      .json(
+        `Sorry, couldn't find any talks matching that event name. Try again!`
+      );
+  } else {
+    res.json({
+      'amount of talks': talksByEvent.length,
+      data: talksByEvent,
+    });
   }
 });
 
@@ -182,7 +224,7 @@ app.get('/categories', (req, res) => {
     .filter((item) => item.length > 1);
 
   if (allCategories.length === 0) {
-    res.status(404).send(`Sorry, couldn't find any categories. Try again!`);
+    res.status(404).json(`Sorry, couldn't find any categories. Try again!`);
   } else {
     res.send({
       'Total amount of categories': all.length,
