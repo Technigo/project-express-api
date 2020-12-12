@@ -2,20 +2,13 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
- import data from './data/netflix-titles.json'
- console.log(data.length)
-// import topMusicData from './data/top-music.json'
+import data from './data/netflix-titles.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
+
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -33,20 +26,30 @@ app.get('/', (req, res) => {
 app.get('/shows', (req, res) => {
   let shows = data.slice(0, 200)
   const country = req.query.country
-  console.log(country)
   if(country) shows = data.filter(item => item.country === country)
+  res.json(shows)
+})
+
+//query for anything
+
+app.get('/shows/any', (req, res) => {
+  let shows = data.slice(0, 200)
+  const query = req.query.query
+  if(query) shows = data.filter(item => (
+    item.title === query ||
+    item.type === query ||
+    item.director === query ||
+    item.release_year === +query ||
+    item.country === query))
   res.json(shows)
 })
 
 //all whows limited
 
 app.get('/shows/test', (req, res) => {
-  
-  
   const page = req.query.page
   let shows = data.slice(0, 50)
   if(page) shows = data.slice(page*50, page*50 + 50)
-  console.log(shows.length)
   res.json(shows)
 })
 
