@@ -3,6 +3,10 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
+//Error messages
+const ERROR_MESSAGE_AUTHORS = {error: 'No authors found.'}
+const ERROR_MESSAGE_BOOKS = {error: 'No books found.'}
+const ERROR_MESSAGE_TITLES = {error: 'No titles found.'}
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example: PORT=9000 npm start
@@ -13,11 +17,11 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-//_______ ROUTES/ENDPOINTS _______//
+//____________ ROUTES/ENDPOINTS ____________ //
 
-//Start/First endpoint
+//Start
 app.get('/', (req, res) => {
-  res.send('👋 Welcome to my fist API with books and book reviews 📚🦉')
+  res.json('👋 Welcome to Emmas book/book reviews API! Use the /books endpoint to start 📚🦉')
 })
 
 //Returning a collection of all the books in the data
@@ -27,13 +31,14 @@ app.get('/books', (req, res) => {
 
 //Finding a single book by its id with path parameter :id
 app.get('/books/:id', (req, res) => {
-  const { bookID } = req.params
-  const bookByID = booksData.find(item => item.bookID === +bookID)
+  const { id } = req.params
+  const bookByID = booksData.find(item => item.bookID === +id)
 
   if (!bookByID) {
-    res.send('Error: Could not find any book with that ID. Try another ID!')
+    res.status(404).json(ERROR_MESSAGE_BOOKS)
+  } else {
+    res.json(bookByID)
   }
-  res.json(bookByID)
 })
 
 //____________ QUERY PARAMETERS ____________ //
@@ -41,37 +46,79 @@ app.get('/books/:id', (req, res) => {
 //Query for books by author
 app.get('/authors', (req, res) => {
   const { author }  = req.query
-  const booksByAuthor = booksData.filter(item => item.authors.includes(author))
-
-    res.json(booksByAuthor);
+  const booksByAuthor = booksData.filter(item => item.authors.toString().toLowerCase().includes(author.toString().toLowerCase()))
+  
+  if (booksByAuthor.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_AUTHORS)
+  } else {
+    res.json(booksByAuthor)
+  }
 })
 
 // Query for books by title
 app.get('/title', (req, res) => {
   const { title } = req.query
-  const booksByTitle = booksData.filter(item => item.title.includes(title))
+  const booksByTitle = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toString().toLowerCase()))
   
-  res.json(booksByTitle);
+  if (booksByTitle.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_TITLES)
+  } else {
+    res.json(booksByTitle)
+  }
 })
 
-/* Finding the top 10 books based on rating
+// Query for finding a book toplist 
+//(books are sorted on rating, with a query parameter to return a choosen number of books)
 app.get('/toplist', (req, res) => {
-  const { toplist } = req.query
-  const highRating = booksData.filter(item => item.average_rating >= 4)
-  const sortedToplist = [...highRating]
+  const { top } = req.query
+  const sortedToplist = [...booksData]
   sortedToplist.sort((a,b) => b.average_rating - a.average_rating)
-  let bookToplist = sortedToplist.slice(0,10)
+  let bookToplist = sortedToplist.slice(0, top)
 
-  res.json(bookToplist);
-})
-//Showing the first 100 books of all the books in the data
-app.get('/books', (req, res) => {
-  let selectedBooks = booksData.slice(0, 100)
-  res.json(selectedBooks)
+  res.json(bookToplist)
 })
 
-//Empty/dummy endpoints 
+//Query for pagination - showing 50 books on each page
+app.get('/result-page', (req, res) => {
+  const { page } = req.query
+  let selectedBooks = booksData.slice(0,50)
 
+  if (page === '1') {
+    selectedBooks = booksData.slice(0, 50)
+  } else if (page === '2') {
+    selectedBooks = booksData.slice(51, 100) 
+  } else if (page === '3') {
+    selectedBooks = booksData.slice(101, 150) 
+  } else if (page === '4') {
+    selectedBooks = booksData.slice(151, 200) 
+  } else if (page === '5') {
+    selectedBooks = booksData.slice(201, 250) 
+  } else if (page === '6') {
+    selectedBooks = booksData.slice(251, 300) 
+  } else if (page === '7') {
+    selectedBooks = booksData.slice(301, 350) 
+  } else if (page === '8') {
+    selectedBooks = booksData.slice(351, 400) 
+  } else if (page === '9') {
+    selectedBooks = booksData.slice(401, 450) 
+  } else if (page === '10') {
+    selectedBooks = booksData.slice(451, 500) 
+  }
+
+  if (page > 10) { 
+    res.status(404).json(ERROR_MESSAGE_BOOKS)
+  } else {
+    res.json(selectedBooks)
+  }
+})
+
+/* Suggestion for empty/dummy-endpoint that could be used in the future: books by category
+
+app.get('/books/:category', (req, res) => {
+  const { bookCategory } = req.params
+  const booksByCategory = booksData.find(item => item.category === bookCategory)
+  res.json(booksByCategory)
+})
 */
 
 // Start the server
