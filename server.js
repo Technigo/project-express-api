@@ -13,23 +13,22 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-//_______ Routes/endpoints starts here _______//
+//_______ ROUTES/ENDPOINTS _______//
 
 //Start/First endpoint
 app.get('/', (req, res) => {
   res.send('👋 Welcome to my fist API with books and book reviews 📚🦉')
 })
 
-//Showing the first 100 books of all the books in the data
+//Returning a collection of all the books in the data
 app.get('/books', (req, res) => {
-  let selectedBooks = booksData.slice(0, 100)
-  res.json(selectedBooks)
+  res.json(booksData)
 })
 
-//Finding a single book by its id
-app.get('/books/id/:id', (req, res) => {
-  const id = req.params.id
-  const bookByID = booksData.find(item => item.bookID === +id)
+//Finding a single book by its id with path parameter :id
+app.get('/books/:id', (req, res) => {
+  const { bookID } = req.params
+  const bookByID = booksData.find(item => item.bookID === +bookID)
 
   if (!bookByID) {
     res.send('Error: Could not find any book with that ID. Try another ID!')
@@ -37,37 +36,42 @@ app.get('/books/id/:id', (req, res) => {
   res.json(bookByID)
 })
 
-//Filtering books by author
-app.get('/books/authors/:author', (req, res) => {
-  const author = req.params.author
+//____________ QUERY PARAMETERS ____________ //
+
+//Query for books by author
+app.get('/authors', (req, res) => {
+  const { author }  = req.query
   const booksByAuthor = booksData.filter(item => item.authors.includes(author))
 
-  if (booksByAuthor.length === 0) {
-    res.send('Error: Could not find any books by that author. Try again!')
-  }
-  res.json(booksByAuthor);
+    res.json(booksByAuthor);
 })
 
-// Finding the top 10 books based on rating
-app.get('/books/toplist', (req, res) => {
+// Query for books by title
+app.get('/title', (req, res) => {
+  const { title } = req.query
+  const booksByTitle = booksData.filter(item => item.title.includes(title))
+  
+  res.json(booksByTitle);
+})
+
+/* Finding the top 10 books based on rating
+app.get('/toplist', (req, res) => {
+  const { toplist } = req.query
   const highRating = booksData.filter(item => item.average_rating >= 4)
   const sortedToplist = [...highRating]
   sortedToplist.sort((a,b) => b.average_rating - a.average_rating)
-  let toplist = sortedToplist.slice(0,10)
+  let bookToplist = sortedToplist.slice(0,10)
 
-  res.json(toplist);
+  res.json(bookToplist);
+})
+//Showing the first 100 books of all the books in the data
+app.get('/books', (req, res) => {
+  let selectedBooks = booksData.slice(0, 100)
+  res.json(selectedBooks)
 })
 
-/* Filtering books by title -- this doesn't work, but author does... ?
-app.get('/books/title/:title', (req, res) => {
-  const title = req.params.title
-  const booksByTitle = booksData.filter(item => item.title.includes(title));
-  
-  if (booksByTitle.length === 0) {
-    res.send('Error: Could not find any books with that title. Try again!')
-  }
-  res.json(booksByTitle);
-})
+//Empty/dummy endpoints 
+
 */
 
 // Start the server
