@@ -35,13 +35,19 @@ app.get('/topmusic', (request, response) => {
 
 // All artists
 app.get('/topmusic/artists', (request, response) => {
-  response.json(topMusicData.map(item => item.artistName))
-})
+  const artists = topMusicData.map((item) => item.artistName)
+  const uniqueArtists = [...new Set(artists)];
+
+  response.json(uniqueArtists);
+});
 
 // All tracks
 app.get('/topmusic/tracks', (request, response) => {
-  response.json(topMusicData.map(item => item.trackName))
-})
+  const tracks = topMusicData.map(item => item.trackName);
+  const uniqueTracks = [...new Set(tracks)];
+  
+  response.json(uniqueTracks);
+});
 
 // Search by id 
 app.get('/topmusic/:id', (request, response) => {
@@ -51,16 +57,20 @@ app.get('/topmusic/:id', (request, response) => {
 })
 
 // Search by trackname
-app.get('/topmusic/:trackName', (request, response) => {
+app.get('/topmusic/tracks/:trackName', (request, response, next) => {
   const trackName = request.params.trackName
-  const songs = topMusicData.find((song) => song.trackName === trackName)
+  const songs = topMusicData.filter((item) => item.trackName === trackName)
+  const tracks = songs.map(item => item.trackName);
+  const uniqueTracks = [...new Set(tracks)];
 
   // If track is not found
-  if (songs.length === 0) {
-    res.send("Sorry we are not able to find the track you are looking for :(")
+  if (uniqueTracks.length === 0) {
+    const error = new Error(`${trackName} not found`)
+    error.status = 404;
+    throw error;
   }
-  response.json(songs)
-})
+  response.json(uniqueTracks)
+});
 
 // Filter by popularity, /number will tell how many top songs to show
 app.get('/topmusic/:number', (request, response) => {
