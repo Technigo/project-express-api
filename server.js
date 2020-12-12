@@ -17,10 +17,26 @@ app.get('/', (req, res) => {
   res.send("hejsan och välkommen")
 })
 
-
 app.get('/books', (req, res) => {
   res.send(booksData.slice(0, 30))
+
 })
+
+app.get('/books/page/:page', (req, res) => {
+  const { page } = req.params
+  // start = 0 on first page then add 30 books/page
+  const start = page === 0 ? 0 : 1 + 30 * page
+  const end = 30 * (page + 1)
+
+  if (start > booksData.length) {
+    res.status(404).json(ERROR_404)
+  } else {
+    res.send(booksData.slice(start, end))
+  }
+})
+
+
+
 
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
@@ -58,7 +74,7 @@ app.get('/books/:author', (req, res) => {
     res.send(filteredBooks)
   }
 })
-app.get('/books/rating/:rating', (req, res ) => {
+app.get('/books/rating/:rating', (req, res) => {
   const { rating } = req.params
   const averageRating = booksData.filter((book) => {
 
