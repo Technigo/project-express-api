@@ -9,7 +9,7 @@ https://tedtalks-by-karin.herokuapp.com/
 ## TALKS
 `https://tedtalks-by-karin.herokuapp.com/talks/?page={number of page}`
 
-Listing all talks on pages consisting of 50 talks per page. To query for a specific page, use page={number of page}.
+Listing all talks on pages consisting of 50 talks per page. To query for a specific page, type `page={number of page}`.
 
 #### Query for talks filtered by following:
 

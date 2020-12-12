@@ -96,6 +96,7 @@ app.get('/talks', (req, res) => {
       res.json(filteredByEvent);
     }
   } else {
+    // Adding pages with 50 talks per page
     const page = req.query.page ?? 1;
     const pageSize = 50;
     const startIndex = page * pageSize - pageSize;
