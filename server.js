@@ -33,34 +33,47 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-// Route to list all the books in the API as an array
+// Route to list all the content in the show array
 app.get("/shows", (req, res) => {
   let shows = data.slice(0, 150);
   res.json(shows);
 });
 
+// Route to list all the movies in the show array
 app.get("/shows/movies", (req, res) => {
-  const movie = data.filter((item) => item.type == "Movie");
+  let movieArray = data.slice(0, 150);
+  const movie = movieArray.filter((item) => item.type == "Movie");
   res.json(movie);
 });
 
+// This route makes it possible to search a specific movie and display the object
+app.get("/shows/movies/:movies", (req, res) => {
+  const { movies } = req.params;
+  const movie = data.filter((item) => item.title == movies);
+  res.json(movie);
+});
+
+// Route to list all the tv shows in the show array
 app.get("/shows/tvshows", (req, res) => {
   const tvshow = data.filter((item) => item.type == "TV Show");
   res.json(tvshow);
 });
 
+// This route makes it possible to search a specific tv show and display the object
 app.get("/shows/tvshows/:tvshows", (req, res) => {
   const { tvshows } = req.params;
   const tvShow = data.filter((item) => item.title == tvshows);
   res.json(tvShow);
 });
 
+// This route makes it possible to search a specific country and list all shows from that country
 app.get("/shows/country/:country", (req, res) => {
   const { country } = req.params;
   const showCountry = data.filter((item) => item.country == country);
   res.json(showCountry);
 });
 
+// This route makes it possible to search on the id and return a single object from the array
 app.get("/shows/:id", (req, res) => {
   //let shows = data;
 
