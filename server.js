@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import booksData from './data/books'
 
-const port = process.env.PORT || 8086
+const port = process.env.PORT || 8087
 
 const app = express()
 
@@ -40,7 +40,9 @@ app.get('/books', (request, response) => {
   }
 
   if (language) {
-    const filteredBooksOnLanguage = booksData.filter(item => item.language_code === language)
+    const filteredBooksOnLanguage = booksData.filter(item => {
+      return (item.language_code === language)
+    })
     if (filteredBooksOnLanguage.length > 0) {
       return response.json(filteredBooksOnLanguage.slice(0, 20))
     } else if (filteredBooksOnLanguage.length === 0) {
@@ -78,7 +80,9 @@ app.get('/books', (request, response) => {
     if (+toprated > booksData.length) {
       return response.status(404).json({ error: "That is just too many books" })
     } else {
-      const sortedBooksOnRating = booksData.sort(function (a, b) { return b.average_rating - a.average_rating })
+      const sortedBooksOnRating = booksData.sort(function (a, b) {
+        return b.average_rating - a.average_rating
+      })
       const topratedBooks = sortedBooksOnRating.slice(0, toprated)
       return response.json(topratedBooks)
     }
@@ -86,11 +90,15 @@ app.get('/books', (request, response) => {
 
   if (shortest) {
     const minPages = 20 // assuming pages less than 20 is an incorrect value
-    const filteredBooksOnPages = booksData.filter(item => item.num_pages >= minPages)
+    const filteredBooksOnPages = booksData.filter(item => {
+      return (item.num_pages >= minPages)
+    })
     if (+shortest > filteredBooksOnPages.length) {
       return response.status(404).json({ error: "That is just too many books" })
     } else {
-      const sortedBooksOnPages = filteredBooksOnPages.sort(function (a, b) { return a.num_pages - b.num_pages })
+      const sortedBooksOnPages = filteredBooksOnPages.sort(function (a, b) {
+        return a.num_pages - b.num_pages
+      })
       const shortestBooks = sortedBooksOnPages.slice(0, shortest)
       return response.json(shortestBooks)
     }
@@ -103,7 +111,9 @@ app.get('/books', (request, response) => {
 
 app.get('/books/:id', (request, response) => {
   const id = request.params.id
-  const book = booksData.find(item => item.bookID === +id)
+  const book = booksData.find(item => {
+    return (item.bookID === +id)
+  })
   if (book) {
     return response.json(book)
   } else {
@@ -114,7 +124,9 @@ app.get('/books/:id', (request, response) => {
 app.get('/books/:id/title', (request, response) => {
 
   const id = request.params.id
-  const book = booksData.find(item => item.bookID === +id)
+  const book = booksData.find(item => {
+    return (item.bookID === +id)
+  })
 
   if (book) {
     return response.json(book.title)
@@ -126,7 +138,9 @@ app.get('/books/:id/title', (request, response) => {
 app.get('/books/:id/authors', (request, response) => {
 
   const id = request.params.id
-  const book = booksData.find(item => item.bookID === +id)
+  const book = booksData.find(item => {
+    return (item.bookID === +id)
+  })
 
   if (book) {
     return response.json(book.authors.split("-"))
@@ -139,10 +153,3 @@ app.get('/books/:id/authors', (request, response) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
-
-
-
-
-
-
-
