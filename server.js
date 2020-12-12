@@ -18,8 +18,23 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  res.send(booksData.slice(0, 30))
+  let filteredBooks = booksData
+  const { title, minRating, maxRating } = req.query
 
+  if (title) {
+    filteredBooks = filteredBooks.filter((book) => {
+      const bookTitle = `${book.title}`.toLowerCase()
+      return bookTitle.includes(title.toLowerCase())
+    })
+  }
+  if(minRating) {
+    filteredBooks = filteredBooks.filter(book => book.average_rating >= minRating)
+  }
+  if(maxRating){
+    filteredBooks = filteredBooks.filter(book => book.average_rating <= maxRating )
+  }
+
+  res.send(filteredBooks.slice(0, 30))
 })
 
 app.get('/books/page/:page', (req, res) => {
@@ -34,9 +49,6 @@ app.get('/books/page/:page', (req, res) => {
     res.send(booksData.slice(start, end))
   }
 })
-
-
-
 
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
@@ -62,8 +74,8 @@ app.get('/books/:title', (req, res) => {
   }
 })
 
-app.get('/books/:author', (req, res) => {
-  const { title } = req.params
+app.get('/books/authors/:authors', (req, res) => {
+  const { authors } = req.params
   const filteredBooks = booksData.filter((book) => {
     const bookAuthors = `${book.authors}`.toLowerCase()
     return bookAuthors.includes(authors.toLowerCase())
@@ -74,10 +86,10 @@ app.get('/books/:author', (req, res) => {
     res.send(filteredBooks)
   }
 })
+
 app.get('/books/rating/:rating', (req, res) => {
   const { rating } = req.params
   const averageRating = booksData.filter((book) => {
-
   })
   res.send(rating)
 })
