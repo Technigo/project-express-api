@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/books', (req, res) => {
-  res.send(booksData)
+  res.send(booksData.slice(0, 30))
 })
 
 app.get('/books/id/:id', (req, res) => {
