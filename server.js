@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import c19 from './data/covid19.json'
 
-const port = process.env.PORT || 8082
+const port = process.env.PORT || 8080
 const app = express()
 
 app.use(cors())
@@ -17,7 +17,7 @@ app.listen(port, () => {
 
 // Route definition
 app.get('/', (req, res) => {
-  res.seres.send('This API is a coding project by Peggy @blipsandclicks made during Technigo bootcamp 2020 Fall session for educational purposes only. Here you will find Covid-19 figures for a subset countries pulled on the 7th of December 2020. Please do not use this API, instead refer to the original data source which is the COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University: https://github.com/CSSEGISandData/COVID-19')
+  res.seres.send('This API is a coding project by Peggy @blipsandclicks made during Technigo bootcamp 2020 Fall session for educational purposes only. Please do not use this API, instead refer to the original data source which is the COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University: https://github.com/CSSEGISandData/COVID-19')
 })
 
 // Route for entire array
