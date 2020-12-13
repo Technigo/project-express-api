@@ -2,18 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import netflixData from './data/netflix-titles.json'
-// console.log(netflixData.length);
 
 const ERROR_DATA_NOT_FOUND = {error: 'No data found'};
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -28,10 +18,10 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Api endpoints: /shows && /shows/:id && /shows/year/:year && ?type=movie || ?listed= Dramas')
+  res.send('Api endpoints: /shows && /shows/:id && /shows/year/:year && ?type=Movie || ?listed= Dramas')
 })
 
-//the entire array of objects / http://localhost:8081/shows/
+//the entire array of data / http://localhost:8081/shows/
 app.get('/shows', (req, res) => {
   res.json(netflixData);  
 })
@@ -42,7 +32,6 @@ app.get('/shows/:id/', (req, res) => {
 
   let showId = netflixData.find(
     (item) => item.show_id === +id);
-  // console.log(showId);
 
   if(!showId) {
     res.status(404).json(ERROR_DATA_NOT_FOUND)
@@ -92,6 +81,7 @@ app.get('/shows/year/:year/', (req, res) => {
 //   app.get('/shows/country/:origin', (req, res) => {
 //     const { origin } = req.params;
     // const { director, cast } = req.query;
+    //find method
 
     //point to all shows and return director
     // app.get('/shows/:director', (req, res) => {

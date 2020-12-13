@@ -1,13 +1,14 @@
 # Express API Project
-
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Using Express server create an API with restful endpoints which return and array of data or a single item.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Create several endpoints using params and queries from local Netflix data. 
+Limitations: listed query needs to be precisely written (uppercase, spacing etc )and 404 does not behave as expected. If I had more time I would use reg ex for the queries and investigate the faulty 404  return.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://this-express-app.herokuapp.com/shows
+https://this-express-app.herokuapp.com/shows/70201870
+https://this-express-app.herokuapp.com/shows/year/2000
+https://this-express-app.herokuapp.com/shows/year/2000?type=Movie
+https://this-express-app.herokuapp.com/shows/year/2010?type=Tv%20show
