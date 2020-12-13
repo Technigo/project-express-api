@@ -48,8 +48,6 @@ app.get('/', (req, res) => { // req is incoming(we don't change it), the res is 
 //Gets all the books from books.json:
 //http://localhost:8080/books
 app.get('/books', (req, res) => {
-  // The '/books' endpoint gets an error in the console (but still works):
-  //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
   const { author, title } = req.query
   const page = req.query.page ?? 0
   const pageSize = req.query.pageSize ?? 20 //The query param is a string
@@ -94,17 +92,18 @@ app.get('/books', (req, res) => {
   } else {
     res.json(returnObject)
   }
-  // NOTE TO SELF: Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd @44 mins forward about filtering results.
 })
 
 // LANGUAGE-ENDPOINT. // According to Maks friday lecture: language should rather be query param??
 // Get books in a specified language (language_code):
-// language-codes: eng, fre, en-US, spa, en-GB, mul, ger
+// Existing language-codes: 'eng', 'en-US', 'spa', 'fre', 'en-GB', 'mul', 'ger', 'ara', 'por', 'grc'
 app.get('/books/language/:language', (req, res) => {
-  // This language endpoint gets an error in the console (but still works):
-  //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client...
   const language = req.params.language
   const booksByLanguage = booksData.filter((book) => book.language_code === language)
+  
+  // I used existingLanguages to console.log which unique languages that exists in the data.
+  // Would be nice to show to the user somehow which languages could be shown, but I didn't come that far.
+  // const existingLanguages = [...new Set(booksData.map(x => x.language_code))] 
 
   if (booksByLanguage.length > 0) {
     res.send(booksByLanguage)
