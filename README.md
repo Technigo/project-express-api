@@ -17,15 +17,9 @@ The assignment was to create an API in Node using Express. The API uses data fro
 
 - Install and set up an Express server
 - Create routes
-<<<<<<< HEAD
 - Deploy Node project
 
-## Tech Use
-=======
-- Deploy Node projects
-
-## Tech Used
->>>>>>> 5349e03959701de35b912a89badb661d4b40d9bb
+## Tech d
 
 - Express
 - Node
@@ -35,8 +29,4 @@ The assignment was to create an API in Node using Express. The API uses data fro
 
 ## View it live
 
-<<<<<<< HEAD
 View the API live: https://volcanic-eruptions.herokuapp.com/
-=======
-View it live here: https://volcanic-eruptions.herokuapp.com/
->>>>>>> 5349e03959701de35b912a89badb661d4b40d9bb
