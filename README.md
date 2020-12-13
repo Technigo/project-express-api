@@ -9,6 +9,13 @@ The assignment was to create an API using Express and return an array of data an
     # Show all data - 
     https://netflix-dummy-data.herokuapp.com/shows
 
+    #Show all by Id -
+    https://netflix-dummy-data.herokuapp.com/titles/<title-name>
+    example : https://netflix-dummy-data.herokuapp.com/shows/81197050
+
+    # Search Title with search query -
+    We can use the query method since several movies/shows can have the same name. We have to /https://netflix-dummy-data.herokuapp.com/shows/title?title=xxx
+    example: https://netflix-dummy-data.herokuapp.com/shows/title?title=cho
     # Search by Titles -
     https://netflix-dummy-data.herokuapp.com/titles/<title-name>
     example : https://netflix-dummy-data.herokuapp.com/titles/Chocolate
@@ -16,6 +23,8 @@ The assignment was to create an API using Express and return an array of data an
     # Search by Years -
     https://netflix-dummy-data.herokuapp.com/year/<year>
     example : https://netflix-dummy-data.herokuapp.com/year/2001
+
+
 
 ## The problem
 
