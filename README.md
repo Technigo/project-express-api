@@ -3,8 +3,9 @@
 In  this project I have built my first backend project where I created my own book- API using Node and Express. 
 
 ## The problem
-I choose a book-API have some endpoints, of which some return an array of data and some a single item.
-The esnpoins are:
+I created different endpoints in the API, of which some return an array of data and some a single item.
+
+The endpoins are:
 * /books - returns the whoe array of book objects.
 * /books/:id - returns a bokk with a chosen id.
 * /authors/:authors - returns all books of a chosen author.
