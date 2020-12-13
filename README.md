@@ -1,13 +1,30 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+A RESTful book API built in Node.js using Express and data from hard-coded book list. :books:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## :brain: Learning objectives
+- how to install and setup an Express server
+- how to create routes in Express
+- how to deploy Node projects
+- practicing data manipulation in JavaScript - selecting, filtering, and limiting arrays
 
-## The problem
+## :heavy_check_mark: Features
+- List of 499 books: https://rbk-express-books-api.herokuapp.com/books
+- All books with matching search word in the title: https://rbk-express-books-api.herokuapp.com/books?title=freakonomics  
+- Returning an error message if the book was not found (when searched by title or ISBN13)
+- Single book by ISBN13: https://rbk-express-books-api.herokuapp.com/id/9780060920081
+- Books sorted based on average rating: https://rbk-express-books-api.herokuapp.com/rating 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## :chart_with_upwards_trend: Future improvements
+- make a list of top 20 books
+- implement pages 
+- create documentation for the endpoints
+- make a front end part
+ 
+## :robot: Tech used 
+- JavaScript
+- Node.js
+- Express
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## :eyes: View it live
+https://rbk-express-books-api.herokuapp.com/
