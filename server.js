@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Hello Netflix, feel free to have a look!");
 });
 
 // Route to list all the content in the show array
@@ -64,9 +64,9 @@ app.get("/shows/tvshows/:tvshows", (req, res) => {
 });
 
 // This route makes it possible to search a specific country and list all shows from that country
-app.get("/shows/country/:country", (req, res) => {
-  const { country } = req.params;
-  const showCountry = data.filter((item) => item.country == country);
+app.get("/shows/countries/:countries", (req, res) => {
+  const { countries } = req.params;
+  const showCountry = data.filter((item) => item.country == countries);
   if (showCountry.length === 0) {
     res.status(404).json(ERROR_SHOW_NOT_FOUND);
   } else {
@@ -78,7 +78,7 @@ app.get("/shows/country/:country", (req, res) => {
 app.get("/shows/:id", (req, res) => {
   const { id } = req.params;
   const showFound = data.find((show) => show.show_id === +id);
-  if (showFound === false) {
+  if (!showFound === true) {
     res.status(404).json(ERROR_SHOW_NOT_FOUND);
   } else {
     res.json(showFound);
