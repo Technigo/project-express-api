@@ -11,7 +11,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Welcome to Amanda\'s Book API!')
 })
 
 app.get('/books', (req, res) => {
