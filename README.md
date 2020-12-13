@@ -3,7 +3,8 @@
 In  this project I have built my first backend project where I created my own book- API using Node and Express. 📚
 
 ## The problem
-I created different endpoints in the API, of which some return an array of data and some a single item.
+I created different endpoints in the API, of which some return an array of data and some a single item.I achieved this 
+by using the filter(9 and find() methods.
 
 The endpoins are:
 * /books - returns the whoe array of book objects.
