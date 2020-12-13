@@ -2,6 +2,8 @@
 
 An API for getting the last ten years Golden Globe nominees.
 
+#### View it here: [https://golden-globe-api.herokuapp.com/](https://golden-globe-api.herokuapp.com/)
+
 ## Available endpoints
 
 The API comes with a few pre-configured endpoints. They are listed with a brief explanation below.
@@ -79,6 +81,3 @@ Had a huuuge knowledge gap when starting to tackle this project, but I went back
 
 When writing the search endpoint I ran into an incredibly annoying issue with the data, where I tried to do an "includes()" on all of the ~1,000 "nominees" string entries. Turned out that *one* of the nominees entries was a number – the movie '1917' – which caused the filtering to break, and it took me too long to figure out why. Thanks, Sam Mendes.
 
-## View it live
-
-## [https://golden-globe-api.herokuapp.com/](https://golden-globe-api.herokuapp.com/)
