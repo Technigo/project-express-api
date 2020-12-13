@@ -10,15 +10,15 @@ const ERROR_DATA_NOT_FOUND = { error: 'Data not found'}
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/books', (req, res) => {
-  res.json(booksData)
+app.get('/books/page/:page', (req, res) => {
+  const page = req.params
+  res.json(showData)
 })
 
 //search for books by Id
 app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const filterById = booksData.filter((book) => book.bookID === +bookId)
-  
   if (filterById.length === 0) {
     res.status(404).json(ERROR_DATA_NOT_FOUND)
   } else {
@@ -114,8 +114,6 @@ app.get('/books/pages/sort', (req, res) => {
     res.json(sortbyPages)
   }
 })
-
-//red level requirement: create empty/dummy endpoint
 
 
 // Start the server
