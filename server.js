@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (request, response) => {
-  response.send('Welcome to Destinys Golden Globe-API!')
+  response.send('Welcome to Destinys Golden Globe-API! Here is the endpoint for all the nominations https://goldenglobeawards.herokuapp.com/nominations, here is for getting a specific year and which won that year https://goldenglobeawards.herokuapp.com/nominations/years/2010?won=false etc')
 })
 
 // Get all the nominations and categories
