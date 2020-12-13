@@ -16,9 +16,9 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+// app.get('/', (req, res) => {
+//   res.send('Welcome to the Golden Globe API of nominations for 2010-2019')
+// })
 
 //Endpoints getting all data
 app.get('/nominations', (req, res) => {
@@ -27,15 +27,14 @@ app.get('/nominations', (req, res) => {
 })
 
 //Endpoint getting year and film won
-app.get('/year/:year', (req, res) => {
+app.get('/years/:year', (req, res) => {
   const year = req.params.year 
-  const showWon =req.query.won
+  const showWon = req.query.won
   console.log(showWon)
   let nominationsFromYear = data.filter((item) => item.year_award === +year)
 
   if (showWon) {
     nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-
   }
 
   res.json(nominationsFromYear)
