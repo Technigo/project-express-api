@@ -93,7 +93,6 @@ app.get('/eruptions/:id', (request, response) => {
 //
 app.get('/eruptions/name/:name', (request, response) => {
   const { name } = request.params;
-  console.log(name);
   const eruptionByName = eruptions.find(
     eruption => eruption.name.toLowerCase() === name.toLowerCase()
   );
