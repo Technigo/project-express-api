@@ -108,7 +108,6 @@ app.get('/nominees/:category/:year/winner', (request, response) => {
 })
 
 // Gives it a port and a function. Listen on port 8080, and the function is "what should I do when it starts?"
-// TODO: CHANGE TO 8080 BEFORE SUBMITTING.
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log("Hello console, the server is running")
 })
