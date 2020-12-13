@@ -5,8 +5,8 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
-import netflixData from "./data/netflix-titles.json";
-// import spotifyData from "./data/spotify.json";
+// import netflixData from "./data/netflix-titles.json";
+import spotifyData from "./data/spotify-releases.json";
 
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -17,7 +17,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // error message
-const ERROR_SHOWS_NOT_FOUND = { error: "No show matched your request" };
+const ERROR_RELEASES_NOT_FOUND = { error: "No release matched your request" };
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -25,136 +25,148 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the Netflixdata API");
+  res.send("Welcome to the Spotify Releases API");
 });
 
-// This route will return a collection of shows. It can be filtered by type, year and country.
-app.get("/shows", (req, res) => {
-  const { type, year, country } = req.query;
+// This route will return a collection of releases. It can be filtered by type, artist and title.
+app.get("/releases", (req, res) => {
+  const { type, artist, title } = req.query;
 
-  let filteredShows = netflixData;
+  let filteredReleases = spotifyData;
 
   if (type) {
-    filteredShows = filteredShows.filter(
-      (item) => item.type === type
+    filteredReleases = filteredReleases.filter(
+      (item) => item.album_type === type
     );
   };
-  if (year) {
-    filteredShows = filteredShows.filter(
-      (item) => item.release_year === +year
+  if (artist) {
+    filteredReleases = filteredReleases.filter(
+      (item) => item.artists.map((artist) => artist.name).toString().includes(artist)
     );
   };
-  if (country) {
-    filteredShows = filteredShows.filter(
-      (item) => item.country === country
+  if (title) {
+    filteredReleases = filteredReleases.filter(
+      (item) => item.name && item.name.toString().includes(title)
     );
   };
-  if (filteredShows.length === 0) {
-    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  if (filteredReleases.length === 0) {
+    res.status(404).json(ERROR_RELEASES_NOT_FOUND);
   } else {
     res.json({
-      total: filteredShows.length,
-      shows: filteredShows
+      total: filteredReleases.length,
+      releases: filteredReleases
     });
   }
 });
 
-// This route will return a single show based on id
-app.get("/shows/:id", (req, res) => {
-  const id = req.params.id;
-  const show = netflixData.find(
-    (item) => item.show_id === +id
+// This route will return a single release based on id
+app.get("/releases/:id", (req, res) => {
+  const { id } = req.params;
+  const release = spotifyData.find(
+    (item) => item.id === id
   );
-  if (!show) {
-    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  if (!release) {
+    res.status(404).json(ERROR_RELEASES_NOT_FOUND);
   } else {
-    res.json(show);
+    res.json(release);
   }
 });
 
-// This route will return a collection of shows with the specified word in title
-app.get("/shows/title/:title", (req, res) => {
-  const { title } = req.params;
-  const filteredShows = netflixData.filter(
-    (item) => item.title && item.title.toString().includes(title)
+// This route will return a collection of releases for the specified artist
+app.get("/releases/artist/:artist", (req, res) => {
+  const { artist } = req.params;
+  const filteredReleases = spotifyData.filter(
+    (item) => item.artists.map((artist) => artist.name).toString() === artist
   );
-  if (filteredShows.length === 0) {
-    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  if (filteredReleases.length === 0) {
+    res.status(404).json(ERROR_RELEASES_NOT_FOUND);
   } else {
     res.json({
-      total: filteredShows.length,
-      shows: filteredShows
+      total: filteredReleases.length,
+      releases: filteredReleases
     });
   };
 });
 
-// This route will return a collection of shows released the specified year in the specified country
-app.get("/shows/year/:year/country/:country", (req, res) => {
-  const { year, country } = req.params;
+// This route will return a collection of releases in the specified market for the specified type
+app.get("/releases/market/:market/type/:type", (req, res) => {
+  const { market, type } = req.params;
 
-  let filteredShows = netflixData;
+  let filteredReleases = spotifyData;
 
-  filteredShows = filteredShows.filter(
-    (item) => item.release_year === +year
+  filteredReleases = filteredReleases.filter(
+    (item) => item.available_markets.includes(market)
   );
-  filteredShows = filteredShows.filter(
-    (item) => item.country === country
+  filteredReleases = filteredReleases.filter(
+    (item) => item.album_type === type
   );
-  if (filteredShows.length === 0) {
-    res.status(404).json(ERROR_SHOWS_NOT_FOUND);
+  if (filteredReleases.length === 0) {
+    res.status(404).json(ERROR_RELEASES_NOT_FOUND);
   } else {
     res.json({
-      total: filteredShows.length,
-      shows: filteredShows
+      total: filteredReleases.length,
+      releases: filteredReleases
     });
   };
 });
 
-//Dummy endpoints for red level (not so dummy after all...)
+// This route will return a list of all available release types.
 app.get("/types", (req, res) => {
-  const allTypes = netflixData.map((item) => item.type);
+  const allTypes = spotifyData.map((item) => item.album_type);
   const types = [...new Set(allTypes)].sort();
   res.json({
     total: types.length,
     types
   });
-  // res.send("Dummy endpoint that will return a list of available types");
 });
 
-app.get("/countries", (req, res) => {
-  const allCountries = netflixData.map((item) => item.country)
-    .join()
-    .replace(/(, )/g, ",")
-    .replace(/,+/g, ",")
-    .split(",");
-  const countries = allCountries.filter((item, index) => allCountries.indexOf(item) === index).sort();
-  res.json({
-    total: countries.length,
-    countries
-  });
-  // res.send("Dummy endpoint that will return a list of available countries");
-});
-
-app.get("/years", (req, res) => {
-  const allYears = netflixData.map((item) => item.release_year);
-  const years = allYears.reduce(
-    (unique, item) => unique.includes(item) ? unique : [...unique, item], []
-  ).sort();
-  res.json({
-    total: years.length,
-    years
-  });
-  // res.send("Dummy endpoint that will return a list of available years");
-});
-
+// This route will return a list of all available released titles.
 app.get("/titles", (req, res) => {
-  const titles = netflixData.map((item) => item.title.toString())
-    .sort();
+  const titles = spotifyData.map((item) => item.name.toString())
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   res.json({
     total: titles.length,
     titles
   });
-  // res.send("Dummy endpoint that will return a list of available titles");
+});
+
+// This route will return a list of all artists with released titles.
+app.get("/artists", (req, res) => {
+  const allArtists = spotifyData.map((item) => item.artists.map((artist) => artist.name))
+    .join()
+    .split(",");
+  const artists = allArtists.reduce(
+    (unique, item) => unique.includes(item) ? unique : [...unique, item], []
+  ).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  res.json({
+    total: artists.length,
+    artists
+  });
+});
+
+// This route will return a list of all markets where titles are released.
+app.get("/markets", (req, res) => {
+  const allMarkets = spotifyData.map((item) => item.available_markets)
+    .join()
+    .split(",");
+  const markets = allMarkets.filter((item, index) => allMarkets.indexOf(item) === index).sort();
+  res.json({
+    total: markets.length,
+    markets
+  });
+});
+
+//Dummy endpoints for red level
+app.get("/releases/month/:month", (req, res) => {
+  res.send("Dummy endpoint that will return a list of all releases during the specified month");
+});
+
+app.get("/releases/start/:start/stop/:stop", (req, res) => {
+  res.send("Dummy endpoint that will return a list of all releases during the specified period");
+});
+
+app.get("/releases/theme/:theme", (req, res) => {
+  res.send("Dummy endpoint that will return a list of all releases with the specified theme");
 });
 
 // Start the server
