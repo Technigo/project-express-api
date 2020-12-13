@@ -223,6 +223,33 @@ app.get('/eruptions/type/:type', (request, response) => {
   }
 });
 
+// /eruptions/rock-type/:rock-type endpoint
+// RETURNS: A list of eruptions of a specified rock type as an array
+//
+// PARAMETERS:
+// - rockType: a string containing the name of a rock type
+//    usage: /eruptions/rock-type/Foidite
+app.get('/eruptions/rock-type/:rockType', (request, response) => {
+  const { rockType } = request.params;
+  const eruptionsByRock = eruptions.filter(
+    eruption => eruption.dominant_rock_type === rockType
+  );
+
+  const returnObject = {
+    totalEruptions: eruptions.length,
+    eruptionsFilteredByRockType:
+      'Returns eruptions filtered by dominant rock type as an array, from volcanic-eruptions.json',
+    eruptionsFound: eruptionsByRock.length,
+    results: eruptionsByRock,
+  };
+
+  if (eruptionsByRock.length === 0) {
+    response.status(404).json(ERROR_ERUPTIONS_NOT_FOUND);
+  } else {
+    response.json(returnObject);
+  }
+});
+
 // /eruptions/elevation/highest-20 endpoint
 // RETURNS: A list of the 20 highest volcanoes as an array
 //
@@ -262,33 +289,6 @@ app.get('/eruptions/elevation/lowest-20', (request, response) => {
   };
 
   if (lowestVolcanoesArray.length === 0) {
-    response.status(404).json(ERROR_ERUPTIONS_NOT_FOUND);
-  } else {
-    response.json(returnObject);
-  }
-});
-
-// /eruptions/rock-type/:rock-type endpoint
-// RETURNS: A list of eruptions of a specified rock type as an array
-//
-// PARAMETERS:
-// - rockType: a string containing the name of a rock type
-//    usage: /eruptions/rock-type/Foidite
-app.get('/eruptions/rock-type/:rockType', (request, response) => {
-  const { rockType } = request.params;
-  const eruptionsByRock = eruptions.filter(
-    eruption => eruption.dominant_rock_type === rockType
-  );
-
-  const returnObject = {
-    totalEruptions: eruptions.length,
-    eruptionsFilteredByRockType:
-      'Returns eruptions filtered by dominant rock type as an array, from volcanic-eruptions.json',
-    eruptionsFound: eruptionsByRock.length,
-    results: eruptionsByRock,
-  };
-
-  if (eruptionsByRock.length === 0) {
     response.status(404).json(ERROR_ERUPTIONS_NOT_FOUND);
   } else {
     response.json(returnObject);
