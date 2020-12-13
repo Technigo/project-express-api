@@ -4,6 +4,7 @@ import express, { request, response } from "express"
 const nominees = require('./data/golden-globes.json')
 // This variable will allow us to create a server, which is a program that allows us to listen to incoming transmissions on a port. 65,000 ports on the computer.
 const app = express()
+const port = process.env.PORT || 8080;
 
 // 🔵 Root endpoint.
 app.get('/', (request, response) => {
@@ -108,6 +109,6 @@ app.get('/nominees/:category/:year/winner', (request, response) => {
 })
 
 // Gives it a port and a function. Listen on port 8080, and the function is "what should I do when it starts?"
-app.listen(8080, () => {
-  console.log("Hello console, the server is running")
+app.listen(port, () => {
+  console.log(`Hello console, the server is up and running on port ${port}.`)
 })
