@@ -7,19 +7,26 @@ For the project I used data about books and created an API with the following en
 
 Path-params:
 * All books: https://hanna-books-api.herokuapp.com/books
-* Books by specific author (not case-sesitive). Example: https://hanna-books-api.herokuapp.com/books/author/auster
-* Books in a specific language (by language-code). Example: https://hanna-books-api.herokuapp.com/books/language/fre
-* One book by id. Example: https://hanna-books-api.herokuapp.com/books/id/275
-* One book by ISBN or ISBN13. Example: https://hanna-books-api.herokuapp.com/books/isbn/140097317
+* Books by specific author (not case-sesitive). 
+  Example: https://hanna-books-api.herokuapp.com/books/author/auster
+* Books in a specific language (by language-code). 
+  Example: https://hanna-books-api.herokuapp.com/books/language/fre
+* One book by id. 
+  Example: https://hanna-books-api.herokuapp.com/books/id/275
+* One book by ISBN or ISBN13. 
+  Example: https://hanna-books-api.herokuapp.com/books/isbn/140097317
 * List of top-rated 100 books: https://hanna-books-api.herokuapp.com/books/ratings/top100
 
 Query-params:
-* Query by title and/or author. Example: 
+* Query by title and/or author. 
+  Examples: 
   Only author: https://hanna-books-api.herokuapp.com/books/?author=auster
   Only title: https://hanna-books-api.herokuapp.com/books/?title=moon
   Title and author: https://hanna-books-api.herokuapp.com/books/?title=moon&author=auster
-* Pages. Example: https://hanna-books-api.herokuapp.com/books/?page=22
-* Page size: the default pagesize is 20 books per page, but user can change it. Example: https://hanna-books-api.herokuapp.com/books/?page=22&pageSize=10
+* Query book-list by page-index (default page-size is 20 books per page).
+  Example: https://hanna-books-api.herokuapp.com/books/?page=22
+* Query book-list by page-index & page-size. 
+  Example: https://hanna-books-api.herokuapp.com/books/?page=22&pageSize=10
 
 
 ## The process

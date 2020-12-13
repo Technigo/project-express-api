@@ -67,11 +67,9 @@ app.get('/books', (req, res) => {
     booksList = booksList.filter(book => book.title.toString().includes(title) || book.title.toString().toLowerCase().includes(title))
   }
 
-  // PAGINATION:
+  // PAGINATION (Query py page and/or page-size):
   // -Page (minValue 0, default 0): number to indicate what page to return.
-  // -PageSize (default: 20) : a number indicating how many results per page
-  // usage: localhost:8080/?page=2
-  // We can define pageSize like: http://localhost:8080/books/?page=49&pageSize=10
+  // -PageSize (default: 20)
   const totalNumberOfBooks = booksList.length;
   const firstPageIndex = 0;
   const startIndex = page * pageSize;
@@ -91,29 +89,12 @@ app.get('/books', (req, res) => {
     res.status(404).json(ERROR_MESSAGE_DATA_NOT_FOUND)
   }
   res.json(returnObject)
-  
-
-  //const booksFilteredByAuthor = booksData.filter(book => (book.authors.includes(author) || book.authors.toLowerCase().includes(author)))
-  // Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd
-  // @44 mins forward about filtering results. How would I do that?
-  // Van's quick pseudo-example:
-
-  // let results = allResults;
-  // if (somequeryParameter) {
-  // results = results.filter(...something else based on one/more of query parameter)
-  //} else if (anotherqueryParameter) {
-    // results = results.filter(...something else based on one/more of query parameter)
-  //}
-
-  // if (!page || !pageSize || !) {
-  //   res.json(booksList)
-  // }
-  // res.json(returnObject)
+  // NOTE TO SELF: Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd @44 mins forward about filtering results.
 })
 
 // LANGUAGE-ENDPOINT. // According to Maks friday lecture: language should rather be query param??
 // Get books in a specified language (by language-code):
-// Example: http://localhost:8080/books/language/fre  // language_codes: eng, fre, en-US, spa, en-GB, mul, ger
+// language_codes: eng, fre, en-US, spa, en-GB, mul, ger
 app.get('/books/language/:language', (req, res) => {
 // This language endpoint gets an error in the console (but still works):
 //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client...
@@ -128,7 +109,6 @@ app.get('/books/language/:language', (req, res) => {
 
 // ID-ENDPOINT. 
 // Get a single book by id:
-// Example: http://localhost:8080/books/id/154
 app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
   const singleBookId = booksData.find((book) => book.bookID === +id) // + turns string to number
@@ -141,7 +121,6 @@ app.get('/books/id/:id', (req, res) => {
 
 //ISBN-ENDPOINT.
 //Return single book by isbn/isbn13:
-//path: http://localhost:8080/books/isbn/"isbn" OR: http://localhost:8080/books/isbn/"isbn13"
 app.get('/books/isbn/:isbn', (req, res) => {
   const isbn = req.params.isbn
   const singleBookIsbn = booksData.find((book) => (book.isbn === +isbn || book.isbn13 === +isbn))
@@ -167,7 +146,7 @@ app.get('/books/ratings/:top100', (req, res) => {
 
 //BOOKS-BY-AUTHOR-ENDPOINT.
 //Get all books by a specific author ("authors")
-// maybe this should be a query param instead as I'm using includes-method?
+// I also made a query-param for author above.
 app.get('/books/author/:author', (req, res) => {
   const author = req.params.author
 
