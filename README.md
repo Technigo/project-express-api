@@ -12,7 +12,7 @@ The API comes with a few pre-configured endpoints. They are listed with a brief 
 
 ` / `
 
-Root endpoint.
+Root endpoint. Nothing to see here.
 
 ---
 
@@ -26,7 +26,7 @@ Lists all nominees for the last 10 years.
 
 Search for a nominee. Case-insensitive.
 
-*Example URL: /nominees/search?search=leo*
+> **Example URL:** /nominees/search?search=leo
 
 ---
 
@@ -40,14 +40,15 @@ Lists all the Golden Globe winners between 2010-2020.
 
 Lists all nominees for a given year (2010-2020).
 
-*Example URL: /nominees/2017
+> **Example URL:** /nominees/2017
 
 ---
 
 ` /nominees/:year/winners `
 
 Lists all winners for a year.
-*/nominees/2014/winners*
+
+> **Example URL:** /nominees/2014/winners
 
 ---
 
@@ -55,7 +56,7 @@ Lists all winners for a year.
 
 Lists all nominees for a given category.
 
-*Example URL: /nominees/categories/Best%20Motion%20Picture%20-%20Drama*
+> **Example URL:** /nominees/categories/Best%20Motion%20Picture%20-%20Drama
 
 ---
 
@@ -63,7 +64,7 @@ Lists all nominees for a given category.
 
 Lists all winners for a given category.
 
-*Example URL: /nominees/categories/Best%20Motion%20Picture%20-%20Drama/winners*
+> **Example URL:** /nominees/categories/Best%20Motion%20Picture%20-%20Drama/winners
 
 ---
 
@@ -71,7 +72,7 @@ Lists all winners for a given category.
 
 Lists the winner of a category for a given year.
 
-*Example URL: /nominees/Best%20Performance%20by%20an%20Actor%20in%20a%20Supporting%20Role%20in%20any%20Motion%20Picture/2015/winner*
+> **Example URL:** /nominees/Best%20Performance%20by%20an%20Actor%20in%20a%20Supporting%20Role%20in%20any%20Motion%20Picture/2015/winner
 
 ---
 
