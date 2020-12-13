@@ -12,7 +12,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send(data)
+  res.send('Hello world')
 })
 
 app.get('/year', (req, res) => {
@@ -20,13 +20,8 @@ app.get('/year', (req, res) => {
 })
 app.get('/years/:year', (req, res) => {
   const year = req.params.year
-  const type = req.query.type
-
   const releaseYear = data.filter((item) => item.release_year === +year)
 
-if (type) {
-   releaseYear = releaseYear.filter((item) => item.type === type)
-}
     res.json(releaseYear)
 })
 
