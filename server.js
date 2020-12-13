@@ -15,10 +15,10 @@ app.use(cors())
 //to read json
 app.use(bodyParser.json())
 
-// Start defining routes here
-// app.get('/', (req, res) => {
-//   res.send('Welcome to the Golden Globe API of nominations for 2010-2019')
-// })
+//Start defining routes here
+app.get('/', (req, res) => {
+  res.send('Welcome to the Golden Globe API of nominations for 2010-2019')
+})
 
 //Endpoints getting all data
 app.get('/nominations', (req, res) => {
