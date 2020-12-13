@@ -29,14 +29,14 @@ app.get("/shows", (req, res) => {
 });
 
 // Route to list all the movies in the show array
-app.get("/shows/movies", (req, res) => {
+app.get("/movies", (req, res) => {
   let movieArray = data.slice(0, 150);
   const movie = movieArray.filter((item) => item.type == "Movie");
   res.json(movie);
 });
 
 // This route makes it possible to search a specific movie and display the object
-app.get("/shows/movies/:movies", (req, res) => {
+app.get("/movies/:movies", (req, res) => {
   const { movies } = req.params;
   const movie = data.filter((item) => item.title == movies);
   if (movie.length === 0) {
@@ -47,13 +47,13 @@ app.get("/shows/movies/:movies", (req, res) => {
 });
 
 // Route to list all the tv shows in the show array
-app.get("/shows/tvshows", (req, res) => {
+app.get("/tvshows", (req, res) => {
   const tvshow = data.filter((item) => item.type == "TV Show");
   res.json(tvshow);
 });
 
 // This route makes it possible to search a specific tv show and display the object
-app.get("/shows/tvshows/:tvshows", (req, res) => {
+app.get("/tvshows/:tvshows", (req, res) => {
   const { tvshows } = req.params;
   const tvShow = data.filter((item) => item.title == tvshows);
   if (tvShow.length === 0) {
@@ -63,8 +63,19 @@ app.get("/shows/tvshows/:tvshows", (req, res) => {
   }
 });
 
+// Tried to implement query, will have a look at this and try to solve it asap.
+app.get("/tvshows/title", (req, res) => {
+  const { title } = req.query.title;
+  if (title) {
+    const findTitle = data.filter((item) => item.title === title);
+    res.json(findTitle);
+  } else {
+    res.send(`The title: ${title} could not be found`);
+  }
+});
+
 // This route makes it possible to search a specific country and list all shows from that country
-app.get("/shows/countries/:countries", (req, res) => {
+app.get("/shows/:countries", (req, res) => {
   const { countries } = req.params;
   const showCountry = data.filter((item) => item.country == countries);
   if (showCountry.length === 0) {
@@ -83,8 +94,6 @@ app.get("/shows/:id", (req, res) => {
   } else {
     res.json(showFound);
   }
-
-  console.log(`Req.params: ${JSON.stringify(req.params)}`);
 });
 
 // Dummy endpoint for future coding
