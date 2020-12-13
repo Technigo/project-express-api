@@ -1,6 +1,6 @@
 # Express API Project
 
-In  this project I have built my first backend project where I created my own book- API using Node and Express. 
+In  this project I have built my first backend project where I created my own book- API using Node and Express. 📚
 
 ## The problem
 I created different endpoints in the API, of which some return an array of data and some a single item.
@@ -11,6 +11,11 @@ The endpoins are:
 * /authors/:authors - returns all books of a chosen author.
 * /titles/:title - returns a book with a certain title.
 * /language - Query search for language code.
+
+## Tech used
+* JavaSrcipt
+* Node.js
+* Express
 
 ## View it live
 
