@@ -1,13 +1,46 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This is an API using Express. The API is getting data from a database consisting of information about movies and TV shows from Netflix. To help you out, there are some RESTful endpoints that together with queries can list different types of data. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
+## Documentation
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+To list both movies and TV shows
+/all
+
+To list movies
+/movies
+
+To list TV shows.
+/tv-shows
+
+To return a movie or tv show that matches an id
+/id:id
+Example: /id/2018
+
+To list all titles
+/titles
+
+To get a list of titles matching a keyword
+/titles?title={keyword}
+Example: /titles?title=Love
+
+To get a list of directors
+/directors
+
+To list movies and TV shows from a specific director
+/directors/:director/all
+Example: /directors/Scorsese/all
+
+To list movies and TV shows from a specific country
+/countries?country={country}
+Example: /countries?country=France
+
+To list movies and TV shows released in a specific year
+/release?year={year}
+Example: /release?year=2018
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-expressapi.herokuapp.com/
