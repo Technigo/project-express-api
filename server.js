@@ -2,24 +2,17 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
 import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
-// a variable that will allow us to create a server.
-// listens to incoming changes on a port ( in this case port 8080), the port is open for communication.
-// reason for 8080: similar to 80 which was default for http before https
-// (look upp commonly reserved ports on google.)
+// A variable that will allow us to create a server.
+// Listens to incoming changes on a port ( in this case port 8080), 
+// the port is open for communication.
+// Reason for 8080: similar to 80 which was default for http before https.
+
 // express is responsible for creating endpoints
 const app = express()
 
@@ -28,6 +21,7 @@ const ERROR_MESSAGE_AUTHOR_NOT_FOUND = { error: 'No book by that author found' }
 const ERROR_MESSAGE_BOOK_ISBN_NOT_FOUND = { error: 'No book with that ISBN-number found.' }
 const ERROR_MESSAGE_BOOK_ID_NOT_FOUND = { error: 'No book with that ID found.' }
 const ERROR_MESSAGE_LANGUAGE_NOT_FOUND = { error: 'No books with that language-code found' }
+const ERROR_MESSAGE_RATING_NOT_FOUND = { error: 'No books with that rating found' }
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -35,40 +29,36 @@ app.use(bodyParser.json())
 
 const myEndpoints = require('express-list-endpoints')
 
-// Start defining your routes here (endpoints)
-// req is incoming(we don't change it), the res is outgoing(we do change it)
-app.get('/', (req, res) => {
-  //Before the send we can write what ever we want here.
-  //For example:
-  //-Database connections
-  //-Complicated operations
-  //-Data lookup
-  //-Third party API-requests
+// DEFINING ROUTES (endpoints):
+
+// ROOT-ENDPOINT.
+app.get('/', (req, res) => { // req is incoming(we don't change it), the res is outgoing(we do change it)
+  // NOTE TO SELF: Before the send we can write what ever we want here.
+  // For example:
+  // -Database connections
+  // -Complicated operations
+  // -Data lookup
+  // -Third party API-requests
   if (!res) {
     res.status(404).json({ error : 'Error. No data found'})
   }
   res.send(myEndpoints(app))
-  // simple: send something back without checking the request:
-  //res.send('Hello world')
 })
 
 // BOOKS-ENDPOINT(WITH PAGES QUERY-PARAM)
-//Add paging using query-params below (lecture no. 2 last year)
-//res.send or res.json??? What to use?
-//What's the difference of writing res.send(something) and res.json(something)?
-//--> https://medium.com/gist-for-js/use-of-res-json-vs-res-send-vs-res-end-in-express-b50688c0cddf
+//Q: What's the difference of writing res.send(something) and res.json(something)? ANSWER: https://medium.com/gist-for-js/use-of-res-json-vs-res-send-vs-res-end-in-express-b50688c0cddf
 //Gets all the books from books.json:
 //http://localhost:8080/books
 app.get('/books', (req, res) => {
   //res.json(booksData)
-  const { author, title } = req.query;
+  const { author, title } = req.query; // Add this in code!
+
   let booksList = booksData;
   // QUERY-PARAMETERS:
   // -Page (minValue 0, default 0): number to indicate what page to return.
   // -PageSize (default: 20) : a number indicating how many results per page
   // usage: localhost:8080/?page=2
   const page = req.query.page ?? 0;
-  //console.log(`page = ${page}`)
   // We can define pageSize like: http://localhost:8080/books/?page=49&pageSize=10
   const pageSize = req.query.pageSize ?? 20;//The query param is a string
   const totalNumberOfBooks = booksData.length;
@@ -88,7 +78,7 @@ app.get('/books', (req, res) => {
 
   // Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd
   // @44 mins forward about filtering results. How would I do that?
-  // Van's quich pseudo-example:
+  // Van's quick pseudo-example:
 
   // let results = allResults;
   // if (somequeryParameter) {
@@ -98,21 +88,17 @@ app.get('/books', (req, res) => {
   //}
 
   if (!page || !pageSize) {
-    res.json(booksData)
+    res.json(booksList)
   }
   res.json(returnObject)
 })
 
-// LANGUAGE-ENDPOINT.
-// According to Maks friday lecture: language should be query param??
-// Gets books in a specified language (by language-code):
-//http://localhost:8080/books/language/fre 
-// language_codes: eng, fre, en-US, spa, en-GB, mul, ger
+// LANGUAGE-ENDPOINT. // According to Maks friday lecture: language should rather be query param??
+// Get books in a specified language (by language-code):
+// Example: http://localhost:8080/books/language/fre  // language_codes: eng, fre, en-US, spa, en-GB, mul, ger
 app.get('/books/language/:language', (req, res) => {
-  //get the variable out of the url: the language-placeholder
-  //(:language) becomes rec.params.language
   const language = req.params.language
-  // could also write this { language } = rec.params , then you could include several variables in the parethesis
+  // could also destructure { language } = rec.params , then you could include several variables
   const booksByLanguage = booksData.filter((book) => book.language_code === language)
 
   if (booksByLanguage.length > 0) {
@@ -121,8 +107,9 @@ app.get('/books/language/:language', (req, res) => {
   res.status(404).json(ERROR_MESSAGE_LANGUAGE_NOT_FOUND)
 })
 
-//ID-ENDPOINT. Get a single book by id:
-//books/id for example "id": 154, http://localhost:8080/books/id/154
+// ID-ENDPOINT. 
+// Get a single book by id:
+// Example: http://localhost:8080/books/id/154
 app.get('/books/id/:id', (req, res) => {
   const id = req.params.id
   const singleBookId = booksData.find((book) => book.bookID === +id) // + turns string to number
@@ -135,8 +122,7 @@ app.get('/books/id/:id', (req, res) => {
 
 //ISBN-ENDPOINT.
 //Return single book by isbn/isbn13:
-//path: http://localhost:8080/books/isbn/"isbn"
-//OR: http://localhost:8080/books/isbn/"isbn13"
+//path: http://localhost:8080/books/isbn/"isbn" OR: http://localhost:8080/books/isbn/"isbn13"
 app.get('/books/isbn/:isbn', (req, res) => {
   const isbn = req.params.isbn
   const singleBookIsbn = booksData.find((book) => (book.isbn === +isbn || book.isbn13 === +isbn))
@@ -147,13 +133,21 @@ app.get('/books/isbn/:isbn', (req, res) => {
   res.json(singleBookIsbn)
 })
 
-//Get books with a specified average-rating:
-//books/rating
+// TOP-RATED-BOOKS-ENDPOINT.
+// Get a list of the top 100 rated books:
+// http://localhost:8080/books/ratings/top100
+app.get('/books/ratings/:top100', (req, res) => {
+  const sortedBooks = booksData.sort((a, b) => b.average_rating - a.average_rating)
+  const top100Array= sortedBooks.slice(0, 100);
 
-//Gets all books with a high avg. rating (3,5-5):
-//app.get('/books/rating/high-rated')
+  if (top100Array.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_RATING_NOT_FOUND)
+  } 
+  res.json(top100Array)
+})
 
-//Search for a specific book title
+
+//TO DO: Search for a specific book title
 
 //BOOKS-BY-AUTHOR-ENDPOINT.
 //Get all books by a specific author ("authors")
@@ -173,11 +167,9 @@ app.get('/books/author/:author', (req, res) => {
   }
 })
 
-// Dummy endpoints:
-
-//Post request to add a book to the json
-
-// Put request to update average rating on book
+// DUMMY-ENDPOINTS:
+// POST-request to add a book to the json
+// PUT-request to update average rating on book
 
 
 // Start the server
