@@ -7,8 +7,6 @@ import data from "./data/netflix-titles.json";
 // Variable that will show an error message when no results are found
 const ERROR_SHOW_NOT_FOUND = { error: "No results were found." };
 
-// RESTful routes to the API
-
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -19,7 +17,9 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Netflix, feel free to have a look!");
+  res.send(
+    "Hello Netflix! See the README file on Github to learn how to filter the API."
+  );
 });
 
 // Route to list all the content in the show array
@@ -86,6 +86,9 @@ app.get("/shows/:id", (req, res) => {
 
   console.log(`Req.params: ${JSON.stringify(req.params)}`);
 });
+
+// Dummy endpoint for future coding
+app.get("/shows/categories", (req, res) => {});
 
 // Start the server
 app.listen(port, () => {
