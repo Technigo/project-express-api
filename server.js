@@ -17,7 +17,7 @@ app.listen(port, () => {
 
 // Route definition
 app.get('/', (req, res) => {
-  res.send('Hello world! covid-19 data about this api and endpoints, when the data was pulled and credits to where the data is from')
+  res.seres.send('This API is a coding project by Peggy @blipsandclicks made during Technigo bootcamp 2020 Fall session for educational purposes only. Here you will find Covid-19 figures for a subset countries pulled on the 7th of December 2020. Please do not use this API, instead refer to the original data source which is the COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University: https://github.com/CSSEGISandData/COVID-19')
 })
 
 // Route for entire array
