@@ -91,8 +91,9 @@ app.get('/books', (req, res) => {
     res.status(404).json(ERROR_MESSAGE_DATA_NOT_FOUND)
   } else if (!page || !pageSize) {
     res.json(booksList)
+  } else {
+    res.json(returnObject)
   }
-  res.json(returnObject)
   // NOTE TO SELF: Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd @44 mins forward about filtering results.
 })
 
@@ -107,8 +108,9 @@ app.get('/books/language/:language', (req, res) => {
 
   if (booksByLanguage.length > 0) {
     res.send(booksByLanguage)
+  } else {
+    res.status(404).json(ERROR_MESSAGE_LANGUAGE_NOT_FOUND)
   }
-  res.status(404).json(ERROR_MESSAGE_LANGUAGE_NOT_FOUND)
 })
 
 // ID-ENDPOINT. 
@@ -119,8 +121,9 @@ app.get('/books/id/:id', (req, res) => {
 
   if (!singleBookId) {
     res.status(404).json(ERROR_MESSAGE_BOOK_ID_NOT_FOUND)
+  } else {
+    res.json(singleBookId)
   }
-  res.json(singleBookId)
 })
 
 //ISBN-ENDPOINT.
@@ -133,8 +136,9 @@ app.get('/books/isbn/:isbn', (req, res) => {
 
   if (!singleBookIsbn) {
     res.status(404).json(ERROR_MESSAGE_BOOK_ISBN_NOT_FOUND)
+  } else {
+    res.json(singleBookIsbn)
   }
-  res.json(singleBookIsbn)
 })
 
 // TOP-RATED-BOOKS-ENDPOINT.
@@ -146,8 +150,9 @@ app.get('/books/ratings/:top100', (req, res) => {
 
   if (top100Array.length === 0) {
     res.status(404).json(ERROR_MESSAGE_RATING_NOT_FOUND)
+  } else {
+    res.json(top100Array)
   }
-  res.json(top100Array)
 })
 
 //BOOKS-BY-AUTHOR-ENDPOINT.
