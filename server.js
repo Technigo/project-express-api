@@ -1,20 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books_10k.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -25,6 +13,43 @@ app.use(bodyParser.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/books', (reg, res) => {
+  res.json(booksData)
+
+})
+
+app.get('/books/year/:year', (reg, res) => {
+  const year = reg.params.year
+  const topRated = reg.query.toprated
+  let booksFromYear = booksData.filter((item) => item.original_publication_year === +year)
+
+  console.log(booksFromYear.length)
+
+  if (topRated) {
+    booksFromYear = booksFromYear.filter((item) => item.average_rating > 4)
+  }
+
+  res.json(booksFromYear)
+})
+
+app.get('/books/authors/:authors', (reg, res) => {
+  const authors = reg.params.authors
+  let booksByAuthors = booksData.filter((item) => item.authors === authors)
+
+  if (booksByAuthors.length === 0) {
+    res.send('oh noo')
+  }
+  res.json(booksByAuthors)
+  //return only if the names are exactly the same....
+})
+
+app.get('/books/:id', (reg, res) => {
+  const id = reg.params.id
+  const booksById = booksData.find((item) => item.book_id === +id)
+
+  res.json(booksById)
 })
 
 // Start the server
