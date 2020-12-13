@@ -53,7 +53,7 @@ app.get("/books", (request, response) => {
 
 
 // --- getting SPECIFIC book based on ISBN13 ---
-//localhost:8080/books/id/:isbn13
+//localhost:8080/id/:isbn13
 
 app.get("/id/:isbn13", (request, response) => {
 
@@ -92,42 +92,6 @@ app.get("/rating", (request, response) => {
 
   response.json(sortedRatingArray)
 })
-
-// --- top 20 books ----
-//localhost:8080/books/rating/top_20
-// . . .
-
-
-//--- PAGES - 25 books/page ---
-//localhost:8080/books/?page=1
-app.get("/books/list", (request, response) => {
-
-  const page = (request.query.page - 1) ?? 1 // ?? = nullish coalescing operator
-  console.log(`Page = ${page}`)
-
-  const pageSize = 20
-
-  //calculate the start index
-  const startIndex = page * pageSize
-
-  //calculate and bound the end index
-  const endIndex = startIndex + pageSize
-
-  const booksPerPage = booksData.slice(startIndex, endIndex)
-  console.log(`Books per page: ${booksPerPage}`)
-
-  const returnObject = { numOfBooks: booksPerPage.length, booksPerPage }
-
-  response.json(returnObject)
-})
-
-
-//empty endpoint (to be added in the future)
-// app.get("/books/:thumbnail", (req, res)) {
-//   //gets the data with all book cover images and 
-//   response.send()
-// }
-
 
 // Start the server
 app.listen(port, () => {
