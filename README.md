@@ -1,13 +1,16 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In  this project I have built my first backend project where I created my own book- API using Node and Express. 
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I choose a book-API have some endpoints, of which some return an array of data and some a single item.
+The esnpoins are:
+* /books - returns the whoe array of book objects.
+* /books/:id - returns a bokk with a chosen id.
+* /authors/:authors - returns all books of a chosen author.
+* /titles/:title - returns a book with a certain title.
+* /language - Query search for language code.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://saras-book-api.herokuapp.com/
