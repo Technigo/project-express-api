@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Welcome to Saras book review site. To get full list use the endpoint /books')
+  res.send('Welcome to Saras book review site. To get full list use the endpoint /books 📚')
 })
 
 //get all data
@@ -58,6 +58,13 @@ app.get('/toplist/:nrOfBooks', (req, res) => {
   highRatedBooks.sort((a, b) => b.average_rating - a.average_rating)
   const topList = highRatedBooks.slice(0, nrOfBooks);
   res.json(topList)
+})
+
+//Query for language, eg. /language/?lang=en-US
+app.get('/language/', (request, response) => {
+  const { lang } = request.query;
+  const filteredLanguage = booksData.filter((book) => book.language_code === lang);
+  response.json(filteredLanguage);
 })
 
 // Start the server
