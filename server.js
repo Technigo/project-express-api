@@ -2,26 +2,16 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import netflixData from "./data/netflix-titles.json";
 import spotifyData from "./data/spotify-releases.json";
 
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// error message
-const ERROR_RELEASES_NOT_FOUND = { error: "No release matched your request" };
-
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(bodyParser.json());
+
+// error message
+const ERROR_RELEASES_NOT_FOUND = { error: "No release matched your request" };
 
 // Start defining your routes here
 app.get("/", (req, res) => {
