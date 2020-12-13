@@ -48,8 +48,6 @@ app.get("/id/:id", (req, res) => {
 });
 
 // List all titles or only the once matching the title keyword
-// /titles
-// /titles?title=Love
 app.get("/titles", (req, res) => {
   const { title } = req.query;
   if (!title) {
@@ -64,7 +62,6 @@ app.get("/titles", (req, res) => {
 });
 
 // Return a list of directors
-// /directors
 app.get("/directors", (req, res) => {
   const { director } = req.query;
   const directorsArray = data.map((item) => item.director);
@@ -73,7 +70,6 @@ app.get("/directors", (req, res) => {
 });
 
 // Return movies and TV shows from a specific director
-// /directors/Scorsese/all
 app.get("/directors/:director/all", (req, res) => {
   const { director } = req.params;
   const directorCapitalized =
@@ -91,7 +87,6 @@ app.get("/directors/:director/all", (req, res) => {
 });
 
 // Return movies and TV shows from a specific country
-// /countries?country=France
 app.get("/countries", (req, res) => {
   const { country } = req.query;
   if (!country) {
@@ -111,7 +106,6 @@ app.get("/countries", (req, res) => {
 });
 
 // Return movies and TV shows released in a specific year
-// /release?year=2018
 app.get("/releases", (req, res) => {
   const { year } = req.query;
 
@@ -132,5 +126,5 @@ app.get("/releases", (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
