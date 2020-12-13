@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 
 //Start
 app.get('/', (req, res) => {
-  res.json('👋 Welcome to Emmas book/book reviews API! Use the /books endpoint to start 📚🦉')
+  res.json('👋 Welcome to Emmas book and book reviews API! Use the /books endpoint to get started 📚🦉')
 })
 
 //Returning a collection of all the books in the data
@@ -56,7 +56,7 @@ app.get('/authors', (req, res) => {
 })
 
 // Query for books by title
-app.get('/title', (req, res) => {
+app.get('/titles', (req, res) => {
   const { title } = req.query
   const booksByTitle = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toString().toLowerCase()))
   
