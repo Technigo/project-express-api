@@ -22,7 +22,7 @@ const ERROR_MESSAGE_BOOK_ISBN_NOT_FOUND = { error: 'No book with that ISBN-numbe
 const ERROR_MESSAGE_BOOK_ID_NOT_FOUND = { error: 'No book with that ID found.' }
 const ERROR_MESSAGE_LANGUAGE_NOT_FOUND = { error: 'No books with that language-code found' }
 const ERROR_MESSAGE_RATING_NOT_FOUND = { error: 'No books with that rating found' }
-
+const ERROR_MESSAGE_DATA_NOT_FOUND = { error: 'No data was found'}
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
@@ -40,7 +40,7 @@ app.get('/', (req, res) => { // req is incoming(we don't change it), the res is 
   // -Data lookup
   // -Third party API-requests
   if (!res) {
-    res.status(404).json({ error : 'Error. No data found'})
+    res.status(404).json(ERROR_MESSAGE_DATA_NOT_FOUND)
   }
   res.send(myEndpoints(app))
 })
@@ -50,35 +50,50 @@ app.get('/', (req, res) => { // req is incoming(we don't change it), the res is 
 //Gets all the books from books.json:
 //http://localhost:8080/books
 app.get('/books', (req, res) => {
-
-  // The '/books' endpoint gets an error in the console (but still works):
+// The '/books' endpoint gets an error in the console (but still works):
 //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-  //res.json(booksData)
-  const { author, title } = req.query; // Add this in code!
-
+  const { author, title } = req.query;
+  const page = req.query.page ?? 0;
+  const pageSize = req.query.pageSize ?? 20;//The query param is a string
   let booksList = booksData;
-  // QUERY-PARAMETERS:
+
+  //Query by author:
+  if (author) {
+    booksList = booksList.filter(book => (book.authors.includes(author) || book.authors.toLowerCase().includes(author)))
+  }
+
+  // Query by title:
+  if (title) {
+    booksList = booksList.filter(book => book.title.toString().includes(title) || book.title.toString().toLowerCase().includes(title))
+  }
+
+  // PAGINATION:
   // -Page (minValue 0, default 0): number to indicate what page to return.
   // -PageSize (default: 20) : a number indicating how many results per page
   // usage: localhost:8080/?page=2
-  const page = req.query.page ?? 0;
   // We can define pageSize like: http://localhost:8080/books/?page=49&pageSize=10
-  const pageSize = req.query.pageSize ?? 20;//The query param is a string
-  const totalNumberOfBooks = booksData.length;
+  const totalNumberOfBooks = booksList.length;
   const firstPageIndex = 0;
   const startIndex = page * pageSize;
   const endIndex = startIndex + +pageSize; // converts pageSize (string) to a number
   //Creating pages using slice:
-  const bookPage = booksData.slice(startIndex, endIndex);
+  const bookPage = booksList.slice(startIndex, endIndex);
   const returnObject = { 
     totalNumberOfBooks: totalNumberOfBooks,
     pageSize: pageSize,
     page: page,
     firstPageIndex: firstPageIndex,
-    lastPageIndex: parseInt(booksData.length/pageSize), 
+    lastPageIndex: parseInt(booksList.length/pageSize), 
     results: bookPage 
   };
+  
+  if (bookPage.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_DATA_NOT_FOUND)
+  }
+  res.json(returnObject)
+  
 
+  //const booksFilteredByAuthor = booksData.filter(book => (book.authors.includes(author) || book.authors.toLowerCase().includes(author)))
   // Se lecture https://technigo.wistia.com/medias/2o4ta7pwhd
   // @44 mins forward about filtering results. How would I do that?
   // Van's quick pseudo-example:
@@ -90,10 +105,10 @@ app.get('/books', (req, res) => {
     // results = results.filter(...something else based on one/more of query parameter)
   //}
 
-  if (!page || !pageSize) {
-    res.json(booksList)
-  }
-  res.json(returnObject)
+  // if (!page || !pageSize || !) {
+  //   res.json(booksList)
+  // }
+  // res.json(returnObject)
 })
 
 // LANGUAGE-ENDPOINT. // According to Maks friday lecture: language should rather be query param??
@@ -142,16 +157,13 @@ app.get('/books/isbn/:isbn', (req, res) => {
 // http://localhost:8080/books/ratings/top100
 app.get('/books/ratings/:top100', (req, res) => {
   const sortedBooks = booksData.sort((a, b) => b.average_rating - a.average_rating)
-  const top100Array= sortedBooks.slice(0, 100);
-
+  const top100Array = sortedBooks.slice(0, 100);
+  
   if (top100Array.length === 0) {
     res.status(404).json(ERROR_MESSAGE_RATING_NOT_FOUND)
   } 
   res.json(top100Array)
 })
-
-
-//TO DO: Search for a specific book title
 
 //BOOKS-BY-AUTHOR-ENDPOINT.
 //Get all books by a specific author ("authors")
@@ -171,9 +183,9 @@ app.get('/books/author/:author', (req, res) => {
 })
 
 // DUMMY-ENDPOINTS:
-// POST-request to add a book to the json
-// PUT-request to update average rating on book
-
+// POST-request to add a book to the json.
+// PUT-request to update average rating on book.
+// Query-param: Show top 10 or top 100 books in a specific language. 
 
 // Start the server
 app.listen(port, () => {

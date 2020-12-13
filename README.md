@@ -3,19 +3,23 @@
 This project is my first backend-project using node.js and Express. The task was to create endpoints using Express for a REST-API using json data, returning both arrays of data and a single item.
 For the project I used data about books and created an API with the following endpoints:
 
-* Root: /
+* Root: https://hanna-books-api.herokuapp.com/
 
 Path-params:
-* All books: /books
-* Books by specific author (not case-sesitive): /books/author/:author
-* Books in a specific language (by language-code): books/language/:language
-* One book by id: books/id/:id
-* One book by ISBN or ISBN13: /books/isbn/:isbn
-* List of top-rated 100 books: /books/ratings/:top100
+* All books: https://hanna-books-api.herokuapp.com/books
+* Books by specific author (not case-sesitive). Example: https://hanna-books-api.herokuapp.com/books/author/auster
+* Books in a specific language (by language-code). Example: https://hanna-books-api.herokuapp.com/books/language/fre
+* One book by id. Example: https://hanna-books-api.herokuapp.com/books/id/275
+* One book by ISBN or ISBN13. Example: https://hanna-books-api.herokuapp.com/books/isbn/140097317
+* List of top-rated 100 books: https://hanna-books-api.herokuapp.com/books/ratings/top100
 
 Query-params:
-* Page: for example: http://localhost:8080/books/?page=22
-* Page size: the default pagesize is 20 books per page, but user can change it dynamically, like for example: http://localhost:8080/books/?page=22&pageSize=10
+* Query by title and/or author. Example: 
+  Only author: https://hanna-books-api.herokuapp.com/books/?author=auster
+  Only title: https://hanna-books-api.herokuapp.com/books/?title=moon
+  Title and author: https://hanna-books-api.herokuapp.com/books/?title=moon&author=auster
+* Pages. Example: https://hanna-books-api.herokuapp.com/books/?page=22
+* Page size: the default pagesize is 20 books per page, but user can change it. Example: https://hanna-books-api.herokuapp.com/books/?page=22&pageSize=10
 
 
 ## The process
