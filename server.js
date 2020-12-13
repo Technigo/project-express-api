@@ -1,31 +1,51 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import goldenGlobesData from './data/golden-globes.json'
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+
+// Add middlewares to ensable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+app.get('/', (request, response) => {
+  response.send('Welcome to Destinys Golden Globe-API!')
 })
+
+// Get all the nominations and categories
+app.get('/nominations', (request, response) => {
+  response.json(goldenGlobesData)
+})
+
+app.get('/nominations/years/:year', (request, response) => {
+  const year = request.params.year
+  const showWon = request.query.won
+  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+
+  if (showWon) {
+    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+  }
+  response.json(nominationsFromYear)
+})
+
+// Tried to get a uniqe category back by using this code but instead a got back an empty array... 
+app.get('/nominations/categorys/:category', (request, response) => {
+  const category = request.params.category
+  const nominationsFilm = goldenGlobesData.filter((item) => item.category === category)
+
+  if (!nominationsFilm) {
+    response.status(404).json("ERROR - This category doesn't exist in the golden-globes API")
+  }
+    response.json(nominationsFilm)
+  })
 
 // Start the server
 app.listen(port, () => {
