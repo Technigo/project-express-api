@@ -1,13 +1,49 @@
-# Express API Project
+# Golden Globe Express API Project
 
-Replace this readme with your own information about your project. 
+An API for getting the last ten years Golden Globe nominees.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Available endpoints
+
+The API comes with a few pre-configured endpoints. They are listed with a brief explanation below.
+
+> /
+Root endpoint.
+
+> /nominees
+Lists all nominees for the last 10 years.
+
+> /nominees/search
+Search for a nominee. Case-insensitive.
+*Example URL: /nominees/search?search=leo*
+
+> /nominees/winners
+Lists all the Golden Globe winners between 2010-2020.
+
+> /nominees/:year
+Lists all nominees for a given year (2010-2020).
+*Example URL: /nominees/2017
+
+> /nominees/:year/winners
+Lists all winners for a year.
+*/nominees/2014/winners*
+
+> /nominees/categories/:category
+Lists all nominees for a given category.
+*Example URL: /nominees/categories/Best%20Motion%20Picture%20-%20Drama*
+
+> /nominees/categories/:category/winners
+Lists all winners for a given category.
+*Example URL: /nominees/categories/Best%20Motion%20Picture%20-%20Drama/winners*
+
+> /nominees/:category/:year/winner
+Lists the winner of a category for a given year.
+*Example URL: /nominees/Best%20Performance%20by%20an%20Actor%20in%20a%20Supporting%20Role%20in%20any%20Motion%20Picture/2015/winner*
+
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Got most of it done thanks to the video lectures on Monday and Wednesday, plus reading through this week's reading material.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## (https://golden-globe-api.herokuapp.com/)[https://golden-globe-api.herokuapp.com/]

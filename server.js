@@ -6,6 +6,11 @@ const nominees = require('./data/golden-globes.json')
 const app = express()
 const port = process.env.PORT || 8080;
 
+// Gives it a port and a function. Listen on port 8080, and the function is "what should I do when it starts?"
+app.listen(port, () => {
+  console.log(`Hello console, the server is up and running on port ${port}.`)
+})
+
 // 🔵 Root endpoint.
 app.get('/', (request, response) => {
   // For every endpoint you have, you have to send a response at some point. 
@@ -43,6 +48,7 @@ app.get('/nominees/winners', (request, response) => {
 app.get('/nominees/:year', (request, response) => {
   const { year } = request.params
   const filteredNominees = nominees.filter(nominee => nominee.year_award === +year)
+
   // Handle year out of range
   if (filteredNominees.length === 0) {
     response.status(404).json(`There's no data for the year ${year}. Please enter a year between 2010–2020`)
@@ -57,7 +63,7 @@ app.get('/nominees/:year/winners', (request, response) => {
   const { year } = request.params
   let filteredNominees = nominees.filter(nominee => nominee.year_award === +year)
   filteredNominees = filteredNominees.filter(nominee => nominee.win === true)
-  
+
   // Handle year out of range
   if (filteredNominees.length === 0) {
     response.status(404).json(`There's no data for the year ${year}. Please enter a year between 2010–2020`)
@@ -86,7 +92,7 @@ app.get('/nominees/categories/:category/winners', (request, response) => {
   const { category } = request.params
   let filteredNominees = nominees.filter(nominee => nominee.category === category)
   filteredNominees = filteredNominees.filter(nominee => nominee.win === true)
-  
+
   // Category not found.
   if (filteredNominees.length === 0) {
     response.status(404).json(`We couldn't find a category called ${category}`)
@@ -106,9 +112,4 @@ app.get('/nominees/:category/:year/winner', (request, response) => {
   // Filter by win
   filteredNominees = filteredNominees.filter(nominee => nominee.win === true)
   response.send(filteredNominees)
-})
-
-// Gives it a port and a function. Listen on port 8080, and the function is "what should I do when it starts?"
-app.listen(port, () => {
-  console.log(`Hello console, the server is up and running on port ${port}.`)
 })
