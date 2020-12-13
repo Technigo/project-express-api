@@ -1,15 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import netflixData from '../data/netflix-titles.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+const ERROR_MESSAGE_ID_NOT_FOUND = { error:'Id not found' }
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -34,10 +28,11 @@ app.use(bodyParser.json())
  *
  */
 app.get('/', (req, res) => {
-
-  res.send('Netflix Movie and Tv show API ')
+  const myEndpoints = require('express-list-endpoints')
+  // Displays the endpoints that are available 
+  res.send(myEndpoints(app))
 })
-
+// Endpoint showing all tv shows and handles pageing returing 20 items
 app.get('/v1/netflixItems', (req, res) => {
   const page = req.query.page ?? 0
   const pageSize = req.query.pageSize ?? 20
@@ -56,7 +51,6 @@ app.get('/v1/netflixItems', (req, res) => {
     results: netflixItemsPerPage,
   } 
   res.send(returnObject)
-
 })
 
 /**
@@ -64,7 +58,7 @@ app.get('/v1/netflixItems', (req, res) => {
  * @apiName GetMovies
  * @apiGroup Netflix
  *
- * @apiParam {Number} type Type for Movies are Movie
+ * @apiParam {Number} release_year of the Movie
  *
  * @apiSuccess {String} show_id Id of the Movie
  * @apiSuccess {String} title Title of the Movie
@@ -77,7 +71,6 @@ app.get('/v1/netflixItems', (req, res) => {
 app.get ('/v1/movies', (req, res) => {
   let movies = netflixData.filter((item) => item.type === "Movie")
   const year = req.query.release_year
-
   if (year) {
     movies = movies.filter((item) => item.release_year === +year)
 
@@ -89,7 +82,6 @@ app.get ('/v1/movies', (req, res) => {
 app.get ('/v1/TvShows', (req, res) => {
   let tvShows = netflixData.filter((item) => item.type === "TV Show")
   const selectedCountry = req.query.country
-  
   if (selectedCountry) {
     tvShows = tvShows.filter((item) => item.country.includes(selectedCountry))
 
@@ -103,10 +95,10 @@ app.get ('/v1/id/:id', (req, res) => {
   let idList = netflixData.filter((item) => item.show_id === +id)
   // If id is not returing an item
   if (idList.length === 0) { 
-    idList="No item with that id found"
+    res.status(404).json(ERROR_MESSAGE_ID_NOT_FOUND)
+  } else{
+    res.json(idList)
   }
-
-  res.json(idList)
 })
 
 // Start the server

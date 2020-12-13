@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
-    "start": "babel-node server.js",
-    "dev": "nodemon server.js --exec babel-node"
+    "start": "babel-node src/server.js",
+    "dev": "nodemon src/server.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
@@ -12,10 +12,13 @@
     "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
+    "@reduxjs/toolkit": "^1.5.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "nodemon": "^2.0.6"
+    "express-list-endpoints": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "react-redux": "^7.2.2"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

@@ -4,11 +4,15 @@ Replace this readme with your own information about your project.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
+## How I built it - What I learned
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I managed to implement different endpoints showing results filtered by Movies, Tv-shows,  single netflixitem by ID and filter by release year.
+I learned how to use express-list-endpoints to 
+I wanted to push myself some more and decided to implement Pagination to my API since the dataset is so big, it's easier to manipulate the data in smaller chunks. 
+Also learned how to respond with 404 Error messages when a request yields no results. 💥
+
 
 ## View it live
 
-Link to the deployed project:
-https://technigo-netflix.herokuapp.com/
+My Netflix API is live in Heroku, you can find it here: https://technigo-netflix.herokuapp.com/
+Documenation can be found here :
