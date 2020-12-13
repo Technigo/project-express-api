@@ -69,4 +69,4 @@ Got most of it done thanks to the video lectures on Monday and Wednesday, plus r
 
 ## View it live
 
-## (https://golden-globe-api.herokuapp.com/)[https://golden-globe-api.herokuapp.com/]
+## [https://golden-globe-api.herokuapp.com/](https://golden-globe-api.herokuapp.com/)
