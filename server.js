@@ -34,7 +34,7 @@ app.get('/nominations', (request, response) => {
 // const year and category lets us get the input value from the placeholder year and category, 
 // and then we can filter our data using year and category.
 
-// url endpoint: /category/[category name]/year/[year]?win=true
+// url endpoint: catgories/category/Best Motion Picture - Drama/years/year/2012?win=true
 // The url without the query: returns all nominees for category and year
 
 app.get('/categories/category/:category/years/year/:year', (request, response) => {
@@ -57,7 +57,7 @@ app.get('/categories/category/:category/years/year/:year', (request, response) =
 });
 
 // First year is the path, second year is a placeholder for a value. Filters on year and winners.
-// The url endpoint: /year/[year]?win=true
+// The url endpoint: years/year/[year]?win=true
 app.get('/years/year/:year', (request, response) => {
   const year = request.params.year
   const showWon = request.query.win
@@ -89,6 +89,8 @@ app.listen(port, () => {
 })
 
 {/*find() vs filter():
-find() returns the winner from category and year WITHOUT the query: win=true. This since it returns the first match which also happens to be the winner in this particular structure of data (a structure we cannot control). This is a un-reliable method in this case.
+find() returns the winner from category and year WITHOUT the query: win=true. This 
+since it returns the first match which also happens to be the winner in this particular structure of 
+data (a structure we cannot control). This is a un-reliable method in this case.
 filter() returns the winner only with a query. This is more reliable.
 */}
