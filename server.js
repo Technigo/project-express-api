@@ -3,20 +3,8 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const ERROR_BOOKS_NOT_FOUND = { error: 'No books were found.' }
+const port = process.env.PORT || 8000
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -25,7 +13,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Welcome to Saras book review site. To get full list use the endpoint /books')
 })
 
 //get all data
@@ -38,40 +26,39 @@ app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const book = booksData.find(book => book.bookID === +bookId)
   if (!book) {
-    res.send('Error: Could not find any book with that Id!')
+    response.status(404).json(ERROR_BOOKS_NOT_FOUND)
   }
   res.json(book)
 })
 
 //sort books based on author
-app.get('/books/authors/:author', (req, res) => {
-  const author = req.params.author
+app.get('/authors/:author', (req, res) => {
+  const {author} = req.params
   const booksByAuthor = booksData.filter(book => book.authors === author)
   if (booksByAuthor.length === 0) {
-    res.send('Error: Could not find any books by that author!')
+    res.status(404).json(ERROR_BOOKS_NOT_FOUND)
   }
   res.json(booksByAuthor)
 })
 
 //get a book based on title
-app.get('/books/titles/:title', (req, res) => {
-  const book = req.params.title
-  const bookTitle = booksData.filter(item => item.title === book)
+app.get('/titles/:title', (req, res) => {
+  const { title } = req.params
+  const bookTitle = booksData.filter(item => item.title === title)
   if (bookTitle.length === 0) {
-    res.send('Error: Could not find any book with that title!')
+    res.status(404).json(ERROR_BOOKS_NOT_FOUND)
   }
   res.json(bookTitle);
 })
 
-//sort books by rating 
-app.get('/books/toplist/:nr', (req, res) => {
-  const nrOfBooks = req.params.nr;
+//sort books by rating and set nr of books.
+app.get('/toplist/:nrOfBooks', (req, res) => {
+  const {nrOfBooks} = req.params
   const highRatedBooks = [...booksData];
   highRatedBooks.sort((a, b) => b.average_rating - a.average_rating)
   const topList = highRatedBooks.slice(0, nrOfBooks);
   res.json(topList)
 })
-
 
 // Start the server
 app.listen(port, () => {
