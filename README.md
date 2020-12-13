@@ -1,15 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks assignment was to create a REST api using express and then publish the api using heroku.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started out selecting the data I wanted to use and put it in a json-file in the project. Then i started out with the first endpoint which returns all the albums. Then I created new endpoints. I finished by creating a frontend page which is partly created to show the data in "use", and also as a documentation.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
 Frontend/Docs: https://karolin-top500albums-frontend.netlify.app/
+API calls: https://karolin-top-albums.herokuapp.com/
