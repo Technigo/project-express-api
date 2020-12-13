@@ -14,7 +14,7 @@ app.listen(port, () => {
 // 🔵 Root endpoint.
 app.get('/', (request, response) => {
   // For every endpoint you have, you have to send a response at some point. 
-  response.send("Hello (golden) globe!")
+  response.send("Hello World! See available endpoints at: https://github.com/AxelHammarback/project-express-api")
 })
 
 // 🔵 Endpoint that lists all the nominees (since 2010 – that's when the data starts).
