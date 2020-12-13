@@ -37,4 +37,4 @@ If I had more time I would like to also build a front-end for this API which use
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://hanna-books-api.herokuapp.com/

@@ -50,6 +50,9 @@ app.get('/', (req, res) => { // req is incoming(we don't change it), the res is 
 //Gets all the books from books.json:
 //http://localhost:8080/books
 app.get('/books', (req, res) => {
+
+  // The '/books' endpoint gets an error in the console (but still works):
+//Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
   //res.json(booksData)
   const { author, title } = req.query; // Add this in code!
 
@@ -97,15 +100,16 @@ app.get('/books', (req, res) => {
 // Get books in a specified language (by language-code):
 // Example: http://localhost:8080/books/language/fre  // language_codes: eng, fre, en-US, spa, en-GB, mul, ger
 app.get('/books/language/:language', (req, res) => {
+// This language endpoint gets an error in the console (but still works):
+//Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client...
   const language = req.params.language
-  // could also destructure { language } = rec.params , then you could include several variables
   const booksByLanguage = booksData.filter((book) => book.language_code === language)
 
   if (booksByLanguage.length > 0) {
-    res.json(booksByLanguage)
+    res.send(booksByLanguage)
   }
   res.status(404).json(ERROR_MESSAGE_LANGUAGE_NOT_FOUND)
-})
+}) 
 
 // ID-ENDPOINT. 
 // Get a single book by id:
@@ -156,7 +160,6 @@ app.get('/books/author/:author', (req, res) => {
   const author = req.params.author
 
   if (author) {
-    //const booksFilteredByAuthor = booksData.filter(book => book.authors.toLowerCase().replace('-', ' ').split(' ').includes(author || author.toLowerCase()))
     const booksFilteredByAuthor = booksData.filter(book => (book.authors.includes(author) || book.authors.toLowerCase().includes(author)))
 
     if (booksFilteredByAuthor.length > 0) {
