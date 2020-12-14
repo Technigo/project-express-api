@@ -73,8 +73,6 @@ const bookDefinition = [
   }
 ]
 
-
-
 app.get('/', (req, res) => {
   res.send(endpoints(app))
 })
