@@ -10,9 +10,8 @@ const ERROR_DATA_NOT_FOUND = { error: 'Data not found'}
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/books/page/:page', (req, res) => {
-  const page = req.params
-  res.json(showData)
+app.get('/books', (req, res) => {
+  res.json(booksData)
 })
 
 //search for books by Id
