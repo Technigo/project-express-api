@@ -24,14 +24,14 @@ app.get('/books', (request, response) => {
 })
 
 // Endpoint/route that return a single book based on the ID
-app.get('/books/book/:bookID', (request, response) => {
+app.get('/books/:bookID', (request, response) => {
   const bookID = request.params.bookID
   const specificBook = booksData.find((specificBook) => specificBook.bookID === +bookID)
     
     response.json(specificBook)
 })
 
-// Endpoint/route that return a specific author
+// Endpoint/route that return a list of books by a specific author
 app.get('/books/search', (request, response) => {
   const author = request.query.author
   const filteredAuthors = booksData.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
@@ -45,6 +45,14 @@ app.get('/books/top-ten', (request, response) => {
   let topTenBooks = sortedOnRating.slice(0,10)
 
     response.json(topTenBooks)
+})
+
+// Endpoint/route that return a single book based on the ID
+app.get('/books/top-ten/:bookID', (request, response) => {
+  const bookID = request.params.bookID
+  const eachTopTenBook = booksData.find((eachTopTenBook) => eachTopTenBook.bookID === +bookID)
+    
+    response.json(eachTopTenBook)
 })
 
 // Start the server
