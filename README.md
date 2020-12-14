@@ -8,4 +8,5 @@ The RESTful API naming, the usage of params and query are the two main difficult
 
 ## View it live
 
-This week project is not deployed on Netlify.
+https://goodbookscollection.herokuapp.com/books
+
