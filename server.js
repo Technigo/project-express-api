@@ -68,8 +68,9 @@ app.get('/books', (req, res) => {
     res
     .status(404)
     .send({ Error: 'Sorry, no books found, please try a different query' });
-  };
-  res.json(returnObject);
+  } else {
+    res.json(returnObject);
+  }
 });
 
 //Search by bookID
