@@ -80,9 +80,9 @@ app.get('/books', (req, res) => {
     res.status(404).send({
       error: 'Sorry, no books where found, please try a different query.'
     });
+  } else {
+    res.json(returnObject);
   }
-
-  res.json(returnObject);
 });
 
 // /books/top-20-rated endpoint
