@@ -1,4 +1,4 @@
-# Express API Project&ensp;|&ensp;[View Live &#10132;](https://books-express.herokuapp.com)
+# Express API Project&ensp;|&ensp;[View Live &#10132;](https://hello-happy-books.netlify.app/)
 
 API backend built with Node.js and Express.js. Data from a JSON-file and different routes and queries to sort and filter. Frontend built with React and Sass.
 
