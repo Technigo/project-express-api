@@ -11,7 +11,27 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/books', (req, res) => {
-  res.json(booksData)
+  const books = booksData
+  const page = req.query.page ? req.query.page -1 : 0 //page 0 as default, page number is -1 compared to the array index
+    const pageSize = req.query.pageSize ?? 20 //default is 20
+    const startIndex = page * pageSize
+    const endIndex = startIndex + pageSize
+    const bookPerPage = books.slice(startIndex, endIndex)
+    const returnObj = {
+      amountOfData: books.length,
+      amounfOfPages: Math.ceil(books.length / pageSize),
+      currentPage: page + 1,
+      pageSize: pageSize,
+      startIndex: startIndex,
+      endIndex: endIndex,
+      results: bookPerPage
+    }
+
+    if (bookPerPage.length === 0) {
+      res.status(404).json(ERROR_DATA_NOT_FOUND)
+    } else {
+      res.json(returnObj)
+    }
 })
 
 //search for books by Id
