@@ -1,13 +1,21 @@
-# Express API Project
+# Express API Project 📀
 
-Replace this readme with your own information about your project. 
+In this project I start my backend journey by creating an API using Express. The API have four RESTful endpoints which return an array of data, or a single item.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## View it live 👀
 
-## The problem
+## The problem 🧠
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- How to install and setup an Express server.
+- How to create routes.
+- How to deploy Node projects.
 
-## View it live
+## Learnings 🤓
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+- The API endpoints I created use array methods such as .find(), and .filter().
+- It has four routes. 
+- Endpoints to return a **collection** of results (array of elements)
+- Endpoints to return a **single** result (single element).
+- The API is [RESTful](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)
+
+
