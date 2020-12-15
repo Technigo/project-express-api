@@ -1,13 +1,19 @@
-# Express API Project
+# Express API Project&ensp;|&ensp;[View Live &#10132;](https://books-express.herokuapp.com)
 
-Replace this readme with your own information about your project. 
+API backend built with Node.js and Express.js. Data from a JSON-file and different routes and queries to sort and filter. Frontend built with React and Sass.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Core Tech
 
-## The problem
+- Node.js
+- Express
+- JavaScript
+- Heroku
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+![Mockup](mockup.jpg)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+- [Backend](https://books-express.herokuapp.com)
+
+- [Frontend GitHub](https://github.com/jonnaru/books-frontend)
+- [Frontend live website](https://hello-happy-books.netlify.app/)

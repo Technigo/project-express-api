@@ -65,6 +65,16 @@ app.get("/books/:id", (req, res) => {
   else res.status(404).json({ message: `Id ${id} not found` });
 });
 
+// Dummie author endpoint
+app.get("/authors", (req, res) => {
+  res.send("All unique authors");
+});
+
+// Dummie top books endpoint
+app.get("/top-list", (req, res) => {
+  res.send("Top rated and most reviewed books");
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
