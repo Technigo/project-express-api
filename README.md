@@ -4,6 +4,8 @@ In this project I start my backend journey by creating an API using Express. The
 
 ## View it live 👀
 
+https://api-express-project.herokuapp.com/
+
 ## The problem 🧠
 
 - How to install and setup an Express server.
