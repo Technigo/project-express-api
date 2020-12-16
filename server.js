@@ -93,9 +93,8 @@ app.get('/books', (req, res) => {
   if(sorted) {
     books = sortByNumPages(books, sorted)
   }
-
-  const currentPage = pagination(books, page)
   
+  const currentPage = pagination(books, page)
   res.json(currentPage)
 })
 
@@ -103,7 +102,6 @@ app.post('/books', (req, res) => {
   const input = req.body
   const validationResult = validateBookInput(bookDefinition, input)
   const invalids = validationResult.filter((object) => !object.isValid)
-
   const newBook = addBook(invalids, fs, validationResult, input, res, INPUT_ERROR)
   res.status(201).json(newBook)
 })
