@@ -5,10 +5,20 @@ import booksData from './data/books.json'
 
 const port = process.env.PORT || 8080
 const app = express()
+const myEndPoints = require('express-list-endpoints')
 const ERROR_DATA_NOT_FOUND = { error: 'Data not found'}
 
 app.use(cors())
 app.use(bodyParser.json())
+
+app.get('/', (req, res) => {
+  if (!res) {
+    res
+      .status(404)
+      .send({ error: 'Oops! Something goes wrong. Try again later' })
+  }
+  res.send(myEndPoints(app))
+})
 
 app.get('/books', (req, res) => {
   const books = booksData
@@ -118,11 +128,11 @@ app.get('/books/rating/sort', (req, res) => {
 
 //sort books by number of pages
 app.get('/books/pages/sort', (req, res) => {
-  const { sortorder } = req.query
-  const sortbyPages = booksData.sort(function(a,b){
-    if (sortorder === 'asc') {
+  const { sort } = req.query
+  const sortbyPages = booksData.sort((a,b) => {
+    if (sort === 'asc') {
       return +a.num_pages - +b.num_pages
-    } else if ( sortorder === 'des') {
+    } else if ( sort === 'des') {
       return +b.num_pages - +a.num_pages
     }
   })
