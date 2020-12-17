@@ -100,11 +100,11 @@ app.get('/books/language/search', (req, res) => {
 
 //sort books by average_rating
 app.get('/books/rating/sort', (req, res) => {
-  const { sortorder } = req.query
-  const sortbyRating = booksData.sort(function(a,b) {
-    if (sortorder === 'asc') {
+  const { sort } = req.query
+  const sortbyRating = booksData.sort((a,b) => {
+    if (sort === 'asc') {
       return +a.average_rating - +b.average_rating
-    } else if ( sortorder === 'des') {
+    } else if ( sort === 'des') {
       return +b.average_rating - a.average_rating
     } 
   })
