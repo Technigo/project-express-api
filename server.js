@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('Hi everyone! Keep reading here: https://express-api-project-horvath.herokuapp.com/')
+  res.send('Hi everyone! Keep reading here...COMING SOON')
 })
 
 app.get('/books', (req, res) => {
