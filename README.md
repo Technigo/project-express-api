@@ -10,7 +10,7 @@ Spent some time with the data to understand what kind of API endpoints would mak
 
 https://project-book-api.herokuapp.com/
 
-Endpoints:
+## Endpoints
 
 https://project-book-api.herokuapp.com/books - all books in the dataset
 
