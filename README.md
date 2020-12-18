@@ -20,7 +20,7 @@ https://project-book-api.herokuapp.com/books/12/title - title of book with id 12
 
 https://project-book-api.herokuapp.com/books/5/authors - list with authors of book with id 5
 
-https://project-book-api.herokuapp.com/books?language=abc - replace abc with eng, en-US, en-GB or spa - case and character sensitive
+https://project-book-api.herokuapp.com/books?language=abc - replace abc with eng, en-US, en-GB, spa or ara (might be more languages) - case and character sensitive
 
 https://project-book-api.herokuapp.com/books?title=abc - replace abc with title (not case sensitive)
 
