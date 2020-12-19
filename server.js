@@ -30,27 +30,23 @@ app.get('/books', (req, res) => {
 
   const { author, title } = req.query
 
-  if(author) {
-    const booksByAuthor = booksData.filter(item => 
-      item.authors.toLowerCase().includes(author.toLowerCase())
-    ) 
-  if (booksByAuthor.length === 0) {
-    res.status(404).json(ERROR_MESSAGE_AUTHORS)
-  } else {
-    res.json(booksByAuthor)
-  }
-} else if (title) {
-  const booksByTitle = booksData.filter(item => 
-    item.title.toLowerCase().includes(title.toLowerCase())
-  )
-  if (booksByTitle.length === 0) {
+  if (author) {
+    const booksByAuthor = booksData.filter(item => item.authors.toLowerCase().includes(author.toLowerCase())) 
+    if (booksByAuthor.length === 0) {
+      res.status(404).json(ERROR_MESSAGE_AUTHORS)
+    } else {
+      res.json(booksByAuthor)
+    }
+  } else if (title) {
+    const booksByTitle = booksData.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
+    if (booksByTitle.length === 0) {
     res.status(404).json(ERROR_MESSAGE_TITLES)
+    } else {
+      res.json(booksByTitle)
+    }
   } else {
-    res.json(booksByTitle)
+    res.json(booksData)
   }
-} else {
-  res.json(booksData)
-}
 })
 
 
