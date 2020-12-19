@@ -10,8 +10,7 @@ I love books! 📚 So I decided to use the file with a list of books and book re
 I started out with listing all the books in the data with the route /books. 
 I've also created the following routes/endpoints and queries:
 - /books/:id that takes id as a path parameter, finding one single book based on its id
-- query /authors to filter books by authors
-- query /titles to filter books by title
+- query to filter books by authors and title
 - query /toplist for finding a toplist of books (by sorting the books on rating and query parameter for showing a choosen number of books)
 - query /result-page for pagination - showing 50 books on each page
 - empty/dummy-endpoint that could be used in the future: sorting books by category

@@ -25,9 +25,34 @@ app.get('/', (req, res) => {
 })
 
 //Returning a collection of all the books in the data
+// Also contains the possibility to query for books by author and title
 app.get('/books', (req, res) => {
+
+  const { author, title } = req.query
+
+  if(author) {
+    const booksByAuthor = booksData.filter(item => 
+      item.authors.toLowerCase().includes(author.toLowerCase())
+    ) 
+  if (booksByAuthor.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_AUTHORS)
+  } else {
+    res.json(booksByAuthor)
+  }
+} else if (title) {
+  const booksByTitle = booksData.filter(item => 
+    item.title.toLowerCase().includes(title.toLowerCase())
+  )
+  if (booksByTitle.length === 0) {
+    res.status(404).json(ERROR_MESSAGE_TITLES)
+  } else {
+    res.json(booksByTitle)
+  }
+} else {
   res.json(booksData)
+}
 })
+
 
 //Finding a single book by its id with path parameter :id
 app.get('/books/:id', (req, res) => {
@@ -38,32 +63,6 @@ app.get('/books/:id', (req, res) => {
     res.status(404).json(ERROR_MESSAGE_BOOKS)
   } else {
     res.json(bookByID)
-  }
-})
-
-//____________ QUERY PARAMETERS ____________ //
-
-//Query for books by author
-app.get('/authors', (req, res) => {
-  const { author }  = req.query
-  const booksByAuthor = booksData.filter(item => item.authors.toString().toLowerCase().includes(author.toString().toLowerCase()))
-  
-  if (booksByAuthor.length === 0) {
-    res.status(404).json(ERROR_MESSAGE_AUTHORS)
-  } else {
-    res.json(booksByAuthor)
-  }
-})
-
-// Query for books by title
-app.get('/titles', (req, res) => {
-  const { title } = req.query
-  const booksByTitle = booksData.filter(item => item.title.toString().toLowerCase().includes(title.toString().toLowerCase()))
-  
-  if (booksByTitle.length === 0) {
-    res.status(404).json(ERROR_MESSAGE_TITLES)
-  } else {
-    res.json(booksByTitle)
   }
 })
 
@@ -82,6 +81,7 @@ app.get('/toplist', (req, res) => {
 app.get('/result-page', (req, res) => {
   const { page } = req.query
   let selectedBooks = booksData.slice(0,50)
+
 
   if (page === '1') {
     selectedBooks = booksData.slice(0, 50)
