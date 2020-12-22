@@ -17,7 +17,7 @@ I've also created a error messages that will be shown if the response status is 
 
 
 ## Tech used
-* JavaSrcipt
+* JavaScript
 * Node.js
 * Express
 
