@@ -1,13 +1,24 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project was to create an API using Express. The API should have a couple of RESTful endpoints which return either an array of data, or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week's challenge was not so much in the build as in the why and what of each endpoint and query string. I struggled a lot with understanding why an endpoint consisting of a top list based on the data at hand was not a good idea. When I finally had my aha-moment the rest more or less took care of itself. I'm looking forward to exploring the issue with appropriate data further.
+
+## Learning objectives
+
+- Building an API in Node using Express
+- Creating routes in Express
+- Practicing data manipulation in JavaScript - selecting, filtering and limiting arrays
+
+## Tech
+
+- Node.js
+- Express
+- JavaScript
+- RESTful
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://book-reviews-express-api.herokuapp.com/
