@@ -38,38 +38,36 @@ eng, en-GB, en-US, spa, fre, ger, ara, por, grc, mul
 http://localhost:8081/books?averagerating=4
 
 For the the page query a list of 50 results will be returned from the books array that have been pre-sliced using the slice method. 
-What data is returned depends on what number the user has queried in the endpoint. The number specified will have a 1 subtracted from it. The number will be then matched with the index number of one of the pageArray elements. This will the return the 50 books that have been sliced in that array index 
-e.g. http://localhost:8081/books?page=1 will have 1 subrtracted from it so it will be 0, then it will look for that index number and return the data that is being sliced in that array element.
+What data is returned depends on what number the user has queried in the endpoint e.g. http://localhost:8081/books?page=1. 
+The number specified is stored in the page query variable and will have a 1 subtracted from it and * by 50 to create the initial index number to be used in the slice. This is stored in the startIndex variable and then used in slice to initiate which book should be returned at the beginning of the slice and which should be return at the end, although the end element will be omitted as this is a side effect of the slice method. This will then return 50 books depending upon which page number is written. If the user types a page number that doesn't exist then an empty array is returned.
 */
 
 app.get('/books', (request, response) => {
   const { author, title, language, averagerating, page } = request.query;
 
   if (author) {
+    //tolocaleLowerCase() sets the data in author array data to lowercase and also the author that is being queried so they will match
     const authorResults = booksData.filter((item) => item.authors.toLocaleLowerCase().includes(author.toLocaleLowerCase()));
     if(authorResults.length === 0) {
       response.status(404).json("Sorry that author doesn't exist.");
-    } else {
-      response.json(authorResults);
     }
+      response.json(authorResults);
   }
   
   if (title) {
     const titleResults = booksData.filter((item) => item.title.toString().toLocaleLowerCase().includes(title.toLocaleLowerCase()));
     if(titleResults.length === 0) {
       response.status(404).json("Sorry that book title doesn't exist.");
-    } else {
-      response.json(titleResults);
-    }
+    } 
+    response.json(titleResults);
   }
 
   if (language) {
     const languageResults = booksData.filter((item) => item.language_code === language);
     if(languageResults.length === 0) {
       response.status(404).json("Sorry we don't have any books in that language.");
-    } else {
-      response.json(languageResults);
-    }
+    } 
+    response.json(languageResults);
   }
 
   // "+" on averagerating turns the string in to a number.
@@ -77,26 +75,18 @@ app.get('/books', (request, response) => {
     const aveRatingResults = booksData.filter((item) => item.average_rating === +averagerating);
     if(aveRatingResults.length === 0) {
       response.status(404).json("Sorry, that rating doesn't exist.");
-    } else {
-      response.json(aveRatingResults);
     }
+     response.json(aveRatingResults);    
   } 
 
-  const pageArray = [
-    booksData.slice(0,50),
-    booksData.slice(50,101),
-    booksData.slice(101,152),
-    booksData.slice(152,203),
-    booksData.slice(203,255),
-    booksData.slice(255,306),
-    booksData.slice(306,357),
-    booksData.slice(357,408), 
-    booksData.slice(408,459),
-    booksData.slice(459,499)
-  ];
-
   if(page) {
-    response.json(pageArray[page-1]);
+    let pageSize=50;
+    // Determining the index number of the first book on the page, as page is storing a number between 1-10 that the user requests. This number is minused by 1 and times by 50 to give the starting index number to be used in the slice.
+    let startIndex = (page-1)*pageSize;
+    // Then we use that startIndex as the starting point of the slice and  then end startIndex plus 50 to slice the last index from the array of books
+    let slice = booksData.slice(startIndex, startIndex+pageSize);
+    // Showing the result of the slice
+    response.json(slice);
   }
 
   response.json(booksData);
