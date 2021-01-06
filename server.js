@@ -4,6 +4,8 @@ import cors from "cors";
 
 import data from "./data/netflix-titles.json";
 
+const listEndpoints = require("express-list-endpoints");
+
 // Variable that will show an error message when no results are found
 const ERROR_SHOW_NOT_FOUND = { error: "No results were found." };
 
@@ -17,9 +19,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(
-    "Hello Netflix! See the README file on Github to learn how to filter the API."
-  );
+  res.send(listEndpoints(app));
 });
 
 // Route to list all the content in the show array
