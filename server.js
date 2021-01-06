@@ -16,54 +16,31 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
+////// My endpoints //////
+
+// To list all available endpoints on the starting page
+const listEndpoints = require('express-list-endpoints');
 app.get('/', (req, res) => {
-  res.send('Hello, welcome to Gabriella´s API with books! Possible endpoints to use: /books (for seeing all books), /books/book/:id, (to search by Book ID) /books/author/:author (to search by author) and /books/top-rated (to see the 20 highest rated books) With filter and query parameter you can find search =high to get 50 books with high rating and you can use page=pagenumber to se 50 per page where it exist 10 pages in total')
+  res.send(listEndpoints(app))
 });
 
 // The first endpoint, returns a collection of books
 app.get('/books', (req, res) => {
-  res.json(books)
-});
 
-// Filter query
-app.get('/books/filter', (req, res) => {
-  // Slice to set the 50 first books
-  let filteredBooks = books.slice(0, 50);
 
-  // Set a filter with query parameter to filter on
-  // only the books with average_rating > 4.0
-  // Access this query by '/books?average_rating=high'
-  const { average_rating, page } = req.query;
-  if (average_rating === 'high') {
-    filteredBooks = filteredBooks.filter((item) => item.average_rating > 4.0);
-  };
+  const page = req.query.page ?? 0;
 
   // Set query for which site to see, with 50 on each.
-  // Total 500 books divided on 10 pages
-  if (page === '1') {
-    filteredBooks = books.slice(0, 50)
-  } else if (page === '2') {
-    filteredBooks = books.slice(51, 100)
-  } else if (page === '3') {
-    filteredBooks = books.slice(101, 150)
-  } else if (page === '4') {
-    filteredBooks = books.slice(151, 200)
-  } else if (page === '5') {
-    filteredBooks = books.slice(201, 250)
-  } else if (page === '6') {
-    filteredBooks = books.slice(251, 300)
-  } else if (page === '7') {
-    filteredBooks = books.slice(301, 350)
-  } else if (page === '8') {
-    filteredBooks = books.slice(351, 400)
-  } else if (page === '9') {
-    filteredBooks = books.slice(401, 450)
-  } else if (page === '10') {
-    filteredBooks = books.slice(451, 500)
-  }
+  // Total 500 books divided on 10 pages, going from 0 to 9
+  if (page === page) {
+    const pageSize = 50;
+    const startIndex = page * pageSize;
+    const endIndex = startIndex + pageSize;
+    let slicedBooks = books.slice(startIndex, endIndex)
+    res.json(slicedBooks)
+  };
+  res.json(books) // This doesn't work
 
-  res.json(filteredBooks)
 });
 
 // The second endpoint, returns a single book based on bookID
