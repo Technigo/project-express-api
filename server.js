@@ -36,9 +36,9 @@ app.get("/movies", (req, res) => {
 });
 
 // This route makes it possible to search a specific movie and display the object
-app.get("/movies/:movies", (req, res) => {
-  const { movies } = req.params;
-  const movie = data.filter((item) => item.title == movies);
+app.get("/movies/:title", (req, res) => {
+  const { title } = req.params;
+  const movie = data.filter((item) => item.title == title);
   if (movie.length === 0) {
     res.status(404).json(ERROR_SHOW_NOT_FOUND);
   } else {
@@ -66,8 +66,9 @@ app.get("/tvshows/:tvshows", (req, res) => {
 // Tried to implement query, will have a look at this and try to solve it asap.
 app.get("/tvshows/title", (req, res) => {
   const { title } = req.query.title;
-  if (title) {
-    const findTitle = data.filter((item) => item.title === title);
+
+  const findTitle = data.filter((item) => item.title === title);
+  if (findTitle) {
     res.json(findTitle);
   } else {
     res.send(`The title: ${title} could not be found`);
@@ -75,9 +76,9 @@ app.get("/tvshows/title", (req, res) => {
 });
 
 // This route makes it possible to search a specific country and list all shows from that country
-app.get("/shows/:countries", (req, res) => {
-  const { countries } = req.params;
-  const showCountry = data.filter((item) => item.country == countries);
+app.get("/countries/:country", (req, res) => {
+  const { country } = req.params;
+  const showCountry = data.filter((item) => item.country == country);
   if (showCountry.length === 0) {
     res.status(404).json(ERROR_SHOW_NOT_FOUND);
   } else {
@@ -89,10 +90,10 @@ app.get("/shows/:countries", (req, res) => {
 app.get("/shows/:id", (req, res) => {
   const { id } = req.params;
   const showFound = data.find((show) => show.show_id === +id);
-  if (!showFound === true) {
-    res.status(404).json(ERROR_SHOW_NOT_FOUND);
+  if (showFound) {
+    res.status(200).json(showFound);
   } else {
-    res.json(showFound);
+    res.status(404).json(ERROR_SHOW_NOT_FOUND);
   }
 });
 
