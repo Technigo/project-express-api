@@ -1,6 +1,7 @@
 import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+
 import netflixData from './data/netflix-titles.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -42,8 +43,7 @@ app.get('/productions', (req, res) => {
 app.get('/productions/:id', (req, res) => {
   const id = req.params.id;
   const production = netflixData.find(
-    (production) => production.show_id === +id
-    );
+    (production) => production.show_id === +id);
     res.json(production)
 });
 
@@ -69,7 +69,7 @@ app.get('/release/:year', (req, res) => {
 });
 
 // 5 // Filter on categories (ex. Movie, TV Shows ... ) + Error-message if not found
-app.get('c', (req, res) => {
+app.get('/content/:category', (req, res) => {
   const { category } = req.params;
   const filteredOnCategory = netflixData.filter(
     (content) => content.type === category
