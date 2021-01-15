@@ -16,7 +16,7 @@ import goldenGlobesData from './data/golden-globes.json';
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8090;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
@@ -32,37 +32,22 @@ app.get('/nominations', (req, res) => {
 	res.json(goldenGlobesData);
 });
 
-app.get('/year/:year', (req, res) => {
+// app.get('/nominations/:year/', (req, res) => {
+// 	const { year } = req.params;
+
+// 	res.json();
+// });
+
+//single item
+
+app.get('/nominations/:year/', (req, res) => {
 	const year = req.params.year;
-	const showWin = req.query.win;
+
 	let nominationsFromYear = goldenGlobesData.filter(
 		(item) => item.year_award === +year
 	);
 
-	if (showWin) {
-		nominationsFromYear = nominationsFromYear.filter((item) => item.win);
-	}
 	res.json(nominationsFromYear);
-});
-
-//single item
-
-app.get('/year/:year/category/best_drama/?win=true', (req, res) => {
-	const year = req.params.year;
-	const showWin = req.query.win;
-
-	let bestDrama = goldenGlobesData.filter(
-		(item) => item.category === 'Best Motion Picture - Drama'
-	);
-
-	if (showWin) {
-		bestDrama = bestDrama.filter((item) => item.win);
-	}
-	let bestDramaOfTheYear = bestDrama.filter(
-		(item) => item.year_award === +year
-	);
-
-	res.json(bestDramaOfTheYear);
 });
 
 // Start the server
