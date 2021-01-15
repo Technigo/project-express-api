@@ -3,8 +3,6 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-console.log(`Book nr: ${booksData.length}`)
-
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -20,7 +18,7 @@ app.use(bodyParser.json())
 // --- ALL THE ROUTES ---
 
 // --- front page ---
-app.get('/', (request /* incoming */, response /* outgoing */) => {
+app.get('/', (request, response) => {
 
   response.send('Books API.')
 })
@@ -55,18 +53,18 @@ app.get("/books", (request, response) => {
 // --- getting SPECIFIC book based on ISBN13 ---
 //localhost:8080/id/:isbn13
 
-app.get("/id/:isbn13", (request, response) => {
+app.get("/books/:isbn13", (request, response) => {
 
-  const bookId = request.params.isbn13
+  const ISBN13 = request.params.isbn13
 
   //find a book based on its isbn13
-  const bookISBN13 = booksData.find(item => item.isbn13 === +bookId)
+  const bookISBN13 = booksData.find(item => item.isbn13 === +ISBN13)
 
   if (bookISBN13) {
     response.json(bookISBN13)
   }
   else {
-    response.status(404).json(`No book with ISBN13 ${bookId} was found.`);
+    response.status(404).json(`No book with ISBN13 ${ISBN13} was found.`);
   }
 })
 

@@ -12,7 +12,7 @@ A RESTful book API built in Node.js using Express and data from hard-coded book 
 - List of 499 books: https://rbk-express-books-api.herokuapp.com/books
 - All books with matching search word in the title: https://rbk-express-books-api.herokuapp.com/books?title=freakonomics  
 - Returning an error message if the book was not found (when searched by title or ISBN13)
-- Single book by ISBN13: https://rbk-express-books-api.herokuapp.com/id/9780060920081
+- Single book by ISBN13: https://rbk-express-books-api.herokuapp.com/books/9780060920081
 - Books sorted based on average rating: https://rbk-express-books-api.herokuapp.com/rating 
 
 ## :chart_with_upwards_trend: Future improvements
