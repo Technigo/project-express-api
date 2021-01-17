@@ -5,9 +5,7 @@ import cors from 'cors';
 // My choosen dataset
 import books from './data/books.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-
+// Defines the port the app will run on.
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -27,20 +25,40 @@ app.get('/', (req, res) => {
 // The first endpoint, returns a collection of books
 app.get('/books', (req, res) => {
 
+  // Query to set which page to see, with 50 books on each page.
+  // /books?page=4
+  // Total 500 books divided on 10 pages, going from 0 to 9. 
+  const page = req.query.page;
+  const pageSize = 50;
+  const startIndex = page * pageSize;
+  const endIndex = startIndex + pageSize;
 
-  const page = req.query.page ?? 0;
+  // Query to search on word in book title - /books?title=heart
+  const searchTitle = req.query.title;
 
-  // Set query for which site to see, with 50 on each.
-  // Total 500 books divided on 10 pages, going from 0 to 9
-  if (page === page) {
-    const pageSize = 50;
-    const startIndex = page * pageSize;
-    const endIndex = startIndex + pageSize;
-    let slicedBooks = books.slice(startIndex, endIndex)
-    res.json(slicedBooks)
-  };
-  res.json(books) // This doesn't work
-
+  // Conditioning for searching on page
+  if (page) {
+    const slicedBooks = books.slice(startIndex, endIndex);
+    if (slicedBooks.length === 0) {
+      const error = new Error("Page not found");
+      error.status = 404;
+      throw error;
+    }
+    res.json(slicedBooks);
+    // Conditioning for searching on word in title
+  } else if (searchTitle) {
+    const searchTitleList = books.filter((item) =>
+      item.title.toString().toLowerCase().includes(searchTitle.toLowerCase()));
+    if (searchTitleList.length === 0) {
+      const error = new Error("Book not found");
+      error.status = 404;
+      throw error;
+    }
+    res.json(searchTitleList);
+  } else {
+    // Get the full list with all 500 books
+    res.json(books);
+  }
 });
 
 // The second endpoint, returns a single book based on bookID
@@ -48,7 +66,7 @@ app.get('/books/:id', (req, res) => {
   const bookID = req.params.id;
   const bookById = books.find((item) => item.bookID === +bookID);
 
-  // If bookID wasn't found
+  // If book ID wasn't found
   if (!bookById) {
     res.send("Sorry, we cannot find any book with that ID :( Please try another ID!");
   };
@@ -56,21 +74,56 @@ app.get('/books/:id', (req, res) => {
   res.json(bookById);
 });
 
-// Returns all books per author /books/authorname
-app.get('/books/author/:author', (req, res) => {
-  const authors = req.params.author;
-  const booksFromAuthors = books.filter((item) => item.authors === authors);
+// Returns all authors
+app.get('/authors', (req, res) => {
+  const authors = books.map((item) => item.authors);
+  const uniqueAuthors = [...new Set(authors)];
 
-  // If authors is not found
-  if (booksFromAuthors.length === 0) {
-    res.send("Sorry, we cannot find any books from that author in our list. Try by entering the name in another way or search for another author.")
-  };
+  // Query to sort on author example: '/authors?author=Tolstoy
+  const searchOnAuthor = req.query.author;
+  if (searchOnAuthor) {
+    const searchOnAuthorObject = books.filter((item) =>
+      item.authors.toString().toLowerCase().includes(searchOnAuthor.toLowerCase()));
+    const searchOnAuthorList = searchOnAuthorObject.map((item) => item.authors);
+    const uniqueSearchedAuthors = [...new Set(searchOnAuthorList)];
+    // Error handling
+    if (uniqueSearchedAuthors.length === 0) {
+      const error = new Error(`${searchOnAuthor} not found.`);
+      error.status = 404;
+      throw error;
+    }
+    res.json(uniqueSearchedAuthors);
+  } else {
+    // Return all unique authors
+    res.json(uniqueAuthors);
+  }
+});
 
-  res.json(booksFromAuthors);
+// Return all books by specific author 
+// Query string for example: /authors/author/books?author=Rowling
+app.get('/authors/:author/books', (req, res) => {
+  const author = req.params.author;
+  const booksByAuthor = books.filter((item) => item.authors === author);
+
+  const searchOnAuthor = req.query.author;
+  if (searchOnAuthor) {
+    const booksBySearchOnAuthor = books.filter((item) =>
+      item.authors.toString().toLowerCase().includes(searchOnAuthor.toLowerCase()));
+
+    // Error handling
+    if (booksBySearchOnAuthor.length === 0) {
+      const error = new Error(`${searchOnAuthor} not found!`);
+      error.status = 404;
+      throw error;
+    }
+    res.json(booksBySearchOnAuthor);
+  } else {
+    res.json(booksByAuthor);
+  }
 });
 
 // Top rated books, the 20 highest 
-app.get('/books/top-rated', (req, res) => {
+app.get('/top-rated', (req, res) => {
   const topRated = books.filter((item) => item.average_rating >= 4);
   const sortedBooks = topRated.sort((a, b) => b.average_rating - a.average_rating);
   const top20Books = sortedBooks.slice(0, 20);
