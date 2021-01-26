@@ -6,7 +6,6 @@ import booksData from './data/books.json'
 // Defines the port the app will run on (8080 is default)
 const port = process.env.PORT || 8080
 const app = express()
-const listEndpoints = require('express-list-endpoints')
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -14,11 +13,7 @@ app.use(bodyParser.json())
 
 // Endpoints/route that return a collection of results
 app.get('/', (request, response) => {
-  if (response) {
-    response.status(200).send(listEndpoints(app))
-  } else {
-    response.status(404).send("No endpoints found.")
-  }
+  response.send('Welcome to my book API')
 })
 
 // Endpoint/route that return the first 200 books in the data 
