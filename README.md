@@ -1,13 +1,22 @@
-# Express API Project
+# Express API Project 🤖
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I’ve made a Golden Globe Awards API using Express! 🚄
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I hade a probelm with an idea with categoriz based on Drama, best Actress etc… But it returned an empty array... Looking for solutions on that!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+ALL ENDPOINTS:
+
+https://goldenglobeawards.herokuapp.com/
+
+Whole array
+https://goldenglobeawards.herokuapp.com/nominations
+
+Choose a specific golden globe year with switching xxxx too a year, for example 2010
+https://goldenglobeawards.herokuapp.com/nominations/years/xxxx
+
+This did work but now it doesn’t… But the idea was to get categorize based on Drama, best Actress etc…
+https://goldenglobeawards.herokuapp.com/nominations/categorys/Drama
+
