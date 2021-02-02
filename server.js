@@ -1,4 +1,4 @@
-import express, { response } from 'express'
+import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
@@ -25,23 +25,23 @@ app.get('/nominations', (request, response) => {
   response.json(goldenGlobesData)
 })
 
-app.get('/nominations/years/:year', (request, response) => {
+app.get('/year/:year', (request, response) => {
   const year = request.params.year
   const showWon = request.query.won
-  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+  let yearFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
 
   if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+    yearFromYear = yearFromYear.filter((item) => item.win)
   }
-  response.json(nominationsFromYear)
+  response.json(yearFromYear)
 })
 
 // Tried to get a uniqe category back by using this code but instead a got back an empty array... 
-app.get('/nominations/categorys/:category', (request, response) => {
+app.get('/nominations/:nominee', (request, response) => {
   const category = request.params.category
-  const nominationsFilm = goldenGlobesData.filter((item) => item.category === category)
+  const nominationsFilm = goldenGlobesData.filter.length((item) => item.category === category)
 
-  if (!nominationsFilm) {
+  if (nominationsFilm) {
     response.status(404).json("ERROR - This category doesn't exist in the golden-globes API")
   }
     response.json(nominationsFilm)
