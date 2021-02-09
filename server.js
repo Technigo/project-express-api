@@ -5,11 +5,11 @@ import cors from 'cors';
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 //
-import goldenGlobesData from './data/golden-globes.json';
+// import goldenGlobesData from './data/golden-globes.json';
 
 // import avocadoSalesData from './data/avocado-sales.json';
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json';
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -28,26 +28,17 @@ app.get('/', (req, res) => {
 	res.send('Hello world');
 });
 
-app.get('/nominations', (req, res) => {
-	res.json(goldenGlobesData);
+app.get('/netflix', (req, res) => {
+	res.json(netflixData);
 });
-
-// app.get('/nominations/:year/', (req, res) => {
-// 	const { year } = req.params;
-
-// 	res.json();
-// });
 
 //single item
 
-app.get('/nominations/:year/', (req, res) => {
-	const year = req.params.year;
+app.get('/netflix/id/:id', (req, res) => {
+	const { id } = req.params;
 
-	let nominationsFromYear = goldenGlobesData.filter(
-		(item) => item.year_award === +year
-	);
-
-	res.json(nominationsFromYear);
+	const singleTitle = netflixData.find((item) => item.show_id === +id);
+	res.json(singleTitle);
 });
 
 // Start the server
