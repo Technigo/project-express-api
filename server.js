@@ -22,26 +22,19 @@ app.get('/', (request, response) => {
 // This endpoint shows all characters + will let you filter on name with query parameter
 app.get('/characters', (request, response) => {
   const { name } = request.query
-  const filteredName = harryData.filter(character => 
-    character.name.toLocaleLowerCase() && 
-    character.name.toLocaleLowerCase().includes(name))
-
-  if (filteredName.length === 0) {
-    response.json(harryData)
-  } else {
-    response.json(filteredName)
-  }
+  const filteredName = harryData.filter(character => character.name.toLocaleLowerCase().includes(name))
+  response.json(filteredName)
 })
 
 // This endpoint shows one character from a unique id
 app.get('/characters/id/:id', (request, response) => {
   const { id } = request.params
-  const showId = harryData.find((item) => item.id === +id)
+  const character = harryData.find((item) => item.id === +id)
   // Include error response here
-  if (!showId) {
+  if (!character) {
     response.status(404).json(ERROR_CHARACTERS_NOT_FOUND)
   } else {
-    response.json(showId)
+    response.json(character)
   }
 })
 
@@ -55,12 +48,7 @@ app.get('/characters/names', (request, response) => {
 app.get('/characters/:house', (request, response) => {
   const { house } = request.params
   const houses = harryData.filter((item) => item.house.toLocaleLowerCase() === house)
-
-  if (houses.length === 0) {
-    response.status(404).json(ERROR_CHARACTERS_NOT_FOUND)
-  } else {
-    response.json(houses)
-  }
+  response.json(houses)
 })
 
 // This endpoint shows different genders in a specific house

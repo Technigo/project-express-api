@@ -10,17 +10,18 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Endpoints:
+URL: https://lindas-project-express-api.herokuapp.com/
+
+ENPOINTS:
 
 https://lindas-project-express-api.herokuapp.com/characters - shows all harry potter characters.
 
-https://lindas-project-express-api.herokuapp.com/characters/id - replace id with number, shows one harry potter character with a id in between 1-140.
+https://lindas-project-express-api.herokuapp.com/characters/id/id - replace second id with number, shows one harry potter character with a unique id in between 1-140.
+
+https://lindas-project-express-api.herokuapp.com/characters/names - only shows all names of the characters, sorted from A-Z. 
+
+https://lindas-project-express-api.herokuapp.com/characters/house - replace house with the house you want to show, shows all characters from a specific house.
+
+https://lindas-project-express-api.herokuapp.com/characters/house/genders/gender - replace house and gender with the house and gender of characters you want to show. 
 
 https://lindas-project-express-api.herokuapp.com/characters?name=character - replace character with the harry potter character you want to show. 
-
-
-HOUSE:
-
-https://lindas-project-express-api.herokuapp.com/characters/house
-
-https://lindas-project-express-api.herokuapp.com/characters/house/genders/gender - replace house and gender with the house and gender...
