@@ -46,8 +46,8 @@ app.get('/songs', (request, response) => {
   response.json(uniqueTracks);
 });
 
-// Sorting all tracks by popularity /toplist?sort=popularity
-app.get('/songs?sort=popularity', (request, response) => {
+// Sorting all tracks by popularity 
+app.get('/songs', (request, response) => {
   const sort = request.query.sort;
 
   if (sort && sort === "popularity") {
