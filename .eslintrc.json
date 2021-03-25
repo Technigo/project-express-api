@@ -49,9 +49,9 @@
         "SwitchCase": 1
       }
     ],
-    "no-alert": "off",
-    "no-console": "off",
-    "no-debugger": "off",
+    "no-alert": "error",
+    "no-console": "error",
+    "no-debugger": "error",
     "no-else-return": "off",
     "no-irregular-whitespace": "error",
     "no-multiple-empty-lines": [
