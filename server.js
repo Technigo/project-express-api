@@ -15,34 +15,35 @@ let netflixByTitle;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/Netflix", (req, res) => {
+app.get("/", (req, res) => {
   res.json(data);
 });
 
 // function for routing
 const routes = (name, array) => {
   app.get(`/${name}/:${name}`, (req, res) => {
-    const { country, type, id, title } = req.params;
+    const { countries, types, id, title } = req.params;
     const { year, genre } = req.query;
-    const paramsArray = [
-      { name: "type", value: type },
-      { name: "country", value: country },
-      { name: "title", value: title },
-      { name: "show_id", value: id }
-    ];
 
     /* filters data according to route name and params by comparing
     to the specific parameter in the json. upper case leters  and spaces are removed
     from the json to be able to match properly */
-    // eslint-disable-next-line array-callback-return
     array = data.filter((item) => {
-      for (let i = 0; i < paramsArray.length; i += 1) {
-        if (name !== "id") {
+      switch (name) {
+        case "countries":
           return (
-            item[paramsArray[i].name].toString().toLowerCase().replaceAll(/ /g, "") 
-            === paramsArray[i].value
+            item.country.toLowerCase().replace(/\s+/g, "") === countries
           );
-        } return item[paramsArray[i].name] === Number(paramsArray[i].value);
+        case "types":
+          return (
+            item.type.toLowerCase().replace(/\s+/g, "") === types
+          );
+        case "title":
+          return (
+            item.title.toString().toLowerCase().replace(/\s+/g, "") === title
+          );
+        default:
+          return item.show_id === Number(id);
       }
     });
 
@@ -67,8 +68,8 @@ const routes = (name, array) => {
 };
 
 // execute routing function with specific arguments
-routes("country", netflixByCountry);
-routes("type", netflixByType);
+routes("countries", netflixByCountry);
+routes("types", netflixByType);
 routes("id", netflixById);
 routes("title", netflixByTitle);
 
