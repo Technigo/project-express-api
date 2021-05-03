@@ -19,11 +19,17 @@ app.get("/", (req, res) => {
   res.json(data);
 });
 
+// slice depending on page query
+const sliceData = (array, num) => {
+  array = array.slice((num * 20), ((num + 1) * 20))
+  return array;
+}
+
 // function for routing
 const routes = (name, array) => {
   app.get(`/${name}/:${name}`, (req, res) => {
     const { countries, types, id, title } = req.params;
-    const { year, genre } = req.query;
+    const { year, genre, page } = req.query;
 
     /* filters data according to route name and params by comparing
     to the specific parameter in the json. upper case leters  and spaces are removed
@@ -54,6 +60,10 @@ const routes = (name, array) => {
       array = array.filter((item) => item.listed_in.toLowerCase().includes(genre));
     }
 
+    if (page) {
+      array = sliceData(array, Number(page)) // user can see more results with query page
+    }
+
     // if no data is returned from filtering (no match with params/query) a message says so
     if (array.length === 0) {
       res.send(`
@@ -62,7 +72,7 @@ const routes = (name, array) => {
         ${genre ? `in the genre ${genre}` : ""}
       `);
     } else {
-      res.json(array);
+      res.json(array.slice(0, 19)); // so result always is max 20 objects
     }
   });
 };
