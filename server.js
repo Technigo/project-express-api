@@ -51,7 +51,11 @@ app.get("/books/language/:language", (req, res) => {
   const booksLanguageCode = booksData.filter(
     (item) => item.language_code === language
   );
-  res.json(booksLanguageCode);
+  if (booksLanguageCode) {
+    res.json(booksLanguageCode);
+  } else {
+    res.status(404).json({ message: "Wrong language" });
+  }
 });
 
 // Start the server
