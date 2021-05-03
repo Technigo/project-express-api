@@ -1,4 +1,5 @@
-import express, { response } from 'express';
+/* eslint-disable linebreak-style */
+import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
@@ -6,7 +7,6 @@ import booksData from './data/books.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -15,31 +15,41 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
+// ROUTES
+// Home: path '/'
 app.get('/', (req, res) => {
-  res.send('Hello world');      //Change this into an appropriate message
+  res.send('Hello world, welcome to my API.'); // Change this into an appropriate message, connect it to my live project with frontend
 });
 
+// Books: path '/books'
 app.get('/books', (req, res) => {
-  const { author } = req.query;    //maybe you can add more queries within the braces
-  
-  if (author) {
-    const booksList = booksData.filter((book) => book.authors.includes(author));
-    res.json(booksList);      //?author=J.K.Rowling
-  }
-  
   res.json(booksData);
 });
 
-app.get('/books/:id', (req, res) => {
-  const { id } = req.params
-  const book = booksData.find(book => book.bookID === +id)
+// Books by author: path '/books/search'
+// Example path: '/books/search?author=J.K.Rowling'
+app.get('/books/search', (req, res) => {
+  const { author } = req.query; // maybe you can add more queries within the braces
+  const booksByAuthor = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
 
-  if (!id) {
-    res.status(404).send(`No book with id number ${id}`)
+  if (booksByAuthor.length === 0) {
+    res.status(404).send(`Sorry, could not find any books by ${author}.`)
+  }
+    
+  res.json(booksByAuthor);
+});
+
+// Book by id 
+// Example path: '/books/1' 
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params;
+  const singleBook = booksData.find((book) => book.bookID === +id);
+
+  if (!singleBook) {
+    res.status(404).send(`Sorry, could not find a book with id number ${id}.`);
   }
 
-  res.json(book)
+  res.json(singleBook)
 });
 
 // Start the server
