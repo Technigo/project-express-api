@@ -38,9 +38,7 @@ app.get('/shows', (req, res) => {
 // endpoint to generate a random show from entire data set
 app.get('/shows/random', (req, res) => {
   const randomIndex = Math.floor(Math.random() * data.length)
-
   const randomShow = data[randomIndex]
-
   res.json(randomShow)
 })
 
