@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
@@ -21,14 +21,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/books', (req, res) => {
-  res.json(booksData)
+  const { author } = req.query;    //maybe you can add more queries within the braces
+  
+  if (author) {
+    const booksList = booksData.filter((book) => book.authors.includes(author));
+    res.json(booksList);      //?author=J.K.Rowling
+  }
+  
+  res.json(booksData);
 });
 
 app.get('/books/:id', (req, res) => {
-  const id = req.params.id;
-  let bookId = booksData.filter((item) => item.bookID === +id)
-  
-  res.json(bookId);
+  const { id } = req.params
+  const book = booksData.find(book => book.bookID === +id)
+
+  if (!id) {
+    res.status(404).send(`No book with id number ${id}`)
+  }
+
+  res.json(book)
 });
 
 // Start the server
