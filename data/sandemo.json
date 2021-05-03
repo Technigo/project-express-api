@@ -1,0 +1,473 @@
+[
+    {
+        "bookID": 1,
+        "title": "Trollbunden",
+        "english_title": "Spellbound",
+        "isbn": 9177100018,
+        "series": "Sagan om Isfolket",
+        "series_order": 1,
+        "release_year": 1982,
+        "main_characters": "Tengel den Gode, Silje"
+    },
+    {
+        "bookID": 2,
+        "title": "Häxjakten",
+        "english_title": "Witch-Hunt",
+        "isbn": 9177100026,
+        "series": "Sagan om Isfolket",
+        "series_order": 2,
+        "release_year": 1982,
+        "main_characters": "Tengel den Gode, Silje"
+    },
+    {
+        "bookID": 3,
+        "title": "Avgrunden",
+        "english_title": "The Stepdaughter",
+        "isbn": 9177100034,
+        "series": "Sagan om Isfolket",
+        "series_order": 3,
+        "release_year": 1982,
+        "main_characters": "Sol av Isfolket"
+    },
+    {
+        "bookID": 4,
+        "title": "Längtan",
+        "english_title": "The Successor",
+        "isbn": 9177100042,
+        "series": "Sagan om Isfolket",
+        "series_order": 4,
+        "release_year": 1982,
+        "main_characters": "Sunniva, Tarald, Yrja"
+    },
+    {
+        "bookID": 5,
+        "title": "Dödssynden",
+        "english_title": "Friendship",
+        "isbn": 9177100050,
+        "series": "Sagan om Isfolket",
+        "series_order": 5,
+        "release_year": 1982,
+        "main_characters": "Cecilie Meiden, Alexander Paladin"
+    },
+    {
+        "bookID": 6,
+        "title": "Det onda arvet",
+        "english_title": "Evil Legacy",
+        "isbn": 9177100077,
+        "series": "Sagan om Isfolket",
+        "series_order": 6,
+        "release_year": 1982,
+        "main_characters": "Tarjei Lind Av Isfolket, Kolgrim, Mattias Meiden"
+    },
+    {
+        "bookID": 7,
+        "title": "Spökslottet",
+        "english_title": "Nemesis",
+        "isbn": 9177100107,
+        "series": "Sagan om Isfolket",
+        "series_order": 7,
+        "release_year": 1982,
+        "main_characters": "Tancred Paladin"
+    },
+    {
+        "bookID": 8,
+        "title": "Bödelns dotter",
+        "english_title": "Under Suspicion",
+        "isbn": 9177100166,
+        "series": "Sagan om Isfolket",
+        "series_order": 8,
+        "release_year": 1982,
+        "main_characters": "Hilde, Mattias Meiden, Andreas Lind av Isfolket"
+    },
+    {
+        "bookID": 9,
+        "title": "Den ensamme",
+        "english_title": "Without Roots",
+        "isbn": 9177100182,
+        "series": "Sagan om Isfolket",
+        "series_order": 9,
+        "release_year": 1982,
+        "main_characters": "Mikael Lind av Isfolket"
+    },
+    {
+        "bookID": 10,
+        "title": "Vinterstorm",
+        "english_title": "Winter Storm",
+        "isbn": 9177100204,
+        "series": "Sagan om Isfolket",
+        "series_order": 10,
+        "release_year": 1983,
+        "main_characters": "Villemo Kalebsdotter, Eldar Svartskogen"
+    },
+    {
+        "bookID": 11,
+        "title": "Blodshämnd",
+        "english_title": "Blood Feud",
+        "isbn": 9177100247,
+        "series": "Sagan om Isfolket",
+        "series_order": 11,
+        "release_year": 1983,
+        "main_characters": "Villemo Kalebsdotter, Dominic Lind av Isfolket"
+    },
+    {
+        "bookID": 12,
+        "title": "Feber i Blodet",
+        "english_title": "Yearning",
+        "isbn": 9177100263,
+        "series": "Sagan om Isfolket",
+        "series_order": 12,
+        "release_year": 1983,
+        "main_characters": "Villemo Kalebsdotter, Dominic Lind av Isfolket"
+    },
+    {
+        "bookID": 13,
+        "title": "Satans fotspår",
+        "english_title": "The Devil's Footprint",
+        "isbn": 9177100301,
+        "series": "Sagan om Isfolket",
+        "series_order": 13,
+        "release_year": 1983,
+        "main_characters": "Villemo Kalebsdotter Lind av Isfolket, Dominic Lind av Isfolket, Niklas Lind av Isfolket, Ulvhedin, Elisa Larsdotter"
+    },
+    {
+        "bookID": 14,
+        "title": "Den siste riddaren",
+        "english_title": "The Knight",
+        "isbn": 9177100514,
+        "series": "Sagan om Isfolket",
+        "series_order": 14,
+        "release_year": 1983,
+        "main_characters": "Tristan Paladin"
+    },
+    {
+        "bookID": 15,
+        "title": "Vinden från öster",
+        "english_title": "The East Wind",
+        "isbn": 9177100530,
+        "series": "Sagan om Isfolket",
+        "series_order": 15,
+        "release_year": 1984,
+        "main_characters": "Vendel Grip av Isfolket"
+    },
+    {
+        "bookID": 16,
+        "title": "Galgdockan",
+        "english_title": "The Mandrake",
+        "isbn": 9177100557,
+        "series": "Sagan om Isfolket",
+        "series_order": 16,
+        "release_year": 1984,
+        "main_characters": "Dan Lind, Ingrid Lind, Ulvhedin Paladin"
+    },
+    {
+        "bookID": 17,
+        "title": "Dödens trädgård",
+        "english_title": "The Garden of Death",
+        "isbn": 9177100573,
+        "series": "Sagan om Isfolket",
+        "series_order": 17,
+        "release_year": 1984,
+        "main_characters": "Shira, Daniel Lind av Isfolket"
+    },
+    {
+        "bookID": 18,
+        "title": "Bakom fasaden",
+        "english_title": "Behind the Facade",
+        "isbn": "917710059X",
+        "series": "Sagan om Isfolket",
+        "series_order": 18,
+        "release_year": 1984,
+        "main_characters": "Elisabet Paladin, Vemund Tark"
+    },
+    {
+        "bookID": 19,
+        "title": "Drakens tänder",
+        "english_title": "Dragon's Teeth",
+        "isbn": 9177100611,
+        "series": "Sagan om Isfolket",
+        "series_order": 19,
+        "release_year": 1984,
+        "main_characters": "Sölve Lind"
+    },
+    {
+        "bookID": 20,
+        "title": "Korpens vingar",
+        "english_title": "Wings of the Raven",
+        "isbn": 9177100824,
+        "series": "Sagan om Isfolket",
+        "series_order": 20,
+        "release_year": 1985,
+        "main_characters": "Heike Lind"
+    },
+    {
+        "bookID": 21,
+        "title": "Vargtimmen",
+        "english_title": "Devil's Ravine",
+        "isbn": 9177100840,
+        "series": "Sagan om Isfolket",
+        "series_order": 21,
+        "release_year": 1985,
+        "main_characters": "Arv Grip, Heike Lind, Gunilla i Knapahult"
+    },
+    {
+        "bookID": 22,
+        "title": "Demonen och jungfrun",
+        "english_title": "The Demon and the Virgin",
+        "isbn": 9177100867,
+        "series": "Sagan om Isfolket",
+        "series_order": 22,
+        "release_year": 1985,
+        "main_characters": "Heike Lind, Vinga Tark"
+    },
+    {
+        "bookID": 23,
+        "title": "Våroffer",
+        "english_title": "Rituals",
+        "isbn": 9177100883,
+        "series": "Sagan om Isfolket",
+        "series_order": 23,
+        "release_year": 1985,
+        "main_characters": "Vinga Tark, Heike Lind"
+    },
+    {
+        "bookID": 24,
+        "title": "Djupt i jorden",
+        "english_title": "Deep in the Ground",
+        "isbn": 9177100905,
+        "series": "Sagan om Isfolket",
+        "series_order": 24,
+        "release_year": 1985,
+        "main_characters": "Anna Maria Olsdotter"
+    },
+    {
+        "bookID": 25,
+        "title": "Ängel med dolda horn",
+        "english_title": "The Angel",
+        "isbn": 9177100921,
+        "series": "Sagan om Isfolket",
+        "series_order": 25,
+        "release_year": 1985,
+        "main_characters": "Tula Backe"
+    },
+    {
+        "bookID": 26,
+        "title": "Huset i Eldafjord",
+        "english_title": "The Secret",
+        "isbn": 9177101081,
+        "series": "Sagan om Isfolket",
+        "series_order": 26,
+        "release_year": 1986,
+        "main_characters": "Eskil Lind"
+    },
+    {
+        "bookID": 27,
+        "title": "Synden har lång svans",
+        "english_title": "The Scandal",
+        "isbn": 9177101103,
+        "series": "Sagan om Isfolket",
+        "series_order": 27,
+        "release_year": 1986,
+        "main_characters": "Christer Tomasson"
+    },
+    {
+        "bookID": 28,
+        "title": "Is och eld",
+        "english_title": "Ice and Fire",
+        "isbn": "917710112X",
+        "series": "Sagan om Isfolket",
+        "series_order": 28,
+        "release_year": 1986,
+        "main_characters": "Viljar Lind, Belinda"
+    },
+    {
+        "bookID": 29,
+        "title": "Lucifers kärlek",
+        "english_title": "Lucifer's Love",
+        "isbn": 9177101146,
+        "series": "Sagan om Isfolket",
+        "series_order": 29,
+        "release_year": 1986,
+        "main_characters": "Saga Simon"
+    },
+    {
+        "bookID": 30,
+        "title": "Människadjuret",
+        "english_title": "The Brothers",
+        "isbn": 9177101162,
+        "series": "Sagan om Isfolket",
+        "series_order": 30,
+        "release_year": 1986,
+        "main_characters": "Marco, Ulvar"
+    },
+    {
+        "bookID": 31,
+        "title": "Färjkarlen",
+        "english_title": "The Ferryman",
+        "isbn": 9177101189,
+        "series": "Sagan om Isfolket",
+        "series_order": 31,
+        "release_year": 1986,
+        "main_characters": "Benedikte Lind, Sander Brink"
+    },
+    {
+        "bookID": 32,
+        "title": "Hunger",
+        "english_title": "Hunger",
+        "isbn": 9177101316,
+        "series": "Sagan om Isfolket",
+        "series_order": 32,
+        "release_year": 1986,
+        "main_characters": "Christoffer Volden, Marit i Svelten"
+    },
+    {
+        "bookID": 33,
+        "title": "Nattens demon",
+        "english_title": "The Demon of the Nights",
+        "isbn": 9177101332,
+        "series": "Sagan om Isfolket",
+        "series_order": 33,
+        "release_year": 1987,
+        "main_characters": "Vanja Lind, Tamlin"
+    },
+    {
+        "bookID": 34,
+        "title": "Kvinnan på stranden",
+        "english_title": "The Woman on the Beach",
+        "isbn": 9177101359,
+        "series": "Sagan om Isfolket",
+        "series_order": 34,
+        "release_year": 1987,
+        "main_characters": "André Brink"
+    },
+    {
+        "bookID": 35,
+        "title": "Vandring i mörkret",
+        "english_title": "The Flute",
+        "isbn": 9177101375,
+        "series": "Sagan om Isfolket",
+        "series_order": 35,
+        "release_year": 1987,
+        "main_characters": "Vetle Volden"
+    },
+    {
+        "bookID": 36,
+        "title": "Trollmåne",
+        "english_title": "Troll Moon",
+        "isbn": 9177101391,
+        "series": "Sagan om Isfolket",
+        "series_order": 36,
+        "release_year": 1987,
+        "main_characters": "Christa Lind, Abel Gard, Lindelo"
+    },
+    {
+        "bookID": 37,
+        "title": "Stad i skräck",
+        "english_title": "The City of Horror",
+        "isbn": 9177101413,
+        "series": "Sagan om Isfolket",
+        "series_order": 37,
+        "release_year": 1987,
+        "main_characters": "Rikard Brink, Vinnie Dahlén"
+    },
+    {
+        "bookID": 38,
+        "title": "Små män kastar långa skuggor",
+        "english_title": "Hidden Traces",
+        "isbn": 9177102002,
+        "series": "Sagan om Isfolket",
+        "series_order": 38,
+        "release_year": 1988,
+        "main_characters": "Karine Volden"
+    },
+    {
+        "bookID": 39,
+        "title": "Rop av stumma röster",
+        "english_title": "Silent Voices",
+        "isbn": 9177102029,
+        "series": "Sagan om Isfolket",
+        "series_order": 39,
+        "release_year": 1988,
+        "main_characters": "Nataniel Gard, Ellen Knutsen"
+    },
+    {
+        "bookID": 40,
+        "title": "Fångad av tiden",
+        "english_title": "Imprisoned by Time",
+        "isbn": 9177102045,
+        "series": "Sagan om Isfolket",
+        "series_order": 40,
+        "release_year": 1988,
+        "main_characters": "Tova Brink"
+    },
+    {
+        "bookID": 41,
+        "title": "Demonernas fjäll",
+        "english_title": "Demon Mountain",
+        "isbn": 9177102061,
+        "series": "Sagan om Isfolket",
+        "series_order": 41,
+        "release_year": 1988,
+        "main_characters": "Nataniel Gard, Tova Brink, Ellen Skogsrud"
+    },
+    {
+        "bookID": 42,
+        "title": "Lugnet före stormen",
+        "english_title": "The Calm Before the Storm",
+        "isbn": 9177102088,
+        "series": "Sagan om Isfolket",
+        "series_order": 42,
+        "release_year": 1988,
+        "main_characters": "Tengel den Onde, Tova Brink, Nataniel Gard, Ellen Skogsrud, Gabriel Gard"
+    },
+    {
+        "bookID": 43,
+        "title": "En glimt av ömhet",
+        "english_title": "A Glimpse of Tenderness",
+        "isbn": 9177102126,
+        "series": "Sagan om Isfolket",
+        "series_order": 43,
+        "release_year": 1988,
+        "main_characters": "Tova Brink, Ian Morahan"
+    },
+    {
+        "bookID": 44,
+        "title": "Den onda dagen",
+        "english_title": "An evil day",
+        "isbn": 9177103718,
+        "series": "Sagan om Isfolket",
+        "series_order": 44,
+        "release_year": 1989,
+        "main_characters": "Tengel den Onde, Nataniel Gard, Ellen Skogsrud, Gabriel Gard, Tova Brink, Ian Morahan"
+    },
+    {
+        "bookID": 45,
+        "title": "Legenden om Marco",
+        "english_title": "The Legend",
+        "isbn": 9177103726,
+        "series": "Sagan om Isfolket",
+        "series_order": 45,
+        "release_year": 1989,
+        "main_characters": "Marco"
+    },
+    {
+        "bookID": 46,
+        "title": "Det svarta vattnet",
+        "english_title": "The Black Water",
+        "isbn": 9177103734,
+        "series": "Sagan om Isfolket",
+        "series_order": 46,
+        "release_year": 1989,
+        "main_characters": "Tengel den Onde, Nataniel Gard, Marco, Ellen Skogsrud, Tova Brink, Gabriel Gard"
+    },
+    {
+        "bookID": 47,
+        "title": "Är det någon där ute?",
+        "english_title": "Is There Anybody Out There?",
+        "isbn": 9177103742,
+        "series": "Sagan om Isfolket",
+        "series_order": 47,
+        "release_year": 1989,
+        "main_characters": ""
+    }
+
+]
