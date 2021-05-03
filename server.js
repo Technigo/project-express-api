@@ -47,15 +47,6 @@ app.get("/books", (req, res) => {
 // param : to trigger a param
 // End point for average rating
 
-app.get("/top-rated", (req, res) => {
-  const bookRating = booksData.sort(
-    (a, b) => b.average_rating - a.average_rating
-  );
-  res.json(bookRating.slice(0, 10));
-  // const bookRating = booksData.filter((item) => item.average_rating >= 3);
-  // res.json(bookRating);
-});
-
 // End point for all books and one book
 app.get("/books/:id", (req, res) => {
   // console.log(req.params.id);
@@ -67,9 +58,35 @@ app.get("/books/:id", (req, res) => {
   res.json(book);
 });
 
+app.get("/top-rated", (req, res) => {
+  const bookRating = booksData.sort(
+    (a, b) => b.average_rating - a.average_rating
+  );
+  res.json(bookRating.slice(0, 10));
+  // const bookRating = booksData.filter((item) => item.average_rating >= 3);
+  // res.json(bookRating);
+});
+
+// page number intervals
+app.get("/pages/0-500", (req, res) => {
+  const sortPages = booksData.sort((a, b) => b.num_pages - a.num_pages);
+  const pageNumber = sortPages.filter(
+    (item) => item.num_pages > 0 && item.num_pages <= 500
+  );
+  res.json(pageNumber);
+});
+
+app.get("/pages/501", (req, res) => {
+  // const sortPages = bookData.sort((a, b) => b.num_pages - a.num_pages);
+  const pageNumber = booksData.filter((item) => item.num_pages > 501);
+  res.json(pageNumber.sort((a, b) => b.num_pages - a.num_pages));
+});
+
 // Start the server
 // takes two parameters
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
+// Endpoints to be added: pages per page (max 20 per page)
+// page number intervals
