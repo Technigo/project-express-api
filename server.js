@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
     `
       This API provides detaliled information about books. <br>
       Please specify an endpoint or a query. <br>
-      Sample Endpoint: /books <br>
-      Sample Query: /books?author
+      Available Endpoints: /books or /id/(id) <br>
+      Sample Query:
     `)
 })
 app.get('/books', (req, res) => {
