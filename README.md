@@ -1,13 +1,67 @@
-# Express API Project
+# Project name
 
-Replace this readme with your own information about your project. 
+**Mission:** 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+*what was the mission*
 
-## The problem
+**Requirements:**
+- 🔵 COMPLETE (all)
+- 🔴 Partial
+- ⚫ NONE
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+
+***
+
+## Installation
+
+Navigate to the project folder and run the following command
+
+```
+$ cd code 
+$ npm install
+```
+
+
+This app has been generated using `create-react-app`.
+> This app uses the following npm packages that are not included in the `create-react-app`:
+> * packagename
+> * packagename
+
+**To start the project**
+
+```
+$ cd code 
+$ npm start
+```
+<br>
+
+## ✅ Features ✅
+***
+*The following are the main features of this application:*
+  
+  * f1
+  * f2
+
+
+<br>
+
+## 💭 Reflections 💭
+***
+generally??
+
+<br>
+
+Issues that came up:
+- ccc 
+
+
+If I were to continue on this project / start over I would:
+- ccc
+
+<br>
+
+***
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+netlifylink
