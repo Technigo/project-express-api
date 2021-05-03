@@ -24,7 +24,22 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send(booksData)
+  res.send(
+    `
+      This API provides detaliled information about books. <br>
+      Please specify an endpoint or a query. <br>
+      Sample Endpoint: /books <br>
+      Sample Query: /books?author
+    `)
+})
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+app.get('/id/:id', (req, res) => {
+  const { id } = req.params
+  const filteredId = booksData.filter((item) => item.bookID === +id)
+  res.json(filteredId)
 })
 
 // Start the server
