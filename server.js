@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable max-len */
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
