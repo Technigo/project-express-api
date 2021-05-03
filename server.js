@@ -8,14 +8,14 @@ import cors from 'cors'
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8086
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -24,8 +24,20 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.json('Hello You')
 })
+
+app.get('/list', (req, res) => {
+  res.json(netflixData)
+})
+// 
+
+// return move id
+// app.get('/type/:type', (req, res) => {
+//   const { type } = req.params
+//   const videoType = netflixData.filter((item) => item.type === type)
+//   res.json(videoType)
+// })
 
 // Start the server
 app.listen(port, () => {
