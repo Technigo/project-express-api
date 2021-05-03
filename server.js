@@ -1,13 +1,14 @@
-import express from 'express'
+import express, { request } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
+import booksData from './data/books.json'
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -22,13 +23,28 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Endpoint to get all books. Start defining your routes here
+app.get('/books', (req, res) => {
+  const { author } = req.query
+  if (author) {
+    const booksList = booksData.filter(book => book.authors.includes(author))
+    res.json(booksList)
+  }
+  res.json(booksData)
+})
+
+// Endpoint to get one book.
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params
+  const book = booksData.find(book => book.bookID === +id)
+  if (!book) {
+    res.status(404).json(`no book with id number ${id}`)
+  }
+  res.json(book)
 })
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server is 🏃‍♀️ on http://localhost:${port}`)
 })
