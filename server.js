@@ -25,6 +25,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// ROUTES
 // Start defining your routes here
 //  get to get things form the API
 // / Is the pat// a request and a reponse
@@ -44,6 +45,18 @@ app.get("/books", (req, res) => {
 // after = is always the query. first variable (?authors then = query)
 // end point to get one book
 // param : to trigger a param
+// End point for average rating
+
+app.get("/top-rated", (req, res) => {
+  const bookRating = booksData.sort(
+    (a, b) => b.average_rating - a.average_rating
+  );
+  res.json(bookRating.slice(0, 10));
+  // const bookRating = booksData.filter((item) => item.average_rating >= 3);
+  // res.json(bookRating);
+});
+
+// End point for all books and one book
 app.get("/books/:id", (req, res) => {
   // console.log(req.params.id);
   const { id } = req.params;
