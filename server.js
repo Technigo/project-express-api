@@ -1,21 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import data from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,32 +10,49 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+// Filtered data set to only use TV Shows
+const data = netflixData.filter((show) => show.type === "TV Show")
 
+// endpoint to all shows + query parameters
 app.get('/shows', (req, res) => {
-  res.send(data)
-  // const showWon = req.query.won
-  // let nominationsFromYear = data.filter((item) => item.year_award === +year)
+  const { year, country } = req.query
 
-  // if (showWon) {
-  //   nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-    
-  // }
+  if (year && country) {
+    const showsfromYearandCountry = data.filter((show) => show.release_year === +year && show.country === country)
+    res.json(showsfromYearandCountry)
+  }
+
+  if (year) {
+    const showsFromYear = data.filter((show) => show.release_year === +year)
+    res.json(showsFromYear)
+  }
+
+  if (country) {
+    const showsFromCountry = data.filter((show) => show.country === country)
+    res.json(showsFromCountry)
+  }
+
+  res.json(data)
 })
 
-app.get('/shows/:country', (req, res) => {
-  const country = req.params
-  const showsFromCountry = data.filter((item) => item.country === country)
-  res.send(showsFromCountry)
+// endpoint to generate a random show from entire data set
+app.get('/shows/random', (req, res) => {
+  const randomIndex = Math.floor(Math.random() * data.length)
+
+  const randomShow = data[randomIndex]
+
+  res.json(randomShow)
 })
 
+// endpoint to get one certain show by ID
 app.get('/shows/:id', (req, res) => {
-  const id = req.params
-  const requestedShow = data.find((show) => show.show_id === +id)
-  res.send(requestedShow)
+  const { id } = req.params
+  const show = data.find((show) => show.show_id === +id)
+
+  if (!show) {
+    res.status(404).send(`No show with id number ${id}!`)
+  }
+  res.json(show)
 })
 
 // Start the server
