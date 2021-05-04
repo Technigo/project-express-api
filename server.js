@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 // slice depending on page query (20 results per page)
 const sliceData = (array, num, res) => {
-  array = array.slice(num * 20, (num + 1) * 20);
+  array = array.slice(num * 10, (num + 1) * 10);
   return array.length < 1 ? res.send("Sorry, no more pages") : array;
 };
 
@@ -70,7 +70,7 @@ const routes = (names, array) => {
         ${genre ? `in the genre ${genre}` : ""}
       `);
     } else {
-      res.json(array.slice(0, 19)); // so result always is max 20 objects
+      res.json(array.slice(0, 10)); // so result always is max 20 objects
     }
   });
 };
