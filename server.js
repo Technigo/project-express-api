@@ -27,34 +27,26 @@ app.get('/sales', (req, res) => {
   res.json(data)
 })
 
+// endpoint with params for sales in a whole region and query string to get the sales for one date in one region 
 app.get('/region/:region', (req, res) => {
   const { region } = req.params
-  const destinationId = req.query.id
-  let salesRegion = data.filter((item) => item.region === region)
+  const salesId = req.query.id
+  let salesRegion = data.filter((item) => item.region.toLowerCase() === region.toLowerCase())
 
-  if (destinationId) {
-    salesRegion = salesRegion.find(item => item.id === +destinationId)
+  if (salesId) {
+    salesRegion = salesRegion.find(item => item.id === +salesId)
   }
   res.json(salesRegion)
 })
 
-/* app.get('/:id', (req, res) => {
-  const { id } = req.params
-  const salesDestination = data.find(destination => destination.id === Number(id))
-  res.json(salesDestination)
-}) */
-
-/* app.get('/region/:region/:id', (req, res) => {
-  const { id } = req.params
-
-  const salesDestination = data.find(destination => destination.id === +id)
-  res.json(salesDestination)
-})
-
-app.get('/region/month/march', (req, res) => {
-  const salesMonth = data.slice(data.date === '2015-03-01', data.date === '2015-03-31')
-  console.log(salesMonth)
-  res.json(salesMonth)
+/* app.get('/price', (req, res) => {
+  const averageSalesPrice = req.query.asp
+  
+  if(averageSalesPrice) {
+    data = data.filter((item) => item.averagePrice === +averageSalesPrice)
+    console.log(averageSalesPrice)
+  }
+  res.json(data)
 }) */
 
 // Start the server
