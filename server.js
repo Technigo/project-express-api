@@ -54,7 +54,7 @@ app.get("/books/language/:language", (req, res) => {
   if (booksLanguageCode) {
     res.json(booksLanguageCode);
   } else {
-    res.status(404).json({ message: "Wrong language" });
+    res.json({ message: "Wrong language" });
   }
 });
 
