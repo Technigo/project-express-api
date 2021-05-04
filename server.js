@@ -46,7 +46,7 @@ const routes = (names, array) => {
       i < 4 ? i += 1 : i = 1; // for iterating the paramArr
       return (
         item[paramArr[i].name].toString().toLowerCase().replace(/\s+/g, "")
-         === paramArr[i].value.toLowerCase()
+         === paramArr[i].value
       );
     });
 
