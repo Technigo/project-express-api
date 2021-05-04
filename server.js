@@ -1,34 +1,45 @@
-import express from 'express'
+import express, { request } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
+
+
+app.get('/songs', (req, res) => {   
+  res.json(topMusicData)
+})
+
+// endpoint to get all songs from a specific genre 
+app.get('/genre/:genre', (req, res) => {
+  const genre = req.params.genre 
+  const genreList = topMusicData.filter((item) => item.genre === genre)
+  res.json(genreList)
+})
+
+
+// endpoint to get one movie
+app.get('/song/:id', (req, res) => {  
+  const { id } = req.params
+  const title = topMusicData.find(title => title.id === +id)
+  if (!title) {
+    res.status(404).send(`No movies with id number: ${id}`)
+  }
+  res.json(title)
+})
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+ app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+// app.get('/', (req, res) => {
+//  res.send('Hello world')
+// })
 
 // Start the server
-app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
-})
+app.listen(port, () => {})

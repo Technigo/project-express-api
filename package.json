@@ -4,7 +4,7 @@
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
     "start": "babel-node server.js",
-    "dev": "nodemon server.js --exec babel-node",
+    "dev": "nodemon server.js --exec ./node_modules/.bin/babel-node",
     "lint": "eslint ."
   },
   "author": "",
