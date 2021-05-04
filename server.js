@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -13,6 +14,5 @@ app.use(bodyParser.json());
 app.use('/', router);
 // Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
