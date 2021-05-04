@@ -2,14 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -22,9 +15,27 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world, I will soon start')
+
+//Endpoint to get all the movies
+app.get('/shows', (req, res) => {
+  const { title } = req.query
+  if (title) {
+    const filteredTitleList = netflixData.filter(show => show.title.toString().includes(title))
+    res.json(filteredTitleList)
+  }
+  res.json(netflixData)
+})
+
+//Endpoint to get one movie
+app.get('/shows/:id', (req, res) => {
+  const { id } = req.params
+  const show = netflixData.find(show => show.show_id === +id)
+  if (!show) {
+    res.status(404).send(`No show with id number ${id} excists`)
+  }
+  res.json(show)
 })
 
 // Start the server
