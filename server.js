@@ -1,6 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+// Min api
+//https://fethullah-week17-project-api.herokuapp.com/
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
