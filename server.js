@@ -1,15 +1,10 @@
-import express from 'express'
+/* eslint-disable linebreak-style */
+// eslint-disable linebreak-style 
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import exercisesData from './data/exercises.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -23,8 +18,24 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Endpoint to get all exercises
+app.get('/exercises', (request, response) => {
+  const { name } = request.query
+  if (name) {
+    const filteredExercises = exercisesData.filter(exercise => exercise.name.includes(name)) 
+    response.json(filteredExercises)
+  }
+  response.json(exercisesData)
+})
+
+// Endpoint to get a exercise
+app.get('/exercises/:id', (request, response) => {
+  const { id } = request.params
+  const exercise = exercisesData.find(exercise => exercise.exerciseID === +id)
+  if (!exercise) {
+    response.status(404).send(`No exercise with id ${id}!`)
+  }
+  response.json(exercise)
 })
 
 // Start the server
