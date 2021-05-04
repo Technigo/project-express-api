@@ -773,6 +773,60 @@
         "series_order": 4,
         "release_year": 1979,
         "main_characters": "Sara, Haftor Elden"
+    },
+    {
+        "bookID": 87,
+        "title": "Farlig flykt",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 5,
+        "release_year": 1964,
+        "main_characters": "Johanne, Einar, Robin, Mette, Willy"
+    },
+    {
+        "bookID": 87,
+        "title": "Flickan med silverhåret",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 6,
+        "release_year": 1971,
+        "main_characters": "Lisa, Vasili"
+    },
+    {
+        "bookID": 88,
+        "title": "Över alla gränser",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 7,
+        "release_year": 1967,
+        "main_characters": "Scott Hollinger, Sunniva Bard"
+    },
+    {
+        "bookID": 89,
+        "title": "Bergtagen",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 8,
+        "release_year": 1965,
+        "main_characters": "Jo Barheim, Liv Larsen"
+    },
+    {
+        "bookID": 90,
+        "title": "De vita stenarna",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 9,
+        "release_year": 1969,
+        "main_characters": "Ylva, Siri, Mads Billing, Christen Borgestad"
+    },
+    {
+        "bookID": 91,
+        "title": "Förhäxad",
+        "english_title": "",
+        "series": "Sandemoserien",
+        "series_order": 10,
+        "release_year": 1979,
+        "main_characters": "Sissel, Nils, Stefan, Rita"
     }
 
 
