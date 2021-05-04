@@ -8,7 +8,7 @@ import topMusicData from './data/top-music.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// returns only songs with higher danceability then 60
+// returns only songs with danceability of 70 or higher
 app.get('/danceable', (req, res) => {   
   const danceabilityList = topMusicData.filter((item) => item.danceability >= 70)
   res.json(danceabilityList)
@@ -37,8 +37,8 @@ app.get('/song/:id', (req, res) => {
 })
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
- app.use(bodyParser.json())
+//app.use(cors())
+//app.use(bodyParser.json())
 
 // Start defining your routes here
 // app.get('/', (req, res) => {
