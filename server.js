@@ -17,30 +17,50 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Backend for booksData')
+  res.send('Welcome to by Books API /Ann-Sofi Jönsson ')
 })
 
 // Detta är från föreläsning Localhost/books/idnr ex 2
-app.get('/books/:id', (req, res) => {
-  const { id } = req.params
-  const book = booksData.find(book => book.bookID === +id)
-  if (!book) {
-    res.send(`nothing found with id {id}`)
-  }
-  res.json(book)
-})
 
-// den här gör att jag får error om header.. eller?
+
 app.get('/books', (req, res) => {
-  // det är det som är här nedan, author, som syns i browsern
-  const { author } = req.query
-  if (author) {
-    const booksList = booksData.filter(book => book.authors.includes(author))
-    res.json(booksList)
+  console.log(req.query)
+  const { author, title, language } = req.query
+
+  if (!author && !title && !language) {
+    res.status(404).send("Mandatory parameters are missing");
+    return;
   }
-  res.json(booksData)
+
+  let bookList = booksData;
+
+  if (author) {
+    bookList = bookList.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
+  }
+
+  if (title) {
+    bookList = bookList.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
+  }
+
+  if (language) {
+    bookList = bookList.filter((book) => book.language_code.toLowerCase().includes(language.toLowerCase()))
+  }
+
+  if (bookList.length) {
+    res.json(bookList)
+  } else {
+    res.status(404).send("Book not found");
+  }
 })
 
+app.get('/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
+  const books = booksData.find((book) => book.isbn === isbn)
+  if (!books) {
+    res.status(404).send("Book not found");
+  }
+  res.json(books)
+})
 // ta bort denna? ska vara find när vi bara ska ha ut en.
 // Filter används när man vill ha ut en ny lista.
 app.get('/id/:id', (req, res) => {
@@ -49,11 +69,17 @@ app.get('/id/:id', (req, res) => {
   res.json(book)
 })
 
-// använda query ? här istället?
 app.get('/author/:author', (req, res) => {
   const { author } = req.params;
   const books = booksData.filter((item) => item.authors === author)
   res.json(books)
+})
+
+// This endpoint filter on language
+app.get('/lang/:lang', (req, res) => {
+  const { lang } = req.params
+  const filteredByLang = booksData.filter((item) => item.language_code === lang)
+  res.json(filteredByLang)
 })
 
 // endpoint to get the top 5 books sorted on rating
