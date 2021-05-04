@@ -16,35 +16,38 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.json(data.slice(0, 100)); // on the homescreen 100 results shows
+  res.json(data);
 });
 
-// slice depending on page query
+// slice depending on page query (20 results per page)
 const sliceData = (array, num, res) => {
-  array = array.slice((num * 20), ((num + 1) * 20))
+  array = array.slice(num * 20, (num + 1) * 20);
   return array.length < 1 ? res.send("Sorry, no more pages") : array;
-}
+};
 
 // function for routing
-const routes = (name, array) => {
-  app.get(`/${name}/:${name}`, (req, res) => {
+const routes = (names, array) => {
+  app.get(`/${names}/:${names}`, (req, res) => {
     const { countries, types, id, title } = req.params;
     const { year, genre, page } = req.query;
+    const paramArr = [
+      { name: "", value: "" },
+      { name: "country", value: countries },
+      { name: "type", value: types },
+      { name: "show_id", value: id },
+      { name: "title", value: title }
+    ];
+    let i = 0;
 
-    /* filters data according to route name and params by comparing
-    to the specific parameter in the json. upper case leters  and spaces are removed
-    from the json to be able to match properly */
+    /* filters data according to route name and params by comparing to the specific parameter in the
+    json. From the json data spaces and uppercases are removed to be able to match with params */
     array = data.filter((item) => {
-      switch (name) {
-        case "countries":
-          return (item.country.toLowerCase().replace(/\s+/g, "") === countries);
-        case "types":
-          return (item.type.toLowerCase().replace(/\s+/g, "") === types);
-        case "title":
-          return (item.title.toString().toLowerCase().replace(/\s+/g, "") === title);
-        default:
-          return item.show_id === Number(id);
-      }
+      // eslint-disable-next-line no-unused-expressions
+      i < 4 ? i += 1 : i = 1; // for iterating the paramArr
+      return (
+        item[paramArr[i].name].toString().toLowerCase().replace(/\s+/g, "")
+         === paramArr[i].value.toLowerCase()
+      );
     });
 
     if (year) {
@@ -56,7 +59,7 @@ const routes = (name, array) => {
     }
 
     if (page) {
-      array = sliceData(array, Number(page), res) // user can see more results with query page
+      array = sliceData(array, Number(page), res); // user can see more results with query page
     }
 
     // if no data is returned from filtering (no match with params/query) a message says so
