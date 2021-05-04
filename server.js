@@ -14,9 +14,9 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.send('Hello world')
-}) 
+})  */
 
 // endpoint to get all tv-shows + query on director name + TODO: add status code in first res. if name of director is not found
 // TODO: do something so that you don't have to spell everything super correct even if user types in lower case eg. 
