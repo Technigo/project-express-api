@@ -13,10 +13,10 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-/* app.get('/', (req, res) => {
-  res.send('Hello world')
-})  */
+// SAVE THIS AND SEND SOMETHING LATER THAT WILL SHOW IN THE BROWSER
+app.get('/', (req, res) => {
+  res.send('Hello and welcome to this API - documentation to come here as well as on GitHub // or just program a frontend please ?! What I have time for. Here can be a link')
+})
 
 // endpoint to get all tv-shows + query on director name + TODO: add status code in first res. if name of director is not found
 // TODO: do something so that you don't have to spell everything super correct even if user types in lower case eg. 
