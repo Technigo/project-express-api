@@ -7,7 +7,7 @@ import cors from 'cors'
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
@@ -23,12 +23,29 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+
+// Endpoint to get all books
+app.get('/books', (req, res) => {
+  const { author } = req.query
+  if (author) {
+    const filteredBooks = booksData.filter(book => book.authors.includes(author))
+    res.json(filteredBooks)
+  }
+  res.json(booksData)
+})
+
+// Endpoint to one book
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params
+  const book = booksData.find(book => book.bookID === +id)
+  if (!book) {
+    res.status(404).send(`Sorry, no book with ID ${id} was found`)
+  }
+  res.json(book)
 })
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on my http://localhost:${port}`)
 })
