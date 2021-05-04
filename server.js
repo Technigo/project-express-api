@@ -37,8 +37,8 @@ app.get('/song/:id', (req, res) => {
 })
 
 // Add middlewares to enable cors and json body parsing
-//app.use(cors())
-//app.use(bodyParser.json())
+app.use(cors())
+app.use(bodyParser.json())
 
 // Start defining your routes here
 // app.get('/', (req, res) => {
