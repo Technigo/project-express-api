@@ -1,6 +1,7 @@
-import express from 'express'
+import express, { request, response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import booksData from './data/books.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -23,12 +24,31 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+app.get('/', (request, response) => {
+  response.send('Hello from the other side')
+})
+
+app.get('/books', (request, response) => {
+  const { author } = request.query
+  if (author) {
+    const bookList = booksData.filter(book => book.authors === includes(author))
+    response.json(bookList)
+  }
+  response.json(booksData)
+})
+
+app.get('/books/:id', (request, response) => {
+  const { id } = request.params
+  const book = booksData.find( book => book.bookID === +id)
+  if (!book) {
+    response.status(404).send(`The book with id ${id} doesn't exist in this website`)
+  }
+  response.json(book)
+  // request.params.id
 })
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`WOOP 🚀 Server running on http://localhost:${port}`)
 })
