@@ -8,7 +8,11 @@ import topMusicData from './data/top-music.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-
+// returns only songs with higher danceability then 60
+app.get('/danceable', (req, res) => {   
+  const danceabilityList = topMusicData.filter((item) => item.danceability >= 70)
+  res.json(danceabilityList)
+})
 
 app.get('/songs', (req, res) => {   
   res.json(topMusicData)
