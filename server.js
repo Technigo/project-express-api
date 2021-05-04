@@ -6,8 +6,7 @@ import cors from 'cors'
 import netflixData from './data/netflix-titles.json'
 
 //   PORT=9000 npm start
-// process.env.PORT || 8080
-const port = 3001
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -15,9 +14,9 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-/* app.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello world')
-}) */
+}) 
 
 // endpoint to get all tv-shows + query on director name + TODO: add status code in first res. if name of director is not found
 // TODO: do something so that you don't have to spell everything super correct even if user types in lower case eg. 
