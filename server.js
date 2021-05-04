@@ -48,7 +48,7 @@ app.get("/books", (req, res) => {
 // End point for average rating
 
 // End point for all books and one book
-app.get("/books/:id", (req, res) => {
+app.get("/books/book/:id", (req, res) => {
   // console.log(req.params.id);
   const { id } = req.params;
   const book = booksData.find((b) => b.bookID === +id);
@@ -58,7 +58,7 @@ app.get("/books/:id", (req, res) => {
   res.json(book);
 });
 
-app.get("/top-rated", (req, res) => {
+app.get("/books/top-rated", (req, res) => {
   const bookRating = booksData.sort(
     (a, b) => b.average_rating - a.average_rating
   );
@@ -68,18 +68,20 @@ app.get("/top-rated", (req, res) => {
 });
 
 // page number intervals
-app.get("/pages/0-500", (req, res) => {
-  const sortPages = booksData.sort((a, b) => b.num_pages - a.num_pages);
-  const pageNumber = sortPages.filter(
-    (item) => item.num_pages > 0 && item.num_pages <= 500
-  );
-  res.json(pageNumber);
-});
+// app.get("pages/0-500", (req, res) => {
+// /*   const sortPages = booksData.sort((a, b) => b.num_pages - a.num_pages);
+//  */  const pageNumber = booksData.filter(
+//     (item) => item.num_pages > 0 && item.num_pages <= 500
+//   );
+//   res.json(pageNumber);
+// });
 
-app.get("/pages/501", (req, res) => {
+app.get("books/pages/:pageCount", (req, res) => {
   // const sortPages = bookData.sort((a, b) => b.num_pages - a.num_pages);
-  const pageNumber = booksData.filter((item) => item.num_pages > 501);
-  res.json(pageNumber.sort((a, b) => b.num_pages - a.num_pages));
+  const { pageCount } = req.params;
+  const pageNumber = booksData.filter((item) => item.num_pages > +pageCount);
+  const sortedPages = pageNumber.sort((a, b) => b.num_pages - a.num_pages);
+  res.json(sortedPages);
 });
 
 // Start the server
