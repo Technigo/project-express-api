@@ -18,12 +18,12 @@ app.use(bodyParser.json());
 
 // ROUTES
 // Home: path '/'
-app.get('/', (req, res) => {
+app.get('/', (res) => {
   res.send('Hello world, welcome to my API.'); // Change this into an appropriate message, connect it to my live project with frontend
 });
 
 // Books: path '/books'
-app.get('/books', (req, res) => {
+app.get('/books', (res) => {
   res.json(booksData);
 });
 
