@@ -1,17 +1,17 @@
 import data from '../data/ufoSightings.json';
-import { filterBy, groupBy, sortBy } from '../utils/filters';
+import { queried } from '../utils/filters';
+import { paginate } from '../utils/pagination';
 
 export const list = (req, res) => {
   let dataToSend = data;
+  dataToSend = queried(dataToSend, req.query);
 
-  dataToSend = filterBy(dataToSend, { ...req.query });
-  dataToSend = groupBy(dataToSend, req.query.groupBy);
-  dataToSend = sortBy(dataToSend, { sort: req.query.sortBy, order: req.query.orderBy });
-
-  dataToSend = dataToSend.flat();
-
+  const totalLength = dataToSend.length;
+  dataToSend = paginate(dataToSend, { ...req.query });
   res.send({
-    count: dataToSend.length,
+    numOfGroups: dataToSend.numOfGroups,
+    total: totalLength,
+    limit: dataToSend.length || 0,
     items: dataToSend
   });
 };

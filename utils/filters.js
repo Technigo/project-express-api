@@ -2,8 +2,9 @@ import moment from 'moment';
 import _ from 'lodash';
 import { parseDate } from './dates';
 
-export const filterBy = (data, query) => {
+const filter = (data, query) => {
   // filter by year-like queries (only one!)
+  // console.log(query);
   if ('year' in query) {
     // filter by year
     data = data.filter((item) => moment(parseDate(item.date)).year() === +query.year);
@@ -23,23 +24,30 @@ export const filterBy = (data, query) => {
   if ('shapes' in query) {
     const shapes = query.shapes.split(',');
     data = data.filter((item) => shapes.includes(item.shape));
+    // console.log(data);
   }
 
   return data;
 };
 
-export const groupBy = (data, group) => {
-  data = _.groupBy(data, group);
+const group = (data, { groupBy }) => {
+  if (!groupBy) { return data }
+  data = _.groupBy(data, groupBy);
   return data;
 };
 
-export const sortBy = (data, opts) => {
-  data = _.map(data, (item) => {
-    return _.sortBy(item, opts.sort)
-  });
-  if (opts.order === 'asc') {
-    data = data.flat();
+const sort = (data, { sortBy, orderBy }) => {
+  data.sort((a, b) => ((a[sortBy] > b[sortBy]) ? 1 : -1))
+  if (orderBy === 'asc') {
     data.reverse();
   }
-  return data;
+  return data
 };
+
+export const queried = (data, query) => {
+  data = filter(data, { ...query });
+  data = sort(data, { ...query });
+  data = group(data, { ...query });
+  
+  return data
+}
