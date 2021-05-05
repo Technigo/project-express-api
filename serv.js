@@ -1,5 +1,5 @@
 import express from 'express'
-import bodyParser from 'body-parser'
+//import bodyParser from 'body-parser'
 import cors from 'cors'
 
 // import booksData from './data/books.json'
@@ -11,7 +11,7 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // SAVE THIS AND SEND SOMETHING LATER THAT WILL SHOW IN THE BROWSER
 app.get('/', (req, res) => {

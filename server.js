@@ -1,6 +1,6 @@
   
 import express from 'express'
-import bodyParser from 'body-parser'
+//import bodyParser from 'body-parser'
 import cors from 'cors'
 
 import conversationsData from './data/conversations.json'
@@ -11,7 +11,7 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
