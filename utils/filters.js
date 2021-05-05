@@ -1,4 +1,5 @@
 import moment from 'moment';
+import _ from 'lodash';
 import { parseDate } from './dates';
 
 export const filterBy = (data, query) => {
@@ -26,3 +27,8 @@ export const filterBy = (data, query) => {
 
   return data;
 };
+
+export const groupBy = (data, group) => {
+  data = _.groupBy(data, group);
+  return data;
+}
