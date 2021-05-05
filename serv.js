@@ -1,6 +1,7 @@
 import express from 'express'
 //import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 // import booksData from './data/books.json'
 import netflixData from './data/netflix-titles.json'
@@ -15,7 +16,8 @@ app.use(express.json())
 
 // SAVE THIS AND SEND SOMETHING LATER THAT WILL SHOW IN THE BROWSER
 app.get('/', (req, res) => {
-  res.send('Hello and welcome to this API - documentation to come here as well as on GitHub // or just program a frontend please ?! What I have time for. Here can be a link')
+  //res.send('Hello and welcome to this API - documentation to come here as well as on GitHub // or just program a frontend please ?! What I have time for. Here can be a link')
+  res.send(listEndpoints(app))
 })
 
 // endpoint to get all tv-shows + query on director name + TODO: add status code in first res. if name of director is not found
