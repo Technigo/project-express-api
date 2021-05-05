@@ -23,12 +23,14 @@ app.get('/', (request, response) => {
 //endpoint to get all power plants including possibility to filter on country
 app.get('/nuclear-power-plants', (request, response) => {
   const { country } = request.query
-
-  const byCountry = plantsData.filter(plant => {
+  if (country) {
+    const byCountry = plantsData.filter(plant => {
       return (plant.Country.toLowerCase().indexOf(country.toLowerCase()) !== -1)
     })
     response.json(byCountry)
-  })
+  } else {
+    response.json(plantsData)
+  }})
 
 // .includes(country))
 //endpoint to get power plant by id 

@@ -20,6 +20,11 @@ ________________________________________________________________________________
 
 The API har several endpoints:
 
+**List of endpoints**
+https://nuclear-plants-api.herokuapp.com/
+
+(Possible queries not included)
+
 **All power plants and reactors**
 
 https://nuclear-plants-api.herokuapp.com/nuclear-power-plants 
@@ -35,10 +40,6 @@ This query is not case sensitive and you can type part of the name of a country.
 
 https://nuclear-plants-api.herokuapp.com/:id
 Displays one reactor/power plant that has the ID that matches the one inserted in the end of the URL. The ID is a number from 0 to 275.
-
-**Power plants and reactors by country**
-blabla/nuclear-power-plants/countries/:country
-Displays all reactors in the chosen country that is inserted in the end of the URL. To write the name of states in a way that matches the API, see this list (link).
 
 ## View it live
 
