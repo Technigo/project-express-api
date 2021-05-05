@@ -1,4 +1,3 @@
-// import moment from 'moment';
 import data from '../data/ufoSightings.json';
 import { filterBy, groupBy, sortBy } from '../utils/filters';
 
@@ -16,8 +15,17 @@ export const list = (req, res) => {
     items: dataToSend
   });
 };
+
 export const view = (req, res) => {
   const { id } = req.params;
   const item = data.find((d) => d.id === +id);
+
+  if (item === undefined) {
+    return res.status(404).json({
+      status: 'error',
+      message: 'Could not find the requested sighting by ID'
+    });
+  }
+
   res.send(item);
 };
