@@ -18,12 +18,12 @@ app.use(bodyParser.json());
 
 // ROUTES
 // Home: path '/'
-app.get('/', (res) => {
+app.get('/', (req, res) => {
   res.send('Hello world, welcome to my API.'); // Change this into an appropriate message, connect it to my live project with frontend
 });
 
 // Books: path '/books'
-app.get('/books', (res) => {
+app.get('/books', (req, res) => {
   res.json(booksData);
 });
 
@@ -34,7 +34,7 @@ app.get('/books/search', (req, res) => {
   const booksByAuthor = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
 
   if (booksByAuthor.length === 0) {
-    res.status(404).send(`Sorry, could not find any books by ${author}.`)
+    res.status(404).send(`Sorry, could not find any books by ${author}.`);
   }
     
   res.json(booksByAuthor);
@@ -50,7 +50,7 @@ app.get('/books/:id', (req, res) => {
     res.status(404).send(`Sorry, could not find a book with id number ${id}.`);
   }
 
-  res.json(singleBook)
+  res.json(singleBook);
 });
 
 // Start the server
