@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-import avocados from './data/avocado-sales.json'
+import netflixTitles from './data/netflix-titles.json'
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -10,51 +11,42 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Start defining your routes here
+// Listing all endpoints
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
 
-app.get('/sales', (req, res) => {
-  const { region } = req.query
-  const { priceBelow } = req.query
-  const { priceAbove } = req.query
-  const { month } = req.query
-
-  let filteredSales = avocados
-  if (region) {
-    filteredSales = filteredSales.filter((sale) => {
-      const regionLowerCase = sale.region.toLowerCase()
-      return regionLowerCase.includes(region.toLowerCase())
-    })
-  }
-  if (priceBelow) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +priceBelow)
-  }
-  if (priceAbove) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +priceAbove)
-  }
-  if (month) {
-    filteredSales = filteredSales.filter((sale) => {
-      const date = (new Date(sale.date)).toLocaleDateString("en", { month: "long" }).toLowerCase()
-      return date === month.toLowerCase()
-    })
-  }
-
-  res.json(filteredSales)
+// Listing all titles, no queries
+app.get('/titels', (req, res) => {
+  res.json({ titels: netflixTitles })
 })
 
-app.get('/sales/:id', (req, res) => {
+// Listing titles by id
+app.get('/titels/:id', (req, res) => {
   const { id } = req.params
-  let filteredSales = avocados
+  const foundTitel = netflixTitles.find((titel) => titel.show_id === +id)
   if (id) {
-    filteredSales = filteredSales.find((sale) => {
-      return sale.id === +id
-    })
-    res.json(filteredSales)
+    res.status(200).json({ show: foundTitel })
   } else {
-    res.status(404).json({ message: "Not founds" })
+    res.status(404).json({ status_message: "Not found" })
   }
+})
+app.get('/movies', (req, res) => {
+  const { year } = req.query
+  const { cast } = req.query
+
+  const movies = netflixTitles.filter((titel) => titel.type === "Movie")
+  let filteredMovies = movies
+
+  if (year) {
+    filteredMovies = filteredMovies.filter((movie) => movie.release_year === +year)
+  }
+  if (cast) {
+    filteredMovies = filteredMovies.filter((movie) => {
+      return movie.cast.toLowerCase().includes(cast.toLowerCase())
+    })
+  }
+  res.json({ movies: filteredMovies })
 })
 
 // Start the server
