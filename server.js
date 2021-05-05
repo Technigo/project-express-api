@@ -31,14 +31,15 @@ app.get('/books/search', (req, res) => {
   const { shortStory } = req.query 
   let queriedBooks = booksData 
 
-  // Query to find author. Includes() makes it possible to write part of the authors name, and toLowerCase
-  // makes the search case insensitive
+  // Query to find author. Includes() makes it possible to write part of the authors name, 
+  // toLowerCase makes the search case insensitive
   if (author) {
     queriedBooks = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
-    if (!queriedBooks) {
-      res.status(404).json(`No books from ${author}`)
-      // if author does not exist send error message - does not show?
-    }
+    // if (!queriedBooks) {
+    //   res.status(404).json({ error: 'not found' })
+    //   // if author does not exist send error message 
+    //   // does not work, return an empty array 
+    // }
   } 
   // query to sort the books from high to low in average rating. 
   if (highToLow) {
@@ -80,12 +81,12 @@ app.get('/books/title', (req, res) => {
   const { title } = req.query
   const queriedTitle = booksData.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
   if (!queriedTitle) {
-    res.status(404).send(`Sorry, there is no book with the title ${title}`)
-  }
+    res.status(404).send({ error: 'not found' })
+  } // does not work, return an empty array 
   res.json({ data: queriedTitle })
 })
 
-// endpoint to get one book based on ID parameter
+// endpoint to get one book based on id param
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
   const book = booksData.find((book) => book.bookID === +id)
@@ -95,7 +96,7 @@ app.get('/books/id/:id', (req, res) => {
   res.json({ data: book })
 })
 
-// endpoint to get one book based on isbn parameter. 
+// endpoint to get one book based on isbn param. 
 app.get('/books/isbn/:isbn', (req, res) => {
   const { isbn } = req.params
   const bookIsbn = booksData.find((book) => book.isbn === +isbn)
