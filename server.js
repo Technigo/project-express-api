@@ -1,53 +1,54 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
 
-import avocadoSalesData from './data/avocado-sales.json'
+import netflixTitles from './data/netflix-titles.json'
 
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 8080
 const app = express()
 
-const data = avocadoSalesData
-
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send('Hi there')
+  res.send('Hi! This is the root-endpoint for my Netflix API.')
 })
 
-// endpoint for all avocado sales data
-app.get('/sales', (req, res) => {
-  res.json(data)
-})
+// endpoint for all titles
+app.get('/titles', (req, res) => {
+  const { released } = req.query
+  let titles = netflixTitles
 
-// endpoint with params for sales in a whole region and query string to get the sales for one date in one region 
-app.get('/region/:region', (req, res) => {
-  const { region } = req.params
-  const salesId = req.query.id
-  let salesRegion = data.filter((item) => item.region.toLowerCase() === region.toLowerCase())
-
-  if (salesId) {
-    salesRegion = salesRegion.find(item => item.id === +salesId)
+  if (released) {
+    titles = titles.filter(title => title.release_year === +released)
+    res.json({ data: titles })
   }
-  res.json(salesRegion)
+
+  res.json({ data: titles })
 })
 
-/* app.get('/price', (req, res) => {
-  const averageSalesPrice = req.query.asp
-  
-  if(averageSalesPrice) {
-    data = data.filter((item) => item.averagePrice === +averageSalesPrice)
-    console.log(averageSalesPrice)
-  }
-  res.json(data)
-}) */
+//endpoint for movies
+app.get('/movies', (req, res) => {
+  const movies = netflixTitles.filter((title) => title.type.toLowerCase() === 'movie')
+
+  res.json({ data: movies })
+})
+
+//endpoint for tv shows
+app.get('/tvshows', (req, res) => {
+  const tvShows = netflixTitles.filter((title) => title.type.toLowerCase() === 'tv show')
+
+  res.json({ data: tvShows })
+})
+
+//param to get a single title
+app.get('/titles/:id', (req, res) => {
+  const { id } = req.params
+
+  const titleId = netflixTitles.find((title) => title.show_id === +id)
+  res.json({ data: titleId })
+})
+
+
 
 // Start the server
 app.listen(port, () => {
