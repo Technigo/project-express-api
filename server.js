@@ -1,5 +1,4 @@
 import express, { request, response } from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
 import booksData from './data/books.json'
 
@@ -21,7 +20,7 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (request, response) => {
@@ -31,7 +30,7 @@ app.get('/', (request, response) => {
 app.get('/books', (request, response) => {
   const { author } = request.query
   if (author) {
-    const bookList = booksData.filter(book => book.authors === includes(author))
+    const bookList = booksData.filter(book => book.authors.includes(author))
     response.json(bookList)
   }
   response.json(booksData)
