@@ -18,7 +18,7 @@ export const filterBy = (data, query) => {
     const countries = query.countries.split(',');
     data = data.filter((item) => countries.includes(item.country));
   }
-  
+
   // filter by shape
   if ('shapes' in query) {
     const shapes = query.shapes.split(',');
@@ -31,4 +31,15 @@ export const filterBy = (data, query) => {
 export const groupBy = (data, group) => {
   data = _.groupBy(data, group);
   return data;
-}
+};
+
+export const sortBy = (data, opts) => {
+  data = _.map(data, (item) => {
+    return _.sortBy(item, opts.sort)
+  });
+  if (opts.order === 'asc') {
+    data = data.flat();
+    data.reverse();
+  }
+  return data;
+};
