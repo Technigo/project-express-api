@@ -46,14 +46,14 @@ app.get("/books", (req, res) => {
   res.send(booksData);
 });
 
-// http://localhost:8080/books/1
+// http://localhost:8080/books/book/1
 // :id = param to trigger a param example console.log(req params)
 // it will look for the specific param, in this case a specific id from booksData
-app.get("/books/book/:id", (req, res) => {
-  const { id } = req.params;
-  const book = booksData.find((b) => b.bookID === +id);
+app.get("/books/book/:bookID", (req, res) => {
+  const { bookID } = req.params;
+  const book = booksData.find((b) => b.bookID === +bookID);
   if (!book) {
-    res.status(404).send(`error, there  is no book with this ${id}`);
+    res.status(404).send(`error, there  is no book with this ${bookID}`);
   }
   res.json(book);
 });
