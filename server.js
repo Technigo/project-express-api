@@ -31,10 +31,15 @@ app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-app.get('/id/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const { id } = req.params
-  const filteredId = booksData.filter((item) => item.bookID === +id)
-  res.json(filteredId)
+  const queriedBook = booksData.find((book) => book.bookID === +id)
+  
+  if (queriedBook) {
+    res.json({ data: queriedBook })
+  } else {
+    res.status(404).json({ error: 'Not found' })
+  }
 })
 
 // Start the server
