@@ -1,5 +1,5 @@
 import express from 'express'
-import bodyParser from 'body-parser'
+import listEndpoints from 'express-list-endpoints'
 import cors from 'cors'
 import sandemoData from './data/sandemo.json'
 
@@ -22,23 +22,31 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Start defining your routes here
 
 //endpoint to get all the movie titles
+
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app))
+})
+
 app.get('/books', (req, res) => {
   res.json(sandemoData)
 })
 
 app.get('/books', (req, res) => {
-  const { character } = req.query
-  if (character) {
-    const characterList = sandemoData.filter(book => book.main_character.includes(character))
-    res.json(characterList)
-  }
-  res.json(sandemoData)
-})
+  
+  const { series } = req.query;
+
+  
+  const queriedBooks = books.filter(book => {
+    return book.series.toLowerCase().indexOf(series.toLowerCase()) !== -1;
+  })
+
+  res.json({ data: queriedBooks });
+});
 
 app.get('/books/:id', (req,res) => {
   const { id } = req.params
