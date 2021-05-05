@@ -1,45 +1,53 @@
 /* eslint-disable linebreak-style */
-// eslint-disable linebreak-style 
-import express, { response } from 'express'
-import bodyParser from 'body-parser'
+import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 import exercisesData from './data/exercises.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
-// Endpoint to get all exercises
-app.get('/exercises', (request, response) => {
-  const { name } = request.query
-  if (name) {
-    const filteredExercises = exercisesData.filter(exercise => exercise.name.includes(name)) 
-    response.json(filteredExercises)
-  }
-  response.json(exercisesData)
+// Lists all endpoints
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app))
 })
 
-// Endpoint to get a exercise
-app.get('/exercises/:id', (request, response) => {
-  const { id } = request.params
-  const exercise = exercisesData.find(exercise => exercise.exerciseID === +id)
-  if (!exercise) {
-    response.status(404).send(`No exercise with id ${id}!`)
-  }
-  response.json(exercise)
+// Lists all exercises
+app.get('/exercises', (req, res) => {
+  res.json(exercisesData)
 })
+
+// Endpoint to get a exercise by id
+app.get('/exercises/:id', (req, res) => {
+  const { id } = req.params
+  const queriedExercise = exercisesData.find(
+    (exercise) => exercise.exerciseID === +id
+  )
+  if (queriedExercise) {
+    res.json({ data: queriedExercise })
+  } else {
+    res.status(404).send({ error: `No exercise with id ${id}!` })
+  }
+})
+/*
+app.get('/exercises', (req, res) => {
+  const { name } = req.query
+  if (name
+    const filteredExercises = exercisesData.filter(
+      (exercise) => {
+        return (exercise.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+    )},
+    res.json(filteredExercises)
+  }
+  res.json(exercisesData)
+}) */
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on http://localhost:${port}/exercises`)
 })
