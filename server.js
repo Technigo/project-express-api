@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import booksData from './data/books.json'
+import listEndpoints from 'express-list-endpoints'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -16,13 +17,15 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send(
+  res.send(listEndpoints(app))
+  
+  /* (
     `
       This API provides detaliled information about books. <br>
       Please specify an endpoint or a query. <br>
       Available Endpoints: /books or /id/(id) <br>
       Sample Query:
-    `)
+    `) */
 })
 app.get('/books', (req, res) => {
   res.json(booksData)
