@@ -4,7 +4,6 @@ import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import booksData from './data/books.json';
 
-
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -12,17 +11,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 app.get('/', (req, res) => {
   res.send(listEndpoints(app));
 });
 
 // Pages
-app.get('/books/page', (req, res) => {
+app.get('/books', (req, res) => {
   let { page } = req.query;
   if (page) {
     const bookList = booksData.length;
-    const booksPerPage = 25;
+    const booksPerPage = 30;
     const numOfPages = Math.ceil(bookList / booksPerPage);
     if (page > numOfPages) {
       page = numOfPages;
@@ -42,19 +40,25 @@ app.get('/books/page', (req, res) => {
   res.json(booksData);
 });
 
-// For toprateds and search for author
-app.get('/books', (req, res) => {
-  const { author, topRated } = req.query;
-  // For toprated books
-  if (topRated) {
-    const sortedTopRated = booksData.sort((a, b) => a.average_rating - b.average_rating).reverse();
-    const topRatedBooks = sortedTopRated.slice(0, topRated);
-    res.json(topRatedBooks);
-  }
+// Search for author
+app.get('/books/search', (req, res) => {
+  const { author } = req.query;
   // Searching for author
   if (author) {
     const filteredByAuthor = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
     res.json(filteredByAuthor);
+  }
+  res.json(booksData);
+});
+
+// For toprated books
+app.get('/books/top-rated', (req, res) => {
+  const { top } = req.query;
+  // For toprated books
+  if (top) {
+    const sortedTopRated = booksData.sort((a, b) => a.average_rating - b.average_rating).reverse();
+    const topRatedBooks = sortedTopRated.slice(0, top);
+    res.json(topRatedBooks);
   }
   res.json(booksData);
 });
