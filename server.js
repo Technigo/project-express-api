@@ -1,94 +1,103 @@
 import express, { request } from "express";
-import bodyParser from "body-parser";
+import ListEndpoints from "express-list-endpoints";
 import cors from "cors";
 
 import booksData from "./data/books.json";
-// const port = 8080
-// const app = express()
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+// Defines the port the app will run on. Defaults to 8080
+// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 // ROUTES
-// Start defining your routes here
-//  get to get things form the API
-// / Is the pat// a request and a reponse
 
-// end point to get all books
-// query param, if someone serach for one auther
+// Main root is '/'
+// ListEndPoints sending list of end points
+app.get("/", (req, res) => {
+  res.send(ListEndpoints(app));
+});
+
+// http://localhost:8080/books
+// http://localhost:8080/books?author=J.K. Rowling-Mary GrandPré
+// http://localhost:8080/books?title=Harry Potter and the Order of the Phoenix
+// .lower case will enable searches like:
+// http://localhost:8080/books?author=j.k.%20row (%20) is space in URL
+// query param, if if searching for specific auther or title
+// '/books' end point to get all books
+// res.json the data always convert data to string
+
 app.get("/books", (req, res) => {
-  const { author } = req.query;
+  const { author, title } = req.query;
   if (author) {
-    const booksList = booksData.filter((book) => book.authors.includes(author));
+    const booksList = booksData.filter((book) => {
+      return book.authors.toLowerCase().includes(author.toLowerCase());
+    });
     res.json(booksList);
+  } else if (title) {
+    const booksTitle = booksData.filter((book) => {
+      return book.authors.toLowerCase().includes(title.toLowerCase());
+    });
+    res.json(booksTitle);
   }
   res.send(booksData);
 });
 
-// end point in URL would look like books?authors=J.K. Rowling
-// after = is always the query. first variable (?authors then = query)
-// end point to get one book
-// param : to trigger a param
-// End point for average rating
-
-// End point for all books and one book
+// http://localhost:8080/books/1
+// :id = param to trigger a param example console.log(req params)
+// it will look for the specific param, in this case a specific id from booksData
 app.get("/books/book/:id", (req, res) => {
-  // console.log(req.params.id);
   const { id } = req.params;
   const book = booksData.find((b) => b.bookID === +id);
   if (!book) {
-    res.status(404).send(`error, no book ${id}`);
+    res.status(404).send(`error, there  is no book with this ${id}`);
   }
   res.json(book);
 });
 
+// http://localhost:8080/books/top-rated
+// response till be top rated books sorted from top-ranked to least-top ranked
+// slice() to show top 10 out of all rated books
 app.get("/books/top-rated", (req, res) => {
   const bookRating = booksData.sort(
     (a, b) => b.average_rating - a.average_rating
   );
   res.json(bookRating.slice(0, 10));
-  // const bookRating = booksData.filter((item) => item.average_rating >= 3);
-  // res.json(bookRating);
 });
 
-// page number intervals
-// app.get("pages/0-500", (req, res) => {
-// /*   const sortPages = booksData.sort((a, b) => b.num_pages - a.num_pages);
-//  */  const pageNumber = booksData.filter(
-//     (item) => item.num_pages > 0 && item.num_pages <= 500
-//   );
-//   res.json(pageNumber);
-// });
+// http://localhost:8080/books/pages
+// response will be all books sorted accoring to page number from most pages to less
+app.get("/books/pages", (req, res) => {
+  const pageNumbers = booksData.sort((a, b) => b.num_pages - a.num_pages);
+  res.json(pageNumbers);
+});
 
-app.get("books/pages/:pageCount", (req, res) => {
-  // const sortPages = bookData.sort((a, b) => b.num_pages - a.num_pages);
+// get books with page number in the search
+// http://localhost:8080/books/pages/65 response will be all books over 65 pages sorted
+app.get("/books/pages/:pageCount", (req, res) => {
   const { pageCount } = req.params;
-  const pageNumber = booksData.filter((item) => item.num_pages > +pageCount);
+  const pageNumber = booksData.filter((item) => item.num_pages === +pageCount);
   const sortedPages = pageNumber.sort((a, b) => b.num_pages - a.num_pages);
+
+  if (!sortedPages) {
+    res
+      .status(404)
+      .send(`error, we hav eno books with this amount of  ${pageCount}`);
+  }
   res.json(sortedPages);
 });
 
 // Start the server
-// takes two parameters
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
-// Endpoints to be added: pages per page (max 20 per page)
-// page number intervals
+
+// import goldenGlobesData from './data/golden-globes.json'
+// import avocadoSalesData from './data/avocado-sales.json'
+// import booksData from './data/books.json'
+// import netflixData from './data/netflix-titles.json'
+// import topMusicData from './data/top-music.json'
