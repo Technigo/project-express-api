@@ -35,11 +35,10 @@ app.get('/books/search', (req, res) => {
   // toLowerCase makes the search case insensitive
   if (author) {
     queriedBooks = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
-    // if (!queriedBooks) {
-    //   res.status(404).json({ error: 'not found' })
-    //   // if author does not exist send error message 
-    //   // does not work, return an empty array 
-    // }
+    if (queriedBooks.length === 0) {
+      res.status(404).json({ error: 'not found' })
+      // if author does not exist send error message 
+    }
   } 
   // query to sort the books from high to low in average rating. 
   if (highToLow) {
@@ -80,9 +79,10 @@ app.get('/books/toplist', (req, res) => {
 app.get('/books/title', (req, res) => {
   const { title } = req.query
   const queriedTitle = booksData.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
-  if (!queriedTitle) {
-    res.status(404).send({ error: 'not found' })
-  } // does not work, return an empty array 
+  if (queriedTitle.length === 0) {
+    res.status(404).json({ error: 'not found' })
+    // if title does not exist send error message 
+  }
   res.json({ data: queriedTitle })
 })
 
