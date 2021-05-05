@@ -1,5 +1,5 @@
 import express, { response } from 'express'
-import bodyParser from 'body-parser'
+import listEndpoints from 'express-list-endpoints'
 import cors from 'cors'
 
 import plantsData from './data/plants.json'
@@ -13,9 +13,14 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// endpoint to get all power plants including possibility to filter on country
+// Root URL shows list of endpoints available
+app.get('/', (request, response) => {
+  response.send(listEndpoints(app))
+})
+
+//endpoint to get all power plants including possibility to filter on country
 app.get('/nuclear-power-plants', (request, response) => {
   const { country } = request.query
   if (country) {
@@ -33,7 +38,7 @@ app.get('/nuclear-power-plants/:id', (request, response) => {
   }
   response.json(plantById)
 })
-//endpoint to get power plant by country
+// endpoint to get power plant by country
 // app.get('/nuclear-power-plants/countries/:country', (request, response) => {
 //   const country = request.params.country
 //   const plantsByCountry = plantsData.filter(plant => plant.Country === country)

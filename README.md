@@ -22,7 +22,7 @@ The API har several endpoints:
 
 **All power plants and reactors**
 
-blabla/nuclear-power-plants
+https://nuclear-plants-api.herokuapp.com/nuclear-power-plants 
 
 Displays the whole dataset, information on all nuclear power plants and reactors. 
 
@@ -41,4 +41,8 @@ Displays all reactors in the chosen country that is inserted in the end of the U
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Use one of these endpoints:
+
+https://nuclear-plants-api.herokuapp.com/nuclear-power-plants
+
+https://nuclear-plants-api.herokuapp.com/nuclear-power-plants/{id}
