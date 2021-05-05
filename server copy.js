@@ -62,57 +62,21 @@ app.get('/year/:year', (req, res) => {
 /*************************/
 
 /*Books section*/
-
-
-
-/*app.get('/books', (request, response) => { // Books
+app.get('/books', (request, response) => { // Books
   const { author } = request.query
-  
+  const books = booksData
+  if(books) {
     if(author) {
     
       const searchAuthor = booksData.filter(book => book.authors.toLowerCase().includes(author)) // Skapa en Query
       response.json(searchAuthor) // books?author=Tolkien
       console.log(author)
+    } else if(!author) {  // Denna funakr ej
+      response.status(404).send(`No book with id number `)
     }
-  
+  }
   response.json(booksData)
 
-})*/
-
-app.get('/books', (request, response) => { // Books
-  const { author } = request.query
-  const searchAuthor = booksData.filter(book => book.authors.toLowerCase().includes(author))
-   // Skapa en Query
-      if(!author) {
-    
-      response.json(booksData)
-    }  else if(author) {
-        if (author === booksData.authors.toLowerCase().includes(author)) {
-          response.json(searchAuthor)
-        } else if(author !== booksData.authors.toLowerCase().includes(author)) {
-          response.json(avocadoSalesData)
-        }
-
-
-
-
-      
-    } 
-    
-    
-    
-    else if (searchAuthor != -1){
-      response.status(404).json(`No book with id number `)
-    }
-  
-    response.json(booksData)
-    
-
-})
-
-
-app.get('/books', (request, response) => { // Books
-  response.json(booksData) // books?author=Tolkien
 })
 
 /*
@@ -153,9 +117,9 @@ app.get('/avocado', (req, res) => { // Avocado
   res.json(avocadoSalesData)
 })
 
-app.get('/avocadoprice/:price', (req,res) => {
+app.get('/avocado/:price', (req,res) => {
   const { price } = req.params
-  const priceFilter = avocadoSalesData.filter(item => item.averagePrice <= +price)
+  const priceFilter = avocadoSalesData.filter(item => item.averagePrice >= +price)
   
   /*if (priceFilter) {
     res.json(priceFilter)
