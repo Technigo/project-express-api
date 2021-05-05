@@ -8,4 +8,4 @@ I started by thinking about which endpoints would be useful from the user's pers
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://books-api-project-express-api.herokuapp.com/
