@@ -8,7 +8,7 @@ import plantsData from './data/plants.json'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 9002
+const port = process.env.PORT || 9001
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -23,12 +23,14 @@ app.get('/', (request, response) => {
 //endpoint to get all power plants including possibility to filter on country
 app.get('/nuclear-power-plants', (request, response) => {
   const { country } = request.query
-  if (country) {
-    const byCountry = plantsData.filter(plant => plant.Country.includes(country))
+
+  const byCountry = plantsData.filter(plant => {
+      return (plant.Country.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+    })
     response.json(byCountry)
-  }
-  response.json(plantsData)
-})
+  })
+
+// .includes(country))
 //endpoint to get power plant by id 
 app.get('/nuclear-power-plants/:id', (request, response) => {
   const { id } = request.params

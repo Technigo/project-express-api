@@ -26,13 +26,14 @@ https://nuclear-plants-api.herokuapp.com/nuclear-power-plants
 
 Displays the whole dataset, information on all nuclear power plants and reactors. 
 
-It is possible to filter on country. Add your query like this:
-/nuclear-power-plants/?country=FINLAND
-You need to type the country in CAPITALS and a part of the name works as well.
+Filter on country
+Add your query like this:
+/nuclear-power-plants/?country=finland
+This query is not case sensitive and you can type part of the name of a country. Be aware that if you e.g. type "united", you will get results of both United Kingdom and the United States of America. 
 
 **Power plants and reactors by ID**
 
-blabla/nuclear-power-plants/:id
+https://nuclear-plants-api.herokuapp.com/:id
 Displays one reactor/power plant that has the ID that matches the one inserted in the end of the URL. The ID is a number from 0 to 275.
 
 **Power plants and reactors by country**
