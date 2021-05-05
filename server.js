@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 }) 
 
 // it's logging in the Console but no output in Postman nor in browser on port ! 
+// Is the problem an if statement that will not be true, always false ? but in that case it should return netflixData always. ÄR det ngt ovan om blockerar den?
 app.get('/shows', (req, res) => {
   const { director }  = req.query
   //console.log(director)
