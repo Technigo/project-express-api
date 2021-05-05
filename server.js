@@ -15,12 +15,17 @@ app.get('/', (req, res) => {
 
 // endpoint for all titles
 app.get('/titles', (req, res) => {
-  const { released } = req.query
+  const { released, name } = req.query
   let titles = netflixTitles
 
   if (released) {
     titles = titles.filter(title => title.release_year === +released)
     res.json({ data: titles })
+  }
+
+  if (name) {
+    titles = titles.filter(title => title.title.toString().toLowerCase() === name.toLowerCase())
+    res.json({ data: titles})
   }
 
   res.json({ data: titles })
@@ -35,7 +40,15 @@ app.get('/movies', (req, res) => {
 
 //endpoint for tv shows
 app.get('/tvshows', (req, res) => {
-  const tvShows = netflixTitles.filter((title) => title.type.toLowerCase() === 'tv show')
+  const { seasons } = req.query
+  let tvShows = netflixTitles.filter((title) => title.type.toLowerCase() === 'tv show')
+
+  if (seasons) {
+    tvShows = tvShows.filter((title) => title.duration.charAt(0) === seasons)
+    res.json({ data: tvShows })
+  } else {
+    res.status(404).json({ error: 'Not found' })
+  }
 
   res.json({ data: tvShows })
 })
