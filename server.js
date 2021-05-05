@@ -26,7 +26,7 @@ app.get('/shows', (req, res) => {
       //console.log(show.director.toLowerCase()) //,  director.toLowerCase() ---> it is the director that is NOT defined at all comes out empty!
       show.director.toLowerCase().includes(director.toLowerCase()) // the problem is that these two do not match each other ?? 
     })
-    console.log(queriedDirector)
+    //console.log(queriedDirector)
     res.json(queriedDirector)
   } else {
     res.json(netflixData) // Should here be a status code instead ?? Sorry that was not found! 
