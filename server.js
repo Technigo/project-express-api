@@ -2,46 +2,54 @@
 /* eslint-disable */
 
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// console.log(booksData)
-// Add middlewares to enable cors and json body parsing
+// middlewares to enable cors and json parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Start defining your routes here
-// app.get('/', (req, res) => {
-  // res.send('Hello world')
-//})
+// endpoint to get list of endpoints
+app.get('/', (request, response) => {
+  response.send(listEndpoints(app))
+})
 
+// endpoint to get all movies
 app.get('/movies', (request, response) => {
-  
   response.json(netflixData)
+})
+
+// query parameters, filtering data
+app.get('/movies/director', (request, response) => {
+
+  const { director } = request.query
+  const queriedMovies = netflixData.filter(movie => {
+    return movie.director.toLowerCase().indexOf(director.toLowerCase()) !== -1
+  }) 
+  
+  if (queriedMovies.length > 0) {
+    response.json({ data: queriedMovies })
+  } else {
+    response.status(404).json({ error: 'Not found'})
+  }
 })
 
 // endpoint to get one movie
 app.get('/movies/:id', (request, response) => {
   const { id } = request.params
   const movie = netflixData.find( movie => movie.show_id === +id)
-  response.json(movie)
   
+  if (movie) {
+    response.json({ data: movie })
+  } else {
+    response.status(404).json({ error: 'Not found'})
+  }
 })
 
 
