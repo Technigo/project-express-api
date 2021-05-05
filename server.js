@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
+// endpoint for all books
 app.get("/books", (req, res) => {
   const bookTitle = req.query.title
   const author = req.query.author
@@ -50,23 +51,25 @@ app.get("/books", (req, res) => {
   }
 
   if (books.length === 0) {
-    res.json(notFound) // displays 404 error message if author or title search has no results
+    res.status(404).json(notFound) // displays 404 error message if author or title search has no results
   }
 
   res.json(books)
 })
 
+// endpoint for one book by id
 app.get("/books/:id", (req, res) => {
-  const id = Number(req.params.id)
+  const id = +req.params.id
   const bookById = booksData.find((book) => book.bookID === id) // checks for id
 
   if (!bookById) {
-    res.json(notFound) // displays 404 error message if id has no match
+    res.status(404).json(notFound) // displays 404 error message if id has no match
   }
 
   res.json(bookById)
 })
 
+// endpoint for highest rated books, search query minRatingCount to filter for a minimum number of ratings
 app.get("/highestRated", (req, res) => {
   let highestRatedBooks = booksData.sort((a, b) => b.average_rating - a.average_rating) // sorts by highest rating
 
@@ -78,6 +81,7 @@ app.get("/highestRated", (req, res) => {
   res.json(highestRatedBooks)
 })
 
+// endpoint for top 50 highest rated books with above 1000 ratings
 app.get("/top50", (req, res) => {
   let highestRatedBooks = booksData.sort((a, b) => b.average_rating - a.average_rating) // sorts by highest rating
 

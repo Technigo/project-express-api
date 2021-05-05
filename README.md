@@ -1,12 +1,10 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal of this project was to build an API using Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by thinking about which endpoints would be useful from the user's perspective and how to name them with that in mind. Then I added some search queries for the different endpoints.
 
 ## View it live
 
