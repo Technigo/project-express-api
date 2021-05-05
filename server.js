@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { query } from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 
@@ -21,16 +21,17 @@ app.get('/', (req, res) => {
 // Is the problem an if statement that will not be true, always false ? but in that case it should return netflixData always. ÄR det ngt ovan om blockerar den?
 app.get('/shows', (req, res) => {
   const { director }  = req.query
-  //console.log(director)
-  if (director) { 
-    const queriedDirector = netflixData.filter(show => {
-      //console.log(show.director.toLowerCase()) //,  director.toLowerCase() ---> it is the director that is NOT defined at all comes out empty!
-      show.director.toLowerCase().includes(director.toLowerCase()) // the problem is that these two do not match each other ?? 
-    })
-    //console.log(queriedDirector)
-    res.json(queriedDirector)
+  
+  
+  if (director) {
+    const queriedDirector = netflixData.filter(show => show.director.toLowerCase().includes(director.toLowerCase()))
+    if (queriedDirector.length === 0 ) { 
+      res.status(404).json({ error: 'Director not found' })
+    } else {
+      res.status(200).json({ data: queriedDirector })
+    }
   } else {
-    res.json(netflixData) // Should here be a status code instead ?? Sorry that was not found! 
+    res.status(400).json({ error: 'Please write the name of a director' }) // 400 
   }
 })
 
@@ -39,12 +40,11 @@ app.get('/shows', (req, res) => {
 app.get('/shows/:id', (req, res) => {
   const { id }  = req.params
   const movieId = netflixData.find(movie => movie.show_id === +id)
-  //console.log(movieId)
 
   if (movieId) {
     res.status(200).json({ data: movieId });
   } else {
-    res.status(404).json({ error: 'Not found' });
+    res.status(404).json({ error: 'This movie can not be found' });
   }
 })
 
