@@ -3,13 +3,9 @@ import cors from 'cors';
 
 import booksData from './data/books.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
@@ -27,15 +23,27 @@ app.get('/books', (req, res) => {
 // Books by author: path '/books/search'
 // Example path: '/books/search?author=J.K.Rowling'
 app.get('/books/search', (req, res) => {
-  const { author } = req.query; // maybe you can add more queries within the braces
+  const { author, title } = req.query; // maybe you can add more queries within the braces?
   const booksByAuthor = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
+  const booksByTitle = booksData.filter((bookTitle) => bookTitle.title.toLowerCase().includes(title.toLowerCase()));
 
   if (booksByAuthor.length === 0) {
     res.status(404).send(`Sorry, could not find any books by ${author}.`);
   }
-    
+
+  if (booksByTitle.length === 0) {
+    res.status(404).send(`Sorry, could not find any books with title ${title}.`);
+  }
+
   res.json(booksByAuthor);
+  res.json(booksByTitle);
 });
+
+// Books by title: path '/books/search'
+// Example path: '/books/search?title='
+// app.get('/books/search')
+
+
 
 // Book by id 
 // Example path: '/books/1' 
