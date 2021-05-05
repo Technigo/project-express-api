@@ -15,17 +15,23 @@ app.get('/', (req, res) => {
 
 // endpoint for all titles
 app.get('/titles', (req, res) => {
-  const { released, name } = req.query
+  const { released, name, country, category } = req.query
   let titles = netflixTitles
 
   if (released) {
     titles = titles.filter(title => title.release_year === +released)
-    res.json({ data: titles })
   }
 
   if (name) {
-    titles = titles.filter(title => title.title.toString().toLowerCase() === name.toLowerCase())
-    res.json({ data: titles})
+    titles = titles.filter(title => title.title.toString().toLowerCase().replace(/\s/g, '').includes(name.toLowerCase().replace(/\s/g, '')))
+  }
+
+  if (country) {
+    titles = titles.filter(title => title.country.toLowerCase().replace(/\s/g, '').includes(country.toLowerCase().replace(/\s/g, '')))
+  }
+
+  if (category) {
+    titles = titles.filter(title => title.listed_in.toLowerCase().replace(/\s/g, '').includes(category.toLowerCase().replace(/\s/g, '')))
   }
 
   res.json({ data: titles })
