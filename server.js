@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable max-len */
 import express from 'express';
 import cors from 'cors';
 
@@ -54,6 +52,5 @@ app.get('/books/:id', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
