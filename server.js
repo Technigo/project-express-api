@@ -1,8 +1,8 @@
-import express from 'express'
-import cors from 'cors'
-import listEndpoints from 'express-list-endpoints'
+import express from 'express';
+import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
-import booksData from './data/books.json'
+import booksData from './data/books.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -12,13 +12,13 @@ const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
-})
+});
 
 // query to filter on autor, title and language.
 app.get('/books', (req, res) => {
@@ -49,15 +49,21 @@ app.get('/books', (req, res) => {
   } else {
     res.status(404).send("Book not found");
   }
-})
+});
 
 // endpoint to get the top 5 books sorted on rating
 app.get('/top5', (req, res) => {
   const books = booksData.sort((a, b) => b.average_rating - a.average_rating);
   res.json(books.slice(0, 5))
+});
+
+// endpoint to get the 20 books with most textreviews
+app.get('/textreviews', (req, res) => {
+  const books = booksData.sort((a, b) => b.text_reviews_count - a.text_reviews_count);
+  res.json(books.slice(0, 20));
 })
 
-// for isbn , den funkar även error meddelande
+// endpoint for isbn
 app.get('/isbn/:isbn', (req, res) => {
   const { isbn } = req.params
   const books = booksData.find((book) => book.isbn === +isbn)
@@ -66,9 +72,10 @@ app.get('/isbn/:isbn', (req, res) => {
   } else {
     res.json(books)
   }
-})
+});
 
-app.get('/id/:id', (req, res) => {
+// endpoint for id
+app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const books = booksData.find((book) => book.bookID === +id)
   if (!books) {
@@ -76,48 +83,38 @@ app.get('/id/:id', (req, res) => {
   } else {
     res.json(books)
   }
-})
+});
 
-// endpoint to filter on id, ta bort, ska ju vara find() för en och inte filter.
-// app.get('/id/:id', (req, res) => {
-//   const { id } = req.params;
-//   const book = booksData.filter((item) => item.bookID === parseInt(id, 10))
-//   res.json(book)
-// })
-
-// endpoint to filter on author
+// endpoint to filter on author, ska jag ha kvar den?? Behövs fixas isf
 // need to put includes here... precis som i guery?
 app.get('/author/:author', (req, res) => {
   const { author } = req.params;
   const books = booksData.filter((book) => book.authors === author)
   res.json(books)
-})
+});
 
 // endpoint to filter on language
-// ex lang/eng
-
+// ska jaag ha lang/lang eller books/lang
 app.get('/lang/:lang', (req, res) => {
   const { lang } = req.params
   const books = booksData.filter((book) => book.language_code === lang)
-  if (!books) {
+  if (!books.length) {
     res.status(404).send("Language not found");
   } else {
     res.json(books)
   }
-})
-
-// app.get('/lang/:lang', (req, res) => {
-//   const { lang } = req.params
-//   const filteredByLang = booksData.filter((item) => item.language_code === lang)
-//   if (filteredByLang) {
-//     res.json(filteredByLang)
-//   } else {
-//     res.status(404).send("language not found");
-//   }
-// })
+});
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
-})
+});
+
+// Dummy endpoints
+
+// Filter on number of pages
+// app.get('/pages)
+
+// Filter out one author and sort the rating of their books high to low
+// app.get('/authorrating')
