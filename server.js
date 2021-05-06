@@ -24,39 +24,35 @@ app.get('/books', (req, res) => {
 // endpoint with search path and query params
 app.get('/books/search', (req, res) => {
   // destructuring query params 
-  const { author } = req.query 
-  const { highToLow } = req.query 
-  const { lowToHigh } = req.query 
-  const { longStory } = req.query 
-  const { shortStory } = req.query 
+  const { author, highToLow, lowToHigh, longStory, shortStory } = req.query 
   let queriedBooks = booksData 
 
-  // Query to find author. Includes() makes it possible to write part of the authors name, 
-  // toLowerCase makes the search case insensitive
+  // Query to find author.
   if (author) {
-    queriedBooks = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
-    if (queriedBooks.length === 0) {
-      res.status(404).json({ error: 'not found' })
-      // if author does not exist send error message 
-    }
+    queriedBooks = queriedBooks.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
   } 
   // query to sort the books from high to low in average rating. 
   if (highToLow) {
-    queriedBooks = booksData.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating)
+    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating)
   }
   // query to sort the books from low to high in average rating.
   if (lowToHigh) {
-    queriedBooks = booksData.filter((book) => book.average_rating).sort((a, b) => a.average_rating - b.average_rating)
+    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => a.average_rating - b.average_rating)
   }
   // query to show books over or equal to 400 pages
   if (longStory) {
-    queriedBooks = booksData.filter((book) => book.num_pages >= 400)
+    queriedBooks = queriedBooks.filter((book) => book.num_pages >= 400)
   }
   // query to show books under or equal to 400 pages
   if (shortStory) {
-    queriedBooks = booksData.filter((book) => book.num_pages <= +400)
+    queriedBooks = queriedBooks.filter((book) => book.num_pages <= +400)
   }
-  res.status(200).json({ data: queriedBooks })
+  if (queriedBooks.length === 0) {
+    res.status(404).json({ error: 'not found' })
+  } else {
+    res.status(200).json({ data: queriedBooks })
+  }
+  
 })
 
 // endpoint with different toplists depending on the query
