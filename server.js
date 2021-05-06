@@ -79,7 +79,7 @@ app.get('/year/:year', (req, res) => {
 
 })*/
 
-app.get('/books', (request, response) => { // Books
+app.get('/books/', (request, response) => { // Books
   const { author } = request.query
   const searchAuthor = booksData.filter(book => book.authors.toLowerCase().includes(author))
    // Skapa en Query
@@ -149,23 +149,69 @@ app.get('/books/:id', (request, response) => {
 
 /*AVOCADO BEGINS*/
 
-app.get('/avocado', (req, res) => { // Avocado
+app.get('/sales', (req, res) => { // avocado
+  const { amount } = req.query
+  if (amount) {
+    const maxItem = avocadoSalesData.slice(0,amount)
+    return(
+      res.json(maxItem)
+    )
+  }
+  
+
   res.json(avocadoSalesData)
 })
 
-app.get('/avocadoprice/:price', (req,res) => {
+app.get('/avocado', (req, res) => { 
+  const { id } = req.query
+  const { maxPrice } = req.query
+  const { minPrice } = req.query
+  const { amount } = req.query
+
+let filteredSales = avocadoSalesData
+
+  if (maxPrice) {
+    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +maxPrice)
+  }
+  if (minPrice) {
+    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +minPrice)
+  }
+  if (amount) {
+    filteredSales = avocadoSalesData.slice(0,amount)
+  }
+  if (id) {
+    filteredSales = avocadoSalesData.find(item => item.id === +id)
+    
+  } 
+
+  //console.log(filteredSales.length)
+  res.json(filteredSales)
+})
+
+
+/*app.get('/avocadoprice/:price', (req,res) => {
   const { price } = req.params
+  const { amount } = req.query
+
   const priceFilter = avocadoSalesData.filter(item => item.averagePrice <= +price)
-  
-  /*if (priceFilter) {
-    res.json(priceFilter)
-  } else  {
-    res.status(404).json("Not found")
-  }*/
+  if (amount) {
+    const maxItem = avocadoSalesData.slice(0,amount)
+    return(
+      res.json(maxItem)
+    )
+  }
 
   
+  
+ 
+  
   res.json(priceFilter)
-})
+})*/
+
+
+
+
+
 
 app.get('/findavocado/:id', (request, response) => {
   const { id } = request.params
@@ -185,21 +231,7 @@ app.get('/sliceavocado/:amount', (request, response) => {
   response.json(maxItem)
 })
 
-//const array = [1,2,3,4,5]
-//console.log(array.slice(2))
-
-/*app.get('/avocado/:price/:max', (req,res) => {
-  const { max } = req.params
-  const maxResultFilter = avocadoSalesData.filter(item => item.slice(max))
-  res.json(maxResultFilter)
-})*/
-
-/*app.get('/avocado/:max', (req,res) => {
-  const { max } = req.params
-  const maxResultFilter = avocadoSalesData.filter(item => item.slice(max))
-  res.json(maxResultFilter.slice(5))
-})*/
-/******BOOK SECTION ENDS******/
+/******Avocado SECTION ENDS******/
 
 
 

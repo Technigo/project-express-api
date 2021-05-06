@@ -62,21 +62,57 @@ app.get('/year/:year', (req, res) => {
 /*************************/
 
 /*Books section*/
-app.get('/books', (request, response) => { // Books
+
+
+
+/*app.get('/books', (request, response) => { // Books
   const { author } = request.query
-  const books = booksData
-  if(books) {
+  
     if(author) {
     
       const searchAuthor = booksData.filter(book => book.authors.toLowerCase().includes(author)) // Skapa en Query
       response.json(searchAuthor) // books?author=Tolkien
       console.log(author)
-    } else if(!author) {  // Denna funakr ej
-      response.status(404).send(`No book with id number `)
     }
-  }
+  
   response.json(booksData)
 
+})*/
+
+app.get('/books/', (request, response) => { // Books
+  const { author } = request.query
+  const searchAuthor = booksData.filter(book => book.authors.toLowerCase().includes(author))
+   // Skapa en Query
+      if(!author) {
+    
+      response.json(booksData)
+    }  else if(author) {
+        if (author === booksData.authors.toLowerCase().includes(author)) {
+          response.json(searchAuthor)
+        } else if(author !== booksData.authors.toLowerCase().includes(author)) {
+          response.json(avocadoSalesData)
+        }
+
+
+
+
+      
+    } 
+    
+    
+    
+    else if (searchAuthor != -1){
+      response.status(404).json(`No book with id number `)
+    }
+  
+    response.json(booksData)
+    
+
+})
+
+
+app.get('/books', (request, response) => { // Books
+  response.json(booksData) // books?author=Tolkien
 })
 
 /*
@@ -111,29 +147,59 @@ app.get('/books/:id', (request, response) => {
 
 
 
-/*AVOCADO BEGINS*/ /* http://localhost:8080/books?author=tolkien55 */
+/*AVOCADO BEGINS*/
 
-app.get('/sales', (req, res) => { 
-  const { region } = req.query
-  const { priceBelow } = req.query
-  const { priceAbove } = req.query
-let filteredSales = avocadoSalesData
-  if (region) {
-    filteredSales = filteredSales.filter((sale) => {
-      const regionLowerCase = sale.region.toLowerCase()
-      return regionLowerCase.includes(region.toLowerCase())
-    })
-  }
-  if (priceBelow) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +priceBelow)
-  }
-  if (priceAbove) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +priceAbove)
-  }
-
-  res.json(filteredSales)
+app.get('/avocado', (req, res) => { // Avocado
+  res.json(avocadoSalesData)
 })
-/******Avocado SECTION ENDS******/
+
+app.get('/avocadoprice/:price', (req,res) => {
+  const { price } = req.params
+  const priceFilter = avocadoSalesData.filter(item => item.averagePrice <= +price)
+  
+  /*if (priceFilter) {
+    res.json(priceFilter)
+  } else  {
+    res.status(404).json("Not found")
+  }*/
+
+  
+  res.json(priceFilter)
+})
+
+app.get('/findavocado/:id', (request, response) => {
+  const { id } = request.params
+  const searchAvocadoID = avocadoSalesData.find(item => item.id === +id)
+  
+  if(!searchAvocadoID) {
+    response.status(404).send(`No avocado found with ID number ${id}, please try another number`)
+  }
+  response.json(searchAvocadoID)
+})
+
+app.get('/sliceavocado/:amount', (request, response) => {
+  const { amount } = request.params
+  const maxItem = avocadoSalesData.slice(0,amount)
+  //const maxItem = avocadoSalesData.filter(item => item.slice(amount) )
+  console.log(maxItem.length)
+  response.json(maxItem)
+})
+
+//const array = [1,2,3,4,5]
+//console.log(array.slice(2))
+
+/*app.get('/avocado/:price/:max', (req,res) => {
+  const { max } = req.params
+  const maxResultFilter = avocadoSalesData.filter(item => item.slice(max))
+  res.json(maxResultFilter)
+})*/
+
+/*app.get('/avocado/:max', (req,res) => {
+  const { max } = req.params
+  const maxResultFilter = avocadoSalesData.filter(item => item.slice(max))
+  res.json(maxResultFilter.slice(5))
+})*/
+/******BOOK SECTION ENDS******/
 
 
 
