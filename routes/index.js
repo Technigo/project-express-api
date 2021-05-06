@@ -9,5 +9,6 @@ router.get('/sightings/:id', sightings.view)
 
 router.get('/lists/preInternet', lists.preInternet)
 router.get('/lists/postInternet', lists.postInternet)
+router.get('/lists/shapes', lists.shapes)
 
 export default router;
