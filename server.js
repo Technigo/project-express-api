@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.json({
-    message: "ENDPOINTS: /books, /books/1, /books/language/eng",
+    message:
+      "ENDPOINTS: /books, /books/id/1, /books/language/eng, books?author=harry, books?title=harry",
   });
 });
 
@@ -51,7 +52,7 @@ app.get("/books/language/:language", (req, res) => {
   );
 
   if (!booksLanguageCode.length) {
-    res.json({ message: "Incorrect language" });
+    res.status(404).json({ message: "Incorrect language" });
   } else {
     res.json(booksLanguageCode);
   }
