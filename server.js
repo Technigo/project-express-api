@@ -30,7 +30,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world Test aa22 as')
+  res.send('Hello world')
 })
 
 
