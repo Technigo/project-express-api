@@ -72,25 +72,25 @@ click around and see what it's all about.
     </tr>
     <tr>
         <td>year</td>
-        <type>Integer, format: YYYY</type>
+        <td>Integer, format: YYYY</td>
         <td>filter data by year</td>
         <td>https://netflix-data.herokuapp.com/movies?year=2019</td>
     </tr>
     <tr>
         <td>genre</td>
-        <type>String</type>
+        <td>String</td>
         <td>filter data by genre. One object can have several genres, as long as it includes one of the filtered words in genre it will be returned</td>
         <td>https://netflix-data.herokuapp.com/tvshows/recent?genre=romantic</td>
     </tr>
       <tr>
         <td>country</td>
-        <type>String</type>
+        <td>String</td>
         <td>returns all of type tvshows or movie thats recently added to netflix. Needs to be added after a parameter of type movies or tvshows</td>
         <td>https://netflix-data.herokuapp.com/tvshows/recent</td>
     </tr>
     <tr>
         <td>page</td>
-        <type>Integer</type>
+        <td>Integer</td>
         <td>every page shows 10 objects. If no page is added, page 0 is shown.</td>
         <td>https://netflix-data.herokuapp.com/tvshows?page=2</td>
     </tr>
