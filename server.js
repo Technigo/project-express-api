@@ -1,25 +1,32 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
+
+import listEndpoints from 'express-list-endpoints'
+
 import netflixData from './data/netflix-titles.json'
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Filtered data set to only use TV Shows
 const data = netflixData.filter((show) => show.type === "TV Show")
+
+// root which lists all enpoints
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app))
+})
 
 // endpoint to all shows + query parameters
 app.get('/shows', (req, res) => {
   const { year, country } = req.query
 
   if (year && country) {
-    const showsfromYearandCountry = data.filter((show) => show.release_year === +year && show.country === country)
-    res.json(showsfromYearandCountry)
+    const filteredShows = data.filter((show) => show.release_year === +year && show.country === country)
+    res.json(filteredShows)
   }
 
   if (year) {
@@ -47,10 +54,11 @@ app.get('/shows/:id', (req, res) => {
   const { id } = req.params
   const show = data.find((show) => show.show_id === +id)
 
-  if (!show) {
-    res.status(404).send(`No show with id number ${id}!`)
+  if (show) {
+    res.json({ data: show })
+  } else {
+    res.status(404).json({ message: `No show with id number ${id}!` })
   }
-  res.json(show)
 })
 
 // Start the server
