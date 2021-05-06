@@ -15,45 +15,44 @@ app.get('/', (req, res) => {
 })
 
 app.get('/movies', (req, res) => {
-  const { title, cast } = req.query
-  
-  if (title) {
-    const filteredMovies = netflixData.filter((movie) => movie.title.toString().includes(title))
-    res.json(filteredMovies) 
-  } else if (cast) {
-    const filteredActors = netflixData.filter((movie) => movie.cast.toString().includes(cast))
-    res.json(filteredActors) 
-  } 
-  res.json(netflixData)
+  const { year, show, page } = req.query
+
+  if (year) {
+    const filterReleaseYear = netflixData.filter((release) => release.release_year === +year)
+    res.json(filterReleaseYear) 
+  } else if (show) {
+    // eslint-disable-next-line max-len
+    const filterShowType = netflixData.filter((item) => item.type.toString().toLowerCase().includes(show)) 
+    res.json(filterShowType) 
+  } else if (page) {
+    const pagesCount = netflixData.slice(0, page)
+    res.json(pagesCount)
+  } else {
+    res.json(netflixData)
+  }
 }) 
 
-app.get('/movies/:pages', (req, res) => {
-  const { pages } = req.params
-  const pagesCount = netflixData.slice(0, pages)
-  res.json(pagesCount)
-})
-
-app.get('/movies/:id', (req, res) => {
+app.get('/movies/id/:id', (req, res) => {
   const { id } = req.params
   const netflixId = netflixData.find((item) => item.show_id === +id)
 
-  if (netflixId) {
+  if (id) {
     res.json({ data: netflixId })
   } else {
     res.status(404).json({ error: 'Not found, try again!' })
   }
 })
 
-app.get('/movies/year/:year', (req, res) => {
-  const { year } = req.params  
-  const { showType } = req.query                
-  let releaseYear = netflixData.filter((item) => item.release_year === +year)
+app.get('/movies/title/:title', (req, res) => {
+  const { title } = req.params
+  const filteredMovieTitle = netflixData.find((movie) => movie.title.toString().includes(title))
 
-  if (showType) {
-    releaseYear = releaseYear.filter((item) => item.type.toString().includes(showType)) 
+  if (filteredMovieTitle) {
+    res.json({ data: filteredMovieTitle }) 
+  } else {
+    res.status(404).json({ error: 'Not found, try again!' })
   }
-  res.json(releaseYear)
-})
+}) 
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
