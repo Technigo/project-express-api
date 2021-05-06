@@ -59,14 +59,21 @@ app.get("/books/language/:language", (req, res) => {
 
 // This endpong will return the full list of books if no query parameters are sent.
 app.get("/books", (req, res) => {
-  const { author } = req.query; // Setting Author as a Q param.
+  const { author, title } = req.query; // Setting Author as a query param.
 
   let books = booksData; // Making an instance of booksData
 
-  // This is checking is author === true, if it is, then add the filtered book to the books variable.
+  // This is checking if author === true, if it is, then add the filtered book to the books variable.
   if (author) {
     books = booksData.filter((book) =>
       book.authors.toLowerCase().includes(author.toLowerCase())
+    );
+  }
+
+  // This is checking if title === true, if it is, then add the filtered book to the books variable.
+  if (title) {
+    books = booksData.filter((book) =>
+      book.title.toString().toLowerCase().includes(title.toLowerCase())
     );
   }
 
