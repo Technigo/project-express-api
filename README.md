@@ -16,9 +16,8 @@ click around and see what it's all about.
 
 ## Documentation
 
-# Endpoints/parameters
+#### Endpoints/parameters
 <table style="width:100%">
-   
     <tr>
         <th>Option</th>
         <th>Type</th>
@@ -63,7 +62,7 @@ click around and see what it's all about.
     </tr>
 </table>
 
-# Queries - Can be added on all endpoints.
+#### Queries - Can be added on all endpoints.
 <table style="width:100%">
     <tr>
         <th>Option</th>
