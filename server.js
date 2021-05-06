@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
@@ -7,8 +7,8 @@ import cors from 'cors'
 // 
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import booksData from './data/books.json'
+/* import netflixData from './data/netflix-titles.json' */
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -23,9 +23,21 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+app.get('/books', (request, response) => {
+  response.json(booksData)
+}) 
+
+/* app.get('/movies', (request, response) => {
+  response.json(netflixData)
+}) */
+
+// Endpoint to get one book
+app.get('/books/:id', (request, response) => { 
+  console.log(request.params.id) 
+  const { id } = request.params
+const book = booksData.find(book => book.bookID === +id)
+response.json(book)
+}) 
 
 // Start the server
 app.listen(port, () => {
