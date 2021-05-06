@@ -1,31 +1,60 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import listEndpoints from 'express-list-endpoints'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+import movies from './data/netflix-titles.json'
+
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+// Middlewares 
 app.use(cors())
-app.use(bodyParser.json())
+app.use(bodyParser.json()),
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Start route
+app.get('/', (request, response) => {
+  response.send(listEndpoints(app))
 })
+
+// app.get('/movies', (request, response) => {
+//  const { title } = request.query
+
+//  const queriedMovies = movie.filter(movie => {
+//    return movie.title.toLowerCase().indexOf(movie.toLowerCase() !== -1)
+//  })
+ 
+//   response.json( data: queriedMovies )
+// })
+
+app.get('/movies/:id', (request, response) => {
+  const { id } = request.params
+  if (title) {
+    const filteredMovies = movies.filter(movie => movie.title.toLowerCase.toString().includes(title))
+    response.json(filteredMovies)
+  } else {
+    response.json(movies)
+  }
+
+  const queriedMovie= movies.find(movie => movie.show_id === +id)
+  if (queriedMovie){
+    response.json({ data: queriedMovie })
+  } else {
+    response.status(404).send(`There is no movie "${id}" in the system`)
+  }
+  console.log(request.params)
+})
+
+// app.get('/movies/:show_id', (request, response) => {
+//   console.log(request.params)
+//   const { show_id } = request.params
+//   const movie = movies.find(movie => movie.show_id === +show_id )
+//   // if(!movie){
+//   //   error message
+//   // }
+//   response.json(movie)
+// })
 
 // Start the server
 app.listen(port, () => {
