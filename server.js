@@ -57,7 +57,7 @@ app.get('/books/top-rated', (req, res) => {
   // For toprated books
   if (top) {
     const sortedTopRated = booksData.sort((a, b) => a.average_rating - b.average_rating).reverse();
-    const topRatedBooks = sortedTopRated.slice(0, top);
+    const topRatedBooks = sortedTopRated.slice(0, +top);
     res.json(topRatedBooks);
   }
   res.json(booksData);
