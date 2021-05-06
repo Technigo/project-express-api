@@ -1,50 +1,61 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
-import goldenglobes from './golden-globes.json'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
 
-app.get('/nominations', (req, res) => {
-  res.json(goldenglobes)
+app.get('/movies', (req, res) => {
+  const { title, cast } = req.query
+  
+  if (title) {
+    const filteredMovies = netflixData.filter((movie) => movie.title.toString().includes(title))
+    res.json(filteredMovies) 
+  } else if (cast) {
+    const filteredActors = netflixData.filter((movie) => movie.cast.toString().includes(cast))
+    res.json(filteredActors) 
+  } 
+  res.json(netflixData)
+}) 
+
+app.get('/movies/:pages', (req, res) => {
+  const { pages } = req.params
+  const pagesCount = netflixData.slice(0, pages)
+  res.json(pagesCount)
 })
 
-app.get('/year/:year', (req, res) => {
-  const { year } = req.params 
-  const showWon = req.query.won
-  let nominationsFromYear = goldenglobes.filter((item) => item.year_award === +year) 
+app.get('/movies/:id', (req, res) => {
+  const { id } = req.params
+  const netflixId = netflixData.find((item) => item.show_id === +id)
 
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+  if (netflixId) {
+    res.json({ data: netflixId })
+  } else {
+    res.status(404).json({ error: 'Not found, try again!' })
   }
-
-  res.json(nominationsFromYear)
 })
 
-// Start the server
+app.get('/movies/year/:year', (req, res) => {
+  const { year } = req.params  
+  const { showType } = req.query                
+  let releaseYear = netflixData.filter((item) => item.release_year === +year)
+
+  if (showType) {
+    releaseYear = releaseYear.filter((item) => item.type.toString().includes(showType)) 
+  }
+  res.json(releaseYear)
+})
+
 app.listen(port, () => {
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-console
   console.log(`Server running on http://localhost:${port}`)
-})
+}) 
