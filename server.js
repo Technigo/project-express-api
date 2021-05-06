@@ -37,6 +37,8 @@ app.get('/titels/:id', (req, res) => {
 
 app.get('/movies', (req, res) => {
   const { year } = req.query
+  const { yearAfter } = req.query
+  const { yearBefore } = req.query
   const { cast } = req.query
   const { director } = req.query
   const { country } = req.query
@@ -45,6 +47,12 @@ app.get('/movies', (req, res) => {
 
   if (year) {
     filteredMovies = filteredMovies.filter((movie) => movie.release_year === +year)
+  }
+  if (yearAfter) {
+    filteredMovies = filteredMovies.filter((movie) => movie.release_year > +yearAfter)
+  }
+  if (yearBefore) {
+    filteredMovies = filteredMovies.filter((movie) => movie.release_year < +yearBefore)
   }
   if (cast) {
     filteredMovies = filteredMovies.filter((movie) => {
@@ -79,11 +87,19 @@ app.get('/TV-shows', (req, res) => {
   const { cast } = req.query
   const { director } = req.query
   const { country } = req.query
+  const { yearAfter } = req.query
+  const { yearBefore } = req.query
 
   let filteredTVShows = tvShows
 
   if (year) {
     filteredTVShows = filteredTVShows.filter((show) => show.release_year === +year)
+  }
+  if (yearAfter) {
+    filteredTVShows = filteredTVShows.filter((show) => show.release_year > +yearAfter)
+  }
+  if (yearBefore) {
+    filteredTVShows = filteredTVShows.filter((show) => show.release_year < +yearBefore)
   }
   if (cast) {
     // eslint-disable-next-line max-len
@@ -99,7 +115,6 @@ app.get('/TV-shows', (req, res) => {
       return show.country.toLowerCase().indexOf(country.toLowerCase()) !== -1
     })
   }
-
   res.json({ titels: filteredTVShows })
 })
 
