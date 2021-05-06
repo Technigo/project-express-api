@@ -227,6 +227,13 @@ app.get('/avocado', (req, res) => {
     res.json(amountOfResult)
   }
 
+  if(id){
+    if(id){
+      const findID = avocadoSalesData.find(item => item.id === +id)
+      res.json(findID)
+    }
+  }
+
 
   res.json(avocadoSalesData)
 })
