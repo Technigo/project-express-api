@@ -171,10 +171,10 @@ app.get('/avocado', (req, res) => {
 let filteredSales = avocadoSalesData
 
   if (maxPrice) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +maxPrice)
+    filteredSales = filteredSales.filter((item) => item.averagePrice < +maxPrice)
   }
   if (minPrice) {
-    filteredSales = filteredSales.filter((sale) => sale.averagePrice < +minPrice)
+    filteredSales = filteredSales.filter((item) => item.averagePrice > +minPrice)
   }
   if (amount) {
     filteredSales = avocadoSalesData.slice(0,amount)
