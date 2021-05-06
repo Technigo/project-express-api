@@ -26,7 +26,7 @@ app.get('/', (_, res) => {
 //Endpoint to get all the movies
 app.get('/shows', (req, res) => {
   const { title, cast, country, director } = req.query
-  
+
   //Filters so the user can search the items in the query
   if (title) {
     const filteredTitleList = netflixData.filter(show => show.title.toString().includes(title))
@@ -57,21 +57,21 @@ app.get('/tv-shows', (_, res) => {
 })
 
 //Endpoint to get one title
-app.get('/shows/:title', (req, res) => {
+app.get('/shows/title/:title', (req, res) => {
   const { title } = req.params
   const showTitle = netflixData.find(show => show.title === title)
   if (!showTitle) {
-    res.status(404).send(`No show with the title ${title} excists`)
+    res.status(404).send(`No show with the title ${title} exists`)
   }
   res.json(showTitle)
 })
 
 //Endpoint to get one movie by id
-app.get('/shows/:id', (req, res) => {
+app.get('/shows/id/:id', (req, res) => {
   const { id } = req.params
   const show = netflixData.find(show => show.show_id === +id)
   if (!show) {
-    res.status(404).send(`No show with id number ${id} excists`)
+    res.status(404).send(`No show with id number ${id} exists`)
   }
   res.json(show)
 })
