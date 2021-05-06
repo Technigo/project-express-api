@@ -45,7 +45,7 @@ click around and see what it's all about.
     <tr>
         <td>recent</td>
         <td>String</td> 
-        <td>returns all of type tvshows or movie thats recently added to netflix. Needs to be added after a parameter of type movies or tvshows</td>
+        <td>returns 50 objects thats recently added to netflix. Can be added after endpoints /, /movies and /tvshows</td>
         <td>https://netflix-data.herokuapp.com/tvshows/recent</td>
     </tr>
     <tr>
