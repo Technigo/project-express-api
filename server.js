@@ -37,7 +37,9 @@ app.get("/books", (req, res) => {
 // This endpont will return a single book with the ID specified by the frontend
 app.get("/books/id/:id", (req, res) => {
   const id = req.params.id;
-  const bookID = booksData.find((item) => item.bookID === +id); //The + is used to turn a string into a number
+
+  const bookID = booksData.find((book) => book.bookID === +id); //The + is used to turn a string into a number
+
   if (bookID) {
     res.json(bookID);
   } else {
