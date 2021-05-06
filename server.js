@@ -75,6 +75,14 @@ app.get('/release/:release', (req, res) => {
   res.json(yearOfBook)
 })
 
+app.get('/series/:series', (req, res) => {
+  const { series } = req.params
+  const requiredSerie = req.query.id
+  let serieOfBook = sandemoData.filter((item) => item.series === series)
+
+  res.json(serieOfBook)
+})
+
 
 // Start the server
 app.listen(port, () => {
