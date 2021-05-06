@@ -4,7 +4,6 @@ import { parseDate } from './dates';
 
 const filter = (data, query) => {
   // filter by year-like queries (only one!)
-  // console.log(query);
   if ('year' in query) {
     // filter by year
     data = data.filter((item) => moment(parseDate(item.date)).year() === +query.year);
@@ -26,28 +25,33 @@ const filter = (data, query) => {
     data = data.filter((item) => shapes.includes(item.shape));
     // console.log(data);
   }
-
   return data;
 };
 
 const group = (data, { groupBy }) => {
-  if (!groupBy) { return data }
+  if (!groupBy) {
+    return data;
+  }
   data = _.groupBy(data, groupBy);
   return data;
 };
 
 const sort = (data, { sortBy, orderBy }) => {
-  data.sort((a, b) => ((a[sortBy] > b[sortBy]) ? 1 : -1))
+  data.sort((a, b) => (a[sortBy] > b[sortBy] ? 1 : -1));
   if (orderBy === 'asc') {
     data.reverse();
   }
-  return data
+  return data;
 };
 
 export const queried = (data, query) => {
   data = filter(data, { ...query });
   data = sort(data, { ...query });
   data = group(data, { ...query });
-  
-  return data
-}
+
+  if (data.length <= 0 || !data) {
+    return null;
+  } else {
+    return data;
+  }
+};

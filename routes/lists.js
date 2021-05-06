@@ -1,23 +1,45 @@
 import moment from 'moment';
 import data from '../data/ufoSightings.json';
 import { parseDate } from '../utils/dates'
+import { paginate } from '../utils/pagination';
 
 export const preInternet = (req, res) => {
-  const filteredData = data.filter((item) => {
+  if (Object.keys(req.query).length > 0) {
+    return res.status(403).json({
+      status: 'error',
+      message: 'Queries are not allowed for this endpoint'
+    });
+  }
+  let filteredData = data.filter((item) => {
     return moment(parseDate(item.date)).isBefore(moment('1983'));
   });
+  const totalLength = filteredData.length;
+  filteredData = paginate(filteredData, { ...req.query });
+  
   res.send({
-    count: filteredData.length,
+    total: totalLength,
+    limit: filteredData.length || 0,
+    page: req.query.start || 1,
     items: filteredData
   });
 };
 
 export const postInternet = (req, res) => {
-  const filteredData = data.filter((item) => {
+  if (Object.keys(req.query).length > 0) {
+    return res.status(403).json({
+      status: 'error',
+      message: 'Queries are not allowed for this endpoint'
+    });
+  }
+  let filteredData = data.filter((item) => {
     return moment(parseDate(item.date)).isAfter(moment('1983'));
   });
+  const totalLength = filteredData.length;
+  filteredData = paginate(filteredData, { ...req.query });
   res.send({
-    count: filteredData.length,
+    total: totalLength,
+    limit: filteredData.length || 0,
+    page: req.query.start || 1,
     items: filteredData
   });
 };
