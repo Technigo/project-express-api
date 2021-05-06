@@ -16,7 +16,7 @@ const port = process.env.PORT || 8080
 const app = express()
 
 //all songs endpoint http://localhost:8080/music
-app.get('/music', (req, res) => {
+app.get('/', (req, res) => {
   const { song } = req.query
   if (song) {
     const musicList = topMusicData.filter(song => song.trackName.includes(song))
@@ -25,11 +25,18 @@ app.get('/music', (req, res) => {
   res.json(topMusicData)
 })
 
-// RETURNS: A list of all endpoints as an array
-//
-app.get('/', (req, res) => {
-  res.send(endpoints(app));
-});
+
+
+app.get('/music/allgenres', (req, res) => {
+  const { song } = req.query
+  if (genre) {
+    const allSongs = topMusicData.filter((item)=> item.genre.includes(song))
+    res.json(allSongs)
+    const allGenresArray = allSongs.slice('genre')
+  }
+  res.json(allGenresArray)
+})
+  
 
 //Sorted The 20 most popular songs, hight to low,
 app.get('/music/popularity/best-20', (req, res) => {
@@ -55,7 +62,7 @@ app.get('/music/:id', (req, res) => {
   const { id } = req.params
   const song = topMusicData.find( song => song.id === +id)
   if (!song) {
-    res.status(404).send(`sorry, song id:{id} can not be fund`)
+    res.status(404).send(`sorry, song id:{ id } can not be fund`)
   }
   res.json(song)
 })
@@ -83,7 +90,6 @@ app.get('/music/energy/:energy', (req, res) => {
   const song = topMusicData.filter((song) => song.energy === +energy)
   res.json(song)
 })
-
 
 
 // Start the server
