@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 // Lists all exercises
 app.get('/exercises', (req, res) => {
-  res.json(exercisesData)
+  res.json({ data: exercisesData })
 })
 
 // Endpoint to get a exercise by id
@@ -33,21 +33,36 @@ app.get('/exercises/:id', (req, res) => {
     res.status(404).send({ error: `No exercise with id ${id}!` })
   }
 })
-/*
-app.get('/exercises', (req, res) => {
-  const { name } = req.query
-  if (name
-    const filteredExercises = exercisesData.filter(
-      (exercise) => {
-        return (exercise.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
-    )},
-    res.json(filteredExercises)
+
+// Endpoint for all multi-joint exercises
+app.get('/exercises/category/multi_joint', (req, res) => {
+  const multiJointExercise = exercisesData.filter(
+    (exercise) => exercise.category === 'multi-joint exercise'
+  )
+  if (multiJointExercise) {
+    res.status(200).json({ data: multiJointExercise })
+  } else {
+    res.status(404).json({ error: 'Not found' })
   }
-  res.json(exercisesData)
-}) */
+})
+
+// List exercises by target muscle
+app.get('/exercises/target_muscle/:muscles', (req, res) => {
+  const { muscles } = req.params
+  const queriedTargedMuscles = exercisesData.filter(
+    (muscle) => muscle.target_muscle === muscles
+  )
+  if (queriedTargedMuscles) {
+    res.json({ data: queriedTargedMuscles })
+  } else {
+    res
+      .status(404)
+      .send({ error: `No exercise with target muscle: ${muscles}!` })
+  }
+})
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}/exercises`)
+  console.log(`Server running on http://localhost:${port}/`)
 })

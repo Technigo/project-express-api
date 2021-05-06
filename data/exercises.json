@@ -265,7 +265,7 @@
         "name": "farmer walk",
         "category": "abdominals",
         "muscle_group": "middle body",
-        "target_muscle": "",
+        "target_muscle": "abdominals",
         "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut nisl non nisi mollis mollis. Ut ut aliquam sapien. Duis commodo, mauris sit amet lobortis facilisis, lectus lacus vulputate mi, quis ullamcorper urna augue sed dui.",
         "img": "Lorem ipsum dolor sit amet."
     },
