@@ -20,7 +20,7 @@ export const view = (req, res) => {
   const { id } = req.params;
   const item = data.find((d) => d.id === +id);
 
-  if (item === undefined) {
+  if (!item) {
     return res.status(404).json({
       status: 'error',
       message: 'Could not find the requested sighting by ID'
