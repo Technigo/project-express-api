@@ -29,18 +29,13 @@ app.get("/", (req, res) => {
   });
 });
 
-// This endpont will return the full list of books
-app.get("/books", (req, res) => {
-  res.json(booksData);
-});
-
 // This endpont will return a single book with the ID specified by the frontend
 app.get("/books/id/:id", (req, res) => {
   const id = req.params.id;
 
   const bookID = booksData.find((book) => book.bookID === +id); //The + is used to turn a string into a number
 
-  if (bookID) {
+  if (bookID.length) {
     res.json(bookID);
   } else {
     res.status(404).json({ message: "No book with that ID was found." });
@@ -55,10 +50,32 @@ app.get("/books/language/:language", (req, res) => {
     (book) => book.language_code === language
   );
 
-  if (booksLanguageCode) {
-    res.json(booksLanguageCode);
-  } else {
+  if (!booksLanguageCode.length) {
     res.json({ message: "Incorrect language" });
+  } else {
+    res.json(booksLanguageCode);
+  }
+});
+
+// This endpong will return the full list of books if no query parameters are sent.
+app.get("/books", (req, res) => {
+  const { author } = req.query; // Setting Author as a Q param.
+
+  let books = booksData; // Making an instance of booksData
+
+  // This is checking is author === true, if it is, then add the filtered book to the books variable.
+  if (author) {
+    books = booksData.filter((book) =>
+      book.authors.toLowerCase().includes(author.toLowerCase())
+    );
+  }
+
+  // This will check if the books variable has any length at all. IF there is then print the result
+  // If no, then print a status message
+  if (books.length) {
+    res.json(books);
+  } else {
+    res.status(404).json({ error: "No books found" });
   }
 });
 
