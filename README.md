@@ -85,7 +85,7 @@ click around and see what it's all about.
       <tr>
         <td>country</td>
         <td>String</td>
-        <td>returns all of type tvshows or movie thats recently added to netflix. Needs to be added after a parameter of type movies or tvshows</td>
+        <td>filter data by country. One object can have several countries, as long as it includes one of the filtered words in country it will be returned</td>
         <td>https://netflix-data.herokuapp.com/tvshows/recent</td>
     </tr>
     <tr>
