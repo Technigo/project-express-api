@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { query } from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 
@@ -20,16 +20,28 @@ app.get('/avo-sales', (_, res) => {
   res.send(avocadoSalesData);
 })
 
-// Endpoint 2: Avo sales by location 
-
+// Endpoint 2: Avo sales regions
 app.get('/avo-sales/regions', (req, res) => {
-  // Step 1 add Map method to create array of regions 
-  const allRegions = avocadoSalesData.map((avocadoSalesData) => { return avocadoSalesData.region })
-  // Step 2 Detect if location occurs more than one time (const reduced regions )
-  // forEach let location = "" 
-  // Google: detect multiple occurrences of the same array element 
-  res.send(allRegions);
+  const reducedRegions = []
+  const regions = avocadoSalesData.map((avocadoSalesData) => { return avocadoSalesData.region })
+  for (const region of regions) {
+    if (!reducedRegions.includes(region)) {
+      reducedRegions.push(region)
+    }
+  }
+  res.send(reducedRegions)
 })
+
+app.get('/avo-sales/:id', (req, res) => {
+  const { id } = req.params
+  const avoId = avocadoSalesData.find((id) => avocadoSalesData.id === +id)
+  if (avoId) {
+    res.status(200).json({ data: avoId });
+  } else {
+    res.status(404).json({ error: 'Not found' });
+  }
+  res.json(avoId);
+});
 
 // Start the server
 app.listen(port, () => {
