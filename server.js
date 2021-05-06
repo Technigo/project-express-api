@@ -3,12 +3,16 @@
 /* eslint-disable linebreak-style */
 import express, { request } from "express";
 
+import cors from 'cors'
+
 import artistsList from "./data/artists.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
 
 const publicDir = require("path").join(__dirname, "/public/resized");
+
+app.use(cors())
 
 app.use("/image-directory", express.static(publicDir));
 
