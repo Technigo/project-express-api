@@ -9,7 +9,7 @@ import movies from './data/netflix-titles.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// Middlewares 
+// Middleware 
 app.use(cors())
 app.use(bodyParser.json()),
 
@@ -17,44 +17,49 @@ app.use(bodyParser.json()),
 app.get('/', (request, response) => {
   response.send(listEndpoints(app))
 })
-
-// app.get('/movies', (request, response) => {
-//  const { title } = request.query
-
-//  const queriedMovies = movie.filter(movie => {
-//    return movie.title.toLowerCase().indexOf(movie.toLowerCase() !== -1)
-//  })
- 
-//   response.json( data: queriedMovies )
-// })
-
-app.get('/movies/:id', (request, response) => {
-  const { id } = request.params
+// Route for movie title 
+app.get('/movies/:title', (request, response) => {
+  const title = request.params
   if (title) {
     const filteredMovies = movies.filter(movie => movie.title.toLowerCase.toString().includes(title))
     response.json(filteredMovies)
   } else {
     response.json(movies)
   }
+}) 
+  // const queriedMovie= movies.find(movie => movie.show_id === +id)
+  // if (queriedMovie){
+  //   response.json({ data: queriedMovie })
+  // } else {
+  //   response.status(404).send(`There is no movie "${id}" in the system`)
+  // }
+  // console.log(request.params)
 
-  const queriedMovie= movies.find(movie => movie.show_id === +id)
-  if (queriedMovie){
-    response.json({ data: queriedMovie })
-  } else {
-    response.status(404).send(`There is no movie "${id}" in the system`)
-  }
-  console.log(request.params)
+// Route for movie id
+app.get('/movies/:id', (request, response) => {
+  const { id } = request.params.id
+  const filteredMovies = movies.find(movie => movie.show_id === +id)
+  filteredMovies ? response.json(movie) : response.status(404).send(`There is no movie "${id}" in the system`)
 })
 
-// app.get('/movies/:show_id', (request, response) => {
-//   console.log(request.params)
-//   const { show_id } = request.params
-//   const movie = movies.find(movie => movie.show_id === +show_id )
-//   // if(!movie){
-//   //   error message
-//   // }
-//   response.json(movie)
+// app.get('/movies/:director', (request, response) => {
+//   const director = request.params.director
+//   if (director) {
+//     const filteredMovies = movies.filter(director => movie.director.toLowerCase.toString().includes(director))
+//     response.json(filteredMovies)
+//   } else {
+//     response.json(movies)
+//   }
 // })
+
+app.get('./movies/:release_year', (request, response) => {
+  const releaseYear = reuqest.params.release_year
+  let fromReleaseYear = movies.filter((year) => year.release_year === +year)
+  releaseYear ? response.json(year) : response.status(404).send(`There are no movies released in year "${year}" found`)
+  response.json(fromReleaseYear)
+})
+
+//release_year
 
 // Start the server
 app.listen(port, () => {
