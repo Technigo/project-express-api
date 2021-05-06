@@ -1,0 +1,3522 @@
+[
+  {
+    "id": 0,
+    "date": "1/1/1977 20:00",
+    "city": "westminster",
+    "state": "ca",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "There were two ships&#44 saucer shaped&#44 silver grey..like pewter&#44 soundless&#44 drifting over our neighborhood like silent boats on the water",
+    "date_posted": "2/14/2010",
+    "position": {
+      "latitude": 33.7591667,
+      "longitude": -118.0058333
+    }
+  },
+  {
+    "id": 1,
+    "date": "1/11/2011 18:45",
+    "city": "buffalo area (in-flight observation)",
+    "state": "ny",
+    "country": "",
+    "shape": "unknown",
+    "duration_seconds": 300,
+    "duration_description": "5 min.",
+    "comments": "Bright lghts apppeared at our 12 o&#39clock and moved to our 9 o&#39clock position slowly. ((NUFORC Note:  Pilot report.  PD))",
+    "date_posted": "1/31/2011",
+    "position": {
+      "latitude": 42.888614,
+      "longitude": -78.872212
+    }
+  },
+  {
+    "id": 2,
+    "date": "1/12/2011 3:33",
+    "city": "winter springs",
+    "state": "fl",
+    "country": "us",
+    "shape": "rectangle",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "This has to be the 3rd or 4th time this vessel made its presence clear. To me from the same exact location. Movement quick&#44 short dista",
+    "date_posted": "1/31/2011",
+    "position": {
+      "latitude": 28.6986111,
+      "longitude": -81.3083333
+    }
+  },
+  {
+    "id": 3,
+    "date": "1/15/2009 16:30",
+    "city": "orange county/san bernardino",
+    "state": "ca",
+    "country": "",
+    "shape": "disk",
+    "duration_seconds": 5,
+    "duration_description": "5 sec max",
+    "comments": "Lg grey saucer looking object fell from the sky like a falling star for apprx. 5 sec and disappeard. No lights did not reflect the sun.",
+    "date_posted": "3/19/2009",
+    "position": {
+      "latitude": 33.787794,
+      "longitude": -117.853112
+    }
+  },
+  {
+    "id": 4,
+    "date": "1/17/2000 22:10",
+    "city": "pittsburgh",
+    "state": "pa",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "At 10:15 PM a bright shining object was seen &#44low in the sky&#44hovering&#44going back and forth&#44and then slowly flying away.It was shining i",
+    "date_posted": "1/22/2000",
+    "position": {
+      "latitude": 40.4405556,
+      "longitude": -79.9961111
+    }
+  },
+  {
+    "id": 5,
+    "date": "1/18/2008 19:40",
+    "city": "madison",
+    "state": "ct",
+    "country": "us",
+    "shape": "",
+    "duration_seconds": 15,
+    "duration_description": "10 - 15 seconds",
+    "comments": "While on Greenhill Road in Madison&#44 Connecticut&#44 coming from Killingworth&#44 Connecticut&#44 at approximately 7:40 P.M. last night&#44 on Frida",
+    "date_posted": "1/21/2008",
+    "position": {
+      "latitude": 41.2794444,
+      "longitude": -72.5988889
+    }
+  },
+  {
+    "id": 6,
+    "date": "10/17/1986 18:00",
+    "city": "bartlesville",
+    "state": "ok",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 600,
+    "duration_description": "6-10 minutes",
+    "comments": "On a fall evening&#44 after returning from a scout meeting I witnessed a object perform some extreemly unusual aerial feats&#44 at at least p",
+    "date_posted": "5/24/1999",
+    "position": {
+      "latitude": 36.7472222,
+      "longitude": -95.9805556
+    }
+  },
+  {
+    "id": 7,
+    "date": "1/2/2010 4:42",
+    "city": "nottingham (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "triangle",
+    "duration_seconds": 10,
+    "duration_description": "5-10 seconds",
+    "comments": "Triangul shaped UFO&#44 3 bright white lights w/ red glowing light in the middle&#44 large in size&#44 made no noise&#44 was pretty fast",
+    "date_posted": "2/14/2010",
+    "position": {
+      "latitude": 52.966667,
+      "longitude": -1.166667
+    }
+  },
+  {
+    "id": 8,
+    "date": "1/27/2000 19:40",
+    "city": "leavenworth",
+    "state": "wa",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "It was an orange ball&#44 circle type&#44 it glowed somewhat. It seemed to be a circle with something above it that seemed to be either carry",
+    "date_posted": "2/16/2000",
+    "position": {
+      "latitude": 47.5963889,
+      "longitude": -120.6602778
+    }
+  },
+  {
+    "id": 9,
+    "date": "1/27/2001 20:45",
+    "city": "johnson&#39s creek",
+    "state": "wi",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 10,
+    "duration_description": "6-10 seconds",
+    "comments": "I was travelling west on I94 towards Madison from Milwaukee&#44 at the time I was near the Johnson&#39s Creek area.  I saw a moving light for",
+    "date_posted": "2/18/2001",
+    "position": {
+      "latitude": 45.444017,
+      "longitude": -91.049111
+    }
+  },
+  {
+    "id": 10,
+    "date": "10/24/1996 9:18",
+    "city": "springfield",
+    "state": "oh",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 61,
+    "duration_description": "1.min 30sec.",
+    "comments": "It Looked Like A star and then I seen three lights that formed a triangle and i told my brother&#44 and cousion and they seen it to &#44we st",
+    "date_posted": "10/2/1999",
+    "position": {
+      "latitude": 39.9241667,
+      "longitude": -83.8088889
+    }
+  },
+  {
+    "id": 11,
+    "date": "1/29/2014 6:05",
+    "city": "palm beach gardens",
+    "state": "fl",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "Located about ESE &#44 about 3 miles distance from the ocean&#44 obvious stationary  above the ocean .Round bright whitish- not moving for a",
+    "date_posted": "1/30/2014",
+    "position": {
+      "latitude": 26.8230556,
+      "longitude": -80.1388889
+    }
+  },
+  {
+    "id": 12,
+    "date": "1/30/2007 22:10",
+    "city": "rochester",
+    "state": "mn",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "long row of lights with red light under&#44 hovered&#44 flew to west&#44 dropped down below tree level&#44 popped back up and flew faster than a nm",
+    "date_posted": "2/1/2007",
+    "position": {
+      "latitude": 44.0216667,
+      "longitude": -92.4697222
+    }
+  },
+  {
+    "id": 13,
+    "date": "1/4/2014 5:43",
+    "city": "kill devil hills",
+    "state": "nc",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 3,
+    "duration_description": "2-3 seconds",
+    "comments": "Orange orb the color of fire lights up&#44 expands in size&#44 then shrinks back to nothingness and disappears&#44 like an explosion in space.",
+    "date_posted": "1/10/2014",
+    "position": {
+      "latitude": 36.0305556,
+      "longitude": -75.6763889
+    }
+  },
+  {
+    "id": 14,
+    "date": "1/6/2003 19:00",
+    "city": "charlotte",
+    "state": "nc",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 3600,
+    "duration_description": "off and on for 1 hour",
+    "comments": "3 independent bright lights form a triangular pattern...2 UFOs speed off and leave 1 that comes and goes...we have pics and video&#33",
+    "date_posted": "3/21/2003",
+    "position": {
+      "latitude": 35.2269444,
+      "longitude": -80.8433333
+    }
+  },
+  {
+    "id": 15,
+    "date": "1/7/2002 15:10",
+    "city": "greenville (near)",
+    "state": "sc",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 300,
+    "duration_description": "approx 5 minutes",
+    "comments": "Cluster of 15-25 objects moving in a SSW direction&#44 with 3 of the objects making distinct manouvers suggesting some kind of intelligenc",
+    "date_posted": "3/4/2003",
+    "position": {
+      "latitude": 34.8525,
+      "longitude": -82.3941667
+    }
+  },
+  {
+    "id": 16,
+    "date": "10/1/2011 23:30",
+    "city": "captiva island",
+    "state": "fl",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 60,
+    "duration_description": "60 seconds",
+    "comments": "On Saturday night&#44 October 1&#44 2011 we observed a level fly by of what looked like an aircraft on fire. It seemed low in the sky&#44 under",
+    "date_posted": "10/10/2011",
+    "position": {
+      "latitude": 26.527578,
+      "longitude": -82.194817
+    }
+  },
+  {
+    "id": 17,
+    "date": "10/10/2003 23:00",
+    "city": "bickerton (near wetherby) (uk/england)",
+    "state": "",
+    "country": "",
+    "shape": "unknown",
+    "duration_seconds": 2700,
+    "duration_description": "45minutes",
+    "comments": "two bright&#44 but fuzzy lights going in a hovering circle about 200 yards of the ground&#44 with a grey cloud above them",
+    "date_posted": "10/15/2003",
+    "position": {
+      "latitude": 53.070884,
+      "longitude": -2.736506
+    }
+  },
+  {
+    "id": 18,
+    "date": "10/5/1999 10:57",
+    "city": "tuaran (sabah) (malaysia)",
+    "state": "",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 240,
+    "duration_description": "4 minutes",
+    "comments": "2 glowing fireball (white blue) crossing from west coast going to Mt. Kinabalu direction. Elevation more than ten thousands feet approx",
+    "date_posted": "10/19/1999",
+    "position": {
+      "latitude": 6.168561,
+      "longitude": 116.234834
+    }
+  },
+  {
+    "id": 19,
+    "date": "10/10/2012 20:17",
+    "city": "mount albert (canada)",
+    "state": "on",
+    "country": "",
+    "shape": "triangle",
+    "duration_seconds": 30,
+    "duration_description": "30 seconds",
+    "comments": "On Wednesday October 10 2012 at 8:17 pm in Mount Albert Ontario I saw a triangle shaped UFO. It had a single light on each point and it",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 44.136076,
+      "longitude": -79.308339
+    }
+  },
+  {
+    "id": 20,
+    "date": "10/12/2007 19:20",
+    "city": "west los angeles",
+    "state": "ca",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "un-steady flight as if it was shaking almost moving left to right flying forward single slow flashing red light not like cesna or multi",
+    "date_posted": "11/28/2007",
+    "position": {
+      "latitude": 34.0522222,
+      "longitude": -118.2427778
+    }
+  },
+  {
+    "id": 21,
+    "date": "10/13/2008 14:00",
+    "city": "yakima",
+    "state": "wa",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 120,
+    "duration_description": "several minutes",
+    "comments": "strange looking metalic objects  above yakima wa&#44 spinning&#44 then split up into different directions. big lower foating object vanished",
+    "date_posted": "10/31/2008",
+    "position": {
+      "latitude": 46.6022222,
+      "longitude": -120.5047222
+    }
+  },
+  {
+    "id": 22,
+    "date": "10/14/2002 19:00",
+    "city": "westlake village",
+    "state": "ca",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 1200,
+    "duration_description": "20 mins",
+    "comments": "Bright white fireball north of Los Angeles with four white streaks&#44 surrounded by huge white vapour cloud part of which was turquoise",
+    "date_posted": "10/15/2002",
+    "position": {
+      "latitude": 34.1458333,
+      "longitude": -118.8047222
+    }
+  },
+  {
+    "id": 23,
+    "date": "10/14/2003 13:15",
+    "city": "chicoutimi (canada)",
+    "state": "pq",
+    "country": "ca",
+    "shape": "cylinder",
+    "duration_seconds": 2,
+    "duration_description": "2 sec",
+    "comments": "I&#39ve see a big cylidner maybe 30-40 feet long  in the sky in low altitude don&#39t know what it is but it was really fast .like a flying c",
+    "date_posted": "10/15/2003",
+    "position": {
+      "latitude": 48.433333,
+      "longitude": -71.066667
+    }
+  },
+  {
+    "id": 24,
+    "date": "10/15/1988 20:00",
+    "city": "pilot knob",
+    "state": "mo",
+    "country": "us",
+    "shape": "cigar",
+    "duration_seconds": 900,
+    "duration_description": "about 15 minutes",
+    "comments": "I did not actually see this myself&#44 but my mother did. I was 10 years old in 1988 and I remember my mom running in the house saying she",
+    "date_posted": "12/16/2005",
+    "position": {
+      "latitude": 37.6211111,
+      "longitude": -90.6402778
+    }
+  },
+  {
+    "id": 25,
+    "date": "10/15/1995 23:00",
+    "city": "split (in former yugoslavia)",
+    "state": "",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 15,
+    "duration_description": "15 seconds",
+    "comments": "I was standing on the shore of the Adriatic Sea looking towrds Italy&#44 seen object go frm left to right&#44 approx  altitiude1000ft",
+    "date_posted": "2/1/2007",
+    "position": {
+      "latitude": 43.508132,
+      "longitude": 16.440193
+    }
+  },
+  {
+    "id": 26,
+    "date": "10/15/2005 19:05",
+    "city": "marlton",
+    "state": "nj",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 420,
+    "duration_description": "7 minutes",
+    "comments": "After retrieving a few items from the trunk of my car&#44 I noticed three objects following each other in a line&#44 flying north&#44 then north",
+    "date_posted": "10/20/2005",
+    "position": {
+      "latitude": 39.8911111,
+      "longitude": -74.9222222
+    }
+  },
+  {
+    "id": 27,
+    "date": "10/16/2004 23:00",
+    "city": "big cypress preserve",
+    "state": "fl",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 10,
+    "duration_description": "10 seconds",
+    "comments": "I was driving west/north on interstate 75 between Ft. Lauderdale and Naples.  Over the median about 75 feet above ground&#44 there was a r",
+    "date_posted": "10/27/2004",
+    "position": {
+      "latitude": 25.901107,
+      "longitude": -81.321402
+    }
+  },
+  {
+    "id": 28,
+    "date": "10/17/2001 17:00",
+    "city": "cadiz-wallonia area",
+    "state": "ky",
+    "country": "",
+    "shape": "other",
+    "duration_seconds": 1500,
+    "duration_description": "25 minutes",
+    "comments": "While I was working outside on my fence rows&#44 I was burning tree branches in my garden. The wind shifted and I looked up to make sure n",
+    "date_posted": "11/20/2001",
+    "position": {
+      "latitude": 37.839333,
+      "longitude": -84.270018
+    }
+  },
+  {
+    "id": 29,
+    "date": "10/17/2011 19:00",
+    "city": "jacksonville",
+    "state": "fl",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 120,
+    "duration_description": "few minutes",
+    "comments": "My wife&#44 daughter&#44 and I witness a bright object moving North-North-East in the sky. It was a bluish-white colored light and stayed vis",
+    "date_posted": "10/19/2011",
+    "position": {
+      "latitude": 30.3319444,
+      "longitude": -81.6558333
+    }
+  },
+  {
+    "id": 30,
+    "date": "10/18/2008 20:30",
+    "city": "tucson",
+    "state": "az",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 1800,
+    "duration_description": "30 min. but still there",
+    "comments": "Bright multi-colored cigar shaped object that moved too quickly and erratically to be a jet.  ((NUFORC Note:  Possible star.  PD))",
+    "date_posted": "10/31/2008",
+    "position": {
+      "latitude": 32.2216667,
+      "longitude": -110.9258333
+    }
+  },
+  {
+    "id": 31,
+    "date": "10/19/2008 3:00",
+    "city": "christiansburg",
+    "state": "va",
+    "country": "us",
+    "shape": "rectangle",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "I was driving on I-81 heading south. I could see stars. Clear and cold. I first Spotted the craft at about 1 o&#39clock and it seemed to l",
+    "date_posted": "10/31/2008",
+    "position": {
+      "latitude": 37.1297222,
+      "longitude": -80.4091667
+    }
+  },
+  {
+    "id": 32,
+    "date": "10/20/1968 1:00",
+    "city": "ashtabula (saybrook twnshp.)",
+    "state": "oh",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 900,
+    "duration_description": "15:00 min.",
+    "comments": "In Oct.of 1968&#44a saucer shaped craft was hovering over a home at 1:00 am in the morn..It was a still and desserted state routethat nigh",
+    "date_posted": "8/24/2004",
+    "position": {
+      "latitude": 41.865,
+      "longitude": -80.79
+    }
+  },
+  {
+    "id": 33,
+    "date": "11/16/1998 21:30",
+    "city": "las vegas/nellis afb",
+    "state": "nv",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 1800,
+    "duration_description": "30mins",
+    "comments": "I work for KVBC Channel 3 in Las Vegas. I didn&#39t see the objects myself. We recieved about 30+ phone calls about fireballs over Nellis",
+    "date_posted": "11/19/1998",
+    "position": {
+      "latitude": 36.241416,
+      "longitude": -115.050807
+    }
+  },
+  {
+    "id": 34,
+    "date": "11/16/1999 18:05",
+    "city": "barrington",
+    "state": "il",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 90,
+    "duration_description": "60 to 90 seconds",
+    "comments": "6:05PM CST. In my car driving south I see a ball of blue green light coming towards me. I stop my car.This ball stops over the road for",
+    "date_posted": "11/17/1999",
+    "position": {
+      "latitude": 42.1538889,
+      "longitude": -88.1361111
+    }
+  },
+  {
+    "id": 35,
+    "date": "11/16/1999 19:10",
+    "city": "holland",
+    "state": "oh",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 40,
+    "duration_description": "40.seconds",
+    "comments": "i went outside to smoke a ciggarette&#44i glanced to the west of my home.saw cluster of lights&#44elongated formation&#44some larger than others",
+    "date_posted": "11/17/1999",
+    "position": {
+      "latitude": 41.6216667,
+      "longitude": -83.7116667
+    }
+  },
+  {
+    "id": 36,
+    "date": "10/22/2012 20:00",
+    "city": "north myrtle beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 900,
+    "duration_description": "10-15 minutes",
+    "comments": "TWO SEPERATE OCCASIONS WITNESSED ORANGE-REDDISH BALLS OF LIGHT APPEARING AND DISAPPERING ABOVE THE OCEAN. ALSO TWO ACCELERATING  FAST",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 33.8158333,
+      "longitude": -78.6802778
+    }
+  },
+  {
+    "id": 37,
+    "date": "11/16/1999 23:30",
+    "city": "overland park",
+    "state": "ks",
+    "country": "us",
+    "shape": "diamond",
+    "duration_seconds": 7200,
+    "duration_description": "2:00+ hrs.",
+    "comments": "Roger Betts(friend)&#44 my two children and I went to a park to watch the meteor shower.  We noticed a cluster of lights in the sky that l",
+    "date_posted": "11/23/1999",
+    "position": {
+      "latitude": 38.9822222,
+      "longitude": -94.6705556
+    }
+  },
+  {
+    "id": 38,
+    "date": "10/23/2012 19:30",
+    "city": "surfside beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "We saw several odd shaped orange shapes in sky at three different intervals&#44 about fifteen minutes apart. Last time they were circular.",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 33.6058333,
+      "longitude": -78.9733333
+    }
+  },
+  {
+    "id": 39,
+    "date": "11/17/1999 17:20",
+    "city": "conway",
+    "state": "sc",
+    "country": "us",
+    "shape": "teardrop",
+    "duration_seconds": 300,
+    "duration_description": "4-5 minutes",
+    "comments": "looking to east-ne sky approx.30 degrees off horizon line&#44watched very slow movement of this object toward the horizon&#44brilliant&#44 vivid",
+    "date_posted": "11/23/1999",
+    "position": {
+      "latitude": 33.8358333,
+      "longitude": -79.0480556
+    }
+  },
+  {
+    "id": 40,
+    "date": "10/24/2012 18:30",
+    "city": "dhaka (bangladesh)",
+    "state": "",
+    "country": "",
+    "shape": "other",
+    "duration_seconds": 30,
+    "duration_description": "15-30 seconds",
+    "comments": "THIS IS TRUE- U CAN HAVE MY WORD&#33  I was on the roof just staring into space- whole family was there&#44 when I saw a faintly glowing rect",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 23.810332,
+      "longitude": 90.412518
+    }
+  },
+  {
+    "id": 41,
+    "date": "10/26/2000 3:30",
+    "city": "scottsdale",
+    "state": "az",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 300,
+    "duration_description": "3-5 minutes",
+    "comments": "I always suspected people who saw things are totally crazy. I&#39m an author and thank God sain and not on drugs. I couldn&#39t sleep last ni",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 33.5091667,
+      "longitude": -111.8983333
+    }
+  },
+  {
+    "id": 42,
+    "date": "10/31/2007 21:45",
+    "city": "washington&#44 d.c.",
+    "state": "dc",
+    "country": "",
+    "shape": "sphere",
+    "duration_seconds": 3600,
+    "duration_description": "about 1 hour",
+    "comments": "Two UFO&#39s Lingering In The Sky On October 31&#44 Followed By Lights And Surrounded By Green Fog.  ((NUFORC Note:  Satellites??  PD))",
+    "date_posted": "11/28/2007",
+    "position": {
+      "latitude": 38.907231,
+      "longitude": -77.036464
+    }
+  },
+  {
+    "id": 43,
+    "date": "10/8/2000 0:30",
+    "city": "silver lake",
+    "state": "ca",
+    "country": "",
+    "shape": "triangle",
+    "duration_seconds": 1800,
+    "duration_description": "25-30 mins.",
+    "comments": "It had no lights&#44 but it could be seen against the dark sky.  It was veery high&#44 but easy to see.  There were two shapes&#44 then one brok",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 34.086941,
+      "longitude": -118.270204
+    }
+  },
+  {
+    "id": 44,
+    "date": "11/1/2005 17:00",
+    "city": "atlantic city",
+    "state": "nj",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 6,
+    "duration_description": "6 secs.",
+    "comments": "Fall 2005. My husband and I were driving on White Horse Pike in AC&#44 when looking up&#44 I thought I saw a flock of black birds&#44 but as I w",
+    "date_posted": "10/30/2006",
+    "position": {
+      "latitude": 39.3641667,
+      "longitude": -74.4233333
+    }
+  },
+  {
+    "id": 45,
+    "date": "11/29/1998 19:10",
+    "city": "palm desert (above)",
+    "state": "ca",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 60,
+    "duration_description": "1 minute",
+    "comments": "Fiance and I were on the way to the theatre (RENT musical) I motioned to her to look at the odd falling star when I realized that the d",
+    "date_posted": "9/12/1999",
+    "position": {
+      "latitude": 33.7222222,
+      "longitude": -116.3736111
+    }
+  },
+  {
+    "id": 46,
+    "date": "11/10/2001 21:35",
+    "city": "sulphur",
+    "state": "ok",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 120,
+    "duration_description": "approx. 2 min.",
+    "comments": "Small&#44 round&#44 white light floated in all directions&#44 increased speed toward NW&#44 now appeared to have lights on it like an airplane",
+    "date_posted": "11/20/2001",
+    "position": {
+      "latitude": 34.5077778,
+      "longitude": -96.9680556
+    }
+  },
+  {
+    "id": 47,
+    "date": "11/10/2003 18:20",
+    "city": "pasadena",
+    "state": "ca",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 900,
+    "duration_description": "15 min",
+    "comments": "Driving East on 210 Fwy&#44 looked to right&#44 and my Daughter and I saw a saucer&#44 fluorcent lights&#44 just kept on hovering&#44 did have a red l",
+    "date_posted": "11/26/2003",
+    "position": {
+      "latitude": 34.1477778,
+      "longitude": -118.1436111
+    }
+  },
+  {
+    "id": 48,
+    "date": "11/12/2008 19:00",
+    "city": "york (cape neddick)",
+    "state": "me",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 4,
+    "duration_description": "4 seconds",
+    "comments": "I was driving on Chases Pond Rd. when a large white light&#44 bigger than the moon&#44 slowly crossed over the street above us at a curve. My",
+    "date_posted": "12/12/2013",
+    "position": {
+      "latitude": 43.161748,
+      "longitude": -70.648258
+    }
+  },
+  {
+    "id": 49,
+    "date": "11/14/2003 0:00",
+    "city": "midlothian",
+    "state": "va",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 900,
+    "duration_description": "10 to 15 minutes",
+    "comments": "This was pretty weird&#44 we live in the country somewhat. My house is high on a hill and my deck you can see the woods far away. I woke u",
+    "date_posted": "11/26/2003",
+    "position": {
+      "latitude": 37.5058333,
+      "longitude": -77.6494444
+    }
+  },
+  {
+    "id": 50,
+    "date": "11/15/2013 17:45",
+    "city": "portage",
+    "state": "wi",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "Traveling on Friday November 15&#44 2013&#44 on Hwy 51 North&#44 Just past the town of Portage&#44 WI&#44 The bright Orange Orbs were popping in and o",
+    "date_posted": "3/18/2014",
+    "position": {
+      "latitude": 43.5391667,
+      "longitude": -89.4625
+    }
+  },
+  {
+    "id": 51,
+    "date": "11/16/2003 21:00",
+    "city": "san diego",
+    "state": "ca",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes +",
+    "comments": "Walking back to my apartment and noticing the sky had cleared between storms&#44 I looked up to see and appreciate the clear&#44 dark sky and",
+    "date_posted": "11/26/2003",
+    "position": {
+      "latitude": 32.7152778,
+      "longitude": -117.1563889
+    }
+  },
+  {
+    "id": 52,
+    "date": "11/20/2006 1:00",
+    "city": "hattiesburg",
+    "state": "ms",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 2700,
+    "duration_description": "throughout the night",
+    "comments": "I would like to bring something to your attention.  You might already know this.  ((NUFORC Note:  Possibly a sighting of Sirius.  PD))",
+    "date_posted": "12/7/2006",
+    "position": {
+      "latitude": 31.3269444,
+      "longitude": -89.2902778
+    }
+  },
+  {
+    "id": 53,
+    "date": "11/20/2012 12:15",
+    "city": "warren/troy border",
+    "state": "mi",
+    "country": "",
+    "shape": "changing",
+    "duration_seconds": 300,
+    "duration_description": "4-5 minutes",
+    "comments": "Heading west on 16 mile&#44 what first appeared to be a cloud gradually changed shape into an upside down triangle with a bright orange.",
+    "date_posted": "12/20/2012",
+    "position": {
+      "latitude": 44.314844,
+      "longitude": -85.602364
+    }
+  },
+  {
+    "id": 54,
+    "date": "11/25/1998 20:05",
+    "city": "tigard (portland suburb)",
+    "state": "or",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 2,
+    "duration_description": "2sec",
+    "comments": "my daughter and I were in our kitchen and the whole room lit up bright red. I thought the candles on our table caught something on fire",
+    "date_posted": "8/28/2002",
+    "position": {
+      "latitude": 45.4313889,
+      "longitude": -122.7702778
+    }
+  },
+  {
+    "id": 55,
+    "date": "11/25/2011 21:55",
+    "city": "long beach",
+    "state": "ca",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "VANTAGE POINT AND SIGHTING DIRECTION Standing at GPS coordinates (per Google Maps) 33.778603&#44-118.198761&#44 if you face north and then tu",
+    "date_posted": "12/12/2011",
+    "position": {
+      "latitude": 33.7669444,
+      "longitude": -118.1883333
+    }
+  },
+  {
+    "id": 56,
+    "date": "11/26/2011 5:15",
+    "city": "lyndonville",
+    "state": "ny",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 240,
+    "duration_description": "4 minutes",
+    "comments": "A white filled circle&#44 half the size of a full moon&#44 appeared over Lake Ontario&#44 north of Lyndonville&#44 NY. I reappeared 5 more times.",
+    "date_posted": "3/18/2014",
+    "position": {
+      "latitude": 43.3266667,
+      "longitude": -78.3891667
+    }
+  },
+  {
+    "id": 57,
+    "date": "11/28/2013 19:00",
+    "city": "myrtle beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "7 total objects seen in the sky coming from the vicinity of the ocean&#44 triangular orange lights that seemed to pulsate&#44 stop and hover",
+    "date_posted": "12/2/2013",
+    "position": {
+      "latitude": 33.6888889,
+      "longitude": -78.8869444
+    }
+  },
+  {
+    "id": 58,
+    "date": "11/3/2005 16:40",
+    "city": "south pasadena",
+    "state": "ca",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 300,
+    "duration_description": "3-5 minutes",
+    "comments": "FIreball shaped object overhead&#44 seen&#44 then heard&#44 then GONE without a trace.  ((NUFORC Note:  Possible a/c with contrail.  PD))",
+    "date_posted": "11/8/2005",
+    "position": {
+      "latitude": 34.1161111,
+      "longitude": -118.1494444
+    }
+  },
+  {
+    "id": 59,
+    "date": "11/6/2011 17:40",
+    "city": "knoxville",
+    "state": "tn",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 600,
+    "duration_description": "10 min",
+    "comments": "Over NW Knoxville TN&#44 viewed from central Knoxville&#44 appeard high over 10&#44000 ft?&#44 one&#44 perfectly elliptical opaque white with a bright",
+    "date_posted": "12/12/2011",
+    "position": {
+      "latitude": 35.9605556,
+      "longitude": -83.9208333
+    }
+  },
+  {
+    "id": 60,
+    "date": "12/11/2000 6:24",
+    "city": "alexandria",
+    "state": "ky",
+    "country": "us",
+    "shape": "diamond",
+    "duration_seconds": 30,
+    "duration_description": "around 30 seconds",
+    "comments": "My father and I were leaving on our way to take me to shool. When my father stopped&#44 pulled to the side of the road and pointed to a fo",
+    "date_posted": "4/28/2001",
+    "position": {
+      "latitude": 38.9594444,
+      "longitude": -84.3880556
+    }
+  },
+  {
+    "id": 61,
+    "date": "12/15/2011 21:00",
+    "city": "great falls (canada)",
+    "state": "mb",
+    "country": "ca",
+    "shape": "triangle",
+    "duration_seconds": 720,
+    "duration_description": "10-12 minutes",
+    "comments": "First and third object flew eastwards made a turn north east&#44north of my house second flew east in a more parallel line turning s.e",
+    "date_posted": "12/17/2011",
+    "position": {
+      "latitude": 50.45,
+      "longitude": -96.016667
+    }
+  },
+  {
+    "id": 62,
+    "date": "12/16/2002 12:51",
+    "city": "coral springs",
+    "state": "fl",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "Oval shaped&#44 three engines side by side in the back&#44 2 fins pointing up on each side in the back. Moved slowly for a few minutes&#44 then",
+    "date_posted": "12/23/2002",
+    "position": {
+      "latitude": 26.2708333,
+      "longitude": -80.2708333
+    }
+  },
+  {
+    "id": 63,
+    "date": "12/20/1980 23:00",
+    "city": "mexico city (mexico)",
+    "state": "",
+    "country": "",
+    "shape": "disk",
+    "duration_seconds": 30,
+    "duration_description": "30 seconds",
+    "comments": "clearly a flying suacer&#44 solid&#44 bright&#44 silent &#44 hovering at the top corner of a high rise building then flying away in an instant.",
+    "date_posted": "6/12/2008",
+    "position": {
+      "latitude": 19.432608,
+      "longitude": -99.133208
+    }
+  },
+  {
+    "id": 64,
+    "date": "12/20/2012 23:20",
+    "city": "hollywood beach",
+    "state": "fl",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 10,
+    "duration_description": "10 seconds",
+    "comments": "Witnessed soundless&#44 orange lights/orbs traveling paralel to the beach but heading a bit east toward the ocean. They traveled in pairs&#44",
+    "date_posted": "12/21/2012",
+    "position": {
+      "latitude": 30.2538889,
+      "longitude": -85.9569444
+    }
+  },
+  {
+    "id": 65,
+    "date": "12/21/1999 6:45",
+    "city": "toledo/salkum (between)",
+    "state": "wa",
+    "country": "",
+    "shape": "oval",
+    "duration_seconds": 900,
+    "duration_description": "15min aprox",
+    "comments": "one of the ufo&#39s did zig zag manuevers across the sky west of Mt Rainer and the other one stayed fairly stationary...the the one doing",
+    "date_posted": "1/7/2000",
+    "position": {
+      "latitude": 46.417003,
+      "longitude": -122.753327
+    }
+  },
+  {
+    "id": 66,
+    "date": "12/22/2008 18:45",
+    "city": "huntington beach",
+    "state": "ca",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 720,
+    "duration_description": "12 minutes",
+    "comments": "At approximately 6:45pm on December 22&#44 2008 I went into my back yard to smell the fresh air. I looked up and noticed some clouds and s",
+    "date_posted": "1/10/2009",
+    "position": {
+      "latitude": 33.6602778,
+      "longitude": -117.9983333
+    }
+  },
+  {
+    "id": 67,
+    "date": "12/24/1997 20:08",
+    "city": "watford (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "circle",
+    "duration_seconds": 5,
+    "duration_description": "5 seconds",
+    "comments": "Dim&#44 orange&#44 circular object (centre of disk brighter than outside edge)&#44 travelling from NE across sky to SW&#44 changing direction by ap",
+    "date_posted": "2/16/2000",
+    "position": {
+      "latitude": 52.3,
+      "longitude": -1.116667
+    }
+  },
+  {
+    "id": 68,
+    "date": "12/24/2000 20:00",
+    "city": "evansville",
+    "state": "in",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 120,
+    "duration_description": "4 plus hours",
+    "comments": "while driving home from pre christmass dinner&#44 OUr family began to pay attention what we thought was an airplane. However&#44 the object a",
+    "date_posted": "1/3/2001",
+    "position": {
+      "latitude": 37.9747222,
+      "longitude": -87.5558333
+    }
+  },
+  {
+    "id": 69,
+    "date": "12/24/2009 21:00",
+    "city": "auckland (new zealand)",
+    "state": "",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 2400,
+    "duration_description": "forty minutes",
+    "comments": "We were driving to view a house festooned with Christmas Lights in West Auckland on Christmas Eve around 9pm.  As I proceeded from the",
+    "date_posted": "2/14/2010",
+    "position": {
+      "latitude": -36.84846,
+      "longitude": 174.763332
+    }
+  },
+  {
+    "id": 70,
+    "date": "12/24/2012 3:00",
+    "city": "lobelville",
+    "state": "tn",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "Awoke at 3 am&#44 electricity out&#44  home shaking&#44 loud humming sound&#44 bright green lights and witnessed a humanoid figure outside window.",
+    "date_posted": "2/4/2013",
+    "position": {
+      "latitude": 35.7719444,
+      "longitude": -87.7838889
+    }
+  },
+  {
+    "id": 71,
+    "date": "12/25/2001 18:42",
+    "city": "sioux city/omaha (between)",
+    "state": "ia",
+    "country": "",
+    "shape": "disk",
+    "duration_seconds": 120,
+    "duration_description": "2 minutes",
+    "comments": "Driving to Omaha from Souix City south on I-29 between Missouri Valley and North Omaha exit going to Mormon Bridge. Wife asked what lig",
+    "date_posted": "1/11/2002",
+    "position": {
+      "latitude": 42.505237,
+      "longitude": -96.415471
+    }
+  },
+  {
+    "id": 72,
+    "date": "12/25/2009 17:30",
+    "city": "birmingham (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "triangle",
+    "duration_seconds": 120,
+    "duration_description": "1 -2 mins",
+    "comments": "3 orange/yellow lights in triangle formation slowly moveing in triangle formation over bhx airport .the lights slightly flickerd then t",
+    "date_posted": "2/14/2010",
+    "position": {
+      "latitude": 52.466667,
+      "longitude": -1.916667
+    }
+  },
+  {
+    "id": 73,
+    "date": "12/25/2010 17:35",
+    "city": "rockport",
+    "state": "ma",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 60,
+    "duration_description": "1 min.",
+    "comments": "Looked like a satelite&#44 blue in color&#44 speed was regular then slowed down&#44 zig zagged changing colors&#44(don&#39t remember the colors exactl",
+    "date_posted": "3/10/2011",
+    "position": {
+      "latitude": 42.6555556,
+      "longitude": -70.6208333
+    }
+  },
+  {
+    "id": 74,
+    "date": "12/26/2011 23:54",
+    "city": "south lyon",
+    "state": "mi",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 15,
+    "duration_description": "15 seconds",
+    "comments": "Big Iso-triangular craft 3 bright white lights tight up front&#44 flashing center red&#44 several bright whites in a row in back&#44 slight hum",
+    "date_posted": "1/12/2012",
+    "position": {
+      "latitude": 42.4605556,
+      "longitude": -83.6516667
+    }
+  },
+  {
+    "id": 75,
+    "date": "12/7/1999 23:00",
+    "city": "royal deeside (uk/scotland)",
+    "state": "",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 45,
+    "duration_description": "1/2 hour",
+    "comments": "Followed a car 5 miles&#44 then hovered over a building and then disappeared. Sighted the following night. Last night there were several i",
+    "date_posted": "12/16/1999",
+    "position": {
+      "latitude": 57.032755,
+      "longitude": -3.106968
+    }
+  },
+  {
+    "id": 76,
+    "date": "12/29/2008 18:00",
+    "city": "stewartstown",
+    "state": "pa",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 18000,
+    "duration_description": "4-5 hours",
+    "comments": "Round Shape Possibly  3-4 hrs  3 very bright lights at different parts of the sky.  ((NUFORC Note:  Venus&#44 Jupiter&#44 and Mercury?  PD))",
+    "date_posted": "1/10/2009",
+    "position": {
+      "latitude": 39.7536111,
+      "longitude": -76.5916667
+    }
+  },
+  {
+    "id": 77,
+    "date": "12/29/2013 22:50",
+    "city": "jacksonville",
+    "state": "fl",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 60,
+    "duration_description": "60 seconds",
+    "comments": "I could not have described what me&#44 my husband and daughter witnessed than the description that was posted by someone in St. Cloud&#44 Flo",
+    "date_posted": "1/10/2014",
+    "position": {
+      "latitude": 30.3319444,
+      "longitude": -81.6558333
+    }
+  },
+  {
+    "id": 78,
+    "date": "12/3/2011 21:35",
+    "city": "jacksonville beach",
+    "state": "fl",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 15,
+    "duration_description": "15 seconds",
+    "comments": "Upon leaving out condo I was compelled to look up.  I immediately looked up and saw something either solid black or something of no mas",
+    "date_posted": "12/12/2011",
+    "position": {
+      "latitude": 30.2944444,
+      "longitude": -81.3933333
+    }
+  },
+  {
+    "id": 79,
+    "date": "12/31/2006 23:00",
+    "city": "imperial desert",
+    "state": "ca",
+    "country": "",
+    "shape": "oval",
+    "duration_seconds": 6312000,
+    "duration_description": "new years eve",
+    "comments": "The Object was more round than Oval. It was behind the cloulds &#44the moon was very bright that night so you could see very good. I looke",
+    "date_posted": "2/1/2007",
+    "position": {
+      "latitude": 32.841179,
+      "longitude": -115.590169
+    }
+  },
+  {
+    "id": 80,
+    "date": "12/31/2010 23:59",
+    "city": "floresville",
+    "state": "tx",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "On this New Year eve at midnight&#44 we were popping fireworks&#44myself&#44my wife and our daughter when from the eastern sky a bright orange o",
+    "date_posted": "1/5/2011",
+    "position": {
+      "latitude": 29.1333333,
+      "longitude": -98.1558333
+    }
+  },
+  {
+    "id": 81,
+    "date": "12/31/2011 18:30",
+    "city": "bishopville",
+    "state": "sc",
+    "country": "us",
+    "shape": "diamond",
+    "duration_seconds": 14400,
+    "duration_description": "4 hrs",
+    "comments": "Strobe-like blue&#44white&#44 green&#44 and red lights east of SC&#44 MP108 I-20.  ((NUFORC Note:  Possible sightings of stars or planets??  PD))",
+    "date_posted": "1/12/2012",
+    "position": {
+      "latitude": 34.2180556,
+      "longitude": -80.2486111
+    }
+  },
+  {
+    "id": 82,
+    "date": "12/31/2013 0:30",
+    "city": "altamonte springs",
+    "state": "fl",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "After the family gathering on 12/31/13 and about 12:30 after midnight&#44 family members were leaving my house and we all got outside to w",
+    "date_posted": "1/10/2014",
+    "position": {
+      "latitude": 28.6608333,
+      "longitude": -81.3658333
+    }
+  },
+  {
+    "id": 83,
+    "date": "12/31/2013 19:58",
+    "city": "auburn",
+    "state": "ca",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "Illuminated large spher object&#44 completely silent&#44 sighted over Auburn&#44 CA December 31&#44 7:58pm. Not fireworks..and we don&#39t drink&#33",
+    "date_posted": "1/10/2014",
+    "position": {
+      "latitude": 38.8966667,
+      "longitude": -121.0758333
+    }
+  },
+  {
+    "id": 84,
+    "date": "12/9/2004 17:10",
+    "city": "palm desert",
+    "state": "ca",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 600,
+    "duration_description": "5-10 minutes",
+    "comments": "Saw a luminous yellow-green color craft&#44 with external white lights.  It was quite large.  It was low on the horizon&#44 so low that it wa",
+    "date_posted": "12/14/2004",
+    "position": {
+      "latitude": 33.7222222,
+      "longitude": -116.3736111
+    }
+  },
+  {
+    "id": 85,
+    "date": "2/21/1963 21:30",
+    "city": "cape may court house",
+    "state": "nj",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 240,
+    "duration_description": "3 to 4 min.",
+    "comments": "This incident happened in the early 60&#39s and I still remember it like it happened yesterday. It scared the crap out of me&#33&#33&#33",
+    "date_posted": "4/27/2004",
+    "position": {
+      "latitude": 39.0825,
+      "longitude": -74.8241667
+    }
+  },
+  {
+    "id": 86,
+    "date": "2/21/2001 20:45",
+    "city": "rogue river",
+    "state": "or",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 1200,
+    "duration_description": "15 to 20 min.",
+    "comments": "It started about 8:30 pm or so went by sliding door and saw a bright light&#44 I thought that that was strange too see a plane with it&#39s l",
+    "date_posted": "2/24/2001",
+    "position": {
+      "latitude": 42.4361111,
+      "longitude": -123.1708333
+    }
+  },
+  {
+    "id": 87,
+    "date": "2/23/1999 2:30",
+    "city": "la verne",
+    "state": "ca",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 120,
+    "duration_description": "2 minutes",
+    "comments": "I was driving us on Interstate freeway 10&#44 due west&#44 at the junction of the 210 freeway&#44 when I saw what looked like a flare&#44 except th",
+    "date_posted": "4/2/1999",
+    "position": {
+      "latitude": 34.1008333,
+      "longitude": -117.7669444
+    }
+  },
+  {
+    "id": 88,
+    "date": "2/26/2005 14:46",
+    "city": "incline village",
+    "state": "nv",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 300,
+    "duration_description": "5 mins.",
+    "comments": "Unknown light/disc over Incline Village&#44 NV - Disc changed color from white to red/spinning rainbow color&#44 then disappeared after 5 min",
+    "date_posted": "4/16/2005",
+    "position": {
+      "latitude": 39.2513889,
+      "longitude": -119.9719444
+    }
+  },
+  {
+    "id": 89,
+    "date": "2/26/1999 0:15",
+    "city": "gilroy (approximatly)",
+    "state": "ca",
+    "country": "us",
+    "shape": "flash",
+    "duration_seconds": 4,
+    "duration_description": "1/4 second",
+    "comments": "While driving North on the 101 85 miles South of San Francisco&#44 I saw a bright flash transverse the sky from zenith to almost the horiz",
+    "date_posted": "4/2/1999",
+    "position": {
+      "latitude": 37.0058333,
+      "longitude": -121.5672222
+    }
+  },
+  {
+    "id": 90,
+    "date": "2/7/2007 3:00",
+    "city": "johnstown",
+    "state": "pa",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "Blue colored lights forming a triangle&#44 they faded out slowly&#44 one in the right side first&#44 then one on left&#44 followed by the top light",
+    "date_posted": "2/24/2007",
+    "position": {
+      "latitude": 40.3266667,
+      "longitude": -78.9222222
+    }
+  },
+  {
+    "id": 91,
+    "date": "2/8/2001 19:44",
+    "city": "wakefield (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "cigar",
+    "duration_seconds": 30,
+    "duration_description": "30seconds",
+    "comments": "IT WAS BRIGHT GREEN&#44 WITH A ORANGE/YELLOW TAIL&#44 MOVING FROM EAST TO WEST&#44 DID NOT HEAR ANY SOUNDS FROM IT&#44 ALL HAPPEND IN A FEW SECONDS",
+    "date_posted": "2/18/2001",
+    "position": {
+      "latitude": 53.7,
+      "longitude": -1.483333
+    }
+  },
+  {
+    "id": 92,
+    "date": "2/8/2009 10:00",
+    "city": "duluth",
+    "state": "mn",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "((HOAX??))  black triangle&#44 three white lights on bottom&#44 1 pilot human&#44 windy sound&#44 slow&#44 near woods or airport&#44 see in craft&#44",
+    "date_posted": "4/13/2010",
+    "position": {
+      "latitude": 46.7833333,
+      "longitude": -92.1063889
+    }
+  },
+  {
+    "id": 93,
+    "date": "3/10/2006 0:30",
+    "city": "san antonio",
+    "state": "tx",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 4200,
+    "duration_description": "12:30 a.m.-1:40 a.m.",
+    "comments": "I was driving home from downtown San Antonio and witnessed a series of  crafts with strange lights on Highway 281 for an hour or so.",
+    "date_posted": "3/11/2006",
+    "position": {
+      "latitude": 29.4238889,
+      "longitude": -98.4933333
+    }
+  },
+  {
+    "id": 94,
+    "date": "3/12/1999 21:23",
+    "city": "quito (ecuador)",
+    "state": "",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 15,
+    "duration_description": "about 15 seconds",
+    "comments": "with my friends we were having a nigth picnic when A. said look&#44 LOOK&#33&#33 is something on top of the pichincha and there she was a light",
+    "date_posted": "8/5/2001",
+    "position": {
+      "latitude": -0.180653,
+      "longitude": -78.467838
+    }
+  },
+  {
+    "id": 95,
+    "date": "3/13/1997 23:00",
+    "city": "fresno",
+    "state": "ca",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 60,
+    "duration_description": "40 to 60 seconds",
+    "comments": "AS I SAT IN MY PARENT&#39S BACK YARD FACING DIRECTLY SOUTH&#44 I NOTICED 6 LIGHTS SIDE BY SIDE MOVING AT A FARELY FAST PACE.  THEY WERE SIDE",
+    "date_posted": "9/17/2000",
+    "position": {
+      "latitude": 36.7477778,
+      "longitude": -119.7713889
+    }
+  },
+  {
+    "id": 96,
+    "date": "3/13/2012 22:10",
+    "city": "richland",
+    "state": "wa",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 1200,
+    "duration_description": "15-20 minutes",
+    "comments": "2 still lights that changed into multi colored flashing lights that changed speed&#44 dir.&#44 very quickly.  ((NUFORC Note:  Planets?  PD))",
+    "date_posted": "3/16/2012",
+    "position": {
+      "latitude": 46.2858333,
+      "longitude": -119.2833333
+    }
+  },
+  {
+    "id": 97,
+    "date": "3/15/1999 4:00",
+    "city": "nashville",
+    "state": "tn",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 300,
+    "duration_description": "4-5 minutes",
+    "comments": "Pure pulsating light&#44 moved strangely in the sky&#44 best described is like the minute hand on a clock&#44 you can&#39t see it move but you know",
+    "date_posted": "10/2/1999",
+    "position": {
+      "latitude": 36.1658333,
+      "longitude": -86.7844444
+    }
+  },
+  {
+    "id": 98,
+    "date": "3/20/1998 20:50",
+    "city": "kansas city",
+    "state": "mo",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 1800,
+    "duration_description": "30min.",
+    "comments": "I observed a bright pulsing(red&#44 green&#44 and white)light with several smaller white lights around it&#44 while riding in the car with my si",
+    "date_posted": "1/28/1999",
+    "position": {
+      "latitude": 39.0997222,
+      "longitude": -94.5783333
+    }
+  },
+  {
+    "id": 99,
+    "date": "3/20/2012 21:00",
+    "city": "surfside beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 1800,
+    "duration_description": "15-30 minutes",
+    "comments": "Off the coast of Surfside Beach.SC.  3 bright reddish lights appeared softly then seconds later&#44 soflty dissapeared. Faded in then fade",
+    "date_posted": "5/13/2012",
+    "position": {
+      "latitude": 33.6058333,
+      "longitude": -78.9733333
+    }
+  },
+  {
+    "id": 100,
+    "date": "3/23/2011 0:05",
+    "city": "burlington",
+    "state": "ma",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 10,
+    "duration_description": "8 to 10 seconds",
+    "comments": "A flying wing or triangle in Burlngton&#44 MA&#44 just after midnight.  ((NUFORC Note:  Reliable witness&#44 who is a public employee.  PD))",
+    "date_posted": "3/23/2011",
+    "position": {
+      "latitude": 42.5047222,
+      "longitude": -71.1961111
+    }
+  },
+  {
+    "id": 101,
+    "date": "3/24/2012 19:30",
+    "city": "woodford island (australia)",
+    "state": "",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 300,
+    "duration_description": "5 mins",
+    "comments": "Ufo started out as what looked like a yellow star then as it stated to move it glowed orange traveled at unbelievable speeds horizontal",
+    "date_posted": "5/13/2012",
+    "position": {
+      "latitude": -29.515278,
+      "longitude": 153.134722
+    }
+  },
+  {
+    "id": 102,
+    "date": "3/27/2004 2:30",
+    "city": "san jose",
+    "state": "ca",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 6,
+    "duration_description": "5 or 6 seconds",
+    "comments": "3/26/04 san jose&#44 ca. wedge shaped light flying low&#44 fast&#44 and silent. look like a shooting star&#44 but kept going.  FAST. 1 solid light",
+    "date_posted": "3/28/2004",
+    "position": {
+      "latitude": 37.3394444,
+      "longitude": -121.8938889
+    }
+  },
+  {
+    "id": 103,
+    "date": "3/31/2004 11:15",
+    "city": "grootebroek (netherlands)",
+    "state": "",
+    "country": "",
+    "shape": "oval",
+    "duration_seconds": 10,
+    "duration_description": "about 10 seconds",
+    "comments": "The object looked like a oval metallic subject wich lit up for about ten seconds. It was hanging shorlty above the ground and a few sec",
+    "date_posted": "6/18/2004",
+    "position": {
+      "latitude": 52.698223,
+      "longitude": 5.222918
+    }
+  },
+  {
+    "id": 104,
+    "date": "3/5/2007 19:00",
+    "city": "washington&#44 d.c.",
+    "state": "dc",
+    "country": "",
+    "shape": "other",
+    "duration_seconds": 600,
+    "duration_description": "10 min",
+    "comments": "Hovering saucer-shaped object&#44 yellow lights&#44 approached by bronze-colored object&#44 triangular or flying wing shape&#44 which hovered near.",
+    "date_posted": "3/8/2007",
+    "position": {
+      "latitude": 38.907231,
+      "longitude": -77.036464
+    }
+  },
+  {
+    "id": 105,
+    "date": "3/6/2000 22:21",
+    "city": "wattweiler&#44 zweibruecken (germany)",
+    "state": "",
+    "country": "",
+    "shape": "",
+    "duration_seconds": 300,
+    "duration_description": "3-5min",
+    "comments": "Located within a 13 arc minute circle from M42 (Orion Nebula) several light strobes were witnessed&#44 looking like the flash of an iridiu",
+    "date_posted": "3/7/2000",
+    "position": {
+      "latitude": 49.236089,
+      "longitude": 7.316069
+    }
+  },
+  {
+    "id": 106,
+    "date": "3/8/1993 19:35",
+    "city": "san antonio del mar (mexico)",
+    "state": "",
+    "country": "",
+    "shape": "disk",
+    "duration_seconds": 180,
+    "duration_description": "2-3 minutes",
+    "comments": "Bright moonlit night with low fog on horizon No aircraft or boats off the coast of Baja California Bright lights appear at about 30 to",
+    "date_posted": "10/8/2007",
+    "position": {
+      "latitude": -33.617702,
+      "longitude": -71.622665
+    }
+  },
+  {
+    "id": 107,
+    "date": "4/1/1966 22:00",
+    "city": "danang (50 miles from) (viet nam)",
+    "state": "",
+    "country": "",
+    "shape": "disk",
+    "duration_seconds": 300,
+    "duration_description": "5 min.",
+    "comments": "Craft was seen at about 22:00 hours in the combat area none as I Corps. This ia about 50 miles outside of Da nang. The craft was hugh.",
+    "date_posted": "10/27/2004",
+    "position": {
+      "latitude": 16.054407,
+      "longitude": 108.202167
+    }
+  },
+  {
+    "id": 108,
+    "date": "4/11/2006 21:28",
+    "city": "london (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "oval",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "AT NIGHT&#44 APPROXIMATELY 20-25 OVAL SHAPED ORANGE OBJECTS FLEW ACROSS THE SKY SLOWLY&#44 STOPPED FOR ABOUT 1 MINUTE&#44 BEFORE FLYING SOUTH AN",
+    "date_posted": "12/7/2006",
+    "position": {
+      "latitude": 51.514125,
+      "longitude": -0.093689
+    }
+  },
+  {
+    "id": 109,
+    "date": "4/12/2000 21:45",
+    "city": "alamo lake state park",
+    "state": "az",
+    "country": "",
+    "shape": "unknown",
+    "duration_seconds": 10,
+    "duration_description": "< 10 seconds",
+    "comments": "A bright orange light appeared high in the sky while camping at Alamo Lake State Park.  Within minutes we heard the sound of non commer",
+    "date_posted": "4/26/2000",
+    "position": {
+      "latitude": 34.270892,
+      "longitude": -113.569874
+    }
+  },
+  {
+    "id": 110,
+    "date": "4/13/2014 21:00",
+    "city": "roseville",
+    "state": "mi",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 900,
+    "duration_description": "10-15 minutes",
+    "comments": "2113 approximately on 4/13/14&#44 12 and Gratiot area in Roseville MI&#44 I was looking NW and saw three bright flickering orange lights in a",
+    "date_posted": "4/18/2014",
+    "position": {
+      "latitude": 42.4972222,
+      "longitude": -82.9372222
+    }
+  },
+  {
+    "id": 111,
+    "date": "4/15/1997 13:00",
+    "city": "south point",
+    "state": "oh",
+    "country": "us",
+    "shape": "egg",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "I and a co-worker were traveling on Route 52&#44 just past the bridge into Ashland&#44 Kentucky.  A large&#44 silent&#44 matte silver object appear",
+    "date_posted": "1/28/1999",
+    "position": {
+      "latitude": 38.4177778,
+      "longitude": -82.5863889
+    }
+  },
+  {
+    "id": 112,
+    "date": "4/15/1979 22:50",
+    "city": "north brunswick (over)",
+    "state": "nj",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 3600,
+    "duration_description": "1 hour",
+    "comments": "HUGE circular object which hovered over the North Brunswick&#44 NJ intersection of Route 1 and Route 130 in the late 1970&#39s or early 1980",
+    "date_posted": "4/28/2001",
+    "position": {
+      "latitude": 40.452516,
+      "longitude": -74.476671
+    }
+  },
+  {
+    "id": 113,
+    "date": "4/15/2010 22:18",
+    "city": "nederland",
+    "state": "tx",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "On 4/15/10 from 10:18pm cst to 10:36pm cst in Nederland&#44 TX&#44 myself&#44 my wife&#44 and cousin observed a ufo facing due west toward Beaumont",
+    "date_posted": "5/12/2010",
+    "position": {
+      "latitude": 29.9741667,
+      "longitude": -93.9922222
+    }
+  },
+  {
+    "id": 114,
+    "date": "4/15/2011 23:50",
+    "city": "new york city",
+    "state": "ny",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 900,
+    "duration_description": "15 min",
+    "comments": "Light was traveling and huvering fast &#44 slow&#44 steady. fast one direction&#44 stopping for about 5 secs&#44 then speeding in another direction",
+    "date_posted": "5/2/2011",
+    "position": {
+      "latitude": 40.7141667,
+      "longitude": -74.0063889
+    }
+  },
+  {
+    "id": 115,
+    "date": "4/17/2012 21:52",
+    "city": "addis abeba (ethiopia)",
+    "state": "",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 300,
+    "duration_description": "9:52pm-9:57pm",
+    "comments": "I Have Seen This Flying Objects When get Off The House .First I See bright thing moving in space &#44they are theree in number.They passed",
+    "date_posted": "5/29/2012",
+    "position": {
+      "latitude": 8.980603,
+      "longitude": 38.757761
+    }
+  },
+  {
+    "id": 116,
+    "date": "4/19/1995 23:00",
+    "city": "lake sullivan",
+    "state": "id",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 21600,
+    "duration_description": "5-6 hrs. approx.",
+    "comments": "((This is the third of several of these experiences&#44 all of which I now feel are connected. If visitors to this site have any questions",
+    "date_posted": "2/16/1999",
+    "position": {
+      "latitude": 44.222045,
+      "longitude": -114.443614
+    }
+  },
+  {
+    "id": 117,
+    "date": "4/19/2000 23:09",
+    "city": "delray beach",
+    "state": "fl",
+    "country": "us",
+    "shape": "chevron",
+    "duration_seconds": 15,
+    "duration_description": "15 sec.",
+    "comments": "looking in the sky to the south&#44I saw a greyish silouette heading north&#44looked for lites&#44listened for sound&#44None of either.Whatched it",
+    "date_posted": "4/26/2000",
+    "position": {
+      "latitude": 26.4611111,
+      "longitude": -80.0730556
+    }
+  },
+  {
+    "id": 118,
+    "date": "4/20/1975 17:00",
+    "city": "mount vernon",
+    "state": "va",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "I was about 12 yrs old and saw this oval object hovering&#44 silently&#44 over my home&#44 near Ft. Belvior&#44 VA. It had circles around its diame",
+    "date_posted": "4/2/1999",
+    "position": {
+      "latitude": 38.7077778,
+      "longitude": -77.0863889
+    }
+  },
+  {
+    "id": 119,
+    "date": "4/23/1994 1:00",
+    "city": "brampton (near toronto) (canada)",
+    "state": "on",
+    "country": "ca",
+    "shape": "",
+    "duration_seconds": 120,
+    "duration_description": "2min",
+    "comments": "The whole north west sky lit up.  Near Dorsett Park&#44 facing North west at 1:00am in the morning.  There were very few clouds in the sky",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 43.683333,
+      "longitude": -79.766667
+    }
+  },
+  {
+    "id": 120,
+    "date": "4/8/1999 3:30",
+    "city": "leicester (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "formation",
+    "duration_seconds": 40,
+    "duration_description": "30-40 seconds",
+    "comments": "Driving home i stopped at traffic lights. I saw a formation of 3 orange/brown lights flying in a equalateral formation (about a mile aw",
+    "date_posted": "5/24/1999",
+    "position": {
+      "latitude": 52.664913,
+      "longitude": -1.034894
+    }
+  },
+  {
+    "id": 121,
+    "date": "4/8/2007 22:00",
+    "city": "winslow and blue anchor",
+    "state": "nj",
+    "country": "",
+    "shape": "changing",
+    "duration_seconds": 60,
+    "duration_description": "1 minute",
+    "comments": "Object was low flying and presented itself as a bright blinking strobe&#44 blacked out&#44 re-appeared as 2 circling blinking white lights",
+    "date_posted": "4/27/2007",
+    "position": {
+      "latitude": 39.689561,
+      "longitude": -74.882664
+    }
+  },
+  {
+    "id": 122,
+    "date": "5/10/1997 21:00",
+    "city": "southside (gadsden)",
+    "state": "al",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 180,
+    "duration_description": "@2-3 minutes",
+    "comments": "Two bright objects hovering one moment then taking off at high speeds&#44 beyond aircraft speeds.  These two objects seemed to stop and go",
+    "date_posted": "1/28/1999",
+    "position": {
+      "latitude": 33.9244444,
+      "longitude": -86.0225
+    }
+  },
+  {
+    "id": 123,
+    "date": "5/1/1983 21:00",
+    "city": "chesterfield",
+    "state": "va",
+    "country": "us",
+    "shape": "cylinder",
+    "duration_seconds": 300,
+    "duration_description": "2-5 minutes",
+    "comments": "The date of this sighting is unknown&#44 so I did best guess. This is among many many sightings I&#39ve had as a kid. This is the most memora",
+    "date_posted": "5/11/2005",
+    "position": {
+      "latitude": 37.3769444,
+      "longitude": -77.5061111
+    }
+  },
+  {
+    "id": 124,
+    "date": "5/12/2012 23:00",
+    "city": "victoria (colwood) (canada)",
+    "state": "bc",
+    "country": "ca",
+    "shape": "light",
+    "duration_seconds": 45,
+    "duration_description": "35 to 45 seconds",
+    "comments": "Two blue lights travel over ocean from Esquimalt Lagoon Colwood making no noise or water disturbance at high speed to the USA.",
+    "date_posted": "5/13/2012",
+    "position": {
+      "latitude": 46.216667,
+      "longitude": -63.483333
+    }
+  },
+  {
+    "id": 125,
+    "date": "5/14/2008 18:20",
+    "city": "barossa valley (australia)",
+    "state": "",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 60,
+    "duration_description": "1 minute ish",
+    "comments": "we were sitting outside. it had just gotten dark. i saw a light that looked like a sattelight moving across the sky&#44 only it was much b",
+    "date_posted": "6/12/2008",
+    "position": {
+      "latitude": -34.533333,
+      "longitude": 138.95
+    }
+  },
+  {
+    "id": 126,
+    "date": "5/18/2009 19:32",
+    "city": "lake havasu city",
+    "state": "az",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 7200,
+    "duration_description": "2hours or more",
+    "comments": "small shinny dot in the air that will not move as high as an airplane. ((NUFORC Note:  Confirmed high-altitude research balloon.  PD))",
+    "date_posted": "6/9/2009",
+    "position": {
+      "latitude": 34.4838889,
+      "longitude": -114.3216667
+    }
+  },
+  {
+    "id": 127,
+    "date": "5/19/2013 22:00",
+    "city": "south palm beach",
+    "state": "fl",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 1200,
+    "duration_description": "15-20 minutes",
+    "comments": "Was driving north on the Florida turnpike.  My son seen it in front of us lit with a blue aura on top and white on the bottom.  It was",
+    "date_posted": "6/2/2013",
+    "position": {
+      "latitude": 26.5886111,
+      "longitude": -80.0388889
+    }
+  },
+  {
+    "id": 128,
+    "date": "5/21/2008 13:00",
+    "city": "smyrna",
+    "state": "tn",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 480,
+    "duration_description": "five to eight minutes",
+    "comments": "I saw a stationary bright round light&#44 in the bright midday sun for a few minutes (a jet passed between us) eventually it moved on east",
+    "date_posted": "6/12/2008",
+    "position": {
+      "latitude": 35.9827778,
+      "longitude": -86.5186111
+    }
+  },
+  {
+    "id": 129,
+    "date": "5/22/2013 21:45",
+    "city": "everglades turnpike south",
+    "state": "fl",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 10,
+    "duration_description": "10 seconds",
+    "comments": "My boyfriend and I were heading south on the florida turnpike from orlando&#44 about 2 hours from west palm beach. Both of us witnessed a",
+    "date_posted": "6/2/2013",
+    "position": {
+      "latitude": 26.116362,
+      "longitude": -81.542959
+    }
+  },
+  {
+    "id": 130,
+    "date": "5/31/2012 0:30",
+    "city": "praia (santiago) (cape verde islands)",
+    "state": "",
+    "country": "",
+    "shape": "oval",
+    "duration_seconds": 3600,
+    "duration_description": "1 hour",
+    "comments": "I am writing this letter in order to submit the sighting form with regard to my observations.  I was away on vacation in the Cape Verde",
+    "date_posted": "6/5/2012",
+    "position": {
+      "latitude": 14.95,
+      "longitude": -23.516667
+    }
+  },
+  {
+    "id": 131,
+    "date": "5/6/2000 23:30",
+    "city": "costa mesa",
+    "state": "ca",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 4,
+    "duration_description": "00:00:04 sec.&#39s",
+    "comments": "Looking due west&#44observing Ursa Major directly above&#442 disc-like objects entered my field of vision at an extremely high rate of speed.",
+    "date_posted": "5/11/2000",
+    "position": {
+      "latitude": 33.6411111,
+      "longitude": -117.9177778
+    }
+  },
+  {
+    "id": 132,
+    "date": "5/8/2011 22:45",
+    "city": "walnut creek",
+    "state": "ca",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 180,
+    "duration_description": "3 min approx",
+    "comments": "2 bright orange lights  flying in formation&#44 switching positions&#44 flew apart&#44 straight up then disappeared in the blink of the eye",
+    "date_posted": "5/12/2011",
+    "position": {
+      "latitude": 37.9063889,
+      "longitude": -122.0638889
+    }
+  },
+  {
+    "id": 133,
+    "date": "6/1/1960 17:00",
+    "city": "hermosillo&#44 sonora (mexico)",
+    "state": "",
+    "country": "",
+    "shape": "sphere",
+    "duration_seconds": 7200,
+    "duration_description": "2 hrs",
+    "comments": "I was in the northwest side of the town of Hermosillo Sonora (State)Mexico when i saw the Sphere up on the sky north east of the town i",
+    "date_posted": "3/19/2002",
+    "position": {
+      "latitude": 29.072967,
+      "longitude": -110.955919
+    }
+  },
+  {
+    "id": 134,
+    "date": "6/1/1965 20:00",
+    "city": "fallon (chalk mountain)",
+    "state": "nv",
+    "country": "us",
+    "shape": "",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "A faint light at first thought to be telstar (communications satellite) However&#44 light was joint by about 4 others that were pulsating.",
+    "date_posted": "4/16/2005",
+    "position": {
+      "latitude": 39.4736111,
+      "longitude": -118.7763889
+    }
+  },
+  {
+    "id": 135,
+    "date": "6/1/1980 9:00",
+    "city": "plymouth (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "oval",
+    "duration_seconds": 120,
+    "duration_description": "2minutes",
+    "comments": "HELLO THERE.I LIVE IN PLYMOUTH&#44DEVON IN THE SOUTH WEST OF ENGLAND&#44WHERE THIS SIGHTING OCCURED.IT WAS A LONG TIME AGO&#44AROUND 1980&#44 THAT",
+    "date_posted": "8/5/2001",
+    "position": {
+      "latitude": 50.396389,
+      "longitude": -4.138611
+    }
+  },
+  {
+    "id": 136,
+    "date": "6/1/1987 21:00",
+    "city": "putnam valley",
+    "state": "ny",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 900,
+    "duration_description": "15 min",
+    "comments": "A Little late reg info&#44 but decided to repoert it. I would say that it covered the whole sky area that I looked at&#44 flashing lighs&#44 see",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 41.3358333,
+      "longitude": -73.8744444
+    }
+  },
+  {
+    "id": 137,
+    "date": "6/1/1993 13:00",
+    "city": "everglades (i-75&#44 mm 60)",
+    "state": "fl",
+    "country": "",
+    "shape": "fireball",
+    "duration_seconds": 600,
+    "duration_description": "10 min",
+    "comments": "500 ft off the sawgrass 150 yards from the road not moveing very bright i didnot stop when i got 10 miles i looked back the sky looked",
+    "date_posted": "11/20/2002",
+    "position": {
+      "latitude": 25.858244,
+      "longitude": -81.385069
+    }
+  },
+  {
+    "id": 138,
+    "date": "6/1/1995 2:30",
+    "city": "canovanas (puerto rico)",
+    "state": "pr",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "spanish Eran las 2:30am cuando llegava a mi casa . estacione mi auto para poder entrar a mi casa cuando me disponia a abrir el porton d",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 18.3811111,
+      "longitude": -65.9016667
+    }
+  },
+  {
+    "id": 139,
+    "date": "6/1/1999 2:00",
+    "city": "rowland heights",
+    "state": "ca",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 5,
+    "duration_description": "5 seconds",
+    "comments": "A stable bright light&#44 larger than anything practical shined into my room on the second floor&#44 not making any noise&#44 it disappeared rig",
+    "date_posted": "12/12/2009",
+    "position": {
+      "latitude": 33.9761111,
+      "longitude": -117.9044444
+    }
+  },
+  {
+    "id": 140,
+    "date": "6/12/2005 15:00",
+    "city": "center city",
+    "state": "mn",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "My Sister&#44 my boyfriend&#44 and I were driving back to our rural home in center city&#44 MN.  As we were driving we noticed three triangular.",
+    "date_posted": "7/3/2013",
+    "position": {
+      "latitude": 45.3938889,
+      "longitude": -92.8163889
+    }
+  },
+  {
+    "id": 141,
+    "date": "6/15/1982 12:45",
+    "city": "goldsboro",
+    "state": "nc",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 300,
+    "duration_description": "3-5 minutes",
+    "comments": "Driving home at night&#44 saw lights that I thought were landing lights of an airplane&#44 stopped my car&#44 lights didn&#39t move&#44 huge object.",
+    "date_posted": "8/5/2000",
+    "position": {
+      "latitude": 35.3847222,
+      "longitude": -77.9930556
+    }
+  },
+  {
+    "id": 142,
+    "date": "6/16/2013 20:41",
+    "city": "milwaukee",
+    "state": "wi",
+    "country": "us",
+    "shape": "diamond",
+    "duration_seconds": 240,
+    "duration_description": "3-4 minutes",
+    "comments": "Object was hovering over 500 feet off ground&#44 had no wings&#44 no tail&#44 fire coming from bottom&#44 and certainly intelligently controlled.",
+    "date_posted": "7/3/2013",
+    "position": {
+      "latitude": 43.0388889,
+      "longitude": -87.9063889
+    }
+  },
+  {
+    "id": 143,
+    "date": "6/19/2005 21:45",
+    "city": "cardston (canada)",
+    "state": "ab",
+    "country": "ca",
+    "shape": "disk",
+    "duration_seconds": 240,
+    "duration_description": "4 minutes",
+    "comments": "Seen out of vehicle&#44 observed with binoculars&#44 had 2 bright lights that never flashed&#44 no stream in backend&#44 same speed of a usual airp",
+    "date_posted": "6/20/2005",
+    "position": {
+      "latitude": 49.2,
+      "longitude": -113.316667
+    }
+  },
+  {
+    "id": 144,
+    "date": "6/20/1996 2:00",
+    "city": "sault ste. marie (canada)",
+    "state": "on",
+    "country": "",
+    "shape": "triangle",
+    "duration_seconds": 15,
+    "duration_description": "10-15 seconds",
+    "comments": "The three lighted object hovered over us for a while&#44 then glided across the night sky quietly until we could not see it anymore.",
+    "date_posted": "5/24/2005",
+    "position": {
+      "latitude": 46.521858,
+      "longitude": -84.34609
+    }
+  },
+  {
+    "id": 145,
+    "date": "6/21/2000 16:50",
+    "city": "glendale (denver)",
+    "state": "co",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "I observed a bright object changing shapes (spherical to oblong) and colors (gold&#44 red&#44 white) for twenty minutes in the Denver sky.",
+    "date_posted": "7/11/2000",
+    "position": {
+      "latitude": 39.705,
+      "longitude": -104.9330556
+    }
+  },
+  {
+    "id": 146,
+    "date": "6/25/1965 15:00",
+    "city": "philadelphia",
+    "state": "pa",
+    "country": "us",
+    "shape": "cigar",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "A cylinder shaped vessel decended then hovered. It was the size of a bus but larger in diameter. The craft had no wings&#44 windows&#44 tail&#44",
+    "date_posted": "10/2/1999",
+    "position": {
+      "latitude": 39.9522222,
+      "longitude": -75.1641667
+    }
+  },
+  {
+    "id": 147,
+    "date": "6/26/2001 22:20",
+    "city": "rockford",
+    "state": "il",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "We saw a large reddish light in the Southern sky&#44 visible in one spot for about 10 minutes&#44 at 10:20 pm&#44 June 26&#44 01&#44 in Rockford Ill.",
+    "date_posted": "8/5/2001",
+    "position": {
+      "latitude": 42.2711111,
+      "longitude": -89.0938889
+    }
+  },
+  {
+    "id": 148,
+    "date": "6/27/2004 1:45",
+    "city": "toronto (canada)",
+    "state": "on",
+    "country": "ca",
+    "shape": "changing",
+    "duration_seconds": 1200,
+    "duration_description": "15-20 minutes",
+    "comments": "One ball of light splitting into five and back to one again. This continued at a very fast pace&#44 almost like a pulse. They appeared to",
+    "date_posted": "7/8/2004",
+    "position": {
+      "latitude": 43.666667,
+      "longitude": -79.416667
+    }
+  },
+  {
+    "id": 149,
+    "date": "6/30/1965 20:00",
+    "city": "chesapeake (norfork area)",
+    "state": "va",
+    "country": "us",
+    "shape": "egg",
+    "duration_seconds": 20,
+    "duration_description": "15-20 sec",
+    "comments": "lookng out bedroom window saw object going by aprox distance 1500ft away and about1000ft high speed about 400-600mph. whole object woul",
+    "date_posted": "1/11/2002",
+    "position": {
+      "latitude": 36.8188889,
+      "longitude": -76.2752778
+    }
+  },
+  {
+    "id": 150,
+    "date": "6/30/2008 3:00",
+    "city": "neuseddin (potsdam)(germany)",
+    "state": "",
+    "country": "de",
+    "shape": "triangle",
+    "duration_seconds": 1814400,
+    "duration_description": "3 weeks",
+    "comments": "((HOAX??)) Attached is a photo of this craft at night using a carl zeiss sony lens handheld. I think its a drone but not to sure.",
+    "date_posted": "12/20/2012",
+    "position": {
+      "latitude": 52.283333,
+      "longitude": 12.983333
+    }
+  },
+  {
+    "id": 151,
+    "date": "6/30/2011 21:30",
+    "city": "lawrenceburg",
+    "state": "tn",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "Large white ball&#44 very high in sky&#44 moved very fast&#44 light beam downward to ground&#44 went over my home then light went out which made is",
+    "date_posted": "7/4/2011",
+    "position": {
+      "latitude": 35.2422222,
+      "longitude": -87.3347222
+    }
+  },
+  {
+    "id": 152,
+    "date": "6/4/2003 2:30",
+    "city": "evelyn (north of)",
+    "state": "la",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 600,
+    "duration_description": "5 to 10 mins",
+    "comments": "Had stoped to check my tires an lights on my truck.I&#39m a truck driver&#44ex law officer an milatery.an hate typing.There was not a clo",
+    "date_posted": "7/16/2003",
+    "position": {
+      "latitude": 31.9877778,
+      "longitude": -93.4430556
+    }
+  },
+  {
+    "id": 153,
+    "date": "7/10/1999 15:00",
+    "city": "san diego",
+    "state": "ca",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 1200,
+    "duration_description": "15-20 mins",
+    "comments": "Spherical craft hovered over baseball stadium&#44 made series of rapid manuevers&#44 then flew away extremely fast. Rotating disc appeared&#44 a",
+    "date_posted": "7/14/1999",
+    "position": {
+      "latitude": 32.7152778,
+      "longitude": -117.1563889
+    }
+  },
+  {
+    "id": 154,
+    "date": "7/1/2012 23:00",
+    "city": "whitesville",
+    "state": "wv",
+    "country": "us",
+    "shape": "rectangle",
+    "duration_seconds": 2,
+    "duration_description": "seconds periodically",
+    "comments": "On film @ angelanwv youtube. http://m.youtube.com/watch?v=A67fxy0O78s We had a windstorm on 6-29-12 that caused a blackout until 7-4-12",
+    "date_posted": "8/5/2012",
+    "position": {
+      "latitude": 37.9747222,
+      "longitude": -81.5291667
+    }
+  },
+  {
+    "id": 155,
+    "date": "7/10/2009 0:05",
+    "city": "addingham (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "light",
+    "duration_seconds": 180,
+    "duration_description": "3 minutes",
+    "comments": "Vivid ufo sighting in Addingham&#44 West Yorkshire&#44 UK.  ((NUFORC Note:  Possible sighting of ISS&#44 visible in S sky at 00:25 hrs..  PD))",
+    "date_posted": "8/5/2009",
+    "position": {
+      "latitude": 53.933333,
+      "longitude": -1.883333
+    }
+  },
+  {
+    "id": 156,
+    "date": "7/11/2001 23:00",
+    "city": "grants pass (murphy area)",
+    "state": "or",
+    "country": "us",
+    "shape": "egg",
+    "duration_seconds": 2,
+    "duration_description": "seconds",
+    "comments": "Large egg shape UFO&#44 solid (no blinking lights) white light with blue tones in it.  The UFO was traveling north to south at a very high",
+    "date_posted": "8/5/2001",
+    "position": {
+      "latitude": 42.4391667,
+      "longitude": -123.3272222
+    }
+  },
+  {
+    "id": 157,
+    "date": "7/11/2010 5:10",
+    "city": "drouin west (australia)",
+    "state": "",
+    "country": "au",
+    "shape": "circle",
+    "duration_seconds": 3,
+    "duration_description": "2-3 seconds",
+    "comments": "A soft green round shape&#44 full moon size&#44 hazy edges&#44 pre dawn sky low on the horizon&#44 travelling fast like a falling star speed.",
+    "date_posted": "11/21/2010",
+    "position": {
+      "latitude": -38.1,
+      "longitude": 145.866667
+    }
+  },
+  {
+    "id": 158,
+    "date": "7/12/2006 1:30",
+    "city": "brisbane (australia)",
+    "state": "",
+    "country": "au",
+    "shape": "disk",
+    "duration_seconds": 120,
+    "duration_description": "2mins",
+    "comments": "saucer&#44 15-20m wide&#44 stationary for 2 mins&#44 about 1km of the ground&#44 no sound&#44 went in for a phone to take vid. came back and  gone",
+    "date_posted": "12/14/2006",
+    "position": {
+      "latitude": -27.47101,
+      "longitude": 153.024292
+    }
+  },
+  {
+    "id": 159,
+    "date": "7/14/2008 19:32",
+    "city": "fern creek",
+    "state": "ky",
+    "country": "us",
+    "shape": "other",
+    "duration_seconds": 5,
+    "duration_description": "4-5 seconds",
+    "comments": "LOOKING DUE NORTH @ APPROX 19:32 PM I SAW A VERY SMALL SILVER OBECT ABOUT THE SIZE OF A PIN HEAD&#44ALTITUDE AND SPEED VERY EXTREME&#33&#33&#33&#33",
+    "date_posted": "8/12/2008",
+    "position": {
+      "latitude": 38.1597222,
+      "longitude": -85.5877778
+    }
+  },
+  {
+    "id": 160,
+    "date": "7/15/2001 0:38",
+    "city": "carteret",
+    "state": "nj",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 120,
+    "duration_description": "minutes",
+    "comments": "Major sighting by hundreds motorists along the NJ turnpike (traffic stopped&#33)&#44 from homes &#44 by police&#44 you name&#44 they all saw the same",
+    "date_posted": "8/5/2001",
+    "position": {
+      "latitude": 40.5772222,
+      "longitude": -74.2286111
+    }
+  },
+  {
+    "id": 161,
+    "date": "7/15/2010 22:30",
+    "city": "citronelle",
+    "state": "al",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 900,
+    "duration_description": "15 min",
+    "comments": "Light similar to star&#44 disappeared&#44 changed direction in matter of seconds&#44 no sound&#44 no blinking lights&#44 and moved at atleast Mach 3",
+    "date_posted": "7/28/2010",
+    "position": {
+      "latitude": 31.0905556,
+      "longitude": -88.2280556
+    }
+  },
+  {
+    "id": 162,
+    "date": "7/20/1966 14:30",
+    "city": "chosica (peru)",
+    "state": "",
+    "country": "",
+    "shape": "cylinder",
+    "duration_seconds": 60,
+    "duration_description": "1 minute",
+    "comments": "watched a cylindrical&#44 clearly metallic&#44 resembling shiny aluminum&#44 somewhat rounded object hovering on nearby hills&#44 moving pendulum-l",
+    "date_posted": "1/29/2002",
+    "position": {
+      "latitude": -11.938537,
+      "longitude": -76.701904
+    }
+  },
+  {
+    "id": 163,
+    "date": "7/25/2004 4:15",
+    "city": "casa grande/phoenix (between)",
+    "state": "az",
+    "country": "",
+    "shape": "unknown",
+    "duration_seconds": 180,
+    "duration_description": "approx 3 minutes",
+    "comments": "Small light moving fast&#44 suddenly changed shape to expose more lights&#44 shape of craft&#44 and a source of the lights.",
+    "date_posted": "8/11/2004",
+    "position": {
+      "latitude": 33.390714,
+      "longitude": -111.972388
+    }
+  },
+  {
+    "id": 164,
+    "date": "7/27/1999 23:30",
+    "city": "montreal (canada)",
+    "state": "pq",
+    "country": "ca",
+    "shape": "unknown",
+    "duration_seconds": 20,
+    "duration_description": "15-20 sec",
+    "comments": "at about 23:00&#44 i was looking up the sky&#44 up above my head&#44 90o&#44 i saw a dot light like a star zigzags for about 15 to 20 seconds. the",
+    "date_posted": "12/2/2000",
+    "position": {
+      "latitude": 45.5,
+      "longitude": -73.583333
+    }
+  },
+  {
+    "id": 165,
+    "date": "7/30/1997 20:10",
+    "city": "gulf breeze",
+    "state": "fl",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 1200,
+    "duration_description": "15 to 20 min",
+    "comments": "I first spotted a single eztremely bright orange glowing light&#44 which was followed by 5 to 7 other stationary similar objects in a hori",
+    "date_posted": "9/26/1998",
+    "position": {
+      "latitude": 30.3569444,
+      "longitude": -87.1638889
+    }
+  },
+  {
+    "id": 166,
+    "date": "7/4/2000 22:30",
+    "city": "houston",
+    "state": "tx",
+    "country": "us",
+    "shape": "fireball",
+    "duration_seconds": 1200,
+    "duration_description": "20 min.",
+    "comments": "two beautiful bright red fire like balls&#44 but really shape like footballs&#44 just standing still for about twenty min.&#44 then just gone&#33&#33",
+    "date_posted": "2/18/2001",
+    "position": {
+      "latitude": 29.7630556,
+      "longitude": -95.3630556
+    }
+  },
+  {
+    "id": 167,
+    "date": "7/4/2012 16:30",
+    "city": "ocean city",
+    "state": "md",
+    "country": "us",
+    "shape": "cylinder",
+    "duration_seconds": 20,
+    "duration_description": "15-20 seconds",
+    "comments": "In the night sky while sitting on deck in Ocean City&#44 MD overlooking the Atlantic Ocean with my 40 year old daughter&#44 we saw a cylindri",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 38.3363889,
+      "longitude": -75.0852778
+    }
+  },
+  {
+    "id": 168,
+    "date": "7/5/2001 19:05",
+    "city": "stellenbosch (south africa)",
+    "state": "",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 5,
+    "duration_description": "5 seconds",
+    "comments": "I PERSONALLY HAVE SEEN  8 U.F.O&#39S IN STELLENBOSCH R.S.A. IN THE PAST 4 YEARS.THE CRAFT USUALLY APPEARS AS A BRIGHT LIGHT FLOATING SLOWL",
+    "date_posted": "10/12/2001",
+    "position": {
+      "latitude": -33.932104,
+      "longitude": 18.860152
+    }
+  },
+  {
+    "id": 169,
+    "date": "8/1/1998 23:30",
+    "city": "moldova noua (romania)",
+    "state": "",
+    "country": "",
+    "shape": "changing",
+    "duration_seconds": 60,
+    "duration_description": "01.00.00",
+    "comments": "A strong light bellow the Donau&#44 maybe on yugoslavian teritory. A light like a shining star with irization&#44 with green mouving filament",
+    "date_posted": "11/16/2002",
+    "position": {
+      "latitude": 44.735184,
+      "longitude": 21.664235
+    }
+  },
+  {
+    "id": 170,
+    "date": "8/1/2002 21:25",
+    "city": "coquitlam (canada)",
+    "state": "bc",
+    "country": "ca",
+    "shape": "cylinder",
+    "duration_seconds": 600,
+    "duration_description": "10minutes",
+    "comments": "3 different shaped ufos met in sky&#44they all came from a different direction and stayed there for about 10 minutes spinning and twirling",
+    "date_posted": "7/16/2003",
+    "position": {
+      "latitude": 49.266667,
+      "longitude": -122.783333
+    }
+  },
+  {
+    "id": 171,
+    "date": "8/13/2007 0:45",
+    "city": "tromsoe (norway)",
+    "state": "",
+    "country": "",
+    "shape": "triangle",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes&#44 maybe 10",
+    "comments": "I had a friend over. We went to the fridge to get some soda&#39s.At that point we saw nothing on the sky.After maybe 10-15 min&#44 we",
+    "date_posted": "10/8/2007",
+    "position": {
+      "latitude": 69.753158,
+      "longitude": 18.466054
+    }
+  },
+  {
+    "id": 172,
+    "date": "8/13/2010 0:52",
+    "city": "san benito",
+    "state": "tx",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 540,
+    "duration_description": "about 9 minutes",
+    "comments": "Hovering circular-dohnut shaped object with red and green-blue light moving at an incredibly fast pace up and across the nightsky&#33&#33&#33",
+    "date_posted": "8/24/2010",
+    "position": {
+      "latitude": 26.1322222,
+      "longitude": -97.6308333
+    }
+  },
+  {
+    "id": 173,
+    "date": "8/15/2002 23:50",
+    "city": "sydney (nsw&#44 australia)",
+    "state": "",
+    "country": "au",
+    "shape": "fireball",
+    "duration_seconds": 60,
+    "duration_description": "60 sec",
+    "comments": "the object was seen in the deep blue mountains of nsw sydney australia. the object was a large fireball and it made a verry loud high p",
+    "date_posted": "8/16/2002",
+    "position": {
+      "latitude": -33.861481,
+      "longitude": 151.205475
+    }
+  },
+  {
+    "id": 174,
+    "date": "8/15/2013 21:45",
+    "city": "captiva",
+    "state": "fl",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 3900,
+    "duration_description": "65 minutes on and off",
+    "comments": "THIRD SIGHTING IN 3 NIGHTS OF A SILVER-GOLD&#44 ELONGATED/FOOTBALL SHAPED UFOS EMERGING FROM THE GULF OF MEXICO AND POSSIBLE SECOND SIGHTI",
+    "date_posted": "8/30/2013",
+    "position": {
+      "latitude": 26.5216667,
+      "longitude": -82.1894444
+    }
+  },
+  {
+    "id": 175,
+    "date": "8/17/1987 20:00",
+    "city": "los alamos",
+    "state": "ca",
+    "country": "us",
+    "shape": "chevron",
+    "duration_seconds": 1800,
+    "duration_description": "30min",
+    "comments": "horseshoe shaped ( like an elect&#44 razor) 6 or 7 feet long &#44same wide approx 3ft deep &#44blue light in window/w &#44flashin red light in mid",
+    "date_posted": "11/16/2002",
+    "position": {
+      "latitude": 34.7444444,
+      "longitude": -120.2772222
+    }
+  },
+  {
+    "id": 176,
+    "date": "8/19/2008 20:45",
+    "city": "s. dartmouth",
+    "state": "ma",
+    "country": "",
+    "shape": "triangle",
+    "duration_seconds": 45,
+    "duration_description": "about 45 seconds",
+    "comments": "Object approximately 200 feet long.  Black and triangular shaped&#44 with approximately 6 bright lights. Very large&#44 and low in the sky.",
+    "date_posted": "10/31/2008",
+    "position": {
+      "latitude": 41.591771,
+      "longitude": -70.941149
+    }
+  },
+  {
+    "id": 177,
+    "date": "8/19/2012 0:30",
+    "city": "leadville (near)",
+    "state": "co",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 1500,
+    "duration_description": "25 minutes",
+    "comments": "Witnessed an object facing west over Turquoise Lake an unknown distance away between the mountains.  Skies were clear&#44 stars easily see",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 39.2508333,
+      "longitude": -106.2919444
+    }
+  },
+  {
+    "id": 178,
+    "date": "8/20/2003 13:45",
+    "city": "caspian sea (south of) (iran)",
+    "state": "",
+    "country": "",
+    "shape": "oval",
+    "duration_seconds": 20,
+    "duration_description": "20 sec",
+    "comments": "On August 20&#44 2003 &#44  at 1.45 PM (sunshine) Me and my Cousin were driving along the Caspian Sea from Chaloos(small beach city) to Shahs",
+    "date_posted": "9/9/2003",
+    "position": {
+      "latitude": 41.934977,
+      "longitude": 50.668945
+    }
+  },
+  {
+    "id": 179,
+    "date": "8/20/2004 22:00",
+    "city": "new york city (staten island)",
+    "state": "ny",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 900,
+    "duration_description": "15 min.",
+    "comments": "the hazy white four objects traveled in a circle and came together about a dozen times in the center like they were playing a game.",
+    "date_posted": "8/24/2004",
+    "position": {
+      "latitude": 40.7141667,
+      "longitude": -74.0063889
+    }
+  },
+  {
+    "id": 180,
+    "date": "8/20/2006 0:00",
+    "city": "new york city (bronx)",
+    "state": "ny",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 900,
+    "duration_description": "15 minutes",
+    "comments": "Three circular objects orbiting overhead and meeting at a point in their orbits.  Than a fourth circular object behaving the same way.",
+    "date_posted": "10/30/2006",
+    "position": {
+      "latitude": 40.7141667,
+      "longitude": -74.0063889
+    }
+  },
+  {
+    "id": 181,
+    "date": "8/20/2011 23:50",
+    "city": "bowling green",
+    "state": "oh",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 120,
+    "duration_description": "couple minutes",
+    "comments": "Pale orange light w/ bright center&#44 size few feet wide-like orange plastic bag w/ glowing center-floated from low to become pt. in sky",
+    "date_posted": "10/10/2011",
+    "position": {
+      "latitude": 41.3747222,
+      "longitude": -83.6513889
+    }
+  },
+  {
+    "id": 182,
+    "date": "8/21/2004 22:00",
+    "city": "tinley park",
+    "state": "il",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 2700,
+    "duration_description": "45 min",
+    "comments": "I was at an outdoor wedding&#44 and a person noticed the lights&#44(three red lights in this triangular formation)&#44we thought it might have b",
+    "date_posted": "1/19/2005",
+    "position": {
+      "latitude": 41.5733333,
+      "longitude": -87.7844444
+    }
+  },
+  {
+    "id": 183,
+    "date": "8/21/2004 23:15",
+    "city": "san jose",
+    "state": "ca",
+    "country": "us",
+    "shape": "formation",
+    "duration_seconds": 30,
+    "duration_description": "15-30 seconds",
+    "comments": "High altitude&#44 three craft formation travelling southeasterly above San Jose&#44 CA&#44 August 21 at 23:15 ((U. S. Navy NOSS satellites??))",
+    "date_posted": "9/1/2004",
+    "position": {
+      "latitude": 37.3394444,
+      "longitude": -121.8938889
+    }
+  },
+  {
+    "id": 184,
+    "date": "8/25/1979 22:00",
+    "city": "stone mountain",
+    "state": "ga",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "While traveling along a country road one night from Snellville to Stone Mountain&#44 we saw an aircraft slowly moving toward us.  My husba",
+    "date_posted": "6/23/1999",
+    "position": {
+      "latitude": 33.8080556,
+      "longitude": -84.1702778
+    }
+  },
+  {
+    "id": 185,
+    "date": "8/26/2010 21:30",
+    "city": "springdale",
+    "state": "ar",
+    "country": "us",
+    "shape": "cigar",
+    "duration_seconds": 105,
+    "duration_description": "45 sec-1min",
+    "comments": "On August 26&#44 2010&#44 while driving by Arvest Ball Park with a friend&#44 I saw what looked like a huge airliner just sitting in midair.  Up",
+    "date_posted": "11/21/2010",
+    "position": {
+      "latitude": 36.1866667,
+      "longitude": -94.1286111
+    }
+  },
+  {
+    "id": 186,
+    "date": "8/28/1999 5:31",
+    "city": "burbank (east of)",
+    "state": "ca",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 3600,
+    "duration_description": "1hour +",
+    "comments": "Two very distinct light sources holding a stationary position aprox 5mi e. of Burbank Airport. Aprox. 3000 - 8000 ft.alt.&#44 aprox 1 mile",
+    "date_posted": "11/20/2002",
+    "position": {
+      "latitude": 34.1808333,
+      "longitude": -118.3080556
+    }
+  },
+  {
+    "id": 187,
+    "date": "8/29/2012 20:00",
+    "city": "huntington beach",
+    "state": "ca",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 3600,
+    "duration_description": "more than 1 hour",
+    "comments": "Ufo in Southern California sky with very distinct saucer shape&#44 moved from East to West and Eventually disappeared over the ocean.",
+    "date_posted": "9/24/2012",
+    "position": {
+      "latitude": 33.6602778,
+      "longitude": -117.9983333
+    }
+  },
+  {
+    "id": 188,
+    "date": "8/31/1997 21:00",
+    "city": "newberg",
+    "state": "or",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 300,
+    "duration_description": "approx. 5 min.",
+    "comments": "A woman and her sun witness 5 strange lights&#44 white in the center&#44 yellow between the center and edge&#44 and blue. Does unearthly maneuve",
+    "date_posted": "1/28/1999",
+    "position": {
+      "latitude": 45.3002778,
+      "longitude": -122.9719444
+    }
+  },
+  {
+    "id": 189,
+    "date": "8/30/2012 21:00",
+    "city": "bucharest (romania)",
+    "state": "",
+    "country": "",
+    "shape": "light",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "Objects of orange color were moving silently&#44 linearly&#44 and relatively moderate speed&#44 from east to west. They appear from now where&#44 a",
+    "date_posted": "9/24/2012",
+    "position": {
+      "latitude": 44.4325,
+      "longitude": 26.103889
+    }
+  },
+  {
+    "id": 190,
+    "date": "8/31/2000 22:35",
+    "city": "northampton (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "triangle",
+    "duration_seconds": 600,
+    "duration_description": "10 mins",
+    "comments": "I was walking across an open park area&#44 when I noticed a strange light in the sky. The light was very bright&#44 and far too big to be a s",
+    "date_posted": "9/17/2000",
+    "position": {
+      "latitude": 52.25,
+      "longitude": -0.883333
+    }
+  },
+  {
+    "id": 191,
+    "date": "8/4/2002 5:30",
+    "city": "northumberland",
+    "state": "pa",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 1200,
+    "duration_description": "20 min.",
+    "comments": "I will be as brief as possible&#44A man named Todd Sees&#44 was abducted and murdered by aliens on Montour Ridge &#44in Northumberland County&#44 n",
+    "date_posted": "2/14/2006",
+    "position": {
+      "latitude": 40.8916667,
+      "longitude": -76.7977778
+    }
+  },
+  {
+    "id": 192,
+    "date": "8/4/2012 21:00",
+    "city": "sheridan",
+    "state": "co",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 1500,
+    "duration_description": "25 minutes",
+    "comments": "Two white dots&#44 one larger pulsing light&#44 seen in easter sky from Sheridan&#44 CO&#44 9:00-9:25 PM MDT&#44 08/04/12&#44 at least 9 witnesses",
+    "date_posted": "8/19/2012",
+    "position": {
+      "latitude": 39.6469444,
+      "longitude": -105.0247222
+    }
+  },
+  {
+    "id": 193,
+    "date": "8/5/2002 6:00",
+    "city": "st. simons island",
+    "state": "ga",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 240,
+    "duration_description": "4 minutes",
+    "comments": "On the beach at sunrise&#44 my partner and I witnessed a silver-colored orb flying above the clouds.  It was shaped as a circle&#44 1/2 cm ro",
+    "date_posted": "3/21/2003",
+    "position": {
+      "latitude": 31.1502778,
+      "longitude": -81.3697222
+    }
+  },
+  {
+    "id": 194,
+    "date": "8/5/2010 23:45",
+    "city": "san antonio",
+    "state": "tx",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 1800,
+    "duration_description": "20-30 minutes",
+    "comments": "Sphere-like object with flashing lights seen in western sky over San Antonio&#44 TX.  ((NUFORC Note:  Sighting of Venus&#44 we suspect.  PD))",
+    "date_posted": "8/24/2010",
+    "position": {
+      "latitude": 29.4238889,
+      "longitude": -98.4933333
+    }
+  },
+  {
+    "id": 195,
+    "date": "8/8/1989 22:00",
+    "city": "the dalles",
+    "state": "or",
+    "country": "us",
+    "shape": "triangle",
+    "duration_seconds": 1800,
+    "duration_description": "30 minutes",
+    "comments": "I was watching a single light such as an airplane might do when it is coming at you&#44 but it didn&#39t move it just sat there&#44 it was about",
+    "date_posted": "12/19/2003",
+    "position": {
+      "latitude": 45.5947222,
+      "longitude": -121.1775
+    }
+  },
+  {
+    "id": 196,
+    "date": "8/8/2002 12:30",
+    "city": "nottingham (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "other",
+    "duration_seconds": 240,
+    "duration_description": "3-4 minutes",
+    "comments": "objects flashing lights in a randomly motion as though moving at the same time&#44 not realising that the big bright light i thought was a",
+    "date_posted": "1/31/2004",
+    "position": {
+      "latitude": 52.966667,
+      "longitude": -1.166667
+    }
+  },
+  {
+    "id": 197,
+    "date": "8/8/2002 2:30",
+    "city": "keansburg",
+    "state": "nj",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 20,
+    "duration_description": "under 20 seconds",
+    "comments": "I was outside with my dog&#44 in NJ&#44 when I noticed a white light through the trees. It was high up in the sky&#44 but in the horizon. As it",
+    "date_posted": "8/16/2002",
+    "position": {
+      "latitude": 40.4416667,
+      "longitude": -74.1302778
+    }
+  },
+  {
+    "id": 198,
+    "date": "8/8/2005 10:45",
+    "city": "london (epping) (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "changing",
+    "duration_seconds": 240,
+    "duration_description": "4min",
+    "comments": "i was with 3 other friends driving down a country lane in london epping&#44 the first site was as we were just driving down a rd leading o",
+    "date_posted": "9/2/2005",
+    "position": {
+      "latitude": 51.514125,
+      "longitude": -0.093689
+    }
+  },
+  {
+    "id": 199,
+    "date": "8/9/2002 22:30",
+    "city": "telluride (nearest town)",
+    "state": "co",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 60,
+    "duration_description": "half hour",
+    "comments": "White star-like light wobbled as it got closer to me&#44 then it was scared away by 5-6 F-15s that scoured the area for hours afterwards.",
+    "date_posted": "8/16/2002",
+    "position": {
+      "latitude": 37.9375,
+      "longitude": -107.8116667
+    }
+  },
+  {
+    "id": 200,
+    "date": "9/1/1983 20:00",
+    "city": "allentown",
+    "state": "pa",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 2100,
+    "duration_description": "35 minutes",
+    "comments": "It was about 150 ft above me &#44 made no sound&#44 emitted no wind&#44 floated till it came to Dorney Park&#44after about 5 minutes it dropped and",
+    "date_posted": "10/30/2006",
+    "position": {
+      "latitude": 40.6083333,
+      "longitude": -75.4905556
+    }
+  },
+  {
+    "id": 201,
+    "date": "9/11/1999 20:45",
+    "city": "new milford (bergen county)",
+    "state": "nj",
+    "country": "us",
+    "shape": "oval",
+    "duration_seconds": 300,
+    "duration_description": "5 minutes",
+    "comments": "Going home SAt night-8:45-Saw glowing oval object in the sky through the trees.-5minutes- Near home- Stop in parking lot- it is gone Fr",
+    "date_posted": "10/2/1999",
+    "position": {
+      "latitude": 40.935,
+      "longitude": -74.0194444
+    }
+  },
+  {
+    "id": 202,
+    "date": "9/14/2001 22:35",
+    "city": "yerington",
+    "state": "nv",
+    "country": "us",
+    "shape": "chevron",
+    "duration_seconds": 10,
+    "duration_description": "10 seconds",
+    "comments": "delta winged object&#44 flying south&#44 no sound appeared to be very close. With the recent terroism attack&#44 the thought occurred that it wa",
+    "date_posted": "10/12/2001",
+    "position": {
+      "latitude": 38.9858333,
+      "longitude": -119.1619444
+    }
+  },
+  {
+    "id": 203,
+    "date": "9/15/2012 4:00",
+    "city": "ft. myers",
+    "state": "fl",
+    "country": "us",
+    "shape": "changing",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "9/15/12&#44 4:00 Two round pulsating lights&#44 changing colors&#44 and shape seen over Ft Myers&#44 Florida in south eastern sky. ((Planets?? PD))",
+    "date_posted": "9/24/2012",
+    "position": {
+      "latitude": 26.6402778,
+      "longitude": -81.8725
+    }
+  },
+  {
+    "id": 204,
+    "date": "9/15/2013 1:00",
+    "city": "east los angeles",
+    "state": "ca",
+    "country": "us",
+    "shape": "circle",
+    "duration_seconds": 5400,
+    "duration_description": "90+ minutes",
+    "comments": "A circular object hovering in the sky for 1-2 hours with red&#44 green&#44 and white flashing lights not going in any type of direction.",
+    "date_posted": "10/23/2013",
+    "position": {
+      "latitude": 34.0238889,
+      "longitude": -118.1711111
+    }
+  },
+  {
+    "id": 205,
+    "date": "9/17/2012 21:00",
+    "city": "atlantic highlands",
+    "state": "nj",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 120,
+    "duration_description": "2 minutes",
+    "comments": "I noticed a UFO in the night sky and at times and I read a book that a UFO was hurting someone&#39s body and I don&#39t want that to happen.",
+    "date_posted": "9/24/2012",
+    "position": {
+      "latitude": 40.4077778,
+      "longitude": -74.0347222
+    }
+  },
+  {
+    "id": 206,
+    "date": "9/18/1999 3:30",
+    "city": "london (croydon) (uk/england)",
+    "state": "",
+    "country": "gb",
+    "shape": "unknown",
+    "duration_seconds": 10,
+    "duration_description": "10 secs",
+    "comments": "2 orange glows came over our heads no sound possibly possibly connected together but could see no shape constant speed sighted for abou",
+    "date_posted": "9/19/2002",
+    "position": {
+      "latitude": 51.514125,
+      "longitude": -0.093689
+    }
+  },
+  {
+    "id": 207,
+    "date": "9/19/2009 17:00",
+    "city": "hatfield&#44 hertfordshire (uk/england)",
+    "state": "",
+    "country": "",
+    "shape": "changing",
+    "duration_seconds": 2700,
+    "duration_description": "45 minutes",
+    "comments": "Shape-changing&#44 dark object seen in the sky&#44 in daylight&#44 exhibiting gradual&#44 unorthodox ascent. Urban area.",
+    "date_posted": "12/12/2009",
+    "position": {
+      "latitude": 51.763366,
+      "longitude": -0.22309
+    }
+  },
+  {
+    "id": 208,
+    "date": "9/21/2013 22:30",
+    "city": "timmins (canada)",
+    "state": "on",
+    "country": "ca",
+    "shape": "unknown",
+    "duration_seconds": 900,
+    "duration_description": "15 minute",
+    "comments": "Ufo was seen heading in south direction&#44 stopped and paused for minute or two&#44 turned 90 degree and move right a few thousand feet with",
+    "date_posted": "9/30/2013",
+    "position": {
+      "latitude": 48.466667,
+      "longitude": -81.333333
+    }
+  },
+  {
+    "id": 209,
+    "date": "9/29/2001 22:00",
+    "city": "craigavon (uk/northern ireland)",
+    "state": "",
+    "country": "gb",
+    "shape": "disk",
+    "duration_seconds": 120,
+    "duration_description": "2 min",
+    "comments": "A large round saucer with lights all around it.  A large lazer beam shot into the clouds and the craft followed the beam into the cloud",
+    "date_posted": "10/12/2001",
+    "position": {
+      "latitude": 54.466667,
+      "longitude": -6.416667
+    }
+  },
+  {
+    "id": 210,
+    "date": "9/29/2004 2:30",
+    "city": "washington&#44 d.c.",
+    "state": "dc",
+    "country": "",
+    "shape": "circle",
+    "duration_seconds": 600,
+    "duration_description": "10 minutes",
+    "comments": "circular disc coming to a slight point-like the bottom of a top&#44 only flatter-lights pointing at Andrews Air Force Base or Reagan Nat&#39l",
+    "date_posted": "7/13/2005",
+    "position": {
+      "latitude": 38.907231,
+      "longitude": -77.036464
+    }
+  },
+  {
+    "id": 211,
+    "date": "9/29/2011 20:53",
+    "city": "north myrtle beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "sphere",
+    "duration_seconds": 120,
+    "duration_description": "two minutes",
+    "comments": "UFO sighting Sept 29th 2011 8:53 I witnessed two yellow-orange color spheres about the size of 1/8 of the moon and 5 small star size ob",
+    "date_posted": "10/10/2011",
+    "position": {
+      "latitude": 33.8158333,
+      "longitude": -78.6802778
+    }
+  },
+  {
+    "id": 212,
+    "date": "9/29/2011 21:15",
+    "city": "st. stephen",
+    "state": "sc",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 1200,
+    "duration_description": "20 minutes",
+    "comments": "On the evening of September 29&#44 2011&#44 my Husband and I took our dog outside for a walk.  As we always do we went over to the driveway a",
+    "date_posted": "10/10/2011",
+    "position": {
+      "latitude": 33.4041667,
+      "longitude": -79.9219444
+    }
+  },
+  {
+    "id": 213,
+    "date": "9/3/2005 23:00",
+    "city": "pelican lake",
+    "state": "wi",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 10800,
+    "duration_description": "about 3 hours",
+    "comments": "Pelican Lake UFO sightings&#44 Amazing and very large. They emitted a beam of light and orbited&#44about 3/4 size of the moon was their size.",
+    "date_posted": "9/15/2005",
+    "position": {
+      "latitude": 45.4994444,
+      "longitude": -89.1666667
+    }
+  },
+  {
+    "id": 214,
+    "date": "9/4/1999 21:00",
+    "city": "grand rapids",
+    "state": "mi",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 2400,
+    "duration_description": "30 to 40 min.",
+    "comments": "SEEN STATIONARY OBJECT IN S.W. SKY.  OBJECT DID NOT MOVE&#44 HOVERED FOR MORE THAN 30 MIN. IN EXACT LOCATION.  WHITE&#44RED BLUE-GREEN LIGHTS",
+    "date_posted": "9/12/1999",
+    "position": {
+      "latitude": 42.9633333,
+      "longitude": -85.6680556
+    }
+  },
+  {
+    "id": 215,
+    "date": "9/4/2000 3:45",
+    "city": "westlake village",
+    "state": "ca",
+    "country": "us",
+    "shape": "light",
+    "duration_seconds": 7200,
+    "duration_description": "1-2 hours",
+    "comments": "At about 3:45 am we witnessed 2 objects in the sky. Each flashed red&#44 green&#44 and blue tones in a random pattern.  They remained relativ",
+    "date_posted": "9/17/2000",
+    "position": {
+      "latitude": 34.1458333,
+      "longitude": -118.8047222
+    }
+  },
+  {
+    "id": 216,
+    "date": "9/6/2003 14:00",
+    "city": "myrtle beach",
+    "state": "sc",
+    "country": "us",
+    "shape": "disk",
+    "duration_seconds": 600,
+    "duration_description": "5-10 minutes",
+    "comments": "We saw the Saucer&#44 when the sun bounced on it&#44 and sit in the sky for around 5 min.The other Round lights would swirl&#44 and split apart",
+    "date_posted": "10/30/2012",
+    "position": {
+      "latitude": 33.6888889,
+      "longitude": -78.8869444
+    }
+  },
+  {
+    "id": 217,
+    "date": "9/9/2005 21:00",
+    "city": "montreal (canada)",
+    "state": "qc",
+    "country": "ca",
+    "shape": "formation",
+    "duration_seconds": 30,
+    "duration_description": "30 sec",
+    "comments": "looking at the stars&#44 and at that veru moment&#44 what looked like 4 stars&#44 they were moving&#44 what seemed to be at speed of light...i watc",
+    "date_posted": "10/11/2005",
+    "position": {
+      "latitude": 45.5,
+      "longitude": -73.583333
+    }
+  },
+  {
+    "id": 218,
+    "date": "9/9/2008 10:00",
+    "city": "west palm beach",
+    "state": "fl",
+    "country": "us",
+    "shape": "unknown",
+    "duration_seconds": 2,
+    "duration_description": "seconds",
+    "comments": "Saw a bright green tinted light in the sky&#44 sky exploded almost like a shuttle launch&#44 but not as extreme. Then&#44 saw a bright orange ti",
+    "date_posted": "10/31/2008",
+    "position": {
+      "latitude": 26.7052778,
+      "longitude": -80.0366667
+    }
+  },
+  {
+    "id": 219,
+    "date": "9/9/2009 21:38",
+    "city": "kaiserlautern (germany)",
+    "state": "",
+    "country": "de",
+    "shape": "light",
+    "duration_seconds": 40,
+    "duration_description": "about 40 seconds",
+    "comments": "2 white lights over Kaiserslautern&#44 ramstein area &#44 following each other&#44suddenly disappear. ((NUFORC Note:  ISS/Space Shuttle.  PD))",
+    "date_posted": "12/12/2009",
+    "position": {
+      "latitude": 49.45,
+      "longitude": 7.75
+    }
+  }
+]
