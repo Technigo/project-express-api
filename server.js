@@ -36,10 +36,10 @@ app.get("/books/id/:id", (req, res) => {
 
   const bookID = booksData.find((book) => book.bookID === +id); //The + is used to turn a string into a number
 
-  if (bookID.length) {
-    res.json(bookID);
-  } else {
+  if (!bookID) {
     res.status(404).json({ message: "No book with that ID was found." });
+  } else {
+    res.json(bookID);
   }
 });
 
