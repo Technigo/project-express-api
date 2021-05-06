@@ -50,13 +50,15 @@ app.get("/books/id/:id", (req, res) => {
 // This endpoint will return a list of books with the specified language
 app.get("/books/language/:language", (req, res) => {
   const language = req.params.language;
+
   const booksLanguageCode = booksData.filter(
-    (item) => item.language_code === language
+    (book) => book.language_code === language
   );
+
   if (booksLanguageCode) {
     res.json(booksLanguageCode);
   } else {
-    res.json({ message: "Wrong language" });
+    res.json({ message: "Incorrect language" });
   }
 });
 
