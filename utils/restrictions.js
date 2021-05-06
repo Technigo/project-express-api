@@ -12,7 +12,7 @@ const allowedQueries = [
 
 export const validateQueries = (query) => {
   const queryIsAllowed = Object.keys(query).map((key) => {
-    return allowedQueries.includes(key)
-  })
-  return !queryIsAllowed.includes(false) || queryIsAllowed.length === 0
-}
+    return allowedQueries.includes(key);
+  });
+  return !queryIsAllowed.includes(false) || queryIsAllowed.length === 0;
+};

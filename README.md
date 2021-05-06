@@ -36,7 +36,7 @@ $ npm run dev
 ***
 *The following are the main features of this application:*
   
-  * Main path of api: 
+  * Main path of api: https://ufosights.herokuapp.com/
   * The API has the following endpoints:
     * `/sightings`
       * resp => a list of sightings based on queries
@@ -91,5 +91,4 @@ If I were to continue on this project / start over I would:
 ***
 
 ## Try it live
-
-netlifylink
+https://ufosights.herokuapp.com/

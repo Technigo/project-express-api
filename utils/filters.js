@@ -23,7 +23,6 @@ const filter = (data, query) => {
   if ('shapes' in query) {
     const shapes = query.shapes.split(',');
     data = data.filter((item) => shapes.includes(item.shape));
-    // console.log(data);
   }
   return data;
 };

@@ -1,3 +1,3 @@
 export const parseDate = (date) => {
-  return new Date(date.split(' ')[0])
-}
+  return new Date(date.split(' ')[0]);
+};

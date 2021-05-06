@@ -4,12 +4,12 @@ import { paginate } from '../utils/pagination';
 import { validateQueries } from '../utils/restrictions';
 
 export const list = (req, res) => {
-  // 1. check if req has restricted queries
   if (!validateQueries(req.query)) {
     return res.status(403).json({
       status: 'error',
-      message: 'The queries you provided are not allowed on this endpoint. Please provdie another query'
-    }) 
+      message:
+        'The queries you provided are not allowed on this endpoint. Please provdie another query'
+    });
   }
   let dataToSend = data;
   dataToSend = queried(dataToSend, req.query);
@@ -21,7 +21,7 @@ export const list = (req, res) => {
   } else {
     const totalLength = dataToSend.length;
     dataToSend = paginate(dataToSend, { ...req.query });
-    
+
     res.send({
       numOfGroups: dataToSend.numOfGroups,
       total: totalLength,
@@ -34,14 +34,14 @@ export const list = (req, res) => {
 
 export const view = (req, res) => {
   const { id } = req.params;
-  
+
   if (Object.keys(req.query).length > 0) {
     return res.status(403).json({
       status: 'error',
       message: 'Queries are not allowed for this endpoint'
     });
   }
-  
+
   const item = data.find((d) => d.id === +id);
   if (!item) {
     return res.status(404).json({

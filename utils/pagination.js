@@ -5,9 +5,11 @@ export const paginate = (data, { limit, start, groupBy }) => {
     limit = data.length;
     start = 1;
   }
-  
-  if (groupBy) { return { ...data, numOfGroups: _.size(data) } }
-  
-  data = _.chunk(data, (limit || 25))  
-  return start ? data[start - 1] : data[0]
+
+  if (groupBy) {
+    return { ...data, numOfGroups: _.size(data) };
+  }
+
+  data = _.chunk(data, limit || 25);
+  return start ? data[start - 1] : data[0];
 };
