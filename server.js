@@ -34,8 +34,23 @@ app.get('/exercises/:id', (req, res) => {
   }
 })
 
+// Lists exercises by exercise name
+app.get('/name/:name', (req, res) => {
+  const { name } = req.params
+  const queriedExerciseNames = exercisesData.filter(
+    (exercise) => exercise.name === name.toLowerCase()
+  )
+  if (queriedExerciseNames.length > 0) {
+    res.status(200).json({ data: queriedExerciseNames })
+  } else {
+    res
+      .status(404)
+      .send({ error: `No exercise with name: ${name}!` })
+  }
+})
+
 // Endpoint for all multi-joint exercises
-app.get('/exercises/category/multi_joint', (req, res) => {
+app.get('/category/multi_joint', (req, res) => {
   const multiJointExercise = exercisesData.filter(
     (exercise) => exercise.category === 'multi-joint exercise'
   )
@@ -46,13 +61,25 @@ app.get('/exercises/category/multi_joint', (req, res) => {
   }
 })
 
-// List exercises by target muscle
-app.get('/exercises/target_muscle/:muscles', (req, res) => {
+// Endpoint for all single-joint exercises
+app.get('/category/single_joint', (req, res) => {
+  const singleJointExercise = exercisesData.filter(
+    (exercise) => exercise.category === 'single-joint exercise'
+  )
+  if (singleJointExercise) {
+    res.status(200).json({ data: singleJointExercise })
+  } else {
+    res.status(404).json({ error: 'Not found' })
+  }
+})
+
+// Lists exercises by target muscle
+app.get('/target_muscle/:muscles', (req, res) => {
   const { muscles } = req.params
   const queriedTargedMuscles = exercisesData.filter(
-    (muscle) => muscle.target_muscle === muscles
+    (muscle) => muscle.target_muscle === muscles.toLowerCase()
   )
-  if (queriedTargedMuscles) {
+  if (queriedTargedMuscles.length > 0) {
     res.json({ data: queriedTargedMuscles })
   } else {
     res
