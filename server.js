@@ -12,67 +12,77 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// get all the books
-app.get('/books', (req, res) => {
-  res.json(booksData)
-});
-
-
-//get books by author /books/authors?author= ...
-app.get('/books/authors', (req, res) => {
-  const { author } = req.query
-  const authorList = booksData.filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
-
-  if(authorList.length === 0) {
-    res.status(404).send(`Sorry, there is no books by ${author}`)
-  }
-  res.json(authorList)
-});
-
-
-//get books by title /books/titles?title= ...                    
-app.get('/books/titles', (req, res) => {
-  const { title } = req.query
-  const  booksTitles = booksData.filter(book => book.title.toString().toLowerCase().includes(title.toLowerCase()))
-
-  if (booksTitles.length === 0) {
-    res.status(404).send(`Sorry, there is no books with the title ${title}`)
-  }
-  res.json(booksTitles)
-});
-
-
-// get thin books /books/thin?pages= ...
-app.get('/books/thin', (req, res) => {
-  const { pages } = req.query
-  const thinBooks = booksData.filter(book => book.num_pages <= 500)
-
-  if(pages >= 501) {
-    res.status(404).send(`Sorry, could not find a thin book with ${pages} pages`)
-  } 
-
-  if(thinBooks === 0) {
-    res.status(404).send(`Sorry, could not find a book with ${pages} pages`)
-  }
-  res.json(thinBooks)
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app));
 })
 
+//Endpoint example: /books, /books/id/1, /books/book_pages_below_500/499, /books/book_pages_above_500/501
+//query example:    books?author=Rowling, books?title=harry, books?language=eng,  
 
-//else (booksByThickness <= 500 ? thinBook : thickBook) ?????
+
+// get all the books and/or author/title/language with query parameters
+app.get('/books', (req, res) => {
+  const { author, title, language } = req.query
+
+  let booksToSend = booksData
 
 
-
-// get one book by id /books/1
-app.get('/books/:id', (req, res) => {
-  const { id } = req.params
-  const book = booksData.find(book => book.bookID === +id)
-
-  if(!book) {
-    res.status(404).send(`No book with id number ${id}`)
+  if(author) {
+    booksToSend = booksToSend
+      .filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
   }
-  res.json(book)
+
+  if(title) {
+    booksToSend = booksToSend
+     .filter(book => book.title.toString().toLowerCase().includes(title.toLowerCase()))
+  }
+
+  if(language) {
+    booksToSend = booksToSend
+    .filter((book) => book.language_code === language)
+  }
+
+  res.json({length: booksToSend.length, data: booksToSend})
 });
 
+
+//get thin books (below 500 pages)
+app.get('/books/book_pages_below_500/:pages', (req, res) => {
+  const  pages = req.params.thin_books
+  const thinBooks = booksData.filter((book) => book.num_pages <= 500)
+
+  if(thinBooks) {
+    res.json({ length: thinBooks.length, data: thinBooks }) 
+  } else {
+    res.status(404).json(`Sorry, there is no thin books with ${pages} pages`)
+  }
+}) 
+
+
+//get thick books (above 500 pages)
+app.get('/books/book_pages_above_500/:pages', (req, res) => {
+  const  pages = req.params.thin_books
+  const thickBooks = booksData.filter((book) => book.num_pages >= 501)
+
+  if(thickBooks) {
+    res.json({ length: thickBooks.length, data: thickBooks }) 
+  } else {
+    res.status(404).json(`Sorry, there is no thick books with ${pages} pages`)
+  }
+}) 
+
+
+// get one book by id  
+app.get('/books/id/:id', (req, res) => {
+  const  id = req.params.id
+  const book = booksData.find((book) => book.bookID === +id)
+
+  if(book) {
+    res.json({ data: book })
+  } else {
+    res.status(404).json(`No book with id number ${id}`)
+  } 
+});
 
 
 // Start the server
