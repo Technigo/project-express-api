@@ -10,4 +10,8 @@ How to:
 
 ## View it live
 
+backend:  
 https://honkoan-express.herokuapp.com/
+
+frontend:  
+https://honkoan-exercises-api-frontend.netlify.app/
