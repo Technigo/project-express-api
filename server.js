@@ -7,13 +7,12 @@ import songs from "./data/top-music.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Routes
 app.get("/", (req, res) => {
-  res.send(listEndpoints(songs));
+  res.send(listEndpoints(app));
 });
 
 app.get("/songs", (req, res) => {
@@ -40,8 +39,6 @@ app.get("/songs/:id", (req, res) => {
   res.json(chosenSong);
 });
 
-// Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
