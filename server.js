@@ -1,78 +1,71 @@
-import express, { request, response } from 'express'
-import bodyParser from 'body-parser'
+import express from 'express'
+import listEndpoints from 'express-list-endpoints'
 import cors from 'cors'
 
-import goldenGlobesData from './data/golden-globes.json'
+import data from './data/golden-globes.json'
 
 //Ideas: filtering on different decades like
+// if you dont specify a status code it is by default 200 (ok)
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-// PORT=9000 npm start
+//if we are looking for something unique with path param. And it doesnt exist, return not found (404)
+//Else empty array (with query params)
+//use params (:param) when you are searching for an exact thing (find method) and queary when its multiple (filtering)
+
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
+let goldenGlobesData = data
+
 app.get('/', (request, response) => {
-  response.send('Hello worlds')
+  response.send({ 
+    Queries: { showWon: 'Boolean value', awardYear: 'Number', category: 'If the category contains a specific string value' }, 
+    Endpoints: listEndpoints(app) })
 })
 
-//The whole data set
-app.get('/nominations', (request, response) => {
-  response.json(goldenGlobesData)
-})
+app.get('/nominations', (request, response) => {  
+  //Query params - for filtering an array in to a new array. Use query like ?won=true&Category=xxx
+  const { category, awardYear, showWon} = request.query
+  let goldenGlobesData = data
 
-
-//Filter on a films award year & win true or false
-app.get('/awardyear/:awardYear', (request, response) => {
-  const awardYear = request.params.awardYear
-  //use query like ?won=true
-  const showWon = request.query.won
-  const showCategoryContains = request.query.categoryContains
-  //use let to be able to filter it again
-  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +awardYear)
-
-  if (nominationsFromYear.length === 0) {
-    response.send(`There are no nominations from year ${awardYear} in the data file!`)
+  if (showWon) { 
+    goldenGlobesData = goldenGlobesData.filter((item => item.win))
   }
 
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item => item.win))
+  if (awardYear) { 
+    goldenGlobesData = goldenGlobesData.filter((item) => item.year_award === +awardYear)
   }
 
-  //check if the category contains a specific word
-  // if (showCategoryContains != "") {
-  //   nominationsFromYear = nominationsFromYear.filter((item => item.category.includes(categoryContains)))
-  // }
+  if (category) { 
+    goldenGlobesData = goldenGlobesData.filter(item => item.category.toLowerCase().includes(category.toLowerCase()))
+  }
 
-  response.json(nominationsFromYear)
+  response.json({ lenght: goldenGlobesData.length, data: goldenGlobesData})
 })
 
-//Filter on film year with intervals
+//Filter on film title, could give a single item or an array if one film title has several nominations
+app.get('/nominations/:title', (request, response) => {
+  const { title } = request.params
+  let singleFilmNominations = goldenGlobesData.filter((item => item.film.toString().toLowerCase().includes(title.toLowerCase())))
+
+  if (singleFilmNominations.length === 0) {
+    response.status(404).json({ error: 'Not found'})
+  }
+  response.json({lenght: singleFilmNominations.length, data: singleFilmNominations})
+})
+
+//Filter on film year with predefined limits
 app.get('/year/new_films', (request, response) => {
 
   let newFilms = goldenGlobesData.filter((item => item.year_film > 2018))
-  response.json(newFilms)
+  response.json({ lenght: newFilms.length, data: newFilms})
 })
 
 app.get('/year/old_films', (request, response) => {
   let oldFilms = goldenGlobesData.filter((item => item.year_film < 2011))
-  response.json(oldFilms)
-})
-
-//Filter on film title
-app.get('/films/:film', (request, response) => {
-  const film = request.params.film
-  let singleFilmNominations = goldenGlobesData.filter((item => item.film === film))
-
-  if (singleFilmNominations.length === 0) {
-    response.send(`The film title "${film}" does not exist in the data file!`)
-  }
-  response.json(singleFilmNominations)
+  response.json({ lenght: oldFilms.length, data: oldFilms})
 })
 
 // Start the server
