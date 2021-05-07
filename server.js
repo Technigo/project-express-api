@@ -1,38 +1,62 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
 import netflixData from './data/netflix-titles.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// Start defining your routes here
+// Endpoint list of endpoints
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+const movieByDirector = (data, director) => {
+  return data.filter((movie) => {
+    return movie.director.toLowerCase().indexOf(director.toLowerCase()) !== -1;
+  });
+};
+const movieByYear = (data, year) => {
+  return data.filter((movie) => {
+    return movie.release_year === +year;
+  });
+};
+//Endpoint for all movies (including querys)
 app.get('/movies', (req, res) => {
-  res.json(netflixData);
+  const { director, year } = req.query;
+  let data = netflixData;
+  console.log(year);
+  if (director) {
+    data = movieByDirector(data, director);
+  }
+  if (year) {
+    data = movieByYear(data, year);
+  }
+
+  if (data.length === 0) {
+    res.status(404).json({ error: 'Not Found' });
+  }
+
+  res.json(data);
 });
 
-app.get('/movies/:title', (req, res) => {
-  const title = req.params.title;
-  console.log(title);
-  console.log(netflixData[0].title.toLowerCase());
+app.get('/movies/:id', (req, res) => {
+  const id = req.params.id;
 
-  // netflixData.forEach((item) => console.log(item.title.toLowerCase()));
+  let movieByID = netflixData.find((movie) => movie.show_id === +id);
 
-  let singleMovie = netflixData.filter(
-    (item) => item.title.toLowerCase() === title.toLowerCase()
-  );
-  console.log(singleMovie);
-  res.json(singleMovie);
+  if (movieByID) {
+    res.json({ data: movieByID });
+  } else {
+    res.status(404).json({ error: 'Not Found' });
+  }
 });
+
+//List of countries?
 
 // Start the server
 app.listen(port, () => {
