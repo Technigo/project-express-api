@@ -1,14 +1,15 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-// 
-import goldenGlobesData from './data/golden-globes.json'
+// import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 import booksData from './data/books.json'
+import { reset } from 'nodemon'
 console.log(booksData.length)
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
@@ -26,45 +27,83 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
   // res.json(booksData)
 })
 
+// endpoints to get all books
 app.get('/books', (req, res) => {
-  res.json(booksData)
-})
+  //queries to filter further
+  const author = req.query.author
+  const language = req.query.language
+  const title = req.query.title
+  if (author) {
+    const booksByAuthor = booksData.filter((book) => book.authors.includes(author))
+    res.json(booksByAuthor)
+  }  else if (language) {
+    const booksByLanguage = booksData.filter((book) => book.language_code === language)
+    res.json(booksByLanguage)
+  } else if (title) {
+    const booksByTitle = booksData.filter((book) => book.title.includes(title))
+    res.json(booksByTitle)
+  // } else if () {
 
-app.get('/language/:language', (req, res) => {
-  const language = req.params.language
-  // const showRating = req.query.average_rating
-  let titleInLanguage = booksData.filter((item) => item.language_code === language)
-  res.json(titleInLanguage)
-
-  // if (showRating) {
-  //       titleInLanguage = titleInLanguage.filter((item) => item.average_rating > 4)
-  // }
-})
-
-app.get('/movies', (req, res) => {
-  res.json(goldenGlobesData)
-})
-
-app.get('/year/:year', (req, res) => {
-  const year = req.params.year
-  const showWon = req.query.win
-  console.log(showWon)
-  let nominationFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
-  
-
-  if (showWon) {
-      nominationFromYear = nominationFromYear.filter((item) => item.win)
+  } else {
+    res.json(booksData)
   }
+})
 
-  res.json(nominationFromYear)
+// endpoint to get one book by id
+app.get('/books/id/:id', (req, res) => {
+  const id = req.params.id
+  const book = booksData.find((book) => book.bookID === +id)
+  if (!book) {
+    res.status(404).send(`No book here with id number ${id}`)
+  }
+  res.json(book)
+})
 
+// endpoint to get one book by ISBN
+app.get('/books/isbn/:isbn', (req, res) => {
+  const isbn = req.params.isbn
+  const book = booksData.find((book) => book.isbn === +isbn)
+  if (!book) {
+    res.status(404).send(`No book here with the isbn ${isbn}`)
+  }
+  res.json(book)
 })
 
 
+// endpoint to get all books in one language
+app.get('/books/language/:language', (req, res) => {
+  const language = req.params.language
+  // queries to filter further
+  const rating = req.query.rating
+  let titleInLanguage = booksData.filter((item) => item.language_code === language)
+  if (!language) {
+    res.status(404).send(`No books here in ${language}`)
+  } else if (rating) {
+    titleInLanguage = titleInLanguage.filter((item) => item.average_rating >= +rating)
+    res.json(titleInLanguage)
+  } else {
+  res.json(titleInLanguage)
+  }
+})
+
+// endpoint to get all books by one author
+app.get('/books/author/:author', (req, res) => {
+  const author = req.params.author
+  // queries to filter further
+  const rating = req.query.rating
+  let booksByAuthor = booksData.filter((book) => book.authors.includes(author))
+  if (!booksByAuthor) {
+    res.status(404).send(`No books here by ${author}`)
+  } else if (rating) {
+    booksByAuthor = booksByAuthor.filter((item) => item.average_rating >= +rating)
+    res.json(booksByAuthor)
+  } else {
+  res.json(booksByAuthor)
+}})
 
 
 // Start the server
