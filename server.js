@@ -27,11 +27,20 @@ app.get('/books', (req, res) => {
 
 app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
-  const book = booksData.find(book => book.bookID === bookId)
+  const book = booksData.find(book => book.bookID === +bookId)
   if (!book) {
     response.status(404).json(BOOKS_NOT_FOUND)
   }
   res.json(book)
+})
+
+app.get('/authors/:author', (req, res) => {
+  const { author } = req.params
+  const byAuthor = booksData.filter(book => book.authors === author)
+  if (!byAuthor.length) {
+    response.status(404).json(BOOKS_NOT_FOUND)
+  }
+  res.json(byAuthor)
 })
 
 // Start the server
