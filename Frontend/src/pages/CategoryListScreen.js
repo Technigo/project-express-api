@@ -1,10 +1,12 @@
 import React from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
 
 import styled from 'styled-components/macro';
 
+import netflix from '../reducers/netflix'
 import { SubHeader } from '../components/SubHeader';
-import { Card } from '../components/Card';
+import { CardList } from '../components/CardList';
 import genreArray from '../data/genreArray.json';
 import countryArray from '../data/countryArray.json';
 
@@ -36,6 +38,8 @@ const CategoryLink = styled(Link)`
 
 export const CategoryListScreen = () => {
   const match = useRouteMatch();
+  const dispatch = useDispatch()
+  const filters = useSelector((store) => store.netflix.filters);
 
   const handleCategories = (name, array) => {
     return (
@@ -45,11 +49,9 @@ export const CategoryListScreen = () => {
           {array.map((item) => (
             <CategoryLink
               key={item.name}
-              to={{
-                pathname: `${match.url}/${name}/${item.name}`,
-                params: { path: item.name }
-              }}>
-              <Card color={item.color} title={item.display} description="" />
+              to={`${match.url}/${name}/${item.name}`} 
+              onClick={() => dispatch(netflix.actions.setSingleCategory(item.name))}>
+              <CardList color={item.color} title={item.display} description="" />
             </CategoryLink>
           ))}
         </Grid>

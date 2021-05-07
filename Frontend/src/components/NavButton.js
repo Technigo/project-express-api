@@ -5,6 +5,7 @@ const ButtonContainer = styled.div`
 display: flex;
 align-content: center;
 width: fit-content;
+z-index: 1;
 `
 const Button = styled.button`
 background: transparent;

@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
-import { useParams, Link, useRouteMatch } from 'react-router-dom';
+import { useParams, Link, useRouteMatch} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import netflix, { generateCategories } from '../reducers/netflix';
-import { Card } from '../components/Card';
+import { CardList } from '../components/CardList';
 import { SubHeader } from '../components/SubHeader';
 import genreArray from '../data/genreArray.json';
 import countryArray from '../data/countryArray.json';
+import { NavButton } from '../components/NavButton'
 
 const Section = styled.section`
   width: calc(100vw - 30px);
@@ -34,27 +35,25 @@ const ItemLink = styled(Link)`
   cursor: pointer;
 `;
 
-export const SingleCategoryScreen = (path) => {
+export const SingleCategoryScreen = () => {
   const dispatch = useDispatch();
-  const items = useSelector((store) => store.netflix.items);
+  const filters = useSelector((store) => store.netflix.filters);
+  const items = useSelector((store) => store.netflix.items)
   const { category } = useParams();
-  const title = path.match.params.singleCategory;
-  const media = path.match.params.type;
-  const match = useRouteMatch();
+  const title = filters.singleCategory
 
   useEffect(() => {
     dispatch(netflix.actions.setCategory(category));
-    dispatch(generateCategories(media, title));
-  }, [category, dispatch, media, title]);
+    dispatch(generateCategories());
+  }, [category, dispatch]);
 
-  const onMoreContent = () => {};
   return (
     <Section>
-      <SubHeader title={title} btnText="Next Page" handleClick={onMoreContent} />
+      <SubHeader title={title} />
       <Grid>
         {items.map((item, i) => (
-          <ItemLink key={i} to={`${match.url}/${title}`}>
-            <Card
+          <ItemLink key={i} to={`/title/${item.title}`} >
+            <CardList
               {...item}
               i={i}
               color={

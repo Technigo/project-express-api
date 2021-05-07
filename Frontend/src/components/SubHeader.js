@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 
+import netflix from '../reducers/netflix'
 import { NavButton } from './NavButton';
 
 const HeaderContainer = styled.div`
@@ -21,13 +23,12 @@ const Title = styled.h1`
   width: fit-content;
 `;
 
-export const SubHeader = ({ title, btnText, handleClick }) => {
+export const SubHeader = ({ title }) => {
   const history = useHistory();
   return (
     <HeaderContainer>
       <NavButton content="< Back" handleClick={history.goBack} />
       <Title>{title.charAt(0).toUpperCase() + title.slice(1)}</Title>
-      <NavButton content={`${btnText} >`} handleClick={handleClick} />
     </HeaderContainer>
   );
 };

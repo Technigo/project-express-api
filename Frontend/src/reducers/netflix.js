@@ -1,53 +1,76 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const netflix = createSlice({
-  name: 'netflix',
+  name: "netflix",
   initialState: {
-    items: [
-      { title: null, id: null, image: null, category: null }
-    ]
+    currentItem: { title: "fail" },
+    items: [{}],
+    filters: {
+      category: null,
+      singleCategory: null,
+      media: null,
+      page: 0,
+    },
   },
   reducers: {
     setItemList: (store, action) => {
       const newArr = action.payload.map((item) => {
-        return { ...item, title: item.title, id: item.id };
+        return { ...item };
       });
       store.items = newArr;
     },
+    setCurrentItem: (store, action) => {
+      const newItem = action.payload;
+      store.currentItem = newItem;
+    },
     setCategory: (store, action) => {
-      const newArr = store.items.map((item) => {
-        return { ...item, category: action.payload };
-      });
-      store.items = newArr;
-    }
-  }
+      const newFilter = { ...store.filters, category: action.payload };
+      store.filters = newFilter;
+    },
+    setMedia: (store, action) => {
+      const newFilter = { ...store.filters, media: action.payload };
+      store.filters = newFilter;
+    },
+    setSingleCategory: (store, action) => {
+      const newFilter = { ...store.filters, singleCategory: action.payload };
+      store.filters = newFilter;
+    },
+    setPage: (store, action) => {
+      let newPage;
+      if (action.payload === "add") {
+        newPage = store.filters.page + 1;
+      } else {
+        store.filters.page !== 0
+          ? (newPage = store.filters.page - 1)
+          : (newPage = store.filters.page);
+      }
+      store.filters.page = newPage;
+    },
+  },
 });
 
-export const generateList = (type) => {
+export const generateSingleItem = (title) => {
   return (dispatch) => {
-    let url = '';
-    if (type === 'movies') {
-      url = 'https://netflix-data.herokuapp.com/movies';
-    } else {
-      url = 'https://netflix-data.herokuapp.com/tvshows';
-    }
-
-    fetch(url)
+    fetch(`https://netflix-data.herokuapp.com/title/${title}`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         return response.json();
       })
-      .then((data) => dispatch(netflix.actions.setItemList(data)))
-      .catch((error) => alert(`Ops, error: ${error}`));
+      .then((data) => dispatch(netflix.actions.setCurrentItem(data)));
   };
 };
 
-export const generateCategories = (type, name) => {
-  let url = '';
+export const generateCategories = () => {
+  let url = "";
   return (dispatch, getState) => {
-    url = `https://netflix-data.herokuapp.com/${type}?${getState().netflix.items[0].category}=${name}`;
+    const media = getState().netflix.filters.media;
+    const category = getState().netflix.filters.category;
+    const singleCategory = getState().netflix.filters.singleCategory;
+    const page = getState().netflix.filters.page;
+
+    url = `https://netflix-data.herokuapp.com/${media}?${category}=${singleCategory}`;
 
     fetch(url)
       .then((response) => {
