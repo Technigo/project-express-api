@@ -1,6 +1,7 @@
 import express, { request } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 import topMusicData from './data/top-music.json'
 
@@ -14,36 +15,50 @@ app.get('/danceable', (req, res) => {
   res.json(danceabilityList)
 })
 
+// Endpoint to get all songs
 app.get('/songs', (req, res) => {   
   res.json(topMusicData)
 })
 
 // endpoint to get all songs from a specific genre 
 app.get('/genre/:genre', (req, res) => {
-  const genre = req.params.genre 
-  const genreList = topMusicData.filter((item) => item.genre === genre)
+  const { genre } = req.params 
+  const genreList = topMusicData.filter((item) => item.genre.toLowerCase() === genre.toLowerCase())
+  if (!genreList) {
+    res.status(404).send(`No genre suitable: ${genre}`)
+  }
   res.json(genreList)
 })
 
+// Endpoint to get songs from specific artist
+app.get('/artist/', (req, res) => {
+  const { artistName } = req.query 
+  if (artistName) {
+    const artistList = topMusicData.filter((item) => item.artistName.toLowerCase().includes(artistName))
+    res.json(artistList)
+  }
+  res.json(topMusicData)
 
-// endpoint to get one movie
-app.get('/song/:id', (req, res) => {  
+})
+
+// Endpoint to get one song
+app.get('/song/:id', (req, res) => {   
   const { id } = req.params
-  const title = topMusicData.find(title => title.id === +id)
+  const title = topMusicData.find((song) => song.id === +id)
   if (!title) {
-    res.status(404).send(`No movies with id number: ${id}`)
+    res.status(404).send({error: `No songs with id number: ${id}`})
   }
   res.json(title)
+})
+
+// Shows all my routes
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app))
 })
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
-
-// Start defining your routes here
-// app.get('/', (req, res) => {
-//  res.send('Hello world')
-// })
 
 // Start the server
 app.listen(port, () => {})
