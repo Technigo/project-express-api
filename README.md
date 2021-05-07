@@ -17,5 +17,5 @@ click around and see what it's all about.
 ## Documentation
 
  <div>
-    <img src="./api-documentation/api.svg">
+    <img src="./api.svg">
 </div>
