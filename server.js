@@ -13,6 +13,19 @@ app.get("/", (request, response) => {
   );
 });
 
+app.get("/golden-globes/ceremonies", (req, res) => {
+  const ceremoniesDuplicated = goldenGlobesData.map((movie) => movie.ceremony);
+
+  const ceremoniesUnique = [];
+  ceremoniesDuplicated.forEach((item) => {
+    if (!ceremoniesUnique.includes(item)) {
+      ceremoniesUnique.push(item);
+    }
+  });
+
+  res.json({ data: ceremoniesUnique });
+});
+
 app.get("/golden-globes", (request, response) => {
   const { ceremony, win, category } = request.query;
   let result = goldenGlobesData;
