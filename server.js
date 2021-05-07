@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/shows", (req, res) => {
-  const { year, type, director, cast, page } = req.query;
+  const { year, type, director, cast, page = 0 } = req.query;
   let queriedShows = netflixData;
 
   if (year) {
@@ -33,16 +33,17 @@ app.get("/shows", (req, res) => {
     );
   }
   if (director) {
-    queriedShows = queriedShows.filter(
-      (show) => show.director.toLowerCase() === director.toLowerCase()
+    queriedShows = queriedShows.filter((show) =>
+      show.director.toLowerCase().includes(director.toLowerCase())
     );
   }
   if (cast) {
-    queriedShows = queridShows.filter(
-      (show) => show.cast.toLowerCase() === cast.toLowerCase()
+    queriedShows = queridShows.filter((show) =>
+      show.cast.toLowerCase().includes(cast.toLowerCase())
     );
   }
-  quiredShow
+
+  queriedShows
     ? res.status(200).json({ data: divideShows(queriedShows, +page) })
     : res.status(404).json({ error: "Not found" });
 });
