@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-const netflix = require('./Router/netflix.js'); // gets the route file
+const netflix = require('./Backend/Router/netflix.js'); // gets the route file
 
 const port = process.env.PORT || 8080;
 const app = express();
