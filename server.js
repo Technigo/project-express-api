@@ -43,6 +43,15 @@ app.get('/authors/:author', (req, res) => {
   res.json(byAuthor)
 })
 
+app.get('/title/:title', (req, res) => {
+  const { title } = req.params
+  const bookTitle = booksData.filter(item => item.title === title)
+  if (!bookTitle.length) {
+    response.status(404).json(BOOKS_NOT_FOUND)
+  }
+  res.json(bookTitle)
+})
+
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
