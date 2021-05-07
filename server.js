@@ -27,23 +27,29 @@ app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-// Endpoint to get all books. 
+// Endpoint to get all books & serach for some specific. 
 app.get('/books', (req, res) => {
-  const { author } = req.query
+  const { author, title } = req.query
+  let booksList = booksData 
   // book.authors.includes(author))
 
-  const booksList = booksData.filter(book => {
-    return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
-  })
+  // const booksList = booksData.filter(book => {
+  //   return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
+  // })
 
-  res.json({ data: booksList})
+  if (author) {
+    booksList = booksList
+      .filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
+  }
 
-  // if (author) {
-  //   const booksList = booksData.filter(book => book.authors.includes(author))
-  //   res.json(booksList)
-  // }
-  // res.json(booksData)
+  if (title) {
+    booksList = booksList
+      .filter(book => book.titles.toLowerCase().includes(title.toLowerCase()))
+  }
+
+  res.json({ length: booksList.length, data: booksList })
 })
+
 
 // app.get('/books', (req, res) => {
 //   const { title } = req.query
@@ -64,20 +70,8 @@ app.get('/books/:id', (req, res) => {
   } else {
     res.status(404).json({ error: 'Book not found'})
   }
-  // if (!book) {
-  //   res.status(404).json(`no book with id number ${id}`)
-  // }
-  // res.json(book)
+  
 })
-
-// app.get('/books/:title', (req, res) => {
-//   const { title } = req.params
-//   const book = booksData.find(book => book.title === title)
-//   if (!book) {
-//     res.status(404).json(`no book with id number ${title}`)
-//   }
-//   res.json(book)
-// })
 
 // Start the server
 app.listen(port, () => {
