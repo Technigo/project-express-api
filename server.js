@@ -1,22 +1,16 @@
 import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+
 import booksData from './data/books.json'
 
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 const BOOKS_NOT_FOUND = { error: 'No books where found'} 
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
   res.send('Hi and welcome to my book review site. To get the full list use the endpoint /books')
 })
@@ -51,6 +45,15 @@ app.get('/title/:title', (req, res) => {
   }
   res.json(bookTitle)
 })
+
+app.get('/toplist/:nrOfBooks', (req, res) => {
+  const nrOfBooks = req.params
+  const ratedBooks = [...booksData];
+  ratedBooks.sort((a, b) => b.average_rating - a.average_rating)
+  const toplist = ratedBooks.slice(0, nrOfBooks);
+  res.json(toplist)
+})
+
 
 // Start the server
 app.listen(port, () => {
