@@ -24,13 +24,17 @@ app.get('/books', (req, res) => {
 // endpoint with search path and query params
 app.get('/books/search', (req, res) => {
   // destructuring query params 
-  const { author, highToLow, lowToHigh, longStory, shortStory } = req.query 
+  const { author, title, highToLow, lowToHigh, longStory, shortStory, topTwenty, topFiFtyRatingsCount, isbn } = req.query 
   let queriedBooks = booksData 
 
   // Query to find author.
   if (author) {
     queriedBooks = queriedBooks.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
   } 
+  // query for title
+  if (title) {
+    queriedBooks = queriedBooks.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
+  }
   // query to sort the books from high to low in average rating. 
   if (highToLow) {
     queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating)
@@ -47,59 +51,36 @@ app.get('/books/search', (req, res) => {
   if (shortStory) {
     queriedBooks = queriedBooks.filter((book) => book.num_pages <= +400)
   }
-  if (queriedBooks.length === 0) {
-    res.status(404).json({ error: 'not found' })
-  } else {
-    res.status(200).json({ data: queriedBooks })
-  }
-  
-})
-
-// endpoint with different toplists depending on the query
-app.get('/books/toplist', (req, res) => {
-  const { topTwenty } = req.query
-  const { ratingsCount } = req.query
-  let toplist = booksData
   // listing the top 20 highest rated books, in descending order
   if (topTwenty) { 
-    toplist = booksData.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating).slice(0, 20)
+    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating).slice(0, 20)
   }
   // listing the top 50 books with most ratings, in descending order
-  if (ratingsCount) {
-    toplist = booksData.filter((book) => book.ratings_count).sort((a, b) => b.ratings_count - a.ratings_count).slice(0, 50)
+  if (topFiFtyRatingsCount) {
+    queriedBooks = queriedBooks.filter((book) => book.ratings_count).sort((a, b) => b.ratings_count - a.ratings_count).slice(0, 50)
   }
-  res.json({ data: toplist })
-})
-
-// endpoint to get books based on queried title 
-app.get('/books/title', (req, res) => {
-  const { title } = req.query
-  const queriedTitle = booksData.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
-  if (queriedTitle.length === 0) {
-    res.status(404).json({ error: 'not found' })
-    // if title does not exist send error message 
+  // query to search for book by isbn
+  if (isbn) {
+    queriedBooks = queriedBooks.find((book) => book.isbn === +isbn)
+    if (!queriedBooks) {
+      res.status(404).json(`There is no book with isbn number ${isbn}`)
+    }
   }
-  res.json({ data: queriedTitle })
+  if (queriedBooks.length === 0) {
+    res.status(404).json({ error: 'Not found' })
+  } else {
+    res.status(200).json({ length: queriedBooks.length, data: queriedBooks })
+  }
 })
 
 // endpoint to get one book based on id param
-app.get('/books/id/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const book = booksData.find((book) => book.bookID === +id)
   if (!book) {
-    res.status(404).send(`No book with id number ${id}`)
+    res.status(404).send(`There is no book with id number ${id}`)
   }
   res.json({ data: book })
-})
-
-// endpoint to get one book based on isbn param. 
-app.get('/books/isbn/:isbn', (req, res) => {
-  const { isbn } = req.params
-  const bookIsbn = booksData.find((book) => book.isbn === +isbn)
-  if (!bookIsbn) {
-    res.status(404).send(`No book with isbn number ${isbn}`)
-  }
-  res.json({ data: bookIsbn })
 })
 
 // Start the server
