@@ -13,12 +13,13 @@ app.get("/", (request, response) => {
 
 app.get("/golden-globes", (request, response) => {
   const { ceremony, win, category } = request.query;
-  console.log(request.query);
-  let result;
+  let result = goldenGlobesData;
 
-  result = goldenGlobesData.filter(
-    (movie) => movie.ceremony === Number(ceremony)
-  );
+  if (ceremony) {
+    result = goldenGlobesData.filter(
+      (movie) => movie.ceremony === Number(ceremony)
+    );
+  }
 
   if (win) {
     result = result.filter((movie) => movie.win);
