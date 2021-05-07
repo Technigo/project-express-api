@@ -1,13 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Thiw weeks project was out first back end project. We were supposed to build our own API with Express by using RESTful endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I thought this project was really interesting but I had some difficulties to understand everything. I watched the lectures several times and tried out a lot of diffrent approaches that didn't work out so I need to practise more. I also had a lot of problems with errors in the terminal in the beginning but managed to solve them with help from team mates and Stack Overflow.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://week17project-express-api.herokuapp.com/
