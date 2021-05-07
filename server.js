@@ -168,72 +168,33 @@ app.get('/avocado', (req, res) => {
   const { minPrice } = req.query
   const { amount } = req.query
 
+  let filteredAvocado = avocadoSalesData
 
-//maxPrice => amount, minPrice
-  if (maxPrice) {
-    const maxPriceApi = avocadoSalesData.filter((item) => item.averagePrice < +maxPrice)
-    if(amount) {
-      const amountFilter = maxPriceApi.slice(0,amount)
-      if(id){
-        const findID = amountFilter.find(item => item.id === +id)
-        res.json(findID)
-      }
-      res.json(amountFilter)
-    } else if (id) {
-      const findID = maxPriceApi.find(item => item.id === +id) // kanske lägg en if not found (det blir svår, eftersom om jag skriver !id så kommer den alltid ge felmeddelande ifall jag inte har något på ID, gör istället en state på din frontend som tar in värdet, ifall det inte finns något och det är en tom string, så ger jag felmeddelande)
-      res.json(findID)
-    }
-    res.json(maxPriceApi)
+  
+
+
+  if(maxPrice){
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice < +maxPrice)
+    //console.log(typeof filteredAvocado)
   }
 
-  //minPrice => amount, maxPrice
-  if (minPrice) {
-    const minPriceApi = avocadoSalesData.filter((item) => item.averagePrice > +minPrice)
-    if(amount) {
-      const amountFilter = minPriceApi.slice(0,amount)
-      if(id){
-        const findID = amountFilter.find(item => item.id === +id)
-        res.json(findID)
-      }
-      res.json(amountFilter)
-    } else if (id) {
-      const findID = minPriceApi.find(item => item.id === +id)
-      res.json(findID)
-    }
-    res.json(minPriceApi)
+  if(minPrice){
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice > +minPrice)
   }
 
-  // Amount => max- or minPrice, amount
-  if (amount) {
-    const amountOfResult = avocadoSalesData.slice(0,amount)
-    if(minPrice) {
-      const minPriceApi = amountOfResult.filter((item) => item.averagePrice > +minPrice)
-      if(id){
-        const findID = amountFilter.find(item => item.id === +id)
-        res.json(findID)
-      }
-      res.json(minPriceApi)
-    } else if (id) {
-      const findID = amountOfResult.find(item => item.id === +id)
-      res.json(findID)
-    } else if(maxPrice) {
-      const maxPriceApi = avocadoSalesData.filter((item) => item.averagePrice < +maxPrice) // Du kan göra ännu en amount men skit samma
-      if(id){
-        const findID = amountFilter.find(item => item.id === +id)
-        res.json(findID)
-      }
-      res.json(maxPriceApi)
-    }
-    res.json(amountOfResult)
+  if(amount) {
+    filteredAvocado = filteredAvocado.slice(0,amount)
+    console.log(amount)
   }
 
-  if(id){
-    const findID = avocadoSalesData.find(item => item.id === +id)
-    res.json(findID)
+  if(id) {
+    filteredAvocado = filteredAvocado.filter((item) => item.id === +id)
+    //res.json({length: filteredAvocado.length, data: filteredAvocado})
+    console.log(id)
   }
+  console.log({length: filteredAvocado.length, data: filteredAvocado})
 
-
-  res.json(avocadoSalesData)
+  res.send({ length: filteredAvocado.length, data: filteredAvocado})
 })
 
 

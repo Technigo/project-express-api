@@ -168,31 +168,27 @@ app.get('/avocado', (req, res) => {
   const { minPrice } = req.query
   const { amount } = req.query
 
-let filteredSales = avocadoSalesData
+  let filteredAvocado = avocadoSalesData
 
-  if (maxPrice) {
-    const maxPriceApi = filteredSales.filter((item) => item.averagePrice < +maxPrice)
-    if(amount) {
-      const amountFilter = maxPriceApi.slice(0,amount) // Senast Senast Senast
-      res.json(amountFilter)
-    }
-    res.json(maxPriceApi)
+  if(id) {
+    filteredAvocado = filteredAvocado.find((item) => item.id === +id)
+    //res.json({length: filteredAvocado.length, data: filteredAvocado})
   }
-  /*if (maxPrice) {
-    filteredSales = filteredSales.filter((item) => item.averagePrice < +maxPrice)
-  }*/
-  if (minPrice) {
-    filteredSales = filteredSales.filter((item) => item.averagePrice > +minPrice)
-  }
-  if (amount) {
-    filteredSales = avocadoSalesData.slice(0,amount) // filteredSales.slice
-  }
-  /*if (id) {
-    filteredSales = avocadoSalesData.find(item => item.id === +id)
-  } */
 
-  //console.log(filteredSales.length)
-  res.json(filteredSales)
+  if(amount) {
+    filteredAvocado = filteredAvocado.slice(0,amount)
+    console.log(amount)
+  }
+
+  if(maxPrice){
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice < +maxPrice)
+  }
+
+  if(minPrice){
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice > +minPrice)
+  }
+
+  res.json({length: filteredAvocado.length, data: filteredAvocado})
 })
 
 
