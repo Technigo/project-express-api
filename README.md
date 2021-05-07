@@ -12,8 +12,8 @@ Besides endpoints, I also did a few querys (author, title, language):
 The booklist first contains all of the bookData, but when it enters the first filter (author) it gets smaller before entering the second filter (title) and then smaller when it gets to the third filter (language).
 In this way the filter doesn't always happen on the whole array of booksData for every query. It also makes it easy to add more querys if I would like to filter on rating for example. I added a conditional in the beginning to prevent the user from getting all of the booksData if they don't type in any of the parameters. The data I have now is not very large so it would not be a problem to display them all, but in some other case it could be a massive list and therefor maybe not a good idea to display it all in a list.
 
-If i had more time, I would have
-- added more querys and endpoints, for example a endpoint that lists all   authors
+If i had more time, I would have:
+- added more querys and endpoints, for example an endpoint that lists all   authors
 - added API documentation
 - made a frontend to the project.
 
@@ -26,7 +26,7 @@ If i had more time, I would have
 
 # List of endpoints
 
-*'"/'          - You see a list of endpoints
+* '/'          - You see a list of endpoints
 * '/books'     -Three querys on author, title & language
 * '/top5'      -List the 5 books with the highest rating
 * '/textreviews' -List the 20 books with most textreviews
