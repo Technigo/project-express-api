@@ -32,9 +32,9 @@ app.get('/avo-sales/regions', (req, res) => {
   res.send(reducedRegions)
 })
 
-app.get('/avo-sales/:id', (req, res) => {
+app.get('/avo-sales/id/:id', (req, res) => {
   const { id } = req.params
-  const avoId = avocadoSalesData.find((id) => avocadoSalesData.id === +id)
+  const avoId = avocadoSalesData.find((item) => item.id === +id)
   if (avoId) {
     res.status(200).json({ data: avoId });
   } else {
