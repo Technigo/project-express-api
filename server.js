@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 
 // query to filter on autor, title and language.
 app.get('/books', (req, res) => {
-  console.log(req.query)
   const { author, title, language } = req.query
 
   if (!author && !title && !language) {
@@ -33,21 +32,24 @@ app.get('/books', (req, res) => {
   let bookList = booksData;
 
   if (author) {
-    bookList = bookList.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
+    bookList = bookList
+      .filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
   }
 
   if (title) {
-    bookList = bookList.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
+    bookList = bookList
+      .filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
   }
 
   if (language) {
-    bookList = bookList.filter((book) => book.language_code.toLowerCase().includes(language.toLowerCase()))
+    bookList = bookList
+      .filter((book) => book.language_code.toLowerCase().includes(language.toLowerCase()))
   }
 
   if (bookList.length) {
     res.json(bookList)
   } else {
-    res.status(404).send("Book not found");
+    res.status(404).send("No match");
   }
 });
 
@@ -75,7 +77,7 @@ app.get('/isbn/:isbn', (req, res) => {
 });
 
 // endpoint for id
-app.get('/books/:id', (req, res) => {
+app.get('/id/:id', (req, res) => {
   const { id } = req.params
   const books = booksData.find((book) => book.bookID === +id)
   if (!books) {
@@ -114,7 +116,10 @@ app.listen(port, () => {
 // Dummy endpoints
 
 // Filter on number of pages
-// app.get('/pages)
+// app.get('books/pages)
 
 // Filter out one author and sort the rating of their books high to low
-// app.get('/authorrating')
+// app.get('books/authorrating')
+
+// Filter out books that is written in several languages
+// app.get(books/)
