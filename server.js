@@ -63,24 +63,39 @@ app.get('/title/:title', (req, res) => {
   const { title } = req.params
   const bookTitle = req.query.id
   let titleOfBook = sandemoData.filter((item) => item.title === title)
+  if (titleOfBook.length !== 0) {
+    res.json(titleOfBook)
+  } else {
+    {
+      res.status(404).send('No book with this title found')
+    }
+  }
 
-  res.json(titleOfBook)
+  
 })
 
 app.get('/release/:release', (req, res) => {
   const { release } = req.params
   const releaseYear = req.query.id
   let yearOfBook = sandemoData.filter((item) => item.release_year === +release)
+  if (yearOfBook.length !== 0) {
+    res.json(yearOfBook)
+  } else {
+    res.status(404).send('No books released this year can be found')
+  }
 
-  res.json(yearOfBook)
+ 
 })
 
 app.get('/series/:series', (req, res) => {
   const { series } = req.params
   const requiredSerie = req.query.id
   let serieOfBook = sandemoData.filter((item) => item.series === series)
-
-  res.json(serieOfBook)
+  if (serieOfBook.length !== 0) {
+    res.json(serieOfBook)
+  } else {
+    res.status(404).send('No serie with this name could be found')
+  }
 })
 
 
