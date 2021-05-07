@@ -1,8 +1,49 @@
 # project-express-api
+
+In this project an API is built from a local JSON file and used in a simple React/Redux front end app.
+
 # Project
 
+The user can filter this Netflix data in many different ways. With parameters there are 8 different endpoints: 
+- All data
+- All Movies
+- All TV Series
+- A specific movie/tv-series by ID
+- A specifi movie/tv-series by Title
+//these parameters gives a max-result of 50 objects (5 pages)):
+- Recent added data 
+- Recent added Movies
+- Recent added TV-series
+
+
+Additional to this, the user can easily narrow down the search by using queries:
+- Year (Release year)
+- Country of origin
+- Genre
+
+The API returns 10 results on each fetch, but the user can easily obtan more by using the page query. By adding a page-number the user can display as many pages as possible on the results obtained.
+
+The front end part of this project displays an easily navigatalble site divided in to:
+movies / tv-series 
+   -> categories (country, genre)
+       -> single category (for example "romantic")
+            -> a specific title
+
+
+### Tech & Tools
+
+Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components
+Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Overflow, Slack
+
+
 ## View it live 
-https://netflix-api-express.netlify.app
+api live-site: 
+front-end live-site: https://netflix-api-express.netlify.app
+
+
+
+
+
 
 ## API Documentation
 
