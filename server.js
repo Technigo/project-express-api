@@ -1,4 +1,4 @@
-import express, { request } from 'express'
+import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
@@ -26,7 +26,7 @@ app.get('/genre/:genre', (req, res) => {
   const genreList = topMusicData.filter((item) => item.genre.toLowerCase() === genre.toLowerCase())
   if (genreList.length < 1) {
     res.status(404).send(`No genre suitable: ${genre}`)
-  }
+  } 
   res.json(genreList)
 })
 
@@ -34,11 +34,11 @@ app.get('/genre/:genre', (req, res) => {
 app.get('/artist/', (req, res) => {
   const { artistName } = req.query 
   if (artistName) {
+    // eslint-disable-next-line max-len
     const artistList = topMusicData.filter((item) => item.artistName.toLowerCase().includes(artistName))
     res.json(artistList)
   }
   res.json(topMusicData)
-
 })
 
 // Endpoint to get one song
@@ -46,7 +46,7 @@ app.get('/song/:id', (req, res) => {
   const { id } = req.params
   const title = topMusicData.find((song) => song.id === +id)
   if (!title) {
-    res.status(404).send({error: `No songs with id number: ${id}`})
+    res.status(404).send({ error: `No songs with id number: ${id}` })
   }
   res.json(title)
 })
