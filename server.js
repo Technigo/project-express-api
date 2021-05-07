@@ -1,42 +1,82 @@
 import express, { response } from 'express'
 import cors from 'cors'
-// import listEndpoints from 'express-list-endpoints'
 
-import booksData from './data/books.json'
-
-
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
 import topMusicData from './data/top-music.json'
+
+const ERROR_MESSAGE_SONG = {error:'No song fund, try an other title.'}
 
 const port = process.env.PORT || 8080
 const app = express()
 
-//all songs endpoint http://localhost:8080/music
+app.use(cors())
+app.use(express.json());
+
 app.get('/', (req, res) => {
-  const { song } = req.query
+  res.json('🖤 Music endpoint starts here! 🖤')
+})
+
+// //all songs endpoint http://localhost:8080/music
+// app.get('/music', (req, res) => {
+//   const { song } = req.query
+//   if (song) {
+//     const musicList = topMusicData.filter(song => song.trackName.includes(song))
+//     res.json(musicList)
+//   } 
+//   res.json(topMusicData)
+// })
+
+app.get('/music', (req, res) => {
+
+  const { song, artist } = req.query
+
   if (song) {
-    const musicList = topMusicData.filter(song => song.trackName.includes(song))
-    res.json(musicList)
-  }
-  res.json(topMusicData)
+    const songByTitle = topMusicData.filter(item => item.trackName.includes(song))
+    if (songByTitle.length === 0){
+      res.status(404).json(ERROR_MESSAGE_SONG)
+    } else {
+      res.json(songByTitle)
+    }
+  } else if (artist){
+    const artistName = topMusicData.filter((item) => {
+    return item.artistName.toLowerCase().indexOf(item.toLowerCase()) !== -1;
 })
-
-
-
-app.get('/music/allgenres', (req, res) => {
-  const { song } = req.query
-  if (genre) {
-    const allSongs = topMusicData.filter((item)=> item.genre.includes(song))
-    res.json(allSongs)
-    const allGenresArray = allSongs.slice('genre')
+    res.json({ data: artistName });
+  } else {
+    res.json(topMusicData)
   }
-  res.json(allGenresArray)
-})
   
+})
+
+
+// //http://localhost:8080/music/artists/j
+// // Get all songs from an Artist No mather if its capital letters or full name, you get all songs fom artists with the same name.
+// app.get('/music/artists/:artist', (req, res) => {
+//   const { artist } = req.params
+//   const artistName = topMusicData.filter((song) => {
+//     return song.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1;
+// })
+// res.json({ data: artistName });
+// });
+
+
+
+
+  
+//dictionaryn of all kinds music genres
+//v1- path param
+app.get('/music/allgenres', (req, res) => {
+  const genresDuplicated = topMusicData.map(item => item.genre);
+
+  let genresUnique = [];
+  genresDuplicated.forEach(item => {
+    if (!genresUnique.includes(item)){
+      genresUnique.push(item);
+    }
+  });
+  res.json({ data:genresUnique})
+});
+
+
 
 //Sorted The 20 most popular songs, hight to low,
 app.get('/music/popularity/best-20', (req, res) => {
@@ -90,6 +130,8 @@ app.get('/music/energy/:energy', (req, res) => {
   const song = topMusicData.filter((song) => song.energy === +energy)
   res.json(song)
 })
+
+
 
 
 // Start the server
