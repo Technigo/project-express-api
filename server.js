@@ -47,7 +47,7 @@ app.get('/title/:title', (req, res) => {
 })
 
 app.get('/toplist/:nrOfBooks', (req, res) => {
-  const nrOfBooks = req.params
+  const {nrOfBooks} = req.params
   const ratedBooks = [...booksData];
   ratedBooks.sort((a, b) => b.average_rating - a.average_rating)
   const topList = ratedBooks.slice(0, nrOfBooks);
