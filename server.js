@@ -26,13 +26,13 @@ app.use(bodyParser.json())
 
 const notFound = {
   code: 404,
-  message: "Not Found",
+  error: "Not Found",
   description: "This resource does not exist."
 }
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Available endpoints: /books (query params: title, author), /books/{bookID}, /highestRated (query params: minRatingCount), /top50')
 })
 
 // endpoint for all books
@@ -56,9 +56,9 @@ app.get("/books", (req, res) => {
   if (books.length === 0) {
     // displays 404 error message if author or title search has no results
     res.status(404).json(notFound)
+  } else {
+    res.json(books)
   }
-
-  res.json(books)
 })
 
 // endpoint for one book by id
@@ -69,9 +69,9 @@ app.get("/books/:id", (req, res) => {
   if (!bookById) {
     // displays 404 error message if id has no match
     res.status(404).json(notFound)
+  } else {
+    res.json({ data: bookById })
   }
-
-  res.json(bookById)
 })
 
 // endpoint for highest rated books
@@ -99,6 +99,7 @@ app.get("/top50", (req, res) => {
 
   // takes first 50
   const top50 = highestRatedBooks.slice(0, 50)
+
   res.json(top50)
 })
 
