@@ -16,7 +16,9 @@ click around and see what it's all about.
 
 ## Documentation
 
-<!doctype html>
+
+
+  <!doctype html>
 <html>
   <head>
     <title>Netflix test API</title>
@@ -26,8 +28,7 @@ click around and see what it's all about.
       	font-size: 15px;
       	color: #444;
       	margin-right: 24px;
-      }
-      
+      } 
       h1	{
       	font-size: 25px;
       }
@@ -44,7 +45,6 @@ click around and see what it's all about.
       	color: #ddd;
       	background-color: #ddd;
       }
-      
       .app-desc {
         clear: both;
         margin-left: 20px;
@@ -55,135 +55,107 @@ click around and see what it's all about.
       .license-info {
         margin-left: 20px;
       }
-      
       .license-url {
         margin-left: 20px;
       }
-      
       .model {
         margin: 0 0 0px 20px;
       }
-      
       .method {
         margin-left: 20px;
       }
-      
       .method-notes	{
       	margin: 10px 0 20px 0;
       	font-size: 90%;
       	color: #555;
       }
-      
       pre {
         padding: 10px;
         margin-bottom: 2px;
       }
-      
       .http-method {
        text-transform: uppercase;
       }
-      
       pre.get {
         background-color: #0f6ab4;
       }
-      
       pre.post {
         background-color: #10a54a;
       }
-      
       pre.put {
         background-color: #c5862b;
       }
-      
       pre.delete {
         background-color: #a41e22;
       }
-      
       .huge	{
       	color: #fff;
       }
-      
       pre.example {
         background-color: #f3f3f3;
         padding: 10px;
         border: 1px solid #ddd;
       }
-      
       code {
         white-space: pre;
       }
-      
       .nickname {
         font-weight: bold;
       }
-      
       .method-path {
         font-size: 1.5em;
         background-color: #0f6ab4;
       }
-      
       .up {
         float:right;
       }
-      
       .parameter {
         width: 500px;
       }
-      
       .param {
         width: 500px;
         padding: 10px 0 0 20px;
         font-weight: bold;
       }
-      
       .param-desc {
         width: 700px;
         padding: 0 0 0 20px;
         color: #777;
       }
-      
       .param-type {
         font-style: italic;
       }
-      
       .param-enum-header {
       width: 700px;
       padding: 0 0 0 60px;
       color: #777;
       font-weight: bold;
       }
-      
       .param-enum {
       width: 700px;
       padding: 0 0 0 80px;
       color: #777;
       font-style: italic;
       }
-      
       .field-label {
         padding: 0;
         margin: 0;
         clear: both;
       }
-      
       .field-items	{
       	padding: 0 0 15px 0;
       	margin-bottom: 15px;
       }
-      
       .return-type {
         clear: both;
         padding-bottom: 10px;
       }
-      
       .param-header {
         font-weight: bold;
       }
-      
       .method-tags {
         text-align: right;
       }
-      
       .method-tag {
         background: none repeat scroll 0% 0% #24A600;
         border-radius: 3px;
@@ -194,7 +166,7 @@ click around and see what it's all about.
         text-decoration: none;
       }
     </style>
-  </head>
+    </head>
   <body>
   <h1>Netflix test API</h1>
     <div class="app-desc">An API that let's the user search for movies and tv-shows at the time uploaded on Netflix</div>
@@ -251,32 +223,18 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /movies</code></pre></div>
     <div class="method-summary"> (<span class="nickname">moviesGet</span>)</div>
     <div class="method-notes">Obtain all objects with the type &amp;quot;Movie&amp;quot;. Returns 10 per page.</div>
-
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-      
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -306,14 +264,12 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -327,32 +283,18 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
     <div class="method-summary"> (<span class="nickname">rootGet</span>)</div>
     <div class="method-notes">Obtain all the available data. Returns 10 per page.</div>
-
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-      
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -382,18 +324,16 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
-        
+    
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllRecentlyAddedMovies">AllRecentlyAddedMovies</a></h1>
@@ -403,37 +343,22 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /movies/recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">moviesRecentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data of the type &amp;quot;Movie&amp;quot;. Returns 10 per page and max 50 in total.</div>
-
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-      
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#media">media</a>]
-      
+      array[<a href="#media">media</a>] 
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -463,18 +388,15 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data    
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllRecentlyAddedNetflixData">AllRecentlyAddedNetflixData</a></h1>
@@ -484,37 +406,22 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">recentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data. Returns 10 per page and max 50 in total.</div>
-
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-      
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-      
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -544,18 +451,15 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data    
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllRecentlyAddedTVShows">AllRecentlyAddedTVShows</a></h1>
@@ -565,37 +469,22 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /tvshows/recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">tvshowsRecentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data of the type &amp;quot;TV Show&amp;quot;. Returns 10 per page and max 50 in total.</div>
-
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-      
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#media">media</a>]
-      
+      array[<a href="#media">media</a>]  
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -625,18 +514,15 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data     
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllTVShows">AllTVShows</a></h1>
@@ -646,32 +532,18 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /tvshows</code></pre></div>
     <div class="method-summary"> (<span class="nickname">tvshowsGet</span>)</div>
     <div class="method-notes">Obtain all objects with the type &amp;quot;TV Show&amp;quot;. Returns 10 per page.</div>
-
-
-
-
-
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-      
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#media">media</a>]
-      
+      array[<a href="#media">media</a>] 
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -701,18 +573,15 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data    
   </div> <!-- method -->
   <hr/>
   <h1><a name="ObjectById">ObjectById</a></h1>
@@ -722,26 +591,15 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /id/{show_id}</code></pre></div>
     <div class="method-summary"> (<span class="nickname">idShowIdGet</span>)</div>
     <div class="method-notes">Returns a Movie or TV Show that matches a specific id.</div>
-
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">show_id (required)</div>
-      
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of Movie or TV show </div>    </div>  <!-- field-items -->
-
-
-
-
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-      
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -771,18 +629,15 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data    
   </div> <!-- method -->
   <hr/>
   <h1><a name="ObjectByTitleName">ObjectByTitleName</a></h1>
@@ -792,26 +647,15 @@ click around and see what it's all about.
     <pre class="get"><code class="huge"><span class="http-method">get</span> /title/{title}</code></pre></div>
     <div class="method-summary"> (<span class="nickname">titleTitleGet</span>)</div>
     <div class="method-notes">Returns a Movie or TV Show that includes the specified title. Should be written without spaces.</div>
-
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">title (required)</div>
-      
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Title of Movie or TV show </div>    </div>  <!-- field-items -->
-
-
-
-
-
-
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#media">media</a>]
-      
+      array[<a href="#media">media</a>] 
     </div>
-
     <!--Todo: process Response Object and its headers, schema, examples -->
-
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -841,24 +685,19 @@ click around and see what it's all about.
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
-
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
-
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data
-        
+    Successfull pull of netflix data   
   </div> <!-- method -->
   <hr/>
-
   <h2><a name="__Models">Models</a></h2>
   [ Jump to <a href="#__Methods">Methods</a> ]
-
   <h3>Table of Contents</h3>
   <ol>
     <li><a href="#media"><code>media</code></a></li>
@@ -895,7 +734,7 @@ click around and see what it's all about.
     </div>  <!-- field-items -->
   </div>
   </body>
-</html>
+  </html>
 
 
 #### Endpoints/parameters
