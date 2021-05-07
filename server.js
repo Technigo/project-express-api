@@ -1,4 +1,4 @@
-import express, { response } from 'express'
+import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
@@ -18,15 +18,15 @@ app.get('/', (request, response) => {
   response.send(listEndpoints(app))
 })
 // Route for movie title 
-app.get('/movies/:title', (request, response) => {
-  const title = request.params
-  if (title) {
-    const filteredMovies = movies.filter(movie => movie.title.toLowerCase.toString().includes(title))
-    response.json(filteredMovies)
-  } else {
-    response.json(movies)
-  }
-}) 
+// app.get('/movies/:title', (request, response) => {
+//   const title = request.params
+//   if (title) {
+//     const filteredMovies = movies.filter(movie => movie.title.toLowerCase.toString().includes(title))
+//     response.json(filteredMovies)
+//   } else {
+//     response.json(movies)
+//   }
+// }) 
   // const queriedMovie= movies.find(movie => movie.show_id === +id)
   // if (queriedMovie){
   //   response.json({ data: queriedMovie })
@@ -35,31 +35,39 @@ app.get('/movies/:title', (request, response) => {
   // }
   // console.log(request.params)
 
-// Route for movie id
-app.get('/movies/:id', (request, response) => {
-  const { id } = request.params.id
-  const filteredMovies = movies.find(movie => movie.show_id === +id)
-  filteredMovies ? response.json(movie) : response.status(404).send(`There is no movie "${id}" in the system`)
+  //return all movies 
+  app.get('/movies', (request, response) => {
+    response.json(movies)
+  })
+ //return one single movie based on known ID
+  app.get('/id/:id', (request, response) => {
+    const { id } = request.params //why in curly Bs?
+    const filteredMovies = movies
+      .find(movie => movie.id === +id
+    )
+    response.json(filteredMovies)
+  })
+// Return movie based on year of release
+app.get('/year/:year', (request, response) => {
+  const year = request.params.year
+  const releaseYear = movies.filter(
+    item => item.release_year === +year
+  )
+  releaseYear.length !== 0
+    ?  
+      response.json({ length: releaseYear.length, data: releaseYear}) 
+    :  
+      response.send({ length: releaseYear.length, data: releaseYear})
 })
 
-// app.get('/movies/:director', (request, response) => {
-//   const director = request.params.director
-//   if (director) {
-//     const filteredMovies = movies.filter(director => movie.director.toLowerCase.toString().includes(director))
-//     response.json(filteredMovies)
-//   } else {
-//     response.json(movies)
-//   }
-// })
+  app.get('/title/:title', (request, response) => {
+    const title = request.params.title
+    const movieTitle = request.query.title 
+    let filteredMovieTitles = movies.filter((movie) => movie.title === title.includes(title))
+    response.json(filteredMovieTitles)
+  })
+  
 
-app.get('./movies/:release_year', (request, response) => {
-  const releaseYear = reuqest.params.release_year
-  let fromReleaseYear = movies.filter((year) => year.release_year === +year)
-  releaseYear ? response.json(year) : response.status(404).send(`There are no movies released in year "${year}" found`)
-  response.json(fromReleaseYear)
-})
-
-//release_year
 
 // Start the server
 app.listen(port, () => {
