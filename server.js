@@ -1,17 +1,10 @@
 import express from "express";
+import cors from "cors";
 import goldenGlobesData from "./data/golden-globes.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "localhost:3000"); // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+app.use(cors());
 
 app.get("/", (request, response) => {
   const dataLength = String(goldenGlobesData.length);
