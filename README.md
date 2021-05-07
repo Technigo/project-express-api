@@ -1,13 +1,23 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I have created an API with Express, that has several RESTful endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+My API uses a hardcoded JSON file that contains Netflix data. I have then constructed the following endpoints:
+
+- Query route for filtering on title, director and year released.
+
+- Route for accessing a single movie or TV serie, by title. Returns an object.
+
+- Route that returns all movies and TV series from a certain country, in an array.
+
+- Route that filters out all movies, in an array.
+
+- Route that filters out all TV series, in an array.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://netflix-titles.herokuapp.com/
+
