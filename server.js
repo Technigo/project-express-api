@@ -24,22 +24,19 @@ app.get('/', (req, res) => {
 app.get('/shows', (req, res) => {
   const { year, country } = req.query
 
-  if (year && country) {
-    const filteredShows = data.filter((show) => show.release_year === +year && show.country === country)
-    res.json(filteredShows)
-  }
+  let showsToSend = data
 
   if (year) {
-    const showsFromYear = data.filter((show) => show.release_year === +year)
-    res.json(showsFromYear)
+    showsToSend = showsToSend.filter((show) => show.release_year === +year)
+    res.json(showsToSend)
   }
 
   if (country) {
-    const showsFromCountry = data.filter((show) => show.country === country)
-    res.json(showsFromCountry)
+    showsToSend = showsToSend.filter((show) => show.country === country)
+    res.json(showsToSend)
   }
 
-  res.json(data)
+  res.json(showsToSend)
 })
 
 // endpoint to generate a random show from entire data set
