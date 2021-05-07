@@ -1,8 +1,8 @@
-# project-express-api
+# Project-brief
 
 In this project an API is built from a local JSON file and used in a simple React/Redux front end app.
 
-# Project
+# Project description
 
 The user can filter this Netflix data in many different ways. With parameters there are 8 different endpoints: 
 - All data
@@ -32,7 +32,7 @@ movies / tv-series
 
 ### Tech & Tools
 
-Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components
+Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components </br>
 Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Overflow, Slack
 
 
@@ -41,7 +41,7 @@ api live-site:
 front-end live-site: https://netflix-api-express.netlify.app
 
 
-
+<hr>
 
 
 
