@@ -1,14 +1,16 @@
 import express from "express"
 import cors from 'cors'
-import bodyParser from 'body-parser'
+
 import booksData from './data/books.json'
+
+import listEndpoints from 'express-list-endpoints'
 
 const port = process.env.PORT || 8080
 const app = express()
 
 //adding middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 //error messages
 
@@ -20,8 +22,9 @@ const notFound = {
 
 //start defining routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
+
 
 //endpoint to get all books
 app.get('/books', (request, response) => {
@@ -30,12 +33,12 @@ app.get('/books', (request, response) => {
   let books = booksData.sort((a, b) => a.bookID - b.bookID)
 
   if (author) {
-    books= books.filter((book) => book.authors.toLowerCase().includes(author)) //checks by author
+    books = books.filter((book) => book.authors.toLowerCase().includes(author)) //checks per author
   }
 
   if (bookTitle) {
     books = books.filter((book) => typeof book.title === "string") //checks if book title is a string
-    books= books.filter((book) => book.title.toLowerCase().includes(bookTitle)) //
+    books = books.filter((book) => book.title.toLowerCase().includes(bookTitle)) //
   }
 
   if (books.length === 0) {
