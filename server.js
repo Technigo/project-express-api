@@ -4,13 +4,6 @@ import listEndpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
@@ -31,12 +24,7 @@ app.get('/', (req, res) => {
 app.get('/books', (req, res) => {
   const { author, title } = req.query
   let booksList = booksData 
-  // book.authors.includes(author))
-
-  // const booksList = booksData.filter(book => {
-  //   return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
-  // })
-
+  
   if (author) {
     booksList = booksList
       .filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
@@ -44,21 +32,12 @@ app.get('/books', (req, res) => {
 
   if (title) {
     booksList = booksList
-      .filter(book => book.titles.toLowerCase().includes(title.toLowerCase()))
+      .filter(book => book.title.toLowerCase().includes(title.toLowerCase()))
   }
 
   res.json({ length: booksList.length, data: booksList })
 })
 
-
-// app.get('/books', (req, res) => {
-//   const { title } = req.query
-//   if (title) {
-//     const booksTitleList = booksData.filter(book => book.title.includes(title))
-//     res.json(booksTitleList)
-//   }
-//   res.json(booksData)
-// })
 
 // Endpoint to get one book.
 app.get('/books/:id', (req, res) => {
