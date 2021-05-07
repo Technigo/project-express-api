@@ -32,7 +32,7 @@ movies / tv-series
 
 ### Tech & Tools
 
-Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components </br>
+Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components <br>
 Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Overflow, Slack
 
 
@@ -40,8 +40,11 @@ Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Ove
 api live-site: 
 front-end live-site: https://netflix-api-express.netlify.app
 
-
+<br>
+<br>
 <hr>
+<br>
+<br>
 
 
 
