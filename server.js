@@ -13,7 +13,7 @@ app.use(express.json());
 
 // dummy endpoint
 app.get('/', (req, res) => {
-  res.json('🖤 Music endpoint starts here! 🖤, List of all traks with info: /music. List of all music genres: /music/allgenres. Get all songs from an Artist no matter spelling: /music/artists/:artist(add name). Get all songs from a genre /music/genre/pop (or rock or something else). All songs with same energy: /music/energy/ and a number. Sorted The 20 least popular songs, low to high: /music/popularity/lowest-20. Sorted The 20 most popular songs, hight to low; /music/popularity/best-20. ' )
+  res.json('🖤 Music endpoint starts here! 🖤, List of all traks with info: /music. List of all music genres: /music/allgenres. All songs by one artist or a song by title:music/info?title=(songs title) or music/info?artist=U(name of artist) Get all songs from an Artist no matter spelling: /music/artists/:artist(add name). Get all songs from a genre /music/genre/pop (or rock or something else). All songs with same energy: /music/energy/ and a number. Sorted The 20 least popular songs, low to high: /music/popularity/lowest-20. Sorted The 20 most popular songs, hight to low; /music/popularity/best-20. ' )
 })
 
 //all songs endpoint http://localhost:8080/music
