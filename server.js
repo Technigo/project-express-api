@@ -50,10 +50,15 @@ app.get('/toplist/:nrOfBooks', (req, res) => {
   const nrOfBooks = req.params
   const ratedBooks = [...booksData];
   ratedBooks.sort((a, b) => b.average_rating - a.average_rating)
-  const toplist = ratedBooks.slice(0, nrOfBooks);
-  res.json(toplist)
+  const topList = ratedBooks.slice(0, nrOfBooks);
+  res.json(topList)
 })
 
+app.get('/language/', (request, response) => {
+  const { lang } = request.query;
+  const filteredLanguage = booksData.filter((book) => book.language_code === lang);
+  response.json(filteredLanguage);
+})
 
 // Start the server
 app.listen(port, () => {
