@@ -87,16 +87,7 @@ app.get('/id/:id', (req, res) => {
   }
 });
 
-// endpoint to filter on author, ska jag ha kvar den?? Behövs fixas isf
-// need to put includes here... precis som i guery?
-app.get('/author/:author', (req, res) => {
-  const { author } = req.params;
-  const books = booksData.filter((book) => book.authors === author)
-  res.json(books)
-});
-
 // endpoint to filter on language
-// ska jaag ha lang/lang eller books/lang
 app.get('/lang/:lang', (req, res) => {
   const { lang } = req.params
   const books = booksData.filter((book) => book.language_code === lang)
