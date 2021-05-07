@@ -1,12 +1,12 @@
 [
     {
-      "exerciseID": 1,
-      "name": "back squat",
-      "category": "multi-joint exercise",
-      "muscle_group": "lower body pushing muscles",
-      "target_muscle": "gluteus maximus, rectus femoris",
-      "instructions": "pidä keskivartalo tiukkana, kantapäät pysyvät maassa, linjaa polvet kakkosvarpaan päälle, liike lähtee lonkan koukistuksella, kyykkää jalkojen väliin",
-      "img": "Lorem ipsum dolor sit amet."
+        "exerciseID": 1,
+        "name": "back squat",
+        "category": "multi-joint exercise",
+        "muscle_group": "lower body pushing muscles",
+        "target_muscle": "gluteus maximus, rectus femoris",
+        "instructions": "pidä keskivartalo tiukkana, kantapäät pysyvät maassa, linjaa polvet kakkosvarpaan päälle, liike lähtee lonkan koukistuksella, kyykkää jalkojen väliin",
+        "img": "Lorem ipsum dolor sit amet."
     },
     {
         "exerciseID": 2,

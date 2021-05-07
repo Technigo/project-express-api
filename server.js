@@ -22,65 +22,55 @@ app.get('/exercises', (req, res) => {
 })
 
 // Endpoint to get a exercise by id
-app.get('/exercises/:id', (req, res) => {
+app.get('/exercises/id/:id', (req, res) => {
   const { id } = req.params
-  const queriedExercise = exercisesData.find(
+  const singleExercise = exercisesData.find(
     (exercise) => exercise.exerciseID === +id
   )
-  if (queriedExercise) {
-    res.json({ data: queriedExercise })
+  if (singleExercise) {
+    res.json({ data: singleExercise })
   } else {
     res.status(404).send({ error: `No exercise with id ${id}!` })
   }
 })
 
-// Lists exercises by exercise name
-app.get('/name/:name', (req, res) => {
+// Endpoint to get a exercise by exercise name
+app.get('/exercises/name/:name', (req, res) => {
   const { name } = req.params
-  const queriedExerciseNames = exercisesData.filter(
+  const exerciseNames = exercisesData.find(
     (exercise) => exercise.name === name.toLowerCase()
   )
-  if (queriedExerciseNames.length > 0) {
-    res.status(200).json({ data: queriedExerciseNames })
+  if (exerciseNames) {
+    res.status(200).json({ data: exerciseNames })
   } else {
-    res
-      .status(404)
-      .send({ error: `No exercise with name: ${name}!` })
+    res.status(404).send({ error: `No exercise with name: ${name}!` })
   }
 })
 
 // Endpoint for all multi-joint exercises
-app.get('/category/multi_joint', (req, res) => {
+app.get('/exercises/category/multi_joint', (req, res) => {
   const multiJointExercise = exercisesData.filter(
     (exercise) => exercise.category === 'multi-joint exercise'
   )
-  if (multiJointExercise) {
-    res.status(200).json({ data: multiJointExercise })
-  } else {
-    res.status(404).json({ error: 'Not found' })
-  }
+  res.status(200).json({ data: multiJointExercise })
 })
 
 // Endpoint for all single-joint exercises
-app.get('/category/single_joint', (req, res) => {
+app.get('/exercises/category/single_joint', (req, res) => {
   const singleJointExercise = exercisesData.filter(
     (exercise) => exercise.category === 'single-joint exercise'
   )
-  if (singleJointExercise) {
-    res.status(200).json({ data: singleJointExercise })
-  } else {
-    res.status(404).json({ error: 'Not found' })
-  }
+  res.status(200).json({ data: singleJointExercise })
 })
 
 // Lists exercises by target muscle
-app.get('/target_muscle/:muscles', (req, res) => {
+app.get('/exercises/target_muscle/:muscles', (req, res) => {
   const { muscles } = req.params
-  const queriedTargedMuscles = exercisesData.filter(
+  const targedMuscles = exercisesData.filter(
     (muscle) => muscle.target_muscle === muscles.toLowerCase()
   )
-  if (queriedTargedMuscles.length > 0) {
-    res.json({ data: queriedTargedMuscles })
+  if (targedMuscles.length > 0) {
+    res.json({ data: targedMuscles })
   } else {
     res
       .status(404)
