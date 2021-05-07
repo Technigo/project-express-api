@@ -5,7 +5,7 @@ import listEndpoints from 'express-list-endpoints'
 
 import topMusicData from './data/top-music.json'
 
-//   PORT=9000 npm start
+//   PORT=8080 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -24,7 +24,7 @@ app.get('/songs', (req, res) => {
 app.get('/genre/:genre', (req, res) => {
   const { genre } = req.params 
   const genreList = topMusicData.filter((item) => item.genre.toLowerCase() === genre.toLowerCase())
-  if (!genreList) {
+  if (genreList.length < 1) {
     res.status(404).send(`No genre suitable: ${genre}`)
   }
   res.json(genreList)
