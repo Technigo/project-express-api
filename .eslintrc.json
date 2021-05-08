@@ -22,6 +22,7 @@
     }
   },
   "rules": {
+    "linebreak-style": ["error", "windows"]
     "quotes": "off",
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
