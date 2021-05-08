@@ -83,12 +83,7 @@ app.get('/movies/:movieId', (req, res) => {
 })
 
 app.get('/TV-shows', (req, res) => {
-  const { year } = req.query
-  const { cast } = req.query
-  const { director } = req.query
-  const { country } = req.query
-  const { yearAfter } = req.query
-  const { yearBefore } = req.query
+  const { year, cast, director, country, yearAfter, yearBefore } = req.query
 
   let filteredTVShows = tvShows
 
