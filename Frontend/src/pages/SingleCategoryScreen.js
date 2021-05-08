@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import netflix, { generateCategories } from '../reducers/netflix';
 import { CardList } from '../components/CardList';
 import { SubHeader } from '../components/SubHeader';
+import { NavButton } from '../components/NavButton'
 import genreArray from '../data/genreArray.json';
 import countryArray from '../data/countryArray.json';
 
@@ -34,35 +35,58 @@ const ItemLink = styled(Link)`
   cursor: pointer;
 `;
 
+const Error = styled.div`
+display: flex;
+width: 100%;
+justify-content: center;
+`
+const ErrorText = styled.h1`
+color: white;`
+
 export const SingleCategoryScreen = () => {
   const dispatch = useDispatch();
-  const filters = useSelector((store) => store.netflix.filters);
-  const items = useSelector((store) => store.netflix.items)
+  const { media, page, singleCategory } = useSelector(
+    (store) => store.netflix.filters
+  );
+  const items = useSelector((store) => store.netflix.items);
+  const error = useSelector((store) => store.netflix.error);
   const { category } = useParams();
-  const title = filters.singleCategory
 
+  console.log(category);
   useEffect(() => {
     dispatch(netflix.actions.setCategory(category));
     dispatch(generateCategories());
-  }, [category, dispatch]);
+  }, [category, dispatch, page]);
 
   return (
     <Section>
-      <SubHeader title={title} />
-      <Grid>
-        {items.map((item, i) => (
-          <ItemLink key={i} to={`/title/${item.title}`}>
-            <CardList
-              {...item}
-              i={i}
-              color={
-                category === 'genre'
-                  ? genreArray[genreArray.findIndex((arr) => arr.name === title)].color
-                  : countryArray[countryArray.findIndex((arr) => arr.name === title)].color
-              } />
-          </ItemLink>
-        ))}
-      </Grid>
+      <SubHeader title={singleCategory} />
+      {error !== '' ? (
+        <Error> <ErrorText> No more objects found 😔 </ErrorText></Error>
+      ) : (
+        <>
+          <Link
+            to={`/type/${media}/${category}/${singleCategory}/page/${page + 1}`}>
+            <NavButton
+              content="Next Page >"
+              handleClick={() => dispatch(netflix.actions.setPage(page + 1))} />
+          </Link>
+          <Grid>
+            {items.map((item, i) => (
+              <ItemLink key={i} to={`/title/${item.title}`}>
+                <CardList
+                  {...item}
+                  i={i}
+                  color={
+                    category === 'genre'
+                      ? genreArray[genreArray.findIndex((arr) => arr.name === singleCategory)].color
+                      : countryArray[countryArray.findIndex((arr) => arr.name === singleCategory)].color
+                  } />
+              </ItemLink>
+            ))}
+          </Grid>
+        </>
+      )}
     </Section>
   );
 };

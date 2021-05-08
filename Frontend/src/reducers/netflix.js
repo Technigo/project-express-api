@@ -10,7 +10,8 @@ const netflix = createSlice({
       singleCategory: null,
       media: null,
       page: 0
-    }
+    },
+    error: ''
   },
   reducers: {
     setItemList: (store, action) => {
@@ -36,16 +37,12 @@ const netflix = createSlice({
       store.filters = newFilter;
     },
     setPage: (store, action) => {
-      let newPage;
-      if (action.payload === 'add') {
-        newPage = store.filters.page + 1;
-      } else {
-        // eslint-disable-next-line no-unused-expressions
-        store.filters.page !== 0
-          ? (newPage = store.filters.page - 1)
-          : (newPage = store.filters.page);
-      }
+      const newPage = action.payload;
       store.filters.page = newPage;
+    },
+    setError: (store, action) => {
+      const newError = action.payload;
+      store.error = newError;
     }
   }
 });
@@ -53,7 +50,7 @@ const netflix = createSlice({
 export const generateSingleItem = (title) => {
   return (dispatch) => {
     console.log(title)
-    fetch(`https://netflix-data.herokuapp.com/title/${title}`)
+    fetch(`https://netflix-api-data.herokuapp.com/title/${title}`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -67,11 +64,10 @@ export const generateSingleItem = (title) => {
 export const generateCategories = () => {
   let url = '';
   return (dispatch, getState) => {
-    const { media } = getState().netflix.filters;
-    const { category } = getState().netflix.filters;
-    const { singleCategory } = getState().netflix.filters;
+    dispatch(netflix.actions.setError(''));
+    const { media, category, singleCategory, page } = getState().netflix.filters;
 
-    url = `https://netflix-data.herokuapp.com/${media}?${category}=${singleCategory}`;
+    url = `https://netflix-api-data.herokuapp.com/${media}?${category}=${singleCategory}&page=${page}`;
 
     fetch(url)
       .then((response) => {
@@ -81,7 +77,7 @@ export const generateCategories = () => {
         return response.json();
       })
       .then((data) => dispatch(netflix.actions.setItemList(data)))
-      .catch((error) => alert(`Ops, error: ${error}`));
+      .catch((error) => dispatch(netflix.actions.setError(error)));
   };
 };
 

@@ -16,10 +16,10 @@ export const Routing = () => {
         </Route>
         <Route path="/title/:title" exact component={DetailScreen} />
         <Route
-          path="/type/:type/:category/:singleCategory"
+          path="/type/:type/:category/:singleCategory/page/:page"
           exact
           component={SingleCategoryScreen} />
-        <Route path="/type/:type" exakt component={CategoryListScreen} />
+        <Route path="/type/:type" exact component={CategoryListScreen} />
       </Switch>
     </Router>
   );
