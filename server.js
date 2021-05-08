@@ -27,7 +27,6 @@ app.get('/', (req,res) => {
   res.send(listEndpoints(app))
 })
 
-
 // Start defining your routes here
 app.get('/books', (req, res) => {
 
@@ -37,7 +36,7 @@ app.get('/books', (req, res) => {
     return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
   })
 
-  res.json(queriedBooks) 
+  res.json( { data: queriedBooks} ) 
 }) 
 
 // Endpoint to get one book
