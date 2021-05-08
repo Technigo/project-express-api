@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,20 +9,11 @@ import { generateSingleItem } from '../reducers/netflix';
 export const DetailScreen = () => {
     const title = useParams();
     const dispatch = useDispatch()
-    const item =useSelector(store => store.netflix.currentItem)
-
-    const onSingleItem = useCallback(() => {
-      dispatch(generateSingleItem(title.title.toString().toLowerCase().replace(" ", "")));
-     return console.log("done")
-    }, [dispatch, title])
+    const item = useSelector(store => store.netflix.currentItem)
 
     useEffect(() => {
-      onSingleItem()
-      return console.log("work")
-      }, [onSingleItem]);
+      dispatch(generateSingleItem(title.title))
+      }, [dispatch, title]);
 
-
-  console.log(item.cast)
-    
     return <Card {...item} />
 }
