@@ -1,6 +1,7 @@
-import express, { response } from 'express'
+import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+/* import listEndPoints from 'express-list-endpoints' */
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -24,18 +25,22 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/books', (request, response) => {
+  const { author } = request.query
+  if (author) {
+    const authorList = booksData.filter(item => item.authors.includes(author))
+    response.json(authorList)
+  }
   response.json(booksData)
 }) 
 
-/* app.get('/movies', (request, response) => {
-  response.json(netflixData)
-}) */
-
 // Endpoint to get one book
 app.get('/books/:id', (request, response) => { 
-  console.log(request.params.id) 
+  console.log(request.params)
   const { id } = request.params
-const book = booksData.find(book => book.bookID === +id)
+  const book = booksData.find(book => book.bookID === +id)
+  if (!book) {
+    response.status(404).send(`Sorry, we couldn´t find the book with id: ${id}!`)
+  }
 response.json(book)
 }) 
 
