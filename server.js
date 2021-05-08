@@ -27,27 +27,42 @@ app.get('/', (req,res) => {
   res.send(listEndpoints(app))
 })
 
-// Start defining your routes here
-app.get('/books', (req, res) => {
 
-  const { author } = req.query
-  
+app.get('/books', (req, res) => {
+  res.json({ data: booksData })
+})   
+
+// Endpoint to get all the books
+// Query point to get book by author
+app.get('/books/:author', (req, res) => {
+  // Destructure query params
+  const { author } = req.query;
+
+  // Look for lowercased string from query param inside lowercased string from JSON
   const queriedBooks = booksData.filter(book => {
-    return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
+    return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1;
   })
 
-  res.json( { data: queriedBooks} ) 
-}) 
+  // Return data
+  res.json(queriedBooks);
+});
+
 
 // Endpoint to get one book
 app.get('/books/:id', (req, res) => { 
-  console.log(req.params)
+//Destructuring path params
   const { id } = req.params
-  const book = booksData.find(book => book.bookID === +id)
-  if (!book) {
-    res.status(404).send(`Sorry, we couldn´t find the book with id: ${id}!`)
+
+// Find book with same id as id from path param  
+  const queriedBook = booksData.find(book => book.bookID === +id)
+
+   // Conditionally send different response to client
+   if (queriedBook) {
+    res.status(200).json({ data: queriedBook });
+  } else {
+    res.status(404).json({ error: 'Not found' });
   }
-res.json(book)
+ 
 }) 
 
 // Start the server
