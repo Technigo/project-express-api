@@ -29,8 +29,7 @@ app.get('/movies', (req, res) => {
     res.json(pagesCount)
   } else {
     res.json(netflixData)
-
-
+  }
 }) 
 
 app.get('/movies/:id', (req, res) => {
