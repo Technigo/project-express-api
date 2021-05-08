@@ -22,30 +22,33 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (req,res) =>{
+app.get('/', (req,res) => {
+   // Send list of all endpoints available in API
   res.send(listEndpoints(app))
 })
 
 
 // Start defining your routes here
-app.get('/books', (request, response) => {
-  const { author } = request.query
-  if (author) {
-    const authorList = booksData.filter(item => item.authors.includes(author))
-    response.json(authorList)
-  }
-  response.json(booksData)
+app.get('/books', (req, res) => {
+
+  const { author } = req.query
+  
+  const queriedBooks = booksData.filter(book => {
+    return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
+  })
+
+  res.json(queriedBooks) 
 }) 
 
 // Endpoint to get one book
-app.get('/books/:id', (request, response) => { 
-  console.log(request.params)
-  const { id } = request.params
+app.get('/books/:id', (req, res) => { 
+  console.log(req.params)
+  const { id } = req.params
   const book = booksData.find(book => book.bookID === +id)
   if (!book) {
-    response.status(404).send(`Sorry, we couldn´t find the book with id: ${id}!`)
+    res.status(404).send(`Sorry, we couldn´t find the book with id: ${id}!`)
   }
-response.json(book)
+res.json(book)
 }) 
 
 // Start the server
