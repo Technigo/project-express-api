@@ -1,31 +1,47 @@
-import express from 'express'
-import bodyParser from 'body-parser'
+import express, { query } from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import avocadoSalesData from './data/avocado-sales.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
-
-// Add middlewares to enable cors and json body parsing
+// Add middleware to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// _ acts as a placeholder for req 
+app.get('/', (_, res) => {
+  res.send(listEndpoints(app));
 })
+
+// Endpoint 1: All Data
+app.get('/avo-sales', (_, res) => {
+  res.send(avocadoSalesData);
+})
+
+// Endpoint 2: Avo sales regions
+app.get('/avo-sales/regions', (req, res) => {
+  const reducedRegions = []
+  const regions = avocadoSalesData.map((avocadoSalesData) => { return avocadoSalesData.region })
+  for (const region of regions) {
+    if (!reducedRegions.includes(region)) {
+      reducedRegions.push(region)
+    }
+  }
+  res.send(reducedRegions)
+})
+
+app.get('/avo-sales/id/:id', (req, res) => {
+  const { id } = req.params
+  const avoId = avocadoSalesData.find((item) => item.id === +id)
+  if (avoId) {
+    res.status(200).json({ data: avoId });
+  } else {
+    res.status(404).json({ error: 'Not found' });
+  }
+  res.json(avoId);
+});
 
 // Start the server
 app.listen(port, () => {
