@@ -1,13 +1,24 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was about building an API using Express and was my first introduction to backend.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had problems with adding several queries on top of my api, but managed to solve that by storing my API in a let variable. I then used that variable to filter everytime I added one query. 
+
+Tech & Tools used: 
+- RESTful API 
+- Postman
+- JavaScript
+- Node js
+
+List of Endpoints
+- '/avocado'    = Renders all available data inside our database.
+- '/avocado?id=#'   = Gets you the data with the specific ID that you are searching for.
+- '/avocado?amount=#' = Limits your output to an amount of outputs. 
+- '/avocado?minPrice=#' = Renders all data that has a min price of selected value.
+- '/avocado?maxPrice=#' = Renders all data that is not exceeding our selected maximum price for the product.
 
 ## View it live
+https://fethullah-week17-project-api.herokuapp.com/ 
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
