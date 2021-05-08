@@ -23,27 +23,27 @@ app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const book = booksData.find(book => book.bookID === +bookId)
   if (!book) {
-    response.status(404).json(BOOKS_NOT_FOUND)
+    res.status(404).json(BOOKS_NOT_FOUND)
   }
-  res.json(book)
+    res.json(book)
 })
 
 app.get('/authors/:author', (req, res) => {
   const { author } = req.params
   const byAuthor = booksData.filter(book => book.authors === author)
   if (!byAuthor.length) {
-    response.status(404).json(BOOKS_NOT_FOUND)
+    res.status(404).json(BOOKS_NOT_FOUND)
   }
-  res.json(byAuthor)
+    res.json(byAuthor)
 })
 
 app.get('/title/:title', (req, res) => {
   const { title } = req.params
   const bookTitle = booksData.filter(item => item.title === title)
   if (!bookTitle.length) {
-    response.status(404).json(BOOKS_NOT_FOUND)
+    res.status(404).json(BOOKS_NOT_FOUND)
   }
-  res.json(bookTitle)
+    res.json(bookTitle)
 })
 
 app.get('/toplist/:nrOfBooks', (req, res) => {
@@ -54,6 +54,7 @@ app.get('/toplist/:nrOfBooks', (req, res) => {
   res.json(topList)
 })
 
+// ex language/?lang=spa
 app.get('/language/', (request, response) => {
   const { lang } = request.query;
   const filteredLanguage = booksData.filter((book) => book.language_code === lang);
