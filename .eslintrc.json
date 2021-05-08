@@ -51,7 +51,7 @@
       }
     ],
     "no-alert": "error",
-    "no-console": "error",
+    "no-console": "warn",
     "no-debugger": "error",
     "no-else-return": "off",
     "no-irregular-whitespace": "error",
