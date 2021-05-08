@@ -25,7 +25,7 @@ app.get('/movies', (req, res) => {
   
   if (show) {
     moviesToSend = netflixData
-      .filter((item) => item.type.toString().toLowerCase().includes(show.toLowerCase())) 
+      .filter((item) => item.type.toString().toLowerCase().includes(show) 
   } 
 
   if (page) {
