@@ -119,7 +119,6 @@ app.get('/TV-shows/:showId', (req, res) => {
   if (foundShow) {
     res.status(200).json({ show: foundShow })
   } else {
-    console.log("error")
     res.status(404).json({ status_message: "Not found" })
   }
 })
