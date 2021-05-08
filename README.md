@@ -1,18 +1,15 @@
 # Express API Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was to create an API using Express with the help of an already hard-coded set of data, stored as a JSON file in your project. The API should have at least a couple of RESTful endpoints which return either an array of data, or a single item.
 
 ## The problem
 
-den här veckan kändes som lätt, men det har varit mycket bråk med coden för mig och error i terminalen, men svårast har det varit att förstå hur jag ska skriva routsen och sen komma ihåg hur jag ska skriva dom i sökfältet
-svårt att förstå hur jag skulle skriva i sökfältet, många gånger trodde jag att det var min kod det var fel på när jag egetligen hade skrivit fel i posrtman.
-jag kunde inte få mitt error message att fungera på filtreringen av tunna eller tjocka böcker
+From the beginning this weeks project looked a bit easyer than previous weeks where we worked with react and redux. For me the easy part this week was to understand how to write the code. But I got lost in the the difference between endpoints, routes, params and query and when to use what. And also how to write the paths correct both in the code but also how to write them correct in postman or the browser. This sometimes resulted in me believeing that there where something wrong with my code and I unnecessarily rewrote it...which has been really annoying.
 
-jag har inte förstått skillnaden mellan routs, endpoints och queiry
+I can't say that I yet fully understand it...
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+If I hade more time it would been fun to use my API to also do a frontend.
+Or try to figure out why my error message dosen't work when searching for book over or below 500 pages.
 
 ## View it live
 

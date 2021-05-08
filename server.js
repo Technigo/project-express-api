@@ -26,7 +26,6 @@ app.get('/books', (req, res) => {
 
   let booksToSend = booksData
 
-
   if(author) {
     booksToSend = booksToSend
       .filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
