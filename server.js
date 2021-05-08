@@ -16,23 +16,21 @@ app.get('/', (req, res) => {
 
 app.get('/movies', (req, res) => {
   const { year, show, page } = req.query
-  let moviesToSend = netflixData
-
+  
   if (year) {
-    moviesToSend = netflixData
-      .filter((release) => release.release_year === +year)
-  } 
+    const filterReleaseYear = netflixData.filter((release) => release.release_year === +year)
+    res.json(filterReleaseYear) 
+  } else if (show) {
+    // eslint-disable-next-line max-len
+    const filterShowType = netflixData.filter((item) => item.type.toString().toLowerCase().includes(show)) 
+    res.json(filterShowType) 
+  } else if (page) {
+    const pagesCount = netflixData.slice(0, page)
+    res.json(pagesCount)
+  } else {
+    res.json(netflixData)
 
-  if (show) {
-    moviesToSend = netflixData
-      .filter((item) => item.type.toString().toLowerCase().includes(show)) 
-  } 
 
-  if (page) {
-    moviesToSend = netflixData.slice(0, page)
-  }
-
-  res.json({ length: netflixData.length, data: moviesToSend })
 }) 
 
 app.get('/movies/:id', (req, res) => {
