@@ -32,38 +32,49 @@ app.get('/books', (req, res) => {
   res.json({ data: booksData })
 })   
 
-
 // Query point to get book by author
 app.get('/books/:author', (req, res) => {
   // Destructure query params
-  const { author } = req.query;
+  const { author } = req.query
+  
 
   // Look for lowercased string from query param inside lowercased string from JSON
-  const queriedBooks = booksData.filter(book => {
-    return book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1;
+  const byAuthor = booksData.filter(book => {
+    return book.authors.toLowerCase().includes(author.toLowerCase())
   })
-
+ 
   // Return data
-  res.json({ data: queriedBooks });
+  res.json(byAuthor)
 });
 
 
 // Endpoint to get one book
 app.get('/books/id/:id', (req, res) => { 
-//Destructuring path params
+  
+  // Destructuring path params
   const { id } = req.params
 
-// Find book with same id as id from path param  
+  // Find book with same id as id from path param  
   const queriedBook = booksData.find(book => book.bookID === +id)
 
    // Conditionally send different response to client
-   if (queriedBook) {
-    res.status(200).json({ data: queriedBook });
-  } else {
-    res.status(404).json({ error: 'Not found' });
-  }
- 
-}) 
+    if (queriedBook) {
+      res.status(200).json({ data: queriedBook })
+    } else {
+      res.status(404).json({ error: 'Not found' })
+    } 
+  }) 
+
+ app.get('/books/:title', (req, res) => {
+   const { title } = req.query
+   if (title) {
+     const byTitle = booksData.filter((book) => book.title.toLowerCase().includes(title.toLowerCase()))
+     res.json(byTitle)
+   } else {
+     res.json(booksData)
+   }
+ })
+
 
 // Start the server
 app.listen(port, () => {
