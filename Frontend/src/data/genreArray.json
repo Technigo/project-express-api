@@ -1,0 +1,8 @@
+[
+  { "display": "Romantic", "name": "romantic", "color": "#a7c5eb" },
+  { "display": "Drama", "name": "drama", "color": "#709fb0" },
+  { "display": "Kids", "name": "kids", "color": "#3d84b8" },
+  { "display": "Action", "name": "action", "color": "#413c69" },
+  { "display": "Horror", "name": "horror", "color": "#132c33" },
+  { "display": "Comedy", "name": "comedy", "color": "#4a47a3" }
+]

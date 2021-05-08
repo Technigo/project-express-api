@@ -1,64 +1,190 @@
-# Project-brief
-
-In this project an API is built from a local JSON file and used in a simple React/Redux front end app.
-
-# Project description
-
-The user can filter this Netflix data in many different ways. With parameters there are 8 different endpoints: 
-- All data
-- All Movies
-- All TV Series
-- A specific movie/tv-series by ID
-- A specifi movie/tv-series by Title
-//these parameters gives a max-result of 50 objects (5 pages)):
-- Recent added data 
-- Recent added Movies
-- Recent added TV-series
-
-
-Additional to this, the user can easily narrow down the search by using queries:
-- Year (Release year)
-- Country of origin
-- Genre
-
-The API returns 10 results on each fetch, but the user can easily obtan more by using the page query. By adding a page-number the user can display as many pages as possible on the results obtained.
-
-The front end part of this project displays an easily navigatalble site divided in to:
-movies / tv-series 
-   -> categories (country, genre)
-       -> single category (for example "romantic")
-            -> a specific title
-
-
-### Tech & Tools
-
-Tech: Npm, Nodemon, Babel, node Express, Express Router, React, React Router, Redux, Styled Components <br>
-Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Overflow, Slack
-
-
-## View it live 
-api live-site: 
-front-end live-site: https://netflix-app-api.netlify.app/
-
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-
-
-## API Documentation
-
-<a href="https://app.swaggerhub.com/apis-docs/Pauan86/Netflix-express/1.0.3oas3#/media"> Link to the API documentation on Swagger </a>
-
-<body>
+<!doctype html>
+<html>
+  <head>
+    <title>Netflix test API</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
   <h1>Netflix test API</h1>
     <div class="app-desc">An API that let's the user search for movies and tv-shows at the time uploaded on Netflix</div>
     <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
     <div class="app-desc">Contact Info: <a href="pauline.j.andersson@gmail.com">pauline.j.andersson@gmail.com</a></div>
     <div class="app-desc">Version: 1.0.2-oas3</div>
- <div class="license-info">All rights reserved</div>
+    
+    <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
 
@@ -107,17 +233,32 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /movies</code></pre></div>
     <div class="method-summary"> (<span class="nickname">moviesGet</span>)</div>
     <div class="method-notes">Obtain all objects with the type &amp;quot;Movie&amp;quot;. Returns 10 per page.</div>
-<h3 class="field-label">Query parameters</h3>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -147,15 +288,18 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data     
+    Successfull pull of netflix data
+        
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllNetflixData">AllNetflixData</a></h1>
@@ -165,17 +309,32 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
     <div class="method-summary"> (<span class="nickname">rootGet</span>)</div>
     <div class="method-notes">Obtain all the available data. Returns 10 per page.</div>
-<h3 class="field-label">Query parameters</h3>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -205,11 +364,14 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/json</code></li> </ul>
+      <li><code>application/json</code></li>
+    </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -223,20 +385,37 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /movies/recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">moviesRecentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data of the type &amp;quot;Movie&amp;quot;. Returns 10 per page and max 50 in total.</div>
+
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-           <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items --><h3 class="field-label">Query parameters</h3>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -266,16 +445,18 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
-     
+        
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllRecentlyAddedNetflixData">AllRecentlyAddedNetflixData</a></h1>
@@ -285,20 +466,37 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">recentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data. Returns 10 per page and max 50 in total.</div>
+
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-           <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items --><h3 class="field-label">Query parameters</h3>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -328,12 +526,14 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -347,20 +547,37 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /tvshows/recent</code></pre></div>
     <div class="method-summary"> (<span class="nickname">tvshowsRecentGet</span>)</div>
     <div class="method-notes">Obtain all recently added data of the type &amp;quot;TV Show&amp;quot;. Returns 10 per page and max 50 in total.</div>
+
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">recent (required)</div>
-           <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items --><h3 class="field-label">Query parameters</h3>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Returns the most recently added objects </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -390,15 +607,18 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successfull pull of netflix data     
+    Successfull pull of netflix data
+        
   </div> <!-- method -->
   <hr/>
   <h1><a name="AllTVShows">AllTVShows</a></h1>
@@ -408,17 +628,32 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /tvshows</code></pre></div>
     <div class="method-summary"> (<span class="nickname">tvshowsGet</span>)</div>
     <div class="method-notes">Obtain all objects with the type &amp;quot;TV Show&amp;quot;. Returns 10 per page.</div>
-<h3 class="field-label">Query parameters</h3>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">page (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
-           <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items --><h3 class="field-label">Return type</h3>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The specified page of returned result </div>      <div class="param">year (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects with the specific release year returned </div>      <div class="param">country (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects from the specific country of origin returned </div>      <div class="param">genre (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Objects listed in the specific genre returned </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -448,12 +683,14 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -467,16 +704,26 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /id/{show_id}</code></pre></div>
     <div class="method-summary"> (<span class="nickname">idShowIdGet</span>)</div>
     <div class="method-notes">Returns a Movie or TV Show that matches a specific id.</div>
+
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">show_id (required)</div>
-           <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of Movie or TV show </div>    </div>  <!-- field-items -->
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of Movie or TV show </div>    </div>  <!-- field-items -->
 
-<h3 class="field-label">Return type</h3>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -506,12 +753,14 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -525,16 +774,26 @@ front-end live-site: https://netflix-app-api.netlify.app/
     <pre class="get"><code class="huge"><span class="http-method">get</span> /title/{title}</code></pre></div>
     <div class="method-summary"> (<span class="nickname">titleTitleGet</span>)</div>
     <div class="method-notes">Returns a Movie or TV Show that includes the specified title. Should be written without spaces.</div>
+
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">title (required)</div>
-           <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Title of Movie or TV show </div>    </div>  <!-- field-items -->
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Title of Movie or TV show </div>    </div>  <!-- field-items -->
 
-<h3 class="field-label">Return type</h3>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
     <div class="return-type">
       array[<a href="#media">media</a>]
-   </div>
+      
+    </div>
+
     <!--Todo: process Response Object and its headers, schema, examples -->
+
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
@@ -564,12 +823,14 @@ front-end live-site: https://netflix-app-api.netlify.app/
   "type" : "Movie",
   "title" : "Chocolate"
 } ]</code></pre>
+
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
     </ul>
+
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successfull pull of netflix data
@@ -587,7 +848,8 @@ front-end live-site: https://netflix-app-api.netlify.app/
 
   <div class="model">
     <h3><a name="media"><code>media</code></a> <a class="up" href="#__Models">Up</a></h3>
- <div class="field-items">
+    
+    <div class="field-items">
       <div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
           <div class="param-desc"><span class="param-type">example: Movie</span></div>
 <div class="param">show_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
@@ -615,3 +877,4 @@ front-end live-site: https://netflix-app-api.netlify.app/
     </div>  <!-- field-items -->
   </div>
   </body>
+</html>
