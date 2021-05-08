@@ -4,7 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 
 import netflix from './reducers/netflix';
-import { Nav } from './components/Nav'
+import { Routing } from './components/Routing'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,7 +15,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <Nav />
+      <Routing />
     </Provider>
   )
 }
