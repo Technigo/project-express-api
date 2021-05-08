@@ -1,30 +1,64 @@
-import express from 'express'
+import express, { response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+const BOOKS_NOT_FOUND = { error: 'No books where found'} 
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hi and welcome to my book review site. To get the full list use the endpoint /books')
+})
+
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+app.get('/books/:id', (req, res) => {
+  const bookId = req.params.id
+  const book = booksData.find(book => book.bookID === +bookId)
+  if (!book) {
+    res.status(404).json(BOOKS_NOT_FOUND)
+  }
+    res.json(book)
+})
+
+app.get('/authors/:author', (req, res) => {
+  const { author } = req.params
+  const byAuthor = booksData.filter(book => book.authors === author)
+  if (!byAuthor.length) {
+    res.status(404).json(BOOKS_NOT_FOUND)
+  }
+    res.json(byAuthor)
+})
+
+app.get('/title/:title', (req, res) => {
+  const { title } = req.params
+  const bookTitle = booksData.filter(item => item.title === title)
+  if (!bookTitle.length) {
+    res.status(404).json(BOOKS_NOT_FOUND)
+  }
+    res.json(bookTitle)
+})
+
+app.get('/toplist/:nrOfBooks', (req, res) => {
+  const {nrOfBooks} = req.params
+  const ratedBooks = [...booksData];
+  ratedBooks.sort((a, b) => b.average_rating - a.average_rating)
+  const topList = ratedBooks.slice(0, nrOfBooks);
+  res.json(topList)
+})
+
+// ex language/?lang=spa
+app.get('/language/', (request, response) => {
+  const { lang } = request.query;
+  const filteredLanguage = booksData.filter((book) => book.language_code === lang);
+  response.json(filteredLanguage);
 })
 
 // Start the server
