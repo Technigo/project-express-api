@@ -1,34 +1,67 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+import express from "express";
+import cors from "cors";
+import goldenGlobesData from "./data/golden-globes.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+const port = process.env.PORT || 8080;
+const app = express();
+app.use(cors());
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+app.get("/", (request, response) => {
+  const dataLength = String(goldenGlobesData.length);
+  response.send(
+    `You can find ${dataLength} movies from Golden Globes ceremony here!`
+  );
+});
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+app.get("/golden-globes/ceremonies", (request, response) => {
+  const ceremoniesDuplicated = goldenGlobesData.map((movie) => movie.ceremony);
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+  const ceremoniesUnique = [];
+  ceremoniesDuplicated.forEach((item) => {
+    if (!ceremoniesUnique.includes(item)) {
+      ceremoniesUnique.push(item);
+    }
+  });
 
-// Start the server
+  res.json({ data: ceremoniesUnique });
+});
+
+app.get("/golden-globes", (request, response) => {
+  const { ceremony, win, category } = request.query;
+  let result = goldenGlobesData;
+
+  if (ceremony) {
+    result = goldenGlobesData.filter(
+      (movie) => movie.ceremony === Number(ceremony)
+    );
+  }
+
+  if (win) {
+    result = result.filter((movie) => movie.win);
+  }
+
+  if (category) {
+    result = result.filter((movie) => movie.category.includes(category));
+  }
+  response.json(result);
+});
+
+app.get("/golden-globes/:film", (request, response) => {
+  const { film } = request.params;
+  const filteredFilm = goldenGlobesData.filter((movie) => {
+    const currentFilm = movie.film.toString().toLowerCase();
+    return currentFilm.includes(film.toLowerCase());
+  });
+
+  if (filteredFilm.length > 0) {
+    response.json(filteredFilm);
+  } else {
+    response
+      .status(404)
+      .json({ message: `There is not information about ${film}` });
+  }
+});
+
 app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log("Hello console the serer is now running");
+});
