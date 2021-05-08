@@ -24,40 +24,65 @@ app.get('/books', (req, res) => {
 // endpoint with search path and query params
 app.get('/books/search', (req, res) => {
   // destructuring query params 
-  const { author, title, highToLow, lowToHigh, longStory, shortStory, topTwenty, topFiFtyRatingsCount, isbn } = req.query 
+  const { 
+    author, 
+    title, 
+    highToLow, 
+    lowToHigh, 
+    longStory, 
+    shortStory, 
+    topTwenty, 
+    topFiFtyRatingsCount, 
+    isbn 
+  } = req.query 
+
   let queriedBooks = booksData 
 
   // Query to find author.
   if (author) {
-    queriedBooks = queriedBooks.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
+    queriedBooks = queriedBooks
+      .filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
   } 
   // query for title
   if (title) {
-    queriedBooks = queriedBooks.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
+    queriedBooks = queriedBooks
+      .filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()))
   }
   // query to sort the books from high to low in average rating. 
   if (highToLow) {
-    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating)
+    queriedBooks = queriedBooks
+      .filter((book) => book.average_rating)
+      .sort((a, b) => b.average_rating - a.average_rating)
   }
   // query to sort the books from low to high in average rating.
   if (lowToHigh) {
-    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => a.average_rating - b.average_rating)
+    queriedBooks = queriedBooks
+      .filter((book) => book.average_rating)
+      .sort((a, b) => a.average_rating - b.average_rating)
   }
   // query to show books over or equal to 400 pages
   if (longStory) {
-    queriedBooks = queriedBooks.filter((book) => book.num_pages >= 400)
+    queriedBooks = queriedBooks
+      .filter((book) => book.num_pages >= 400)
   }
   // query to show books under or equal to 400 pages
   if (shortStory) {
-    queriedBooks = queriedBooks.filter((book) => book.num_pages <= +400)
+    queriedBooks = queriedBooks
+      .filter((book) => book.num_pages <= +400)
   }
   // listing the top 20 highest rated books, in descending order
   if (topTwenty) { 
-    queriedBooks = queriedBooks.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating).slice(0, 20)
+    queriedBooks = queriedBooks
+      .filter((book) => book.average_rating)
+      .sort((a, b) => b.average_rating - a.average_rating)
+      .slice(0, 20)
   }
   // listing the top 50 books with most ratings, in descending order
   if (topFiFtyRatingsCount) {
-    queriedBooks = queriedBooks.filter((book) => book.ratings_count).sort((a, b) => b.ratings_count - a.ratings_count).slice(0, 50)
+    queriedBooks = queriedBooks
+      .filter((book) => book.ratings_count)
+      .sort((a, b) => b.ratings_count - a.ratings_count)
+      .slice(0, 50)
   }
   // query to search for book by isbn
   if (isbn) {
@@ -65,9 +90,6 @@ app.get('/books/search', (req, res) => {
     if (!queriedBooks) {
       res.status(404).json(`There is no book with isbn number ${isbn}`)
     }
-  }
-  if (queriedBooks.length === 0) {
-    res.status(404).json({ error: 'Not found' })
   } else {
     res.status(200).json({ length: queriedBooks.length, data: queriedBooks })
   }
@@ -79,12 +101,10 @@ app.get('/books/:id', (req, res) => {
   const book = booksData.find((book) => book.bookID === +id)
   if (!book) {
     res.status(404).send(`There is no book with id number ${id}`)
+  } else {
+    res.json({ data: book })
   }
-  res.json({ data: book })
 })
 
 // Start the server
-app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
-})
+app.listen(port, () => {})
