@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const netflix = createSlice({
-  name: "netflix",
+  name: 'netflix',
   initialState: {
-    currentItem: { title: "fail" },
+    currentItem: { title: 'fail' },
     items: [{}],
     filters: {
       category: null,
       singleCategory: null,
       media: null,
-      page: 0,
-    },
+      page: 0
+    }
   },
   reducers: {
     setItemList: (store, action) => {
@@ -37,16 +37,17 @@ const netflix = createSlice({
     },
     setPage: (store, action) => {
       let newPage;
-      if (action.payload === "add") {
+      if (action.payload === 'add') {
         newPage = store.filters.page + 1;
       } else {
+        // eslint-disable-next-line no-unused-expressions
         store.filters.page !== 0
           ? (newPage = store.filters.page - 1)
           : (newPage = store.filters.page);
       }
       store.filters.page = newPage;
-    },
-  },
+    }
+  }
 });
 
 export const generateSingleItem = (title) => {
@@ -64,12 +65,11 @@ export const generateSingleItem = (title) => {
 };
 
 export const generateCategories = () => {
-  let url = "";
+  let url = '';
   return (dispatch, getState) => {
-    const media = getState().netflix.filters.media;
-    const category = getState().netflix.filters.category;
-    const singleCategory = getState().netflix.filters.singleCategory;
-    const page = getState().netflix.filters.page;
+    const { media } = getState().netflix.filters;
+    const { category } = getState().netflix.filters;
+    const { singleCategory } = getState().netflix.filters;
 
     url = `https://netflix-data.herokuapp.com/${media}?${category}=${singleCategory}`;
 
