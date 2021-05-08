@@ -1,7 +1,6 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
-/* import listEndPoints from 'express-list-endpoints' */
+import listEndpoints from 'express-list-endpoints'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +20,12 @@ const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
+
+app.get('/', (req,res) =>{
+  res.send(listEndpoints(app))
+})
+
 
 // Start defining your routes here
 app.get('/books', (request, response) => {
