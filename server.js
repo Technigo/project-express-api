@@ -19,7 +19,7 @@ app.get('shows', (req, res) => {
 })
 
 app.get('/shows/search', (req, res) => {
-  const { director, title, genres, southkorea }  = req.query
+  const { director, title }  = req.query
   let queriedShows = netflixData
 
   if (director) {
@@ -30,24 +30,22 @@ app.get('/shows/search', (req, res) => {
      queriedShows = queriedShows.filter((show) => show.title.toString().toLowerCase().includes(title.toLowerCase()))
   }
 
-  if (genres) {
-    const genresDuplicated = queriedShows.map(show => show.listed_in)
-    let genresUnique = []
-      genresDuplicated.forEach(show => {
-        if (!genresUnique.includes(show)) {
-          genresUnique.push(show)
-        }
-      })
-  }
-
-  if (southkorea) {
-    queriedShows = queriedShows.filter((show) => show.country.toLowerCase() === "South Korea".toLowerCase()) //not sure one can do this on an actual string?
-  }
-
   if (queriedShows.length === 0 ) { 
     res.status(404).json({ error: 'Not found' })
   } else {
-    res.status(200).json({ length: queriedShows.length, data: queriedShows, genresUnique})
+    res.status(200).json({ length: queriedShows.length, data: queriedShows})
+  }
+})
+
+app.get('/shows/countries', (req, res) => {
+  const { country } = req.query
+
+  const queriedByCountry = netflixData.filter((show) => show.country.toLowerCase() === country.toLowerCase())
+  
+  if (queriedByCountry.length === 0 ) { 
+    res.status(404).json({ error: 'Not found' })
+  } else {
+    res.status(200).json({ length: queriedByCountry.length, data: queriedByCountry })
   }
 })
 
