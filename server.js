@@ -1,6 +1,6 @@
 import express from 'express'
- //import bodyParser from 'body-parser'
- import cors from 'cors'
+//import bodyParser from 'body-parser'
+import cors from 'cors'
 
 
  import booksData from './data/books.json'
@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send(listEndpoints(app));
+  res.send('hallo world');
 })
 
 //Endpoint example: /books, /books/id/1, /books/book_pages_below_500/499, /books/book_pages_above_500/501
