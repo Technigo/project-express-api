@@ -13,7 +13,7 @@ app.get("/", (request, response) => {
   );
 });
 
-app.get("/golden-globes/ceremonies", (req, res) => {
+app.get("/golden-globes/ceremonies", (request, response) => {
   const ceremoniesDuplicated = goldenGlobesData.map((movie) => movie.ceremony);
 
   const ceremoniesUnique = [];
@@ -48,12 +48,17 @@ app.get("/golden-globes", (request, response) => {
 
 app.get("/golden-globes/:film", (request, response) => {
   const { film } = request.params;
-  const filteredFilm = goldenGlobesData.filter((movie) => movie.film === film);
+  const filteredFilm = goldenGlobesData.filter((movie) => {
+    const currentFilm = movie.film.toString().toLowerCase();
+    return currentFilm.includes(film.toLowerCase());
+  });
 
   if (filteredFilm.length > 0) {
     response.json(filteredFilm);
   } else {
-    response.send(`There is not information about ${film}`);
+    response
+      .status(404)
+      .json({ message: `There is not information about ${film}` });
   }
 });
 
