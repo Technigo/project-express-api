@@ -1,13 +1,29 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+The goal of this project was to practice creating APIs using Express. The task was to creat APIs with different RESTful endpoints which return either an array of data, or a single item.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The goals
 
-## The problem
+- API should have at least 2 routes. Try to push yourself to do more, though!
+- A minimum of one endpoint to return a **collection** of results (array of elements)
+- A minimum of one endpoint to return a **single** result (single element).
+- API should be RESTful
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Streth goals included
+- On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+- Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+- Build a frontend which uses your API in some way to show the data in a nice way. 
+- If your dataset is large, implement'pages' using `.slice()` to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
+- Create useful documentation for your endpoints. What's a good way to present this documentation?  What if it changes in the future?  Are there any npm packages that could help with this?
+
+## Tech
+REST API
+React
+useState()
+useEffect()
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Frontend on Netflify: https://netflix-info-fullstack-klimenko.netlify.app
+Backend documentation: https://netflix-info-fullstack-klimenko.netlify.app/about
