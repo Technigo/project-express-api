@@ -30,7 +30,7 @@ app.get('/', (request, response) => {
 app.get('/books', (request, response) => {
   const { author } = request.query
   if (author) {
-    const bookList = booksData.filter(book => book.authors.toLoweCase().includes(author.toLowerCase()))
+    const bookList = booksData.filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
     response.json(bookList)
   }
   response.json(booksData)
