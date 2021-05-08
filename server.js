@@ -1,6 +1,8 @@
-import express from 'express'
+import express, { request, response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+
+import booksData from './data/books.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -22,9 +24,24 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Start defining your routes here. Endpoint to get all netflix titles
+app.get('/books', (request, response) => {
+  const { author } = request.query
+  if (author) {
+    const booksList = booksData.filter(book => book.authors.includes(author))
+    response.json(booksList)
+  }
+  res.json(booksData)
+})
+
+//Endpoint to get one book
+app.get('/books/:bookid', (request, response) => {
+  const { bookid } = request.params
+  const book = booksData.find(book => book.bookID === +bookid)
+  if (!book) {
+    response.status(404).send(`Sorry, book ${bookid} dosen't exist`)
+  }
+  response.json(book)
 })
 
 // Start the server
