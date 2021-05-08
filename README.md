@@ -25,5 +25,7 @@ useEffect()
 
 ## View it live
 
-Frontend on Netflify: https://netflix-info-fullstack-klimenko.netlify.app
-Backend documentation: https://netflix-info-fullstack-klimenko.netlify.app/about
+- Frontend on Netflify: https://netflix-info-fullstack-klimenko.netlify.app
+- Backend documentation: https://netflix-info-fullstack-klimenko.netlify.app/about
+- REST API on Herokuapp: https://netflix-data-api-klimenko.herokuapp.com/
+
