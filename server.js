@@ -27,12 +27,12 @@ app.get('/', (req,res) => {
   res.send(listEndpoints(app))
 })
 
-
+// Endpoint to get all the books
 app.get('/books', (req, res) => {
   res.json({ data: booksData })
 })   
 
-// Endpoint to get all the books
+
 // Query point to get book by author
 app.get('/books/:author', (req, res) => {
   // Destructure query params
@@ -44,12 +44,12 @@ app.get('/books/:author', (req, res) => {
   })
 
   // Return data
-  res.json(queriedBooks);
+  res.json({ data: queriedBooks });
 });
 
 
 // Endpoint to get one book
-app.get('/books/:id', (req, res) => { 
+app.get('/books/id/:id', (req, res) => { 
 //Destructuring path params
   const { id } = req.params
 
