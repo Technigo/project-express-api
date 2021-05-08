@@ -62,7 +62,7 @@ export const SingleCategoryScreen = () => {
     <Section>
       <SubHeader title={singleCategory} />
       {error !== '' ? (
-        <Error> <ErrorText> No more objects found 😔 </ErrorText></Error>
+        <Error> <ErrorText> No more objects found <span role="img">😔</span> </ErrorText></Error>
       ) : (
         <>
           <Link

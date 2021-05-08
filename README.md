@@ -50,7 +50,7 @@ front-end live-site: https://netflix-api-express.netlify.app
 
 ## API Documentation
 
-<a href="https://app.swaggerhub.com/apis-docs/Pauan86/your-api/1.0.2-oas3"> Link to the API documentation on Swagger </a>
+<a href="https://app.swaggerhub.com/apis-docs/Pauan86/Netflix-express/1.0.3oas3#/media"> Link to the API documentation on Swagger </a>
 
 <body>
   <h1>Netflix test API</h1>
