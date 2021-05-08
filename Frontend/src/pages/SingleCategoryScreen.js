@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/macro';
-import { useParams, Link, useRouteMatch} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import netflix, { generateCategories } from '../reducers/netflix';
@@ -8,7 +8,6 @@ import { CardList } from '../components/CardList';
 import { SubHeader } from '../components/SubHeader';
 import genreArray from '../data/genreArray.json';
 import countryArray from '../data/countryArray.json';
-import { NavButton } from '../components/NavButton'
 
 const Section = styled.section`
   width: calc(100vw - 30px);
@@ -52,7 +51,7 @@ export const SingleCategoryScreen = () => {
       <SubHeader title={title} />
       <Grid>
         {items.map((item, i) => (
-          <ItemLink key={i} to={`/title/${item.title}`} >
+          <ItemLink key={i} to={`/title/${item.title}`}>
             <CardList
               {...item}
               i={i}

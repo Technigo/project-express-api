@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
 
-import netflix from '../reducers/netflix'
 import { NavButton } from './NavButton';
 
 const HeaderContainer = styled.div`

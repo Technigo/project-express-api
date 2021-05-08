@@ -33,23 +33,23 @@ text-decoration: none;
 cursor: pointer;`
 
 export const StartScreen = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const handleMedia = (name, type)  => {
-  return (   
-  <NavLink to={`/type/${type}`} onClick={() => dispatch(netflix.actions.setMedia(type))}>
-    <Container>
-      <Title>{name}</Title>
-    </Container>
-  </NavLink>
-  )
-}
+  const handleMedia = (name, type) => {
+    return (
+      <NavLink to={`/type/${type}`} onClick={() => dispatch(netflix.actions.setMedia(type))}>
+        <Container>
+          <Title>{name}</Title>
+        </Container>
+      </NavLink>
+    )
+  }
 
   return (
     <Start>
       <MainTitle> NETFLIX </MainTitle>
-      {handleMedia("TV SHOWS", "tvshows")}
-      {handleMedia("MOVIES", "movies")}
+      {handleMedia('TV SHOWS', 'tvshows')}
+      {handleMedia('MOVIES', 'movies')}
     </Start>
   );
 };
