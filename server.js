@@ -43,7 +43,6 @@ app.get('/movies/:id', (req, res) => {
   }
 })
 
-// flytta title till query ??
 app.get('/movies/title/:title', (req, res) => {
   const { title } = req.params
   const filteredMovieTitle = netflixData.find((movie) => movie.title.toString().includes(title))
