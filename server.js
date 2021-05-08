@@ -16,23 +16,26 @@ app.get('/', (req, res) => {
 
 app.get('/movies', (req, res) => {
   const { year, show, page } = req.query
+  let moviesToSend = netflixData
 
   if (year) {
-    const filterReleaseYear = netflixData.filter((release) => release.release_year === +year)
-    res.json(filterReleaseYear) 
-  } else if (show) {
-    // eslint-disable-next-line max-len
-    const filterShowType = netflixData.filter((item) => item.type.toString().toLowerCase().includes(show)) 
-    res.json(filterShowType) 
-  } else if (page) {
-    const pagesCount = netflixData.slice(0, page)
-    res.json(pagesCount)
-  } else {
-    res.json(netflixData)
+    moviesToSend = netflixData
+      .filter((release) => release.release_year === +year)
+  } 
+  
+  if (show) {
+    moviesToSend = netflixData
+      .filter((item) => item.type.toString().toLowerCase().includes(show.toLowerCase())) 
+  } 
+
+  if (page) {
+    moviesToSend = netflixData.slice(0, page)
   }
+
+  res.json({ length: netflixData.length, data: moviesToSend })
 }) 
 
-app.get('/movies/id/:id', (req, res) => {
+app.get('/movies/:id', (req, res) => {
   const { id } = req.params
   const netflixId = netflixData.find((item) => item.show_id === +id)
 
@@ -43,6 +46,7 @@ app.get('/movies/id/:id', (req, res) => {
   }
 })
 
+// flytta title till query ??
 app.get('/movies/title/:title', (req, res) => {
   const { title } = req.params
   const filteredMovieTitle = netflixData.find((movie) => movie.title.toString().includes(title))
