@@ -174,12 +174,12 @@ app.get('/avocado', (req, res) => {
 
 
   if(maxPrice){
-    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice < +maxPrice)
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice <= +maxPrice)
     //console.log(typeof filteredAvocado)
   }
 
   if(minPrice){
-    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice > +minPrice)
+    filteredAvocado = filteredAvocado.filter((item) => item.averagePrice >= +minPrice)
   }
 
   if(amount) {
