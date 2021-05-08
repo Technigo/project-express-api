@@ -99,7 +99,7 @@ const singleEndpoint = (para) => {
       json. From the json data spaces and uppercases are removed to be able to match with params */
     const array = data.find(
       (item) => item.show_id === +id
-        || item.title.toString().toLowerCase().replace(" ", "") === title.toString().toLowerCase()
+        || item.title.toString().toLowerCase().replace(" ", "") === title.toString().toLowerCase().replace(" ", "")
     );
 
     res.json(array);

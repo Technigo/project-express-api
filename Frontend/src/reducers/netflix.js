@@ -51,6 +51,7 @@ const netflix = createSlice({
 
 export const generateSingleItem = (title) => {
   return (dispatch) => {
+    console.log(title)
     fetch(`https://netflix-data.herokuapp.com/title/${title}`)
       .then((response) => {
         if (!response.ok) {
