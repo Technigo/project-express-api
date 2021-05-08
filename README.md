@@ -38,7 +38,7 @@ Tools: VS code, Postman, Swagger OpenAPI 3.0, GitHub, Heroku, Netlify, Stack Ove
 
 ## View it live 
 api live-site: 
-front-end live-site: https://netflix-api-express.netlify.app
+front-end live-site: https://netflix-app-api.netlify.app/
 
 <br>
 <br>
