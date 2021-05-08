@@ -2,14 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
 import booksData from './data/books.json'
-/* import netflixData from './data/netflix-titles.json' */
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -22,8 +15,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+// Send list of all endpoints available in API
 app.get('/', (req,res) => {
-   // Send list of all endpoints available in API
   res.send(listEndpoints(app))
 })
 
@@ -32,12 +25,11 @@ app.get('/books', (req, res) => {
   res.json({ data: booksData })
 })   
 
-// Query point to get book by author
+// Endpoint to get book by author
 app.get('/books/:author', (req, res) => {
   // Destructure query params
   const { author } = req.query
   
-
   // Look for lowercased string from query param inside lowercased string from JSON
   const byAuthor = booksData.filter(book => {
     return book.authors.toLowerCase().includes(author.toLowerCase())
@@ -46,7 +38,6 @@ app.get('/books/:author', (req, res) => {
   // Return data
   res.json(byAuthor)
 });
-
 
 // Endpoint to get one book
 app.get('/books/id/:id', (req, res) => { 
@@ -58,8 +49,8 @@ app.get('/books/id/:id', (req, res) => {
   const queriedBook = booksData.find(book => book.bookID === +id)
 
    // Conditionally send different response to client
-    if (queriedBook) {
-      res.status(200).json({ data: queriedBook })
+  if (queriedBook) {
+    res.status(200).json({ data: queriedBook })
     } else {
       res.status(404).json({ error: 'Not found' })
     } 
