@@ -7,7 +7,7 @@ import { CategoryListScreen } from '../pages/CategoryListScreen'
 import { SingleCategoryScreen } from '../pages/SingleCategoryScreen'
 import { DetailScreen } from '../pages/DetailScreen'
 
-export const Nav = () => {
+export const Routing = () => {
 
      return (
        <Router>
