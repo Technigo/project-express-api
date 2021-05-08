@@ -75,7 +75,7 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:movieId', (req, res) => {
   const { movieId } = req.params
   const foundMovie = movies.find((titel) => titel.show_id === +movieId)
-  if (movieId) {
+  if (foundMovie) {
     res.status(200).json({ show: foundMovie })
   } else {
     res.status(404).json({ status_message: "Not found" })
@@ -116,9 +116,10 @@ app.get('/TV-shows', (req, res) => {
 app.get('/TV-shows/:showId', (req, res) => {
   const { showId } = req.params
   const foundShow = tvShows.find((titel) => titel.show_id === +showId)
-  if (showId) {
+  if (foundShow) {
     res.status(200).json({ show: foundShow })
   } else {
+    console.log("error")
     res.status(404).json({ status_message: "Not found" })
   }
 })
