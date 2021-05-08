@@ -1,8 +1,4 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-// eslint-disable-next-line no-unused-vars
-// import express, { request, response } from 'express'
 import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
@@ -15,84 +11,98 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Shows a list of the endpoints
-app.get('/', (request, response) => {
-  response.send(listEndpoints(app))
+app.get('/', (req, res) => {
+  res.send(listEndpoints(app))
 })
 
-// 1. Returns all books
-// app.get('/books', (request, response) => {
-//   response.json(booksData)
-// })
+app.get('/books', (req, res) => {
+  const { author, title, lang } = req.query
+  let booksResult = booksData
 
-// Query for authors or title
-app.get('/books', (request, response) => {
-  if (request.query.author) {
-    const { author } = request.query
-    const filteredAuthor = booksData.filter(
-      (book) => book.authors.toLowerCase().includes(author.toLowerCase())
-    )
-    if (filteredAuthor.length === 0) {
-      response
-        .status(404)
-        .json(`Sorry, couldn't find any books by ${author}`)
-    } else {
-      response.json(filteredAuthor)
-    }
-  } else if (request.query.title) {
-    const { title } = request.query
-    const filteredTitle = booksData.filter(
-      (book) => book.title.toString().toLowerCase().includes(title.toString().toLowerCase())
-    )
-    if (filteredTitle.length === 0) {
-      response
-        .status(404)
-        .json(`Sorry, couldn't find a book with title ${title}`)
-    } else {
-      response.json(filteredTitle)
-    }
+  if (author) {
+    booksResult = booksResult
+      .filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
+  } 
+  
+  if (title) {
+    booksResult = booksResult
+      .filter((book) => book.title.toLowerCase().includes(title.toLowerCase()))
+  } 
+  
+  if (lang) {
+    booksResult = booksResult.filter((book) => book.language_code === lang)
   }
+  res.json(booksResult)
 })
-// Path to a single book, by ID
-app.get('/books/:id', (request, response) => {
-  const { id } = request.params
-  const findBook = booksData.find((book) => book.bookID === +id)
 
-  if (findBook) {
-    response.json(findBook)
+app.get('/books/id/:id', (req, res) => {
+  const { id } = req.params
+  const findId = booksData.find((book) => book.bookID === +id)
+
+  if (findId.length === 0) {
+    res
+      .status(404)
+      .json(`There's no book with id number '${id}'`)
   } else {
-    response.json(`There's no book with id number ${id}`)
+    res.json(findId)
   }
 })
 
-// Path isbn and isbn13
-app.get('/isbn/:isbn', (request, response) => {
-  const { isbn } = request.params
-  const { isbn13 } = request.params
+app.get('/books/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
   const findIsbn = booksData.find((book) => book.isbn === +isbn)
-  const findIsbn13 = booksData.find((book) => book.isbn13 === +isbn13)
 
-  if (findIsbn) {
-    response.json(findIsbn)
-  } else if (findIsbn13) {
-    response.json(findIsbn13)
+  if (findIsbn.length === 0) {
+    res
+      .status(404)
+      .json(`There's no book with ISBN-number '${isbn}'`)
   } else {
-    response.json("There's no book with that isbn/isbn13-number")
+    res.json(findIsbn)
   }
 })
 
-// endpoint to get array of titles
-app.get('/titles/:title', (request, response) => {
-  const { title } = request.params
-  const booksList = booksData.filter((book) => book.title.toLowerCase() === title.toLowerCase())
-
-  if (booksList) {
-    response.json(booksList)
+app.get('/books/titles/:title', (req, res) => {
+  const { title } = req.params
+  const filteredTitle = booksData.filter(
+    (book) => book.title.toString().toLowerCase().includes(title.toString().toLowerCase())
+  )
+  if (filteredTitle.length === 0) {
+    res
+      .status(404)
+      .json(`Sorry, couldn't find a book with title '${title}'`)
   } else {
-    response.status(404).json({ message: `${title} not found` })
+    res.json(filteredTitle)
   }
+})
+
+app.get('/books/languages/:lang', (req, res) => {
+  const { lang } = req.params
+  const filteredLang = booksData.filter(
+    (book) => book.language_code.toLowerCase() === lang.toLowerCase()
+  )
+  const languages = [...new Set(booksData.map((book) => book.language_code))]
+  const availableLanguages = languages.map((language) => `'${language}'`).join(', ')
+
+  if (filteredLang.length === 0) {
+    res
+      .status(404)
+      .json(`Couldn't find any books with language-code '${lang}'. Available languages are: ${availableLanguages}`)
+  } else {
+    res.json(filteredLang)
+  }
+})
+
+app.get('/books/top10', (req, res) => {
+  const top10 = booksData.sort((a, b) => b.average_rating - a.average_rating).slice(0, 10)
+  res.json(top10)
+})
+
+app.get('/books/authors', (req, res) => {
+  const authors = [...new Set(booksData.map((book) => book.authors))].sort()
+  res.json(authors)
 })
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server running on http://localhost:${port}`)
 })
