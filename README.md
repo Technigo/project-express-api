@@ -6,7 +6,7 @@ In this project I have created an API with Express, that has several RESTful end
 
 My API uses a hardcoded JSON file that contains Netflix data. I have then constructed the following endpoints:
 
-- Query route for filtering on title, director and year released.
+- Query route for filtering on title, director and/or year released.
 
 - Route for accessing a single movie or TV serie, by title. Returns an object.
 

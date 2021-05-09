@@ -12,11 +12,12 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Route to return the entire json
+// Route to return a list of the endpoints available
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
+// Query routes to search for title, director and/or release year
 app.get('/titles', (req, res) => {
   const { title, director, releaseyear } = req.query
   let titles = netflixData
@@ -40,7 +41,8 @@ app.get('/titles', (req, res) => {
 // Route to return a single movie/tvshow object, when request is an exact Url
 app.get('/titles/:title', (req, res) => {
   const { title } = req.params
-  const findShow = netflixData.find((show) => show.title.toString().toLowerCase().replace(/\s+/g, '') === title.toLowerCase().replace(/\s+/g, ''))
+  const findShow = netflixData
+    .find((show) => show.title.toString().toLowerCase().replace(/\s+/g, '') === title.toLowerCase().replace(/\s+/g, ''))
   
   if (findShow) {
     res.status(200).json({ data: findShow })
@@ -56,7 +58,11 @@ app.get('/countries/:country', (req, res) => {
   const searchCountry = netflixData.filter((item) => {
     return item.country.toString().toLowerCase().replace(/\s+/g, '').indexOf(country.toLowerCase().replace(/\s+/g, '')) !== -1
   })
-  res.json({ Country: searchCountry })
+  if (searchCountry.length > 0) {
+    res.json({ length: searchCountry.length, Country: searchCountry })
+  } else {
+    res.status(400).json({ error: `No titles found from ${country}` })
+  }
 })
  
 // Route to filter out all movies
@@ -66,7 +72,7 @@ app.get('/movies/:movie', (req, res) => {
   const allMovies = netflixData
     .filter((item) => item.type.toString().toLowerCase() === movie.toString().toLowerCase())
 
-  res.json(allMovies)
+  res.json({ length: allMovies.length, allMovies })
 })
 
 // Route to filter out all TV Series
@@ -76,7 +82,7 @@ app.get('/tvshows/:tvshow', (req, res) => {
   const allTVshows = netflixData
     .filter((item) => item.type.toString().toLowerCase().replace(/\s+/g, '') === tvshow.toString().toLowerCase().replace(/\s+/g, ''))
 
-  res.json(allTVshows)
+  res.json({ length: allTVshows.length, allTVshows })
 })
  
 // Start the server
