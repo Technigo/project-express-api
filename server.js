@@ -13,7 +13,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  return res.send('Hello')
+  return res.send('Hello, Welcome to my API! to get the list or the book Id use /books or /bookId endpoints respectively')
 })
 
 // All books or query by average rating
