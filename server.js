@@ -34,6 +34,10 @@ app.get('/books', (request, response) => {
   res.json(booksData)
 })
 
+app.get('/', (request, response) => {
+  res.json(booksData)
+})
+
 //Endpoint to get one book
 app.get('/books/:bookid', (request, response) => {
   const { bookid } = request.params
