@@ -4,14 +4,7 @@ import cors from 'cors'
 import sandemoData from './data/sandemo.json'
 
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// 
-// import topMusicData from './data/top-music.json'
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -33,20 +26,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
+
+  const { character } = req.query
+
+  if (character) {
+
+  const characterOfBook = sandemoData.filter(book => book.main_characters.toLowerCase().includes(character.toLowerCase()))
+ 
+  res.json(characterOfBook) 
+  } 
   res.json(sandemoData)
 })
 
-app.get('/books', (req, res) => {
-  
-  const { series } = req.query;
 
-  
-  const queriedBooks = books.filter(book => {
-    return book.series.toLowerCase().indexOf(series.toLowerCase()) !== -1;
-  })
-
-  res.json({ data: queriedBooks });
-});
 
 app.get('/books/:id', (req,res) => {
   const { id } = req.params
@@ -62,7 +54,7 @@ app.get('/books/:id', (req,res) => {
 app.get('/title/:title', (req, res) => {
   const { title } = req.params
   const bookTitle = req.query.id
-  let titleOfBook = sandemoData.filter((item) => item.title === title)
+  let titleOfBook = sandemoData.find(item => item.title.toLowerCase() === title.toLowerCase())
   if (titleOfBook.length !== 0) {
     res.json(titleOfBook)
   } else {
@@ -90,7 +82,8 @@ app.get('/release/:release', (req, res) => {
 app.get('/series/:series', (req, res) => {
   const { series } = req.params
   const requiredSerie = req.query.id
-  let serieOfBook = sandemoData.filter((item) => item.series === series)
+  let serieOfBook = sandemoData.filter(item => 
+    item.series.toLowerCase().replace(/\s+/g, '') === series.toLowerCase())
   if (serieOfBook.length !== 0) {
     res.json(serieOfBook)
   } else {
