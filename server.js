@@ -1,30 +1,59 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
+import listEndpoints from 'express-list-endpoints'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+// Middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
+// Routes
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
+})
+
+app.get('/books', (req, res) => {
+  const { author, language_code } = req.query
+  let booksToSend = booksData
+
+  if (author) {
+    booksToSend = booksToSend
+      .filter(book => book.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1)
+  }
+
+  if (language_code) {
+    booksToSend = booksToSend
+      .filter(book => book.language_code === language_code)
+  }
+  
+  res.json({ length: booksToSend.length, data: booksToSend })
+})
+
+app.get('/books/id/:id', (req, res) => {
+  const { id } = req.params
+  const bookId = booksData.find((book) => book.bookID === +id)
+  
+  if (bookId) {
+    res.json({ data: bookId })
+  } else {
+    res.status(404).json({ error: 'Not found' })
+  }
+})
+
+app.get('/books/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
+  const bookIsbn = booksData.find((book) => book.isbn === +isbn)
+  
+  if (bookIsbn) {
+    res.json({ data: bookIsbn })
+  } else {
+    res.status(404).json({ error: 'Not found' })
+  }
 })
 
 // Start the server
