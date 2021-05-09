@@ -1,13 +1,30 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project this week was to create RESTful API with several useful endpoints. It was requested to create a minimum of one endpoint displaying a single item, and one endpoint presenting an array of items. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with creating my own dataset collecting all books written by the Swedish / Norwegian author Margit Sandemo. I then created several endpoints displaying all books, one specific book selected by either id or title, several books based on which series they belong to etc. I also made it possible to filter by using query parameter, to find books where a specified character is included. 
+
+I also made sure to included error messages to display in case there is no result to be found. 
+
+When I had set up all the information in the dataset, and created all the endpoints, I also created a front-end where I presented the information from the dataset, and also published my API documentation. I created the front-end using React and React router. 
+
+## Tech used for this project
+
+POSTMAN
+REACT
+REACT ROUTER
+RESTful API
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Back-end deployed here:
+https://express-deployment-therese.herokuapp.com/
+
+Front-end deployed here:
+https://therese-sandemo-collection.netlify.app/
+
+API documentation deployed here: 
+https://therese-sandemo-collection.netlify.app/Documentation
+
