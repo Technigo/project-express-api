@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was about our first step into back-end by building our first API. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I was looking forward to this week, but unfortunately I had too little time for coding this week. So I'll definitely need to go back to this project, cause I am a bit confused by some parts of it. Also I am missing something in my code. I seem not to be able to filter by language_code and author, but couldn't quite figure out what it is. 
+Luckily I am off work next week, so I'll have more time then to go back to it. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-week17.herokuapp.com/
