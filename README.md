@@ -1,13 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Learning backend by creating an API using Express that use RESTFUL endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created the basic endpoints for returning all the data first and then started to create more specific queries to filter the data. I want to understand how to use .sort so I can alphabetically sort the data rather  than having it appear randomized. I also ran into issues with my ports being used and my ubuntu linux not working properly. But after going through stackoverflow and chatting with a dev mentor I was able to resolve my issues by killing the node process's running and allocating more space and memory to my virtualbox machine.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Uh am I supposed to deploy this?
