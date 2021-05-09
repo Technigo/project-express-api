@@ -18,8 +18,5 @@ If I had more time I'd like to implement the ability to search with multiple key
 
 //Currently none of the below are working yet as I've run into last-minute build problems :( will fix soon
 
-Netlify build:
-dreamscape-locations-server.netlify.app
-
 Heroku build:
 https://dreamscape-location-server.herokuapp.com/
