@@ -29,13 +29,15 @@ app.get('/avocados/:id', (request, response) => {
 })
 
 
-app.post('/avocados/:totalBagsSold', (request, response) => {
-  const { totalBagsSoldList } = request.params
-  const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
-  if (totalBagsSold > 4000 && totalBagsSold < 8000) {
-  response.json(totalBags)
-  }
-}) 
+//want to try out this one later. Right now not working as a would like
+
+// app.post('/avocados/:totalBagsSold', (request, response) => {
+//   const { totalBagsSoldList } = request.params
+//   const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
+//   if (totalBagsSold > 4000 && totalBagsSold < 8000) {
+//   response.json(totalBags)
+//   }
+// }) 
 
 
 
