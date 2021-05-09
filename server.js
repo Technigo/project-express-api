@@ -4,10 +4,6 @@ import listEndpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -22,7 +18,7 @@ app.get('/', (req, res) => {
 
 // Endpoint to get all books & serach for some specific. 
 app.get('/books', (req, res) => {
-  const { author, title } = req.query
+  const { author, language_code } = req.query
   let booksList = booksData 
   
   if (author) {
@@ -30,9 +26,15 @@ app.get('/books', (req, res) => {
       .filter(book => book.authors.toLowerCase().includes(author.toLowerCase()))
   }
 
-  if (title) {
+  //Trying to get the title but not wokring, will come back to this later to keep trying.
+  // if (title) {
+  //   booksList = booksList
+  //     .filter(book => book.title.toLowerCase().includes(title.toLowerCase()))
+  // }
+  
+  if (language_code) {
     booksList = booksList
-      .filter(book => book.title.toLowerCase().includes(title.toLowerCase()))
+      .filter(book => book.language_code === language_code)
   }
 
   res.json({ length: booksList.length, data: booksList })
