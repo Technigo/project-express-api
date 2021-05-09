@@ -7,11 +7,9 @@ import avocadoSalesData from './data/avocado-sales.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
 app.get('/avocados', (request, response) => {
   const { region } = request.query
   if( region ) {
@@ -31,17 +29,14 @@ app.get('/avocados/:id', (request, response) => {
 })
 
 
-
-// app.put('/avocados/:totalBagsSold', (request, response) => {
-//   const { totalBagsSoldList } = request.params
-//   const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
-//   response.json(totalBags)
-// }) 
-
+app.put('/avocados/:totalBagsSold', (request, response) => {
+  const { totalBagsSoldList } = request.params
+  const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
+  response.json(totalBags)
+}) 
 
 
-// Start the server
+
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
