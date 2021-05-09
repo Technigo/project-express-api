@@ -1,6 +1,7 @@
 import express, { request, response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 
@@ -32,10 +33,10 @@ app.get('/books/:bookid', (request, response) => {
 })
 
 //Endpoint to get a specifik author/authors
-app.get('/books/:author', (request, response) => {
-  const { author } = request.params
+app.get('/author', (request, response) => {
+  const { author } = request.query
   if (author) {
-    const authorsList = booksData.filter(book => book.authors.includes(author))
+    const authorsList = booksData.filter(bookauthor => bookauthor.authors.includes(author))
     response.json(authorsList)
   }
   res.json(booksData)
