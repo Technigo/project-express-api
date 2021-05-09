@@ -13,7 +13,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  return res.send('Hello world')
+  return res.send('Hello')
 })
 
 // All books or query by average rating
