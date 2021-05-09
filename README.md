@@ -25,5 +25,7 @@ https://express-deployment-therese.herokuapp.com/
 Front-end deployed here:
 https://therese-sandemo-collection.netlify.app/
 
-API documentation deployed in the front-end project (see button with text: API documentation (in English))
+API documentation deployed here: 
+https://therese-sandemo-collection.netlify.app/Documentation
+
 
