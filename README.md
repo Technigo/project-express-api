@@ -14,4 +14,4 @@ Next step will be to expand the routes and include more endpoints, and to build 
 
 ## View it live
 
-To view project live, please follow this link:
+To view an example of a deployed endpoint, please follow this link: http://small-express-api.herokuapp.com/books
