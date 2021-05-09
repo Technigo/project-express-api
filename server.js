@@ -33,7 +33,7 @@ app.get('/books/:bookid', (request, response) => {
 
 //Endpoint to get a specifik author/authors
 app.get('/books/:author', (request, response) => {
-  const { author } = request.query
+  const { author } = request.params
   if (author) {
     const authorsList = booksData.filter(book => book.authors.includes(author))
     response.json(authorsList)
