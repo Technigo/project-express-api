@@ -1,12 +1,16 @@
-# Express API Project
+# Project Express API Project, week 17, Technigo Bootcamp
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Requirements: 
+- API should have at least 2 routes. 
+- A minimum of one endpoint to return a collection of results
+- A minimum of one endpoint to return a single result
+- The API should be [RESTful]
 
 ## View it live
 

@@ -71,8 +71,13 @@ app.get('/movies/info/', (request, response) => {
   }
   response.json({ length: data.length, data: data})
 })
+//return a dummy page
+app.get('/dummy', (request, response) => {
+  response.send('')
+})
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
+
