@@ -1,21 +1,13 @@
 import express, { request, response } from "express";
-// import bodyParser from 'body-parser'
-// import cors from 'cors'
+import cors from 'cors'
 
 import booksData from "./data/books.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-
-//   PORT=9000 npm start
-// const port = process.env.PORT || 8080
-const port = 8080;
+const port = process.env.port || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
-// app.use(cors())
-// app.use(bodyParser.json())
-//
+app.use(cors())
+app.use(express.json())
 
 // endpoint to get books by author
 app.get("/books", (req, res) => {
@@ -23,7 +15,7 @@ app.get("/books", (req, res) => {
   if (author) {
     const filteredBooks = booksData.filter(
       (book) => book.authors.includes(author),
-      res.jsonfilteredBooks
+      res.json(filteredBooks)
     );
   } else {
     res.json(booksData);
