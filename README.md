@@ -1,13 +1,16 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was to create my own API. I chose to make it about the 500 popular books with different endpoints, params and queries. I also created a frontend with the API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The project went quite smoothly, no big issues. So I hade some time to also create a frontend. Wanted to cement my React knowledge and it was fun creating one with my own API. 
+
+If I would have had more time I would have done an API documentation, maybe some more endpoints and made the frontend a little nicer with more functions. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://jessikas-book-api.herokuapp.com/
+
+Frontend: https://bookly-reads.netlify.app/
+Frontend repository: https://github.com/jessika-hage/API-Frontend
