@@ -58,7 +58,11 @@ app.get('/titles/search', (req, res) => {
       || item.title.toString().toLowerCase().includes(searchTerm.toLowerCase()) 
       || item.cast.toLowerCase().includes(searchTerm.toLowerCase())
   )
-  res.json(response)
+  if (response.length > 0) {
+    res.status(200).json({ data: response })
+  } else {
+    res.status(200).send('No titles match your search')
+  }
 })
 
 // Start the server
