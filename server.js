@@ -35,7 +35,7 @@ app.use(bodyParser.json())
 //})
 
 app.get('/books', (request, response) => {
-  res.json(booksData)
+  response.json(booksData)
 })
 
 //Endpoint to get one book
