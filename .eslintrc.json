@@ -36,6 +36,7 @@
       "error",
       "never"
     ],
+    "linebreak-style": 0,
     "consistent-return": "off",
     "curly": "error",
     "eol-last": "off",
