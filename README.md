@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This project was an backend project were I created an API using Express. The API is organized using REST and the data behind the API is top 50 Spotify tracks. I created different API endpoints to filter, find, limit and order the items returned in the response, which are sent in JSON format.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Error handling: A common error 404 will be sent in the response if the id the user tried to find was not available.
+
+Pagination: The database is made up of 50 different tracks, but the user will be able to query the page and amount of results to show in the response.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I wanted to give the user the possiblity to sort the results by for example by popularity, energy or danceability, but was not sure how to implement it so that it works regardless what key the user gives in the browser. For example sort=popularity or sort=danceability. Now created only code for the popularity.
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
