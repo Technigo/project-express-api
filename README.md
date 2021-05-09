@@ -1,13 +1,20 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's assignment was to create our own API using Express and the RESTful approach
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created my own dataset inspired by a creative writing project of mine, using a variety of random word, object and number generators I could find online. I then converted the spreadsheet to json format with an online tool.
+
+I use switch statements and their fall-through design to check for synonyms of the statuses each dream location may display. I also used fetching from another API, Big Huge Thesaurus (https://words.bighugelabs.com/site/api), to generate synonyms for the keyword query parameter, allowing the request response to return similar matches, not just exact matches. In practice, though, the performance of this functionality is poor as things stand now, as the API's definition of similar words are quite far-fetched at times.
+
+get it... "far-fetched"?
+
+I'll see myself out.
+
+If I had more time I'd like to implement the ability to search with multiple keywords as a query. I'd also like to make it so the status query gets checked for synonyms the same way the status endpoint/route does, utilizing the same switch statement. I'd also love to implement POST requests, allowing the user to create location entries.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Netlify build:
+dreamscape-locations-server.netlify.app
