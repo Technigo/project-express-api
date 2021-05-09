@@ -1,4 +1,4 @@
-# Project Express API Project, week 17, Technigo Bootcamp
+# Project Express API, week 17, Technigo Bootcamp
 
 - How to build an API in Node using Express
 - How to create routes in Express
