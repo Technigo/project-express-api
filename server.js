@@ -29,7 +29,7 @@ app.get('/avocados/:id', (request, response) => {
 })
 
 
-app.put('/avocados/:totalBagsSold', (request, response) => {
+app.post('/avocados/:totalBagsSold', (request, response) => {
   const { totalBagsSoldList } = request.params
   const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
   if (totalBagsSold > 4000 && totalBagsSold < 8000) {
