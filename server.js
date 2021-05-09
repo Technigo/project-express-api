@@ -2,18 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
 import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 
 const port = process.env.PORT || 8000
 const app = express()
@@ -24,11 +14,22 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/books', (request, response) => {
+  const { author } = request.query
+  if (author) {
+    const filteredBooks = booksData.filter( book => book.authors.includes(author))
+    response.json(filteredBooks)
+  }
+
   response.json(booksData)
 })
 
 app.get('/books/:id', (request, response) => {
-  console.log(request.params.id)
+  const { id } = request.params
+  const book = booksData.find( book => book.bookID === +id)
+  if (!book) {
+    response.status(404).send(`Sorry no book could be found with id number ${id}`)
+  }
+  response.json(book)
 })
 
 // Start the server
