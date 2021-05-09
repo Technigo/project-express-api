@@ -13,6 +13,8 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+
+// Start defining your routes here
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
@@ -34,12 +36,12 @@ app.get('/books/:bookid', (request, response) => {
 
 //Endpoint to get a specifik author/authors
 app.get('/author', (request, response) => {
-  const { author } = request.query
-  if (author) {
-    const authorsList = booksData.filter(bookauthor => bookauthor.authors.includes(author))
+  const { authors } = request.query
+  if (authors) {
+    const authorsList = booksData.filter(author => author.authors.toLowerCase().includes(authors))
     response.json(authorsList)
   }
-  res.json(booksData)
+  response.json(booksData)
 })
 
 // Start the server

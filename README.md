@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was about building an API in Node using Express, create routes in Express and practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project dosen't work like it should and my heroku app stopped working before I was finished with the project. I struggled a lot with nodemon in the beginning of this project and got a lot of different error messages. One of them was that the port was already in use so the app crashed while waiting for file changes. I got a lot of help from my team members to solve this problems and I also found some answers at stackOverflow. To get the project running I did a codealong with a teacher from Technigo bootcamp. I couldn't put the time that I wanted into this project but if I could I would have put a lot more effort into it. I would have choosen different data and created more endpoints and make it feel more like my own project.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-api-book.herokuapp.com/
