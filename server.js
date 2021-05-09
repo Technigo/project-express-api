@@ -4,6 +4,8 @@ import cors from 'cors'
 
 import places from "./data/dream-places.json"
 
+const fetch = require("node-fetch");
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // 
@@ -17,6 +19,10 @@ import places from "./data/dream-places.json"
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
+
+//Find port - netstat -ano | findstr :<PORT> (where PORT is your actual port value)
+//Kill port - taskkill /PID <PID> /F (where PID is the last number listed in each row)
+
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -28,16 +34,125 @@ const shufflePlaces = () => {
   return places.sort(() => Math.random() - 1)
 }
 
+//functions
+// const checkStatusSynonyms = (status) => {
+//   switch(status) {
+//     case "prevalent":
+//     case "active":
+//     case "bustling":
+//     case "prevelent":
+//     case "hype":
+//       return "prevalent"
+//     case "stable":
+//     case "normal":
+//     case "okay":
+//     case "healthy":
+//       return "stable"
+//     case "fading":
+//     case "dying":
+//     case "unstable":
+//     case "faded":
+//       return "fading"
+//     case "dispersed":
+//     case "despersed":
+//     case "dead":
+//     case "gone":
+//       return "dispersed"
+//     default:
+//       return "ERROR"
+//   }
+// }
+
 // Start defining your routes here
+
+//TO-DO:
+//[_] offer the same filtering at the random route? Or is there not a usecase for that?
+
+//QUESTIONS FOR MY FELLOW ZEBRAS:
+//[_] is it superflous to have point route /status AND queries for it at the root?
+
+//ASK ON SO:
+//[_] is response code 413 appropriate for me?
+
+//MAKE REACT APP:
+//npx create-react-app my-app
+//cd my-app
+//npm start
+
 app.get('/', (req, res) => {
-  res.status(200).json({ data: places })
+  const { status, lucid, minSize, maxSize, keyword } = req.query
+  let filteredPlaces = places
+  let testy = []
+
+  //Do i give async a second try or do I even need it?
+  //Alternatively, maybe I can make keyword search its own route/endpoint? That way I bypass the problem.
+
+  if (keyword) {
+    fetch (`https://words.bighugelabs.com/api/2/5b150550ce000e98377ef0189eca303f/${keyword}/json`)
+    .then(res => res.json())
+    .then(similarWords => {
+      filteredPlaces = filteredPlaces.filter(place => {
+        let synonyms = []
+        if (similarWords.hasOwnProperty("noun")) {
+          synonyms = [...synonyms, ...similarWords.noun.syn]
+        }
+        if (similarWords.hasOwnProperty("adjective")) {
+          synonyms = [...synonyms, ...similarWords.adjective.syn]
+        }
+        if (similarWords.hasOwnProperty("verb")) {
+          synonyms = [...synonyms, ...similarWords.verb.syn]
+        }
+        testy = synonyms
+        return ( 
+          synonyms.some(word => place.keywords.includes(word))
+        )
+      })
+      if (filteredPlaces.length === 0) {
+        res.status(404).json({ error: `Couldn't find any locations related to keyword '${keyword}'.`})
+      } else {
+        res.status(200).json({ data: filteredPlaces })
+      }
+    })
+    .catch(err => testy = err)
+  }
+
+  if (status) {
+    filteredPlaces = filteredPlaces.filter(place => place.status === status)
+  }
+  if (lucid) {
+    filteredPlaces = filteredPlaces.filter(place => place.governor === lucid.replace(/_|-|\./, " "))
+  }
+  if (minSize && maxSize) {
+    filteredPlaces = filteredPlaces.filter(place => 
+      parseInt(place.size.slice(0, place.size.length-1)) >= parseInt(minSize) 
+      && parseInt(place.size.slice(0, place.size.length-1)) <= parseInt(maxSize)
+    )
+  } else if (minSize) {
+    filteredPlaces = filteredPlaces.filter(place => 
+      parseInt(place.size.slice(0, place.size.length-1)) >= parseInt(minSize) 
+    )
+  } else if (maxSize) {
+    filteredPlaces = filteredPlaces.filter(place => 
+      parseInt(place.size.slice(0, place.size.length-1)) <= parseInt(maxSize)
+    )
+  }
+  
+  if (keyword) {
+    //do nothing
+  } else {
+    if (filteredPlaces.length === 0) {
+      res.status(404).json({ error: `Couldn't find any locations related to keyword '${keyword}'.`})
+    } else {
+      res.status(200).json({ data: filteredPlaces })
+    }
+  }
   // res.send(listEndPoints(app))
 })
 
 app.get('/random', (req, res) => {
   const { amount } = req.query
   if (amount) {
-    if (+amount <= 0) {
+    if (amount <= 0) {
       res.status(400).json({ error: `Amount requested was less than 1.` })
     } else if (amount >= places.length) {
       res.status(413).json({ error: `Amount requested exceeds available data! :O Returning all available data.`, data: shufflePlaces() })
