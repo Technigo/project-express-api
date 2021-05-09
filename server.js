@@ -4,7 +4,6 @@ import cors from 'cors'
 import booksData from './data/books.json'
 import listEndpoints from 'express-list-endpoints'
 
-
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -19,13 +18,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  const { title, author, language_code } = req.query
+  const { author, language_code } = req.query
   let booksToSend = booksData
-
-  if (title) {
-    booksToSend = booksToSend
-      .filter(book => book.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
-  }
 
   if (author) {
     booksToSend = booksToSend
@@ -36,15 +30,9 @@ app.get('/books', (req, res) => {
     booksToSend = booksToSend
       .filter(book => book.language_code === language_code)
   }
-
+  
   res.json({ length: booksToSend.length, data: booksToSend })
 })
-//sample queries
-// http://localhost:8080/books?author=adams
-// http://localhost:8080/books?language_code=en-US
-// http://localhost:8080/books?author=adams&language_code=en-US
-
-
 
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
