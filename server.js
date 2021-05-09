@@ -50,7 +50,7 @@ app.get("/books/:id", (req, res) => {
 app.get("/title/:title", (req, res) => {
   const { title } = req.params;
   let titleOfBook = sandemoData.find(
-    (item) => item.title.toLowerCase() === title.toLowerCase()
+    (item) => item.title.toLowerCase().replace(/\s+/g, "") === title.toLowerCase()
   );
   if (titleOfBook.length !== 0) {
     res.json(titleOfBook);
