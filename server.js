@@ -1,34 +1,60 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors()) 
+app.use(express.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
 
-// Start the server
-app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+app.get('/movies', (req, res) => {
+  const { year, show, page } = req.query
+  
+  if (year) {
+    const filterReleaseYear = netflixData.filter((release) => release.release_year === +year)
+    res.json(filterReleaseYear) 
+  } else if (show) {
+    // eslint-disable-next-line max-len
+    const filterShowType = netflixData.filter((item) => item.type.toString().toLowerCase().includes(show)) 
+    res.json(filterShowType) 
+  } else if (page) {
+    const pagesCount = netflixData.slice(0, page)
+    res.json(pagesCount)
+  } else {
+    res.json(netflixData)
+  }
+}) 
+
+app.get('/movies/:id', (req, res) => {
+  const { id } = req.params
+  const netflixId = netflixData.find((item) => item.show_id === +id)
+
+  if (id) {
+    res.json({ data: netflixId })
+  } else {
+    res.status(404).json({ error: 'Not found, try again!' })
+  }
 })
+
+app.get('/movies/title/:title', (req, res) => {
+  const { title } = req.params
+  const filteredMovieTitle = netflixData.find((movie) => movie.title.toString().includes(title))
+
+  if (filteredMovieTitle) {
+    res.json({ data: filteredMovieTitle }) 
+  } else {
+    res.status(404).json({ error: 'Not found, try again!' })
+  }
+}) 
+
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Server running on http://localhost:${port}`)
+}) 
