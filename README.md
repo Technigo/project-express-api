@@ -10,6 +10,6 @@ This week we started with our first backend project by creating an API using Exp
 
 ## View it live
 
-https://netflix-show.herokuapp.com/ 
-https://objective-hopper-5ee8ae.netlify.app/ 
+Backend ➞ https://netflix-show.herokuapp.com/ 
+Front-end ➞ https://objective-hopper-5ee8ae.netlify.app/ 
 
