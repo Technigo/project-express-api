@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
 import booksData from './data/books.json';
 
@@ -10,57 +11,48 @@ app.use(cors());
 app.use(express.json());
 
 // ROUTES
-// Home: path '/'
+// Home, path '/'
 app.get('/', (req, res) => {
-  res.send('Hello world, welcome to my API.'); // Change this into an appropriate message, connect it to my live project with frontend
+  res.send(listEndpoints(app)); 
 });
 
-// Books: path '/books'
+// All books, path '/books'
+// Books by author, query path: '/books?author=adams'
+// Books by title, query path: '/books?title=bill'
 app.get('/books', (req, res) => {
-  res.json(booksData);
-});
+  const { author, title } = req.query;
+  let booksToSend = booksData;
 
-// Books by author
-// Example path: '/books/authors?author=adams'
-app.get('/books/authors', (req, res) => {
-  const { author } = req.query; 
-  const booksByAuthor = booksData.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
-
-  if (booksByAuthor.length === 0) {
-    res.status(404).send(`Sorry, could not find any books by ${author}.`);
+  if (author) {
+    booksToSend = booksToSend.filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()));
   }
 
-  res.json(booksByAuthor);
-});
-
-// Books by title
-// Example path: '/books/titles?title=bill'
-app.get('/books/titles', (req, res) => {
-  const { title } = req.query; 
-  const booksByTitle = booksData.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()));
-
-  if (booksByTitle.length === 0) {
-    res.status(404).send(`Sorry, could not find any books with the title "${title}".`);
+  if (title) {
+    booksToSend = booksToSend.filter((book) => book.title.toString().toLowerCase().includes(title.toLowerCase()));
   }
 
-  res.json(booksByTitle);
+  if (booksToSend.length === 0) {
+    res.status(404).send(`Sorry, could not find any books!`);
+  }
+
+  res.json(booksToSend);
 });
 
-// Books by top rating
-// Example path: 'books/toprating?rating=4'
+// 20 first books by top rating (4 or higher), path: 'books/toprating'
 app.get('/books/toprating', (req, res) => {
-  const { rating } = req.query;
-  const booksByTopRating = booksData.filter((book) => book.average_rating >= 4);
+  const twentyBooksByTopRating = booksData.filter((book) => book.average_rating >= 4).slice(0, 20);
 
-  if (booksByTopRating.length === 0) {
-    res.status(404).send(`Sorry, could not find any books with the rating of ${rating}.`);
-  }
-
-  res.json(booksByTopRating);
+  res.json(twentyBooksByTopRating);
 });
 
-// Book by id 
-// Example path: '/books/1' 
+// Books by short reads, path: '/books/shortread'
+app.get('/books/shortread', (req, res) => {
+  const shortRead = booksData.filter((book) => book.num_pages <= 500);
+
+  res.json(shortRead);
+});
+
+// Book by id, path: '/books/1' 
 app.get('/books/:id', (req, res) => {
   const { id } = req.params;
   const singleBook = booksData.find((book) => book.bookID === +id);
