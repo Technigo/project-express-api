@@ -1,13 +1,21 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to create an API using Express. 
+The API has RESTful endpoints which return both array of data and single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by looking att the different data files to choose which one was the most interesting for me. 
+I am a music lover so i decided to go with the top music data. 
+
+I looked at the data to see what kind of data possible users would like to display when using the API. 
+I went for both a query and param approach. For the query part i choose to add array method filter to filter out different artist, song titles, music genres and popularity. Since you can get multiple data for these queries i decided to not use a specific endpoint for this.
+
+I also added an endpoint for a single id and decided to choose the find method for this. 
+
+If i would have more time I would try to add the slice method to only show the data that i wanted from each object. I would also try to connect my backend to frontend. 
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://anna-music-data.herokuapp.com/music
