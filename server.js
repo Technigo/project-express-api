@@ -58,7 +58,7 @@ app.get('/books/:id', (req, res) => {
   const singleBook = booksData.find((book) => book.bookID === +id);
 
   if (!singleBook) {
-    res.status(404).send(`Sorry, could not find a book with id number ${id}.`);
+    res.status(404).send(`Sorry, could not find a book with id number ${id}. Try with another one!`);
   }
 
   res.json(singleBook);

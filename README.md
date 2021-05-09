@@ -1,12 +1,14 @@
-# Express API Project
+# Express API Project 🚅
 
-Replace this readme with your own information about your project. 
+I've created my first API using Express containing data about books.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I began thinking about what kind of endpoints would be nice to have for the data I chose (books). After that I started to create the endpoints home, all books, 20 first books by top rating, short read and id. I also implemented filters via query parameters to filter the data returned from endpoints which return an array of data. I continuously tested my API using Postman. When searching for a book by id, I've handled when the specific id doesn't exist and return some useful data in the response. I chose to use the npm package express-list-endpoints to list the endpoints in the home endpoint.
+
+If I had more time, I would implement a frontend to by API where I display the documentation for my API. I also would've liked to implement 'pages' using .slice() to return only a selection of results from the array and then add a query parameter to allow the user to ask for the next 'page'.
+
 
 ## View it live
 
