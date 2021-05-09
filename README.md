@@ -11,3 +11,17 @@ Pagination: The database is made up of 50 different tracks, but the user will be
 I wanted to give the user the possiblity to sort the results by for example by popularity, energy or danceability, but was not sure how to implement it so that it works regardless what key the user gives in the browser. For example sort=popularity or sort=danceability. Now created only code for the popularity.
 
 ## View it live
+
+The API live in Heroku:
+
+https://project-express-api-sari-anne.herokuapp.com/
+
+API results visualized and documentation:
+
+https://youthful-knuth-075485.netlify.app/
+
+
+
+
+
+

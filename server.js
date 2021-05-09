@@ -47,11 +47,13 @@ app.get('/tracks', (req, res) => {
 
   // Sort by popularity (descending order)
   if (sort) {
-    tracksToSend = tracksToSend.sort((a, b) => (a.popularity > b.popularity) ? -1 : 1)
+    tracksToSend = tracksToSend.sort((a, b) =>
+      a.popularity > b.popularity ? -1 : 1
+    );
   }
 
   //limit the amount of data shown in the response
-  
+
   if (page && per_page) {
     tracksToSend = tracksToSend.slice((page - 1) * per_page, page * per_page);
   }
