@@ -29,19 +29,21 @@ app.get("/", (req, res) => {
 // query param, if if searching for specific auther or title
 // '/books' end point to get all books
 // res.json the data always convert data to string
+// with query params returning an array of objects
 
 app.get("/books", (req, res) => {
-  const { author, title } = req.query;
-  if (author) {
+  const { author, bookTitle } = req.query;
+
+  if (bookTitle) {
+    const booksTitle = booksData.filter((book) => {
+      return book.title.toLowerCase().includes(bookTitle.toLowerCase());
+    });
+    res.json(booksTitle);
+  } else if (author) {
     const booksList = booksData.filter((book) => {
       return book.authors.toLowerCase().includes(author.toLowerCase());
     });
     res.json(booksList);
-  } else if (title) {
-    const booksTitle = booksData.filter((book) => {
-      return book.authors.toLowerCase().includes(title.toLowerCase());
-    });
-    res.json(booksTitle);
   }
   res.send(booksData);
 });
@@ -49,6 +51,7 @@ app.get("/books", (req, res) => {
 // http://localhost:8080/books/book/1
 // :id = param to trigger a param example console.log(req params)
 // it will look for the specific param, in this case a specific id from booksData
+// returns one specific object
 app.get("/books/book/:bookID", (req, res) => {
   const { bookID } = req.params;
   const book = booksData.find((b) => b.bookID === +bookID);
@@ -95,9 +98,3 @@ app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
-
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
