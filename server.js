@@ -4,13 +4,6 @@ import cors from 'cors'
 
 import data from './data/golden-globes.json'
 
-//Ideas: filtering on different decades like
-// if you dont specify a status code it is by default 200 (ok)
-
-//if we are looking for something unique with path param. And it doesnt exist, return not found (404)
-//Else empty array (with query params)
-//use params (:param) when you are searching for an exact thing (find method) and queary when its multiple (filtering)
-
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -26,7 +19,6 @@ app.get('/', (request, response) => {
 })
 
 app.get('/nominations', (request, response) => {  
-  //Query params - for filtering an array in to a new array. Use query like ?won=true&Category=xxx
   const { category, awardYear, showWon} = request.query
   let goldenGlobesData = data
 
@@ -56,7 +48,6 @@ app.get('/nominations/:title', (request, response) => {
   response.json({lenght: singleFilmNominations.length, data: singleFilmNominations})
 })
 
-//Filter on film year with predefined limits
 app.get('/year/new_films', (request, response) => {
 
   let newFilms = goldenGlobesData.filter((item => item.year_film > 2018))
