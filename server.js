@@ -15,6 +15,7 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 // app.use(cors())
 // app.use(bodyParser.json())
+// 
 
 // endpoint to get all books
 app.get("/books", (req, res) => {
@@ -25,6 +26,9 @@ app.get("/books", (req, res) => {
 app.get("/books/:id", (req, res) => {
   const { id } = req.params;
   const book = booksData.find(book => book.bookID === +id);
+  if(!book) {
+    res.send(`No book with id ${id} was found`)
+  }
   res.json(book);
 });
 
