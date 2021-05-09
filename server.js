@@ -25,14 +25,14 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here. Endpoint to get all netflix titles
-//app.get('/books', (request, response) => {
-//const { author } = request.query
-//if (author) {
-// const booksList = booksData.filter(book => book.authors.includes(author))
-//  response.json(booksList)
-// }
-// res.json(booksData)
-//})
+app.get('/books', (request, response) => {
+  const { author } = request.query
+  if (author) {
+    const booksList = booksData.filter(book => book.authors.includes(author))
+    response.json(booksList)
+  }
+  res.json(booksData)
+})
 
 app.get('/books', (request, response) => {
   response.json(booksData)
