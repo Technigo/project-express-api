@@ -1,31 +1,56 @@
-import express from 'express'
-import bodyParser from 'body-parser'
+import express, { response } from 'express'
+import listEndpoints from 'express-list-endpoints'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import plantsData from './data/plants.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 9001
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+// Root URL shows list of endpoints available
+app.get('/', (request, response) => {
+  response.send(listEndpoints(app))
 })
+
+//endpoint to get all power plants including possibility to filter on country
+app.get('/nuclear-power-plants', (request, response) => {
+  const { country } = request.query
+  if (country) {
+    const byCountry = plantsData.filter(plant => {
+      return (plant.Country.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+    })
+    response.json(byCountry)
+  } else {
+    response.json(plantsData)
+  }})
+
+// .includes(country))
+//endpoint to get power plant by id 
+app.get('/nuclear-power-plants/:id', (request, response) => {
+  const { id } = request.params
+  const plantById = plantsData.find (plant => plant.FID === +id)
+  if (!plantById) {
+    response.status(404).send(`There is no nuclear power plant with id number ${id} in the data!`)
+  }
+  response.json(plantById)
+})
+// endpoint to get power plant by country
+// app.get('/nuclear-power-plants/countries/:country', (request, response) => {
+//   const country = request.params.country
+//   const plantsByCountry = plantsData.filter(plant => plant.Country === country)
+//   if (plantsByCountry == []) {
+//     response.status(404).send(`There is no country named ${country} in the data! Either the country you inserted has no nuclear plants or you might have written it in a way that doesn't match the name in the dataset. See this link for a list of the countries oncluded in the dataset.`)
+//   }
+//   response.json(plantsByCountry)
+// })
 
 // Start the server
 app.listen(port, () => {
