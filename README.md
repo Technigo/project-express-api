@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is my first API. I used an already created json file which includes top songs.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I think it was pretty straight forward how to create the different endpoints. So I just created some easy and tried out one with a smaller then argument, just to see how it worked. 
+
+The rest of the time I tried to reached the API from another repository which I couldnt get to work, so if I had more time I would fix that so that I could add a frontend. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://johan-music-api.herokuapp.com/
