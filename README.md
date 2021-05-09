@@ -1,13 +1,15 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to create my first API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I chose the golden globes data and created endpoints for the entire collection, params for filtering by year, queries for searching by a specific title. 
+
+I saw this project mostly as an oppurtunity to practice setting up an API. 
+
+If I would have had more time I would have liked to create much more endpoints, queries and a front-end and also implemented a real database.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Watch the project live at https://sandra-project-express-api.herokuapp.com/
