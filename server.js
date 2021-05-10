@@ -13,6 +13,11 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Start defining your routes here
+
+app.get('/', (request, response) => {
+  response.send(ramenData)
+})
+
 app.get('/ramen', (request, response) => {
   const { brand } = request.query
   const { variety } = request.query
