@@ -21,12 +21,16 @@ app.get('/', (request, response) => {
 app.get('/ramen', (request, response) => {
   const { brand } = request.query
   const { variety } = request.query
+  const { packaging } = request.query
   if (brand) {
     const ramenBrandName = ramenData.filter((ramen) => ramen.brand_name.includes(brand))
     response.json(ramenBrandName)
   } if (variety) {
     const ramenVariety = ramenData.filter((ramen) => ramen.ramen_variety.includes(variety))
     response.json(ramenVariety)
+  } if (packaging) {
+    const ramenPackaging = ramenData.filter((ramen) => ramen.packaging.includes(packaging))
+    response.json(ramenPackaging)
   }
 
   response.json(ramenData)
