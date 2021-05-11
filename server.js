@@ -22,22 +22,16 @@ app.get('/', (req,res) => {
 
 // Endpoint to get all the books
 app.get('/books', (req, res) => {
-  res.json({ data: booksData })
-})   
-
-// Endpoint to get book by author
-app.get('/books/:author', (req, res) => {
-  // Destructure query params
-  const { author } = req.query
   
-  // Look for lowercased string from query param inside lowercased string from JSON
-  const byAuthor = booksData.filter(book => {
-    return book.authors.toLowerCase().includes(author.toLowerCase())
-  })
- 
-  // Return data
-  res.json(byAuthor)
-});
+  let booksToSend = booksData
+ console.log(req.query.author)
+  if (req.query.author) {
+    booksToSend = booksToSend.filter(book => {
+      return book.authors.toLowerCase().includes(req.query.author.toLowerCase())
+    })
+  } 
+  res.json({ data: booksToSend })
+})   
 
 // Endpoint to get one book
 app.get('/books/id/:id', (req, res) => { 
@@ -56,7 +50,7 @@ app.get('/books/id/:id', (req, res) => {
     } 
   }) 
 
- app.get('/books/:title', (req, res) => {
+ app.get('/books/title/:title', (req, res) => {
    const { title } = req.query
    if (title) {
      const byTitle = booksData.filter((book) => book.title.toLowerCase().includes(title.toLowerCase()))
