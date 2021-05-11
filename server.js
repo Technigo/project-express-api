@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable linebreak-style */
 import express, { request } from "express";
-
 import cors from 'cors'
 
 import artistsList from "./data/artists.json";
@@ -10,9 +9,10 @@ import artistsList from "./data/artists.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-const publicDir = require("path").join(__dirname, "/public/resized");
-
 app.use(cors())
+
+//used to create the route of the image
+const publicDir = require("path").join(__dirname, "/public/resized");
 
 app.use("/image-directory", express.static(publicDir));
 
