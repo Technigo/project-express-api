@@ -1,30 +1,64 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
+}) 
+
+app.get('shows', (req, res) => {
+  res.json({ data: netflixData })
+})
+
+app.get('/shows/search', (req, res) => {
+  const { director, title }  = req.query
+  let queriedShows = netflixData
+
+  if (director) {
+    queriedShows = queriedShows.filter(show => show.director.toLowerCase().includes(director.toLowerCase()))
+  }
+
+  if (title) {
+    queriedShows = queriedShows.filter((show) => show.title.toString().toLowerCase().includes(title.toLowerCase()))
+  }
+
+  if (queriedShows.length === 0 ) { 
+    res.status(404).json({ error: 'Not found' })
+  } else {
+    res.status(200).json({ length: queriedShows.length, data: queriedShows})
+  }
+})
+
+app.get('/shows/countries', (req, res) => {
+  const { country } = req.query
+
+  const queriedByCountry = netflixData.filter((show) => show.country.toLowerCase() === country.toLowerCase())
+  
+  if (queriedByCountry.length === 0 ) { 
+    res.status(404).json({ error: 'Not found' })
+  } else {
+    res.status(200).json({ length: queriedByCountry.length, data: queriedByCountry })
+  }
+})
+
+// endpoint to get one show based on id param
+app.get('/shows/:id', (req, res) => {
+  const { id }  = req.params
+  const movieId = netflixData.find(movie => movie.show_id === +id)
+
+  if (movieId) {
+    res.status(200).json({ data: movieId });
+  } else {
+    res.status(404).json({ error: 'This movie can not be found' });
+  }
 })
 
 // Start the server
