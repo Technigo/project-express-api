@@ -12,6 +12,15 @@ I am looking forward to the coming weeks with backend and will put more time int
 
 If I had more time this week I would look into how to use Swagger for documentation and continue to practice data manipulation. 
 
+My API uses a hardcoded JSON file that contains Netflix data.
+
+Endpoints: 
+
+* shows
+* shows/search ---> query: director or title
+* shows/countries -> query: country
+* shows/:id
+
 ## View it live
 https://movies-express-api.herokuapp.com/
 

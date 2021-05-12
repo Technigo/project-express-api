@@ -27,7 +27,7 @@ app.get('/shows/search', (req, res) => {
   }
 
   if (title) {
-     queriedShows = queriedShows.filter((show) => show.title.toString().toLowerCase().includes(title.toLowerCase()))
+    queriedShows = queriedShows.filter((show) => show.title.toString().toLowerCase().includes(title.toLowerCase()))
   }
 
   if (queriedShows.length === 0 ) { 
