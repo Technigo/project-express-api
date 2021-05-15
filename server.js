@@ -4,9 +4,6 @@ import listEndpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -24,14 +21,16 @@ app.get('/', (req,res) => {
 app.get('/books', (req, res) => {
   
   let booksToSend = booksData
- console.log(req.query.author)
-  if (req.query.author) {
-    booksToSend = booksToSend.filter(book => {
-      return book.authors.toLowerCase().includes(req.query.author.toLowerCase())
-    })
+    if (req.query.author) {
+      booksToSend = booksToSend.filter((book) => book.authors.toLowerCase().includes(req.query.author.toLowerCase()))  
+  }
+
+    if (req.query.title) {
+      booksToSend = booksToSend.filter((book) => typeof book.title === "string")
+      booksToSend = booksToSend.filter((book) => book.title.toLowerCase().includes(req.query.title.toLowerCase()))
   } 
-  res.json({ data: booksToSend })
-})   
+    res.json({ data: booksToSend})
+})
 
 // Endpoint to get one book
 app.get('/books/id/:id', (req, res) => { 
@@ -49,17 +48,6 @@ app.get('/books/id/:id', (req, res) => {
       res.status(404).json({ error: 'Not found' })
     } 
   }) 
-
- app.get('/books/title/:title', (req, res) => {
-   const { title } = req.query
-   if (title) {
-     const byTitle = booksData.filter((book) => book.title.toLowerCase().includes(title.toLowerCase()))
-     res.json(byTitle)
-   } else {
-     res.json(booksData)
-   }
- })
-
 
 // Start the server
 app.listen(port, () => {
