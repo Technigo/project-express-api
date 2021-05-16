@@ -55,7 +55,6 @@ app.get('/nominations/index/:index', (request, response) => {
 })
 
 app.get('/year/new_films', (request, response) => {
-
   let newFilms = goldenGlobesData.filter((item => item.year_film > 2018))
   response.json({ lenght: newFilms.length, data: newFilms})
 })
