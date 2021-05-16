@@ -29,12 +29,12 @@ app.get('/avocados/:id', (request, response) => {
 })
 
 
-//want to try out this one later. Right now not working as a would like
+//want to try out this one later. Right now not working as I would like it too.
 
-// app.post('/avocados/:totalBagsSold', (request, response) => {
-//   const { totalBagsSoldList } = request.params
-//   const totalBags = avocadoSalesData.find(totalBags = totalBags.totalBagsSold === +totalBagsSoldList)
-//   if (totalBagsSold > 4000 && totalBagsSold < 8000) {
+// app.get('/avocados/:totalBagsSold', (request, response) => {
+//   const { totalBagsSoldList } = request.query
+//   const totalBags = avocadoSalesData.filter(bags => bags.totalBagsSold === totalBagsSoldList)
+//   if (totalBagsSold < 4000) {
 //   response.json(totalBags)
 //   }
 // }) 
