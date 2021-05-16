@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { request, response } from 'express'
 import listEndpoints from 'express-list-endpoints'
 import cors from 'cors'
 
@@ -46,6 +46,12 @@ app.get('/nominations/:title', (request, response) => {
     response.status(404).json({ error: 'Not found'})
   }
   response.json({lenght: singleFilmNominations.length, data: singleFilmNominations})
+})
+
+app.get('/nominations/index/:index', (request, response) => {
+  const { index } = request.params
+  let indexTitle = goldenGlobesData[index]
+  response.json({data: indexTitle})
 })
 
 app.get('/year/new_films', (request, response) => {
