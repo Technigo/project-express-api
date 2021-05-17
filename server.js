@@ -11,6 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
+// endpoints
 app.get("/", (req, res) => {
   res.send(musicData);
 });
