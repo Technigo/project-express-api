@@ -4,7 +4,7 @@ import cors from "cors";
 
 import musicData from "./data/top-music.json";
 
-const port = process.env.port || 8080;
+const port = process.env.port || 8000;
 const app = express();
 
 app.use(cors());
