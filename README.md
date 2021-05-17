@@ -43,5 +43,5 @@ Use endpoint ```GET /books```
 
 Filter by either author or title (optional). Case insensitive.
 
-Example query for author: ```GET /books?author=adams```
-Example query for title: ```GET /books?title=bill```
+* Example query for author: ```GET /books?author=adams```
+* Example query for title: ```GET /books?title=bill```
