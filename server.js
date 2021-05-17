@@ -22,7 +22,7 @@ app.get('/movies', (request, response) => {
   response.json(movies)
 })
 //return one single movie based on known ID
-app.get('/id/:id', (request, response) => {
+app.get('/movies/:id', (request, response) => {
   const { id } = request.params 
   const filteredMovies = movies
     .find(movie => movie.show_id === +id
@@ -30,7 +30,7 @@ app.get('/id/:id', (request, response) => {
 filteredMovies ? response.json(filteredMovies) : response.status(404).send(`There is no movie with ID "${id}" in the system`)
 })
 //return movie based on year of release
-app.get('/year/:year', (request, response) => {
+app.get('/movies/year/:year', (request, response) => {
   const year = request.params.year
   const releaseYear = movies.filter(
     item => item.release_year === +year
@@ -42,7 +42,7 @@ app.get('/year/:year', (request, response) => {
       response.send({ length: releaseYear.length, data: releaseYear})
 })
 //return type of movies, filtered out to not show duplicates
-app.get('/type/type', (request, response) => {
+app.get('/types/type', (request, response) => {
   const filterOutDuplicated = movies.map(item => item.type)
   const movieType = []
   filterOutDuplicated.forEach(item => {
