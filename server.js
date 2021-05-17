@@ -42,7 +42,7 @@ app.get('/movies/year/:year', (request, response) => {
       response.send({ length: releaseYear.length, data: releaseYear})
 })
 //return type of movies, filtered out to not show duplicates
-app.get('/types/type', (request, response) => {
+app.get('/movies/types/type', (request, response) => {
   const filterOutDuplicated = movies.map(item => item.type)
   const movieType = []
   filterOutDuplicated.forEach(item => {
