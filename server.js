@@ -1,5 +1,6 @@
 import express, { response } from 'express'
 import cors from 'cors'
+import mongoos from 'mongoos'
 
 import topMusicData from './data/top-music.json'
 
@@ -25,27 +26,6 @@ app.get('/music', (req, res) => {
   } 
   res.json(topMusicData)
 })
-
-
-// app.get('/music/info', (req, res) => {
-
-//   const { song, artist } = req.query
-
-//   if (song) {
-//     const songByTitle = topMusicData.filter(song => song.trackName.includes(song))
-//     if (songByTitle.length === 0){
-//       res.status(404).json(ERROR_MESSAGE_SONG)
-//     } else {
-//       res.json(songByTitle)
-//     }
-//   } else if (artist){
-//     const artistName = topMusicData.filter((item) => {
-//     return item.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1;
-// })
-//     res.json({ data: artistName });
-//   } 
-  
-// })
 
 // http://localhost:8080/music/info?artist=shaw
 
