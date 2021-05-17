@@ -1,34 +1,107 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 9000
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
 
-// Start the server
+app.get('/books', (req, res) => {
+  const { author, title, lang } = req.query
+  let booksResult = booksData
+
+  if (author) {
+    booksResult = booksResult
+      .filter((book) => book.authors.toLowerCase().includes(author.toLowerCase()))
+  } 
+  
+  if (title) {
+    booksResult = booksResult
+      .filter((book) => book.title.toLowerCase().includes(title.toLowerCase()))
+  } 
+  
+  if (lang) {
+    booksResult = booksResult.filter((book) => book.language_code === lang)
+  }
+  res.json(booksResult)
+})
+
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params
+  const findId = booksData.find((book) => book.bookID === +id)
+
+  if (findId.length === 0) {
+    res
+      .status(404)
+      .json(`There's no book with id number '${id}'`)
+  } else {
+    res.json(findId)
+  }
+})
+
+app.get('/books/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
+  const findIsbn = booksData.find((book) => book.isbn === +isbn)
+
+  if (findIsbn.length === 0) {
+    res
+      .status(404)
+      .json(`There's no book with ISBN-number '${isbn}'`)
+  } else {
+    res.json(findIsbn)
+  }
+})
+
+app.get('/books/titles/:title', (req, res) => {
+  const { title } = req.params
+  const filteredTitle = booksData.filter(
+    (book) => book.title.toString().toLowerCase().includes(title.toString().toLowerCase())
+  )
+  if (filteredTitle.length === 0) {
+    res
+      .status(404)
+      .json(`Sorry, couldn't find a book with title '${title}'`)
+  } else {
+    res.json(filteredTitle)
+  }
+})
+
+app.get('/books/languages/:lang', (req, res) => {
+  const { lang } = req.params
+  const filteredLang = booksData.filter(
+    (book) => book.language_code.toLowerCase() === lang.toLowerCase()
+  )
+  const languages = [...new Set(booksData.map((book) => book.language_code))]
+  const availableLanguages = languages.map((language) => `'${language}'`).join(', ')
+
+  if (filteredLang.length === 0) {
+    res
+      .status(404)
+      .json(`Couldn't find any books with language-code '${lang}'. Available languages are: ${availableLanguages}`)
+  } else {
+    res.json(filteredLang)
+  }
+})
+
+app.get('/books/top10', (req, res) => {
+  const top10 = booksData.sort((a, b) => b.average_rating - a.average_rating).slice(0, 10)
+  res.json(top10)
+})
+
+app.get('/books/authors', (req, res) => {
+  const authors = [...new Set(booksData.map((book) => book.authors))].sort()
+  res.json(authors)
+})
+
 app.listen(port, () => {
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-console
   console.log(`Server running on http://localhost:${port}`)
 })
