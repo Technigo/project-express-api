@@ -11,5 +11,16 @@ There's probably a lot more combinations and useful info that one could be able 
 * Express
 * JavaScript
 
+## Endpoints
+* '/' - See a list of endpoints
+* '/book' - See all books
+* '/books?author=[...]&title=[...]&lang=[...] - Search for authors and/or title and/or language-code
+* '/books/[id] - Search for book by ID
+* '/books/isbn/[isbn] - Search for book by ISBN
+* '/books/titles/[title]' - Search for book by title
+* '/books/languages/[lang]' Search for book by language-code
+* '/books/top10' - Get a list of the 10 books with the highest rating
+* '/books/authors' - Get a list of all available authors
+
 ## View it live
 https://books-api-express.herokuapp.com/

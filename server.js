@@ -4,7 +4,7 @@ import listEndpoints from 'express-list-endpoints'
 
 import booksData from './data/books.json'
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 9000
 const app = express()
 
 app.use(cors())
@@ -34,7 +34,7 @@ app.get('/books', (req, res) => {
   res.json(booksResult)
 })
 
-app.get('/books/id/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const findId = booksData.find((book) => book.bookID === +id)
 
