@@ -9,17 +9,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// endpoint to get music by artist
-app.get('/music', (req, res) => {
-  const { artist, track } = req.query;
-
-    const filterArtist = musicData.filter(item => {
-      return item.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1;
-    })
-    res.json({ data: filterArtist });
+app.get("/music", (req, res) => {
+  const { artist } = req.query;
+  if (artist) {
+    const filterArtist = musicData.filter((item) =>
+      item.artistName.includes(artist)
+    );
+    res.json(filterArtist);
+  }
+  res.json(musicData);
 });
 
-// endpoint to get one track
 app.get("/music/:id", (req, res) => {
   const { id } = req.params;
   const music = musicData.find((item) => item.id === Number(id));
