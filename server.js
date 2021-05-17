@@ -2,7 +2,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
-// import booksData from './data/books.json'
 import ramenData from './data/ramen-ratings.json'
 
 const port = process.env.PORT || 8000
@@ -12,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// ROUTES Start here:
 
 app.get('/', (request, response) => {
   response.send(ramenData)
@@ -44,7 +43,6 @@ app.get('/ramen/:id', (request, response) => {
   }
   response.json(ramen)
 })
-
 
 // Start the server
 app.listen(port, () => {
