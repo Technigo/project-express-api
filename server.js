@@ -1,4 +1,5 @@
 import express, { request, response } from "express";
+import bodyParser from "body-parser";
 import cors from "cors";
 
 import musicData from "./data/top-music.json";
@@ -7,7 +8,12 @@ const port = process.env.port || 8080;
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send(musicData);
+});
 
 app.get("/music", (req, res) => {
   const { artist } = req.query;
