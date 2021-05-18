@@ -29,6 +29,4 @@ If I had more time I would have built a couple more endpoints and also created t
 
 ## View it live
 
-
-0
-u
+https://books-api-by-dannuzak.herokuapp.com/
