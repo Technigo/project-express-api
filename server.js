@@ -2,26 +2,13 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
-
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
 import booksData from './data/books.json'
 import { reset } from 'nodemon'
-console.log(booksData.length)
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+// Middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -34,28 +21,25 @@ app.get('/', (req, res) => {
 // endpoints to get all books
 app.get('/books', (req, res) => {
   //queries to filter further
-  const author = req.query.author
-  const language = req.query.language
-  const title = req.query.title
+  const { author, language, title } = req.query
+
   if (author) {
     const booksByAuthor = booksData.filter((book) => book.authors.includes(author))
     res.json(booksByAuthor)
-  }  else if (language) {
+  } else if (language) {
     const booksByLanguage = booksData.filter((book) => book.language_code === language)
     res.json(booksByLanguage)
   } else if (title) {
     const booksByTitle = booksData.filter((book) => book.title.includes(title))
     res.json(booksByTitle)
-  // } else if () {
-
   } else {
     res.json(booksData)
   }
 })
 
 // endpoint to get one book by id
-app.get('/books/id/:id', (req, res) => {
-  const id = req.params.id
+app.get('/books/:id', (req, res) => {
+  const { id } = req.params
   const book = booksData.find((book) => book.bookID === +id)
   if (!book) {
     res.status(404).send(`No book here with id number ${id}`)
@@ -65,7 +49,7 @@ app.get('/books/id/:id', (req, res) => {
 
 // endpoint to get one book by ISBN
 app.get('/books/isbn/:isbn', (req, res) => {
-  const isbn = req.params.isbn
+  const { isbn } = req.params
   const book = booksData.find((book) => book.isbn === +isbn)
   if (!book) {
     res.status(404).send(`No book here with the isbn ${isbn}`)
@@ -73,12 +57,11 @@ app.get('/books/isbn/:isbn', (req, res) => {
   res.json(book)
 })
 
-
 // endpoint to get all books in one language
 app.get('/books/language/:language', (req, res) => {
-  const language = req.params.language
+  const { language } = req.params
   // queries to filter further
-  const rating = req.query.rating
+  const { rating } = req.query
   let titleInLanguage = booksData.filter((item) => item.language_code === language)
   if (!language) {
     res.status(404).send(`No books here in ${language}`)
@@ -86,15 +69,15 @@ app.get('/books/language/:language', (req, res) => {
     titleInLanguage = titleInLanguage.filter((item) => item.average_rating >= +rating)
     res.json(titleInLanguage)
   } else {
-  res.json(titleInLanguage)
+    res.json(titleInLanguage)
   }
 })
 
 // endpoint to get all books by one author
 app.get('/books/author/:author', (req, res) => {
-  const author = req.params.author
+  const { author } = req.params
   // queries to filter further
-  const rating = req.query.rating
+  const { rating } = req.query
   let booksByAuthor = booksData.filter((book) => book.authors.includes(author))
   if (!booksByAuthor) {
     res.status(404).send(`No books here by ${author}`)
@@ -102,9 +85,9 @@ app.get('/books/author/:author', (req, res) => {
     booksByAuthor = booksByAuthor.filter((item) => item.average_rating >= +rating)
     res.json(booksByAuthor)
   } else {
-  res.json(booksByAuthor)
-}})
-
+    res.json(booksByAuthor)
+  }
+})
 
 // Start the server
 app.listen(port, () => {
