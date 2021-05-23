@@ -4,23 +4,17 @@ import listEndpoints from 'express-list-endpoints';
 
 import booksData from './data/books.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 });
 
-// query to filter on autor, title and language.
+// to get all books and query to filter on autor, title and language.
 app.get('/books', (req, res) => {
   const { author, title, language } = req.query
 
@@ -60,13 +54,13 @@ app.get('/top5', (req, res) => {
 });
 
 // endpoint to get the 20 books with most textreviews
-app.get('/textreviews', (req, res) => {
+app.get('/top20', (req, res) => {
   const books = booksData.sort((a, b) => b.text_reviews_count - a.text_reviews_count);
   res.json(books.slice(0, 20));
 })
 
 // endpoint for isbn
-app.get('/isbn/:isbn', (req, res) => {
+app.get('/books/isbn/:isbn', (req, res) => {
   const { isbn } = req.params
   const books = booksData.find((book) => book.isbn === +isbn)
   if (!books) {
@@ -77,7 +71,7 @@ app.get('/isbn/:isbn', (req, res) => {
 });
 
 // endpoint for id
-app.get('/id/:id', (req, res) => {
+app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const books = booksData.find((book) => book.bookID === +id)
   if (!books) {
@@ -88,7 +82,7 @@ app.get('/id/:id', (req, res) => {
 });
 
 // endpoint to filter on language
-app.get('/lang/:lang', (req, res) => {
+app.get('/books/lang/:lang', (req, res) => {
   const { lang } = req.params
   const books = booksData.filter((book) => book.language_code === lang)
   if (!books.length) {
