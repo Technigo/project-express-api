@@ -17,11 +17,8 @@ app.get('/', (req, res) => {
   res.send('empty placeholder')
 })
 
-app.get('/avocado', (req, res) => { 
-  const { id } = req.query
-  const { maxPrice } = req.query
-  const { minPrice } = req.query
-  const { amount } = req.query
+app.get('/avocados', (req, res) => { 
+  const { maxPrice, minPrice, amount } = req.query
 
   let filteredAvocado = avocadoSalesData
 
@@ -37,9 +34,16 @@ app.get('/avocado', (req, res) => {
     filteredAvocado = filteredAvocado.slice(0,amount)
   }
 
-  if(id) {
-    filteredAvocado = filteredAvocado.filter((item) => item.id === +id)
-  }
+  res.send({ length: filteredAvocado.length, data: filteredAvocado})
+})
+
+app.get('/avocados/:id', (req, res) => { 
+  const { id } = req.params
+
+  let filteredAvocado = avocadoSalesData
+
+  filteredAvocado = filteredAvocado.filter((item) => item.id === +id)
+
   res.send({ length: filteredAvocado.length, data: filteredAvocado})
 })
 
