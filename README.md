@@ -1,4 +1,4 @@
-Project built during Technigo Bootcamp
+Project week 17 of Technigo bootcamp
 
 # Express API Project
 
