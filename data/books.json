@@ -48,18 +48,6 @@
     "text_reviews_count": 272
   },
   {
-    "bookID": 5,
-    "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter  #3)",
-    "authors": "J.K. Rowling-Mary GrandPré",
-    "average_rating": 4.55,
-    "isbn": "043965548X",
-    "isbn13": 9780439655484,
-    "language_code": "eng",
-    "num_pages": 435,
-    "ratings_count": 2149872,
-    "text_reviews_count": 33964
-  },
-  {
     "bookID": 8,
     "title": "Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)",
     "authors": "J.K. Rowling-Mary GrandPré",
@@ -156,18 +144,6 @@
     "text_reviews_count": 192
   },
   {
-    "bookID": 21,
-    "title": "A Short History of Nearly Everything",
-    "authors": "Bill Bryson-William Roberts",
-    "average_rating": 4.2,
-    "isbn": "076790818X",
-    "isbn13": 9780767908184,
-    "language_code": "eng",
-    "num_pages": 544,
-    "ratings_count": 228522,
-    "text_reviews_count": 8840
-  },
-  {
     "bookID": 22,
     "title": "Bill Bryson's African Diary",
     "authors": "Bill Bryson",
@@ -202,18 +178,6 @@
     "num_pages": 335,
     "ratings_count": 68213,
     "text_reviews_count": 4077
-  },
-  {
-    "bookID": 25,
-    "title": "I'm a Stranger Here Myself: Notes on Returning to America After Twenty Years Away",
-    "authors": "Bill Bryson",
-    "average_rating": 3.9,
-    "isbn": "076790382X",
-    "isbn13": 9780767903820,
-    "language_code": "eng",
-    "num_pages": 304,
-    "ratings_count": 47490,
-    "text_reviews_count": 2153
   },
   {
     "bookID": 26,
@@ -360,30 +324,6 @@
     "text_reviews_count": 19
   },
   {
-    "bookID": 40,
-    "title": "Cooking with Fernet Branca (Gerald Samper  #1)",
-    "authors": "James Hamilton-Paterson",
-    "average_rating": 3.61,
-    "isbn": "193337201X",
-    "isbn13": 9781933372013,
-    "language_code": "eng",
-    "num_pages": 288,
-    "ratings_count": 1214,
-    "text_reviews_count": 202
-  },
-  {
-    "bookID": 45,
-    "title": "Agile Web Development with Rails: A Pragmatic Guide",
-    "authors": "Dave Thomas-David Heinemeier Hansson-Leon Breedt-Mike Clark-Thomas  Fuchs-Andreas  Schwarz",
-    "average_rating": 3.89,
-    "isbn": "097669400X",
-    "isbn13": 9780976694007,
-    "language_code": "eng",
-    "num_pages": 558,
-    "ratings_count": 1269,
-    "text_reviews_count": 59
-  },
-  {
     "bookID": 50,
     "title": "Hatchet",
     "authors": "Gary Paulsen",
@@ -528,18 +468,6 @@
     "text_reviews_count": 2576
   },
   {
-    "bookID": 68,
-    "title": "The Known World",
-    "authors": "Edward P. Jones-Kevin R. Free",
-    "average_rating": 3.83,
-    "isbn": "006076273X",
-    "isbn13": 9780060762735,
-    "language_code": "en-US",
-    "num_pages": 14,
-    "ratings_count": 50,
-    "text_reviews_count": 12
-  },
-  {
     "bookID": 69,
     "title": "The Known World",
     "authors": "Edward P. Jones",
@@ -574,18 +502,6 @@
     "num_pages": 352,
     "ratings_count": 50,
     "text_reviews_count": 4
-  },
-  {
-    "bookID": 73,
-    "title": "The Known World",
-    "authors": "Edward P. Jones",
-    "average_rating": 3.83,
-    "isbn": "096513671X",
-    "isbn13": 9780965136716,
-    "language_code": "eng",
-    "num_pages": 388,
-    "ratings_count": 15,
-    "text_reviews_count": 2
   },
   {
     "bookID": 74,
@@ -936,18 +852,6 @@
     "text_reviews_count": 616
   },
   {
-    "bookID": 122,
-    "title": "The Power of One (The Power of One  #1)",
-    "authors": "Bryce Courtenay",
-    "average_rating": 4.35,
-    "isbn": "034541005X",
-    "isbn13": 9780345410054,
-    "language_code": "eng",
-    "num_pages": 544,
-    "ratings_count": 66687,
-    "text_reviews_count": 4445
-  },
-  {
     "bookID": 123,
     "title": "The Power of One (The Power of One  #1)",
     "authors": "Bryce Courtenay",
@@ -994,18 +898,6 @@
     "num_pages": 240,
     "ratings_count": 10,
     "text_reviews_count": 0
-  },
-  {
-    "bookID": 132,
-    "title": "How to Buy  Sell & Profit on eBay: Kick-Start Your Home-Based Business in Just Thirty Days",
-    "authors": "Adam Ginsberg",
-    "average_rating": 3.49,
-    "isbn": "006076287X",
-    "isbn13": 9780060762872,
-    "language_code": "eng",
-    "num_pages": 336,
-    "ratings_count": 73,
-    "text_reviews_count": 9
   },
   {
     "bookID": 133,
@@ -1356,18 +1248,6 @@
     "text_reviews_count": 7
   },
   {
-    "bookID": 182,
-    "title": "Literature Circle Guide: A Wrinkle in Time",
-    "authors": "Tara MacCarthy",
-    "average_rating": 3.57,
-    "isbn": "043927169X",
-    "isbn13": 9780439271691,
-    "language_code": "eng",
-    "num_pages": 32,
-    "ratings_count": 14,
-    "text_reviews_count": 0
-  },
-  {
     "bookID": 201,
     "title": "Una arruga en el tiempo – A Wrinkle in Time",
     "authors": "Madeleine L'Engle",
@@ -1390,18 +1270,6 @@
     "num_pages": 367,
     "ratings_count": 366,
     "text_reviews_count": 16
-  },
-  {
-    "bookID": 205,
-    "title": "A Long Shadow (Inspector Ian Rutledge  #8)",
-    "authors": "Charles Todd",
-    "average_rating": 4.11,
-    "isbn": "006078671X",
-    "isbn13": 9780060786717,
-    "language_code": "eng",
-    "num_pages": 352,
-    "ratings_count": 2934,
-    "text_reviews_count": 222
   },
   {
     "bookID": 207,
@@ -1510,18 +1378,6 @@
     "num_pages": 217,
     "ratings_count": 937,
     "text_reviews_count": 50
-  },
-  {
-    "bookID": 247,
-    "title": "Quiet Days in Clichy",
-    "authors": "Henry Miller",
-    "average_rating": 3.69,
-    "isbn": "080213016X",
-    "isbn13": 9780802130167,
-    "language_code": "eng",
-    "num_pages": 154,
-    "ratings_count": 3237,
-    "text_reviews_count": 134
   },
   {
     "bookID": 249,
@@ -1644,18 +1500,6 @@
     "text_reviews_count": 122
   },
   {
-    "bookID": 281,
-    "title": "Destroy  She Said",
-    "authors": "Marguerite Duras-Barbara Bray-Helen Lane Cumberford",
-    "average_rating": 3.68,
-    "isbn": "080215154X",
-    "isbn13": 9780802151544,
-    "language_code": "eng",
-    "num_pages": 133,
-    "ratings_count": 532,
-    "text_reviews_count": 41
-  },
-  {
     "bookID": 283,
     "title": "L'Amant de la Chine du Nord",
     "authors": "Marguerite Duras",
@@ -1680,30 +1524,6 @@
     "text_reviews_count": 9
   },
   {
-    "bookID": 288,
-    "title": "Kahlil Gibran: His Life and World",
-    "authors": "Jean Gibran-جبران خليل جبران-Kahlil Gibran",
-    "average_rating": 4.2,
-    "isbn": "156656249X",
-    "isbn13": 9781566562492,
-    "language_code": "eng",
-    "num_pages": 464,
-    "ratings_count": 33,
-    "text_reviews_count": 2
-  },
-  {
-    "bookID": 289,
-    "title": "The Beloved: Reflections on the Path of the Heart",
-    "authors": "Kahlil Gibran-John Walbridge-Robin Waterfield",
-    "average_rating": 4.19,
-    "isbn": "014019553X",
-    "isbn13": 9780140195538,
-    "language_code": "eng",
-    "num_pages": 102,
-    "ratings_count": 320,
-    "text_reviews_count": 16
-  },
-  {
     "bookID": 290,
     "title": "Jesus the Son of Man",
     "authors": "Kahlil Gibran-جبران خليل جبران",
@@ -1726,18 +1546,6 @@
     "num_pages": 132,
     "ratings_count": 6175,
     "text_reviews_count": 492
-  },
-  {
-    "bookID": 292,
-    "title": "Sand and Foam",
-    "authors": "Kahlil Gibran-جبران خليل جبران",
-    "average_rating": 4.08,
-    "isbn": "067943920X",
-    "isbn13": 9780679439202,
-    "language_code": "eng",
-    "num_pages": 100,
-    "ratings_count": 2893,
-    "text_reviews_count": 210
   },
   {
     "bookID": 295,
@@ -1810,18 +1618,6 @@
     "num_pages": 232,
     "ratings_count": 85,
     "text_reviews_count": 18
-  },
-  {
-    "bookID": 304,
-    "title": "Daniel Deronda",
-    "authors": "George Eliot-Edmund White",
-    "average_rating": 3.83,
-    "isbn": "037576013X",
-    "isbn13": 9780375760136,
-    "language_code": "eng",
-    "num_pages": 796,
-    "ratings_count": 19852,
-    "text_reviews_count": 601
   },
   {
     "bookID": 313,
@@ -1990,18 +1786,6 @@
     "num_pages": 528,
     "ratings_count": 241727,
     "text_reviews_count": 5985
-  },
-  {
-    "bookID": 352,
-    "title": "The Notebooks of Lazarus Long",
-    "authors": "Robert A. Heinlein-Stephen Hickman",
-    "average_rating": 4.07,
-    "isbn": "074348844X",
-    "isbn13": 9780743488440,
-    "language_code": "en-US",
-    "num_pages": 56,
-    "ratings_count": 3192,
-    "text_reviews_count": 23
   },
   {
     "bookID": 354,
@@ -2280,18 +2064,6 @@
     "text_reviews_count": 201
   },
   {
-    "bookID": 409,
-    "title": "Against the Day",
-    "authors": "Thomas Pynchon",
-    "average_rating": 4.12,
-    "isbn": "159420120X",
-    "isbn13": 9781594201202,
-    "language_code": "eng",
-    "num_pages": 1085,
-    "ratings_count": 5110,
-    "text_reviews_count": 577
-  },
-  {
     "bookID": 410,
     "title": "V.",
     "authors": "Thomas Pynchon",
@@ -2386,18 +2158,6 @@
     "num_pages": 352,
     "ratings_count": 2356,
     "text_reviews_count": 215
-  },
-  {
-    "bookID": 420,
-    "title": "The Year of Magical Thinking",
-    "authors": "Joan Didion",
-    "average_rating": 3.88,
-    "isbn": "140004314X",
-    "isbn13": 9781400043149,
-    "language_code": "en-US",
-    "num_pages": 227,
-    "ratings_count": 2507,
-    "text_reviews_count": 328
   },
   {
     "bookID": 421,
@@ -2496,18 +2256,6 @@
     "text_reviews_count": 696
   },
   {
-    "bookID": 434,
-    "title": "Ghosts (The New York Trilogy  #2)",
-    "authors": "Paul Auster",
-    "average_rating": 3.65,
-    "isbn": "014009735X",
-    "isbn13": 9780140097351,
-    "language_code": "eng",
-    "num_pages": 96,
-    "ratings_count": 3443,
-    "text_reviews_count": 185
-  },
-  {
     "bookID": 435,
     "title": "The Locked Room (The New York Trilogy  #3)",
     "authors": "Paul Auster",
@@ -2566,18 +2314,6 @@
     "num_pages": 181,
     "ratings_count": 9200,
     "text_reviews_count": 599
-  },
-  {
-    "bookID": 450,
-    "title": "Neon Lit: Paul Auster's City of Glass",
-    "authors": "Paul Karasik-David Mazzucchelli-Paul Auster-Bob Callahan",
-    "average_rating": 3.92,
-    "isbn": "038077108X",
-    "isbn13": 9780380771080,
-    "language_code": "eng",
-    "num_pages": 129,
-    "ratings_count": 120,
-    "text_reviews_count": 18
   },
   {
     "bookID": 453,
@@ -2676,18 +2412,6 @@
     "text_reviews_count": 26
   },
   {
-    "bookID": 477,
-    "title": "Collapse of Complex Societies",
-    "authors": "Joseph A. Tainter",
-    "average_rating": 4.13,
-    "isbn": "052138673X",
-    "isbn13": 9780521386739,
-    "language_code": "eng",
-    "num_pages": 262,
-    "ratings_count": 676,
-    "text_reviews_count": 87
-  },
-  {
     "bookID": 478,
     "title": "Bowling Alone: The Collapse and Revival of American Community",
     "authors": "Robert D. Putnam",
@@ -2698,18 +2422,6 @@
     "num_pages": 544,
     "ratings_count": 4418,
     "text_reviews_count": 479
-  },
-  {
-    "bookID": 481,
-    "title": "The Collapse of the Common Good: How America's Lawsuit Culture Undermines Our Freedom",
-    "authors": "Philip K. Howard",
-    "average_rating": 3.92,
-    "isbn": "034543871X",
-    "isbn13": 9780345438713,
-    "language_code": "eng",
-    "num_pages": 272,
-    "ratings_count": 58,
-    "text_reviews_count": 4
   },
   {
     "bookID": 484,
@@ -2880,18 +2592,6 @@
     "text_reviews_count": 960
   },
   {
-    "bookID": 538,
-    "title": "The Lovely Bones",
-    "authors": "Alice Sebold",
-    "average_rating": 3.79,
-    "isbn": "159413023X",
-    "isbn13": 9781594130236,
-    "language_code": "en-US",
-    "num_pages": 532,
-    "ratings_count": 366,
-    "text_reviews_count": 75
-  },
-  {
     "bookID": 539,
     "title": "Lovely in Her Bones (Elizabeth MacPherson  #2)",
     "authors": "Sharyn McCrumb",
@@ -3022,18 +2722,6 @@
     "num_pages": 408,
     "ratings_count": 271,
     "text_reviews_count": 10
-  },
-  {
-    "bookID": 643,
-    "title": "Motorcycle Basics Techbook",
-    "authors": "John Harold Haynes",
-    "average_rating": 3.83,
-    "isbn": "185960515X",
-    "isbn13": 9781859605158,
-    "language_code": "eng",
-    "num_pages": 222,
-    "ratings_count": 36,
-    "text_reviews_count": 2
   },
   {
     "bookID": 650,
@@ -3288,18 +2976,6 @@
     "text_reviews_count": 3
   },
   {
-    "bookID": 702,
-    "title": "Modern Latin America",
-    "authors": "Thomas E. Skidmore-Peter H. Smith",
-    "average_rating": 3.59,
-    "isbn": "019517013X",
-    "isbn13": 9780195170139,
-    "language_code": "en-US",
-    "num_pages": 528,
-    "ratings_count": 221,
-    "text_reviews_count": 10
-  },
-  {
     "bookID": 703,
     "title": "The Plot Against America",
     "authors": "Philip Roth",
@@ -3384,18 +3060,6 @@
     "text_reviews_count": 237
   },
   {
-    "bookID": 765,
-    "title": "Living to Tell the Tale",
-    "authors": "Gabriel García Márquez-Edith Grossman",
-    "average_rating": 3.98,
-    "isbn": "140003454X",
-    "isbn13": 9781400034543,
-    "language_code": "eng",
-    "num_pages": 533,
-    "ratings_count": 390,
-    "text_reviews_count": 48
-  },
-  {
     "bookID": 766,
     "title": "Memoria de mis putas tristes",
     "authors": "Gabriel García Márquez",
@@ -3420,30 +3084,6 @@
     "text_reviews_count": 1069
   },
   {
-    "bookID": 775,
-    "title": "Pure and Simple: The Extraordinary Teachings of a Thai Buddhist Laywoman",
-    "authors": "Upasika Kee Nanayon-Thanissaro Bhikkhu",
-    "average_rating": 4.38,
-    "isbn": "086171492X",
-    "isbn13": 9780861714926,
-    "language_code": "eng",
-    "num_pages": 288,
-    "ratings_count": 32,
-    "text_reviews_count": 6
-  },
-  {
-    "bookID": 787,
-    "title": "The Mini Rough Guide to London",
-    "authors": "Rob Humphreys-Beth Chaplin-Rebecca Morrill",
-    "average_rating": 3.75,
-    "isbn": "184353584X",
-    "isbn13": 9781843535843,
-    "language_code": "eng",
-    "num_pages": 363,
-    "ratings_count": 1,
-    "text_reviews_count": 0
-  },
-  {
     "bookID": 792,
     "title": "London: City Guide (Lonely Planet City Guide)",
     "authors": "Lonely Planet-Sarah Johnstone-Tom Masters",
@@ -3465,18 +3105,6 @@
     "language_code": "eng",
     "num_pages": 128,
     "ratings_count": 9,
-    "text_reviews_count": 0
-  },
-  {
-    "bookID": 794,
-    "title": "London",
-    "authors": "Lonely Planet-Steve Fallon-Pat Yale",
-    "average_rating": 4.03,
-    "isbn": "186450353X",
-    "isbn13": 9781864503531,
-    "language_code": "eng",
-    "num_pages": 400,
-    "ratings_count": 7,
     "text_reviews_count": 0
   },
   {
@@ -3660,18 +3288,6 @@
     "text_reviews_count": 6601
   },
   {
-    "bookID": 831,
-    "title": "Snow Crash",
-    "authors": "Neal Stephenson-Joachim Körber",
-    "average_rating": 4.03,
-    "isbn": "344245302X",
-    "isbn13": 9783442453023,
-    "language_code": "ger",
-    "num_pages": 534,
-    "ratings_count": 194,
-    "text_reviews_count": 16
-  },
-  {
     "bookID": 834,
     "title": "Harrington on Hold 'em: Expert Strategy for No-Limit Tournaments  Volume II: The Endgame",
     "authors": "Dan Harrington-Bill Robertie",
@@ -3768,18 +3384,6 @@
     "text_reviews_count": 54668
   },
   {
-    "bookID": 866,
-    "title": "Fullmetal Alchemist  Vol. 9 (Fullmetal Alchemist  #9)",
-    "authors": "Hiromu Arakawa-Akira Watanabe",
-    "average_rating": 4.57,
-    "isbn": "142150460X",
-    "isbn13": 9781421504605,
-    "language_code": "eng",
-    "num_pages": 192,
-    "ratings_count": 8568,
-    "text_reviews_count": 141
-  },
-  {
     "bookID": 868,
     "title": "Fullmetal Alchemist  Vol. 3 (Fullmetal Alchemist  #3)",
     "authors": "Hiromu Arakawa-Akira Watanabe",
@@ -3828,18 +3432,6 @@
     "text_reviews_count": 270
   },
   {
-    "bookID": 872,
-    "title": "The Illustrated Alchemist: A Fable about Following Your Dream",
-    "authors": "Paulo Coelho-Alan R. Clarke-Mœbius",
-    "average_rating": 3.85,
-    "isbn": "006019250X",
-    "isbn13": 9780060192501,
-    "language_code": "en-US",
-    "num_pages": 198,
-    "ratings_count": 236,
-    "text_reviews_count": 31
-  },
-  {
     "bookID": 873,
     "title": "Fullmetal Alchemist  Vol. 2 (Fullmetal Alchemist  #2)",
     "authors": "Hiromu Arakawa-Akira Watanabe",
@@ -3876,18 +3468,6 @@
     "text_reviews_count": 1633
   },
   {
-    "bookID": 888,
-    "title": "The Last Days of Pompeii",
-    "authors": "Edward Bulwer-Lytton-John Gregory Betancourt",
-    "average_rating": 3.59,
-    "isbn": "158715739X",
-    "isbn13": 9781587157394,
-    "language_code": "eng",
-    "num_pages": 360,
-    "ratings_count": 1124,
-    "text_reviews_count": 67
-  },
-  {
     "bookID": 890,
     "title": "Of Mice and Men",
     "authors": "John Steinbeck",
@@ -3922,18 +3502,6 @@
     "num_pages": 464,
     "ratings_count": 19305,
     "text_reviews_count": 1510
-  },
-  {
-    "bookID": 902,
-    "title": "The Westing Game",
-    "authors": "Ellen Raskin",
-    "average_rating": 4.02,
-    "isbn": "014240120X",
-    "isbn13": 9780142401200,
-    "language_code": "eng",
-    "num_pages": 182,
-    "ratings_count": 134362,
-    "text_reviews_count": 8278
   },
   {
     "bookID": 903,
@@ -4008,18 +3576,6 @@
     "text_reviews_count": 425
   },
   {
-    "bookID": 935,
-    "title": "Geisha of Gion",
-    "authors": "Mineko Iwasaki-Rande Brown",
-    "average_rating": 3.93,
-    "isbn": "074343059X",
-    "isbn13": 9780743430593,
-    "language_code": "eng",
-    "num_pages": 334,
-    "ratings_count": 1438,
-    "text_reviews_count": 148
-  },
-  {
     "bookID": 936,
     "title": "Memoirs Of A Geisha",
     "authors": "Arthur Golden",
@@ -4092,18 +3648,6 @@
     "text_reviews_count": 20851
   },
   {
-    "bookID": 965,
-    "title": "Ángeles y demonios (Robert Langdon  #1)",
-    "authors": "Dan Brown",
-    "average_rating": 3.88,
-    "isbn": "849561877X",
-    "isbn13": 9788495618771,
-    "language_code": "spa",
-    "num_pages": 508,
-    "ratings_count": 197,
-    "text_reviews_count": 22
-  },
-  {
     "bookID": 966,
     "title": "Angeles & Demonios",
     "authors": "Dan Brown-Raúl Amundaray",
@@ -4126,18 +3670,6 @@
     "num_pages": 489,
     "ratings_count": 1588890,
     "text_reviews_count": 35316
-  },
-  {
-    "bookID": 969,
-    "title": "The Da Vinci Code",
-    "authors": "Dan Brown",
-    "average_rating": 3.82,
-    "isbn": "076792603X",
-    "isbn13": 9780767926034,
-    "language_code": "eng",
-    "num_pages": 467,
-    "ratings_count": 1109,
-    "text_reviews_count": 110
   },
   {
     "bookID": 972,
@@ -4222,18 +3754,6 @@
     "num_pages": 736,
     "ratings_count": 87,
     "text_reviews_count": 12
-  },
-  {
-    "bookID": 987,
-    "title": "A Killing Rain (Louis Kincaid  #6)",
-    "authors": "P.J. Parrish",
-    "average_rating": 4.04,
-    "isbn": "078601606X",
-    "isbn13": 9780786016068,
-    "language_code": "eng",
-    "num_pages": 383,
-    "ratings_count": 440,
-    "text_reviews_count": 39
   },
   {
     "bookID": 991,
@@ -4357,7 +3877,7 @@
   },
   {
     "bookID": 1067,
-    "title": 1776,
+    "title": "1776",
     "authors": "David McCullough",
     "average_rating": 4.07,
     "isbn": 743226720,
@@ -4369,7 +3889,7 @@
   },
   {
     "bookID": 1068,
-    "title": 1776,
+    "title": "1776",
     "authors": "Peter  Stone-Sherman Edwards",
     "average_rating": 4.21,
     "isbn": 140481397,
@@ -4642,18 +4162,6 @@
     "num_pages": 214,
     "ratings_count": 13,
     "text_reviews_count": 1
-  },
-  {
-    "bookID": 1191,
-    "title": "Giada's Family Dinners",
-    "authors": "Giada De Laurentiis-Victoria Pearson",
-    "average_rating": 3.96,
-    "isbn": "030723827X",
-    "isbn13": 9780307238276,
-    "language_code": "eng",
-    "num_pages": 256,
-    "ratings_count": 13866,
-    "text_reviews_count": 73
   },
   {
     "bookID": 1192,
@@ -5004,18 +4512,6 @@
     "text_reviews_count": 9
   },
   {
-    "bookID": 1281,
-    "title": "Men Are from Mars  Women Are from Venus",
-    "authors": "John Gray",
-    "average_rating": 3.54,
-    "isbn": "006123205X",
-    "isbn13": 9780061232053,
-    "language_code": "eng",
-    "num_pages": 2,
-    "ratings_count": 41,
-    "text_reviews_count": 3
-  },
-  {
     "bookID": 1290,
     "title": "How to Succeed with Women",
     "authors": "Ron  Louis-David Copeland",
@@ -5112,18 +4608,6 @@
     "text_reviews_count": 2751
   },
   {
-    "bookID": 1305,
-    "title": "Gates of Fire: An Epic Novel of the Battle of Thermopylae",
-    "authors": "Steven Pressfield",
-    "average_rating": 4.41,
-    "isbn": "055338368X",
-    "isbn13": 9780553383683,
-    "language_code": "eng",
-    "num_pages": 392,
-    "ratings_count": 20649,
-    "text_reviews_count": 1530
-  },
-  {
     "bookID": 1306,
     "title": "Gates Of Fire",
     "authors": "Steven Pressfield",
@@ -5158,18 +4642,6 @@
     "num_pages": 721,
     "ratings_count": 143,
     "text_reviews_count": 5
-  },
-  {
-    "bookID": 1315,
-    "title": "The Afghan Campaign",
-    "authors": "Steven Pressfield",
-    "average_rating": 3.96,
-    "isbn": "038551641X",
-    "isbn13": 9780385516419,
-    "language_code": "eng",
-    "num_pages": 354,
-    "ratings_count": 2884,
-    "text_reviews_count": 193
   },
   {
     "bookID": 1317,
@@ -5314,18 +4786,6 @@
     "num_pages": 157,
     "ratings_count": 14,
     "text_reviews_count": 1
-  },
-  {
-    "bookID": 1337,
-    "title": "Enthusiasm and Divine Madness",
-    "authors": "Josef Pieper-Richard Winston-Clara Winston",
-    "average_rating": 4.48,
-    "isbn": "189031823X",
-    "isbn13": 9781890318239,
-    "language_code": "eng",
-    "num_pages": 125,
-    "ratings_count": 25,
-    "text_reviews_count": 4
   },
   {
     "bookID": 1338,
@@ -5628,30 +5088,6 @@
     "text_reviews_count": 24
   },
   {
-    "bookID": 1391,
-    "title": "Aeneid: Selections from Books 1  2  4  6  10  12",
-    "authors": "Virgil-Barbara Weiden Boyd",
-    "average_rating": 4.34,
-    "isbn": "086516584X",
-    "isbn13": 9780865165847,
-    "language_code": "eng",
-    "num_pages": 161,
-    "ratings_count": 65,
-    "text_reviews_count": 6
-  },
-  {
-    "bookID": 1402,
-    "title": "Eclogues. Georgics. Aeneid: Books 1-6",
-    "authors": "Virgil-Henry Rushton Fairclough-G.P. Goold",
-    "average_rating": 4.31,
-    "isbn": "067499583X",
-    "isbn13": 9780674995833,
-    "language_code": "mul",
-    "num_pages": 607,
-    "ratings_count": 368,
-    "text_reviews_count": 10
-  },
-  {
     "bookID": 1403,
     "title": "City Eclogue",
     "authors": "Ed Roberson",
@@ -5674,18 +5110,6 @@
     "num_pages": 180,
     "ratings_count": 237,
     "text_reviews_count": 14
-  },
-  {
-    "bookID": 1408,
-    "title": "Paul Kirk's Championship Barbecue Sauces: 175 Make-Your-Own Sauces  Marinades  Dry Rubs  Wet Rubs  Mops and Salsas",
-    "authors": "Paul  Kirk",
-    "average_rating": 3.9,
-    "isbn": "155832125X",
-    "isbn13": 9781558321250,
-    "language_code": "eng",
-    "num_pages": 272,
-    "ratings_count": 52,
-    "text_reviews_count": 0
   },
   {
     "bookID": 1414,
@@ -5758,18 +5182,6 @@
     "num_pages": 137,
     "ratings_count": 7970,
     "text_reviews_count": 117
-  },
-  {
-    "bookID": 1424,
-    "title": "The Pilgrimage: A Contemporary Quest for Ancient Wisdom",
-    "authors": "Paulo Coelho-Alan R. Clarke",
-    "average_rating": 3.65,
-    "isbn": "006251279X",
-    "isbn13": 9780062512796,
-    "language_code": "en-US",
-    "num_pages": 272,
-    "ratings_count": 878,
-    "text_reviews_count": 90
   },
   {
     "bookID": 1425,
