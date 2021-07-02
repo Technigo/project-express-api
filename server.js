@@ -13,13 +13,18 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  return res.send('Hello, Welcome to my API! to get the list or the book Id use /books or /bookId endpoints respectively')
+  return res.send('Hello Welcome to my API! to get the list or the book Id use api/books or api/bookId endpoints respectively')
 })
 
 // All books or query by average rating
-app.get('/api/book', (req, res) => {
+app.get('/api/books', (req, res) => {
   const { average_rating } = req.query
-  const books = booksData.filter((book) => book.average_rating >= average_rating)
+  let books = []
+  if (average_rating) {
+    books = booksData.filter((book) => book.average_rating >= average_rating)
+  } else {
+    books = booksData
+  }
   return res.json(books).status(200)
 })
 // Book by ID
