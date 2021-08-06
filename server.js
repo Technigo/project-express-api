@@ -19,24 +19,26 @@ app.get('/', (req, res) => {
 
 //endpoint all books
 app.get('/books', (req, res) => {
-  const { author, language_code } = req.query
-  if (author) {
-    const booksData = booksData
-    .filter(book => book.authors.toLowerCase().indexOf(author.toLowerCase())!== -1)
-  }
+  res.json(booksData)
+})
 
-if (language_code){
-  const booksData = booksData
-  .filter(book => book.language_code === language.code)
-}
+//searching queries
+app.get('/books', (req, res) => {
+  const { author } = req.query
 
-res.json({ length: booksData.length, data: booksData });
+  const booksQuery = booksData.filter(book => {
+    return book.authors.toLowerCase().indexOf(author.toLowerCase())!== -1
+  })
+  
+  res.json({ data: booksQuery })
+
 })
 
 //endpoint one book
 app.get('/books/:id', (req, res) => {
   const { id } = req.params
   const book = booksData.find( books => books.bookID === +id)
+
   if (book) {
     res.json({ data: book })
   } else {

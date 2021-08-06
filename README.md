@@ -1,12 +1,11 @@
-# Express API Project
+# Bootcamp-Project #14: Express API Project
+This week's project was about creating an API using Express. The API should have at least a couple of RESTful endpoints which return either an array of data, or a single item.
 
-This weeks project was about our first step into back-end by building our first API. 
-
-## The problem
-
-I was looking forward to this week, but unfortunately I had too little time for coding this week. So I'll definitely need to go back to this project, cause I am a bit confused by some parts of it. Also I am missing something in my code. I seem not to be able to filter by language_code and author, but couldn't quite figure out what it is. 
-Luckily I am off work next week, so I'll have more time then to go back to it. 
+## Learning content and lessons learned:
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+This week was a lot of new things to wrap my head around. Not only going from frontend to the backend but also working with Postman as a new tool. Still it was very much fun, since I love closing gaps and to see where and how everything is connected, which I kind of started to see with this project. But even though everything seems to work and the requirements are fullfilled I'm looking forward to the next project, since I am still missing some parts to fully understand where this journey is heading.
 
 ## View it live
-
 https://project-week17.herokuapp.com/
