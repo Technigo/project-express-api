@@ -48,4 +48,3 @@ If i had more time I would also include making my own data set. And also develop
 Backend deployed here
 https://saras-books.herokuapp.com/books
 
-I have also staarted doing a frontend a library that allows you to search for specicific books. So far here is the github: https://github.com/Sartish/API-Books-frontend-
