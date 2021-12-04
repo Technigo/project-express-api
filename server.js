@@ -67,7 +67,7 @@ app.get('/netflixTitles/year/:year', (req, res) => {
     const { type } = req.query;
     if (type) {
       titlesByYear = titlesByYear.filter((item) => item.type === type);
-      if (titlesByYear) {
+      if (titlesByYear.length > 0) {
         res.send(titlesByYear);
       } else {
         res.status(404).json({ message: 'wrong query param use `Movie` or `TV Show` as query' });
