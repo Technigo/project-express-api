@@ -1,13 +1,20 @@
+# Week 17- Technigo Bootcamp
+
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is to start studying backend by creating an API using Express. The API should have at least a couple of RESTful endpoints which return either an array of data, or a single item. I used a hard-coded set of data, stored as a JSON file in the project.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started following the guide in the videos of the week. This is a topic that is not new for me, so for this week was a really nice re-study and good to remember basic stuff related with REST API and very basic endpoints with hard-code data. At the end of the project I deployed it in Heroku. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+See: 
+
+
+## Guide
+
+`npm install`
+
+`npm run dev`
