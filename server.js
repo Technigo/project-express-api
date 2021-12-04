@@ -23,7 +23,17 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Route base /')
+  const response = {
+    Greeting: 'Welcome to Priscila Alfaro`s project-express-api',
+    WhereYouAre: 'This is the base route to get netflix titles',
+    Routes: "To search data you can follow this routes",
+    Route1: "get all netflix titles  /netflixTitles",
+    Route2: "get netflix titles by id  /netflixTitles/:id",
+    Route3: "get netflix titles by year  /netflixTitles/year/:year",
+    Route4: "get netflix titles by year with query parameters /netflixTitles/year/:year/?query%20params",
+    Farewell: "Thanks for visit my project!"
+  }
+  res.send(response)
 })
 
 app.get('/netflixTitles', (req, res) => {

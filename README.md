@@ -10,11 +10,22 @@ I started following the guide in the videos of the week. This is a topic that is
 
 ## View it live
 
-See: 
+See base route: https://project-express-api-prialfaro.herokuapp.com/
 
+## Routes
+
+1. Read (get all netflix titles)
+Route: GET '/netflixTitles'
+
+2. Read (get netflix titles by id)
+Route: GET '/netflixTitles/:id'
+
+3. Read (get netflix titles by year)
+Route: GET '/netflixTitles/year/:year'
+
+4. Read (get netflix titles by year with query parameters)
+Route: GET '/netflixTitles/year/:year/?query%20params'
 
 ## Guide
-
 `npm install`
-
 `npm run dev`
