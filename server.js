@@ -12,7 +12,7 @@ import cors from 'cors'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
+// THIS IS IMPORTMENT FOR DEPLOY WITH HEROKU
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -23,11 +23,12 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('phil-mebobbins')
 })
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
+  //allows Herouk to select which port it will run on
   console.log(`Server running on http://localhost:${port}`)
 })
