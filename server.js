@@ -23,7 +23,15 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello beautiful winter world')
+})
+
+app.get('/users', (req, res) => {
+  res.json([
+    {name: "Alice"},
+    {name: "Bob"},
+    {name: "Chris"}
+  ])
 })
 
 // Start the server
