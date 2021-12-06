@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import netflixTitles from './data/netflix-titles.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -12,7 +13,7 @@ import cors from 'cors'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
-//
+
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -22,16 +23,27 @@ app.use(cors())
 app.use(express.json())
 
 // Start defining your routes here
+// This is your first endpoint
 app.get('/', (req, res) => {
   res.send('Hello beautiful winter world')
 })
 
-app.get('/users', (req, res) => {
-  res.json([
-    {name: "Alice"},
-    {name: "Bob"},
-    {name: "Chris"}
-  ])
+// get a list of movies from netflix
+app.get('/netflix', (req, res) => {
+  res.json(netflixTitles)
+})
+
+// get a spepcific movie based on id, using param
+app.get('/netflix/:id', (req, res) => {
+  const { id } = req.params
+
+  const showId = netflixTitles.find(show => show.show_id === +id)
+
+    if (!showId) {
+      res.status(404).send('no movie found with that ID')
+    } else {
+      res.json(showId)
+    }
 })
 
 // Start the server
