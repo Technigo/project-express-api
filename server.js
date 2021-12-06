@@ -4,8 +4,8 @@ import cors from 'cors'
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 //
-// import goldenGlobesData from './data/golden-globes.json'
-import avocadoSalesData from './data/avocado-sales.json'
+import goldenGlobesData from './data/golden-globes.json'
+// import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
@@ -23,11 +23,22 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Hello goldenglobe')
 })
 
-app.get('/users', (req, res) => {
-  res.json(avocadoSalesData)
+app.get('/nominations', (req, res) => {
+  res.json(goldenGlobesData)
+})
+
+app.get('/year/:year', (req, res) => {
+  const { year } = req.params
+  const moviesFromYear = goldenGlobesData.filter(item => item.year_film === +year)
+
+  if (moviesFromYear.length === 0) {
+    res.status(404).send('No movies found')
+  } else {
+    res.json(moviesFromYear)
+  }
 })
 
 // Start the server
