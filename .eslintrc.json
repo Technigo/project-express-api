@@ -1,8 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb"
-  ],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+
   "globals": {
     "document": false,
     "window": false,
@@ -22,6 +21,7 @@
     }
   },
   "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "quotes": "off",
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
@@ -32,10 +32,7 @@
         "allowSingleLine": true
       }
     ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": ["error", "never"],
     "consistent-return": "off",
     "curly": "error",
     "eol-last": "off",

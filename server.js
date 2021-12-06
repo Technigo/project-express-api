@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import oscarsData from "./data/oscars.json";
+import data from "./data/oscars.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -11,17 +11,17 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(oscarsData);
+  res.json(data);
 });
 
 app.get("/winners", (req, res) => {
-  const filteredByWinners = oscarsData.filter((item) => item.winner === "True");
+  const filteredByWinners = data.filter((item) => item.winner === "TRUE");
   res.json(filteredByWinners);
 });
 
 app.get("/category/:category", (req, res) => {
   const category = req.params.category;
-  const filteredByCategory = oscarsData.filter(
+  const filteredByCategory = data.filter(
     (item) =>
       category.toLowerCase().replace(/\s/g, "") ===
       item.category.toLowerCase().replace(/\s/g, "")
@@ -32,7 +32,7 @@ app.get("/category/:category", (req, res) => {
 app.get("/ceremony/year/:year", (req, res) => {
   const year = req.params.year;
   console.log(year);
-  const filteredByCeremonyYear = oscarsData.filter(
+  const filteredByCeremonyYear = data.filter(
     (item) => item.yearCeremony === +year
   );
   res.json(filteredByCeremonyYear);
@@ -40,7 +40,7 @@ app.get("/ceremony/year/:year", (req, res) => {
 
 app.get("/ceremony/number/:number", (req, res) => {
   const number = req.params.number;
-  const filteredByCeremonyNumber = oscarsData.filter(
+  const filteredByCeremonyNumber = data.filter(
     (item) => item.ceremony === +number
   );
   res.json(filteredByCeremonyNumber);
@@ -49,10 +49,9 @@ app.get("/ceremony/number/:number", (req, res) => {
 app.get("/winner/:year/:category", (req, res) => {
   const year = req.params.year;
   const category = req.params.category;
-
-  const winner = oscarsData.filter(
+  const winner = data.filter(
     (item) =>
-      item.winner === "True" &&
+      item.winner === "TRUE" &&
       item.yearCeremony === +year &&
       item.category.toLowerCase().replace(/\s/g, "") ===
         category.toLowerCase().replace(/\s/g, "")
