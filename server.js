@@ -19,6 +19,18 @@ app.get("/winners", (req, res) => {
   res.json(filteredByWinners);
 });
 
+app.get("/id/:id", (req, res) => {
+  const id = req.params.id;
+  const findByItem = data.find((item) => item.id === +id);
+  console.log(findByItem);
+
+  if (findByItem) {
+    res.json(findByItem);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 app.get("/category/:category", (req, res) => {
   const category = req.params.category;
   const filteredByCategory = data.filter(
