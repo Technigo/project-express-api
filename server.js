@@ -29,12 +29,12 @@ app.get('/', (req, res) => {
 })
 
 // get a list of movies from netflix
-app.get('/netflix', (req, res) => {
+app.get('/movies', (req, res) => {
   res.json(netflixTitles)
 })
 
 // get a spepcific movie based on id, using param
-app.get('/netflix/:id', (req, res) => {
+app.get('/movies/:id', (req, res) => {
   const { id } = req.params
 
   const showId = netflixTitles.find(show => show.show_id === +id)
