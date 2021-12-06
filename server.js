@@ -1,33 +1,67 @@
-import express from 'express'
-import cors from 'cors'
+import express from "express";
+import cors from "cors";
+import oscarsData from "./data/oscars.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+const port = process.env.PORT || 8080;
+const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+app.get("/", (req, res) => {
+  res.json(oscarsData);
+});
+
+app.get("/winners", (req, res) => {
+  const filteredByWinners = oscarsData.filter((item) => item.winner === "True");
+  res.json(filteredByWinners);
+});
+
+app.get("/category/:category", (req, res) => {
+  const category = req.params.category;
+  const filteredByCategory = oscarsData.filter(
+    (item) =>
+      category.toLowerCase().replace(/\s/g, "") ===
+      item.category.toLowerCase().replace(/\s/g, "")
+  );
+  res.json(filteredByCategory);
+});
+
+app.get("/ceremony/year/:year", (req, res) => {
+  const year = req.params.year;
+  console.log(year);
+  const filteredByCeremonyYear = oscarsData.filter(
+    (item) => item.yearCeremony === +year
+  );
+  res.json(filteredByCeremonyYear);
+});
+
+app.get("/ceremony/number/:number", (req, res) => {
+  const number = req.params.number;
+  const filteredByCeremonyNumber = oscarsData.filter(
+    (item) => item.ceremony === +number
+  );
+  res.json(filteredByCeremonyNumber);
+});
+
+app.get("/winner/:year/:category", (req, res) => {
+  const year = req.params.year;
+  const category = req.params.category;
+
+  const winner = oscarsData.filter(
+    (item) =>
+      item.winner === "True" &&
+      item.yearCeremony === +year &&
+      item.category.toLowerCase().replace(/\s/g, "") ===
+        category.toLowerCase().replace(/\s/g, "")
+  );
+  res.json(winner);
+});
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+});
