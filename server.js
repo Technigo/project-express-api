@@ -5,11 +5,26 @@ import netflixData from "./data/netflix-titles.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-console.log(netflixData.length);
-
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+
+// define how many results per page
+// const pagination = (pageNumber) => {
+//   const pageSize = 10;
+//   const startIndex = (pageNumber - 1) * pageSize;
+//   const endIndex = startIndex + pageSize;
+//   const itemsOnPage = netflixData.slice(startIndex, endIndex);
+
+//   const returnObject = {
+//     page_size: pageSize,
+//     page: pageNumber,
+//     num_of_pages: Math.ceil(netflixData.length / pageSize),
+//     items_on_page: itemsOnPage.length,
+//     results: itemsOnPage,
+//   };
+//   return returnObject;
+// };
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -42,10 +57,23 @@ app.get("/year/:year", (req, res) => {
 
 app.get("/type/:type", (req, res) => {
   const { type } = req.params;
-  const typeOfContent = netflixData.filter((item) => item.type === type);
+  const { country, genre } = req.query;
+  let typeOfContent = netflixData.filter((item) => item.type === type);
+
+  if (country) {
+    typeOfContent = typeOfContent.filter((item) =>
+      item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
+    );
+  }
+
+  if (genre) {
+    typeOfContent = typeOfContent.filter((item) =>
+      item.listed_in.toLocaleLowerCase().includes(genre.toLocaleLowerCase())
+    );
+  }
 
   if (typeOfContent.length === 0) {
-    res.status(404).send("Wrong type of content");
+    res.status(404).send("Data not found");
   } else {
     res.json(typeOfContent);
   }
