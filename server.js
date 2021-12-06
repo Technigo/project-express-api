@@ -1,33 +1,69 @@
-import express from 'express'
-import cors from 'cors'
+import express, { response } from "express";
+import cors from "cors";
+import netflixData from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+const port = process.env.PORT || 8080;
+const app = express();
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
+console.log(netflixData.length);
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+app.get("/", (req, res) => {
+  res.json(netflixData);
+});
+
+app.get("/year/:year", (req, res) => {
+  const { year } = req.params;
+  const { country, genre } = req.query;
+  let contentOfYear = netflixData.filter((item) => item.release_year === +year);
+
+  if (country) {
+    contentOfYear = contentOfYear.filter((item) =>
+      item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
+    );
+  }
+
+  if (genre) {
+    contentOfYear = contentOfYear.filter((item) =>
+      item.listed_in.toLocaleLowerCase().includes(genre.toLocaleLowerCase())
+    );
+  }
+
+  if (contentOfYear.length === 0) {
+    res.status(404).json("Not found");
+  } else {
+    res.json(contentOfYear);
+  }
+});
+
+app.get("/type/:type", (req, res) => {
+  const { type } = req.params;
+  const typeOfContent = netflixData.filter((item) => item.type === type);
+
+  if (typeOfContent.length === 0) {
+    res.status(404).send("Wrong type of content");
+  } else {
+    res.json(typeOfContent);
+  }
+});
+
+app.get("/titles/:title", (req, res) => {
+  const { title } = req.params;
+  const uniqueTitle = netflixData.find((item) => item.show_id === +title);
+
+  if (!uniqueTitle) {
+    res.status(404).send("Title not found");
+  } else {
+    res.json(uniqueTitle);
+  }
+});
 
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+});
