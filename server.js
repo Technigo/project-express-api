@@ -19,8 +19,42 @@ app.get("/", (req, res) => {
 });
 
 //all books data
+// by author
+// http://localhost:8080/books?author={smth}&?title={smth}
+// localhost:8080/books?lang[]=eng&lang[]=en-US
 app.get("/books", (req, res) => {
-  res.json(booksData);
+  const author = req.query.author?.toLowerCase();
+  const title = req.query.title?.toLowerCase();
+  const lang = req.query.lang;
+
+  if (lang) {
+    if (!Array.isArray(lang) || lang.length === 0) {
+      res.status(400).send("lang must be non-empty array");
+    }
+  }
+
+  let filteredBooks = booksData;
+
+  if (author) {
+    filteredBooks = filteredBooks.filter((item) => {
+      return item.authors.toLowerCase().includes(author);
+    });
+  }
+  if (title) {
+    filteredBooks = filteredBooks.filter((item) => {
+      return item.title.toLowerCase().includes(title);
+    });
+  }
+  if (lang) {
+    filteredBooks = filteredBooks.filter((item) => {
+      return lang.includes(item.language_code);
+    });
+  }
+
+  if (filteredBooks.length === 0) {
+    res.status(404).send("data not found");
+  }
+  res.json(filteredBooks);
 });
 
 // provides a single item by id
@@ -38,18 +72,32 @@ app.get("/books/:id", (req, res) => {
   res.json(bookById);
 });
 
-// search by rating. Returns a direct match and all lower scored books.
+// search by rating. Returns a direct match and other close matching results.
 app.get("/rating/:rating", (req, res) => {
-  const rating = parseFloat(req.params.rating);
+  const rating = Math.floor(parseFloat(req.params.rating));
   console.log({ rating });
   const selectedBooks = booksData.filter((item) => {
-    const filteredBooksMatched = Math.abs(item.average_rating <= rating);
+    const filteredBooksMatched = item.average_rating >= rating && item.average_rating < rating + 1;
     return filteredBooksMatched;
   });
   if (selectedBooks.length === 0) {
     res.status(404).send("data not found");
   }
   res.json(selectedBooks);
+});
+
+// post new rating
+// doesn't save to physical file/database so changes wont survive reload
+app.post("/rate", (req, res) => {
+  const rate = req.body.rate;
+  const bookId = req.body.bookId;
+  const requestedBook = booksData.find((item) => item.bookID === bookId);
+  if (rate < 5 && rate >= 0 && bookId) {
+    requestedBook.average_rating = rate;
+  } else {
+    res.status(400).send("wrong params");
+  }
+  res.json(requestedBook);
 });
 
 // returns most popular books
