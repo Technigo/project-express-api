@@ -22,33 +22,68 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+// app.get('/shows', (req, res) => {
+//   res.json(netflixData);
+// });
+
 app.get('/shows', (req, res) => {
-  res.json(netflixData);
+  const { title, type, cast, country } = req.query;
+  let showsToDisplay = netflixData;
+
+  if (title) {
+    showsToDisplay = showsToDisplay.filter((show) =>
+      show.title.toString().toLowerCase().includes(title.toLowerCase())
+    );
+  }
+  if (type) {
+    showsToDisplay = showsToDisplay.filter((show) =>
+      show.type.toString().toLowerCase().includes(type.toLowerCase())
+    );
+  }
+  if (country) {
+    showsToDisplay = showsToDisplay.filter(
+      (show) => show.country.toString().toLowerCase() === country
+    );
+  }
+  if (cast) {
+    showsToDisplay = showsToDisplay.filter((show) =>
+      show.cast.toString().toLowerCase().includes(cast.toLowerCase())
+    );
+  }
+  res.json(showsToDisplay);
 });
 
-console.log(netflixData.length);
-
+// endpoint to get a specific shows by id
 app.get('/shows/id/:id', (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
   const showID = netflixData.find((show) => show.show_id === +id);
 
   if (!showID) {
-    res.status(404).send('Show not found :(');
+    res.status(404).send(`No show found with id number ${id} :(`);
   } else {
     res.json(showID);
   }
 });
 
+// endpoint to get all shows from a specifix year, and also possible to add query to sort tvshows or movies
 app.get('/shows/releaseyear/:year', (req, res) => {
   const year = req.params.year;
-  // const showType = req.params.type;
+  const type = req.query.type;
+
   let releaseYear = netflixData.filter((show) => show.release_year === +year);
 
-  // if (showType === 'Movie') {
-  //   releaseYear = releaseYear.filter((show) => show.type === showType);
-  // } else {
-  res.json(releaseYear);
+  if (type) {
+    releaseYear = releaseYear.filter((show) =>
+      show.type.toString().toLowerCase().includes(type.toLowerCase())
+    );
+  }
+
+  // if (type) {
+  //   releaseYear = releaseYear.filter(
+  //     (show) => show.type.toString().toLowerCase === type
+  //   );
   // }
+  res.json(releaseYear);
 });
 
 // Start the server
