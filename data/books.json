@@ -9,7 +9,8 @@
     "language_code": "eng",
     "num_pages": 652,
     "ratings_count": 1944099,
-    "text_reviews_count": 26249
+    "text_reviews_count": 26249,
+    "kids_friendly": true
   },
   {
     "bookID": 2,
@@ -21,7 +22,8 @@
     "language_code": "eng",
     "num_pages": 870,
     "ratings_count": 1996446,
-    "text_reviews_count": 27613
+    "text_reviews_count": 27613,
+    "kids_friendly": true
   },
   {
     "bookID": 3,
@@ -33,7 +35,8 @@
     "language_code": "eng",
     "num_pages": 320,
     "ratings_count": 5629932,
-    "text_reviews_count": 70390
+    "text_reviews_count": 70390,
+    "kids_friendly": true
   },
   {
     "bookID": 4,
@@ -45,7 +48,8 @@
     "language_code": "eng",
     "num_pages": 352,
     "ratings_count": 6267,
-    "text_reviews_count": 272
+    "text_reviews_count": 272,
+    "kids_friendly": true
   },
   {
     "bookID": 8,
@@ -57,7 +61,8 @@
     "language_code": "eng",
     "num_pages": 2690,
     "ratings_count": 38872,
-    "text_reviews_count": 154
+    "text_reviews_count": 154,
+    "kids_friendly": true
   },
   {
     "bookID": 9,
@@ -81,7 +86,8 @@
     "language_code": "eng",
     "num_pages": 3342,
     "ratings_count": 27410,
-    "text_reviews_count": 820
+    "text_reviews_count": 820,
+    "kids_friendly": true
   },
   {
     "bookID": 12,
@@ -93,7 +99,8 @@
     "language_code": "eng",
     "num_pages": 815,
     "ratings_count": 3602,
-    "text_reviews_count": 258
+    "text_reviews_count": 258,
+    "kids_friendly": true
   },
   {
     "bookID": 13,
@@ -105,7 +112,8 @@
     "language_code": "eng",
     "num_pages": 815,
     "ratings_count": 240189,
-    "text_reviews_count": 3954
+    "text_reviews_count": 3954,
+    "kids_friendly": true
   },
   {
     "bookID": 14,
@@ -117,7 +125,8 @@
     "language_code": "eng",
     "num_pages": 215,
     "ratings_count": 4416,
-    "text_reviews_count": 408
+    "text_reviews_count": 408,
+    "kids_friendly": true
   },
   {
     "bookID": 16,
@@ -129,7 +138,8 @@
     "language_code": "eng",
     "num_pages": 6,
     "ratings_count": 1222,
-    "text_reviews_count": 253
+    "text_reviews_count": 253,
+    "kids_friendly": true
   },
   {
     "bookID": 18,
@@ -141,7 +151,8 @@
     "language_code": "en-US",
     "num_pages": 815,
     "ratings_count": 2801,
-    "text_reviews_count": 192
+    "text_reviews_count": 192,
+    "kids_friendly": true
   },
   {
     "bookID": 22,
@@ -237,7 +248,8 @@
     "language_code": "eng",
     "num_pages": 1728,
     "ratings_count": 97731,
-    "text_reviews_count": 1536
+    "text_reviews_count": 1536,
+    "kids_friendly": true
   },
   {
     "bookID": 31,
@@ -249,7 +261,8 @@
     "language_code": "eng",
     "num_pages": 1184,
     "ratings_count": 1670,
-    "text_reviews_count": 91
+    "text_reviews_count": 91,
+    "kids_friendly": true
   },
   {
     "bookID": 32,
@@ -261,7 +274,8 @@
     "language_code": "eng",
     "num_pages": 1137,
     "ratings_count": 2819,
-    "text_reviews_count": 139
+    "text_reviews_count": 139,
+    "kids_friendly": true
   },
   {
     "bookID": 34,
@@ -273,7 +287,8 @@
     "language_code": "eng",
     "num_pages": 398,
     "ratings_count": 2009749,
-    "text_reviews_count": 12784
+    "text_reviews_count": 12784,
+    "kids_friendly": true
   },
   {
     "bookID": 35,
@@ -285,7 +300,8 @@
     "language_code": "en-US",
     "num_pages": 1216,
     "ratings_count": 1606,
-    "text_reviews_count": 139
+    "text_reviews_count": 139,
+    "kids_friendly": true
   },
   {
     "bookID": 36,
@@ -297,7 +313,8 @@
     "language_code": "eng",
     "num_pages": 218,
     "ratings_count": 18934,
-    "text_reviews_count": 43
+    "text_reviews_count": 43,
+    "kids_friendly": true
   },
   {
     "bookID": 37,
@@ -309,7 +326,8 @@
     "language_code": "eng",
     "num_pages": 224,
     "ratings_count": 343,
-    "text_reviews_count": 6
+    "text_reviews_count": 6,
+    "kids_friendly": true
   },
   {
     "bookID": 38,
@@ -321,7 +339,8 @@
     "language_code": "eng",
     "num_pages": 1223,
     "ratings_count": 216,
-    "text_reviews_count": 19
+    "text_reviews_count": 19,
+    "kids_friendly": true
   },
   {
     "bookID": 50,

@@ -2,15 +2,6 @@ import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
@@ -26,17 +17,34 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Welcome to Books API");
 });
+
 //all books data
 app.get("/books", (req, res) => {
   res.json(booksData);
 });
-// search by rating. Returns books with specified rating and those that have a smaller rating
-// but still are close to the searching criteria
+
+// provides a single item by id
+app.get("/books/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log({ id });
+  const bookById = booksData.filter((item) => {
+    const bookWithMatchedId = item.bookID === id;
+    return bookWithMatchedId;
+  });
+
+  if (!bookById || bookById.length === 0) {
+    res.status(404).send("data not found");
+  }
+  res.json(bookById);
+});
+
+// search by rating. Returns a direct match and all lower scored books.
 app.get("/rating/:rating", (req, res) => {
   const rating = parseFloat(req.params.rating);
   console.log({ rating });
   const selectedBooks = booksData.filter((item) => {
-    return Math.abs(item.average_rating <= rating);
+    const filteredBooksMatched = Math.abs(item.average_rating <= rating);
+    return filteredBooksMatched;
   });
   if (selectedBooks.length === 0) {
     res.status(404).send("data not found");
@@ -44,10 +52,23 @@ app.get("/rating/:rating", (req, res) => {
   res.json(selectedBooks);
 });
 
-//by id
-// app.get("/books/:id", (req, res) => {
+// returns most popular books
+// ?kids_friendly=true
+app.get("/popular", (req, res) => {
+  const showKidsFriendly = req.query.kids_friendly;
+  let popularBooks = booksData.filter((item) => {
+    return Math.abs(item.average_rating >= 4.4);
+  });
 
-// });
+  if (showKidsFriendly) {
+    popularBooks = popularBooks.filter((item) => item.kids_friendly);
+  }
+
+  if (popularBooks.length === 0) {
+    res.status(404).send("data not found");
+  }
+  res.json(popularBooks);
+});
 
 // Start the server
 app.listen(port, () => {
