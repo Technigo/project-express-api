@@ -28,9 +28,26 @@ app.get("/netflix-titles/movies", (req, res) => {
   res.json(movies);
 });
 
+// the plus-sign before id says to convert it from string to number
+app.get("/netflix-titles/movies/:id", (req, res) => {
+  const id = req.params.id;
+  let movieWithTitle = titles.filter(
+    (item) => item.show_id === +id && item.type === "Movie"
+  );
+  res.json(movieWithTitle);
+});
+
 app.get("/netflix-titles/tv-shows", (req, res) => {
   let tvShows = titles.filter((title) => title.type === "TV Show");
   res.json(tvShows);
+});
+
+app.get("/netflix-titles/tv-shows/:year", (req, res) => {
+  const year = req.params.year;
+  let tvSHowsWithYear = titles.filter(
+    (item) => item.release_year === +year && item.type === "TV Show"
+  );
+  res.json(tvSHowsWithYear);
 });
 
 // Start the server
