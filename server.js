@@ -7,7 +7,7 @@ import cors from 'cors'
 // import goldenGlobesData from './data/golden-globes.json'
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
+import netflixData from './data/netflix-titles.json'
 // import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -21,9 +21,22 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Start defining your routes here
+// Start defining routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('Welcome to my API. You can find some selected Netlify-data here')
+})
+
+// route provides a sorted list of all countries that are in netflixData
+app.get('/countries', (req, res) => {
+  const countries = Array.from(new Set(netflixData.map(item => item.country))).sort()
+  res.json(countries)
+})
+
+// route with all movies from the provided country
+app.get('/countries/:country', (req, res) => {
+  const { country } = req.params
+  const moviesByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
+  res.json(moviesByCountry)
 })
 
 // Start the server
