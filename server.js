@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import netflixData from "./data/netflix-titles.json";
+import titles from "./data/netflix-titles.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -16,7 +16,21 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Netflix titles, the API");
+});
+
+app.get("/netflix-titles", (req, res) => {
+  res.json(titles);
+});
+
+app.get("/netflix-titles/movies", (req, res) => {
+  let movies = titles.filter((title) => title.type === "Movie");
+  res.json(movies);
+});
+
+app.get("/netflix-titles/tv-shows", (req, res) => {
+  let tvShows = titles.filter((title) => title.type === "TV Show");
+  res.json(tvShows);
 });
 
 // Start the server
