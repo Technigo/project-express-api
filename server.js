@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import wineData from './data/wines.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -25,6 +26,42 @@ app.use(express.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+// Route to get all wines
+
+app.get('/wines', (req, res) => {
+
+  // const winery = req.query.winery
+  // const title = req.query.title
+  
+  // if (winery) {
+  //   wineData = wineData.filter((wine) => wine.winery.toLowerCase() === winery)
+  // } 
+
+  // if (title) {
+  //   wineData = wineData.filter((wine) => wine.title.toLowerCase() === title)
+  // }
+
+  // if (wineData.length === 0) {
+  //   res.status(404).send('No such wine!')
+  // }
+
+  res.json(wineData)
+})
+
+
+
+// app.get('/wines/:country', (req, res) => {
+//   const country = req.params.country
+//   const wineByCountry = wines.filter((wineCountry) => wineCountry.wineByCountry.toLowerCase() === country)
+
+
+//   if (!wineByCountry) {
+//     res.status(404).send('No such country!')
+//   } else {
+//     res.json(wineByCountry)
+//   }
+// })
 
 // Start the server
 app.listen(port, () => {
