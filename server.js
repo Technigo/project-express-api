@@ -36,7 +36,7 @@ app.get('/books/rating/:rating', (req, res) => {
 
 // Endpoint that shows book with specific id (for ex: /books/id/45)
 app.get('/books/id/:id', (req, res) => {
-  const { id } = req.params
+  const { id } = req.params.id
   const getBook = booksData.find((book) => book.bookID === +id)
 
   if (!getBook) {
