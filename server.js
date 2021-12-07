@@ -1,19 +1,9 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import booksData from './data/books.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,7 +13,37 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
+})
+
+// Endpoint that show all books:
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+// Endpoint that shows all authors in alphabetic order:
+app.get('/books/authors/:authors/', (req, res) => {
+  const listAuthors = booksData.map((item) => item.authors).sort()
+  res.json(listAuthors)
+})
+
+// Endpoint that shows books with specific rating:
+app.get('/books/rating/:rating', (req, res) => {
+  const { rating } = req.params.rating
+  const avarageRating = booksData.filter((item) => item.avarage_rating === +rating)
+  res.json(avarageRating)
+})
+
+// Endpoint that shows book with specific id (for ex: /books/id/45)
+app.get('/books/id/:id', (req, res) => {
+  const { id } = req.params
+  const getBook = booksData.find((book) => book.bookID === +id)
+
+  if (!getBook) {
+    res.status(404).json('Not found')
+  } else {
+    res.json({ data: getBook })
+  }
 })
 
 // Start the server
