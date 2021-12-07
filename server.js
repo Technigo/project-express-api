@@ -53,7 +53,7 @@ app.get("/rating/:rating", (req, res) => {
 });
 
 // returns most popular books
-// ?kids_friendly=true
+// http://localhost:8080/popular?kids_friendly=true
 app.get("/popular", (req, res) => {
   const showKidsFriendly = req.query.kids_friendly;
   let popularBooks = booksData.filter((item) => {
