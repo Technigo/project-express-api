@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import nobelPrizeWinners from'./data/nobel-prize.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -25,6 +26,45 @@ app.use(express.json())
 app.get('/', (req, res) => {
   res.send('phil-mebobbins')
 })
+
+// List all winners
+
+app.get('/winners', (req, res) =>{
+  res.json(nobelPrizeWinners)
+})
+
+// list all winners from a particular year
+app.get('/year/:year', (req, res)=> {
+const year= req.params.year // we can get the value of the year from the url and store as a variable
+const winnersFromYear = nobelPrizeWinners.filter((item)=> item.year=== +year) // use the year to filter array, the 
+res.json(winnersFromYear)
+})
+
+// list all physics winners 
+app.get ('/physics', (req, res) => {
+  const physicsWinners = nobelPrizeWinners.filter((item) => item.category ==='physics')
+  res.json(physicsWinners)
+})
+
+app.get ('/chemistry', (req, res) => {
+  const chemistryWinners = nobelPrizeWinners.filter((item) => item.category ==='chemistry')
+  res.json(chemistryWinners)
+})
+
+app.get ('/medicine', (req, res) => {
+  const medicineWinners = nobelPrizeWinners.filter((item) => item.category ==='medicine')
+  res.json(medicineWinners)
+})
+
+app.get ('/literature', (req, res) => {
+  const literatureWinners = nobelPrizeWinners.filter((item) => item.category ==='literature')
+  res.json(literatureWinners)
+})
+app.get ('/peace', (req, res) => {
+  const peaceWinners = nobelPrizeWinners.filter((item) => item.category ==='peace')
+  res.json(peaceWinners)
+})
+
 
 // Start the server
 app.listen(port, () => {
