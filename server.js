@@ -10,8 +10,22 @@ const allRaceNames = f12020Results.MRData.RaceTable.Races.map((race) => ({
     race_name: race.raceName,
 }));
 
+const uniqueDrivers = f12020Results.MRData.RaceTable.Races.flatMap((race) => {
+    const arrayOfOneRace = race.Results.map((driver) => ({
+        number: driver.number,
+        race_initials: driver.Driver.code,
+        driver_name: `${driver.Driver.familyName}, ${driver.Driver.givenName}`,
+        date_of_birth: driver.Driver.dateOfBirth,
+        nationality: driver.Driver.nationality,
+    }));
 
-const summary = {races_2020: allRaceNames};
+    return arrayOfOneRace;
+}).reduce((drivers, newDriver) => {
+  drivers[newDriver.number] = newDriver
+  return drivers
+}, {})
+
+const summary = { races_2020: allRaceNames, drivers: uniqueDrivers };
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -22,12 +36,16 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-    res.send(`this many number ${noOfRaces} races`);   
+    res.send(`this many number ${noOfRaces} races`);
 });
 
 app.get("/summary", (req, res) => {
-  res.json(summary);   
+    res.json(summary);
 });
+
+// app.get("/race/:race_id", (req, res) => {
+//   res.json(summary);
+// });
 
 // Start the server
 app.listen(port, () => {
