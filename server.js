@@ -35,8 +35,31 @@ app.get('/countries', (req, res) => {
 // route with all movies from the provided country
 app.get('/countries/:country', (req, res) => {
   const { country } = req.params
-  const moviesByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
-  res.json(moviesByCountry)
+  const contentByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
+
+  if (!contentByCountry) {
+    res.status(404).send('Sorry, but there is no content for this country')
+  } else {
+    res.json(contentByCountry)
+  } 
+})
+
+// route provides all movies
+app.get('/movies', (req, res) => {
+  const movies = netflixData.filter(item => item.type === "Movie")
+  res.json(movies)
+})
+
+// route provides one movie
+app.get('/movies/:id', (req, res) => {
+  const { id } = req.params
+  const movie = netflixData.find(item => item.show_id === +id)
+
+  if (!movie) {
+    res.status(404).send('No movie found, that matches this ID')
+  } else {
+    res.json(movie)
+  }
 })
 
 // Start the server
