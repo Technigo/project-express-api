@@ -11,12 +11,23 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(data);
+  const page = req.query.page;
+  const start = page * 50;
+  const filteredData = data.slice(start, start + 50);
+  res.json(filteredData);
 });
 
 app.get("/winners", (req, res) => {
   const filteredByWinners = data.filter((item) => item.winner === "TRUE");
-  res.json(filteredByWinners);
+  const categoryFilter = req.query.category;
+  const filteredWinnersByCategory = filteredByWinners.filter((item) => {
+    if (categoryFilter) {
+      return item.category === categoryFilter;
+    } else {
+      return true;
+    }
+  });
+  res.send(filteredWinnersByCategory);
 });
 
 app.get("/id/:id", (req, res) => {
@@ -27,7 +38,9 @@ app.get("/id/:id", (req, res) => {
   if (findByItem) {
     res.json(findByItem);
   } else {
-    res.sendStatus(404);
+    res
+      .status(404)
+      .send("No nominations found by that id, please try another!");
   }
 });
 
