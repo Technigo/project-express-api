@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-// import listEndpoints from "express-list-endpoints";
 import swiftData from "./data/swift.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -16,7 +15,7 @@ app.use(express.json());
 
 // Startingpoint
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.send("This is the Taylor Swift album API");
 });
 
 // List of all the songs
@@ -29,7 +28,7 @@ app.get("/songs/index/:index", (req, res) => {
   const { index } = req.params;
   const songIndex = swiftData.find((song) => song.index === +index);
   if (!songIndex) {
-    res.status(404).send("No song found");
+    res.status(404).send("No song found by that number, try again");
   } else {
     res.json(songIndex);
   }
@@ -38,15 +37,17 @@ app.get("/songs/index/:index", (req, res) => {
 // find a song by title
 app.get("/songs/title/:title", (req, res) => {
   const { title } = req.params;
-  const songName = swiftData.find((song) => song.name === title);
+  const songName = swiftData.find(
+    (song) => song.name.toLowerCase() === title.toLowerCase()
+  );
   if (!songName) {
-    res.status(404).send("No song by that name found, try again");
+    res.status(404).send("No song found by that name, try again");
   } else {
     res.json(songName);
   }
 });
 
-// find songs from a specific album
+// filter songs from a specific album
 app.get("/songs/album", (req, res) => {
   const { album } = req.query;
   let filteredAlbums = swiftData;
@@ -56,6 +57,23 @@ app.get("/songs/album", (req, res) => {
       (item) => item.album.toLowerCase().indexOf(album.toLowerCase()) !== -1
     );
     res.json(filteredAlbums);
+  } else {
+    res.status(404).send("No album found, try again");
+  }
+});
+
+// filter songs from a specific year
+app.get("/songs/year", (req, res) => {
+  const { year } = req.query;
+  let songsPerYear = swiftData;
+
+  if (!year) {
+    res.status(404).send("No album found that year, try again");
+  } else {
+    songsPerYear = songsPerYear.filter(
+      (item) => item.release_date.slice(0, 4) === year.slice(0, 4)
+    );
+    res.json(songsPerYear);
   }
 });
 

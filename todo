@@ -1,12 +1,13 @@
-- Your API should have at least 2 routes. Try to push yourself to do more, though!
-- A minimum of one endpoint to return a **collection** of results (array of elements)
-- A minimum of one endpoint to return a **single** result (single element).
+☑️ A minimum of one endpoint to return a **collection** of results (array of elements)
+☑️ A minimum of one endpoint to return a **single** result (single element).
+
 - Your API should be [RESTful](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)
 
 RED
 
-- On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
-- Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+☑️ On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+☑️ Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+
 - Create some empty/dummy endpoints which could contain more complex operations in the future. Find good names for them (think back to the labs)
 
 BLACK
