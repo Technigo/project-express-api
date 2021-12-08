@@ -69,6 +69,11 @@ app.get ('/female', (req, res) => {
   res.json(femaleWinners)
 })
 
+app.get('/chemistry/year/:year', (req, res)=> {
+  const year= req.params.year
+  const chemistryEachYear = nobelPrizeWinners.filter((item) => item.category ==='chemistry' && item.year=== +year) 
+  res.json(chemistryEachYear)
+})
 
 // Start the server
 app.listen(port, () => {
