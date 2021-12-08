@@ -64,6 +64,10 @@ app.get ('/peace', (req, res) => {
   const peaceWinners = nobelPrizeWinners.filter((item) => item.category ==='peace')
   res.json(peaceWinners)
 })
+app.get ('/female', (req, res) => {
+  const femaleWinners = nobelPrizeWinners.filter((item) => item.gender ==='female')
+  res.json(femaleWinners)
+})
 
 
 // Start the server
