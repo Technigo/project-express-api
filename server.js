@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
   if (!page) {
     page = 0;
   }
-  const start = page * 50;
-  const filteredData = data.slice(start, start + 50);
+  const start = page * 100;
+  const filteredData = data.slice(start, start + 100);
   res.json(filteredData);
 });
 
