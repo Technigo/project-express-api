@@ -1,9 +1,5 @@
 # Express API Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
 Project making my first backend API with Express.
 
 ## The problem
@@ -18,10 +14,13 @@ API documentaion:
 
 /books - array of books
 /books?title="title" - list books with matching titles
+/books?authors="author" - list of books from specific author
 
 /books/id/"nr" - shows book with matching id
+/books/pages/"nr" - shows books with certain amount of pages
+/books/isbn/"nr" - show book by unique ISBN nr
 
 /books/language/"eng" - lists books written in english
-/books/language/en-US - lists books written in US-english
+/books/language/"en-US" - lists books written in US-english
 
 /books/endpoints - show API endpoints

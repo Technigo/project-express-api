@@ -38,13 +38,17 @@ app.get ('/endpoints', (req, res) => {
 
 // route for books API
 app.get('/books', (req, res) => {
-  const { title } = req.query
+  const { title, authors } = req.query
  
   let booksToSend = books
 
   if (title){
-     booksToSend = booksToSend.filter(
+    booksToSend = booksToSend.filter(
       (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1 )
+    }
+  if (authors){
+    booksToSend = booksToSend.filter(
+      (item) => item.authors.toLowerCase().indexOf(authors.toLowerCase()) !== -1 )
     }
 
   res.json({
@@ -53,23 +57,74 @@ app.get('/books', (req, res) => {
   })
 })
 
-// specific book from id //books/id/(nr)
+// Specific book from id //books/id/"nr"
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
 
   const bookNR = books.find(item => item.bookID === +id)
 
   if (!bookNR) {
-    console.log('No book found!')
     res.status(404).send('No book found!')
   } else {
     res.json(bookNR)
   }
 })
 
+// Book by ISBN nr
+app.get('/books/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
 
-// Title
-app.get('/books/title/:title', (req, res) => {
+  const isbnNr = books.find(item => item.isbn === +isbn)
+
+  if (!isbnNr) {  
+    res.status(404).send('No book for that IBAN nr!')
+  } else {
+    res.json(isbnNr)
+  }
+})
+
+// Books by number of pages
+app.get('/books/pages/:pages', (req, res) => {
+  const { pages } = req.params
+
+  const pageNr = books.filter(item => item.num_pages === +pages)
+
+  if (!pageNr) {
+    res.status(404).send('No book with that amount of pages!')
+  } else {
+    res.json(pageNr)
+  }
+})
+
+// Books by rating
+/* app.get('/books/rating/:rating', (req, res) => {
+  const { rating } = req.params
+
+  const ratingNr = books.filter(item => item.average_rating === +rating)
+
+  if (!ratingNr) {
+    res.status(404).send('No book with that amount of pages!')
+  } else {
+    res.json(ratingNr)
+  }
+}) */
+
+// books in english //books/eng
+app.get('/books/language/:eng', (req, res) => {
+  const eng = req.params.eng
+  const engBooks = books.filter((item) => item.language_code === eng)
+  res.json(engBooks)
+})
+// books in us-english //books/en-US
+app.get('/books/language/:us-eng', (req, res) => {
+  const us = req.params.eng
+  const usBooks = books.filter((item) => item.language_code === eng)
+  res.json(usBooks)
+})
+
+
+// Title not used atm
+/* app.get('/books/title/:title', (req, res) => {
   const { title } = req.params
 
   const titleName = books.find(item => item.title === title)
@@ -85,22 +140,7 @@ app.get('/books/title/:title', (req, res) => {
       success: true
     })
   }
-})
-
-
-
-// books in english //books/eng
-app.get('/books/language/:eng', (req, res) => {
-  const eng = req.params.eng
-  const engBooks = books.filter((item) => item.language_code === eng)
-  res.json(engBooks)
-})
-// books in us-english //books/en-US
-app.get('/books/language/:us-eng', (req, res) => {
-  const us = req.params.eng
-  const usBooks = books.filter((item) => item.language_code === eng)
-  res.json(usBooks)
-})
+}) */
 
 
 
