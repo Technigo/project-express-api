@@ -4293,16 +4293,6 @@
     "yearFilm": 1936,
     "yearCeremony": 1937,
     "ceremony": 9,
-    "category": 0,
-    "name": "Norma Shearer",
-    "film": "Romeo and Juliet",
-    "winner": "FALSE",
-    "id": 430
-  },
-  {
-    "yearFilm": 1936,
-    "yearCeremony": 1937,
-    "ceremony": 9,
     "category": "SUPPORTING ACTRESS",
     "name": "Beulah Bondi",
     "film": "The Gorgeous Hussy",

@@ -49,11 +49,13 @@ app.get("/id/:id", (req, res) => {
 
 app.get("/category/:category", (req, res) => {
   const category = req.params.category;
-  const filteredByCategory = data.filter(
-    (item) =>
+  const filteredByCategory = data.filter((item) => {
+    console.log(item.category);
+    return (
       category.toLowerCase().replace(/\s/g, "") ===
       item.category.toLowerCase().replace(/\s/g, "")
-  );
+    );
+  });
   res.json(filteredByCategory);
 });
 
