@@ -22,9 +22,46 @@ app.get('/', (req, res) => {
 
 app.get('/wines', (req, res) => {
 
+  // Pagination
+
+  const page = parseInt(req.query.page)
+  const limit = parseInt(req.query.limit)
+
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
+
+  const results = {}
+
+  if (endIndex < wineData.length)
+    results.next = {
+      page: page + 1,
+      limit: limit
+    }
+
+  if (startIndex > 0) {
+    results.previous = {
+      page: page - 1,
+      limit: limit
+    }
+  }
+
+  results.results = wineData.slice(startIndex, endIndex)
+
+  res.json(results)
+
+})
+
+  
+  app.get ('/wines/search', (req, res) => {
+ 
+
+  // Queries for sorting
+
+
   const { winery, title, country } = req.query
 
   let wineDataToSend = wineData
+  // let wineDataToSend = results
 
   // Query by winery
 
@@ -50,26 +87,7 @@ app.get('/wines', (req, res) => {
     })
   })
 
-
-
-  // const winery = req.query
-  // const title = req.query
-  
-  // if (winery) {
-  //   wineData = wineData.filter((wine) => wine.winery.toLowerCase() === winery)
-  // } 
-
-  // if (title) {
-  //   wineData = wineData.filter((wine) => wine.title.toLowerCase() === title)
-  // }
-
-  // if (wineData.length === 0) {
-  //   res.status(404).send('No such wine!')
-  // }
-
-  // res.json(wineData)
-
-  app.get('/wines/title/:title', (req, res) => {
+  app.get('/wines/titles/:title', (req, res) => {
     const { title } = req.params 
   
     let wineByTitle = wineData
@@ -90,9 +108,9 @@ app.get('/wines', (req, res) => {
     }
   })
   
+// Route to get wines by country
 
-
-app.get('/wines/country/:country', (req, res) => {
+app.get('/wines/countries/:country', (req, res) => {
   const { country } = req.params 
 
   let wineByCountry = wineData
@@ -113,39 +131,77 @@ app.get('/wines/country/:country', (req, res) => {
   }
 })
 
-// Pagination
+// Route to get wines by province
 
-// const paginatedResults = (model) => {
-//   return (req, res, next) => {
+app.get('/wines/provinces/:province', (req, res) => {
+  const { province } = req.params 
+
+  let wineByProvince = wineData
+
+  wineByProvince = wineByProvince.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1)
 
 
-//   const page = parseInt(req.query.page)
-//   const limit = parseInt(req.query.limit)
+  if (!wineByProvince) {
+    res.status(404).json({
+      response: 'No such province!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: wineByProvince,
+      success: true
+    })
+  }
+})
 
-//   const startIndex = (page - 1) * limit
-//   const endIndex = page * limit
+// Route to get wines by variety
 
-//   const results = {}
+app.get('/wines/varieties/:variety', (req, res) => {
+  const { variety } = req.params 
 
-//   if (endIndex < model.length)
-//     results.next = {
-//       page: page + 1,
-//       limit: limit
-//     }
+  let wineByVariety = wineData
 
-//   if (startIndex > 0) {
-//     results.previous = {
-//       page: page - 1,
-//       limit: limit
-//     }
-//   }
+  wineByVariety = wineByVariety.filter((item) => item.variety?.toLowerCase().indexOf(variety.toLowerCase()) !== -1)
 
-//   results.results = model.slice(startIndex, endIndex)
 
-//   res.paginatedResults = results
-//   next()
-//   }
-// }
+  if (!wineByVariety) {
+    res.status(404).json({
+      response: 'No such variety!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: wineByVariety,
+      success: true
+    })
+  }
+})
+
+// Sort wines by top rating
+
+app.get('/wines/topRated', (req, res) => {
+  let topRatedWines = wineData.sort((a, b) => b.points - a.points)
+
+  const top50 = topRatedWines.slice(0, 50)
+  
+  res.status(200).json({
+    response: top50,
+    success: true
+  })
+})
+
+// Sort wine by most expensive
+
+app.get('/wines/mostExpensive', (req, res) => {
+  let mostExpensiveWines = wineData.sort((a, b) => b.price - a.price)
+
+  const top50 = mostExpensiveWines.slice(0, 50)
+
+  res.status(200).json({
+    response: top50,
+    success: true
+  })
+})
 
 
 // Start the server
