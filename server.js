@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
+
 
 import f12020Results from "./data/f1-2020-results.json";
 
@@ -36,16 +38,26 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-    res.send(`this many number ${noOfRaces} races`);
+    res.send(listEndpoints(app))
 });
 
 app.get("/summary", (req, res) => {
     res.json(summary);
 });
 
-// app.get("/race/:race_id", (req, res) => {
-//   res.json(summary);
-// });
+app.get("/race/:race_id", (req, res) => {
+  const {race_id} = req.params
+
+  const raceId = f12020Results.MRData.RaceTable.Races.find((race) => race.round === race_id)
+  if (!raceId) {
+    res.status(404).send("No race found")
+  }
+  res.json(raceId);
+});
+
+app.delete("/", (req, res) => {
+  res.send("Don't be silly, you can't delete my data")
+});
 
 // Start the server
 app.listen(port, () => {
