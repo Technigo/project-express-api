@@ -2,15 +2,6 @@ import express from 'express'
 import cors from 'cors'
 import wineData from './data/wines.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
@@ -31,8 +22,38 @@ app.get('/', (req, res) => {
 
 app.get('/wines', (req, res) => {
 
-  // const winery = req.query.winery
-  // const title = req.query.title
+  const { winery, title, country } = req.query
+
+  let wineDataToSend = wineData
+
+  // Query by winery
+
+  if (winery) {
+    wineDataToSend = wineDataToSend.filter((item) => item.winery.toLowerCase().indexOf(winery.toLowerCase()) !== -1)
+  }
+
+  // Query by title
+
+  if (title) {
+    wineDataToSend = wineDataToSend.filter((item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
+  }
+
+  // Query by country 
+
+  if (country) {
+    wineDataToSend = wineDataToSend.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+  }
+
+    res.json({
+      response: wineDataToSend,
+      success: true,
+    })
+  })
+
+
+
+  // const winery = req.query
+  // const title = req.query
   
   // if (winery) {
   //   wineData = wineData.filter((wine) => wine.winery.toLowerCase() === winery)
@@ -46,22 +67,86 @@ app.get('/wines', (req, res) => {
   //   res.status(404).send('No such wine!')
   // }
 
-  res.json(wineData)
+  // res.json(wineData)
+
+  app.get('/wines/title/:title', (req, res) => {
+    const { title } = req.params 
+  
+    let wineByTitle = wineData
+  
+    wineByTitle = wineByTitle.find((item) => item.title.toLowerCase() === title.toLowerCase())
+  
+  
+    if (!wineByTitle) {
+      res.status(404).json({
+        response: 'No such title!',
+        success: false
+      })
+    } else {
+      res.status(200).json({
+        response: wineByTitle,
+        success: true
+      })
+    }
+  })
+  
+
+
+app.get('/wines/country/:country', (req, res) => {
+  const { country } = req.params 
+
+  let wineByCountry = wineData
+
+  wineByCountry = wineByCountry.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+
+
+  if (!wineByCountry) {
+    res.status(404).json({
+      response: 'No such country!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: wineByCountry,
+      success: true
+    })
+  }
 })
 
+// Pagination
+
+// const paginatedResults = (model) => {
+//   return (req, res, next) => {
 
 
-// app.get('/wines/:country', (req, res) => {
-//   const country = req.params.country
-//   const wineByCountry = wines.filter((wineCountry) => wineCountry.wineByCountry.toLowerCase() === country)
+//   const page = parseInt(req.query.page)
+//   const limit = parseInt(req.query.limit)
 
+//   const startIndex = (page - 1) * limit
+//   const endIndex = page * limit
 
-//   if (!wineByCountry) {
-//     res.status(404).send('No such country!')
-//   } else {
-//     res.json(wineByCountry)
+//   const results = {}
+
+//   if (endIndex < model.length)
+//     results.next = {
+//       page: page + 1,
+//       limit: limit
+//     }
+
+//   if (startIndex > 0) {
+//     results.previous = {
+//       page: page - 1,
+//       limit: limit
+//     }
 //   }
-// })
+
+//   results.results = model.slice(startIndex, endIndex)
+
+//   res.paginatedResults = results
+//   next()
+//   }
+// }
+
 
 // Start the server
 app.listen(port, () => {
