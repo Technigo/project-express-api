@@ -11,7 +11,10 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  const page = req.query.page;
+  let page = req.query.page;
+  if (!page) {
+    page = 0;
+  }
   const start = page * 50;
   const filteredData = data.slice(start, start + 50);
   res.json(filteredData);
