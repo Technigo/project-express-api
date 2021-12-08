@@ -36,7 +36,7 @@ app.get('/episodes', (req, res) => {
 
   if (season) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
-      item => item.season === +season
+      item => item.season.toString().indexOf(season.toString()) !== -1
     ); // make the string not case sensitive
   }
 
