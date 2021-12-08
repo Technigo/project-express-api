@@ -33,7 +33,7 @@ app.get("/titles", (req, res) => {
   res.json(netflixData);
 });
 
-app.get("/show/:show_id", (req, res) => {
+app.get("/titles/:show_id", (req, res) => {
   const show = req.params.show_id;
   const showId = req.query.show_id;
   let seeOneShow = netflixData.filter((item) => item.show_id === +show);
@@ -44,7 +44,7 @@ app.get("/show/:show_id", (req, res) => {
   res.json(seeOneShow);
 });
 
-app.get("/year/:release_year", (req, res) => {
+app.get("/titles/:release_year", (req, res) => {
   const year = req.params.release_year;
   const showYear = req.query.release_year;
   let ReleaseYear = netflixData.filter((item) => item.release_year === +year);
