@@ -18,53 +18,112 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Defining routes here
 // this is an endpoint 
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send({
+    title: "Welcome to DL:s shows API!",
+    description: {
+      endpoint1: {
+        "https://netflix-shows.herokuapp.com/shows": "Returns the entire shows array",
+        "https://netflix-shows.herokuapp.com/shows?year=<year>": "Returns the entire books array"
+      },
+      endpoint2: {
+        "https://netflix-shows.herokuapp.com/shows/:id": "Use this endpoint to return shows with a specific id and replace :id with a number of the show."
+      }
+    }
+  })
 })
 
-// FIRST ENDPOINT 
-app.get('/shows', (req, res) => {
-  const { type, year } = req.query
+// NOTES ABOUT QUERY & PARAMS
+// different between params and query is that params are mandatory 
+// if you create an endpoint that takes params , you have to include that 
+// param in your endpoint. Otherwise it's not going to trigger that endpoint.
+// Query params are optional, you can include them, but you dont have to
+// the endpint is going to work with or without query in end point path
 
+// path params uses when you want only send one object from the data
+// query params uses when you about filtering a data and send back multiple amount, 
+// just a smaller array of the records 
+
+// FIRST ENDPOINT 
+// call back function inside of get() communicates with fronted via those two argument(req and res)
+// res = is what we send back to the frontend 
+// req = it's handaling send to the backend like a specific query for ex 
+app.get('/shows', (req, res) => {
+  // req is an object with properties such as query and params, 
+  // both query and params are an empty object from the begging 
+  // every query parameter consist of two part, key and value, like an object
+  const { title, country, type, year } = req.query
+
+  // creating this variable, because we will always return the same array to the user
+  // note to me: it is my a currentQuestion variable from previous project?
+  let arrayToSendToUser = netflixData
+  let queryFromUser = title
+
+  // can i combine title, country and type into one if?
+  if (title) {
+    /* toLowerCase() sets the data in type array data to lowercase, 
+    then includes() returns true if a string contains type from url, 
+    includes() is almost the same as indexOf(), indecOf return number, when includes a boolean, 
+    a part of the string that we send should be in the database */
+    arrayToSendToUser = arrayToSendToUser.filter(
+      (item) => item.title.toLowerCase().includes(title.toLowerCase()) 
+    )
+  }
+
+  if (country) {
+    arrayToSendToUser = arrayToSendToUser.filter(
+      (item) => item.country.toLowerCase().includes(country.toLowerCase()) 
+    )
+    queryFromUser = country
+  }
+ 
   if (type) {
-    /* tolocaleLowerCase() sets the data in type array data to lowercase, 
-    then includes returns true if a string contains type from url */
-    const typeArray = netflixData.filter(
+    arrayToSendToUser = arrayToSendToUser.filter(
       (item) => item.type.toLowerCase().includes(type.toLowerCase()) 
     )
-
-    if (typeArray.length === 0) {
-      res.status(404).send("Sorry that type doesn't exist.")
-    }
-    res.json(typeArray)
+    queryFromUser = type
   }
 
   if (year) {
     // "+" turns the string in to a number.
-    const realeaseYearArray = netflixData.filter((item) => item.release_year === +year)
-    if (realeaseYearArray.length === 0) {
-      res.status(404).send("Sorry that year doesn't exist.")
-    }
-    res.json(realeaseYearArray)
+    arrayToSendToUser = arrayToSendToUser.filter((item) => item.release_year === +year)
+    queryFromUser = year
   }
-  res.json(netflixData)
-})
+
+  if (arrayToSendToUser.length === 0) {
+    res.status(404).send(`Sorry, ${queryFromUser} doesn't exist.`)
+  }
+
+  res.json({
+    response: arrayToSendToUser,
+    success: true
+  });
+});
 
 // SECOND ENDPOINT 
-
 // get a specific show based on id, using params 
 // :id is like a placeholder different id:s that will show up in the url field in the browser 
-app.get('/shows/:id', (req, res) => {
+app.get('/shows/id/:id', (req, res) => {
+  // params in this case are :id, params is something that we can get from the request 
+  // all params comes as strings 
   const { id } = req.params
   // "+" turns the string in to a number.
-  const showId = netflixData.find((show) => show.show_id === +id)
+  const showOnlyOneShow = netflixData.find((show) => show.show_id === +id)
 
-  if (!showId) {
-    res.status(404).send("Show doesn't exist!")
+  if (!showOnlyOneShow) {
+    res.status(404).json({
+      response: "No show found with that id",
+      // boolean property, 
+      success: false
+    })
   } else {
-    res.json(showId)
+    // status 200 is by default 
+    res.json({
+      response: showOnlyOneShow,
+      success: true
+    })
   }
 })
 
@@ -74,21 +133,3 @@ app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
-
-// showing a specific year and all that won
-
-// app.get("/year/:year", (req, res) => {
-//  const { year } = req.params.year
-//  const showWon = req.query.won
-
-//  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
-
-//  if (showWon) {
-//    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-//  } else {
-//    res.status(404).send("year not found")
-//  }
-
-//  res.json(nominationsFromYear)
-// })
-

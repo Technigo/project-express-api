@@ -1,6 +1,12 @@
 installed node modules
-
 npm run dev to start the project 
+
+- display country, title, director, 
+- frontend 
+- pages - torsdag 
+- deploy on heroku ( do last )
+- documentation in api or maybe frotend? ( do last )
+
 
 🔵  Blue Level (Minimum Requirements)
 - Your API should have at least 2 routes. Try to push yourself to do more, though!
