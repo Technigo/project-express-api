@@ -23,6 +23,11 @@ app.get("/winners", (req, res) => {
   res.json(filteredMovies);
 });
 
+app.get("/losers", (req, res) => {
+  let filteredMovies = goldenGlobesData.filter((item) => item.win === false);
+  res.json(filteredMovies);
+});
+
 app.get("/movies", (req, res) => {
   let filteredMovies = goldenGlobesData.filter((item) =>
     item.category.includes("Motion Picture")
@@ -79,7 +84,7 @@ app.get("/winners/foreign", (req, res) => {
   res.json(filteredMovies);
 });
 
-app.get("/nominee/:nominee", (req, res) => {
+app.get("/nominees/:nominee", (req, res) => {
   const { nominee } = req.params;
   const showNominee = goldenGlobesData.find(
     (item) =>
@@ -88,11 +93,52 @@ app.get("/nominee/:nominee", (req, res) => {
   );
 
   if (!showNominee) {
-    res
-      .status(404)
-      .send("Sorry, we couldn't find the nominee you're looking for!");
+    res.status(404).json({
+      response: "Sorry, we couldn't find the nominee you're looking for!",
+      success: false,
+    });
   } else {
-    res.json(showNominee);
+    res.status(200).json({
+      respons: showNominee,
+      success: true,
+    });
+  }
+});
+
+// DUMMY ENDPOINTS //
+app.get("/backdrops/:backdrop", (req, res) => {
+  const { backdrop } = req.params;
+  const showBackdrop = goldenGlobesData.find(
+    (item) => item.backdrop === backdrop
+  );
+
+  if (!showBackdrop) {
+    res.status(404).json({
+      response: "Sorry, we couldn't find the backdrop you're looking for!",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      respons: showBackdrop,
+      success: true,
+    });
+  }
+});
+
+app.get("/posters/:poster", (req, res) => {
+  const { poster } = req.params;
+  const showPoster = goldenGlobesData.find((item) => item.poster === poster);
+
+  if (!showPoster) {
+    res.status(404).json({
+      response: "Sorry, we couldn't find the poster you're looking for!",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      respons: showPoster,
+      success: true,
+    });
   }
 });
 
