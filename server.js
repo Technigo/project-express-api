@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/netflix-titles", (req, res) => {
-  const { year, country, type } = req.query;
+  const { year, country, type, page, limit } = req.query;
 
   let titlesToSend = titles;
 
@@ -40,10 +40,42 @@ app.get("/netflix-titles", (req, res) => {
   if (type) {
     titlesToSend = titlesToSend.filter((item) => item.type === type);
   }
-  res.status(200).json({
-    response: titlesToSend,
-    success: true,
-  });
+  if (page && limit) {
+    let pageInt = parseInt(page);
+    let limitInt = parseInt(limit);
+    const next = pageInt + 1;
+    const previous = pageInt - 1;
+    const startIndex = (pageInt - 1) * limitInt;
+    const endIndex = pageInt * limitInt;
+    const nrPages = titlesToSend.length / limit;
+    const titlesToSendPage = titlesToSend.slice(startIndex, endIndex);
+
+    if (previous === 0) {
+      res.status(200).json({
+        next: next,
+        response: titlesToSendPage,
+        success: true,
+      });
+    } else if (endIndex < titlesToSend.length) {
+      res.status(200).json({
+        next: next,
+        previous: previous,
+        response: titlesToSendPage,
+        success: true,
+      });
+    } else {
+      res.status(200).json({
+        previous: nrPages,
+        response: titlesToSendPage,
+        success: true,
+      });
+    }
+  } else {
+    res.status(200).json({
+      response: titlesToSend,
+      success: true,
+    });
+  }
 });
 
 app.get("/netflix-titles/movies", (req, res) => {
