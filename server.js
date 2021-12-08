@@ -30,8 +30,18 @@ app.get('/', (req, res) => {
 // List all winners
 
 app.get('/winners', (req, res) =>{
-  res.json(nobelPrizeWinners)
+  const femaleWon = req.query.female
+
+  let winners = nobelPrizeWinners
+
+  if (femaleWon){
+    winners = nobelPrizeWinners.filter((item) => item.gender ==='female')
+  }
+  res.json(winners)
+  //const femaleWinners = nobelPrizeWinners.filter((item) => item.gender ==='female')
+  //res.json(femaleWinners)
 })
+
 
 // list all winners from a particular year
 app.get('/year/:year', (req, res)=> {
@@ -45,29 +55,29 @@ app.get ('/physics', (req, res) => {
   const physicsWinners = nobelPrizeWinners.filter((item) => item.category ==='physics')
   res.json(physicsWinners)
 })
-
+//fetches winners in chemistry
 app.get ('/chemistry', (req, res) => {
   const chemistryWinners = nobelPrizeWinners.filter((item) => item.category ==='chemistry')
   res.json(chemistryWinners)
 })
-
+//fetches winners in medicine
 app.get ('/medicine', (req, res) => {
   const medicineWinners = nobelPrizeWinners.filter((item) => item.category ==='medicine')
   res.json(medicineWinners)
 })
 
+//fetches winners in literature
 app.get ('/literature', (req, res) => {
   const literatureWinners = nobelPrizeWinners.filter((item) => item.category ==='literature')
   res.json(literatureWinners)
 })
+
+//fetches winners in peace
 app.get ('/peace', (req, res) => {
   const peaceWinners = nobelPrizeWinners.filter((item) => item.category ==='peace')
   res.json(peaceWinners)
 })
-app.get ('/female', (req, res) => {
-  const femaleWinners = nobelPrizeWinners.filter((item) => item.gender ==='female')
-  res.json(femaleWinners)
-})
+
 
 app.get('/chemistry/year/:year', (req, res)=> {
   const year= req.params.year
