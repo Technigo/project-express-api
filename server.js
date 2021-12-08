@@ -47,7 +47,8 @@ app.get("/netflix-titles", (req, res) => {
     const previous = pageInt - 1;
     const startIndex = (pageInt - 1) * limitInt;
     const endIndex = pageInt * limitInt;
-    const nrPages = titlesToSend.length / limit;
+    let nrPages = titlesToSend.length / limitInt;
+    nrPages = parseInt(nrPages);
     const titlesToSendPage = titlesToSend.slice(startIndex, endIndex);
 
     if (previous === 0) {
