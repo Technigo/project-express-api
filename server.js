@@ -27,21 +27,18 @@ app.get('/', (req, res) => {
   res.send('phil-mebobbins')
 })
 
-// List all winners
+// List all winners, and then as query, can return all female winners
 
 app.get('/winners', (req, res) =>{
   const femaleWon = req.query.female
-
   let winners = nobelPrizeWinners
 
   if (femaleWon){
     winners = nobelPrizeWinners.filter((item) => item.gender ==='female')
   }
   res.json(winners)
-  //const femaleWinners = nobelPrizeWinners.filter((item) => item.gender ==='female')
-  //res.json(femaleWinners)
+  
 })
-
 
 // list all winners from a particular year
 app.get('/year/:year', (req, res)=> {
@@ -50,39 +47,26 @@ const winnersFromYear = nobelPrizeWinners.filter((item)=> item.year=== +year) //
 res.json(winnersFromYear)
 })
 
-// list all physics winners 
-app.get ('/physics', (req, res) => {
-  const physicsWinners = nobelPrizeWinners.filter((item) => item.category ==='physics')
-  res.json(physicsWinners)
-})
-//fetches winners in chemistry
-app.get ('/chemistry', (req, res) => {
-  const chemistryWinners = nobelPrizeWinners.filter((item) => item.category ==='chemistry')
-  res.json(chemistryWinners)
-})
-//fetches winners in medicine
-app.get ('/medicine', (req, res) => {
-  const medicineWinners = nobelPrizeWinners.filter((item) => item.category ==='medicine')
-  res.json(medicineWinners)
+//fetches category winners from input into url
+app.get ('/category/:category', (req, res) => {
+  const category = req.params.category
+  const categoryWinners = nobelPrizeWinners.filter((item)=>item.category === category)
+  res.json(categoryWinners)
 })
 
-//fetches winners in literature
-app.get ('/literature', (req, res) => {
-  const literatureWinners = nobelPrizeWinners.filter((item) => item.category ==='literature')
-  res.json(literatureWinners)
-})
-
-//fetches winners in peace
-app.get ('/peace', (req, res) => {
-  const peaceWinners = nobelPrizeWinners.filter((item) => item.category ==='peace')
-  res.json(peaceWinners)
-})
-
-
+// fetches chemistry winners from any year
 app.get('/chemistry/year/:year', (req, res)=> {
   const year= req.params.year
   const chemistryEachYear = nobelPrizeWinners.filter((item) => item.category ==='chemistry' && item.year=== +year) 
   res.json(chemistryEachYear)
+})
+// fetches any winner from any category and any year
+app.get ('/category/:category/year/:year', (req, res) =>{
+  const year= req.params.year
+  const category = req.params.category
+
+  const categoryYearWinners = nobelPrizeWinners.filter((item)=> item.category === category && item.year=== +year)
+  res.json(categoryYearWinners)
 })
 
 // Start the server
