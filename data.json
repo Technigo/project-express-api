@@ -1,0 +1,84 @@
+[
+  {
+    "season": 1,
+    "released": 2009,
+    "number_of_contestants": 9,
+    "winner": "Bebe Zahara Bonet",
+    "miss_congeniality": "Nina Flowers"
+  },
+  {
+    "season": 2,
+    "released": 2010,
+    "number_of_contestants": 12,
+    "runner_up": "Raven",
+    "winner": "Tyra Sanchez",
+    "miss_congeniality": "Pandora Boxx"
+  },
+  {
+    "season": 3,
+    "released": 2011,
+    "number_of_contestants": 13,
+    "runner_up": "Manila Luzon",
+    "winner": "Raja",
+    "miss_congeniality": "Yara Sofia"
+  },
+  {
+    "season": 4,
+    "released": 2012,
+    "number_of_contestants": 13,
+    "runner_up": ["Chad Michaels", "Phi Phi O'Hara"],
+    "winner": "Sharon Needles",
+    "miss_congeniality": "Latrice Royale"
+  },
+  {
+    "season": 5,
+    "released": 2013,
+    "number_of_contestants": 14,
+    "runner_up": ["Alaska", "Roxxxy Andrews"],
+    "winner": "Jinkx Monsoon",
+    "miss_congeniality": "Ivy Winters"
+  },
+  {
+    "season": 6,
+    "released": 2014,
+    "number_of_contestants": 14,
+    "runner_up": ["Adore Delano", "Courtney Act"],
+    "winner": "Bianca Del Rio",
+    "miss_congeniality": "BenDeLaCreme"
+  },
+  {
+    "season": 7,
+    "released": 2015,
+    "winner": "Violet"
+  },
+  {
+    "season": 8,
+    "released": 2016,
+    "winner": "Bob"
+  },
+  {
+    "season": 9,
+    "released": 2017,
+    "winner": "Sasha"
+  },
+  {
+    "season": 10,
+    "released": 2018,
+    "winner": "Aquaria"
+  },
+  {
+    "season": 11,
+    "released": 2019,
+    "winner": "Yvie"
+  },
+  {
+    "season": 12,
+    "released": 2020,
+    "winner": "Jaida"
+  },
+  {
+    "season": 1,
+    "released": 2021,
+    "winner": "Symone"
+  }
+]
