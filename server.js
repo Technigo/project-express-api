@@ -1,5 +1,7 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
+
 import netflixData from "./data/netflix-titles.json";
 
 const port = process.env.PORT || 8080;
@@ -10,32 +12,42 @@ app.use(cors());
 app.use(express.json());
 
 // define how many results per page
-// const pagination = (pageNumber) => {
-//   const pageSize = 10;
-//   const startIndex = (pageNumber - 1) * pageSize;
-//   const endIndex = startIndex + pageSize;
-//   const itemsOnPage = netflixData.slice(startIndex, endIndex);
+const pagination = (data, pageNumber) => {
+  const pageSize = 20;
+  const startIndex = (pageNumber - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const itemsOnPage = data.slice(startIndex, endIndex);
 
-//   const returnObject = {
-//     page_size: pageSize,
-//     page: pageNumber,
-//     num_of_pages: Math.ceil(netflixData.length / pageSize),
-//     items_on_page: itemsOnPage.length,
-//     results: itemsOnPage,
-//   };
-//   return returnObject;
-// };
+  const returnObject = {
+    page_size: pageSize,
+    page: pageNumber,
+    num_of_pages: Math.ceil(netflixData.length / pageSize),
+    items_on_page: itemsOnPage.length,
+    results: itemsOnPage,
+  };
+  return returnObject;
+};
 
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.json(netflixData);
 });
 
-app.get("/year/:year", (req, res) => {
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+app.get("/years/:year", (req, res) => {
   const { year } = req.params;
-  const { country, genre } = req.query;
+  const { country, genre, page } = req.query;
   let contentOfYear = netflixData.filter((item) => item.release_year === +year);
 
+  // if (!contentOfYear) {
+  //   res.status(404).json({
+  //     response: "No year found",
+  //     success: false,
+  //   });
+  // }
   if (country) {
     contentOfYear = contentOfYear.filter((item) =>
       item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
@@ -49,17 +61,35 @@ app.get("/year/:year", (req, res) => {
   }
 
   if (contentOfYear.length === 0) {
-    res.status(404).json("Not found");
-  } else {
-    res.json(contentOfYear);
-  }
+    res.json({
+      response: "Data not found",
+      success: true,
+    });
+  } else if (contentOfYear.length > 0 && contentOfYear.length < 20) {
+    res.json({
+      response: contentOfYear,
+      success: true,
+    });
+  } else
+    res.json({
+      response: pagination(contentOfYear, page),
+      success: true,
+    });
 });
 
 app.get("/type/:type", (req, res) => {
   const { type } = req.params;
-  const { country, genre } = req.query;
-  let typeOfContent = netflixData.filter((item) => item.type === type);
+  const { country, genre, page } = req.query;
+  let typeOfContent = netflixData.filter(
+    (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase()
+  );
 
+  if (!typeOfContent) {
+    res.status(404).json({
+      response: "No title found",
+      success: false,
+    });
+  }
   if (country) {
     typeOfContent = typeOfContent.filter((item) =>
       item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
@@ -73,20 +103,36 @@ app.get("/type/:type", (req, res) => {
   }
 
   if (typeOfContent.length === 0) {
-    res.status(404).send("Data not found");
-  } else {
-    res.json(typeOfContent);
-  }
+    res.json({
+      response: "No data found",
+      success: true,
+    });
+  } else if (typeOfContent.length > 0 && typeOfContent.length < 20) {
+    res.json({
+      response: typeOfContent,
+      success: true,
+    });
+  } else
+    res.json({
+      response: pagination(typeOfContent, page),
+      success: true,
+    });
 });
 
-app.get("/titles/:title", (req, res) => {
-  const { title } = req.params;
-  const uniqueTitle = netflixData.find((item) => item.show_id === +title);
+app.get("/titles/:id", (req, res) => {
+  const { id } = req.params;
+  const uniqueTitle = netflixData.find((item) => item.show_id === +id);
 
   if (!uniqueTitle) {
-    res.status(404).send("Title not found");
+    res.status(404).json({
+      response: "No title found",
+      success: false,
+    });
   } else {
-    res.json(uniqueTitle);
+    res.status(200).json({
+      response: uniqueTitle,
+      success: true,
+    });
   }
 });
 
