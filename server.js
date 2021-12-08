@@ -33,8 +33,9 @@ app.get('/endpoints', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  const { pageCountHigh, pageCountLow, rating, sortRating, sortPageCount } = req.query
+  const { pageCountHigh, pageCountLow, rating, sortRating, sortPageCount, title } = req.query
 
+  let resultsToSend = data
   let pageCountUpperLimit = Infinity
   let pageCountLowerLimit = 0
   let ratingLowerLimit = 0
@@ -49,13 +50,18 @@ app.get('/books', (req, res) => {
     ratingLowerLimit = rating
   }
   if (sortRating) {
-    data.sort((a, b) => b.average_rating - a.average_rating)
+    resultsToSend.sort((a, b) => b.average_rating - a.average_rating)
   }
   if (sortPageCount) {
-    data.sort((a, b) => b.num_pages - a.num_pages)
+    resultsToSend.sort((a, b) => b.num_pages - a.num_pages)
+  }
+  if (title) {
+    resultsToSend = resultsToSend.filter(
+      item => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    )
   }
 
-  const filteredData = data
+  const filteredData = resultsToSend
     .filter(item => item.average_rating >= ratingLowerLimit)
     .filter(item => item.num_pages <= pageCountUpperLimit)
     .filter(item => item.num_pages >= pageCountLowerLimit)
@@ -90,7 +96,7 @@ app.get('/lang/:lang', (req, res) => {
 
 app.post('/post', (req, res) => {
   const { body } = req
-  res.send(body)
+  res.json(body)
 })
 
 // Start the server
