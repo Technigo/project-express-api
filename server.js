@@ -1,5 +1,9 @@
 import express from 'express'
 import cors from 'cors'
+// import bodyParser from 'body-parser'
+import listEndpoints from 'express-list-endpoints'
+
+import books from './data/books.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -25,6 +29,80 @@ app.use(express.json())
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
+
+// List endpoints
+app.get ('/endpoints', (req, res) => {
+  res.send(listEndpoints(app))
+}
+)
+
+// route for books API
+app.get('/books', (req, res) => {
+  const { title } = req.query
+ 
+  let booksToSend = books
+
+  if (title){
+     booksToSend = booksToSend.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1 )
+    }
+
+  res.json({
+    response: booksToSend,
+    success: true
+  })
+})
+
+// specific book from id //books/id/(nr)
+app.get('/books/id/:id', (req, res) => {
+  const { id } = req.params
+
+  const bookNR = books.find(item => item.bookID === +id)
+
+  if (!bookNR) {
+    console.log('No book found!')
+    res.status(404).send('No book found!')
+  } else {
+    res.json(bookNR)
+  }
+})
+
+
+// Title
+app.get('/books/title/:title', (req, res) => {
+  const { title } = req.params
+
+  const titleName = books.find(item => item.title === title)
+
+  if (!titleName) {
+    res.json(404).json({
+      response: 'No title found!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: titleName,
+      success: true
+    })
+  }
+})
+
+
+
+// books in english //books/eng
+app.get('/books/language/:eng', (req, res) => {
+  const eng = req.params.eng
+  const engBooks = books.filter((item) => item.language_code === eng)
+  res.json(engBooks)
+})
+// books in us-english //books/en-US
+app.get('/books/language/:us-eng', (req, res) => {
+  const us = req.params.eng
+  const usBooks = books.filter((item) => item.language_code === eng)
+  res.json(usBooks)
+})
+
+
 
 // Start the server
 app.listen(port, () => {
