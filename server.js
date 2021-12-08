@@ -25,11 +25,14 @@ app.get('/', (req, res) => {
     title: "Welcome to DL:s shows API!",
     description: {
       endpoint1: {
-        "https://netflix-shows.herokuapp.com/shows": "Returns the entire shows array",
-        "https://netflix-shows.herokuapp.com/shows?year=<year>": "Returns the entire books array"
+        "Returns the entire shows array": "https://dls-shows-api.herokuapp.com/shows",
+        "Returns an array with title": "https://dls-shows-api.herokuapp.com/shows?title=<write title here>",
+        "Returns an array with country": "https://dls-shows-api.herokuapp.com/shows?country=<write country here>",
+        "Returns an array with type": "https://dls-shows-api.herokuapp.com/shows?country=<write type here>",
+        "Returns an array with year": "https://dls-shows-api.herokuapp.com/shows?year=<write year here>"
       },
       endpoint2: {
-        "https://netflix-shows.herokuapp.com/shows/:id": "Use this endpoint to return shows with a specific id and replace :id with a number of the show."
+        "Use this endpoint to return shows with a specific id and replace :id with a number of the show.": "https://dls-shows-api.herokuapp.com/shows/id/:id"
       }
     }
   })
