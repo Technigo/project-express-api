@@ -37,9 +37,6 @@ app.get("/netflix-titles", (req, res) => {
         -1
     );
   }
-  if (type) {
-    titlesToSend = titlesToSend.filter((item) => item.type === type);
-  }
   if (page && limit) {
     let pageInt = parseInt(page);
     let limitInt = parseInt(limit);
@@ -105,6 +102,23 @@ app.get("/netflix-titles/movies/:id", (req, res) => {
   });
 });
 
+app.get("/netflix-titles/movies/year/:year", (req, res) => {
+  const year = req.params.year;
+  let moviesWithYear = titles.filter(
+    (item) => item.release_year === +year && item.type === "Movie"
+  );
+  if (!moviesWithYear) {
+    res.status(404).json({
+      response: `There are no movies from ${year}`,
+      success: false,
+    });
+  }
+  res.status(200).json({
+    response: moviesWithYear,
+    success: true,
+  });
+});
+
 app.get("/netflix-titles/tv-shows", (req, res) => {
   let tvShows = titles.filter((title) => title.type === "TV Show");
   res.status(200).json({
@@ -120,29 +134,29 @@ app.get("/netflix-titles/tv-shows/:id", (req, res) => {
   );
   if (!showsWithTitle) {
     res.status(404).json({
-      response: "There is no such movie",
+      response: "There is no such tv-show",
       success: false,
     });
   }
   res.status(200).json({
-    response: movieWithTitle,
+    response: showsWithTitle,
     success: true,
   });
 });
 
-app.get("/netflix-titles/tv-shows/:year", (req, res) => {
+app.get("/netflix-titles/tv-shows/year/:year", (req, res) => {
   const year = req.params.year;
-  let tvSHowsWithYear = titles.filter(
+  let showsWithYear = titles.filter(
     (item) => item.release_year === +year && item.type === "TV Show"
   );
-  if (!tvSHowsWithYear) {
+  if (!showsWithYear) {
     res.status(404).json({
       response: `There are no tv-shows from ${year}`,
       success: false,
     });
   }
   res.status(200).json({
-    response: tvSHowsWithYear,
+    response: showsWithYear,
     success: true,
   });
 });
