@@ -28,7 +28,30 @@ app.use(express.json());
 app.get("/books", (req, res) => {
   const { author } = req.query;
 
-  // const booksDataFirstTwenty = booksData.slice(0, 20);
+  // const page = parseInt(req.query.page);
+  // const limit = parseInt(req.query.limit);
+
+  // const startIndex = (page - 1) * limit;
+  // const endIndex = page * limit;
+
+  // const results = {};
+
+  // if (endIndex < booksData.length) {
+  //   results.next = {
+  //     page: page + 1,
+  //     limit: limit,
+  //   };
+  // }
+
+  // if (startIndex > 0) {
+  //   results.previous = {
+  //     page: page - 1,
+  //     limit: limit,
+  //   };
+  // }
+
+  // results.results = booksData.slice(startIndex, endIndex);
+  // res.send(results);
 
   let authorToFind = booksData;
 
@@ -43,21 +66,10 @@ app.get("/books", (req, res) => {
     success: true,
   });
 
-  // res.send({
-  //   response: booksData,
-  //   success: true,
-  // });
-
-  // books?firstQuery=helloOne&secondQuery=helloTwo
-
-  // res.send(booksDataFirstTwenty);
-
-  // console.log(booksDataFirstTwenty.length);
-
-  //borde kunna göra något i stil med
-  // chunk = 20
-  //i = 0, i < booksData;
-  //return if (chunk === 1-20) else if (21-40)
+  res.send({
+    response: booksData,
+    success: true,
+  });
 });
 
 //get a specific book based on id, using param
@@ -83,15 +95,8 @@ app.get("/books/topbooks", (req, res) => {
 });
 
 app.get("/books/authors/:authors", (req, res) => {
-  // const { authors } = req.params;
-
-  const allAuthors = booksData.map((author) => author.authors).sort();
-  res.json(allAuthors);
-
-  // const oneAuthor = booksData.find((author) => booksData.authors === author);
-  // res.json(oneAuthor);
-
-  //sort it alphabetically?
+  const allAuthors = booksData.map((item) => item.authors).sort();
+  res.send(allAuthors);
 });
 
 app.post("/postbook", (req, res) => {
