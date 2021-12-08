@@ -10,7 +10,8 @@ import cors from 'cors';
 // import avocadoSalesData from './data/avocado-sales.json'
 // import booksData from './data/books.json'
 // import netflixData from './data/netflix-titles.json';
-import topMusicData from './data/top-music.json';
+// import topMusicData from './data/top-music.json';
+import theOfficeData from './data/the-office.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -28,35 +29,59 @@ app.get('/', (req, res) => {
   res.send('Hello world');
 });
 
-app.get('/songs', (req, res) => {
-  res.json(topMusicData);
-});
+app.get('/episodes', (req, res) => {
+  const { season, title, desc } = req.query;
 
-app.get('/songs/:id', (req, res) => {
-  const { id } = req.params;
+  let theOfficeDataToSend = theOfficeData;
 
-  const songId = topMusicData.find(song => song.id === +id);
-
-  if (!songId) {
-    console.log('no title found');
-    res.status(404).send('No song found with that title');
-  } else {
-    res.json(songId);
+  if (season) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.season.toLowerCase().indexOf(season.toLowerCase()) !== -1
+    ); // make the string not case sensitive
   }
-});
 
-app.get('/songs/:bpm', (req, res) => {
-  const { bpm } = req.params;
-
-  const nameOfArtist = topMusicData.find(artist => artist.bpm === +bpm);
-
-  if (!nameOfArtist) {
-    console.log('no artist found');
-    res.status(404).send('No artist found with that name');
-  } else {
-    res.json(nameOfArtist);
+  if (title) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    );
   }
+
+  if (desc) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.desc.toLowerCase().indexOf(desc.toLowerCase()) !== -1
+    );
+  }
+  res.json({
+    response: theOfficeDataToSend,
+    success: true,
+  });
 });
+
+// app.get('/songs/:title', (req, res) => {
+//   const { title } = req.params;
+
+//   const songId = theOfficeData.find(item => item.title === title);
+
+//   if (!songId) {
+//     console.log('no title found');
+//     res.status(404).send('No song found with that title');
+//   } else {
+//     res.json(songId);
+//   }
+// });
+
+// app.get('/songs/bpm/:bpm', (req, res) => {
+//   const { bpm } = req.params;
+
+//   const nameOfArtist = topMusicData.find(artist => artist.bpm === +bpm);
+
+//   if (!nameOfArtist) {
+//     console.log('no artist found');
+//     res.status(404).send('No artist found with that name');
+//   } else {
+//     res.json(nameOfArtist);
+//   }
+// });
 
 // Start the server
 app.listen(port, () => {
