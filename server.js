@@ -25,11 +25,8 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
 
-app.get('/episodes', (req, res) => {
+app.get('/', (req, res) => {
   const { season, title, desc, imdb_rating, original_air_date } = req.query;
 
   let theOfficeDataToSend = theOfficeData;
