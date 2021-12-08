@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -26,10 +27,21 @@ app.get('/', (req, res) => {
   res.send('Welcome to my API. You can find some selected Netlify-data here')
 })
 
+//route provides all endpoints
+app.get('/endpoints', (req, res) => {
+  res.json({
+    response: listEndpoints(app),
+    success: true
+  })
+})
+
 // route provides a sorted list of all countries that are in netflixData
 app.get('/countries', (req, res) => {
   const countries = Array.from(new Set(netflixData.map(item => item.country))).sort()
-  res.json(countries)
+  res.json({
+    response: countries,
+    success: true
+  })
 })
 
 // route with all movies from the provided country
@@ -38,27 +50,58 @@ app.get('/countries/:country', (req, res) => {
   const contentByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
 
   if (!contentByCountry) {
-    res.status(404).send('Sorry, but there is no content for this country')
+    res.status(404).json({
+      response: 'Sorry, but there is no content for this country',
+      success: false
+    })
   } else {
-    res.json(contentByCountry)
+    res.json({
+      response: contentByCountry,
+      success: true
+    })
   } 
 })
 
 // route provides all movies
 app.get('/movies', (req, res) => {
   const movies = netflixData.filter(item => item.type === "Movie")
-  res.json(movies)
+  res.json({
+    response: movies,
+    success: true
+  })
 })
 
-// route provides one movie
-app.get('/movies/:id', (req, res) => {
+// route provides one movie by ID
+app.get('/movies/id/:id', (req, res) => {
   const { id } = req.params
   const movie = netflixData.find(item => item.show_id === +id)
 
   if (!movie) {
-    res.status(404).send('No movie found, that matches this ID')
+    res.status(404).json({
+      response: 'No movie found, that matches this ID',
+      success: false
+    })
   } else {
-    res.json(movie)
+    res.json({
+      response: movie,
+      success: true})
+  }
+})
+
+// route provides movies by name (can return more than one movie, if the provided parts of the title match with several movies)
+app.get('/movies/title/:title', (req, res) => {
+  const { title } = req.params
+  const movie = netflixData.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) === true)
+
+  if (!movie) {
+    res.status(404).json({
+      response: 'No movie found, that matches this ID',
+      success: false
+    })
+  } else {
+    res.json({
+      response: movie,
+      success: true})
   }
 })
 
@@ -67,3 +110,5 @@ app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
+
+  
