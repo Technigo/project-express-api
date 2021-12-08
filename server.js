@@ -23,25 +23,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-//The array of data, to be used in differend endpoints
-const reviews = [
-  {"bookID": 1,
-  "title": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
-  "authors": "J.K. Rowling-Mary GrandPré",
-  "average_rating": 4.56,
-  "isbn": 439785960,
-  "isbn13": 9780439785969,
-  "language_code": "eng",
-  "num_pages": 652,
-  "ratings_count": 1944099,
-  "text_reviews_count": 26249
-  },
-]
-
 // Start defining your routes here. 
 // The app.get method takes two arguments - the path and a call back function, which can be used by the frontend.
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('This is a RestfulAPI with book ratings data')
 })
 
 // A list of all books with all data (from json file)
@@ -56,7 +41,7 @@ app.get('/books/:id', (req, res) => {
   const book = booksData.find(item => item.bookID === +id)
 
   if (!book) {
-    res.status(404).send('No book review found with this ID')
+    res.status(404).send('No book found with this ID')
   } else {
     res.json(book)
   }
