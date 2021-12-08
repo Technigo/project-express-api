@@ -1,6 +1,6 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -18,21 +18,43 @@ import topMusicData from "./data/top-music.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
+// Middlewears
 app.use(cors());
-app.use(bodyParser.json());
-//app.use(express.json());
+app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello from the backend (:(:");
 });
 
-app.get("/topMusic", (req, res) => {
-  res.json(topMusicData);
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
 });
 
-app.get("/topMusic/:id", (req, res) => {
+app.get("/topMusic", (req, res) => {
+  const { artist, track } = req.query;
+  let musicDataToSend = topMusicData;
+
+  if (artist) {
+    musicDataToSend = musicDataToSend.filter(
+      (item) =>
+        item.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1
+    );
+  }
+
+  if (track) {
+    musicDataToSend = musicDataToSend.filter(
+      (item) => item.trackName.toLowerCase().indexOf(track.toLowerCase()) !== -1
+    );
+  }
+
+  res.json({
+    response: musicDataToSend,
+    success: true,
+  });
+});
+
+app.get("/topMusic/id/:id", (req, res) => {
   const { id } = req.params;
   const topMusicId = topMusicData.find((music) => music.id === +id);
 
@@ -44,13 +66,6 @@ app.get("/topMusic/:id", (req, res) => {
     res.json(topMusicId);
   }
 });
-
-//app.get("/topMusic/:genre", (req, res) => {
-// const genre = reg.params.genre;
-//   //console.log({ trackName });
-// const showTrackName = req.query.trackName;
-//   console.log(showTrackName);
-//});
 
 // Start the server
 app.listen(port, () => {
