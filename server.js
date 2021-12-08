@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 import titles from "./data/netflix-titles.json";
 
@@ -16,30 +17,84 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Netflix titles, the API");
+  res.send(listEndpoints(app));
 });
 
 app.get("/netflix-titles", (req, res) => {
-  res.json(titles);
+  const { year, country, type } = req.query;
+
+  let titlesToSend = titles;
+
+  if (year) {
+    titlesToSend = titlesToSend.filter(
+      (item) => item.release_year === +year
+    );
+  }
+  if (country) {
+    titlesToSend = titlesToSend.filter(
+      (item) =>
+        item.country.toLowerCase().indexOf(country.toLowerCase()) !==
+        -1
+    );
+  }
+  if (type) {
+    titlesToSend = titlesToSend.filter((item) => item.type === type);
+  }
+  res.status(200).json({
+    response: titlesToSend,
+    success: true,
+  });
 });
 
 app.get("/netflix-titles/movies", (req, res) => {
   let movies = titles.filter((title) => title.type === "Movie");
-  res.json(movies);
+  res.status(200).json({
+    response: movies,
+    success: true,
+  });
 });
 
 // the plus-sign before id says to convert it from string to number
 app.get("/netflix-titles/movies/:id", (req, res) => {
-  const id = req.params.id;
-  let movieWithTitle = titles.filter(
+  const { id } = req.params;
+  let movieWithTitle = titles.find(
     (item) => item.show_id === +id && item.type === "Movie"
   );
-  res.json(movieWithTitle);
+  if (!movieWithTitle) {
+    res.status(404).json({
+      response: "There is no such movie",
+      success: false,
+    });
+  }
+  res.status(200).json({
+    response: movieWithTitle,
+    success: true,
+  });
 });
 
 app.get("/netflix-titles/tv-shows", (req, res) => {
   let tvShows = titles.filter((title) => title.type === "TV Show");
-  res.json(tvShows);
+  res.status(200).json({
+    response: tvShows,
+    success: true,
+  });
+});
+
+app.get("/netflix-titles/tv-shows/:id", (req, res) => {
+  const { id } = req.params;
+  let showsWithTitle = titles.find(
+    (item) => item.show_id === +id && item.type === "TV Show"
+  );
+  if (!showsWithTitle) {
+    res.status(404).json({
+      response: "There is no such movie",
+      success: false,
+    });
+  }
+  res.status(200).json({
+    response: movieWithTitle,
+    success: true,
+  });
 });
 
 app.get("/netflix-titles/tv-shows/:year", (req, res) => {
@@ -47,7 +102,23 @@ app.get("/netflix-titles/tv-shows/:year", (req, res) => {
   let tvSHowsWithYear = titles.filter(
     (item) => item.release_year === +year && item.type === "TV Show"
   );
-  res.json(tvSHowsWithYear);
+  if (!tvSHowsWithYear) {
+    res.status(404).json({
+      response: `There are no tv-shows from ${year}`,
+      success: false,
+    });
+  }
+  res.status(200).json({
+    response: tvSHowsWithYear,
+    success: true,
+  });
+});
+
+app.get("*", function (req, res) {
+  res.status(404).json({
+    response: "There is no such page",
+    success: false,
+  });
 });
 
 // Start the server
