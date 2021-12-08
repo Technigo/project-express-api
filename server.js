@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+// import listEndpoints from "express-list-endpoints";
 
 import games from "./data/games.json";
 
@@ -14,15 +15,41 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Routes
 app.get("/", (req, res) => {
   res.send(games);
 });
+
+app.get("/games", (req, res) => {
+  const { genre, platform } = req.query;
+
+  let gamesToSend = games;
+
+  if (genre) {
+    gamesToSend = gamesToSend.filter(
+      (item) => item.Genre.toLowerCase().indexOf(genre.toLowerCase()) !== -1
+    );
+  }
+
+  if (platform) {
+    gamesToSend = gamesToSend.filter(
+      (item) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        item.Platform.toLowerCase().indexOf(platform.toLowerCase()) !== -1
+    );
+  }
+
+  res.json({
+    response: gamesToSend,
+    success: true,
+  });
+});
+
 app.get("/games", (req, res) => {
   res.json(games);
 });
 
-// get a specific company based on id, using param
+// get a specific game based on id, using param
 app.get("/games/:id", (req, res) => {
   const { id } = req.params;
 
@@ -35,18 +62,45 @@ app.get("/games/:id", (req, res) => {
   }
 });
 
+// get all games from a name
+app.get("/games/name/:name", (req, res) => {
+  const { name } = req.params;
+
+  const titleByName = games.filter(
+    (game) => game.Name.toLowerCase() === name.toLowerCase()
+  );
+
+  if (!titleByName) {
+    res.status(404).json({
+      response: "No games found with that name",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: titleByName,
+      success: true,
+    });
+  }
+});
+
 // get all games from a platform
 app.get("/games/platforms/:platform", (req, res) => {
   const { platform } = req.params;
 
-  const platforms = games.filter((game) => game.Platform === platform);
+  const platformByName = games.filter(
+    (game) => game.Platform.toLowerCase() === platform.toLowerCase()
+  );
 
-  if (!platforms) {
-    res
-      .status(404)
-      .send("No games found with that platform, or try to write platform");
+  if (!platformByName) {
+    res.status(404).json({
+      response: "No games found with that publisher, or try publishers",
+      success: false,
+    });
   } else {
-    res.json(platforms);
+    res.status(200).json({
+      response: platformByName,
+      success: true,
+    });
   }
 });
 
@@ -56,11 +110,16 @@ app.get("/games/year/:year", (req, res) => {
 
   const years = games.filter((game) => game.Year === +year);
 
-  // doesn't return error
   if (!years) {
-    res.status(404).send("No games found in that year");
+    res.status(404).json({
+      response: "No games found in that year",
+      success: false,
+    });
   } else {
-    res.json(years);
+    res.status(200).json({
+      response: years,
+      success: true,
+    });
   }
 });
 
@@ -68,14 +127,20 @@ app.get("/games/year/:year", (req, res) => {
 app.get("/games/genres/:genre", (req, res) => {
   const { genre } = req.params;
 
-  const genres = games.filter((game) => game.Genre === genre);
+  const genreByName = games.filter(
+    (game) => game.Genre.toLowerCase() === genre.toLowerCase()
+  );
 
-  if (!genres) {
-    res
-      .status(404)
-      .send("No games found with that genre, or try to write genres");
+  if (!genreByName) {
+    res.status(404).json({
+      response: "No games found with that genre, or try to write genres",
+      success: false,
+    });
   } else {
-    res.json(genres);
+    res.status(200).json({
+      response: genreByName,
+      success: true,
+    });
   }
 });
 
@@ -83,14 +148,21 @@ app.get("/games/genres/:genre", (req, res) => {
 app.get("/games/publishers/:publisher", (req, res) => {
   const { publisher } = req.params;
 
-  const publishers = games.filter((game) => game.Publisher === publisher);
+  const publisherByName = games.filter(
+    (game) => game.Publisher.toLowerCase() === publisher.toLowerCase()
+  );
 
-  if (!publishers) {
-    res
-      .status(404)
-      .send("No games found from that publisher, or try to write publishers");
+  if (!publisherByName) {
+    res.status(404).json({
+      response:
+        "No games found with that publisher, or try to write publishers",
+      success: false,
+    });
   } else {
-    res.json(publishers);
+    res.status(200).json({
+      response: publisherByName,
+      success: true,
+    });
   }
 });
 
