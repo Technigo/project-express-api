@@ -26,13 +26,14 @@ app.get('/', (req, res) => {
     description: {
       endpoint1: {
         "Returns the entire shows array": "https://dls-shows-api.herokuapp.com/shows",
-        "Returns an array with title": "https://dls-shows-api.herokuapp.com/shows?title=<write title here>",
-        "Returns an array with country": "https://dls-shows-api.herokuapp.com/shows?country=<write country here>",
-        "Returns an array with type": "https://dls-shows-api.herokuapp.com/shows?country=<write type here>",
-        "Returns an array with year": "https://dls-shows-api.herokuapp.com/shows?year=<write year here>"
+        "Returns shows by a specific title, replace text inside <> with your text": "/shows?title=<title>",
+        "Returns shows by a specific country, replace text inside <> with your text": "/shows?country=<country>",
+        "Returns shows by a specific type (tv shows or movies), replace text inside <> with your text": "/shows?type=<type>",
+        "Returns shows by a specific year, replace text inside <> with your text": "/shows?year=<year here>",
+        "Set limit and page of a response, replace text inside <> with your text": "/shows?page=<page number>&limit=<limit number>"
       },
       endpoint2: {
-        "Use this endpoint to return shows with a specific id and replace :id with a number of the show.": "https://dls-shows-api.herokuapp.com/shows/id/:id"
+        "This endpoint returns shows with a specific id. Replace :id with a number of the show.": "https://dls-shows-api.herokuapp.com/shows/id/:id"
       }
     }
   })
@@ -95,17 +96,21 @@ app.get('/shows', (req, res) => {
     queryFromUser = year
   }
 
-  if (page || limit) {
+  // PAGINATION
+  // with limit user setting the limit of items to show per page 
+  // and page shows first items depends on what limit is
+  if (page && limit) {
     // -1 because index starts with 0, multiply 0 so we start at 0
     const startIndex = (page - 1) * limit
     // here we get the end of an array
     const endIndex = page * limit 
-
     // slice gives us what in between startIndex and endIndex
     const paginationArray = arrayToSendToUser.slice(startIndex, endIndex)
+    // returs an array with pagination
     res.json(paginationArray)
   }
 
+  // ERRORS
   if (arrayToSendToUser.length === 0) {
     res.status(404).send(`Sorry, ${queryFromUser} doesn't exist.`)
   }

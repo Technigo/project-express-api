@@ -1,10 +1,10 @@
 installed node modules
 npm run dev to start the project 
 
-- display country, title, director, 
+- display country, title, director - ok! 
 - frontend 
-- pages - torsdag 
-- deploy on heroku ( do last )
+- pages - torsdag - ok! 
+- deploy on heroku ( do last ) -ok! 
 - documentation in api or maybe frotend? ( do last )
 
 
