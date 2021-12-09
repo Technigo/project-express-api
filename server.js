@@ -8,7 +8,7 @@ import topMusicData from "./data/top-music.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Middlewears
+// Middlewars
 app.use(cors());
 app.use(express.json());
 
