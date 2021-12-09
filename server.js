@@ -12,21 +12,21 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// const pagination = (data, pageNumber) => {
-//   const pageSize = 20
-//   const startIndex = (pageNumber - 1) * pageSize
-//   const endIndex = startIndex + pageSize
-//   const itemsOnPage = data.slice(startIndex, endIndex)
+const pagination = (data, pageNumber) => {
+  const pageSize = 20
+  const startIndex = (pageNumber - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const itemsOnPage = data.slice(startIndex, endIndex)
 
-//   const returnObject = {
-//     page_size: pageSize,
-//     page: pageNumber,
-//     num_of_pages: Math.ceil(data.length / pagesize),
-//     items_on_page: booksOnPage.length,
-//     results: itemsOnPage,
-//   }
-//   return returnObject
-// }
+  const returnObject = {
+    page_size: pageSize,
+    page: pageNumber,
+    num_of_pages: Math.ceil(data.length / pageSize),
+    items_on_page: itemsOnPage.length,
+    results: itemsOnPage,
+  }
+  return returnObject
+}
 
 // Start defining your routes here
 
@@ -34,6 +34,8 @@ app.use(express.json())
 // get all recipes from one author with '/recipes?author={req.query}'
 app.get('/recipes', (req, res) => {
   const showAuthorRecipes = req.query.author
+  const page = parseInt(req.query.page)
+  // const limit = parseInt(req.query.limit
 
   let showAllRecipes = recipes
 
@@ -50,7 +52,7 @@ app.get('/recipes', (req, res) => {
   }
 
   res.json({
-    response: showAllRecipes,
+    response: pagination(showAllRecipes, page),
     success: true,
   })
 
