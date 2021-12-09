@@ -1,8 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+Replace this readme with your own information about your project.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+
+book data: Amazon Top 50 Bestselling Books 2009 - 2019
+
+https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019/version/1
 
 ## The problem
 
