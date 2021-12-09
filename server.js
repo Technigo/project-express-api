@@ -2,27 +2,8 @@ import express, { response } from 'express'
 import cors from 'cors'
 
 import booksData from './data/books.json'
-//import listEndpoints from 'express-list-endpoints'
+import listEndpoints from 'express-list-endpoints'
 
-const allRoutes = require('express-list-endpoints');
-
-//---------PAGINATION---------------------
-const pagination = (data, pageNumber) => {
-  const pageSize = 20
-  const startIndex = (pageNumber - 1) * pageSize
-  const endIndex = startIndex + pageSize
-  const itemsOnPage = data.slice(startIndex, endIndex)
-
-  const returnObject = {
-    page_size: pageSize,
-    page: pageNumber,
-    num_of_pages: Math.ceil(data.length / pagesize),
-    items_on_page: booksOnPage.length,
-    results: itemsOnPage
-  }
-  return returnObject
-}
-//---------PAGINATION---------------------
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -35,61 +16,76 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Start defining your routes here
+// Route with endpoints
 app.get('/', (req, res) => {
-  res.send(allRoutes(app))
+  res.send(listEndpoints(app))
 })
 
 //
 app.get('/books', (req, res) => {
-  // const pageNumber = req.query.page
-  // if (page) {
-  //   return pagination(booksData, pageNumber)
-  // }
-  res.json(booksData)
+  const { page, size } = req.query
+  let booksPagination = booksData
+  console.log(booksData.length)
+  if (page && size) {
+    const startIndex = (page - 1) * size
+    const endIndex = startIndex + +size
+    booksPagination = booksPagination.slice(startIndex, endIndex)
+    res.json({
+      page_number: page,
+      num_of_pages: Math.ceil(booksData.length / size),
+      items_on_page: booksPagination.length,
+      results: booksPagination,
+      success: true,
+    })
+  } else {
+    res.json({
+      response: booksPagination,
+      success: true
+    })
+  }
 })
 
 // Endpoint for all the books
 app.get('/books/search', (req, res) => {
   const { author, title } = req.query
-  // V1
-  // let filteredBooks = booksData
 
-  // if (author) {
-  //   filteredBooks = filteredBooks.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
-  // }
-  // if (title) {
-  //   filteredBooks = filteredBooks.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
-  // }
-  // if (filteredBooks.length === 0) {
-  //   res.status(404).json("Sorry we could not find the book you searched")
-  // } else {
-  //   res.json(filteredBooks)
-  // }
-
-  // V2
   if (author !== undefined || title !== undefined) {
     if (author && title) {
       const filteredAuthorsAndTitle = booksData.filter((item) => {
         return item.authors.toLowerCase().includes(author.toLowerCase()) && item.title.toLowerCase().includes(title.toLowerCase())
       })
-      res.json(filteredAuthorsAndTitle)
+      res.json({
+        response: filteredAuthorsAndTitle,
+        success: true
+      })
     } else {
       if (author) {
         const filteredAuthors = booksData.filter((item) => item.authors.toLowerCase().includes(author.toLowerCase()))
         if (filteredAuthors.length === 0) {
-          res.status(404).json(`Sorry, we could not find any book by the author ${author}`)
+          res.json({
+            reponse: `Sorry, we could not find any book by the author ${author}`,
+            success: true
+          })
         } else {
-          res.json(filteredAuthors)
+          res.json({
+            response: filteredAuthors,
+            success: true
+          })
         }
       }
 
       if (title) {
         const filteredTitles = booksData.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
         if (filteredTitles.length === 0) {
-          res.status(404).json(`Sorry, we could not find a book with the title ${title}`)
+          res.json({
+            response: `Sorry, we could not find a book with ${title} title`,
+            success: true
+          })
         } else {
-          res.json(filteredTitles)
+          res.json({
+            response: filteredTitles,
+            success: true
+          })
         }
       }
     }
@@ -105,16 +101,25 @@ app.get('/books/popular', (req, res) => {
   const sortedTopToBottom = booksData.sort((a, b) => b.average_rating - a.average_rating)
   if (topNumber) {
     const topSelected = sortedTopToBottom.splice(0, topNumber)
-    res.json(topSelected)
+    res.json({
+      response: topSelected,
+      success: true,
+    })
   } else {
-    res.json(sortedTopToBottom)
+    res.json({
+      response: sortedTopToBottom,
+      success: true
+    })
   }
 })
 
 app.get('/books/quick-reads', (req, res) => {
   const sortedQuickToBig = booksData.sort((a, b) => a.num_pages - b.num_pages)
   const topQuickTwenty = sortedQuickToBig.splice(0, 21)
-  res.json(topQuickTwenty)
+  res.json({
+    response: topQuickTwenty,
+    success: true
+  })
 })
 
 // Endpoint to search one book by its id
@@ -122,9 +127,15 @@ app.get('/books/:id', (req, res) => {
   const bookId = req.params.id
   const selectedBook = booksData.find((item) => item.bookID === +bookId)
   if (!selectedBook) {
-    res.status(404).send(`Sorry, there is no book with id number ${bookId}`)
+    res.status(404).json({
+      response: `Sorry, there is no book with id number ${bookId}`,
+      success: false
+    })
   } else {
-    res.json(selectedBook)
+    res.status(200).json({
+      response: selectedBook,
+      status: true
+    })
   }
 })
 
