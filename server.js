@@ -51,6 +51,8 @@ app.get('/wines', (req, res) => {
 
 })
 
+  // Route for query filtering
+
   
   app.get ('/wines/search', (req, res) => {
  
@@ -58,10 +60,22 @@ app.get('/wines', (req, res) => {
   // Queries for sorting
 
 
-  const { winery, title, country } = req.query
+  const { points, price, winery, title, country } = req.query
 
   let wineDataToSend = wineData
   // let wineDataToSend = results
+
+  // Query by points
+
+  if (points) {
+    wineDataToSend = wineDataToSend.filter((item) => item.points.indexOf(points) !== -1)
+  }
+
+  // Query by price
+
+  if (price) {
+    wineDataToSend = wineDataToSend.filter((item) => item.price === +price)
+  }
 
   // Query by winery
 
@@ -80,7 +94,7 @@ app.get('/wines', (req, res) => {
   if (country) {
     wineDataToSend = wineDataToSend.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1)
   }
-
+  
     res.json({
       response: wineDataToSend,
       success: true,
@@ -94,7 +108,7 @@ app.get('/wines', (req, res) => {
   
     let wineByTitle = wineData
   
-    wineByTitle = wineByTitle.find((item) => item.title.toLowerCase() === title.toLowerCase())
+    wineByTitle = wineByTitle.filter((item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
   
   
     if (!wineByTitle) {
@@ -109,15 +123,66 @@ app.get('/wines', (req, res) => {
       })
     }
   })
-  
+
+// Route to get wine by taster and their twitter usernames
+
+app.get('/wines/tasters/:taster_name', (req, res) => {
+  const { taster_name } = req.params 
+
+  let wineByTaster = wineData
+
+  wineByTaster = wineByTaster.filter((item) => item.taster_name?.toLowerCase().indexOf(taster_name.toLowerCase()) !== -1)
+
+
+  if (!wineByTaster) {
+    res.status(404).json({
+      response: 'No such person!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: wineByTaster,
+      success: true
+    })
+  }
+})
+
+// Route to get wine by twitter usernames
+
+app.get('/wines/tasters/twitter/:taster_twitter_handle', (req, res) => {
+  const { taster_twitter_handle } = req.params 
+
+  let wineByTaster = wineData
+
+  wineByTaster = wineByTaster.filter((item) => item.taster_twitter_handle?.toLowerCase().indexOf(taster_twitter_handle.toLowerCase()) !== -1)
+
+
+  if (!wineByTaster) {
+    res.status(404).json({
+      response: 'No such person!',
+      success: false
+    })
+  } else {
+    res.status(200).json({
+      response: wineByTaster,
+      success: true
+    })
+  }
+})
+
 // Route to get wines by country
 
 app.get('/wines/countries/:country', (req, res) => {
   const { country } = req.params 
+  const { province } = req.query
 
   let wineByCountry = wineData
 
   wineByCountry = wineByCountry.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+
+  if (province) {
+    wineByCountry = wineByCountry.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1)
+  }
 
 
   if (!wineByCountry) {
@@ -181,7 +246,7 @@ app.get('/wines/varieties/:variety', (req, res) => {
 
 // Sort wines by top rating
 
-app.get('/wines/topRated', (req, res) => {
+app.get('/wines/top_rated', (req, res) => {
   let topRatedWines = wineData.sort((min, max) => max.points - min.points)
 
 
@@ -195,7 +260,7 @@ app.get('/wines/topRated', (req, res) => {
 
 // Sort wine by most expensive
 
-app.get('/wines/mostExpensive', (req, res) => {
+app.get('/wines/most_expensive', (req, res) => {
   let mostExpensiveWines = wineData.sort((min, max) => max.price - min.price)
 
   const top50 = mostExpensiveWines.slice(0, 50)
