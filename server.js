@@ -72,6 +72,10 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.send("Please use an endpoint to fetch requests!");
+});
+
 //get a specific book based on id, using param
 app.get("/books/bookid/:bookID", (req, res) => {
   const { bookID } = req.params;
