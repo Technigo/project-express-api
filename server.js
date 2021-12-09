@@ -205,7 +205,7 @@ app.get('/wines/countries/provinces/:province', (req, res) => {
 
   let wineByProvince = wineData
 
-  wineByProvince = wineByProvince.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1)
+  wineByProvince = wineByProvince.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1 && item.province !== null)
 
 
   if (!wineByProvince) {
