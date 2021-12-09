@@ -50,6 +50,17 @@ app.get ('/category/:category/year/:year', (req, res) =>{
   res.json(categoryYearWinners)
 })
 
+app.get('/surname/:surname', (req,res) => {
+  const { surname }= req.params
+  const winnerName = nobelPrizeWinners.find(winner => winner.surname.toLowerCase() === surname.toLowerCase())
+  if (!winnerName) {
+    res.status(404).send('No Nobel-Prize winner with that Surname!')
+  } else {
+    res.json(winnerName)
+  }
+
+})
+
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
