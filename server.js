@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import wineData from './data/wines.json'
+import listEndpoints from 'express-list-endpoints'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -15,7 +16,7 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send(listEndpoints(app))
 })
 
 // Route to get all wines
@@ -63,7 +64,6 @@ app.get('/wines', (req, res) => {
   const { points, price, winery, title, country } = req.query
 
   let wineDataToSend = wineData
-  // let wineDataToSend = results
 
   // Query by points
 

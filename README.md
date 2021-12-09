@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Project to learn build RESTful API's.
+I found <a href="https://www.kaggle.com/zynicide/wine-reviews">this</a> JSON based on wine reviews on <a href="https://www.winemag.com/">https://www.winemag.com/</a>, which I decided to use. It contained a huge amount of data, some of which key-values I thought could be fun to play around with, like sorting the top rated and most expensive ones.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+For this project I used express in Node.js. To list my endpoints I used a package called express-list-endpoints.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+~coming soon~
