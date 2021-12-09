@@ -84,7 +84,7 @@ app.get("/type/:type", (req, res) => {
     (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase()
   );
 
-  if (!typeOfContent) {
+  if (type !== "Movie" || type !== "TV Show") {
     res.status(404).json({
       response: "No title found",
       success: false,
