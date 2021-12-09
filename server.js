@@ -42,12 +42,6 @@ app.get("/years/:year", (req, res) => {
   const { country, genre, page } = req.query;
   let contentOfYear = netflixData.filter((item) => item.release_year === +year);
 
-  // if (!contentOfYear) {
-  //   res.status(404).json({
-  //     response: "No year found",
-  //     success: false,
-  //   });
-  // }
   if (country) {
     contentOfYear = contentOfYear.filter((item) =>
       item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
@@ -84,12 +78,6 @@ app.get("/type/:type", (req, res) => {
     (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase()
   );
 
-  if (type !== "Movie" || type !== "TV Show") {
-    res.status(404).json({
-      response: "No title found",
-      success: false,
-    });
-  }
   if (country) {
     typeOfContent = typeOfContent.filter((item) =>
       item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase())
