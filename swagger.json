@@ -2,30 +2,118 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "My User Project CRUD",
-    "description": "My User Project Application API"
+    "title": "Netflix-titles API",
+    "description": "Netflix-titles API with movies and tv-shows"
   },
   "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
-      "name": "Users",
-      "description": "API for users in the system"
+      "name": "Netflix-titles",
+      "description": "API for titles in the system"
+    },
+    {
+      "name": "Movies",
+      "description": "Movies in the system"
+    },
+    {
+      "name": "Movie",
+      "description": "Specific movie by id"
+    },
+    {
+      "name": "TV-shows",
+      "description": "TV-shows in the system"
+    },
+    {
+      "name": "TV-show",
+      "description": "Specific TV-show by ID"
     }
   ],
   "schemes": ["http"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/users": {
+    "/netflix-titles": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get all users in system",
+        "tags": ["Netflix-titles"],
+        "summary": "Get all titles in system",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
+    "/netflix-titles/movies": {
+      "get": {
+        "tags": ["Movies"],
+        "summary": "Get all movies in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
+    "/netflix-titles/movies/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "format": "integer"
+          }
+        ],
+        "tags": ["Movie"],
+        "summary": "Get a movie with a specific id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
+    "/netflix-titles/tv-shows": {
+      "get": {
+        "tags": ["TV-shows"],
+        "summary": "Get all tv-shows in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
+    "/netflix-titles/tv-shows/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "format": "integer"
+          }
+        ],
+        "tags": ["TV-show"],
+        "summary": "Get a tv-show with a specific id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
             }
           }
         }
@@ -33,44 +121,51 @@
     }
   },
   "definitions": {
-    "User": {
-      "required": ["name", "_id", "companies"],
+    "Title": {
+      "required": [],
       "properties": {
-        "_id": {
+        "show_id": {
           "type": "integer",
           "uniqueItems": true
         },
-        "isPublic": {
-          "type": "boolean"
-        },
-        "name": {
+        "title": {
           "type": "string"
         },
-        "books": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "amount": {
-                "type": "number"
-              }
-            }
-          }
+        "director": {
+          "type": "string"
         },
-        "companies": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "cast": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "date_added": {
+          "type": "string"
+        },
+        "release_year": {
+          "type": "integer"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "listed_in": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
         }
       }
     },
-    "Users": {
+    "Titles": {
       "type": "array",
-      "$ref": "#/definitions/User"
+      "$ref": "#/definitions/Title"
     }
   }
 }

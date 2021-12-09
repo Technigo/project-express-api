@@ -1,11 +1,10 @@
 import express from "express";
 import cors from "cors";
 import listEndpoints from "express-list-endpoints";
-
-import titles from "./data/netflix-titles.json";
-
 const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("./swagger.json");
+
+import titles from "./data/netflix-titles.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
