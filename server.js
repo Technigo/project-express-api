@@ -200,7 +200,7 @@ app.get('/wines/countries/:country', (req, res) => {
 
 // Route to get wines by province
 
-app.get('/wines/provinces/:province', (req, res) => {
+app.get('/wines/countries/provinces/:province', (req, res) => {
   const { province } = req.params 
 
   let wineByProvince = wineData
