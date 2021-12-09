@@ -57,7 +57,7 @@ app.get('/shows', (req, res) => {
   // req is an object with properties such as query and params, 
   // both query and params are an empty object from the begging 
   // every query parameter consist of two part, key and value, like an object
-  const { title, country, type, year } = req.query
+  const { title, country, type, year, page, limit } = req.query
 
   // creating this variable, because we will always return the same array to the user
   // note to me: it is my a currentQuestion variable from previous project?
@@ -93,6 +93,17 @@ app.get('/shows', (req, res) => {
     // "+" turns the string in to a number.
     arrayToSendToUser = arrayToSendToUser.filter((item) => item.release_year === +year)
     queryFromUser = year
+  }
+
+  if (page || limit) {
+    // -1 because index starts with 0, multiply 0 so we start at 0
+    const startIndex = (page - 1) * limit
+    // here we get the end of an array
+    const endIndex = page * limit 
+
+    // slice gives us what in between startIndex and endIndex
+    const paginationArray = arrayToSendToUser.slice(startIndex, endIndex)
+    res.json(paginationArray)
   }
 
   if (arrayToSendToUser.length === 0) {
