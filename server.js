@@ -18,14 +18,14 @@ app.get('/tracks', (req, res) => {
   res.json(topMusicData);
 });
 
-// Get track by artist name
+// Get track by id
 app.get('tracks/:id', (req, res) => {
   const { id } = req.params;
 
   const trackId = topMusicData.find((track) => track.id === +id);
 
   if (!trackId) {
-    res.status(404).send('No track by that name');
+    console.log('No track by that name');
   } else {
     res.json(trackId);
   }
@@ -33,6 +33,5 @@ app.get('tracks/:id', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
