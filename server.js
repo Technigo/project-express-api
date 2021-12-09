@@ -19,7 +19,19 @@ app.use(express.json());
 
 /* Sending full data set */
 app.get("/", (req, res) => {
-  res.json(musicData);
+  if (!musicData) {
+    /* 404 - No success to get data */
+    res.status(404).json({
+      response: "404 Not Found",
+      success: false
+    });
+  } else {
+    /* 200 - success to get the full dataset*/
+    res.status(200).json({
+      response: musicData,
+      success: true
+    });
+  }
 });
 
 /* filter out tracks after genre */
@@ -30,9 +42,17 @@ app.get("/genre/:genre", (req, res) => {
   const genreTrack = musicData.filter((item) => item.genre === genre);
 
   if (!genreTrack) {
-    res.status(404);
+    /* 404 - No success to get data */
+    res.status(404).json({
+      response: "404 Not Found",
+      success: false
+    });
   } else {
-    res.json(genreTrack);
+    /* 200 - success to get data, all tracks/other info from an genre*/
+    res.status(200).json({
+      response: genreTrack,
+      success: true
+    });
   }
 });
 
@@ -55,21 +75,35 @@ app.get("/artist/:artist", (req, res) => {
       (item) => item.trackName.toLowerCase() === track.toLowerCase()
     );
 
-    /* If track exist */
-
-    if (nameArtistTrack) {
-      res.json(nameArtistTrack);
-    } /* and if not exists, the string from track is not match with some of the trackNames from the artist */ else if (
-      !nameArtistTrack
-    ) {
-      res.json("Sorry that track doesn't exist");
+    if (!track) {
+      res.status(404).json({
+        /* 404 - No success to get data */
+        response: "404 Not Found",
+        success: false
+      });
+    } else {
+      /* 200 - success to get data, gives back searched track(one object due to find filtration of nameArtist) from an artists tracklist*/
+      res.status(200).json({
+        response: nameArtistTrack,
+        success: true
+      });
     }
 
-    /* If artist not exists. if array is empty */
-  } else if (nameArtist.length === 0) {
-    res.json("Sorry that artist doesn't exist");
-  } /* if artist exist and no track is stated */ else {
-    res.json(nameArtist);
+    /* If no track is search, only artist */
+  } else {
+    /* 404 - No success to get data */
+    if (!artist) {
+      res.status(404).json({
+        response: "404 Not Found",
+        success: false
+      });
+    } else {
+      /* 200 - success to get data, all tracks/other info from an artist*/
+      res.status(200).json({
+        response: nameArtist,
+        success: true
+      });
+    }
   }
 });
 
