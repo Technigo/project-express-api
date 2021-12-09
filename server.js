@@ -26,7 +26,7 @@ const paginate = (res, page, limit, titlesToSend) => {
   const startIndex = (pageInt - 1) * limitInt;
   const endIndex = pageInt * limitInt;
   let nrPages = titlesToSend.length / limitInt;
-  nrPages = parseInt(nrPages);
+  nrPages = Math.ceil(nrPages);
   const titlesToSendPage = titlesToSend.slice(startIndex, endIndex);
 
   if (previous === 0) {
@@ -52,7 +52,14 @@ const paginate = (res, page, limit, titlesToSend) => {
 };
 
 // function that takes in path-param, checks if it can find it and returns a proper status and response
-const checkPathParam = (param, typeOfTitle, res, typeOfParam) => {
+const checkPathParam = (
+  param,
+  typeOfTitle,
+  res,
+  typeOfParam,
+  page,
+  limit
+) => {
   let titlesWithParam = {};
   let errorResponse = "";
   if (typeOfParam === "id") {
@@ -88,11 +95,14 @@ const checkPathParam = (param, typeOfTitle, res, typeOfParam) => {
       response: errorResponse,
       success: false,
     });
+  } else if (page && limit) {
+    paginate(res, page, limit, titlesWithParam);
+  } else {
+    res.status(200).json({
+      response: titlesWithParam,
+      success: true,
+    });
   }
-  res.status(200).json({
-    response: titlesWithParam,
-    success: true,
-  });
 };
 
 app.get("/netflix-titles", (req, res) => {
@@ -123,11 +133,16 @@ app.get("/netflix-titles", (req, res) => {
 });
 
 app.get("/netflix-titles/movies", (req, res) => {
-  let movies = titles.filter((title) => title.type === "Movie");
-  res.status(200).json({
-    response: movies,
-    success: true,
-  });
+  const { page, limit } = req.query;
+  let titlesToSend = titles.filter((title) => title.type === "Movie");
+  if (page && limit) {
+    paginate(res, page, limit, titlesToSend);
+  } else {
+    res.status(200).json({
+      response: titlesToSend,
+      success: true,
+    });
+  }
 });
 
 // the plus-sign before id says to convert it from string to number
@@ -137,16 +152,24 @@ app.get("/netflix-titles/movies/:id", (req, res) => {
 });
 
 app.get("/netflix-titles/movies/year/:year", (req, res) => {
+  const { page, limit } = req.query;
   const year = req.params.year;
-  checkPathParam(year, "Movie", res, "year");
+  checkPathParam(year, "Movie", res, "year", page, limit);
 });
 
 app.get("/netflix-titles/tv-shows", (req, res) => {
-  let tvShows = titles.filter((title) => title.type === "TV Show");
-  res.status(200).json({
-    response: tvShows,
-    success: true,
-  });
+  const { page, limit } = req.query;
+  let titlesToSend = titles.filter(
+    (title) => title.type === "TV Show"
+  );
+  if (page && limit) {
+    paginate(res, page, limit, titlesToSend);
+  } else {
+    res.status(200).json({
+      response: titlesToSend,
+      success: true,
+    });
+  }
 });
 
 app.get("/netflix-titles/tv-shows/:id", (req, res) => {
@@ -155,8 +178,9 @@ app.get("/netflix-titles/tv-shows/:id", (req, res) => {
 });
 
 app.get("/netflix-titles/tv-shows/year/:year", (req, res) => {
+  const { page, limit } = req.query;
   const year = req.params.year;
-  checkPathParam(year, "TV-show", res, "year");
+  checkPathParam(year, "TV-show", res, "year", page, limit);
 });
 
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));

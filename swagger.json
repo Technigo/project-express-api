@@ -83,6 +83,20 @@
     },
     "/netflix-titles/movies": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": true,
+            "format": "integer"
+          }
+        ],
         "tags": ["Movies"],
         "summary": "Get all movies in system",
         "responses": {
@@ -125,6 +139,18 @@
             "name": "year",
             "required": true,
             "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "format": "integer"
           }
         ],
         "tags": ["Movies from year"],
@@ -141,6 +167,20 @@
     },
     "/netflix-titles/tv-shows": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": true,
+            "format": "integer"
+          }
+        ],
         "tags": ["TV-shows"],
         "summary": "Get all tv-shows in system",
         "responses": {
@@ -160,6 +200,18 @@
             "in": "path",
             "name": "year",
             "required": true,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
             "format": "integer"
           }
         ],
