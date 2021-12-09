@@ -36,7 +36,17 @@ app.get("/", (req, res) => {
 })
 
 app.get("/titles", (req, res) => {
-  res.json(netflixTitles)
+  let onlyTitles = netflixTitles.map(item => item.title)
+  const showTitle = req.query.title
+
+  if (showTitle) {
+    console.log("hello")
+    onlyTitles = onlyTitles.filter(
+      item => item.toLowerCase().indexOf(showTitle.toLowerCase()) !== -1
+    )
+  }
+
+  res.json(onlyTitles)
 })
 
 app.get("/year/:year", (req, res) => {
@@ -54,11 +64,6 @@ app.get("/year/:year", (req, res) => {
       item => item.type.toLowerCase().indexOf(showType.toLowerCase()) !== -1
     )
   }
-  // } else {
-  //   titlesReleaseYear = titlesReleaseYear.filter(
-  //     item => item.type === "TV Show"
-  //   )
-  // }
 
   res.json(titlesReleaseYear)
 })
