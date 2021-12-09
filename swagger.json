@@ -5,7 +5,7 @@
     "title": "Netflix-titles API",
     "description": "Netflix-titles API with movies and tv-shows"
   },
-  "host": "https://netflix-titles-technigo.herokuapp.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -17,12 +17,20 @@
       "description": "Movies in the system"
     },
     {
+      "name": "Movies from year",
+      "description": "Movies by specific year"
+    },
+    {
       "name": "Movie",
       "description": "Specific movie by id"
     },
     {
       "name": "TV-shows",
       "description": "TV-shows in the system"
+    },
+    {
+      "name": "TV-shows from year",
+      "description": "TV-shows by specific year"
     },
     {
       "name": "TV-show",
@@ -35,6 +43,32 @@
   "paths": {
     "/netflix-titles": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": true,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "required": false,
+            "format": "integer"
+          },
+          {
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "format": "string"
+          }
+        ],
         "tags": ["Netflix-titles"],
         "summary": "Get all titles in system",
         "responses": {
@@ -83,10 +117,54 @@
         }
       }
     },
+    "/netflix-titles/movies/year/{year}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "year",
+            "required": true,
+            "format": "integer"
+          }
+        ],
+        "tags": ["Movies from year"],
+        "summary": "Get all movies from a specific year",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
     "/netflix-titles/tv-shows": {
       "get": {
         "tags": ["TV-shows"],
         "summary": "Get all tv-shows in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Titles"
+            }
+          }
+        }
+      }
+    },
+    "/netflix-titles/tv-shows/year/{year}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "year",
+            "required": true,
+            "format": "integer"
+          }
+        ],
+        "tags": ["TV-shows from year"],
+        "summary": "Get all TV-shows from a specific year",
         "responses": {
           "200": {
             "description": "OK",

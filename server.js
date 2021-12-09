@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import listEndpoints from "express-list-endpoints";
+// adds swagger, used to document the API
 const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("./swagger.json");
 
@@ -17,13 +17,86 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-// app.get("/", (req, res) => {
-//   res.send(listEndpoints(app));
-// });
+// function that creates pagination
+const paginate = (res, page, limit, titlesToSend) => {
+  let pageInt = parseInt(page);
+  let limitInt = parseInt(limit);
+  const next = pageInt + 1;
+  const previous = pageInt - 1;
+  const startIndex = (pageInt - 1) * limitInt;
+  const endIndex = pageInt * limitInt;
+  let nrPages = titlesToSend.length / limitInt;
+  nrPages = parseInt(nrPages);
+  const titlesToSendPage = titlesToSend.slice(startIndex, endIndex);
+
+  if (previous === 0) {
+    res.status(200).json({
+      next: next,
+      response: titlesToSendPage,
+      success: true,
+    });
+  } else if (endIndex < titlesToSend.length) {
+    res.status(200).json({
+      next: next,
+      previous: previous,
+      response: titlesToSendPage,
+      success: true,
+    });
+  } else {
+    res.status(200).json({
+      previous: nrPages,
+      response: titlesToSendPage,
+      success: true,
+    });
+  }
+};
+
+// function that takes in path-param, checks if it can find it and returns a proper status and response
+const checkPathParam = (param, typeOfTitle, res, typeOfParam) => {
+  let titlesWithParam = {};
+  let errorResponse = "";
+  if (typeOfParam === "id") {
+    if (typeOfTitle === "Movie") {
+      titlesWithParam = titles.find(
+        (item) => item.show_id === +param && item.type === "Movie"
+      );
+      errorResponse = "there is no such movie";
+    } else {
+      titlesWithParam = titles.find(
+        (item) => item.show_id === +param && item.type === "TV show"
+      );
+      errorResponse = "there is no such tv-show";
+    }
+  } else if (typeOfParam === "year") {
+    if (typeOfTitle === "Movie") {
+      titlesWithParam = titles.filter(
+        (item) =>
+          item.release_year === +param && item.type === "Movie"
+      );
+      errorResponse = `there are no movies from ${param}`;
+    } else {
+      titlesWithParam = titles.filter(
+        (item) =>
+          item.release_year === +param && item.type === "TV Show"
+      );
+      errorResponse = `there are no tv-shows from ${param}`;
+    }
+  }
+
+  if (!titlesWithParam || titlesWithParam.length === 0) {
+    res.status(404).json({
+      response: errorResponse,
+      success: false,
+    });
+  }
+  res.status(200).json({
+    response: titlesWithParam,
+    success: true,
+  });
+};
 
 app.get("/netflix-titles", (req, res) => {
-  const { year, country, type, page, limit } = req.query;
+  const { year, country, page, limit } = req.query;
 
   let titlesToSend = titles;
 
@@ -40,36 +113,7 @@ app.get("/netflix-titles", (req, res) => {
     );
   }
   if (page && limit) {
-    let pageInt = parseInt(page);
-    let limitInt = parseInt(limit);
-    const next = pageInt + 1;
-    const previous = pageInt - 1;
-    const startIndex = (pageInt - 1) * limitInt;
-    const endIndex = pageInt * limitInt;
-    let nrPages = titlesToSend.length / limitInt;
-    nrPages = parseInt(nrPages);
-    const titlesToSendPage = titlesToSend.slice(startIndex, endIndex);
-
-    if (previous === 0) {
-      res.status(200).json({
-        next: next,
-        response: titlesToSendPage,
-        success: true,
-      });
-    } else if (endIndex < titlesToSend.length) {
-      res.status(200).json({
-        next: next,
-        previous: previous,
-        response: titlesToSendPage,
-        success: true,
-      });
-    } else {
-      res.status(200).json({
-        previous: nrPages,
-        response: titlesToSendPage,
-        success: true,
-      });
-    }
+    paginate(res, page, limit, titlesToSend);
   } else {
     res.status(200).json({
       response: titlesToSend,
@@ -89,36 +133,12 @@ app.get("/netflix-titles/movies", (req, res) => {
 // the plus-sign before id says to convert it from string to number
 app.get("/netflix-titles/movies/:id", (req, res) => {
   const { id } = req.params;
-  let movieWithTitle = titles.find(
-    (item) => item.show_id === +id && item.type === "Movie"
-  );
-  if (!movieWithTitle) {
-    res.status(404).json({
-      response: "There is no such movie",
-      success: false,
-    });
-  }
-  res.status(200).json({
-    response: movieWithTitle,
-    success: true,
-  });
+  checkPathParam(id, "Movie", res, "id");
 });
 
 app.get("/netflix-titles/movies/year/:year", (req, res) => {
   const year = req.params.year;
-  let moviesWithYear = titles.filter(
-    (item) => item.release_year === +year && item.type === "Movie"
-  );
-  if (!moviesWithYear) {
-    res.status(404).json({
-      response: `There are no movies from ${year}`,
-      success: false,
-    });
-  }
-  res.status(200).json({
-    response: moviesWithYear,
-    success: true,
-  });
+  checkPathParam(year, "Movie", res, "year");
 });
 
 app.get("/netflix-titles/tv-shows", (req, res) => {
@@ -131,43 +151,15 @@ app.get("/netflix-titles/tv-shows", (req, res) => {
 
 app.get("/netflix-titles/tv-shows/:id", (req, res) => {
   const { id } = req.params;
-  let showsWithTitle = titles.find(
-    (item) => item.show_id === +id && item.type === "TV Show"
-  );
-  if (!showsWithTitle) {
-    res.status(404).json({
-      response: "There is no such tv-show",
-      success: false,
-    });
-  }
-  res.status(200).json({
-    response: showsWithTitle,
-    success: true,
-  });
+  checkPathParam(id, "TV-show", res, "id");
 });
 
 app.get("/netflix-titles/tv-shows/year/:year", (req, res) => {
   const year = req.params.year;
-  let showsWithYear = titles.filter(
-    (item) => item.release_year === +year && item.type === "TV Show"
-  );
-  if (!showsWithYear) {
-    res.status(404).json({
-      response: `There are no tv-shows from ${year}`,
-      success: false,
-    });
-  }
-  res.status(200).json({
-    response: showsWithYear,
-    success: true,
-  });
+  checkPathParam(year, "TV-show", res, "year");
 });
 
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument)
-);
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("*", function (req, res) {
   res.status(404).json({
