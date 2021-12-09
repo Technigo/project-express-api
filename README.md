@@ -8,19 +8,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-API documentaion:
-
-/books - array of books
-/books?title="title name" - list books with matching titles
-/books?author="author name" - list of books from specific author
-
-/books/id/"number" - shows book with matching id
-/books/pages/"number" - shows books with certain amount of pages
-/books/isbn/"number" - show book by unique ISBN nr
-
-/books/language/"eng" - lists books written in english
-/books/language/"en-US" - lists books written in US-english
-
-/books/endpoints - show API endpoints
+https://a-book-api.herokuapp.com/

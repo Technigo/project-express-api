@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
       "/books/pages/'number'__________": 'Get books with certain amount of pages.',
       "/books/language/eng____________": 'Get books written in english.',
       "/books/language/en-US__________": 'Get books written in US-english.',
+      "/books/rating/'number'_________": 'Get books by rating, number = integer.',
       "/books/endpoints_______________": 'Get API endpoints.'
     }]
     
@@ -92,7 +93,7 @@ app.get('/books/isbn/:isbn', (req, res) => {
   const isbnNr = books.find(item => item.isbn === +isbn)
 
   if (!isbnNr) {  
-    res.status(404).send('No book for that IBAN nr!')
+    res.status(404).send('No book for that ISBN nr!')
   } else {
     res.json(isbnNr)
   }
@@ -104,25 +105,12 @@ app.get('/books/pages/:pages', (req, res) => {
 
   const pageNr = books.filter(item => item.num_pages === +pages)
 
-  if (!pageNr) {
-    res.status(404).send('No book with that amount of pages!')
+  if (pageNr.length === 0) {
+    res.status(404).send('No books with that amount of pages!')
   } else {
     res.json(pageNr)
   }
 })
-
-// Books by rating
-/* app.get('/books/rating/:rating', (req, res) => {
-  const { rating } = req.params
-
-  const ratingNr = books.filter(item => item.average_rating === +rating)
-
-  if (!ratingNr) {
-    res.status(404).send('No book with that amount of pages!')
-  } else {
-    res.json(ratingNr)
-  }
-}) */
 
 // books in english //books/eng
 app.get('/books/language/:eng', (req, res) => {
@@ -137,6 +125,22 @@ app.get('/books/language/:us-eng', (req, res) => {
   res.json(usBooks)
 })
 
+// Books by rating
+app.get('/books/rating/:rating', (req, res) => {
+  const { rating } = req.params
+
+  const float2int = (value) => {
+    return ~~value;
+  }
+
+  const ratingNr = books.filter(item => float2int(item.average_rating) === +rating)
+
+  if (ratingNr.length === 0) {
+    res.status(404).send('No books with that rating!')
+  } else {
+    res.json(ratingNr)
+  }
+})
 
 // Title not used atm
 /* app.get('/books/title/:title', (req, res) => {
