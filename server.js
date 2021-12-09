@@ -17,7 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// function that creates pagination
+// function that creates pagination.
 const paginate = (res, page, limit, titlesToSend) => {
   let pageInt = parseInt(page);
   let limitInt = parseInt(limit);
@@ -51,7 +51,7 @@ const paginate = (res, page, limit, titlesToSend) => {
   }
 };
 
-// function that takes in path-param, checks if it can find it and returns a proper status and response
+// function that takes in path-param, checks if it can find it and returns a proper status and response. If there is a page and limit set, the function pagination is called. The plus-sign before a variable says to convert it from string to number
 const checkPathParam = (
   param,
   typeOfTitle,
@@ -90,6 +90,7 @@ const checkPathParam = (
     }
   }
 
+  // if there is no result, return 404. If page and limit exists, paginate the result.
   if (!titlesWithParam || titlesWithParam.length === 0) {
     res.status(404).json({
       response: errorResponse,
@@ -145,7 +146,6 @@ app.get("/netflix-titles/movies", (req, res) => {
   }
 });
 
-// the plus-sign before id says to convert it from string to number
 app.get("/netflix-titles/movies/:id", (req, res) => {
   const { id } = req.params;
   checkPathParam(id, "Movie", res, "id");
