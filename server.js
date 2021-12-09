@@ -74,7 +74,7 @@ app.get('/wines', (req, res) => {
   // Query by price
 
   if (price) {
-    wineDataToSend = wineDataToSend.filter((item) => item.price === +price)
+    wineDataToSend = wineDataToSend.filter((item) => item.price === +price && item.price !== null)
   }
 
   // Query by winery
@@ -92,7 +92,7 @@ app.get('/wines', (req, res) => {
   // Query by country 
 
   if (country) {
-    wineDataToSend = wineDataToSend.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1)
+    wineDataToSend = wineDataToSend.filter((item) => item.country?.toLowerCase().indexOf(country.toLowerCase()) !== -1 && item.country !== null)
   }
   
     res.json({
@@ -124,14 +124,14 @@ app.get('/wines', (req, res) => {
     }
   })
 
-// Route to get wine by taster and their twitter usernames
+// Route to get wine by taster
 
 app.get('/wines/tasters/:taster_name', (req, res) => {
   const { taster_name } = req.params 
 
   let wineByTaster = wineData
 
-  wineByTaster = wineByTaster.filter((item) => item.taster_name?.toLowerCase().indexOf(taster_name.toLowerCase()) !== -1)
+  wineByTaster = wineByTaster.filter((item) => item.taster_name?.toLowerCase().indexOf(taster_name.toLowerCase()) !== -1 && item.taster_name !== null)
 
 
   if (!wineByTaster) {
@@ -154,7 +154,7 @@ app.get('/wines/tasters/twitter/:taster_twitter_handle', (req, res) => {
 
   let wineByTaster = wineData
 
-  wineByTaster = wineByTaster.filter((item) => item.taster_twitter_handle?.toLowerCase().indexOf(taster_twitter_handle.toLowerCase()) !== -1)
+  wineByTaster = wineByTaster.filter((item) => item.taster_twitter_handle?.toLowerCase().indexOf(taster_twitter_handle.toLowerCase()) !== -1 && item.taster_twitter_handle !== null)
 
 
   if (!wineByTaster) {
