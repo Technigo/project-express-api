@@ -87,6 +87,8 @@ app.get('/wines', (req, res) => {
     })
   })
 
+  // Route to get wine by title
+
   app.get('/wines/titles/:title', (req, res) => {
     const { title } = req.params 
   
@@ -180,7 +182,8 @@ app.get('/wines/varieties/:variety', (req, res) => {
 // Sort wines by top rating
 
 app.get('/wines/topRated', (req, res) => {
-  let topRatedWines = wineData.sort((a, b) => b.points - a.points)
+  let topRatedWines = wineData.sort((min, max) => max.points - min.points)
+
 
   const top50 = topRatedWines.slice(0, 50)
   
@@ -193,7 +196,7 @@ app.get('/wines/topRated', (req, res) => {
 // Sort wine by most expensive
 
 app.get('/wines/mostExpensive', (req, res) => {
-  let mostExpensiveWines = wineData.sort((a, b) => b.price - a.price)
+  let mostExpensiveWines = wineData.sort((min, max) => max.price - min.price)
 
   const top50 = mostExpensiveWines.slice(0, 50)
 
