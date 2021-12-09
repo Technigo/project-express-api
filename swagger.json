@@ -17,24 +17,8 @@
       "description": "Movies in the system"
     },
     {
-      "name": "Movies from year",
-      "description": "Movies by specific year"
-    },
-    {
-      "name": "Movie",
-      "description": "Specific movie by id"
-    },
-    {
       "name": "TV-shows",
       "description": "TV-shows in the system"
-    },
-    {
-      "name": "TV-shows from year",
-      "description": "TV-shows by specific year"
-    },
-    {
-      "name": "TV-show",
-      "description": "Specific TV-show by ID"
     }
   ],
   "schemes": ["http"],
@@ -119,7 +103,7 @@
             "format": "integer"
           }
         ],
-        "tags": ["Movie"],
+        "tags": ["Movies"],
         "summary": "Get a movie with a specific id",
         "responses": {
           "200": {
@@ -153,7 +137,7 @@
             "format": "integer"
           }
         ],
-        "tags": ["Movies from year"],
+        "tags": ["Movies"],
         "summary": "Get all movies from a specific year",
         "responses": {
           "200": {
@@ -215,7 +199,7 @@
             "format": "integer"
           }
         ],
-        "tags": ["TV-shows from year"],
+        "tags": ["TV-shows"],
         "summary": "Get all TV-shows from a specific year",
         "responses": {
           "200": {
@@ -237,7 +221,7 @@
             "format": "integer"
           }
         ],
-        "tags": ["TV-show"],
+        "tags": ["TV-shows"],
         "summary": "Get a tv-show with a specific id",
         "responses": {
           "200": {
