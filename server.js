@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import express from "express";
 import cors from "cors";
 // import listEndpoints from "express-list-endpoints";
@@ -27,15 +28,16 @@ app.get("/games", (req, res) => {
 
   if (genre) {
     gamesToSend = gamesToSend.filter(
-      (item) => item.Genre.toLowerCase().indexOf(genre.toLowerCase()) !== -1
+      (item) => item.Genre.toLowerCase().indexOf(genre.toLowerCase()) === 0
     );
   }
 
   if (platform) {
     gamesToSend = gamesToSend.filter(
       (item) =>
-        // eslint-disable-next-line implicit-arrow-linebreak
-        item.Platform.toLowerCase().indexOf(platform.toLowerCase()) !== -1
+        item.Platform.toString()
+          .toLowerCase()
+          .indexOf(platform.toLowerCase()) === 0
     );
   }
 
@@ -67,10 +69,10 @@ app.get("/games/name/:name", (req, res) => {
   const { name } = req.params;
 
   const titleByName = games.filter(
-    (game) => game.Name.toLowerCase() === name.toLowerCase()
+    (game) => game.Name.toString().toLowerCase() === name.toLowerCase()
   );
 
-  if (!titleByName) {
+  if (!titleByName.length) {
     res.status(404).json({
       response: "No games found with that name",
       success: false,
@@ -88,7 +90,7 @@ app.get("/games/platforms/:platform", (req, res) => {
   const { platform } = req.params;
 
   const platformByName = games.filter(
-    (game) => game.Platform.toLowerCase() === platform.toLowerCase()
+    (game) => game.Platform.toString().toLowerCase() === platform.toLowerCase()
   );
 
   if (!platformByName) {
@@ -127,9 +129,9 @@ app.get("/games/year/:year", (req, res) => {
 app.get("/games/genres/:genre", (req, res) => {
   const { genre } = req.params;
 
-  const genreByName = games.filter(
-    (game) => game.Genre.toLowerCase() === genre.toLowerCase()
-  );
+  const genreByName = games
+    .toString()
+    .filter((game) => game.Genre.toLowerCase() === genre.toLowerCase());
 
   if (!genreByName) {
     res.status(404).json({
@@ -148,9 +150,9 @@ app.get("/games/genres/:genre", (req, res) => {
 app.get("/games/publishers/:publisher", (req, res) => {
   const { publisher } = req.params;
 
-  const publisherByName = games.filter(
-    (game) => game.Publisher.toLowerCase() === publisher.toLowerCase()
-  );
+  const publisherByName = games
+    .toString()
+    .filter((game) => game.Publisher.toLowerCase() === publisher.toLowerCase());
 
   if (!publisherByName) {
     res.status(404).json({
