@@ -29,25 +29,30 @@ app.get('/', (req, res) => {
 
 // list all winners from a particular year
 app.get('/year/:year', (req, res)=> {
-const year= req.params.year // we can get the value of the year from the url and store as a variable
+const { year } = req.params // we can get the value of the year from the url and store as a variable
 const winnersFromYear = nobelPrizeWinners.filter((item)=> item.year=== +year) // use the year to filter array, the 
 res.json(winnersFromYear)
 })
 
 //fetches category winners from input into url
 app.get ('/category/:category', (req, res) => {
-  const category = req.params.category
+  const { category } = req.params
   const categoryWinners = nobelPrizeWinners.filter((item)=>item.category === category)
+  
   res.json(categoryWinners)
 })
 
 // fetches any winner from any category and any year
 app.get ('/category/:category/year/:year', (req, res) =>{
-  const year= req.params.year
-  const category = req.params.category
+  const { year } = req.params
+  const { category } = req.params
 
   const categoryYearWinners = nobelPrizeWinners.filter((item)=> item.category === category && item.year=== +year)
-  res.json(categoryYearWinners)
+  if (categoryYearWinners.length === 0) {
+    res.status(404).send('No Nobel-Prizes for that category in that year')
+  } else {
+    res.json(categoryYearWinners)
+  }
 })
 
 app.get('/surname/:surname', (req,res) => {
