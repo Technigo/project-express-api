@@ -36,7 +36,6 @@ app.get("/winners", (req, res) => {
 app.get("/id/:id", (req, res) => {
   const id = req.params.id;
   const findByItem = data.find((item) => item.id === +id);
-  console.log(findByItem);
 
   if (findByItem) {
     res.json(findByItem);
@@ -50,7 +49,6 @@ app.get("/id/:id", (req, res) => {
 app.get("/category/:category", (req, res) => {
   const category = req.params.category;
   const filteredByCategory = data.filter((item) => {
-    console.log(item.category);
     return (
       category.toLowerCase().replace(/\s/g, "") ===
       item.category.toLowerCase().replace(/\s/g, "")
@@ -61,7 +59,6 @@ app.get("/category/:category", (req, res) => {
 
 app.get("/ceremony/year/:year", (req, res) => {
   const year = req.params.year;
-  console.log(year);
   const filteredByCeremonyYear = data.filter(
     (item) => item.yearCeremony === +year
   );
@@ -76,7 +73,7 @@ app.get("/ceremony/number/:number", (req, res) => {
   res.json(filteredByCeremonyNumber);
 });
 
-app.get("/winner/:year/:category", (req, res) => {
+app.get("/winners/:year/:category", (req, res) => {
   const year = req.params.year;
   const category = req.params.category;
   const winner = data.filter(
