@@ -31,7 +31,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   const { season, title, desc, imdb_rating, original_air_date } = req.query;
 
-  const theOfficeDataToSend = theOfficeData;
+  let theOfficeDataToSend = theOfficeData;
 
   if (season) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
