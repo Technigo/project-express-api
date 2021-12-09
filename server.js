@@ -1,5 +1,7 @@
 import express from "express"
+//Express and bodyparser makes the same thing
 import cors from "cors"
+
 import netflixTitles from "./data/netflix-titles.json"
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -46,14 +48,17 @@ app.get("/year/:year", (req, res) => {
     item => item.release_year === +year
   )
 
-  if (showType === "Movie") {
+  if (showType) {
     console.log("hello")
-    titlesReleaseYear = titlesReleaseYear.filter(item => item.type === "Movie")
-  } else {
     titlesReleaseYear = titlesReleaseYear.filter(
-      item => item.type === "TV Show"
+      item => item.type.toLowerCase().indexOf(showType.toLowerCase()) !== -1
     )
   }
+  // } else {
+  //   titlesReleaseYear = titlesReleaseYear.filter(
+  //     item => item.type === "TV Show"
+  //   )
+  // }
 
   res.json(titlesReleaseYear)
 })
