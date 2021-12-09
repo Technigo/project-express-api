@@ -9,4 +9,6 @@ For this project I used express in Node.js. To list my endpoints I used a packag
 
 ## View it live
 
-~coming soon~
+Backend: <a href="https://winemag.herokuapp.com/">https://winemag.herokuapp.com/</a>
+
+Frontend: ~coming soon~
