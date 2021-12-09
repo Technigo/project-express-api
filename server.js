@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
+import listEndpoints from 'express-list-endpoints'
 
 import topMusicData from './data/top-music.json'
 
@@ -24,6 +25,11 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('I have forked and installed npm')
 })
+
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app))
+})
+
 app.get('/top', (req, res) => {
   res.json(topMusicData)
 })
