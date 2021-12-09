@@ -20,7 +20,6 @@ app.use(express.json())
 app.get('/', (req, res) => {
   const femaleWon = req.query.female
   let winners = nobelPrizeWinners
-
   if (femaleWon){
     winners = nobelPrizeWinners.filter((item) => item.gender ==='female')
   }
@@ -31,7 +30,12 @@ app.get('/', (req, res) => {
 app.get('/year/:year', (req, res)=> {
 const { year } = req.params // we can get the value of the year from the url and store as a variable
 const winnersFromYear = nobelPrizeWinners.filter((item)=> item.year=== +year) // use the year to filter array, the 
-res.json(winnersFromYear)
+if(winnersFromYear.length === 0){
+  res.status(404).send('No Nobel-Prizes were awarded that year, most likely due to World Wars')
+} else{
+  res.json(winnersFromYear)
+}
+
 })
 
 //fetches category winners from input into url
@@ -48,6 +52,8 @@ app.get ('/category/:category/year/:year', (req, res) =>{
   const { category } = req.params
 
   const categoryYearWinners = nobelPrizeWinners.filter((item)=> item.category === category && item.year=== +year)
+  // this conditional statement is different because we are using a filter method which will return an array
+  // therefore we need to use array.length === 0. To check it out, search for Peace winners in 1967-1969 
   if (categoryYearWinners.length === 0) {
     res.status(404).send('No Nobel-Prizes for that category in that year')
   } else {
@@ -55,6 +61,7 @@ app.get ('/category/:category/year/:year', (req, res) =>{
   }
 })
 
+// here we can search for any surname to see if it is a Nobel-prize recipient
 app.get('/surname/:surname', (req,res) => {
   const { surname }= req.params
   const winnerName = nobelPrizeWinners.find(winner => winner.surname.toLowerCase() === surname.toLowerCase())
