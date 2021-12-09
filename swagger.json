@@ -5,7 +5,7 @@
     "title": "Netflix-titles API",
     "description": "Netflix-titles API with movies and tv-shows"
   },
-  "host": "localhost:8080",
+  "host": "https://netflix-titles-technigo.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
