@@ -4,6 +4,9 @@ import listEndpoints from "express-list-endpoints";
 
 import titles from "./data/netflix-titles.json";
 
+const swaggerUi = require("swagger-ui-express"),
+  swaggerDocument = require("./swagger.json");
+
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
 //
@@ -160,6 +163,12 @@ app.get("/netflix-titles/tv-shows/year/:year", (req, res) => {
     success: true,
   });
 });
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
 
 app.get("*", function (req, res) {
   res.status(404).json({
