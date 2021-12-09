@@ -13,12 +13,12 @@ Every project should be deployed somewhere. Be sure to include the link to the d
 API documentaion:
 
 /books - array of books
-/books?title="title" - list books with matching titles
-/books?authors="author" - list of books from specific author
+/books?title="title name" - list books with matching titles
+/books?author="author name" - list of books from specific author
 
-/books/id/"nr" - shows book with matching id
-/books/pages/"nr" - shows books with certain amount of pages
-/books/isbn/"nr" - show book by unique ISBN nr
+/books/id/"number" - shows book with matching id
+/books/pages/"number" - shows books with certain amount of pages
+/books/isbn/"number" - show book by unique ISBN nr
 
 /books/language/"eng" - lists books written in english
 /books/language/"en-US" - lists books written in US-english

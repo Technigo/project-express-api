@@ -27,7 +27,22 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  const hello = {
+    Welcome: 'Hello! This be a Book API',
+    Routes: [{
+      "/books_________________________": 'Get books.',
+      "/books?title='title name'______": 'Get books with matching titles.',
+      "/books?authors='author name'___": 'Get books from specific author.',
+      "/books/id/'number'_____________": 'Get books with matching id.',
+      "/books/isbn/'number'___________": 'Get books by unique ISBN nr.',
+      "/books/pages/'number'__________": 'Get books with certain amount of pages.',
+      "/books/language/eng____________": 'Get books written in english.',
+      "/books/language/en-US__________": 'Get books written in US-english.',
+      "/books/endpoints_______________": 'Get API endpoints.'
+    }]
+    
+  }
+  res.send(hello)
 })
 
 // List endpoints
@@ -38,7 +53,7 @@ app.get ('/endpoints', (req, res) => {
 
 // route for books API
 app.get('/books', (req, res) => {
-  const { title, authors } = req.query
+  const { title, author } = req.query
  
   let booksToSend = books
 
@@ -46,9 +61,9 @@ app.get('/books', (req, res) => {
     booksToSend = booksToSend.filter(
       (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1 )
     }
-  if (authors){
+  if (author){
     booksToSend = booksToSend.filter(
-      (item) => item.authors.toLowerCase().indexOf(authors.toLowerCase()) !== -1 )
+      (item) => item.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1 )
     }
 
   res.json({
