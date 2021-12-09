@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-const-assign */
 /* eslint-disable no-console */
 /* eslint-disable arrow-parens */
 import express from 'express';
@@ -27,42 +29,42 @@ app.use(express.json());
 // Start defining your routes here
 
 app.get('/', (req, res) => {
-  // const { season, title, desc, imdb_rating, original_air_date } = req.query;
+  const { season, title, desc, imdb_rating, original_air_date } = req.query;
 
   const theOfficeDataToSend = theOfficeData;
 
+  if (season) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.season.toString().indexOf(season.toString()) !== -1
+    ); // make the string not case sensitive
+  }
+
+  if (title) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    );
+  }
+
+  if (desc) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.desc.toLowerCase().indexOf(desc.toLowerCase()) !== -1
+    );
+  }
+  if (imdb_rating) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      // eslint-disable-next-line camelcase
+      item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) !== -1
+    );
+  }
+
+  if (original_air_date) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      // eslint-disable-next-line camelcase
+      item => item.original_air_date.indexOf(original_air_date) !== -1
+    );
+  }
+
   res.json(theOfficeDataToSend);
-
-  // if (season) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     item => item.season.toString().indexOf(season.toString()) !== -1
-  //   ); // make the string not case sensitive
-  // }
-
-  // if (title) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     item => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
-  //   );
-  // }
-
-  // if (desc) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     item => item.desc.toLowerCase().indexOf(desc.toLowerCase()) !== -1
-  //   );
-  // }
-  // if (imdb_rating) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     // eslint-disable-next-line camelcase
-  //     item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) !== -1
-  //   );
-  // }
-
-  // if (original_air_date) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     // eslint-disable-next-line camelcase
-  //     item => item.original_air_date.indexOf(original_air_date) !== -1
-  //   );
-  // }
 
   // res.json({
   //   response: theOfficeDataToSend,
