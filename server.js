@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello there! Here are all the endpoints");
+  res.send("Hello there! chose by books or golden globe nominees ");
 });
 //Golden Globe routes
 app.get("/nominations", (req, res) => {
