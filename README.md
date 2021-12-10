@@ -1,13 +1,22 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+For this project I explore the backend for the first time, by creating an API using Express. The API (containing data about books) has a few RESTful endpoints returning either an array of data, or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I didn't use a database, instead I used a hard-coded set of data, stored as a JSON file.
+To create an endpoint to list a single item, a specific book, I used a param and the .find() method to select the item returned in the response.
+For the other endpoints, where I list all titles or all authors, I used .map() to map over the array and .sort() to list them in alphabetical order.
 
+If I had more time I would like to experiment going deeper and list more types of data and it would be fun to add a frontend to the project as well.
+
+What I learnt:
+- How to install and setup an Express server
+- How to deploy Node projects
+- How to build an API in Node using Express
+- How to create routes in Express
+ 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-deployment-kim.herokuapp.com/
+
