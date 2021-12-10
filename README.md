@@ -1,5 +1,6 @@
 # Express API Project
 
+I used the top 100 streamed songs of all time on Spotify. The source of the data was Kaggle.com, which in turn retrieved it from http://organizeyourmusic.playlistmachinery.com/.
 Replace this readme with your own information about your project.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.

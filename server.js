@@ -1,5 +1,7 @@
+/* eslint-disable comma-dangle */
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 import topMusicData from './data/top-music.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -13,21 +15,109 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Routes
+app.get('/', (req, res) => {
+  res.send(`List all possible endpoints by typing /endpoints on the URL bar`);
+});
+
+// Send list of all endpoints
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app));
+});
+
 // Get all tracks
 app.get('/tracks', (req, res) => {
   res.json(topMusicData);
 });
 
 // Get track by id
-app.get('tracks/:id', (req, res) => {
+app.get('/tracks/id/:id', (req, res) => {
   const { id } = req.params;
 
   const trackId = topMusicData.find((track) => track.id === +id);
 
   if (!trackId) {
-    console.log('No track by that name');
+    res.status(404).send('No track by that ID');
   } else {
-    res.json(trackId);
+    res.status(200).json({
+      response: trackId,
+      success: true,
+    });
+  }
+});
+
+// Get track by artist name
+
+app.get('/tracks/artist/:artist', (req, res) => {
+  const { artist } = req.params;
+
+  const artistsName = topMusicData.find(
+    (track) => track.artistName.toLowerCase() === artist.toLowerCase(),
+  );
+
+  if (!artistsName) {
+    res.status(404).send('No tracks by that artist');
+  } else {
+    res.status(200).json({
+      response: artistsName,
+      success: true,
+    });
+  }
+});
+
+// Get track by genre
+
+app.get('/tracks/genre/:genre', (req, res) => {
+  const { genre } = req.params;
+
+  const trackByGenre = topMusicData.find(
+    (track) => track.genre.toLowerCase() === genre.toLowerCase(),
+  );
+
+  if (!trackByGenre) {
+    res.status(404).send('No tracks from that genre');
+  } else {
+    res.status(200).json({
+      response: trackByGenre,
+      success: true,
+    });
+  }
+});
+
+/*  Get tracks for your party (i.e. danceability over the number you specify. Test with different values, but we recommend >70 if you're looking for party vibes.)
+ */
+
+app.get('/tracks/danceability/:danceability', (req, res) => {
+  const { danceability } = req.params;
+
+  const trackForParty = topMusicData.filter(
+    (track) => parseInt(track.danceability, 10) > +danceability,
+  );
+
+  if (!trackForParty) {
+    res.status(404).send('No tracks with that danceability');
+  } else {
+    res.status(200).json({
+      response: trackForParty,
+      success: true,
+    });
+  }
+});
+
+// Get tracks for your workout, i.e. energy > 80.
+
+app.get('/tracks/workout/', (req, res) => {
+  const trackForWorkout = topMusicData.filter(
+    (track) => parseInt(track.energy, 10) > 80,
+  );
+
+  if (!trackForWorkout) {
+    res.status(404).send('No tracks with such an energy');
+  } else {
+    res.status(200).json({
+      response: trackForWorkout,
+      success: true,
+    });
   }
 });
 
