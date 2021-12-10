@@ -18,7 +18,9 @@ app.use(express.json())
 // Start defining your routes here
 
 app.get("/", (req, res) => {
-  res.send("Hello This is the root-endpoint to my netflix API")
+  res.send(
+    "Hello This is the root-endpoint to my netflix API. By adding /endpoints to the url you can get an overview of the possible endpoints"
+  )
 })
 
 app.get("/endpoints", (req, res) => {
@@ -34,15 +36,9 @@ app.get("/netflix-titles", (req, res) => {
     titles = titles.filter(
       (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
     )
-  }
-  if (!title) {
-    res.status(404).json({
-      response: "No data found",
-      success: false,
-    })
   } else {
     res.status(200).json({
-      response: titles,
+      response: netflixData,
       success: true,
     })
   }
@@ -119,7 +115,7 @@ app.get("/netflix-titles/title/:title", (req, res) => {
   }
 })
 
-// Start the server
+// Starting the server
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
