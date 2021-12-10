@@ -1,11 +1,13 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 
 import data from "./data/golden-globes.json";
 import books from "./data/books.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -13,9 +15,11 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello there! chose by books or golden globe nominees ");
+  res.send(listEndpoints(app));
 });
+// console.log(listEndpoints(app));
 //Golden Globe routes
+// const listEndpoints = require("express-list-endpoints");
 app.get("/nominations", (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit);
@@ -100,7 +104,7 @@ app.get("/nominations/films", (req, res) => {
 // Books route by id
 app.get("/books/id/:id", (req, res) => {
   const { id } = req.params;
-  const bookById = books.filter((book) => book.bookID === +id);
+  const bookById = books.find((book) => book.bookID === +id);
 
   if (!bookById) {
     res.status(404).json("No book found with this ID");
