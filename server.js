@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 import swiftData from "./data/swift.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -15,7 +16,7 @@ app.use(express.json());
 
 // Startingpoint
 app.get("/", (req, res) => {
-  res.send("This is the Taylor Swift album API");
+  res.send(listEndpoints(app));
 });
 
 // List of all the songs
