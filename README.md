@@ -1,24 +1,29 @@
-# Express API Project
+# Top Music Tracks - An Express REST API
 
-I used the top 100 streamed songs of all time on Spotify. The source of the data was Kaggle.com, which in turn retrieved it from http://organizeyourmusic.playlistmachinery.com/.
-Replace this readme with your own information about your project.
+This is my first API, made with node.js. I used the top 100 streamed songs of all time on Spotify. The source of the data was Kaggle.com, which in turn retrieved it from http://organizeyourmusic.playlistmachinery.com/.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
+- 7 different routes using the GET method.
+- Endpoints that return a collection of results: Get all tracks, filter by genre, danceability or workout-friendly.
+- Endpoints that return a single result: Get track by ID, by song title, or artist name. The last two use query parameters for that purpose.
+- Error handling by returning 404 status codes when the item is not found.
 
-Error handling when using query parameters
-Missed a backslash on tracks
-Missing: Pagination
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Production process
+
+- I worked with a smaller dataset at first (only 50 songs). It was outdated, so I decided to search for a new one.
+- The final dataset comes from the source provided above. I renamed the CSV columns to make them JSON-friendly and then converted the file to JSON via https://csvjson.com/.
+- The first route was /tracks. First I console.logged the data and then implemented it as the API response.
+- Then I proceeded to do the routes that return the collections, and finally the single results (including the ones with query params).
+- I implemented a filter that simulates a rudimentary playlist mechanism. One of the routes displays tracks that are suitable for a party by filtering by the danceability parameter. The other route filters workout tracks through the energy parameter.
+
+## Challenges and lessons learned
+
+- I spent a while trying to make the /tracks route work. It turned out I was missing the slash at the beginning.
+- I have yet to make error handling work when using query parameters. It only returns an empty array for now (instead of an http status like the other routes).
+- In the future I might also add some pagination.
+- I struggled finding a visual way to present the documentation for the endpoints. Might try implementing it on Swagger or on a frontend later.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Blue requirements:
-
-- Your API should have at least 2 routes. Try to push yourself to do more, though!
-- A minimum of one endpoint to return a **collection** of results (array of elements) -> tracks with high danceability
-- A minimum of one endpoint to return a **single** result (single element).
-- Your API should be [RESTful](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)
+https://top-tracks-isabel-gonzalez.herokuapp.com/endpoints

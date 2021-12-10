@@ -3,9 +3,7 @@ import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import topMusicData from './data/top-music.json';
 
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
+// Defines the port the app will run on. Defaults to 8080, but can // be overridden when starting the server. For example:
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -14,19 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Pagination
-
-/* app.get('/', (req, res) => {
-  let { page } = req.query;
-  if (!page) {
-    page = 0;
-  }
-  const start = page * 10;
-  const filteredData = topMusicData.slice(start, start + 10);
-  res.json(filteredData);
-}); */
-
-// Routes
+// Default route
 app.get('/', (req, res) => {
   res.send(`List all possible endpoints by typing /endpoints on the URL bar`);
 });
@@ -36,7 +22,9 @@ app.get('/endpoints', (req, res) => {
   res.send(listEndpoints(app));
 });
 
-// Get all tracks, possibility to filter for song title and artist
+// Get all tracks. Optional: Filter by song title and/or artist.
+
+// Example: /tracks?artist=Ed Sheeran&songTitle=Perfect
 
 app.get('/tracks', (req, res) => {
   const { songTitle, artist } = req.query;
@@ -60,17 +48,11 @@ app.get('/tracks', (req, res) => {
     response: tracksToFilter,
     success: true,
   });
-  /* if (!tracksToFilter) {
-    res.status(404).send('No track found');
-  } else {
-    res.status(200).json({
-      response: tracksToFilter,
-      success: true,
-    });
-  } */
 });
 
 // Get track by id
+// Example: /tracks/id/89
+
 app.get('/tracks/id/:id', (req, res) => {
   const { id } = req.params;
 
@@ -87,6 +69,7 @@ app.get('/tracks/id/:id', (req, res) => {
 });
 
 // Get tracks by genre
+// Example: /tracks/genre/canadian pop
 
 app.get('/tracks/genre/:genre', (req, res) => {
   const { genre } = req.params;
@@ -108,6 +91,8 @@ app.get('/tracks/genre/:genre', (req, res) => {
 /*  Get tracks for your party (i.e. danceability over the number you specify. Test with different values, i.e. 70 if you're looking for more energetic dances.)
  */
 
+// Example: /tracks/danceability/60
+
 app.get('/tracks/danceability/:danceability', (req, res) => {
   const { danceability } = req.params;
 
@@ -125,7 +110,7 @@ app.get('/tracks/danceability/:danceability', (req, res) => {
   }
 });
 
-// Get tracks for your workout, i.e. energy > 80.
+// Get tracks for your workout, i.e. energy > 80. No parameters needed.
 
 app.get('/tracks/workout/', (req, res) => {
   const trackForWorkout = topMusicData.filter(
