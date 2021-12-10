@@ -17,7 +17,7 @@ app.use(express.json())
 
 // Start defining routes here
 app.get('/', (req, res) => {
-  res.send('Welcome to my API. You can find some selected Netlify-data here')
+  res.send('Welcome to my API. You can find some selected Netlify-data here<br>For available endpoints go to /endpoints<br>On /movies you can query for year, director and actor')
 })
 
 //route provides all endpoints
@@ -31,18 +31,19 @@ app.get('/endpoints', (req, res) => {
 // route provides a sorted list of all countries that are in netflixData
 app.get('/countries', (req, res) => {
   const countries = Array.from(new Set(netflixData.map(item => item.country))).sort()
+
   res.json({
     response: countries,
     success: true
   })
 })
 
-// route with all movies from the provided country
+// route with all shows (both movies and other) from the provided country
 app.get('/countries/:country', (req, res) => {
   const { country } = req.params
   const contentByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
 
-  if (!contentByCountry) {
+  if (contentByCountry.length === 0) {
     res.status(404).json({
       response: 'Sorry, but there is no content for this country',
       success: false
@@ -84,7 +85,9 @@ app.get('/movies', (req, res) => {
 // route provides one movie by ID
 app.get('/movies/id/:id', (req, res) => {
   const { id } = req.params
-  const movie = netflixData.find(item => item.show_id === +id)
+  const movies = netflixData.filter(item => item.type === "Movie")
+
+  const movie = movies.find(item => item.show_id === +id)
 
   if (!movie) {
     res.status(404).json({
@@ -101,11 +104,13 @@ app.get('/movies/id/:id', (req, res) => {
 // route provides movies by name (can return more than one movie, if the provided parts of the title match with several movies)
 app.get('/movies/title/:title', (req, res) => {
   const { title } = req.params
-  const movie = netflixData.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) === true)
+  const movies = netflixData.filter(item => item.type === "Movie")
 
-  if (!movie) {
+  const movie = movies.filter(item => item.title.toLowerCase().includes(title.toLowerCase()) === true)
+
+  if (movie.length === 0) {
     res.status(404).json({
-      response: 'No movie found, that matches this ID',
+      response: 'No movie found, that matches this title',
       success: false
     })
   } else {
@@ -115,8 +120,6 @@ app.get('/movies/title/:title', (req, res) => {
     })
   }
 })
-
-
 
 // Start the server
 app.listen(port, () => {
