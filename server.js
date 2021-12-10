@@ -13,7 +13,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+booksAmazon.map((item, index) => (item.bookIndex = index));
+
 // Start defining your routes here
+
+app.get("/", (req, res) => {
+  res.json(
+    "Amazon Top 50 Bestselling Books 2009 - 2019 API. For information about the endpoints, go to /endpoints."
+  );
+});
+
 app.get("/books", (req, res) => {
   const { title, author } = req.query;
 
@@ -30,11 +39,28 @@ app.get("/books", (req, res) => {
       (item) => item.Author.toLowerCase().indexOf(author.toLowerCase()) !== -1
     );
   }
-
   res.json({
     response: bookInfo,
     success: true,
   });
+});
+
+app.get("/books/id/:id", (req, res) => {
+  const { id } = req.params;
+
+  const bookId = booksAmazon.find((item) => item.bookIndex === +id);
+
+  if (!bookId) {
+    res.status(404).json({
+      response: "No book found with that id",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: bookId,
+      success: true,
+    });
+  }
 });
 
 app.get("/books/authors/:author", (req, res) => {
@@ -95,6 +121,7 @@ app.get("/books/genre/:genre", (req, res) => {
   }
 });
 
+//Dummy endpoint
 app.get("/books/isbn/:isbn", (req, res) => {
   const isbn = req.params.isbn;
 
@@ -112,25 +139,6 @@ app.get("/books/isbn/:isbn", (req, res) => {
     });
   }
 });
-
-// app.get("books/name/:name"),
-//   (req, res) => {
-//     const { name } = req.params;
-
-//     const bookName = booksAmazon.find((item) => item.Name === name);
-
-//     if (!name) {
-//       res.status(404).json({
-//         response: "No book found with that name",
-//         success: false,
-//       });
-//     } else {
-//       res.status(200).json({
-//         response: bookName,
-//         success: true,
-//       });
-//     }
-// };
 
 app.get("/endpoints", (req, res) => {
   res.send(listEndpoints(app));
