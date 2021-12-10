@@ -1,3 +1,5 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-multi-spaces */
 /* eslint-disable camelcase */
 /* eslint-disable spaced-comment */
 /* eslint-disable indent */
@@ -80,7 +82,7 @@ app.get('/', (req, res) => {
 
 app.get('/season/:season', (req, res) => {
   //:index is called path params, javaScript reads fundings/:index like fundings/"there will be a parameter here" and not actual "index"
-  const { season } = req.params;
+  const season = req.params.season;
 
   const officeSeason = theOfficeData.find(
     seasonNumber => seasonNumber.season === +season
@@ -90,7 +92,7 @@ app.get('/season/:season', (req, res) => {
     console.log('No company found');
     res.status(404).send('No company found with that index');
   } else {
-    res.json(season);
+    res.json(officeSeason);
   }
 });
 
