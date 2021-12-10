@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Welcome to my first backend')
+  // res.send('Welcome to my first backend')
   res.send(listEndpoints(app))
 })
 
