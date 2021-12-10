@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import express from 'express';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
@@ -15,6 +14,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Pagination
+
+/* app.get('/', (req, res) => {
+  let { page } = req.query;
+  if (!page) {
+    page = 0;
+  }
+  const start = page * 10;
+  const filteredData = topMusicData.slice(start, start + 10);
+  res.json(filteredData);
+}); */
+
 // Routes
 app.get('/', (req, res) => {
   res.send(`List all possible endpoints by typing /endpoints on the URL bar`);
@@ -25,9 +36,38 @@ app.get('/endpoints', (req, res) => {
   res.send(listEndpoints(app));
 });
 
-// Get all tracks
+// Get all tracks, possibility to filter for song title and artist
+
 app.get('/tracks', (req, res) => {
-  res.json(topMusicData);
+  const { songTitle, artist } = req.query;
+
+  let tracksToFilter = topMusicData;
+
+  if (songTitle) {
+    tracksToFilter = tracksToFilter.filter(
+      (item) =>
+        item.trackName.toLowerCase().indexOf(songTitle.toLowerCase()) !== -1,
+    );
+  }
+  if (artist) {
+    tracksToFilter = tracksToFilter.filter(
+      (item) =>
+        item.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1,
+    );
+  }
+
+  res.json({
+    response: tracksToFilter,
+    success: true,
+  });
+  /* if (!tracksToFilter) {
+    res.status(404).send('No track found');
+  } else {
+    res.status(200).json({
+      response: tracksToFilter,
+      success: true,
+    });
+  } */
 });
 
 // Get track by id
@@ -46,26 +86,7 @@ app.get('/tracks/id/:id', (req, res) => {
   }
 });
 
-// Get track by artist name
-
-app.get('/tracks/artist/:artist', (req, res) => {
-  const { artist } = req.params;
-
-  const artistsName = topMusicData.find(
-    (track) => track.artistName.toLowerCase() === artist.toLowerCase(),
-  );
-
-  if (!artistsName) {
-    res.status(404).send('No tracks by that artist');
-  } else {
-    res.status(200).json({
-      response: artistsName,
-      success: true,
-    });
-  }
-});
-
-// Get track by genre
+// Get tracks by genre
 
 app.get('/tracks/genre/:genre', (req, res) => {
   const { genre } = req.params;
@@ -84,7 +105,7 @@ app.get('/tracks/genre/:genre', (req, res) => {
   }
 });
 
-/*  Get tracks for your party (i.e. danceability over the number you specify. Test with different values, but we recommend >70 if you're looking for party vibes.)
+/*  Get tracks for your party (i.e. danceability over the number you specify. Test with different values, i.e. 70 if you're looking for more energetic dances.)
  */
 
 app.get('/tracks/danceability/:danceability', (req, res) => {

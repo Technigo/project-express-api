@@ -7,6 +7,9 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
+Error handling when using query parameters
+Missed a backslash on tracks
+Missing: Pagination
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
