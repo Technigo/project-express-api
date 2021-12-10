@@ -113,7 +113,7 @@ app.get('/id/:id', (req, res) => {
 app.get('/title/:title', (req, res) => {
 	const { title } = req.params; //get data from the variable
 	const titleName = netflixData.find(
-		(item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+		(item) => item.title.toLowerCase() === title.toLowerCase()
 	);
 
 	if (!titleName) {
