@@ -46,26 +46,33 @@ app.get("/titles", (req, res) => {
     )
   }
 
-  res.json(onlyTitles)
+  if (onlyTitles.length === 0) {
+    res.status(200).send("No title found with that search")
+  } else {
+    res.json(onlyTitles)
+  }
 })
 
 app.get("/year/:year", (req, res) => {
   const year = req.params.year
-  const showType = req.query.type
-  console.log("showType", showType)
 
   let titlesReleaseYear = netflixTitles.filter(
     item => item.release_year === +year
   )
 
-  if (showType) {
-    console.log("hello")
-    titlesReleaseYear = titlesReleaseYear.filter(
-      item => item.type.toLowerCase().indexOf(showType.toLowerCase()) !== -1
-    )
-  }
-
   res.json(titlesReleaseYear)
+})
+
+app.get("/type/:type", (req, res) => {
+  const type = req.params.type
+
+  console.log(type)
+
+  let typeTitles = netflixTitles.filter(
+    item => item.type.toLowerCase() === type.toLowerCase()
+  )
+
+  res.json(typeTitles)
 })
 
 // Start the server
