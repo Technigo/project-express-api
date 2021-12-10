@@ -52,9 +52,9 @@ app.get('/', (req, res) => {
     );
   }
 
-  if (!imdb_rating) {
-    res.status(404).send('no rating included');
-  }
+  // if (!imdb_rating) {
+  //   res.status(404).send('no rating included');
+  // }
 
   if (original_air_date) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
