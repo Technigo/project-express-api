@@ -30,29 +30,82 @@ app.get("/", (req, res) => {
 // req handles what frontend sends to backend
 // what backend sends back to frontend
 app.get("/titles", (req, res) => {
-  res.json(netflixData);
+  const { cast, director, genre, type, country } = req.query;
+  let netflixDataToSend = netflixData;
+
+  if (cast) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.cast.toLowerCase().indexOf(cast.toLowerCase()) !== -1
+    );
+  }
+
+  if (director) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) =>
+        item.director.toLowerCase().indexOf(director.toLowerCase()) !== -1
+    );
+  }
+
+  if (genre) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.listed_in.toLowerCase().indexOf(genre.toLowerCase()) !== -1
+    );
+  }
+
+  if (type) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.type.toLowerCase().indexOf(type.toLowerCase()) !== -1
+    );
+  }
+
+  if (country) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.country.toLowerCase().indexOf(type.toLowerCase()) !== -1
+    );
+  }
+
+  res.json({
+    response: netflixDataToSend,
+    success: true,
+  });
 });
 
-app.get("/titles/:show_id", (req, res) => {
-  const show = req.params.show_id;
-  const showId = req.query.show_id;
-  let seeOneShow = netflixData.filter((item) => item.show_id === +show);
+app.get("/titles/id/:id", (req, res) => {
+  const { id } = req.params;
 
-  if (showId) {
-    seeOneShow = seeOneShow.filter((item) => item.show_id);
+  const displayId = netflixData.find((item) => item.show_id === +id);
+
+  if (!displayId) {
+    res.status(404).json({
+      response: `There is no title with this id`,
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: displayId,
+      success: true,
+    });
   }
-  res.json(seeOneShow);
 });
 
-app.get("/titles/:release_year", (req, res) => {
-  const year = req.params.release_year;
-  const showYear = req.query.release_year;
-  let ReleaseYear = netflixData.filter((item) => item.release_year === +year);
+app.get("/titles/title/:title", (req, res) => {
+  const { title } = req.params;
 
-  if (showYear) {
-    ReleaseYear = ReleaseYear.filter((item) => item.release_year);
+  const displayTitle = netflixData.find(
+    (item) => item.title.toLowerCase() === title.toLowerCase()
+  );
+
+  if (!displayTitle) {
+    res.status(404).json({
+      response: `There is no title with this name`,
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: displayTitle,
+      success: true,
+    });
   }
-  res.json(ReleaseYear);
 });
 
 // Start the server
