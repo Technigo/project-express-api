@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 import avocadoSalesData from "./data/avocado-sales.json";
 
@@ -23,16 +24,63 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Main route
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Go to /endpoints to see all the routes");
 });
 
+// Get the list of endpoints
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+// Get the list of avocado sales
 app.get("/avocadosales", (req, res) => {
   res.json(avocadoSalesData);
 });
 
-app.get("/avocadosales/:id", (req, res) => {
+// Get avocado sales based on region, using path param
+app.get("/avocadosales/region/:region", (req, res) => {
+  const { region } = req.params;
+
+  const saleByRegion = avocadoSalesData.filter(
+    (sale) => sale.region.toLowerCase().indexOf(region.toLowerCase()) !== -1
+  );
+
+  if (saleByRegion.length > 0) {
+    res.status(200).json({
+      response: saleByRegion,
+      success: true,
+    });
+  } else {
+    res.status(404).json({
+      response: "No sale found for that region",
+      success: false,
+    });
+  }
+});
+
+// Get avocado sales based on date, using path param
+app.get("/avocadosales/date/:date", (req, res) => {
+  const { date } = req.params;
+
+  const saleByDate = avocadoSalesData.filter((sale) => sale.date === date);
+
+  if (saleByDate.lenght > 0) {
+    res.status(200).json({
+      response: saleByDate,
+      success: true,
+    });
+  } else {
+    res.status(404).json({
+      response: "No sale found for that date",
+      success: false,
+    });
+  }
+});
+
+// Get a specific avocado sale based on id, using path param
+app.get("/avocadosales/id/:id", (req, res) => {
   const { id } = req.params;
 
   const saleId = avocadoSalesData.find((sale) => sale.id === +id);
