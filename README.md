@@ -4,8 +4,6 @@ This is my first project setting up an Express server and creating an API that h
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
 I started by analyzing the given Netflix-dataset and thinking about how I want to structure the routes, I will provide. I went for the following: 
 '/' - start
 '/endpoints' - provides all endpoints
@@ -24,6 +22,8 @@ Learnings:
 - Practice pagination
 - using req.params and req.query
 - HTTP status codes
+
+If I would have more time, I'd build a frontend.
 
 ## View it live
 
