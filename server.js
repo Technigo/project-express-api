@@ -1,11 +1,3 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-multi-spaces */
-/* eslint-disable camelcase */
-/* eslint-disable spaced-comment */
-/* eslint-disable indent */
-/* eslint-disable no-const-assign */
-/* eslint-disable no-console */
-/* eslint-disable arrow-parens */
 import express from 'express';
 import cors from 'cors';
 
@@ -33,15 +25,15 @@ app.use(express.json());
 // Start defining your routes here
 
 app.get('/', (req, res) => {
-  const { title, desc, imdb_rating, original_air_date } = req.query;
+  const { season, title, desc, imdb_rating, original_air_date } = req.query;
 
   let theOfficeDataToSend = theOfficeData;
 
-  // if (season) {
-  //   theOfficeDataToSend = theOfficeDataToSend.filter(
-  //     item => item.season.toString().indexOf(season.toString()) !== -1
-  //   ); // make the string not case sensitive
-  // }
+  if (season) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.season.toString().indexOf(season.toString()) !== -1
+    ); // make the string not case sensitive
+  }
 
   if (title) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
@@ -56,7 +48,6 @@ app.get('/', (req, res) => {
   }
   if (imdb_rating) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
-      // eslint-disable-next-line camelcase
       item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) === 0
     );
   }
@@ -67,37 +58,14 @@ app.get('/', (req, res) => {
 
   if (original_air_date) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
-      // eslint-disable-next-line camelcase
       item => item.original_air_date.indexOf(original_air_date) !== -1
     );
   }
 
   res.json(theOfficeDataToSend);
-
-  // res.json({
-  //   response: theOfficeDataToSend,
-  //   success: true,
-  // });
-});
-
-app.get('/season/:season', (req, res) => {
-  //:index is called path params, javaScript reads fundings/:index like fundings/"there will be a parameter here" and not actual "index"
-  const season = req.params.season;
-
-  const officeSeason = theOfficeData.find(
-    seasonNumber => seasonNumber.season === +season
-  ); // the plus converts the index into a number from a string
-
-  if (!officeSeason) {
-    console.log('No company found');
-    res.status(404).send('No company found with that index');
-  } else {
-    res.json(officeSeason);
-  }
 });
 
 // Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`);
 });
