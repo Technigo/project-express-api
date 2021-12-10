@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
+const swaggerUi = require('swagger-ui-express')
+const swaggerJsdoc = require('swagger-jsdoc')
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -19,21 +21,72 @@ import data from './data/books.json'
 const port = process.env.PORT || 8080
 const app = express()
 
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'The Book API',
+      version: '1.0.0',
+    },
+  },
+  apis: ['./server.js'], // files containing annotations as above
+}
+const swaggerSpec = swaggerJsdoc(options)
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(express.json())
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
-// Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Welcome to book api, checkout')
-})
-
+/**
+ * @swagger
+ * /endpoints:
+ *   get:
+ *     summary: Lists all endpoints
+ *     responses:
+ *       200:
+ *         description: OK.
+ */
 app.get('/endpoints', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-app.get('/books', (req, res) => {
-  const { pageCountHigh, pageCountLow, rating, sortRating, sortPageCount, title } = req.query
+/**
+ * @swagger
+ * /books/search:
+ *   get:
+ *     summary: List books based on query
+ *     parameters:
+ *      - name: title
+ *        in: query
+ *        required: false
+ *        format: string
+ *      - name: rating
+ *        in: query
+ *        required: false
+ *        format: integer
+ *      - name: sortRating
+ *        in: query
+ *        required: false
+ *        format: boolean
+ *      - name: pageCountLow
+ *        in: query
+ *        required: false
+ *        format: integer
+ *      - name: pageCountHigh
+ *        in: query
+ *        required: false
+ *        format: integer
+ *      - name: sortPageCount
+ *        in: query
+ *        required: false
+ *        format: boolean
+ *     responses:
+ *       200:
+ *         description: OK.
+ */
+app.get('/books/search', (req, res) => {
+  const { title, rating, sortRating, pageCountHigh, pageCountLow, sortPageCount } = req.query
 
   let resultsToSend = data
   let pageCountUpperLimit = Infinity
@@ -66,12 +119,26 @@ app.get('/books', (req, res) => {
     .filter(item => item.num_pages <= pageCountUpperLimit)
     .filter(item => item.num_pages >= pageCountLowerLimit)
 
-  res.json(filteredData)
+  res.json({ filteredData, success: true })
 })
 
-app.get('/book/:id', (req, res) => {
-  const { id } = req.params
-  const book = data.find(item => item.bookID === +id)
+/**
+ * @swagger
+ * /book/isbn/{isbn}:
+ *   get:
+ *     summary: Returns a book by ISBN
+ *     parameters:
+ *      - name: isbn
+ *        in: path
+ *        required: true
+ *        format: integer
+ *     responses:
+ *       200:
+ *         description: OK.
+ */
+app.get('/book/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params
+  const book = data.find(item => item.isbn === +isbn || item.isbn13 === +isbn)
   if (!book) {
     res.status(404).send('No data found')
   } else {
@@ -79,6 +146,24 @@ app.get('/book/:id', (req, res) => {
   }
 })
 
+app.get('/books/all', (req, res) => {
+  res.json(data)
+})
+
+/**
+ * @swagger
+ * /book/lang/{lang}:
+ *   get:
+ *     summary: Returns all books by language
+ *     parameters:
+ *      - name: lang
+ *        in: path
+ *        required: true
+ *        format: string
+ *     responses:
+ *       200:
+ *         description: OK.
+ */
 app.get('/lang/:lang', (req, res) => {
   const { lang } = req.params
   let filteredData
