@@ -10,19 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-// app.get('/shows', (req, res) => {
-//   res.json(netflixData);
-// });
-
 app.get('/', (req, res) => {
-  // res.send('Welcome to netFlix data endpoints');
   res.json(listEndpoints(app));
 });
-
-// app.get('/endpoints', (req, res) => {
-
-// });
 
 //endpoints by using one or more queries
 app.get('/shows', (req, res) => {
