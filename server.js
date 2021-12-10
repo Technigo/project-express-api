@@ -1,12 +1,6 @@
 import express from "express"
 import cors from "cors"
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
+import listEndpoints from "express-list-endpoints"
 import netflixData from "./data/netflix-titles.json"
 // import topMusicData from './data/top-music.json'
 
@@ -24,51 +18,102 @@ app.use(express.json())
 // Start defining your routes here
 
 app.get("/", (req, res) => {
-  res.send("This is the root-endpoint, sort of like the homepage")
+  res.send("Hello This is the root-endpoint to my netflix API")
+})
+
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app))
 })
 
 app.get("/netflix-titles", (req, res) => {
-  res.json(netflixData)
-})
+  const { title } = req.query
 
-app.get("/netflix-titles/year/:year", (req, res) => {
-  const year = req.params.year
-  let releaseYear = netflixData.filter((item) => item.release_year === +year)
-  res.json(releaseYear)
+  let titles = netflixData
+
+  if (title) {
+    titles = titles.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    )
+  }
+  if (!title) {
+    res.status(404).json({
+      response: "No data found",
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      response: titles,
+      success: true,
+    })
+  }
 })
 
 app.get("/netflix-titles/tvshows", (req, res) => {
   const tvshows = netflixData.filter((item) => item.type === "TV Show")
-  res.json(tvshows)
+
+  res.status(200).json({
+    response: tvshows,
+    success: true,
+  })
 })
 
 app.get("/netflix-titles/movies", (req, res) => {
   const movies = netflixData.filter((item) => item.type === "Movie")
-  res.json(movies)
+
+  res.status(200).json({
+    response: movies,
+    success: true,
+  })
 })
 
-app.get("/netflix-titles/:show_id", (req, res) => {
+app.get("/netflix-titles/show_id/:show_id", (req, res) => {
   const { show_id } = req.params
 
   const showId = netflixData.find((show) => show.show_id === +show_id)
 
   if (!showId) {
-    res.status(404).send(" we couldn't find a show with that name")
+    res.status(404).json({
+      response: "Sorry, no show found with that id number",
+      success: false,
+    })
   } else {
-    res.json(showId)
+    res.status(200).json({
+      response: showId,
+      success: true,
+    })
   }
 })
 
-app.get("netflix-titles/title/:title", (req, res) => {
-  const { title } = req.params
+app.get("/netflix-titles/year/:year", (req, res) => {
+  const year = req.params.year
+  let releaseYear = netflixData.filter((item) => item.release_year === +year)
 
-  const titleID = netflixData.find((movie) => movie.title === title)
-
-  if (!titleID) {
-    res.status(418).send("No movie found with that id")
+  if (!releaseYear) {
+    res.status(404).json({
+      response: "Sorry, no data found from that year",
+      success: false,
+    })
   } else {
     res.status(200).json({
-      response: titleID,
+      response: releaseYear,
+      success: true,
+    })
+  }
+})
+
+app.get("/netflix-titles/title/:title", (req, res) => {
+  const { title } = req.params
+
+  const titleByName = netflixData.find((item) => item.title === title)
+
+  if (!titleByName) {
+    res.status(404).json({
+      response: "Sorry, no title found with that name",
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      response: titleByName,
       success: true,
     })
   }
