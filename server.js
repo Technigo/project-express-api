@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
+
 import documentation from './data/documentation.json'
 import recipes from './data/recipes.json'
 
@@ -31,7 +32,6 @@ const pagination = (data, pageNumber) => {
 }
 
 // Start defining your routes here
-
 app.get('/', (req, res) => {
   res.json(documentation)
 })
@@ -40,16 +40,17 @@ app.get('/endpoints', (req, res) => {
   res.json(listEndpoints(app))
 })
 
-// get all recipes with '/recipes/?page=${page_no}'
-// get all recipes from one author with '/recipes/?author={req.query}&page=${page_no}'
+// get all recipes with: '/recipes/?page=${page_no}'
+// get all recipes from one author (or matching name) with:
+// '/recipes/?author={req.query}&page=${page_no}'
 app.get('/recipes', (req, res) => {
   const showAuthorRecipes = req.query.author
-  const page = parseInt(req.query.page)
-  // const limit = parseInt(req.query.limit
+  // need to add radix parameter "10" when using parseInt
+  const page = parseInt(req.query.page, 10)
 
   let showAllRecipes = recipes
 
-  // can use this for searching recipes by the author name
+  // this is for searching recipes by the author name
   if (showAuthorRecipes) {
     showAllRecipes = showAllRecipes.filter(
       (recipe) =>
@@ -64,30 +65,10 @@ app.get('/recipes', (req, res) => {
     }
   }
 
-  // do an if statement for page too??
-
   res.json({
     response: pagination(showAllRecipes, page),
     success: true,
   })
-
-  // console.log(typeof showAllRecipes) // object
-  // console.log(typeof showAuthorRecipes) // string
-
-  // use this if we already know the author names,
-  // we can retrieve all the author names with endpoint '/authors'
-  // if (showAuthorRecipes === undefined) {
-  //   res.json(showAllRecipes)
-  // } else {
-  //   const authorRecipes = showAllRecipes.filter(
-  //     (recipe) => recipe.Author === showAuthorRecipes
-  //   )
-  //   if (authorRecipes.length < 1) {
-  //     res.status(404).send('Author not found')
-  //     return
-  //   }
-  //   res.json(authorRecipes)
-  // }
 })
 
 // get data of one specific recipe
@@ -115,16 +96,10 @@ app.get('/recipes/:name', (req, res) => {
 
 // list of all unique authors
 app.get('/authors', (req, res) => {
-  // store all the authors from every recipe in a variable call allAuthors
+  // store all the authors from every recipe in an array call allAuthors
   const allAuthors = recipes.map((recipe) => recipe.Author)
   // remove all duplicate elements from the array, allAuthors
   const uniqueAuthors = [...new Set(allAuthors)]
-
-  // authors = authors.filter(
-  //   (author, index, self) => index === self.findIndex((a) => a === author)
-  // )
-
-  // res.json(uniqueAuthors)
 
   res.status(200).json({
     response: uniqueAuthors,
