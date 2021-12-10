@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 // req handles what frontend sends to backend
 // what backend sends back to frontend
 app.get("/titles", (req, res) => {
-  const { cast, director, genre, type, country } = req.query;
+  const { cast, director, genre, type, country, title } = req.query;
   let netflixDataToSend = netflixData;
 
   if (cast) {
@@ -61,6 +61,12 @@ app.get("/titles", (req, res) => {
   if (country) {
     netflixDataToSend = netflixDataToSend.filter(
       (item) => item.country.toLowerCase().indexOf(type.toLowerCase()) !== -1
+    );
+  }
+
+  if (title) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
     );
   }
 
