@@ -18,5 +18,5 @@ To practice if the endpoints are useful I build a frontend to show the data.
 
 ## View it live
 
-Heroku (API): https://christmas-recipes.herokuapp.com/
+Heroku (API): https://christmas-recipes.herokuapp.com/ \
 Netlify (frontend): https://christmas-recipes.netlify.app/
