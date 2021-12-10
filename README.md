@@ -6,7 +6,7 @@ This week's project is to start studying backend by creating an API using Expres
 
 ## The problem
 
-I started following the guide in the videos of the week. This is a topic that is not new for me, so for this week was a really nice re-study and good to remember basic stuff related with REST API and very basic endpoints with hard-code data. At the end of the project I deployed it in Heroku. 
+I started following the guide in the videos of the week. This is not new topic for me, so for this week was a really nice re-study and good to remember basic stuff related with REST API and very basic endpoints with hard-code data. At the end of the project I deployed it in Heroku. 
 
 ## View it live
 
