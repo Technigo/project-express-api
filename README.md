@@ -1,13 +1,22 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Build my first API with node.js using Express. The requirements are a couple of RESTful endpoints which return either an array of data, or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We're not using databases yet, so we need to store a JSON file in our projects. I decided to make an API about Christmas Recipes (dataset by Gary Broughton from kaggle).
+There are 1600 recipes so I got to practice how to use pagination, and created a couple of endpoints.
+
+We can:
+
+- GET all recipes with pagination,
+- GET all recipe(s) with author query params and pagination,
+- GET data of one specific recipe,
+- GET list of all unique authors
+
+To practice if the endpoints are useful I build a frontend to show the data.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Heroku (API): https://christmas-recipes.herokuapp.com/
+Netlify (frontend): https://christmas-recipes.netlify.app/
