@@ -24,13 +24,6 @@ app.get("/endpoints", (req, res) => {
 	res.send(listEndpoints(app));
 });
 
-//takes the id as params
-app.get("/books/:id", (req, res) => {
-	const id = req.params.id;
-	const filteredID = data.filter((item) => item.bookID === +id);
-	res.json(filteredID);
-});
-
 app.get("/books", (req, res) => {
 	const { author, title, language } = req.query;
 	let filteredBooks = data;
@@ -74,6 +67,30 @@ app.get("/books/isbn/:isbn", (req, res) => {
 	} else {
 		res.status(200).json({
 			response: book,
+			success: true,
+		});
+	}
+});
+
+//takes the id as params
+app.get("/books/:id", (req, res) => {
+	const id = req.params.id;
+	const filteredID = data.filter((item) => item.bookID === +id);
+	res.json(filteredID);
+});
+
+//endpoint with random book
+app.get("/randomBook", (req, res) => {
+	let randomBook = data[Math.floor(Math.random() * data.length)];
+
+	if (!randomBook) {
+		res.status(404).json({
+			response: "Something went wrong, try again!",
+			success: false,
+		});
+	} else {
+		res.status(200).json({
+			response: randomBook,
 			success: true,
 		});
 	}
