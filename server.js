@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import data from "./data/books.json";
+import booksData from "./data/books.json";
 import listEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -14,19 +14,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
-
+// Available routes/endpoints below
 app.get("/", (req, res) => {
-	res.send("Welcome to this API ");
-});
-
-app.get("/endpoints", (req, res) => {
 	res.send(listEndpoints(app));
 });
 
 app.get("/books", (req, res) => {
 	const { author, title, language } = req.query;
-	let filteredBooks = data;
+	let filteredBooks = booksData;
 
 	if (author) {
 		filteredBooks = filteredBooks.filter(
@@ -53,6 +48,23 @@ app.get("/books", (req, res) => {
 	});
 });
 
+//endpoint with random book
+app.get("/randomBook", (req, res) => {
+	let randomBook = booksData[Math.floor(Math.random() * booksData.length)];
+
+	if (!randomBook) {
+		res.status(404).json({
+			response: "Something went wrong, try again!",
+			success: false,
+		});
+	} else {
+		res.status(200).json({
+			response: randomBook,
+			success: true,
+		});
+	}
+});
+
 // search by isbn or isbn13 number
 app.get("/books/isbn/:isbn", (req, res) => {
 	const isbn = req.params.isbn;
@@ -77,23 +89,6 @@ app.get("/books/:id", (req, res) => {
 	const id = req.params.id;
 	const filteredID = data.filter((item) => item.bookID === +id);
 	res.json(filteredID);
-});
-
-//endpoint with random book
-app.get("/randomBook", (req, res) => {
-	let randomBook = data[Math.floor(Math.random() * data.length)];
-
-	if (!randomBook) {
-		res.status(404).json({
-			response: "Something went wrong, try again!",
-			success: false,
-		});
-	} else {
-		res.status(200).json({
-			response: randomBook,
-			success: true,
-		});
-	}
 });
 
 // Start the server

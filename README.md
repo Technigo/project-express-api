@@ -1,13 +1,15 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was about creating API endpoint with express from a database which
+is to be found as a json file in the data-folder.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started out with the bookID, and then continued to the areas where I think a
+user would like to search for result. One is for searching title, authors and
+language and another one is for isbn and/or isbn13. I also created a random
+endpoint which returns one random book.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://api-books-technigo.herokuapp.com/
