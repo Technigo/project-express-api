@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable spaced-comment */
 /* eslint-disable indent */
 /* eslint-disable no-const-assign */
 /* eslint-disable no-console */
@@ -29,15 +31,15 @@ app.use(express.json());
 // Start defining your routes here
 
 app.get('/', (req, res) => {
-  const { season, title, desc, imdb_rating, original_air_date } = req.query;
+  const { title, desc, imdb_rating, original_air_date } = req.query;
 
   let theOfficeDataToSend = theOfficeData;
 
-  if (season) {
-    theOfficeDataToSend = theOfficeDataToSend.filter(
-      item => item.season.toString().indexOf(season.toString()) !== -1
-    ); // make the string not case sensitive
-  }
+  // if (season) {
+  //   theOfficeDataToSend = theOfficeDataToSend.filter(
+  //     item => item.season.toString().indexOf(season.toString()) !== -1
+  //   ); // make the string not case sensitive
+  // }
 
   if (title) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
@@ -53,8 +55,12 @@ app.get('/', (req, res) => {
   if (imdb_rating) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
       // eslint-disable-next-line camelcase
-      item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) !== -1
+      item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) === 0
     );
+  }
+
+  if (!imdb_rating) {
+    res.status(404).send('no rating included');
   }
 
   if (original_air_date) {
@@ -72,31 +78,21 @@ app.get('/', (req, res) => {
   // });
 });
 
-// app.get('/songs/:title', (req, res) => {
-//   const { title } = req.params;
+app.get('/season/:season', (req, res) => {
+  //:index is called path params, javaScript reads fundings/:index like fundings/"there will be a parameter here" and not actual "index"
+  const { season } = req.params;
 
-//   const songId = theOfficeData.find(item => item.title === title);
+  const officeSeason = theOfficeData.find(
+    seasonNumber => seasonNumber.season === +season
+  ); // the plus converts the index into a number from a string
 
-//   if (!songId) {
-//     console.log('no title found');
-//     res.status(404).send('No song found with that title');
-//   } else {
-//     res.json(songId);
-//   }
-// });
-
-// app.get('/songs/bpm/:bpm', (req, res) => {
-//   const { bpm } = req.params;
-
-//   const nameOfArtist = topMusicData.find(artist => artist.bpm === +bpm);
-
-//   if (!nameOfArtist) {
-//     console.log('no artist found');
-//     res.status(404).send('No artist found with that name');
-//   } else {
-//     res.json(nameOfArtist);
-//   }
-// });
+  if (!officeSeason) {
+    console.log('No company found');
+    res.status(404).send('No company found with that index');
+  } else {
+    res.json(season);
+  }
+});
 
 // Start the server
 app.listen(port, () => {
