@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import express from "express";
 import cors from "cors";
 import listEndpoints from "express-list-endpoints";
@@ -39,7 +40,8 @@ app.get("/songs/index/:index", (req, res) => {
 app.get("/songs/title/:title", (req, res) => {
   const { title } = req.params;
   const songName = swiftData.find(
-    (song) => song.name.toLowerCase() === title.toLowerCase()
+    (song) =>
+      song.name.toString().toLowerCase() === title.toString().toLowerCase()
   );
   if (!songName) {
     res.status(404).send("No song found by that name, try again");
