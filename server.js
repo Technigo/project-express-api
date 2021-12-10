@@ -23,12 +23,13 @@ app.use(bodyParser.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('I have forked and installed npm')
-})
-
-app.get('/endpoints', (req, res) => {
+  res.send('Welcome to my first backend')
   res.send(listEndpoints(app))
 })
+
+// app.get('/endpoints', (req, res) => {
+//   res.send(listEndpoints(app))
+// })
 
 app.get('/top', (req, res) => {
   res.json(topMusicData)
@@ -48,7 +49,4 @@ app.get('/top/:id', (req, res) => {
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(
-    `Server running on http://localhost:${port} its working now right`
-  )
 })
