@@ -31,17 +31,18 @@ app.get("/books", (req, res) => {
   res.json(booksData);
 });
 
-app.get("/books/id/:id ", (req, res) => {
+app.get("/books/:id", (req, res) => {
   const { id } = req.params;
-
+  console.log(id);
   const idOfBooks = booksData.find((book) => book.bookID === +id);
   if (!idOfBooks) {
     console.log(`NO books found`);
+    res.status(404).send("Sorry there is no book with that Id");
   } else {
     res.json(idOfBooks);
   }
 });
-öflsödlkaöldkaö;
+
 // app.get("/book/:title", (req, res) => {
 //   const title = req.params.title;
 //   const showTitle = req.query.title;
