@@ -15,37 +15,41 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const users = [
-  { id: 1, name: "Alice", age: 33 },
-  { id: 2, name: "Bob", age: 18 },
-  { id: 3, name: "Chris", age: 45 },
-  { id: 4, name: "Eddie", age: 29 },
-];
-
 // Start defining your routes here
+// app.get("/", (req, res) => {
+//   res.send("Hello world");
+// });
+
+// app.get("/netflix", (req, res) => {
+//   res.json(netflixData);
+// });
+
 app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+  const { title, release_year } = req.query;
+  let netflixDataToSend = netflixData;
 
-app.get("/users", (req, res) => {
-  res.json(users);
-});
-
-app.get("/netflix", (req, res) => {
-  res.json(netflixData);
-});
-
-app.get("/netflix/:title", (req, res) => {
-  const { title } = req.params;
-
-  const movieTitle = netflixData.find(movie => movie.title === +title);
-
-  if (!movieTitle) {
-    res.status(404).send("No movie found with that name");
-  } else {
-    res.json(movieTitle);
+  // Gives the front-end the possibility to search for a movie title
+  if (title) {
+    netflixDataToSend = netflixDataToSend.filter(
+      item => item.title.toLowerCase().indexOf(title.toLowerCase()) === 0
+    );
   }
+
+  // Gives the front-end the possibility to search for a release year
+  if (release_year) {
+    netflixDataToSend = netflixDataToSend.filter(
+      item =>
+        item.release_year.toString().indexOf(release_year.toString()) !== -1
+    );
+  }
+  res.json(netflixDataToSend);
 });
+
+//   if (!movieTitle) {
+//     res.status(404).send("No movie found with that name");
+//   } else {
+//     res.json(movieTitle);
+//   }
 
 // Start the server
 app.listen(port, () => {
