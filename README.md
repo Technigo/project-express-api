@@ -1,13 +1,14 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The task was to creat a simple API that would return data from a local file
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created two separate end points. One that retuns a list of all the books and another that return a info about a specific book based on ID.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+I created a simple frontend, I used the opportunity to refresh my knowldege about Redux store setup, BrowserRouter and REdux thunks.
+The front end can be found here: https://listofsomebooks.netlify.app/
+The sever was deployed on Horoku and the main end point is: 
+https://critics-might-say.herokuapp.com/books
