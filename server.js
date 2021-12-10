@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import data from "./data/oscars.json";
+import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -9,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Pagination so that each page shows 100 nominations per page and a query param to be able to swap page.
 app.get("/", (req, res) => {
   let page = req.query.page;
   if (!page) {
@@ -20,12 +21,20 @@ app.get("/", (req, res) => {
   res.json(filteredData);
 });
 
+// This gets all the endpoints of the app
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+// Get all of the winners in all categorys and also enables a query param which sorts after category.
 app.get("/winners", (req, res) => {
-  const filteredByWinners = data.filter((item) => item.winner === "TRUE");
+  const filteredByWinners = data.filter(
+    (item) => item.winner.toLowerCase() === "true"
+  );
   const categoryFilter = req.query.category;
   const filteredWinnersByCategory = filteredByWinners.filter((item) => {
     if (categoryFilter) {
-      return item.category === categoryFilter;
+      return item.category.toLowerCase() === categoryFilter.toLowerCase();
     } else {
       return true;
     }
@@ -35,14 +44,18 @@ app.get("/winners", (req, res) => {
 
 app.get("/id/:id", (req, res) => {
   const id = req.params.id;
-  const findByItem = data.find((item) => item.id === +id);
+  const findByItem = data.find((item) => item.id.toLowerCase() === +id);
 
   if (findByItem) {
-    res.json(findByItem);
+    res.status(200).json({
+      response: findByItem,
+      success: true,
+    });
   } else {
-    res
-      .status(404)
-      .send("No nominations found by that id, please try another!");
+    res.status(404).json({
+      response: "No nominations found by that id, please try another!",
+      success: false,
+    });
   }
 });
 
