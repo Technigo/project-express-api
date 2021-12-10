@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import goldenGlobesData from "./data/golden-globes.json";
+import listEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -15,7 +16,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(goldenGlobesData);
+  res.send(listEndpoints(app));
 });
 
 app.get("/winners", (req, res) => {
