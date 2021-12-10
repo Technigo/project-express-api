@@ -36,16 +36,16 @@ app.get('/songs', (req, res) => {
   }
   // if again! we can enter one, both or none of the if statements.
   // filtering the same results one more time
-  if (title) {
-    topMusicDataToSort = topMusicDataToSort.filter(
-      (item) => item.trackName.toLowerCase().indexOf(title.toLowerCase()) !== -1
-    );
-  }
-
   if (artist) {
     topMusicDataToSort = topMusicDataToSort.filter(
       (item) =>
         item.artistName.toLowerCase().indexOf(artist.toLowerCase()) !== -1
+    );
+  }
+
+  if (title) {
+    topMusicDataToSort = topMusicDataToSort.filter(
+      (item) => item.trackName.toLowerCase().indexOf(title.toLowerCase()) !== -1
     );
   }
 
