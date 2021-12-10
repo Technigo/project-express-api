@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 app.get("/genre/:genre", (req, res) => {
   const { genre } = req.params;
 
-  const genreTrack = musicData.filter((item) => item.genre === genre);
+  const genreTrack = musicData.filter((item) => item.genre === genre.toLowerCase());
 
   if (!genreTrack) {
     /* 404 - No success to get data */
