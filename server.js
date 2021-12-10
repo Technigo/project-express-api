@@ -63,7 +63,6 @@ app.get('/shows', (req, res) => {
   // creating this variable, because we will always return the same array to the user
   // note to me: it is my a currentQuestion variable from previous project?
   let arrayToSendToUser = netflixData
-  let queryFromUser = title
 
   // can i combine title, country and type into one if?
   if (title) {
@@ -80,20 +79,17 @@ app.get('/shows', (req, res) => {
     arrayToSendToUser = arrayToSendToUser.filter(
       (item) => item.country.toLowerCase().includes(country.toLowerCase()) 
     )
-    queryFromUser = country
   }
  
   if (type) {
     arrayToSendToUser = arrayToSendToUser.filter(
       (item) => item.type.toLowerCase().includes(type.toLowerCase()) 
     )
-    queryFromUser = type
   }
 
   if (year) {
     // "+" turns the string in to a number.
     arrayToSendToUser = arrayToSendToUser.filter((item) => item.release_year === +year)
-    queryFromUser = year
   }
 
   // PAGINATION
@@ -112,13 +108,22 @@ app.get('/shows', (req, res) => {
 
   // ERRORS
   if (arrayToSendToUser.length === 0) {
-    res.status(404).send(`Sorry, ${queryFromUser} doesn't exist.`)
+    res.status(404).json({
+      response: "This array is empty",
+      success: false
+    })
+  } else if (!title || !country || !type || !year || !page || !limit) {
+    res.status(404).json({
+      response: "Not found",
+      success: false
+    })
   }
 
   res.json({
     response: arrayToSendToUser,
     success: true
   });
+
 });
 
 // SECOND ENDPOINT 
