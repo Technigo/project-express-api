@@ -23,6 +23,7 @@ app.get('/endpoints', (req, res) => {
 // Testing the new way of things.
 app.get('/', (req, res) => {
   res.send('Hello! Here is Hedvigs first API! ✨ 🥑 🌲');
+  res.send('For more info 👉  https://github.com/HedvigM/project-express-api');
 });
 
 app.get('/users', (req, res) => {

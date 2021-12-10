@@ -16,4 +16,4 @@ This week i wanted to do do a bunch of routes to practice writing them. So i use
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://hedvigs-first-api.herokuapp.com
