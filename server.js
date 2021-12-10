@@ -32,14 +32,14 @@ app.get('/', (req, res) => {
     Routes: [{
       "/books_________________________": 'Get books.',
       "/books?title='title name'______": 'Get books with matching titles.',
-      "/books?authors='author name'___": 'Get books from specific author.',
+      "/books?author='author name'____": 'Get books from specific author.',
       "/books/id/'number'_____________": 'Get books with matching id.',
       "/books/isbn/'number'___________": 'Get books by unique ISBN nr.',
       "/books/pages/'number'__________": 'Get books with certain amount of pages.',
       "/books/language/eng____________": 'Get books written in english.',
       "/books/language/en-US__________": 'Get books written in US-english.',
       "/books/rating/'number'_________": 'Get books by rating, number = integer.',
-      "/books/endpoints_______________": 'Get API endpoints.'
+      "/endpoints_____________________": 'Get API endpoints.'
     }]
     
   }
