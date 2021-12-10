@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
+import documentation from './data/documentation.json'
 import recipes from './data/recipes.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be
@@ -30,8 +32,16 @@ const pagination = (data, pageNumber) => {
 
 // Start defining your routes here
 
-// get all recipes with '/recipes'
-// get all recipes from one author with '/recipes?author={req.query}'
+app.get('/', (req, res) => {
+  res.json(documentation)
+})
+
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app))
+})
+
+// get all recipes with '/recipes/?page=${page_no}'
+// get all recipes from one author with '/recipes/?author={req.query}&page=${page_no}'
 app.get('/recipes', (req, res) => {
   const showAuthorRecipes = req.query.author
   const page = parseInt(req.query.page)
@@ -50,6 +60,8 @@ app.get('/recipes', (req, res) => {
       res.send(`no recipes found by author ${showAuthorRecipes}`)
     }
   }
+
+  // do an if statement for page too??
 
   res.json({
     response: pagination(showAllRecipes, page),
