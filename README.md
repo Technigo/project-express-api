@@ -1,13 +1,24 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This is a backend project with a purpose to build an API with hardcoded data in a json-file. And create endpoints and using a RESTful approach. The Data used is data over netflix titles both movies and tv shows.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
+- /endpoints = a overview of the endpoints by imported express-list-endpoints
+- /netflix-titles = returning the whole array or data avalible
+- /netflix-titles/movies endpoint that returns only movie titles using filter
+- /netflix-titles/tvshows endpoint that returns only tvshow titles using filter
+- /netflix-titles/year/:year that makes it possible to search and filter the response total data array by a specific year
+- /netflix-titles/show_id/:show_id that makes it possible to find a specific movie or tv show based on a unique show id
+- /netflix-titles/title/:title that makes it possible to search for a title by a specific title through params
+- /netflix-titles?title={title of the movie} endpoint that makes it possible to search title through query
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## The production process
+
+- the main issue I had was mostly typos and tiny things missing when something did not work for me. I had to read a lot of times and often it was a / missing or something like that, but often I found it quite fast.
+- I did a lot of error tests typing in different things in the url
+- if I had more time I would create a pagination.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://emelies-express-api.herokuapp.com/
