@@ -19,7 +19,20 @@ app.use(bodyParser.json());
 // Start defining your routes here
 // app.get takes two arguments, first argument is path, second is a callbackfunction
 app.get("/", (req, res) => {
-  res.send("Avocaaaaaaatooooo 🥑");
+  const avocado = {
+    Welcome: "This is the Avocado 🥑 API",
+    Routes: [
+      {
+        "/avocado-sales": "Get avocado-sales",
+        "/avocado-sales/state/'state'":
+          "Get avocado-sales for a specific US state",
+        "/avocado-sales/id/'id'": "Get avocado-salesby id",
+
+        "/endpoints": "Get API endpoints",
+      },
+    ],
+  };
+  res.send(avocado);
 });
 
 // show user what endpoints we have, alternative: swagger.io
@@ -67,21 +80,9 @@ app.get("/avocado-sales", (req, res) => {
 //   res.json(nominationsFromYear);
 // });
 
-// app.get("/avocado-sales/id/:id", when starting to overlap some endpoints
-app.get("/avocado-sales/id/:id", (req, res) => {
-  const { id } = req.params;
-  const avocadoId = data.find((item) => item.id === +id);
-
-  if (!avocadoId) {
-    res.status(404).send("Incorrect id");
-  } else {
-    res.json(avocadoId);
-  }
-});
-
 //using find as the region is repeated in the data
-app.get("/avocado-sales/region/:region", (req, res) => {
-  const { region } = req.params;
+app.get("/avocado-sales/state/:state", (req, res) => {
+  const { state } = req.params;
   const { month } = req.query;
 
   let dataToSend = data;
@@ -91,7 +92,7 @@ app.get("/avocado-sales/region/:region", (req, res) => {
 
   if (!avocadoRegion.length) {
     res.status(404).json({
-      response: "No region found with that name",
+      response: "No state found with that name",
       success: false,
     });
     // }
@@ -105,6 +106,18 @@ app.get("/avocado-sales/region/:region", (req, res) => {
       response: avocadoRegion,
       success: true,
     });
+  }
+});
+
+// app.get("/avocado-sales/id/:id", when starting to overlap some endpoints
+app.get("/avocado-sales/id/:id", (req, res) => {
+  const { id } = req.params;
+  const avocadoId = data.find((item) => item.id === +id);
+
+  if (!avocadoId) {
+    res.status(404).send("Incorrect id");
+  } else {
+    res.json(avocadoId);
   }
 });
 
