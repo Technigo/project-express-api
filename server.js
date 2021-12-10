@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/endpoints', (req, res) => {
-  res.send(listEndpoints(app))
+  res.json(listEndpoints(app))
 })
 
 // get all recipes with '/recipes/?page=${page_no}'
@@ -57,7 +57,10 @@ app.get('/recipes', (req, res) => {
         -1
     )
     if (showAllRecipes.length < 1) {
-      res.send(`no recipes found by author ${showAuthorRecipes}`)
+      res.json({
+        response: `no recipes found by author ${showAuthorRecipes}`,
+        success: false,
+      })
     }
   }
 
@@ -98,17 +101,15 @@ app.get('/recipes/:name', (req, res) => {
   )
 
   if (!recipeDetails) {
-    res.status(404).send('recipe not found')
-    // res.status(404).json({
-    //   response: 'recipe not found',
-    //   success: false,
-    // })
+    res.status(404).json({
+      response: 'recipe not found',
+      success: false,
+    })
   } else {
-    res.json(recipeDetails)
-    // res.status(200).json({
-    //   response: recipeDetails,
-    //   success: true,
-    // })
+    res.status(200).json({
+      response: recipeDetails,
+      success: true,
+    })
   }
 })
 
@@ -123,7 +124,12 @@ app.get('/authors', (req, res) => {
   //   (author, index, self) => index === self.findIndex((a) => a === author)
   // )
 
-  res.json(uniqueAuthors)
+  // res.json(uniqueAuthors)
+
+  res.status(200).json({
+    response: uniqueAuthors,
+    success: true,
+  })
 })
 
 // Start the server
