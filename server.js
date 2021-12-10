@@ -149,12 +149,12 @@ app.get('/wines/tasters/:taster_name', (req, res) => {
 
 // Route to get wine by twitter usernames
 
-app.get('/wines/tasters/twitter/:taster_twitter_handle', (req, res) => {
-  const { taster_twitter_handle } = req.params 
+app.get('/wines/tasters/twitter/:twitter_name', (req, res) => {
+  const { twitter_name } = req.params 
 
   let wineByTaster = wineData
 
-  wineByTaster = wineByTaster.filter((item) => item.taster_twitter_handle?.toLowerCase().indexOf(taster_twitter_handle.toLowerCase()) !== -1 && item.taster_twitter_handle !== null)
+  wineByTaster = wineByTaster.filter((item) => item.taster_twitter_handle?.toLowerCase().indexOf(twitter_name.toLowerCase()) !== -1 && item.taster_twitter_handle !== null)
 
 
   if (!wineByTaster) {
@@ -205,7 +205,7 @@ app.get('/wines/countries/provinces/:province', (req, res) => {
 
   let wineByProvince = wineData
 
-  wineByProvince = wineByProvince.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1 && item.province !== null)
+  wineByProvince = wineByProvince.filter((item) => item.province?.toLowerCase().indexOf(province.toLowerCase()) !== -1 && item.province    !== null)
 
 
   if (!wineByProvince) {
