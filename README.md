@@ -1,3 +1,5 @@
+View an example of a frontend using this api at: https://github.com/Zancotti/project-express-api-oscars-
+
 # API DOCUMENTATION
 
 GET "/" - filters the list to show the whole list of nominations to the Oscars awards.
