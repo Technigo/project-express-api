@@ -42,9 +42,11 @@ app.get("/winners", (req, res) => {
   res.send(filteredWinnersByCategory);
 });
 
+// using path params and compare to find the item.id that is the same as the user sent in.
+// if the item is found I sent in success: true otherwise success is set to false and a fault message is sent out.
 app.get("/id/:id", (req, res) => {
   const id = req.params.id;
-  const findByItem = data.find((item) => item.id.toLowerCase() === +id);
+  const findByItem = data.find((item) => item.id === +id);
 
   if (findByItem) {
     res.status(200).json({
@@ -59,6 +61,7 @@ app.get("/id/:id", (req, res) => {
   }
 });
 
+// Filter by category with a path param. Set the category to and item.category to lower cases and replace " " with "".
 app.get("/category/:category", (req, res) => {
   const category = req.params.category;
   const filteredByCategory = data.filter((item) => {
@@ -70,6 +73,7 @@ app.get("/category/:category", (req, res) => {
   res.json(filteredByCategory);
 });
 
+// Filter by year with a path param.
 app.get("/ceremony/year/:year", (req, res) => {
   const year = req.params.year;
   const filteredByCeremonyYear = data.filter(
@@ -78,6 +82,7 @@ app.get("/ceremony/year/:year", (req, res) => {
   res.json(filteredByCeremonyYear);
 });
 
+// Filter by ceremony number with a path param.
 app.get("/ceremony/number/:number", (req, res) => {
   const number = req.params.number;
   const filteredByCeremonyNumber = data.filter(
@@ -86,6 +91,7 @@ app.get("/ceremony/number/:number", (req, res) => {
   res.json(filteredByCeremonyNumber);
 });
 
+// filter by year and category with path params.
 app.get("/winners/:year/:category", (req, res) => {
   const year = req.params.year;
   const category = req.params.category;
