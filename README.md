@@ -72,4 +72,5 @@ Chose from what year you want to collect Netflix-titles from
 
 Heroku backend: https://nameless-stream-30791.herokuapp.com/
 
-Want to try it out? This is the a front end that could be used to search for titles:
+Want to try it out? This is the a front end that could be used to search for titles and year:
+ajliin-first-backend.netlify.app
