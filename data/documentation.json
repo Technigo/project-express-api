@@ -4,7 +4,7 @@
       {
         "/endpoints_____________________________________": "GET endpoints",
         "/recipes/?page=${page_no}______________________": "GET all recipes with pagination",
-        "/recipes/?author=${author%20name}&page=${no}___": "GET all recipe(s) from author query params with pagination",
+        "/recipes/?author=${author%20name}&page=${no}___": "GET all recipe(s) with author query params and pagination",
         "/recipes/:name_________________________________": "GET data of one specific recipe. White space is replaced by an underscore, _.",
         "/authors_______________________________________": "GET list of all unique authors"
       }
