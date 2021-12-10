@@ -22,7 +22,7 @@ app.get('/endpoints', (req, res) => {
 
 // Testing the new way of things.
 app.get('/', (req, res) => {
-  res.send('Hello Hedvig ✨ 🥑 🌲');
+  res.send('Hello! Here is Hedvigs first API! ✨ 🥑 🌲');
 });
 
 app.get('/users', (req, res) => {

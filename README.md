@@ -1,12 +1,18 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This week I went backend and build my firstAPI!
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The week included
+
+- How to install and setup an Express server.
+- How to deploy Node projects.
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week i wanted to do do a bunch of routes to practice writing them. So i used two different data-sets, just to be able to make some more routes. If i had more time i would for sure make the pagination and also incorporate the beer-data-set i found on kaggle. It would be nice to also make a frontend to present the data.
 
 ## View it live
 
