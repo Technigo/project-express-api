@@ -179,6 +179,19 @@ app.get('/lang/:lang', (req, res) => {
   }
 })
 
+/**
+ * @swagger
+ * /post:
+ *   post:
+ *     summary: Returns request body as json
+ *     parameters:
+ *      - name: body
+ *        in: body
+ *        required: false
+ *     responses:
+ *       200:
+ *         description: OK.
+ */
 app.post('/post', (req, res) => {
   const { body } = req
   res.json(body)
