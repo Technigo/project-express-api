@@ -17,7 +17,7 @@ app.use(express.json())
 // First endpoint 
 // The app.get method takes two arguments - the path and a call back function, which can be used by the frontend.
 app.get('/', (req, res) => {
-  res.send('This is an API with book rating data')
+  res.send('This is an API with data about books. All endpoints are listed here: https://express-deployment-kim.herokuapp.com/endpoints')
 })
 
 // A list of all endpoints
