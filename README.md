@@ -8,5 +8,13 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 I firstly created my own Nobel Prize-based json data by using Kaggle.com to find an appropriate dataset and then converting the csv data into Json. This data 
 
+
+I was also able to create a frontend!
 ## View it live
+
+The backend can be viewed here...
+https://kh-nobelprize-api.herokuapp.com/
+
+
+The front-end can be viewed here
 
