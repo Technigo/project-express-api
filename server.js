@@ -1,15 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
 import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -62,11 +55,28 @@ app.get('/countries/:country', (req, res) => {
   } 
 })
 
-// route provides all movies
+// route provides all movies and has the possibility to query for director, year and actor
 app.get('/movies', (req, res) => {
+  const { director, year, actor } = req.query
+
   const movies = netflixData.filter(item => item.type === "Movie")
+
+  let filteredMovies = movies
+
+  if (director) {
+    filteredMovies = filteredMovies.filter((item) => item.director.toLowerCase().includes(director.toLowerCase()) === true)
+  }
+
+  if (year) {
+    filteredMovies = filteredMovies.filter((item) => item.release_year === +year)
+  }
+
+  if (actor) {
+    filteredMovies = filteredMovies.filter(item => item.cast.toLowerCase().includes(actor.toLowerCase()) === true)
+  }
+
   res.json({
-    response: movies,
+    response: filteredMovies,
     success: true
   })
 })
@@ -101,9 +111,12 @@ app.get('/movies/title/:title', (req, res) => {
   } else {
     res.json({
       response: movie,
-      success: true})
+      success: true
+    })
   }
 })
+
+
 
 // Start the server
 app.listen(port, () => {
