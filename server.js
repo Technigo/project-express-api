@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import cors from 'cors';
 import netflixData from './data/netflix-titles.json';
 import listEndpoints from 'express-list-endpoints';
@@ -18,7 +18,9 @@ app.use(express.json());
 
 //root endpoint
 app.get('/', (req, res) => {
-	res.send('Hello World');
+	res.send(
+		"Hello World ✨, welcome to Madelene's Netflix shows API - see this API live at 👉: https://mt-dotse-netflix-titles.netlify.app/ "
+	);
 });
 
 //showing all the possible enpoints in the app
@@ -31,6 +33,12 @@ app.get('/endpoints', (req, res) => {
 // query params to filter and get collections of results
 app.get('/shows', (req, res) => {
 	const { type, country, release, cast, genre, director } = req.query;
+
+	//variables for pagination
+	const page = parseInt(req.query.page);
+	const limit = parseInt(req.query.limit);
+	const startIndex = (page - 1) * limit;
+	const endIndex = page * limit;
 
 	let netflixShowsToSend = netflixData;
 
@@ -71,6 +79,11 @@ app.get('/shows', (req, res) => {
 		);
 	}
 
+	//pagination
+	if (page + limit) {
+		netflixShowsToSend = netflixShowsToSend.slice(startIndex, endIndex);
+	}
+
 	res.json({
 		response: netflixShowsToSend,
 		success: true,
@@ -85,7 +98,7 @@ app.get('/id/:id', (req, res) => {
 
 	if (!uniqueShowID) {
 		res.status(404).json({
-			response: 'No shows/movies found with that ID',
+			response: `No shows/movies with ID ${id} found`,
 			success: false,
 		});
 	} else {
@@ -96,16 +109,16 @@ app.get('/id/:id', (req, res) => {
 	}
 });
 
-//endpoint to find a single title
+//endpoint to find a specific title
 app.get('/title/:title', (req, res) => {
 	const { title } = req.params; //get data from the variable
 	const titleName = netflixData.find(
-		(item) => item.title.toLowerCase() === title
+		(item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
 	);
 
 	if (!titleName) {
 		res.status(404).json({
-			response: 'No title found with that name',
+			response: `The title ${title} can not be found :/`,
 			success: false,
 		});
 	} else {
@@ -114,7 +127,6 @@ app.get('/title/:title', (req, res) => {
 			success: true,
 		});
 	}
-	res.json(titleName);
 });
 
 // Start the server
