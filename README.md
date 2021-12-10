@@ -1,13 +1,30 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is my first project setting up an Express server and creating an API that handles a dataset of Netflix-shows.
 
 ## The problem
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
+I started by analyzing the given Netflix-dataset and thinking about how I want to structure the routes, I will provide. I went for the following: 
+'/' - start
+'/endpoints' - provides all endpoints
+'/countries' - provides a sorted list of all countries that are in netflixData
+'/countries/:country' - route with all shows (both movies and other) from the provided country
+'/movies' - provides all movies and has the possibility to query for director, year and actor. You can also do pagination by setting page & limit as query parameters
+'/movies/id/:id' - provides one movie by ID
+'/movies/title/:title' - provides movies by name (can return more than one movie, if the provided parts of the title match with several movies)
+
+Learnings:
+- How to install and setup an Express server.
+- How to deploy Node projects.
+- How to build an API in Node using Express
+- How to create routes in Express
+- Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+- Practice pagination
+- using req.params and req.query
+- HTTP status codes
+
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Visit my project: https://nehrwein-netflix-api.herokuapp.com/
