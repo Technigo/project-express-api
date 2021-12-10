@@ -26,10 +26,10 @@ app.use(express.json())
 // Start defining your routes here. 
 // The app.get method takes two arguments - the path and a call back function, which can be used by the frontend.
 app.get('/', (req, res) => {
-  res.send('This is a RestfulAPI with book ratings data')
+  res.send('This is an API with book rating data')
 })
 
-// A list of all books with all data (from json file)
+// Endpoint for all books, with all data (from json file)
 app.get('/books', (req, res) => {
   res.json(booksData)
 })
@@ -45,7 +45,20 @@ app.get('/books/:id', (req, res) => {
   } else {
     res.json(book)
   }
+})
 
+// Endpoint for all authors, in alpabetical order
+app.get('/books/authors/:authors/', (req, res) => {
+
+  const allAuthors = booksData.map(item => item.authors).sort()
+  res.json(allAuthors)
+})
+
+// Endpoint for all book titles, in alpabetical order
+app.get('/books/title/:title/', (req, res) => {
+
+  const allTitles = booksData.map(item => item.title).sort()
+  res.json(allTitles)
 })
 
 // Start the server
