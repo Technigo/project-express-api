@@ -32,7 +32,7 @@ app.get('/winners', (req, res) => {
 })
 
 // list all winners from a particular year
-app.get('/year/:year', (req, res)=> {
+app.get('/winners/year/:year', (req, res)=> {
 const { year } = req.params // we can get the value of the year from the url and store as a variable
 const winnersFromYear = nobelPrizeWinners.filter((item)=> item.year=== +year) // use the year to filter array, the 
 if(winnersFromYear.length === 0){
@@ -44,7 +44,7 @@ if(winnersFromYear.length === 0){
 })
 
 //fetches category winners from input into url
-app.get ('/category/:category', (req, res) => {
+app.get ('/winners/category/:category', (req, res) => {
   const { category } = req.params
   const categoryWinners = nobelPrizeWinners.filter((item)=>item.category === category)
   
@@ -52,7 +52,7 @@ app.get ('/category/:category', (req, res) => {
 })
 
 // fetches any winner from any category and any year
-app.get ('/category/:category/year/:year', (req, res) =>{
+app.get ('/winners/category/:category/year/:year', (req, res) =>{
   const { year } = req.params
   const { category } = req.params
 
@@ -67,7 +67,7 @@ app.get ('/category/:category/year/:year', (req, res) =>{
 })
 
 // here we can search for any surname to see if it is a Nobel-prize recipient
-app.get('/surname/:surname', (req,res) => {
+app.get('/winners/surname/:surname', (req,res) => {
   const { surname }= req.params
   const winnerName = nobelPrizeWinners.find(winner => winner.surname.toLowerCase() === surname.toLowerCase())
   if (!winnerName) {
