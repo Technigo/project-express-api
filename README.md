@@ -1,6 +1,6 @@
 # Express API Project
 
-A basic Netflix API built with Heruko and Express. 
+A basic Netflix API built with Heroku and Express. 
 
 ## View it live
 
