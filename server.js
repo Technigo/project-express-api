@@ -3,7 +3,6 @@ import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 import netflixData from './data/netflix-titles.json'
 
-
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
@@ -17,10 +16,13 @@ app.use(express.json())
 
 // Start defining routes here
 app.get('/', (req, res) => {
-  res.send('Welcome to my API. You can find some selected Netlify-data here<br>For available endpoints go to /endpoints<br>On /movies you can query for year, director and actor')
+  res.send({
+    title: "Welcome to my Netflix API",
+    description: "https://documenter.getpostman.com/view/18068162/UVR4PW9m"
+  })
 })
 
-//route provides all endpoints
+// route provides all endpoints
 app.get('/endpoints', (req, res) => {
   res.json({
     response: listEndpoints(app),

@@ -22,9 +22,11 @@ Learnings:
 - Practice pagination
 - using req.params and req.query
 - HTTP status codes
+- API documentation with Postman
 
 If I would have more time, I'd build a frontend.
 
 ## View it live
 
 Visit my project: https://nehrwein-netflix-api.herokuapp.com/
+Read the documentation: https://documenter.getpostman.com/view/18068162/UVR4PW9m
