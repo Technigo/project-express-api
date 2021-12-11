@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import cors from "cors";
 
 /* Data - json-file */
@@ -39,7 +39,9 @@ app.get("/", (req, res) => {
 app.get("/genre/:genre", (req, res) => {
   const { genre } = req.params;
 
-  const genreTrack = musicData.filter((item) => item.genre === genre.toLowerCase());
+  const genreTrack = musicData.filter(
+    (item) => item.genre === genre.toLowerCase()
+  );
 
   if (!genreTrack) {
     /* 404 - No success to get data */
@@ -71,39 +73,29 @@ app.get("/artist/:artist", (req, res) => {
   /* Check if track is choosen */
 
   if (track) {
+    /* filter artists tracks to find one specific song*/
     let nameArtistTrack = nameArtist.find(
       (item) => item.trackName.toLowerCase() === track.toLowerCase()
     );
 
-    if (!track) {
-      res.status(404).json({
-        /* 404 - No success to get data */
-        response: "404 Not Found",
-        success: false
-      });
-    } else {
-      /* 200 - success to get data, gives back searched track(one object due to find filtration of nameArtist) from an artists tracklist*/
-      res.status(200).json({
-        response: nameArtistTrack,
-        success: true
-      });
-    }
+    /* 200 - success to get data, gives back searched track(one object due to find filtration of nameArtist) from an artists tracklist*/
+    res.status(200).json({
+      response: nameArtistTrack,
+      success: true
+    });
+  } else if (artist) {
 
-    /* If no track is search, only artist */
-  } else {
-    /* 404 - No success to get data */
-    if (!artist) {
-      res.status(404).json({
-        response: "404 Not Found",
-        success: false
-      });
-    } else {
-      /* 200 - success to get data, all tracks/other info from an artist*/
-      res.status(200).json({
-        response: nameArtist,
-        success: true
-      });
-    }
+  /*  if only artist is choosen */
+    /* 200 - success to get data, all tracks/other info from an artist*/
+    res.status(200).json({
+      response: nameArtist,
+      success: true
+    });
+  } /*  404 - No success to get data from server, artist or track  */ else {
+    res.status(404).json({
+      response: "404 Not Found",
+      success: false
+    });
   }
 });
 
