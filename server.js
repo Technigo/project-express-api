@@ -18,7 +18,7 @@ app.use(express.json())
 // List all winners, and then as query, can return all female winners
 
 app.get('/', (req, res) => {
- res.send('Welcome to Karas list of Nobel-prize winners')
+ res.send('Welcome to Karas list of Nobel-prize winners, add "/winners" to see all winners')
 })
 
 
