@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was made as a Week 17 project for Technigo bootcamp. The goal was to build our first API practicing data manipulation in JavaScript - selecting, filtering and limiting arrays and using Express. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week was all about backend and I learned how to install and setup an Express server and create routes in Express. My API has severa RESTful endpoints which returns an array of books data, a single book by ID and an array of books that corresponds the request of filters via query parameters (popular books with query top=n amount, quick reads book and search filter with author/title query params). I also added pagination ('pages') using .slice() to return only a selection of results from the array.
+Thanks to Heroku, it was quite easy to deploy this node project.
+If I had more time, I would build documentation with Swagger, because I've done it with express-list-endpoints package. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://books-api-backend.herokuapp.com/ 
