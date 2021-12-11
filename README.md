@@ -9,4 +9,4 @@ I had some problems with filtering my query params, because not all objects were
 ## View it live
 
 Heroku: https://mattssons-api.herokuapp.com/
-Netlify: top-ranked-snes.netlify.app
+Netlify: https://top-ranked-snes.netlify.app
