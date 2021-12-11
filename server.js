@@ -74,6 +74,7 @@ app.get('/shows', (req, res) => {
       (item) => item.title.toLowerCase().includes(title.toLowerCase()) 
     )
   }
+  console.log(title)
 
   if (country) {
     arrayToSendToUser = arrayToSendToUser.filter(
@@ -112,18 +113,12 @@ app.get('/shows', (req, res) => {
       response: "This array is empty",
       success: false
     })
-  } else if (!title || !country || !type || !year || !page || !limit) {
-    res.status(404).json({
-      response: "Not found",
-      success: false
-    })
-  }
+  } 
 
   res.json({
     response: arrayToSendToUser,
     success: true
   });
-
 });
 
 // SECOND ENDPOINT 
