@@ -1,13 +1,12 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I created my own API with restful routes and query params. Then I made a simple frontend site with that API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had some problems with filtering my query params, because not all objects were strings from the begining, so I needed to convert everything to a string to be able to filter them out.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Heroku: https://mattssons-api.herokuapp.com/
+Netlify: top-ranked-snes.netlify.app
