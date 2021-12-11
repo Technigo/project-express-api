@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import artworksData from "./data/best-art.json"
+import artworksData from "./data/artworks2.json"
 import listEndpoints from "express-list-endpoints"
 
 // Best Artworks of All Time
@@ -8,6 +8,7 @@ import listEndpoints from "express-list-endpoints"
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
+//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
@@ -19,22 +20,24 @@ app.use(express.json())
 // Start defining the routes here
 app.get("/", (req, res) => {
   const DarkSide = {
-    Welcome: "Hello! This be an Open API for the Best Artworks of All Time ",
+    Welcome: "Hello! This be an Open API fo Best Artworks of All Time ",
     Routes: [
       {
-        "/artworks_____________________________": "Get artworks.",
-        "/artworks/id/'number'_________________":
-          "Get artworks with matching id.",
-        "/artworks?name='artist name'__________":
+        "/artworks_________________________": "Get artworks.",
+        "/artworks?name='artist name'______":
           "Get artworks with matching titles.",
-        "/artworks/?genre='genre'______________": "Get artworks by genre.",
-        "/artworks/?nationality='nationality'__":
-          "Get artworks by the artist's nationality.",
-        "/endpoints____________________________": "Get API endpoints.",
+        "/artworks?author='author name'____":
+          "Get artworks from specific author.",
+        "/artworks/id/'number'_____________": "Get artworks with matching id.",
+        "/artworks/isbn/'number'___________": "Get artworks by unique ISBN nr.",
+        "/artworks/pages/'number'__________":
+          "Get artworks with certain amount of pages.",
+
+        "/endpoints_____________________": "Get API endpoints.",
       },
     ],
   }
-  res.send(DarkSide)
+  res.send(hello)
 })
 
 // get a list of artists by querying their names, genre and nationality  (from json file)
@@ -78,7 +81,7 @@ app.get("/endpoints", (req, res) => {
 // Endpoint to get artworks by id number - with path params approach
 app.get("/artworks/id/:id", (req, res) => {
   const { id } = req.params
-  let showId = artworksData.find((item) => item.id === +id)
+  let showId = artworksData.find((item) => item.PageId === +id)
 
   if (!showId) {
     res.status(404).send(`sorry, no art found with id number ${id}`)
@@ -91,7 +94,7 @@ app.get("/artworks/id/:id", (req, res) => {
 app.get("/artworks/name/:name", (req, res) => {
   const { name } = req.params
 
-  const artistByName = artworksData.find((item) => item.name === name)
+  const artistByName = artworksData.find((item) => item.Artist === name)
 
   if (!artistByName) {
     res.status(404).json({
