@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import netflixTitles from './data/netflix-titles.json'
+import listEndpoints from 'express-list-endpoints'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -25,7 +26,7 @@ app.use(express.json())
 // Start defining your routes here
 // This is your first endpoint
 app.get('/', (req, res) => {
-  res.send('Hello beautiful winter world')
+  res.send(listEndpoints(app))
 })
 
 // get a list of movies from netflix
@@ -40,7 +41,7 @@ app.get('/movies/:id', (req, res) => {
   const showId = netflixTitles.find(show => show.show_id === +id)
 
     if (!showId) {
-      res.status(404).send('no movie found with that ID')
+      res.status(404).send('No movie found with that ID')
     } else {
       res.json(showId)
     }
