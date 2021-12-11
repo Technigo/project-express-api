@@ -1,6 +1,7 @@
 import express from "express";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -27,11 +28,16 @@ app.get("/", (req, res) => {
   res.send("Hello YAY");
 });
 
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
 app.get("/books", (req, res) => {
   res.json(booksData);
 });
 
-app.get("/books/:id", (req, res) => {
+// path param //
+app.get("/books/id/:id", (req, res) => {
   const { id } = req.params;
   console.log(id);
   const idOfBooks = booksData.find((book) => book.bookID === +id);
@@ -43,11 +49,29 @@ app.get("/books/:id", (req, res) => {
   }
 });
 
+app.get("/books/title/:title", (req, res) => {
+  const { title } = req.params;
+  const TitleOfBooks = booksData.find((item) => item.title === title);
+  if (!TitleOfBooks) {
+    console.log(`NO books found`);
+    res.status(404).json({
+      response: " No book title find with that name",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: TitleOfBooks,
+      success: true,
+    });
+  }
+});
+
+//  query param //
 // app.get("/book/:title", (req, res) => {
 //   const title = req.params.title;
 //   const showTitle = req.query.title;
-//   // console.log(showWon);
-//   let TitleOfBooks = data.filter((item) => item.title === +title);
+
+//   let TitleOfBooks = showTitle.filter((item) => item.title === +title);
 
 //   if (title) {
 //     TitleOfBooks = TitleOfBooks.filter((item) => item.title);
