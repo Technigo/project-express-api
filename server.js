@@ -15,7 +15,7 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Music ❤️ 50 popular Spotify tracks')
+  res.send(topMusicData)
 })
 
 app.get('/endpoints', (req,res) => {
