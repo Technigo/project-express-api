@@ -17,8 +17,8 @@ app.use(express.json())
 // Start defining routes here
 app.get('/', (req, res) => {
   res.send({
-    title: "Welcome to my Netflix API",
-    description: "https://documenter.getpostman.com/view/18068162/UVR4PW9m"
+    Welcome: "Welcome to my Netflix API",
+    documentation: "https://documenter.getpostman.com/view/18068162/UVR4PW9m"
   })
 })
 
