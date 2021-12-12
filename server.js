@@ -28,7 +28,7 @@ app.get('/endpoints', (req,res) => {
 
 
 app.get('/tracks', (req, res) => {
-  const { artistname, trackname, popularity } = req.query
+  const { artistname, trackname, genre } = req.query
 
   let topMusicDataToSend = topMusicData
 
@@ -41,6 +41,12 @@ app.get('/tracks', (req, res) => {
   if (trackname) {
     topMusicDataToSend = topMusicDataToSend.filter(
       (item) => item.trackName.toLowerCase().indexOf(trackname.toLowerCase()) !== -1
+      )
+  }
+
+  if (genre) {
+    topMusicDataToSend = topMusicDataToSend.filter(
+      (item) => item.genre.toLowerCase().indexOf(genre.toLowerCase()) !== -1
       )
   }
 
