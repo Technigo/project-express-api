@@ -1,19 +1,27 @@
 # Express API Project
 
-Replace this readme with your own information about your project.
+Project was to create an API backend using Express and RESTful endpoints.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Express server
+Deployed Node project
+Routes created in Express
+Data manipulationg with JavaScript functions
 
 ## View it live
 
 https://express-api-avocado.herokuapp.com/
 
-## Description
+Routes: [
+{
+"/avocado-sales": "Get avocado-sales",
 
-GET/avocado-salea
+        "/avocado-sales/state/'state'":
+          "Get avocado-sales for a specific US state",
 
-app.get('/students', (req, res) => { // get all students})
+        "/avocado-sales/id/'id'": "Get avocado-salesby id",
+
+        "/endpoints": "Get API endpoints",
+      },
+    ],
