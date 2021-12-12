@@ -22,10 +22,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/endpoints', (req, res) => {
-  res.json(listEndpoints(app));
-});
-
 // Start defining your routes here
 
 app.get('/', (req, res) => {
