@@ -23,7 +23,9 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-	res.send('Try an endpoint to fetch something!😀');
+	res.send(
+		'Try an endpoint to fetch something!😀 Try /avocado OR avocados/id/1'
+	);
 });
 
 app.get('/avocado', (req, res) => {
