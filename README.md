@@ -1,13 +1,11 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The aim of the project was to create my first RESTful API using Node in Express. This API have series of endpoints which return both an array of data or a single object. In order to create the different enpoints I used javascript methods such as: find(), filter(), and slice(). To show the the API in use, I created a single frontend. Overall a great learning experience to have built both the backend and frontend.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+You can view my app live here: https://mt-dotse-netflix-titles.netlify.app/
+
+Repo for the Backend API: https://github.com/MT-dotse/project-express-api
+
+API is live in Heroku here: https://mtdose-netflix-shows.herokuapp.com/
