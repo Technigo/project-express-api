@@ -17,7 +17,6 @@ I used a hard-coded set of data about avocado sales and average prices from a se
 "/avocadosales/date/:date" = Filters data based on date
 "/avocadosales/id/:id" = Finds a specific avocado sale based on id
 
-
 If I had more time I would also use .slice() to limit the items returned for the average prices (for example only showing the 10 lowest/highest average prices). I would also use queries to make the handling of data more advanced.
 
 ## View it live
