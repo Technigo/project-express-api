@@ -1,14 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import booksData from './data/books.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -23,7 +16,24 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.send('This is a backend to show the most famous books')
+})
+
+//to see all books
+app.get('/books', (req, res) => {
+  res.json(booksData)
+})
+
+//to see a book with a specific id
+app.get('/books/:bookID', (req, res) => {
+  const bookID = req.params
+  const showBookID = booksData.filter((item) => item.bookID === +bookID)
+
+  if (!showBookID) {
+    res.status(404)
+  } else {
+    res.json(showBookID)
+  }
 })
 
 // Start the server
