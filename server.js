@@ -41,18 +41,7 @@ app.get('/books', (req, res) => {
 
   // Sorting books by title
   const { title } = req.params
-  booksData.sort((a, b) => {
-    let titleA = a.title.toLowerCase(),
-      titleB = b.title.toLowerCase()
-
-    if (titleA < titleB) {
-      return -1
-    }
-    if (titleA > titleB) {
-      return 1
-    }
-    return 0
-  })
+  booksData.sort((a, b) => (a.title > b.title ? 1 : -1)) // Sorting for string values
 
   results.results = booksData.slice(startIndex, endIndex)
 
