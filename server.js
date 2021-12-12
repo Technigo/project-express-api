@@ -22,22 +22,33 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/endpoints', (req, res) => {
+  res.json(listEndpoints(app));
+});
+
 // Start defining your routes here
 
 app.get('/', (req, res) => {
-  const { season, title, desc, imdb_rating, original_air_date } = req.query;
+  const { season, title, desc, imdb_rating, original_air_date, episode_num } =
+    req.query;
 
   let theOfficeDataToSend = theOfficeData;
 
   if (season) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
       item => item.season.toString().indexOf(season.toString()) !== -1
+    ); // make the string not case sensitive, the 0 makes sure it only shows results that STARTS with the number
+  }
+
+  if (episode_num) {
+    theOfficeDataToSend = theOfficeDataToSend.filter(
+      item => item.episode_num.toString().indexOf(episode_num.toString()) === 0
     ); // make the string not case sensitive
   }
 
   if (title) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
-      item => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+      item => item.title.toLowerCase().indexOf(title.toLowerCase()) === 0
     );
   }
 
@@ -46,15 +57,12 @@ app.get('/', (req, res) => {
       item => item.desc.toLowerCase().indexOf(desc.toLowerCase()) !== -1
     );
   }
+
   if (imdb_rating) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
       item => item.imdb_rating.toString().indexOf(imdb_rating.toString()) === 0
     );
   }
-
-  // if (!imdb_rating) {
-  //   res.status(404).send('no rating included');
-  // }
 
   if (original_air_date) {
     theOfficeDataToSend = theOfficeDataToSend.filter(
@@ -62,7 +70,15 @@ app.get('/', (req, res) => {
     );
   }
 
-  res.json(theOfficeDataToSend);
+  if (theOfficeDataToSend.length === 0) {
+    res
+      .status(404)
+      .json(
+        "Sorry we couldn't find what you were looking for or it doesn't exist"
+      );
+  } else {
+    res.json(theOfficeDataToSend);
+  }
 });
 
 // Start the server
