@@ -14,7 +14,9 @@ app.use(express.json());
 
 // The different routes
 app.get("/", (req, res) => {
-  res.send("Hello from the backend (:(:");
+  res.send(
+    "Hello from the backend (:(: go to --> /endpoints to see the different routes"
+  );
 });
 
 app.get("/endpoints", (req, res) => {
