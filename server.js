@@ -27,7 +27,26 @@ app.get('/endpoints', (req, res) => {
 
 //to see all books
 app.get('/books', (req, res) => {
-  res.json(booksData)
+  const { title, isbn } = req.query
+
+  let booksDataToSend = booksData
+
+  if (title) {
+    booksDataToSend = booksDataToSend.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    )
+  }
+
+  if (isbn) {
+    booksDataToSend = booksDataToSend.filter(
+      (item) => item.isbn.indexOf(isbn) !== -1
+    )
+  }
+
+  res.json({
+    response: booksDataToSend,
+    success: true,
+  })
 })
 
 //to see a book with a specific id
@@ -51,6 +70,5 @@ app.get('/author/:authors', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
