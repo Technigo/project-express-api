@@ -39,6 +39,24 @@ app.get("/avocadosales", (req, res) => {
   res.json(avocadoSalesData);
 });
 
+// Sort by lowest average price
+app.get("/avocadosales/lowestaverageprice", (req, res) => {
+const ascendingAveragePrice = avocadoSalesData.sort((a, b) => {
+return a.averagePrice - b.averagePrice;
+});
+
+res.json(ascendingAveragePrice);
+});
+
+// Sort by highest average price
+app.get("/avocadosales/highestaverageprice", (req, res) => {
+  const descendingAveragePrice = avocadoSalesData.sort((a, b) => {
+  return b.averagePrice - a.averagePrice;
+  });
+  
+  res.json(descendingAveragePrice);
+  });
+
 // Get avocado sales based on region, using path param
 app.get("/avocadosales/region/:region", (req, res) => {
   const { region } = req.params;
@@ -64,9 +82,11 @@ app.get("/avocadosales/region/:region", (req, res) => {
 app.get("/avocadosales/date/:date", (req, res) => {
   const { date } = req.params;
 
-  const saleByDate = avocadoSalesData.filter((sale) => sale.date === date);
+  const saleByDate = avocadoSalesData.filter(
+    (sale) => sale.date.indexOf(date) !== -1
+  );
 
-  if (saleByDate.lenght > 0) {
+  if (saleByDate.length > 0) {
     res.status(200).json({
       response: saleByDate,
       success: true,
