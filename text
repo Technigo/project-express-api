@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { json, request } from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import listEndpoints from 'express-list-endpoints';
@@ -49,6 +49,11 @@ app.get('/users' ,(req, res) => {
   res.json(users)
 })
 
+app.get('/goldenglobes', (req, res) => {
+   res.json(data)
+})
+
+
 
 app.get('/nominations', (req, res)=> {
   res.json(data)
@@ -57,32 +62,14 @@ app.get('/nominations', (req, res)=> {
 //http://localhost:8080/year/2010
 //http://localhost:8080/year/2010?won=true
 
-app.get('/year/:year',(req, res) => {
-  const { year } = req.params
+app.get('year:year',(req, res)=>{
+  const year = req.params.year
   let nominationsFromYear = data.filter((item) => item.year_award === +year)
-
-  const showWon=req.query.won
-
   if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+    nominationsFromYear = nominationsFromYear.filter((item)=>item.win)
   }
-   
-  res.json({
-    response: nominationsFromYear,
-    success: true,
-  });
-  
+  res.json(nominationsFromYear)
 })
-
-app.get('/ceremony/:ceremony',(req, res) => {
-  const { ceremony } = req.params
-  const ceremonyNo = data.filter((item) => item.ceremony === +ceremony)
-  
-  res.json(ceremonyNo)
-  
-})
-
-
 
 // Start the server
 app.listen(port, () => {
