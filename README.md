@@ -1,13 +1,10 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This is a backend project building an API in NODE using Express. The API has a bunch of routes to get to endpoints. The data has been manipulated by filtering so that different data is displayed depending on the endpoint.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I started the project by choosing a JSON file to work with (Books info) and to create a first endpoint that displays all objects in the JSON file. I then tried out params to create an endpoint that displays a single object from the JSON file, using the find-method to catch specific object ids. I continued creating another endpoint for the titles with params, and then with queries, using the filter method. By using queries I created endpoints to display arrays of objects depending on the author and title.
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://booksfirstapi.herokuapp.com/

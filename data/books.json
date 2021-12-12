@@ -1,7 +1,7 @@
 [
   {
     "bookID": 1,
-    "title": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
+    "title": "Harry Potter and the Half-Blood Prince",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.56,
     "isbn": 439785960,
@@ -13,7 +13,7 @@
   },
   {
     "bookID": 2,
-    "title": "Harry Potter and the Order of the Phoenix (Harry Potter  #5)",
+    "title": "Harry Potter and the Order of the Phoenix",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.49,
     "isbn": 439358078,
@@ -25,7 +25,7 @@
   },
   {
     "bookID": 3,
-    "title": "Harry Potter and the Sorcerer's Stone (Harry Potter  #1)",
+    "title": "Harry Potter and the Sorcerer's Stone",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.47,
     "isbn": 439554934,
@@ -37,7 +37,7 @@
   },
   {
     "bookID": 4,
-    "title": "Harry Potter and the Chamber of Secrets (Harry Potter  #2)",
+    "title": "Harry Potter and the Chamber of Secrets",
     "authors": "J.K. Rowling",
     "average_rating": 4.41,
     "isbn": 439554896,
@@ -49,7 +49,7 @@
   },
   {
     "bookID": 8,
-    "title": "Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)",
+    "title": "Harry Potter Boxed Set",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.78,
     "isbn": 439682584,
@@ -59,21 +59,10 @@
     "ratings_count": 38872,
     "text_reviews_count": 154
   },
-  {
-    "bookID": 9,
-    "title": "Unauthorized Harry Potter Book Seven News: \"Half-Blood Prince\" Analysis and Speculation",
-    "authors": "W. Frederick Zimmerman",
-    "average_rating": 3.69,
-    "isbn": 976540606,
-    "isbn13": 9780976540601,
-    "language_code": "en-US",
-    "num_pages": 152,
-    "ratings_count": 18,
-    "text_reviews_count": 1
-  },
+  
   {
     "bookID": 10,
-    "title": "Harry Potter Collection (Harry Potter  #1-6)",
+    "title": "Harry Potter Collection",
     "authors": "J.K. Rowling",
     "average_rating": 4.73,
     "isbn": 439827604,
@@ -85,7 +74,7 @@
   },
   {
     "bookID": 12,
-    "title": "The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5)",
+    "title": "The Ultimate Hitchhiker's Guide",
     "authors": "Douglas Adams",
     "average_rating": 4.38,
     "isbn": 517226952,
@@ -109,7 +98,7 @@
   },
   {
     "bookID": 14,
-    "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)",
+    "title": "The Hitchhiker's Guide to the Galaxy",
     "authors": "Douglas Adams",
     "average_rating": 4.22,
     "isbn": 1400052920,
@@ -121,7 +110,7 @@
   },
   {
     "bookID": 16,
-    "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)",
+    "title": "The Hitchhiker's Guide to the Galaxy",
     "authors": "Douglas Adams-Stephen Fry",
     "average_rating": 4.22,
     "isbn": 739322206,
@@ -133,7 +122,7 @@
   },
   {
     "bookID": 18,
-    "title": "The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy #1-5)",
+    "title": "The Ultimate Hitchhiker's Guide",
     "authors": "Douglas Adams",
     "average_rating": 4.38,
     "isbn": 517149257,
@@ -157,7 +146,7 @@
   },
   {
     "bookID": 23,
-    "title": "Bryson's Dictionary of Troublesome Words: A Writer's Guide to Getting It Right",
+    "title": "Bryson's Dictionary of Troublesome Words",
     "authors": "Bill Bryson",
     "average_rating": 3.88,
     "isbn": 767910435,
@@ -229,7 +218,7 @@
   },
   {
     "bookID": 30,
-    "title": "J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings",
+    "title": "The Hobbit and The Lord of the Rings",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.59,
     "isbn": 345538374,
@@ -241,7 +230,7 @@
   },
   {
     "bookID": 31,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
+    "title": "The Lord of the Rings",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.49,
     "isbn": 618517650,
@@ -251,21 +240,10 @@
     "ratings_count": 1670,
     "text_reviews_count": 91
   },
-  {
-    "bookID": 32,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
-    "authors": "J.R.R. Tolkien",
-    "average_rating": 4.49,
-    "isbn": 618346244,
-    "isbn13": 9780618346240,
-    "language_code": "eng",
-    "num_pages": 1137,
-    "ratings_count": 2819,
-    "text_reviews_count": 139
-  },
+  
   {
     "bookID": 34,
-    "title": "The Fellowship of the Ring (The Lord of the Rings  #1)",
+    "title": "The Fellowship of the Ring",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.35,
     "isbn": 618346252,
@@ -275,18 +253,7 @@
     "ratings_count": 2009749,
     "text_reviews_count": 12784
   },
-  {
-    "bookID": 35,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
-    "authors": "J.R.R. Tolkien-Alan  Lee",
-    "average_rating": 4.49,
-    "isbn": 618260587,
-    "isbn13": 9780618260584,
-    "language_code": "en-US",
-    "num_pages": 1216,
-    "ratings_count": 1606,
-    "text_reviews_count": 139
-  },
+  
   {
     "bookID": 36,
     "title": "The Lord of the Rings: Weapons and Warfare",
@@ -337,7 +304,7 @@
   },
   {
     "bookID": 51,
-    "title": "Hatchet: A Guide for Using \"Hatchet\" in the Classroom",
+    "title": "Hatchet: A Guide for Using Hatchet in the Classroom",
     "authors": "Donna Ickes-Edward Sciranko-Keith Vasconcelles",
     "average_rating": 3.97,
     "isbn": 1557344493,
@@ -361,7 +328,7 @@
   },
   {
     "bookID": 54,
-    "title": "Molly Hatchet - 5 of the Best",
+    "title": "Molly Hatchet",
     "authors": "Molly Hatchet",
     "average_rating": 4.33,
     "isbn": 1575606240,
@@ -385,7 +352,7 @@
   },
   {
     "bookID": 57,
-    "title": "A Changeling for All Seasons (Changeling Seasons #1)",
+    "title": "A Changeling for All Seasons",
     "authors": "Angela Knight-Sahara Kelly-Judy Mays-Marteeka Karland-Kate Douglas-Shelby Morgen-Lacey Savage-Kate Hill-Willa Okati",
     "average_rating": 3.75,
     "isbn": 1595962808,
@@ -397,7 +364,7 @@
   },
   {
     "bookID": 58,
-    "title": "Changeling (Changeling  #1)",
+    "title": "Changeling",
     "authors": "Delia Sherman",
     "average_rating": 3.6,
     "isbn": 670059676,
