@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints'
 
 // importing the JSON from the books.json
 import booksData from './data/books.json';
@@ -14,13 +15,24 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world');
+  res.send('Welcome to the books API. Enter /endpoints to see which endpoints there are.');
 });
+
+app.get('/endpoints', (req, res) => 
+  res.send(listEndpoints(app))
+);
 
 // gets all books
 app.get('/books', (req, res) => {
   res.json(booksData);
 });
+
+//gets a book with a certain ID
+app.get('/books/:bookID', (req, res) => {
+  const bookID = req.params.bookID;
+  const showBookID = booksData.filter((item) => item.bookID === +bookID);
+  res.json(showBookID)
+})
 
 // returns an array of books from a specified author
 app.get('/author/:authors', (req, res) => {
