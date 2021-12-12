@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
+
 import booksData from './data/books.json'
 
 
@@ -19,6 +21,10 @@ app.get('/', (req, res) => {
   res.send('This is a backend to show the most famous books')
 })
 
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app))
+})
+
 //to see all books
 app.get('/books', (req, res) => {
   res.json(booksData)
@@ -26,15 +32,22 @@ app.get('/books', (req, res) => {
 
 //to see a book with a specific id
 app.get('/books/:bookID', (req, res) => {
-  const bookID = req.params
-  const showBookID = booksData.filter((item) => item.bookID === +bookID)
+  const { bookID } = req.params
+  const showBookID = booksData.find((item) => item.bookID === +bookID)
 
   if (!showBookID) {
-    res.status(404)
+    res.status(404).send('No book found with that ID')
   } else {
     res.json(showBookID)
   }
 })
+
+//to see a list of books by a specific author
+app.get('/author/:authors', (req, res) => {
+  const { author } = req.params.authors
+  const showAuthor = booksData.filter((item) => item.authors === author);
+  res.json(showAuthor);
+});
 
 // Start the server
 app.listen(port, () => {
