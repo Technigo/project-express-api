@@ -19,7 +19,7 @@ app.use(express.json())
 // Start defining the routes here
 app.get("/", (req, res) => {
   const DarkSide = {
-    Welcome: "Hello! This be an Open API for the Best Artworks of All Time ",
+    Welcome: "Hello! This is an Open API for the Best Artworks of All Time ",
     Routes: [
       {
         "/artworks_____________________________": "Get artworks.",
@@ -111,3 +111,6 @@ app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
+
+//Impressionism
+//
