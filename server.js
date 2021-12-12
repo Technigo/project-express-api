@@ -1,5 +1,5 @@
 import express from "express";
-// import bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import cors from "cors";
 import listEndpoints from "express-list-endpoints";
 
@@ -21,19 +21,44 @@ const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello YAY");
+  res.send("This is the book API");
 });
 
 app.get("/endpoints", (req, res) => {
   res.send(listEndpoints(app));
 });
 
+// app.get('/users', (req,res)=> {
+//   res.json(users);
+// }),
+
 app.get("/books", (req, res) => {
-  res.json(booksData);
+  const { differentBooks, language } = req.query;
+  console.log(differentBooks, language);
+  let booksDataToSend = booksData;
+
+  if (differentBooks) {
+    booksDataToSend = booksDataToSend.filter(
+      (item) =>
+        item.authors.toLowerCase().indexOf(differentBooks.toLowerCase()) !== -1
+    );
+  }
+
+  if (language) {
+    booksDataToSend = booksDataToSend.filter(
+      (item) =>
+        item.language_code.toLowerCase().indexOf(language.toLowerCase()) !== -1
+    );
+  }
+
+  res.json({
+    response: booksDataToSend,
+    success: true,
+  });
 });
 
 // path param //
