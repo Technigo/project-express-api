@@ -58,7 +58,8 @@ app.get('/wines', (req, res) => {
   app.get ('/wines/search', (req, res) => {
  
 
-  // Queries for sorting
+  // Queries for sorting 
+  // Nest step will be to add queries according to convention, like wines?sort=title or wines?sort=winery w. asc and desc as secondary queries.
 
 
   const { points, price, winery, title, country } = req.query
@@ -246,7 +247,7 @@ app.get('/wines/varieties/:variety', (req, res) => {
 
 // Sort wines by top rating
 
-app.get('/wines/top_rated', (req, res) => {
+app.get('/wines/top-rated', (req, res) => {
   let topRatedWines = wineData.sort((min, max) => max.points - min.points)
 
 
@@ -260,7 +261,7 @@ app.get('/wines/top_rated', (req, res) => {
 
 // Sort wine by most expensive
 
-app.get('/wines/most_expensive', (req, res) => {
+app.get('/wines/most-expensive', (req, res) => {
   let mostExpensiveWines = wineData.sort((min, max) => max.price - min.price)
 
   const top50 = mostExpensiveWines.slice(0, 50)
