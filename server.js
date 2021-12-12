@@ -5,31 +5,17 @@ import listEndpoints from 'express-list-endpoints'
 
 import topMusicData from './data/top-music.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// my routes
 app.get('/', (req, res) => {
-  // res.send('Welcome to my first backend')
   res.send(listEndpoints(app))
 })
-
-// app.get('/endpoints', (req, res) => {
-//   res.send(listEndpoints(app))
-// })
 
 app.get('/top', (req, res) => {
   res.json(topMusicData)

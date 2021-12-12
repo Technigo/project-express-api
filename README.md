@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks assigment was to create my first backend. The focus was to understand Routes and path params.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by watching content on what backend is and after I utilized the live sessions to understand how make my routing. I decided on a dataset to go with and then created a couple routes that I or any front end now can reach and showcase.
+
+If I had more time I would have created a front end of my backend.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://jakob-first.herokuapp.com/
