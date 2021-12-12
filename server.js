@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
+
 import nobelPrizeWinners from'./data/nobel-prize.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -18,9 +20,11 @@ app.use(express.json())
 // List all winners, and then as query, can return all female winners
 
 app.get('/', (req, res) => {
- res.send('Welcome to Karas list of Nobel-prize winners, add "/winners" to see all winners')
+ res.send('Welcome to Karas list of Nobel-prize winners, add "/endpoints" to see all endpoints')
 })
 
+app.get('/endpoints', (req,res )=> 
+res.send(listEndpoints(app)))
 
 app.get('/winners', (req, res) => {
   const femaleWon = req.query.female
