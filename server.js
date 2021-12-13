@@ -67,7 +67,7 @@ app.get('/music/id/:id', (req, res) => {
 app.get('/music/artists/:artist', (req, res) => {
   const { artist } = req.params
 
-  const artistByName = topMusicData.find(
+  const artistByName = topMusicData.filter(
     (item) => item.artistName.toLowerCase() === artist.toLowerCase()
   )
 
@@ -95,7 +95,7 @@ app.get('/music/track/:track', (req, res) => {
 app.get('/music/genre/:genre', (req, res) => {
   const { genre } = req.params
 
-  const genreByName = topMusicData.find((item) => item.genre === genre)
+  const genreByName = topMusicData.filter((item) => item.genre === genre)
 
   if (!genreByName) {
     res.status(404).json('No genre found with that name...')
