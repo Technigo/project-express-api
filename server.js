@@ -1,4 +1,4 @@
-import express, { query } from 'express';
+import express from 'express';
 import cors from 'cors';
 import listEndPoints from 'express-list-endpoints'; // for listing all routes
 
