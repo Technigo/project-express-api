@@ -11,7 +11,6 @@ const app = express(); // To initialised a new express server
 app.use(cors()); // Cors is a technology which allows APIs to say where request can come from for extra security
 app.use(express.json()); // express is exactly the same as the bodyParser() method
 
-
 //  --------- SIMPLE ENDPOINTS --------------//
 // Only use the response parameter as it gets a general response
 // Therefore, we don't need the request parameter to ask the user for a specific value.
@@ -59,7 +58,9 @@ app.get("/books/:id", (req, res) => {
 //Endpoint 5: Front-end gets an object with the book info that matches the specific title requested in the URL
 app.get("/books/title/:title", (req, res) => {
   const title = req.params.title;
-  const titleBook = booksData.find((item) => item.title.toLowerCase() === title.toLowerCase() );
+  const titleBook = booksData.find(
+    (item) => item.title.toLowerCase() === title.toLowerCase()
+  );
 
   if (!titleBook) {
     res.status(404).json({
@@ -74,22 +75,43 @@ app.get("/books/title/:title", (req, res) => {
   }
 });
 
+// ENDPOINT 6: Front-end gets an object with the book info that matches the specific ISBN number requested in the URL
+app.get("/books/isbn/:isbn", (req, res) => {
+  const { isbn } = req.params;
+  const isbnNr = booksData.find((item) => item.isbn === +isbn);
+
+  if (!isbnNr) {
+    res.status(404).json({
+      response: "No book found with that ISBN number, sorry!",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: isbnNr,
+      success: true,
+    });
+  }
+});
 
 // ----------- ENDPOINTS USING QUERY PARAMS -----------//
 // Must used filter() method because it returns a new array filled with all elements that pass the filter we want
 // Must use both parameters, the request parameter first (the request deals with what the frontend sends to the backend) and lastly the response parameter.
 // If there are no objects to show but the response from the JSON was successful, it returns an empty array.
 
-//Endpoint 6:
-app.get('/allbooks', (req, res) => {
+//Endpoint 7:
+app.get("/allbooks", (req, res) => {
   const { author, title } = req.query;
   let booksDataToSend = booksData;
 
   if (author) {
-    booksDataToSend= booksDataToSend.filter((item) => item.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1 );
+    booksDataToSend = booksDataToSend.filter(
+      (item) => item.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
+    );
   }
   if (title) {
-    booksDataToSend = booksDataToSend.filter((item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1 );
+    booksDataToSend = booksDataToSend.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    );
   }
   // if (isbn) {
   //   newVariable = newVariable.filter((item) => item.isbn.indexOf(isbn) !== -1 );
@@ -98,9 +120,8 @@ app.get('/allbooks', (req, res) => {
   res.json({
     response: newVariable,
     success: true,
-  })  
-
-})
+  });
+});
 
 // Start the server
 app.listen(port, () => {
