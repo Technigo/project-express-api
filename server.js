@@ -40,12 +40,17 @@ app.get("/tracks/:id", (req, res) => {
 });
 
 // Third endpoint for name of artist
-app.get("/tracks/artist/:artist", (req, res) => {
-  const { artistName } = req.params;
+app.get("/tracks/artist/:artistParameterFromUrl", (req, res) => {
+  const { artistParameterFromUrl } = req.params;
 
-  const artistByName = topMusicData.find(
-    (item) => item.artistName === artistName
-  );
+  const artistByName = topMusicData.find((item) => {
+    // Convert the artist name to lowercase so our search is case insensitive
+    const artistNameButInLowerCase = item.artistName.toLowerCase();
+    // Look for our searched string among artists in the top music data list
+    return artistNameButInLowerCase.includes(
+      artistParameterFromUrl.toLowerCase()
+    );
+  });
 
   if (!artistByName) {
     res.status(404).json({
