@@ -25,14 +25,9 @@ app.use(express.json())
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.json(topMusicData)
-
-  // music?firstQuery=value
-  // console.log(req.query)
 })
 
 app.get('/music', (req, res) => {
-  // res.json(topMusicData)
-
   const { artist, genre } = req.query
 
   let musicToSend = topMusicData
@@ -50,10 +45,7 @@ app.get('/music', (req, res) => {
     )
   }
 
-  res.json({
-    response: musicToSend,
-    success: true,
-  })
+  res.json(musicToSend)
 })
 
 app.get('/endpoints', (req, res) => {
@@ -66,15 +58,9 @@ app.get('/music/id/:id', (req, res) => {
   const musicId = topMusicData.find((music) => music.id === +id)
 
   if (!musicId) {
-    res.status(404).json({
-      response: 'No music found with that id...',
-      success: false,
-    })
+    res.status(404).json('No music found with that id...')
   } else {
-    res.status(200).json({
-      response: musicId,
-      success: true,
-    })
+    res.status(200).json(musicId)
   }
 })
 
@@ -86,15 +72,9 @@ app.get('/music/artists/:artist', (req, res) => {
   )
 
   if (!artistByName) {
-    res.status(404).json({
-      response: 'No artists found with that name...',
-      success: false,
-    })
+    res.status(404).json('No artists found with that name...')
   } else {
-    res.status(200).json({
-      response: artistByName,
-      success: true,
-    })
+    res.status(200).json(artistByName)
   }
 })
 
@@ -106,15 +86,9 @@ app.get('/music/track/:track', (req, res) => {
   )
 
   if (!trackByName) {
-    res.status(404).json({
-      response: 'No tracks found with that name...',
-      success: false,
-    })
+    res.status(404).json('No tracks found with that name...')
   } else {
-    res.status(200).json({
-      response: trackByName,
-      success: true,
-    })
+    res.status(200).json(trackByName)
   }
 })
 
@@ -124,15 +98,9 @@ app.get('/music/genre/:genre', (req, res) => {
   const genreByName = topMusicData.find((item) => item.genre === genre)
 
   if (!genreByName) {
-    res.status(404).json({
-      response: 'No genre found with that name...',
-      success: false,
-    })
+    res.status(404).json('No genre found with that name...')
   } else {
-    res.status(200).json({
-      response: genreByName,
-      success: true,
-    })
+    res.status(200).json(genreByName)
   }
 })
 
@@ -141,65 +109,3 @@ app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
-
-//--------------------------------------------------------------------------//
-
-// get a list of the companies with fundings (from json file)
-// app.get('/fundings', (req, res) => {
-//   const { company, region } = req.query
-
-//   let techFundingsToSend = techFundings
-
-//   if (company) {
-//     techFundingsToSend = techFundingsToSend.filter(
-//       (item) => item.Company.toLowerCase().indexOf(company.toLowerCase()) !== -1
-//     )
-//   }
-
-//   if (region) {
-//     techFundingsToSend = techFundings.filter(
-//       (item) => item.Region.toLowerCase().indexOf(region.toLowerCase()) !== -1
-//     )
-//   }
-
-//   res.json({
-//     response: techFundingsToSend,
-//     success: true,
-//   })
-// })
-
-// // get a specific company based on id, using param
-// app.get('/fundings/id/:id', (req, res) => {
-//   const { id } = req.params
-
-//   const companyId = techFundings.find((company) => company.index === +id)
-
-//   if (!companyId) {
-//     res.status(404).send('No company found with that id')
-//   } else {
-//     res.json(companyId)
-//   }
-// })
-
-// app.get('/fundings/company/:company', (req, res) => {
-//   const { company } = req.params
-
-//   const companyByName = techFundings.find((item) => item.Company === company)
-
-//   if (!companyByName) {
-//     res.status(404).json({
-//       response: 'No company found with that name',
-//       success: false,
-//     })
-//   } else {
-//     res.status(200).json({
-//       response: companyByName,
-//       success: true,
-//     })
-//   }
-// })
-
-// // Start the server
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port} YAY YAY`)
-// })
