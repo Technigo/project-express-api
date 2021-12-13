@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import express from 'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
@@ -9,6 +10,7 @@ import netflixData from './data/netflix-titles.json'
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
+const movies = netflixData.filter((item) => item.type === "Movie")
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -32,7 +34,8 @@ app.get('/endpoints', (req, res) => {
 
 // route provides a sorted list of all countries that are in netflixData
 app.get('/countries', (req, res) => {
-  const countries = Array.from(new Set(netflixData.map(item => item.country))).sort()
+  // a list of all countries in the Netflix-Data without any duplicates. Therefore I am creating a Set (object with unique items). I convert the set into an array afterwards and sort it alphabetically
+  const countries = Array.from(new Set(netflixData.map((item) => item.country))).sort()
 
   res.json({
     response: countries,
@@ -46,7 +49,7 @@ app.get('/countries/:country', (req, res) => {
   // both query and params are empty objects from the beginning 
   // every query parameter consists of key and value
   const { country } = req.params
-  const contentByCountry = netflixData.filter((item => item.country.toLowerCase() === country))
+  const contentByCountry = netflixData.filter((item) => item.country.toLowerCase() === country)
 
   if (contentByCountry.length === 0) {
     res.status(404).json({
@@ -65,8 +68,6 @@ app.get('/countries/:country', (req, res) => {
 app.get('/movies', (req, res) => {
   const { director, year, actor, page, limit } = req.query
 
-  const movies = netflixData.filter(item => item.type === "Movie")
-
   let filteredMovies = movies
 
   if (director) {
@@ -78,7 +79,7 @@ app.get('/movies', (req, res) => {
   }
 
   if (actor) {
-    filteredMovies = filteredMovies.filter(item => item.cast.toLowerCase().includes(actor.toLowerCase()))
+    filteredMovies = filteredMovies.filter((item) => item.cast.toLowerCase().includes(actor.toLowerCase()))
   }
 
   // PAGINATION
@@ -103,9 +104,8 @@ app.get('/movies', (req, res) => {
 // route provides one movie by ID
 app.get('/movies/id/:id', (req, res) => {
   const { id } = req.params
-  const movies = netflixData.filter(item => item.type === "Movie")
 
-  const movie = movies.find(item => item.show_id === +id)
+  const movie = movies.find((item) => item.show_id === +id)
 
   if (!movie) {
     res.status(404).json({
@@ -115,16 +115,16 @@ app.get('/movies/id/:id', (req, res) => {
   } else {
     res.json({
       response: movie,
-      success: true})
+      success: true
+    })
   }
 })
 
 // route provides movies by name (can return more than one movie, if the provided parts of the title match with several movies)
 app.get('/movies/title/:title', (req, res) => {
   const { title } = req.params
-  const movies = netflixData.filter(item => item.type === "Movie")
 
-  const movie = movies.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
+  const movie = movies.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()))
 
   if (movie.length === 0) {
     res.status(404).json({
@@ -145,4 +145,3 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
 
-  
