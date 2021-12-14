@@ -11,4 +11,4 @@ For this project I used express in Node.js. To list my endpoints I used a packag
 
 Backend: <a href="https://winemag.herokuapp.com/">https://winemag.herokuapp.com/</a>
 
-Frontend: ~coming soon~
+Frontend: <a href="https://winemag.netlify.app/">https://winemag.netlify.app/</a>
