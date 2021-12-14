@@ -11,6 +11,8 @@ const app = express(); // To initialised a new express server
 app.use(cors()); // Cors is a technology which allows APIs to say where request can come from for extra security
 app.use(express.json()); // express is exactly the same as the bodyParser() method
 
+
+
 //  --------- SIMPLE ENDPOINTS --------------//
 // Only use the response parameter as it gets a general response
 // Therefore, we don't need the request parameter to ask the user for a specific value.
@@ -31,6 +33,8 @@ app.get("/endpoints", (req, res) => {
 app.get("/books", (req, res) => {
   res.json(booksData);
 });
+
+
 
 // ---------   ENDPOINTS USING PATH PARAMS -----------//
 // Are used to show info about something specific.
@@ -93,6 +97,8 @@ app.get("/books/isbn/:isbn", (req, res) => {
   }
 });
 
+
+
 // ----------- ENDPOINTS USING QUERY PARAMS -----------//
 // Must used filter() method because it returns a new array filled with all elements that pass the filter we want
 // Must use both parameters, the request parameter first (the request deals with what the frontend sends to the backend) and lastly the response parameter.
@@ -100,25 +106,30 @@ app.get("/books/isbn/:isbn", (req, res) => {
 
 //Endpoint 7:
 app.get("/allbooks", (req, res) => {
-  const { author, title } = req.query;
-  let booksDataToSend = booksData;
+  const { author, title, language } = req.query;
+  let filteredBooksData = booksData;
 
   if (author) {
-    booksDataToSend = booksDataToSend.filter(
+    filteredBooksData = filteredBooksData.filter(
       (item) => item.authors.toLowerCase().indexOf(author.toLowerCase()) !== -1
     );
   }
   if (title) {
-    booksDataToSend = booksDataToSend.filter(
+    filteredBooksData = filteredBooksData.filter(
       (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
     );
   }
-  // if (isbn) {
-  //   newVariable = newVariable.filter((item) => item.isbn.indexOf(isbn) !== -1 );
-  // }
+
+  if (language) {
+    filteredBooksData = filteredBooksData.filter(
+      (book) =>
+        book.language_code.toLowerCase().indexOf(language.toLowerCase()) !==
+        -1
+    );
+  }
 
   res.json({
-    response: newVariable,
+    response: filteredBooksData,
     success: true,
   });
 });
