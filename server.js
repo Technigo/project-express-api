@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
-import expressListEndpoints from "express-list-endpoints";
+import listEndpoints from "express-list-endpoints";
 
 import data from "./data/golden-globes.json";
 import books from "./data/books.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
-const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -67,13 +66,13 @@ app.get("/nominations/year/:year", (req, res) => {
       (item) => item.nominee.toLowerCase().indexOf(nominee.toLowerCase()) !== -1
     );
   }
-  if (!nominationsFromYear) {
-    res.status(404).json("Sorry! there was no nominations from this year");
-  } else {
+  if (nominationsFromYear) {
     res.json({
       response: nominationsFromYear,
       success: true,
     });
+  } else {
+    res.status(404).json("Sorry! there was no nominations from this year");
   }
 });
 app.get("/nominations/films", (req, res) => {
@@ -129,13 +128,13 @@ app.get("/books", (req, res) => {
     );
     console.log(title);
   }
-  if (!booksToSend) {
-    res.status(404).json("No books was found here");
-  } else {
+  if (booksToSend) {
     res.json({
       response: booksToSend,
       success: true,
     });
+  } else {
+    res.status(404).json("No books was found here");
   }
 });
 
