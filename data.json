@@ -49,36 +49,65 @@
   {
     "season": 7,
     "released": 2015,
-    "winner": "Violet"
+    "number_of_contestants": 14,
+    "runner_up": ["Ginger Minj", "Pearl"],
+    "winner": "Violet Chachki",
+    "miss_congeniality": "Katya"
   },
   {
     "season": 8,
     "released": 2016,
-    "winner": "Bob"
+    "number_of_contestants": 12,
+    "runner_up": ["Kim Chi", "Naomi Smalls"],
+    "winner": "Bob the Drag Queen",
+    "miss_congeniality": "Cynthia Lee Fontaine"
   },
   {
     "season": 9,
     "released": 2017,
-    "winner": "Sasha"
+    "number_of_contestants": 14,
+    "runner_up": "Peppermint",
+    "winner": "Sasha Velour",
+    "miss_congeniality": "Valentina"
   },
   {
     "season": 10,
     "released": 2018,
-    "winner": "Aquaria"
+    "number_of_contestants": 14,
+    "runner_up": ["Eureka O'Hara", "Kameron Michaels"],
+    "winner": "Aquaria",
+    "miss_congeniality": "Monét X Change"
   },
   {
     "season": 11,
     "released": 2019,
-    "winner": "Yvie"
+    "number_of_contestants": 15,
+    "runner_up": "Brooke Lyn Hytes",
+    "winner": "Yvie Oddly",
+    "miss_congeniality": "Nina West"
   },
   {
     "season": 12,
     "released": 2020,
-    "winner": "Jaida"
+    "number_of_contestants": 13,
+    "runner_up": ["Krystal Methyd", "Gigi Goode"],
+    "winner": "Jaida Essence Hall",
+    "miss_congeniality": "Heidi N Closet"
   },
   {
-    "season": 1,
+    "season": 13,
     "released": 2021,
-    "winner": "Symone"
+    "number_of_contestants": 13,
+    "runner_up": "Kandy Muse",
+    "winner": "Symone",
+    "miss_congeniality": "LaLa Ri"
+  },
+  {
+    "season": 14,
+    "released": 2022,
+    "number_of_contestants": 14,
+    "runner_up": "TBA",
+    "winner": "TBA",
+    "miss_congeniality": "TBA"
   }
 ]
