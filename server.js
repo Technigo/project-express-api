@@ -105,10 +105,10 @@ app.get("/books/id/:id", (req, res) => {
   const { id } = req.params;
   const bookById = books.find((book) => book.bookID === +id);
 
-  if (!bookById) {
-    res.status(404).json("No book found with this ID");
-  } else {
+  if (bookById) {
     res.json(bookById);
+  } else {
+    res.status(404).json("No book found with this ID");
   }
 });
 //books by author
