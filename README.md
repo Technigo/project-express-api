@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+My first API built using Node js and Express.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- The API has 2 routes.
+- The first endpoint returns an array of elements (all seasons and it's data)
+- The second endpoint returns a single element (a specific season and it's data)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://dragrace-data.herokuapp.com/
