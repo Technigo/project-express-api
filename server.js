@@ -1,5 +1,4 @@
 import express from 'express'
-import bodyParser from 'body-parser/'
 import cors from 'cors'
 import booksData from './data/books.json'
 
@@ -16,12 +15,25 @@ app.get('/', (req, res) => {
   res.send('Book Reviews')
 })
 
-//get a list of books from json file
+// get a list of books from json file
 app.get('/books', (req, res) => {
   res.json(booksData)
 })
 
-//get a specific book based on id
+// get a list of books with specific title
+app.get('books/title/:title'), (req, res) => {
+  const { title } = req.params
+
+  const bookTitle = booksData.find(book => book.title.toLowerCase() === title.toLowerCase ())
+
+  if (!bookTitle) {
+    res.status(404).json('No book found with that title')
+  } else {
+    res.status(200).json(bookTitle)
+  }
+}
+
+// get a specific book based on id
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
 
@@ -30,7 +42,33 @@ app.get('/books/id/:id', (req, res) => {
   if (!bookId) {
     res.status(404).json('No book found with that id')
   } else {
-    res.json(bookId)
+    res.status(200).json(bookId)
+  }
+})
+
+// get a list of books with specific rating
+app.get('/books/rating/:rating', (req, res) => {
+  const { rating } = req.params
+
+  const bookRating = booksData.filter(book => book.average_rating === +rating)
+
+  if (books.length === 0) {
+    res.status(404).send('No books with that rating was found')
+  } else {
+  res.status(200).json(bookRating);
+  }
+})
+
+// get a list of books with specific language
+app.get('/books/language/:languageCode', (req, res) => {
+  const { languageCode } = req.params
+
+  const bookLanguage = booksData.filter(books => books.language_code.toLowerCase() === languageCode.toLowerCase()
+  )
+  if (!bookLanguage) {
+    res.status(404).json('No book found with that language')
+  } else {
+  res.status(200).json(bookLanguage)
   }
 })
 
