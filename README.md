@@ -1,13 +1,33 @@
 # Express API Project
+API with Top music data where we created different endpoint with the help of express.js.
 
-Replace this readme with your own information about your project. 
+The endpoints available are: 
+https://top-music-data.herokuapp.com/endpoints
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+    "path": "/",
+    "methods": [
+      "GET"
+      
+    "path": "/music/id/:id",
+    "methods": [
+      "GET"
+      
+     "path": "/music/artists/:artist",
+    "methods": [
+      "GET"
+      
+    "path": "/music/track/:track",
+    "methods": [
+      "GET"
+      
+    "path": "/music/genre/:genre",
+    "methods": [
+      "GET"
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Used postman to easier look at my data and endpoints. As usual VS code and deployed at heroku.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://top-music-data.herokuapp.com/
