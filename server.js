@@ -61,9 +61,7 @@ app.get("/shows", (req, res) => {
 app.get("/shows/id/:id", (req, res) => {
 	const { id } = req.params;
 
-	const showById = netflixData.find(
-		(show) => show.show_id.toLowerCase() === +id.toLowerCase()
-	);
+	const showById = netflixData.find((show) => show.show_id === +id);
 
 	if (!showById) {
 		res.status(404).json({
