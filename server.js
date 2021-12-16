@@ -1,63 +1,106 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
+
 import netflixData from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-// Defines the port the app will run on. Defaults to 8080, but can be
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-app.get("/", (request, response) => {
-	response.send("Hello from us");
+// listEndpoint will analyse what possible endpoints we have in our app.
+app.get("/", (req, res) => {
+	res.send(listEndpoints(app));
 });
 
-app.get("/users", (request, response) => {
-	const users = [
-		{ id: 1, name: "Alice", age: 33 },
-		{ id: 2, name: "Bob", age: 23 },
-		{ id: 3, name: "Chris", age: 3 },
-		{ id: 4, name: "Daniela", age: 67 },
-	];
+// Endpoints by using one or more queries
+app.get("/shows", (req, res) => {
+	const { title, country, year, type, cast } = req.query;
 
-	response.json(users);
+	let netflixDataToSend = netflixData;
+
+	if (title) {
+		netflixDataToSend = netflixDataToSend.filter((show) =>
+			show.title.toString().toLowerCase().includes(title.toLowerCase())
+		);
+	}
+
+	if (country) {
+		netflixDataToSend = netflixDataToSend.filter((show) =>
+			show.country.toString().toLowerCase().includes(country.toLowerCase())
+		);
+	}
+
+	if (year) {
+		netflixDataToSend = netflixDataToSend.filter(
+			(show) => show.release_year === +year
+		);
+	}
+
+	if (type) {
+		netflixDataToSend = netflixDataToSend.filter((show) =>
+			show.type.toString().toLowerCase().includes(type.toLowerCase())
+		);
+	}
+
+	if (cast) {
+		netflixDataToSend = netflixDataToSend.filter((show) =>
+			show.cast.toString().toLowerCase().includes(cast.toLowerCase())
+		);
+	}
+
+	res.json({
+		response: netflixDataToSend,
+		success: true,
+	});
 });
 
-app.get("/shows", (request, response) => {
-	response.json(netflixData);
-});
+// Endpoint to get a specific show by id, using param
+app.get("/shows/id/:id", (req, res) => {
+	const { id } = req.params;
 
-app.get("/shows/:id", (request, response) => {
-	const { id } = request.params;
+	const showById = netflixData.find(
+		(show) => show.show_id.toLowerCase() === +id.toLowerCase()
+	);
 
-	const showId = netflixData.find((show) => show.show_id === +id); // By adding a + we are converting the string to a number.
-
-	console.log(showId);
-
-	if (!showId) {
-		response.status(404).send("No show found with that id");
+	if (!showById) {
+		res.status(404).json({
+			response: `No show found with id number ${id}`,
+			success: false,
+		});
 	} else {
-		response.json(showId);
+		res.json({
+			response: showById,
+			success: true,
+		});
 	}
 });
 
-// Start the server
+// Endpoint to get a specific show by category, using param
+app.get("/shows/category/:category", (req, res) => {
+	const { category } = req.params;
+
+	const showByCategory = netflixData.filter((show) =>
+		show.listed_in.toLowerCase().includes(category.toLowerCase())
+	);
+
+	if (!showByCategory) {
+		res.status(404).json({
+			response: `No show found with the category ${category}`,
+			success: false,
+		});
+	} else {
+		res.json({
+			response: showByCategory,
+			success: true,
+		});
+	}
+});
+
+// Starts the server
 app.listen(port, () => {
 	// eslint-disable-next-line
-	console.log(`Server running on http://localhost:${port} YAY YAY`);
+	console.log(`Server running on http://localhost:${port}`);
 });
