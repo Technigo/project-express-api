@@ -17,13 +17,11 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-// app.get('/', (req, res) => {
-//   res.send('Hello world');
-// });
-
-// app.get('/', (req, res) => {
-//   res.send(listEndpoints(app))
-// });
+app.get('/', (req, res) => {
+  res.send(
+    "Hello hello hello! Welcome to Ru Paul's Dragrace! May the best woman win! To see all endpoints go to /endpoints"
+  );
+});
 
 app.get('/endpoints', (req, res) => {
   res.send(listEndpoints(app));
