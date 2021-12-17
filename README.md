@@ -1,13 +1,17 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project shows all Taylor Swift songs in a Json file using express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The endpoints in the api are:
+/ All the endpints in the api
+/songs displays a collection of all songs in the api
+/songs/index/:index shows a specific song based on the index in the URL
+/songs/title/:title shows a specific song based on the name in the URL
+/songs/album?album=anyAlbum shows all song from a specific album
+/songs/year?year=anyYear shows all songs from a specific year
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://taylor-swift-music.herokuapp.com
