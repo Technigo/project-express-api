@@ -15,7 +15,7 @@ app.use(cors())// Add middlewares to enable cors and json body parsing
 app.use(express.json())
 
 app.get('/', (req, res) => {// This is an endpiont, and it takes two arguments. First a path and then a call back function
-  res.send('Hello from backend-me!')
+  res.send('Welcome to the Golden-Globes API. Enter /endpoints to see which endpoints there are.')
 })
 
 app.get('/endpoints', (req, res) => {//this endpoint is going to tell us all possible endpoint we have
