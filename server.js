@@ -1,20 +1,12 @@
+/* eslint-disable no-tabs */
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-//
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
-
-import trumpInsults from './data/trump-insults.json';
+import disneyMovies from './data/disney-movies.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
-//
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -23,40 +15,60 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Defining routes to API
 app.get('/', (req, res) => {
 	res.send(
-		'Welcome to Beckys book API! Go to /endpoints to see what info you can find 😎'
+		'Welcome to Beckys Disney Movie API! Go to /endpoints to see what info you can find 😎'
 	);
 });
 
-app.get('/docs', (req, res) => {
-	res.send('Endpoints');
+// Shows all endpoints
+app.get('/endpoints', (req, res) => {
+	res.send(listEndpoints(app));
 });
 
-app.get('/insults', (req, res) => {
-	res.json(trumpInsults);
+// Shows all movies
+app.get('/movies', (req, res) => {
+	res.json(disneyMovies);
 });
 
-app.get('/insults/:id', (req, res) => {
-	const { id } = req.params;
+// Shows specific movie title
+app.get('/movies/:title', (req, res) => {
+	// Path param
+	const { title } = req.params;
 
-	const insultId = trumpInsults.find((insult) => insult.id === +id);
+	const movieTitle = disneyMovies.find((movie) => movie.movie_title === title);
 
-	if (!insultId) {
-		console.log('No insult with that ID');
-		res.status(404).send('No insult with that ID, please try again');
+	if (!movieTitle) {
+		console.log('No movie with that title');
+		res.status(404).send('No movie with that title, please try again');
 	} else {
-		res.json(insultId);
+		res.json(movieTitle);
 	}
 });
 
-// Endpoints
-// - ID ✅
-// - date
-// - year
-// - target/target
-// - insult
+// Shows all movies in specific genre
+app.get('/genre/:genre', (req, res) => {
+	const { genre } = req.params;
+
+	const movieGenre = disneyMovies.filter((movie) => movie.genre === genre);
+
+	if (!movieGenre) {
+		console.log('No movie with that genre');
+		res.status(404).send('No movie with that genre, please try again');
+	} else {
+		res.json(movieGenre);
+	}
+});
+
+// Disney endpoints:
+// - all movies ✅
+// - movie_title ✅
+// - release_date (year?)
+// - genre ✅
+// - mpaa_rating
+// - total_gross
+// - inflation_adjusted_gross
 
 // Start the server
 app.listen(port, () => {
