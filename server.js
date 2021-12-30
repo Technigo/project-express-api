@@ -2,7 +2,6 @@ import express from 'express'
 import cors from 'cors'
 import booksData from './data/books.json'
 
-
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -21,10 +20,10 @@ app.get('/books', (req, res) => {
 })
 
 // get a list of books with specific title
-app.get('books/title/:title'), (req, res) => {
+app.get('/books/title/:title', (req, res) => {
   const { title } = req.params
 
-  const bookTitle = booksData.find(book => book.title.toLowerCase() === title.toLowerCase ())
+  const bookTitle = booksData.find((book) => book.title.toLowerCase() === title.toLowerCase())
 
   if (!bookTitle) {
     res.status(404).json({
@@ -37,13 +36,13 @@ app.get('books/title/:title'), (req, res) => {
       success: true
     })
   }
-}
+})
 
 // get a specific book based on id
 app.get('/books/id/:id', (req, res) => {
   const { id } = req.params
 
-  const bookId = booksData.find(book => book.bookID === +id)
+  const bookId = booksData.find((book) => book.bookID === +id)
 
   if (!bookId) {
     res.status(404).json({
@@ -62,9 +61,9 @@ app.get('/books/id/:id', (req, res) => {
 app.get('/books/rating/:rating', (req, res) => {
   const { rating } = req.params
 
-  const bookRating = booksData.filter(book => book.average_rating === +rating)
+  const bookRating = booksData.filter((book) => book.average_rating === +rating)
 
-  if (books.length === 0) {
+  if (bookRating.length === 0) {
     res.status(404).send({
       response: 'No books found with that rating',
       success: false
@@ -81,8 +80,8 @@ app.get('/books/rating/:rating', (req, res) => {
 app.get('/books/language/:languageCode', (req, res) => {
   const { languageCode } = req.params
 
-  const bookLanguage = booksData.filter(books => books.language_code.toLowerCase() === languageCode.toLowerCase()
-  )
+  const bookLanguage = booksData.filter((book) => book.language_code.toLowerCase() === languageCode.toLowerCase())
+  
   if (!bookLanguage) {
     res.status(404).json({
       response: 'No book found with that language',
