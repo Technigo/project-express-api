@@ -27,9 +27,15 @@ app.get('books/title/:title'), (req, res) => {
   const bookTitle = booksData.find(book => book.title.toLowerCase() === title.toLowerCase ())
 
   if (!bookTitle) {
-    res.status(404).json('No book found with that title')
+    res.status(404).json({
+      response: 'No book found with that title',
+      success: false
+    })
   } else {
-    res.status(200).json(bookTitle)
+    res.status(200).json({
+      response: bookTitle,
+      success: true
+    })
   }
 }
 
@@ -40,9 +46,15 @@ app.get('/books/id/:id', (req, res) => {
   const bookId = booksData.find(book => book.bookID === +id)
 
   if (!bookId) {
-    res.status(404).json('No book found with that id')
+    res.status(404).json({
+      response: 'No book found with that id',
+      success: false
+    })
   } else {
-    res.status(200).json(bookId)
+    res.status(200).json({
+      response: bookId,
+      success: true
+    })
   }
 })
 
@@ -53,9 +65,15 @@ app.get('/books/rating/:rating', (req, res) => {
   const bookRating = booksData.filter(book => book.average_rating === +rating)
 
   if (books.length === 0) {
-    res.status(404).send('No books with that rating was found')
+    res.status(404).send({
+      response: 'No books found with that rating',
+      success: false
+    })
   } else {
-  res.status(200).json(bookRating);
+    res.status(200).json({
+      response: bookRating,
+      success: true
+    })
   }
 })
 
@@ -66,9 +84,15 @@ app.get('/books/language/:languageCode', (req, res) => {
   const bookLanguage = booksData.filter(books => books.language_code.toLowerCase() === languageCode.toLowerCase()
   )
   if (!bookLanguage) {
-    res.status(404).json('No book found with that language')
+    res.status(404).json({
+      response: 'No book found with that language',
+      success: false
+    })
   } else {
-  res.status(200).json(bookLanguage)
+    res.status(200).json({
+      response: bookLanguage,
+      success: true
+    })
   }
 })
 

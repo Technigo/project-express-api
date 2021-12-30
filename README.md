@@ -1,12 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
+This week's project we got to start our backend journey by creating an API using Express. Our API should have a couple of RESTful endpoints which return either an array of data or a signle item.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Tech & Tools
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+RESTful API
+Postman
+JavaScript
+Node.js
 
 ## View it live
 
