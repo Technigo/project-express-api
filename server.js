@@ -277,10 +277,7 @@ app.get('/wines/most-expensive', (req, res) => {
 app.get('/wines/random', (req, res) => {
   const randomWine = wineData[Math.floor(Math.random() * wineData.length)]
   
-  res.status(200).json({
-    response: randomWine,
-    success: true
-  })
+  res.json(randomWine)
 })
 
 
