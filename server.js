@@ -272,6 +272,17 @@ app.get('/wines/most-expensive', (req, res) => {
   })
 })
 
+// Get random wine (added for the mobile app project)
+
+app.get('/wines/random', (req, res) => {
+  const randomWine = wineData[Math.floor(Math.random() * wineData.length)]
+  
+  res.status(200).json({
+    response: randomWine,
+    success: true
+  })
+})
+
 
 // Start the server
 app.listen(port, () => {
