@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 import netflixData from './data/netflix-titles.json'
 
@@ -15,21 +16,41 @@ app.get('/', (req, res) => {
   res.json('Index page')
 })
 
-app.get('/titles', (req, res) => {
+app.get ('/endpoints', (req, res) => {
+  res.send(listEndpoints(app))
+})
+
+app.get('/catalogue', (req, res) => {
   res.json(netflixData)
 })
 
-app.get('/titles/:show_id', (req, res) => {
-  const { show_id } = req.params
+app.get('/catalogue/id/:netflixId', (req, res) => {
+  const { netflixId } = req.params
 
-  const titleId = netflixData.find(title => title.show_id === +show_id)
+  const titleId = netflixData.find(item => item.show_id === +netflixId)
 
   if (!titleId) {
-    console.log('Error: No title found')
-    res.status(404).send('No title found.')
+    res.status(404).send('No title by that id was found.')
   } else {
     res.json(titleId)
-    console.log('test')
+  }
+})
+
+app.get('/catalogue/name/:netflixTitle', (req, res) => {
+  const { netflixTitle } = req.params
+  
+  const titleName = netflixData.find(item => item.title === netflixTitle)
+
+  if (titleName) {
+    res.status(200).json({
+      response: titleName,
+      success: true,
+    })
+  } else {
+    res.status(404).json({
+      response: 'No title by that name was found.',
+      success: false,
+    })
   }
 })
 
