@@ -4,7 +4,7 @@ For this project I explore the backend for the first time, by creating an API us
 
 ## The problem
 
-I didn't use a database, instead I used a hard-coded set of data, stored as a JSON file.
+I used a hard-coded set of data, stored as a JSON file.
 To create an endpoint to list a single item, a specific book, I used a param and the .find() method to select the item returned in the response.
 For the other endpoints, where I list all titles or all authors, I used .map() to map over the array and .sort() to list them in alphabetical order.
 
