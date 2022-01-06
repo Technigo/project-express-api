@@ -7,11 +7,9 @@ import netflixData from './data/netflix-titles.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(express.json())
 
-// Start defining your routes here
 app.get('/', (req, res) => {
   res.json('Index page')
 })
@@ -73,8 +71,6 @@ app.get('/catalogue/names/:netflixTitle', (req, res) => {
   }
 })
 
-// Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
   console.log(`Server running on http://localhost:${port}`)
 })
