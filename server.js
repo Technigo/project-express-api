@@ -21,10 +21,29 @@ app.get ('/endpoints', (req, res) => {
 })
 
 app.get('/catalogue', (req, res) => {
-  res.json(netflixData)
+  const { netflixTitle, netflixYear } = req.query
+
+  let netflixDataToSend = netflixData
+  
+  if (netflixTitle) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.title.toLowerCase().indexOf(netflixTitle.toLowerCase()) !== -1
+    )
+  }
+
+  if (netflixYear) {
+    netflixDataToSend = netflixDataToSend.filter(
+      (item) => item.release_year === +netflixYear
+    )
+  }
+
+  res.json({
+    response: netflixDataToSend,
+    success: true,
+  })
 })
 
-app.get('/catalogue/id/:netflixId', (req, res) => {
+app.get('/catalogue/ids/:netflixId', (req, res) => {
   const { netflixId } = req.params
 
   const titleId = netflixData.find(item => item.show_id === +netflixId)
@@ -36,10 +55,10 @@ app.get('/catalogue/id/:netflixId', (req, res) => {
   }
 })
 
-app.get('/catalogue/name/:netflixTitle', (req, res) => {
+app.get('/catalogue/names/:netflixTitle', (req, res) => {
   const { netflixTitle } = req.params
   
-  const titleName = netflixData.find(item => item.title === netflixTitle)
+  const titleName = netflixData.find(item => item.title.toLowerCase() === netflixTitle.toLowerCase())
 
   if (titleName) {
     res.status(200).json({
