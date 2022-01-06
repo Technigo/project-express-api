@@ -1,13 +1,13 @@
 # Express API Project
 
-Replace this readme with your own information about your project. 
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Simple project to dwelve into the business of Restful APIs.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This was pretty fun, and gave a cool insight into how the backend responds to requests. We've done it millions of times on various websites, but first time seeing the other side of it.
+
+Had to make sure the proper use of find, filter etc was applied to path and query params respectively as they are intended for different outcomes. I think this project really highlighted in a good way how they're used in their own proper manner.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+-
