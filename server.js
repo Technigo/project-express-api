@@ -1,19 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// 
-// import goldenGlobesData from './data/golden-globes.json'
-// import avocadoSalesData from './data/avocado-sales.json'
-// import booksData from './data/books.json'
-// import netflixData from './data/netflix-titles.json'
-// import topMusicData from './data/top-music.json'
+import netflixData from './data/netflix-titles.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,7 +12,25 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world')
+  res.json('Index page')
+})
+
+app.get('/titles', (req, res) => {
+  res.json(netflixData)
+})
+
+app.get('/titles/:show_id', (req, res) => {
+  const { show_id } = req.params
+
+  const titleId = netflixData.find(title => title.show_id === +show_id)
+
+  if (!titleId) {
+    console.log('Error: No title found')
+    res.status(404).send('No title found.')
+  } else {
+    res.json(titleId)
+    console.log('test')
+  }
 })
 
 // Start the server
