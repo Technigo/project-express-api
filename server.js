@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 	res.send(listEndpoints(app));
 });
 
-// Combine search for atuhor, title, language
+// Combined search for author, title, language
 app.get("/books", (req, res) => {
 	const { author, title, language } = req.query;
 	let filteredBooks = booksData;
@@ -49,7 +49,7 @@ app.get("/books", (req, res) => {
 	});
 });
 
-//endpoint with random book
+// Endpoint with random book
 app.get("/randomBook", (req, res) => {
 	let randomBook = booksData[Math.floor(Math.random() * booksData.length)];
 
@@ -66,7 +66,7 @@ app.get("/randomBook", (req, res) => {
 	}
 });
 
-// search by isbn or isbn13 number
+// Search by isbn or isbn13 number
 app.get("/books/isbn/:isbn", (req, res) => {
 	const isbn = req.params.isbn;
 	const book = data.find(
@@ -85,7 +85,7 @@ app.get("/books/isbn/:isbn", (req, res) => {
 	}
 });
 
-//takes the id as params
+// Takes the id as params
 app.get("/books/:id", (req, res) => {
 	const id = req.params.id;
 	const filteredID = data.filter((item) => item.bookID === +id);
