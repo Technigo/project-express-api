@@ -8,4 +8,5 @@ An API built with heroku, using Swagger for API-documentation.
 
 ## View it live
 
+https://netflix-titles-mongodb.herokuapp.com/
 https://netflix-titles-technigo-old.herokuapp.com/
