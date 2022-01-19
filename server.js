@@ -85,7 +85,7 @@ app.get("/books/isbn/:isbn", (req, res) => {
 	}
 });
 
-// Takes the id as params
+// Takes the id as params and shows one book
 app.get("/books/:id", (req, res) => {
 	const id = req.params.id;
 	const filteredID = data.filter((item) => item.bookID === +id);
