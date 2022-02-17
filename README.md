@@ -8,6 +8,9 @@ I started by thinking about the data that I thought would be useful to see, and 
 
 ## View it live
 
+https://formula-1-2020.herokuapp.com/
+
+
 original data from this free api: http://ergast.com/mrd/
 
 labs: https://docs.google.com/document/d/1WMjSTpCwC0lvDn4TMSvD96Id0jjAN09qVNSgGhQZTLY/edit?usp=sharing
