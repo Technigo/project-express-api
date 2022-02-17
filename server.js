@@ -65,8 +65,10 @@ app.get("/race/:race_id", (req, res) => {
 app.get("/driver-info", (req, res) => {
   const {driver_number} = req.query
 
+  const findDriver = uniqueDrivers.filter(driver => driver.number === driver_number)
+
   if (driver_number) {
-    res.json({response: uniqueDrivers.filter(driver => driver.number === driver_number), success: true});
+    res.json({response: findDriver, success: true});
 
   }
   res.json({response: uniqueDrivers, success: true});
