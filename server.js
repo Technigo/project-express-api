@@ -61,15 +61,6 @@ app.get('/genre/:genre', (req, res) => {
 	}
 });
 
-// Disney endpoints:
-// - all movies ✅
-// - movie_title ✅
-// - release_date (year?)
-// - genre ✅
-// - mpaa_rating
-// - total_gross
-// - inflation_adjusted_gross
-
 // Start the server
 app.listen(port, () => {
 	// eslint-disable-next-line
