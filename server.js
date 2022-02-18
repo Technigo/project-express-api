@@ -1,8 +1,9 @@
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
-import netflixData from "./data/netflix-titles.json";
+import netflixData from './data/netflix-titles.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
@@ -15,16 +16,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Start defining your routes here
-// app.get("/", (req, res) => {
-//   res.send("Hello world");
-// });
-
-// app.get("/netflix", (req, res) => {
-//   res.json(netflixData);
-// });
-
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   const { title, release_year } = req.query;
   let netflixDataToSend = netflixData;
 
@@ -45,11 +37,21 @@ app.get("/", (req, res) => {
   res.json(netflixDataToSend);
 });
 
-//   if (!movieTitle) {
-//     res.status(404).send("No movie found with that name");
-//   } else {
-//     res.json(movieTitle);
-//   }
+app.get('/movies/id/:id', (req, res) => {
+  const { id } = req.params;
+
+  const show_id = netflixData.find(show_id => show_id === +id);
+
+  if (!show_id) {
+    res.status(404).json('No movie found with that id..');
+  } else {
+    res.status(200).json(show_id);
+  }
+});
+
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app));
+});
 
 // Start the server
 app.listen(port, () => {
