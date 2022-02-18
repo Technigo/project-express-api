@@ -7,7 +7,7 @@ import listEndpoints from 'express-list-endpoints'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8088
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -23,32 +23,28 @@ app.get('/', (req, res) => {
 
 app.get('/wines', async (req, res) => {
 
-  //Pagination
-
-  const page = parseInt(req.query.page)
-  const limit = parseInt(req.query.limit)
-
-  const startIndex = (page - 1) * limit
-  const endIndex = page * limit
-
-  const results = {}
-
-  if (endIndex < wineData.length)
-    results.next = {
-      page: page + 1,
-      limit: limit
+  const { title, winery, country } = req.query
+  let filteredWines = wineData
+  
+  if (title) {
+    filteredWines = filteredWines.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    )
     }
-
-  if (startIndex > 0) {
-    results.previous = {
-      page: page - 1,
-      limit: limit
+  if (winery) {
+    filteredWines = filteredWines.filter(
+      (item) => item.title.toLowerCase().indexOf(winery.toLowerCase()) !== -1
+    )
     }
-  }
-
-  results.results = wineData.slice(startIndex, endIndex)
-
-  res.json(results.results)
+  if (winery) {
+    filteredWines = filteredWines.filter(
+      (item) => item.title.toLowerCase().indexOf(winery.toLowerCase()) !== -1
+    )
+    }
+  res.json({
+    response: filteredWines,
+    success: true
+  })
 })
 
   // Route for query filtering
