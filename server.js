@@ -7,7 +7,7 @@ import listEndpoints from 'express-list-endpoints'
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8088
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -21,9 +21,36 @@ app.get('/', (req, res) => {
 
 // Route to get all wines
 
-app.get('/wines', (req, res) => {
-
-  // Pagination
+app.get('/wines', async (req, res) => {
+  const { title, winery, country } = req.query
+  let filteredWines = wineData
+  try{
+  if (title) {
+    filteredWines = filteredWines.filter(
+      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
+    )
+  }
+  if (winery) {
+    filteredWines = filteredWines.filter(
+      (item) => item.winery.toLowerCase().indexOf(winery.toLowerCase()) !== -1
+    )
+  }
+  if (country) {
+    filteredWines = filteredWines.filter(
+      (item) => item.country.toLowerCase().indexOf(country.toLowerCase()) !== -1
+    )
+  }
+  res.json({
+    response: filteredWines,
+    success: true
+  })
+} catch (err) {
+  res.status(400).json({
+    response: error,
+    success: false
+  })
+}
+  //Pagination
 
   const page = parseInt(req.query.page)
   const limit = parseInt(req.query.limit)
@@ -48,8 +75,7 @@ app.get('/wines', (req, res) => {
 
   results.results = wineData.slice(startIndex, endIndex)
 
-  res.json(results)
-
+  res.json(results.results)
 })
 
   // Route for query filtering
@@ -284,5 +310,5 @@ app.get('/wines/random', (req, res) => {
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on http://localhost:${port} ~'(@)~'`)
 })
