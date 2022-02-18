@@ -22,34 +22,7 @@ app.get('/', (req, res) => {
 // Route to get all wines
 
 app.get('/wines', async (req, res) => {
-  const { title, winery, country } = req.query
-  let filteredWines = wineData
-  try{
-  if (title) {
-    filteredWines = filteredWines.filter(
-      (item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1
-    )
-  }
-  if (winery) {
-    filteredWines = filteredWines.filter(
-      (item) => item.winery.toLowerCase().indexOf(winery.toLowerCase()) !== -1
-    )
-  }
-  if (country) {
-    filteredWines = filteredWines.filter(
-      (item) => item.country.toLowerCase().indexOf(country.toLowerCase()) !== -1
-    )
-  }
-  res.json({
-    response: filteredWines,
-    success: true
-  })
-} catch (err) {
-  res.status(400).json({
-    response: error,
-    success: false
-  })
-}
+
   //Pagination
 
   const page = parseInt(req.query.page)
