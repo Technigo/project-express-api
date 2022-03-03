@@ -30,7 +30,11 @@ const pagination = (data, pageNumber) => {
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(netflixData);
+  const { page } = req.query;
+  res.json({
+    response: pagination(netflixData, page),
+    success: true,
+  });
 });
 
 app.get("/endpoints", (req, res) => {
