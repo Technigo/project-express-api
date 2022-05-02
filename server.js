@@ -8,7 +8,7 @@ import avocadoSalesData from "./data/avocado-sales.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
-import redditJokes from "./data/reddit_jokes.json";
+// import redditJokes from "./data/reddit_jokes.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -29,16 +29,19 @@ app.get("/avocadosales", (req, res) => {
   res.send(avocadoSalesData);
 });
 
-app.get("/redditjokes", (req, res) => {
-  res.send(redditJokes);
+app.get("/avocadosales/:region", (req, res) => {
+  const region = req.params.region;
+  const avocadoRegion = avocadoSalesData.filter(
+    (item) => item.region === region
+  );
+  res.status(200).json(avocadoRegion);
 });
 
-// app.get("/redditjokes/funny"),
-//   (req, res) => {
-//     const funnyJokes = redditJokes.filter((joke) => joke.score > 100);
-
-//     res.status(200).json(funnyJokes);
-//   };
+app.get("/regions", (req, res) => {
+  const regionsList = avocadoSalesData.map((o) => o.region);
+  const regions = [...new Set(regionsList)];
+  res.status(200).json(regions);
+});
 
 // Start the server
 app.listen(port, () => {
