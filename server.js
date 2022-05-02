@@ -4,7 +4,7 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+ import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -21,8 +21,12 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(booksData);
 });
+
+app.get("/title", (req,res) => {
+  res.send(booksData.map(book => book.title))
+})
 
 // Start the server
 app.listen(port, () => {
