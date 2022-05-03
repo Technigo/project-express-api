@@ -30,10 +30,18 @@ app.get('/movies', (req, res) => {
 
 app.get('/movies/:country', (req, res) => {
   const whatCountry = netflixData.find(
-    (movie) => movie.country == req.params.country
+    (movie) => movie.country.toLowerCase() === req.params.country
   );
 
   res.status(200).json(whatCountry);
+});
+
+app.get('/:title', (req, res) => {
+  const whatTitle = netflixData.find(
+    (movie) => movie.title.toLowerCase() === req.params.title
+  );
+
+  res.status(200).json(whatTitle);
 });
 
 // Start the server
