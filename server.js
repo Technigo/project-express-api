@@ -3,7 +3,7 @@ import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
+ import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
@@ -23,6 +23,50 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+app.get("/api", (req, res) => {
+  res.status(200).json(avocadoSalesData);
+  console.log(avocadoSalesData);
+});
+
+app.get("/api/:region", (req, res) => {
+  const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
+    avocadoData.region === req.params.region
+  );
+
+  if (dataPerRegion && dataPerRegion.length !== 0) {
+    res.status(200).send(dataPerRegion);
+  } else {
+    res.status(404).send('No region with this name exists');
+  }
+
+  
+  //if req.params.region === undefined or null or doesnt exist {
+    //res.status(404).json({'Error: no matching result'})
+  //} else {print the status 200 line of code}
+});
+
+// app.get("/api/:region/:id?", (req, res) => {
+//   const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
+//     avocadoData.region === req.params.region
+//   );
+
+//   if (req.params.id) {
+//     const idPerRegion = avocadoSalesData.find((idData) => 
+//       idData.id === parseInt(req.params.id)
+//     );
+    
+//     res.status(200).json(idPerRegion);
+//   }
+
+//   res.status(200).json(dataPerRegion);
+  
+//   //if req.params.region === undefined or null or doesnt exist {
+//     //res.status(404).json({'Error: no matching result'})
+//   //} else {print the status 200 line of code}
+// });
+
+
 
 // Start the server
 app.listen(port, () => {
