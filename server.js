@@ -31,6 +31,13 @@ app.get("/", (req, res) => {
 app.get("/books", (request, response) => {
 res.status(200).json(books);
 });
+
+app.get("/books/:authors", (req, res) => {
+const booksByAuthor = books.find(book => book.authors === req.params.authors
+  );
+
+  res.status(200).json(booksByAuthor);
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
