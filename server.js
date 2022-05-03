@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 
- import udemyCourse from "./data/udemy-course.json"
-
+import bookData from "./data/books.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -15,82 +14,63 @@ app.use(cors());
 app.use(express.json());
 
 
-//In this case, I want to get and display only web development courses
-
-const webDevelopmentCourse = udemyCourse.filter(item => item.subject === 'Web Development');
-const web = webDevelopmentCourse[0].published_timestamp;
-console.log(typeof new Date(web).getFullYear())
-
-// Start defining your routes here
+//Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(webDevelopmentCourse);
+  res.json(bookData);
 });
 
+//Return book datas according to ID 
+app.get("/bookId/:id", (req, res) => {
 
-
-// Return course data according to the course's title
-app.get("/courseTitle/:title", (req, res) => {
-  const titleData = webDevelopmentCourse.find(course => course.course_title === req.params.title);
-
-  if(!titleData) {
-    res.status(404).json("Can't find any course under this title")
-  }
-
-  res.json(titleData);
-})
-
-// Return course data according to the course's id
-app.get("/courseId/:id", (req, res) => {
-  const courseId = +req.params.id
-  const courseIdData = webDevelopmentCourse.find(course => course.course_id === courseId);
-
-  res.json(courseIdData);
-})
-
-// Return courses according to year 
-app.get("/courseYear/:year", (req, res) => {
-  const courseYear = +req.params.year;
-  const courseYearData = webDevelopmentCourse.filter(course => courseYear === new Date(course.published_timestamp).getFullYear());
- 
-  if( courseYearData.length === 0 ) {
-    res.status(404).json("Sorry, no year matched. Please try another year")
-  }
-  res.json(courseYearData)
-})
-
-//Return the most review courses
-app.get("/mostReviews", (req, res) => {
-  const mostReviewCourses = webDevelopmentCourse.filter(course => course.num_reviews > 100);
+  const id = +req.params.id;
+  const bookId = bookData.find(book => book.bookID === id);
   
-  if( mostReviewCourses.length === 0 ) {
-    res.status(404).json("Sorry, no course has more than 100 reviews. Please try another time")
+  if(!bookId) {
+    res.status(404).json('Sorry, no book found. Please try another id')
   }
-  res.json(mostReviewCourses)
+  res.json(bookId)
 })
 
-// Return courses according to levels
-app.get("/courseLevel/:level" , (req, res) => {
-  const courseLevel = webDevelopmentCourse.filter(course => course.level === req.params.level);
-  
-  if(courseLevel.length === 0) {
-    res.status(404).json("Sorry, there is no course with this level. Please enter correct level name")
+//Return highest rating books
+app.get("/rating", (req,res) => {
+  const highestRatingBook = bookData.filter(book => book.average_rating > 4);
+
+  if(highestRatingBook.length === 0) {
+    res.status(404).json('Sorry, no book with high rating found')
   }
-  res.json(courseLevel);
+  res.json(highestRatingBook)
 })
 
-// Return free courses
-app.get("/paidCourse/:paid", (req, res) => {
-  const paidCourse = webDevelopmentCourse.filter(course => {
-    if(req.params.paid === 'Free' || req.params.paid === 'Free Courses') {
-      return !course.is_paid
-    } 
-    return course.is_paid
-  })
-  res.json(paidCourse)
+//Return book datas according to title
+app.get("/title/:title", (req,res) => {
+  const bookTitle = req.params.title;
+  const existingBook = bookData.find(book => book.title === bookTitle);
+
+  if(!existingBook) {
+    res.status(404).json ('The book with given title was not found')
+  }
+  res.json(existingBook)
 })
 
+//Return book datas according to specific author and title
+app.get("/book/:author/:title" , (req,res) => {
+   const findAuthor = bookData.filter(book => book.authors === req.params.author);
 
+  const findTitle = findAuthor.find(book => book.title === req.params.title);
+     
+  if (!findTitle) {
+    res.status(404).json('The book with given title was not found')
+  }
+    
+  res.json(findTitle)
+    
+})
 
+app.get("/newBook/book?title=Leviahan", (req, res) => {
+  const filterTit = bookData.find(item => item.title === 'Leviathan');
+
+  res.json(filterTit)
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
