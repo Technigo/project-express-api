@@ -12,12 +12,14 @@ import booksData from "./data/books.json";
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
+
 const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -28,18 +30,24 @@ app.get("/books", (req, res) => {
   res.json(booksData)
 })
 
-app.get("/favorites", (req, res) => {
+app.get("/top-rated", (req, res) => {
   const highAvgRating =  booksData.filter((book) => book.average_rating >= 4)
   res.json(highAvgRating)
 })
 
-app.get("/title:title", (req, res) => {
+app.get("/title/:title", (req, res) => {
   const title = req.params.title
-  res.json(booksData)
+  let titleInput = booksData.filter((str) => str.title === title)
+  res.json(titleInput)
 })
 
-app.get("/authors:authors", (req, res) => {
-  res.json(booksData)
+
+//ask in Townhall http://localhost:8080/authors/Dan%20Brown
+//how to disregards lower/upper cases?
+app.get("/authors/:authors", (req, res) => {
+  const authors = req.params.authors
+  let authorsInput = booksData.filter((str)=> str.authors === authors)
+  res.json(authorsInput)
 })
 
 
