@@ -1,5 +1,9 @@
-import express from "express";
+import express, { request, response } from "express";
 import cors from "cors";
+import books from "./data/books.json";
+import res from "express/lib/response";
+
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -24,6 +28,9 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+app.get("/books", (request, response) => {
+res.status(200).json(books);
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
