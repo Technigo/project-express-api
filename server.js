@@ -28,7 +28,7 @@ app.get("/books", (req, res) => {
   res.json(booksData)
 })
 
-app.get("/favorite", (req, res) => {
+app.get("/favorites", (req, res) => {
   const highAvgRating =  booksData.filter((book) => book.average_rating >= 4)
   res.json(highAvgRating)
 })
