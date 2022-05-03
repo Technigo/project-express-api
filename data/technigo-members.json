@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Matilda",
+        "role": "Code coach"
+    },
+    {
+        "id": 2,
+        "name": "Petra",
+        "role": "Career coach"
+    },
+    {
+        "id": 3,
+        "name": "Poya",
+        "role": "Project manager"
+    },
+    {
+        "id": 4,
+        "name": "Maksy",
+        "role": "Code coach"
+    },
+    {
+        "id": 5,
+        "name": "Marie",
+        "role": "Project manager"
+    },
+    {
+        "id": 6,
+        "name": "Karin",
+        "role": "Code coach"
+    },
+    {
+        "id": 7,
+        "name": "Daniel",
+        "role": "Code coach"
+    },
+    {
+        "id": 8,
+        "name": "Jennie",
+        "role": "Code coach"
+    }
+]
