@@ -4,7 +4,7 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -23,6 +23,25 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+app.get("/books", (req, res) => {
+  res.json(booksData)
+})
+
+app.get("/favorite", (req, res) => {
+  const highAvgRating =  booksData.filter((book) => book.average_rating >= 4)
+  res.json(highAvgRating)
+})
+
+app.get("/title:title", (req, res) => {
+  const title = req.params.title
+  res.json(booksData)
+})
+
+app.get("/authors:authors", (req, res) => {
+  res.json(booksData)
+})
+
 
 // Start the server
 app.listen(port, () => {
