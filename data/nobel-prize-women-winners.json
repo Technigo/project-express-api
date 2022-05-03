@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Ada Yonath",
+    "year": 2009,
+    "country": "Israel",
+    "category": "Chemistry",
+    "description": "For studies of the structure and function of the ribosome"
+  },
+  {
+    "name": "Alice Munro",
+    "year": 2013,
+    "country": "Canada",
+    "category": "Literature",
+    "description": "Master of the contemporary short story"
+  },
+  {
+    "name": "Alva Myrdal",
+    "year": 1982,
+    "country": "Sweden",
+    "category": "Peace",
+    "description": "Former Cabinet Minister; Diplomat; Writer."
+  },
+  {
+    "name": "Aung San Suu Kyi",
+    "year": 1991,
+    "country": "Burma",
+    "category": "Peace",
+    "description": "For her non-violent struggle for democracy and human rights"
+  },
+  {
+    "name": "Barbara McClintock",
+    "year": 1983,
+    "country": "United States",
+    "category": "Physiology or Medicine",
+    "description": "For her discovery of mobile genetic elements"
+  },
+  {
+    "name": "Bertha von Suttner",
+    "year": 1905,
+    "country": "Czech Republic",
+    "category": "Peace",
+    "description": "Honorary President of Permanent International Peace Bureau, Bern, Switzerland; Author of \"Lay Down Your Arms\"."
+  },
+  {
+    "name": "Betty Williams",
+    "year": 1976,
+    "country": "Ireland, United Kingdom",
+    "category": "Peace",
+    "description": "Founder of the Northern Ireland Peace Movement (later renamed Community of Peace People)"
+  },
+  {
+    "name": "Carol W. Greider",
+    "year": 2009,
+    "country": "United States",
+    "category": "Physiology or Medicine",
+    "description": "For the discovery of how chromosomes are protected by telomeres and the enzyme telomerase"
+  },
+  {
+    "name": "Christiane Nüsslein-Volhard",
+    "year": 1995,
+    "country": "Germany",
+    "category": "Physiology or Medicine",
+    "description": "For their discoveries concerning the genetic control of early embryonic development"
+  },
+  {
+    "name": "Donna Strickland",
+    "year": 2018,
+    "country": "Canada",
+    "category": "Physics",
+    "description": "For their method of generating high-intensity, ultra-short optical pulses"
+  },
+  {
+    "name": "Doris Lessing",
+    "year": 2007,
+    "country": "Iran, United Kingdom",
+    "category": "Literature",
+    "description": "That epicist of the female experience, who with scepticism, fire and visionary power has subjected a divided civilisation to scrutiny"
+  },
+  {
+    "name": "Dorothy Hodgkin",
+    "year": 1964,
+    "country": "United Kingdom",
+    "category": "Chemistry",
+    "description": "For her determinations by X-ray techniques of the structures of important biochemical substances"
+  },
+  {
+    "name": "Elfriede Jelinek",
+    "year": 2004,
+    "country": "Austria",
+    "category": "Literature",
+    "description": "For her musical flow of voices and counter-voices in novels and plays that with extraordinary linguistic zeal reveal the absurdity of society's clichés and their subjugating power"
+  },
+  {
+    "name": "Elinor Ostrom",
+    "year": 2009,
+    "country": "United States",
+    "category": "Economics",
+    "description": "For her analysis of economic governance, especially the commons"
+  },
+  {
+    "name": "Elizabeth Blackburn",
+    "year": 2009,
+    "country": "Australia, United States",
+    "category": "Physiology or Medicine",
+    "description": "For the discovery of how chromosomes are protected by telomeres and the enzyme telomerase"
+  },
+  {
+    "name": "Ellen Johnson Sirleaf",
+    "year": 2011,
+    "country": "Liberia",
+    "category": "Peace",
+    "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
+  },
+  {
+    "name": "Emily Greene Balch",
+    "year": 1946,
+    "country": "United States",
+    "category": "Peace",
+    "description": "Formerly Professor of History and Sociology; Honorary International President, Women's International League for Peace and Freedom."
+  },
+  {
+    "name": "Esther Duflo",
+    "year": 2019,
+    "country": "France, United States",
+    "category": "Economics",
+    "description": "For their experimental approach to alleviating global poverty"
+  },
+  {
+    "name": "Frances H. Arnold",
+    "year": 2018,
+    "country": "United States",
+    "category": "Chemistry",
+    "description": "For the directed evolution of enzymes"
+  },
+  {
+    "name": "Françoise Barré-Sinoussi",
+    "year": 2008,
+    "country": "France",
+    "category": "Physiology or Medicine",
+    "description": "For their discovery of HIV, human immunodeficiency virus"
+  },
+  {
+    "name": "Gabriela Mistral",
+    "year": 1945,
+    "country": "Chile",
+    "category": "Literature",
+    "description": "For her lyric poetry which, inspired by powerful emotions, has made her name a symbol of the idealistic aspirations of the entire Latin American world"
+  },
+  {
+    "name": "Gertrude B. Elion",
+    "year": 1988,
+    "country": "United States",
+    "category": "Physiology or Medicine",
+    "description": "For their discoveries of important principles for drug treatment"
+  },
+  {
+    "name": "Gerty Cori",
+    "year": 1947,
+    "country": "Czech Republic, United States",
+    "category": "Physiology or Medicine",
+    "description": "For their discovery of the course of the catalytic conversion of glycogen"
+  },
+  {
+    "name": "Grazia Deledda",
+    "year": 1926,
+    "country": "Italy",
+    "category": "Literature",
+    "description": "For her idealistically inspired writings which with plastic clarity picture the life on her native island and with depth and sympathy deal with human problems in general"
+  },
+  {
+    "name": "Herta Müller",
+    "year": 2009,
+    "country": "Germany, Romania",
+    "category": "Literature",
+    "description": "Who, with the concentration of poetry and the frankness of prose, depicts the landscape of the dispossessed"
+  },
+  {
+    "name": "Irène Joliot-Curie",
+    "year": 1935,
+    "country": "France",
+    "category": "Chemistry",
+    "description": "For their synthesis of new radioactive elements"
+  },
+  {
+    "name": "Jane Addams",
+    "year": 1931,
+    "country": "United States",
+    "category": "Peace",
+    "description": "Sociologist; International President, Women's International League for Peace and Freedom."
+  },
+  {
+    "name": "Jody Williams",
+    "year": 1997,
+    "country": "United States",
+    "category": "Peace",
+    "description": "For their work for the banning and clearing of anti-personnel mines"
+  },
+  {
+    "name": "Leymah Gbowee",
+    "year": 2011,
+    "country": "Liberia",
+    "category": "Peace",
+    "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
+  },
+  {
+    "name": "Linda B. Buck",
+    "year": 2004,
+    "country": "United States",
+    "category": "Physiology or Medicine",
+    "description": "For their discoveries of odorant receptors and the organization of the olfactory system"
+  },
+  {
+    "name": "Mairead Maguire",
+    "year": 1976,
+    "country": "Ireland, United Kingdom",
+    "category": "Peace",
+    "description": "Founder of the Northern Ireland Peace Movement (later renamed Community of Peace People)"
+  },
+  {
+    "name": "Malala Yousafzai",
+    "year": 2014,
+    "country": "Pakistan",
+    "category": "Peace",
+    "description": "For their struggle against the suppression of children and young people and for the right of all children to education\"."
+  },
+  {
+    "name": "Maria Goeppert-Mayer",
+    "year": 1963,
+    "country": "Germany, United States",
+    "category": "Physics",
+    "description": "For their discoveries concerning nuclear shell structure"
+  },
+  {
+    "name": "Marie Skłodowska-Curie",
+    "year": 1903,
+    "country": "France, Poland",
+    "category": "Physics",
+    "description": "In recognition of the extraordinary services they have rendered by their joint researches on the radiation phenomena discovered by Professor Henri Becquerel"
+  },
+  {
+    "name": "Marie Skłodowska-Curie",
+    "year": 1911,
+    "country": "France, Poland",
+    "category": "Chemistry",
+    "description": "For her discovery of radium and polonium"
+  },
+  {
+    "name": "May-Britt Moser",
+    "year": 2014,
+    "country": "Norway",
+    "category": "Physiology or Medicine",
+    "description": "For their discoveries of cells that constitute a positioning system in the brain"
+  },
+  {
+    "name": "Mother Teresa",
+    "year": 1979,
+    "country": "India, North Macedonia",
+    "category": "Peace",
+    "description": "Leader of Missionaries of Charity, Calcutta."
+  },
+  {
+    "name": "Nadia Murad",
+    "year": 2018,
+    "country": "Iraq",
+    "category": "Peace",
+    "description": "For their efforts to end the use of sexual violence as a weapon of war and armed conflict"
+  },
+  {
+    "name": "Nadine Gordimer",
+    "year": 1991,
+    "country": "South Africa",
+    "category": "Literature",
+    "description": "Who through her magnificent epic writing has - in the words of Alfred Nobel - been of very great benefit to humanity"
+  },
+  {
+    "name": "Nelly Sachs",
+    "year": 1966,
+    "country": "Germany, Sweden",
+    "category": "Literature",
+    "description": "For her outstanding lyrical and dramatic writing, which interprets Israel's destiny with touching strength"
+  },
+  {
+    "name": "Olga Tokarczuk",
+    "year": 2018,
+    "country": "Poland",
+    "category": "Literature",
+    "description": "“For a narrative imagination that with encyclopedic passion represents the crossing of boundaries as a form of life”"
+  },
+  {
+    "name": "Pearl S. Buck",
+    "year": 1938,
+    "country": "United States",
+    "category": "Literature",
+    "description": "For her rich and truly epic descriptions of peasant life in China and for her biographical masterpieces"
+  },
+  {
+    "name": "Rigoberta Menchú",
+    "year": 1992,
+    "country": "Guatemala",
+    "category": "Peace",
+    "description": "In recognition of her work for social justice and ethno-cultural reconciliation based on respect for the rights of indigenous peoples"
+  },
+  {
+    "name": "Rita Levi-Montalcini",
+    "year": 1986,
+    "country": "Italy, United States",
+    "category": "Physiology or Medicine",
+    "description": "For their discoveries of growth factors"
+  },
+  {
+    "name": "Rosalyn Sussman Yalow",
+    "year": 1977,
+    "country": "United States",
+    "category": "Physiology or Medicine",
+    "description": "For the development of radioimmunoassays of peptide hormones"
+  },
+  {
+    "name": "Selma Lagerlöf",
+    "year": 1909,
+    "country": "Sweden",
+    "category": "Literature",
+    "description": "In appreciation of the lofty idealism, vivid imagination and spiritual perception that characterize her writings"
+  },
+  {
+    "name": "Shirin Ebadi",
+    "year": 2003,
+    "country": "Iran",
+    "category": "Peace",
+    "description": "For her efforts for democracy and human rights. She has focused especially on the struggle for the rights of women and children"
+  },
+  {
+    "name": "Sigrid Undset",
+    "year": 1928,
+    "country": "Norway",
+    "category": "Literature",
+    "description": "Principally for her powerful descriptions of Northern life during the Middle Ages"
+  },
+  {
+    "name": "Svetlana Alexievich",
+    "year": 2015,
+    "country": "Belarus, Ukraine",
+    "category": "Literature",
+    "description": "For her polyphonic writings, a monument to suffering and courage in our time"
+  },
+  {
+    "name": "Tawakkol Karman",
+    "year": 2011,
+    "country": "Yemen",
+    "category": "Peace",
+    "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
+  },
+  {
+    "name": "Toni Morrison",
+    "year": 1993,
+    "country": "United States",
+    "category": "Literature",
+    "description": "Who in novels characterized by visionary force and poetic import, gives life to an essential aspect of American reality"
+  },
+  {
+    "name": "Tu Youyou",
+    "year": 2015,
+    "country": "China",
+    "category": "Physiology or Medicine",
+    "description": "For her discoveries concerning a novel therapy against Malaria (artemisinin)"
+  },
+  {
+    "name": "Wangari Maathai",
+    "year": 2004,
+    "country": "Kenya",
+    "category": "Peace",
+    "description": "For her contribution to sustainable development, democracy and peace"
+  },
+  {
+    "name": "Wisława Szymborska",
+    "year": 1996,
+    "country": "Poland",
+    "category": "Literature",
+    "description": "For poetry that with ironic precision allows the historical and biological context to come to light in fragments of human reality"
+  }
+]
