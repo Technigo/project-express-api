@@ -1,4 +1,11 @@
+import listEndpoints from "express-list-endpoints";
+
+import app from "../app";
 import nasaAstronauts from "../data/nasa-astronauts.json";
+
+const listEndPoints = (req, res) => {
+  res.send(listEndpoints(app))
+};
 
 const getAllAstronauts = (req, res) => {
   const { name, status } = req.query;
@@ -78,6 +85,7 @@ const getAstronautByYear = (req, res) => {
 };
 
 module.exports = {
+  listEndPoints,
   getAllAstronauts,
   getAstronautById,
   getAstronautByYear

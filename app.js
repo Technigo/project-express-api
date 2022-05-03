@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", astronautsApi.listEndPoints);
+
 app.get("/api/astronauts", astronautsApi.getAllAstronauts);
 app.get("/api/astronauts/:id", astronautsApi.getAstronautById);
 
