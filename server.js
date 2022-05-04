@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 // get list of female nobel laureats
 app.get("/laureates"),
   (req, res) => {
-    const { name, country, year, category } = req.query;
+    const { name, country, category } = req.query;
 
     let laureatesDataToSend;
     const laureatesByCountry = laureates.filter(
