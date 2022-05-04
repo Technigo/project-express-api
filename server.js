@@ -4,7 +4,7 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -14,6 +14,7 @@ import cors from "cors";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+// console.log(booksData);
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -22,6 +23,29 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+app.get("/books", (req, res) => {
+  res.status(200).json(booksData);
+});
+
+app.get("/books/:bookID/", (req, res) => {
+  const bookByID = booksData.find(
+    (book) => book.bookID === req.params.bookID);
+  // console.log(req.params);
+
+  res.status(200).json(bookByID);
+});
+
+app.get("/rating", (req, res) => {
+  res.json(booksData)
+});
+
+app.get("/rating/:rating", (req, res) => {
+  const rating = req.params.rating;
+  let averageRatings = booksData.filter((book) => book.average_rating.toString().slice(0, 1) === rating);
+
+  res.json(averageRatings)
 });
 
 // Start the server
