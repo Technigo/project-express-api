@@ -10,7 +10,7 @@ const pagination = (data, pageNumber=1, response) => {
   const itemsOnPage = data.slice(startIndex, endIndex);
   const totalPages = Math.ceil(data.length / pageSize);
 
-  if (pageNumber < 1 || pageNumber > totalPages && data.length > 0 ) {
+  if (pageNumber < 1 || pageNumber > totalPages && data.length > 0) {
     response.status(422)
       .json({
         success: false,
@@ -36,7 +36,7 @@ const listEndPoints = (req, res) => {
 };
 
 const getAllAstronauts = (req, res) => {
-  const { name, status, page } = req.query;
+  const { name, status, mission, gender, major, graduateMajor, page } = req.query;
   let filteredAstronauts = nasaAstronauts;
 
   if (name) {
@@ -49,16 +49,27 @@ const getAllAstronauts = (req, res) => {
       .filter((item) => item.status.toLocaleLowerCase().includes(status.toLocaleLowerCase()));
   };
 
-  if (filteredAstronauts.length === 0) {
-    res.status(404)
-      .json({
-        success: false,
-        status_code: 404,
-        status_message: "Sorry we couldn't find the astronaut you are looking for."
-      })
-  } else {
-    res.status(200).json(pagination(filteredAstronauts, page, res))
-  }
+  if (mission) {
+    filteredAstronauts = filteredAstronauts
+      .filter((item) => item.missions.toLocaleLowerCase().includes(mission.toLocaleLowerCase()));
+  };
+
+  if (gender) {
+    filteredAstronauts = filteredAstronauts
+      .filter((item) => item.gender.toLocaleLowerCase() === gender.toLocaleLowerCase());
+  };
+
+  if (major) {
+    filteredAstronauts = filteredAstronauts
+      .filter((item) => item.underGraduateMajor.toLocaleLowerCase() === major.toLocaleLowerCase());
+  };
+
+  if (graduateMajor) {
+    filteredAstronauts = filteredAstronauts
+      .filter((item) => item.graduateMajor.toLocaleLowerCase() === graduateMajor.toLocaleLowerCase());
+  };
+
+  res.status(200).json(pagination(filteredAstronauts, page, res))
 };
 
 const getAstronautById = (req, res) => {
@@ -85,7 +96,7 @@ const getAstronautById = (req, res) => {
 
 const getAstronautByYear = (req, res) => {
   const { year } = req.params;
-  const { gender, group, page } = req.query;
+  const { gender, group, spaceFlights, spaceHours, spaceWalks, walksHours, page } = req.query;
 
   let astronautsFromYear = nasaAstronauts.filter((item) => item.year === +year)
 
@@ -97,6 +108,26 @@ const getAstronautByYear = (req, res) => {
   if (group) {
     astronautsFromYear = astronautsFromYear
       .filter((item) => item.group === +group);
+  };
+
+  if (spaceFlights) {
+    astronautsFromYear = astronautsFromYear
+      .filter((item) => item.spaceFlights === +spaceFlights);
+  };
+
+  if (spaceHours) {
+    astronautsFromYear = astronautsFromYear
+      .filter((item) => item.spaceFlight_hr === +spaceHours);
+  };
+
+  if (spaceWalks) {
+    astronautsFromYear = astronautsFromYear
+      .filter((item) => item.spaceWalks === +spaceWalks);
+  };
+
+  if (walksHours) {
+    astronautsFromYear = astronautsFromYear
+      .filter((item) => item.spaceWalks_hr === +walksHours);
   };
 
   res.status(200).json(pagination(astronautsFromYear, page, res))
