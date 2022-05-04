@@ -1,17 +1,9 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
 import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -30,24 +22,38 @@ app.get("/books", (req, res) => {
   res.json(booksData)
 })
 
-app.get("/top-rated", (req, res) => {
+app.get("/books/top-rated", (req, res) => {
   const highAvgRating =  booksData.filter((book) => book.average_rating >= 4)
   res.json(highAvgRating)
 })
 
-app.get("/title/:title", (req, res) => {
+app.get("/books/title/:title", (req, res) => {
   const title = req.params.title
-  let titleInput = booksData.filter((str) => str.title === title)
-  res.json(titleInput)
+  let titleInput = booksData.filter((str) => str.title.toLowerCase() === title.toLowerCase())
+
+  if(titleInput) {
+    res.status(200).json({
+      data: titleInput,
+      success: true})
+  } else {
+    res.status(400).json({
+      data: "Not found",
+      success: false})
+  }
 })
 
-
-//ask in Townhall http://localhost:8080/authors/Dan%20Brown
-//how to disregards lower/upper cases?
-app.get("/authors/:authors", (req, res) => {
+app.get("/books/authors/:authors", (req, res) => {
   const authors = req.params.authors
-  let authorsInput = booksData.filter((str)=> str.authors === authors)
-  res.json(authorsInput)
+  let authorsInput = booksData.filter((str)=> str.authors.toLowerCase() === authors.toLowerCase())
+  if(authorsInput) {
+    res.status(200).json({
+      data: authorsInput,
+      success: true})
+  } else {
+    res.status(400).json({
+      data: "Not found",
+      success: false})
+  }
 })
 
 
