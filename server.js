@@ -21,18 +21,42 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Hello world");
 });
 
 app.get("/songs", (req, res) => {
   res.status(200).json(songs)
 })
 
-app.get("/songs/:id", (req, res) => {
+app.get("/songs/id/:id", (req, res) => {
   const songById = songs.find(
     (song) => song.id == req.params.id
   );
-  res.status(200).json(songById);
+
+  if (!songById) {
+    res.status(400).json({
+      data: "Not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: songById,
+      sucess: true,
+    });
+  }
+});
+
+app.get("/songs/artist/:artistName", (req, res) => {
+  const { artistName } = req.params
+  
+  const songsByArtist = songs.filter(
+    (songs) => songs.artistName.toLowerCase() === artistName.toLowerCase()
+  );
+  
+  res.status(200).json({
+    data: songsByArtist,
+    success: true,
+  });
 });
 
 // Start the server
