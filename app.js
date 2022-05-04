@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import astronautsApi from "./astronauts/index"
+import astronautsApi from "./astronauts/index";
 
 const app = express();
 
@@ -14,5 +14,7 @@ app.get("/api/astronauts", astronautsApi.getAllAstronauts);
 app.get("/api/astronauts/:id", astronautsApi.getAstronautById);
 
 app.get("/api/year/:year", astronautsApi.getAstronautByYear);
+
+app.get('*', (req, res) => res.status(404).send("Not Found"));
 
 export default app;
