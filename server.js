@@ -4,7 +4,7 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -23,6 +23,18 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+//1. endpoint that returns the whole array of book ratings. 
+app.get("/bookratings", (req, res) => {
+  res.status(200).json(booksData);
+});
+
+// 2. endpoint that returns a rated book by its title. 
+app.get("/bookratings/:title", (req, res)=> {
+  const bookByTitle = booksData.find(book => book.title === req.params.title)
+  res.status(200).json(bookByTitle);
+})
+
 
 // Start the server
 app.listen(port, () => {
