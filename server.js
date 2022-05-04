@@ -25,8 +25,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
+  const { date } = req.query;
+
+  let allAvocadoSalesData = avocadoSalesData;
+
+  if (date) {
+    allAvocadoSalesData = allAvocadoSalesData.filter((salesData) => 
+      salesData.date === date
+    );
+  }
+
   res.status(200).json({
-    data: avocadoSalesData,
+    data: allAvocadoSalesData,
     success: true
   });
   console.log(avocadoSalesData);
@@ -44,9 +54,14 @@ app.get("/api/:region/:id?", (req, res) => {
       data: dataPerRegion,  
       success: true
     });
+  } else if (dataPerRegion.length === 0) {
+    res.status(204).send({
+      data: 'Response is successful but no region with that name exists',  
+      success: true
+    });
   } else {
     res.status(404).send({
-      data: 'No region with this name exists',
+      data: 'Not found',
       success: false
     });
   }
