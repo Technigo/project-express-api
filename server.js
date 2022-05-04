@@ -34,9 +34,9 @@ app.get("/api", (req, res) => {
 
 app.get("/api/:region/:id?", (req, res) => {
   const { region } = req.params;
-  
+
   const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
-    avocadoData.region === region
+    avocadoData.region.toLowerCase() === region.toLowerCase()
   );
 
   if (dataPerRegion && dataPerRegion.length !== 0) {
