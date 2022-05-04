@@ -16,8 +16,12 @@ app.get("/animals/", (req, res) => {
 
 //Mammal, Bird, Fish...
 //animals.animal_type
-app.get("/animals/type/:animal_type", (req, res) => {
-  const animalByType = animals.filter((animal) => animal.animal_type.toLowerCase() === req.params.animal_type.toLowerCase());
+app.get("/animals/type/:animalType", (req, res) => {
+
+  const { animalType } = req.params; 
+  const animalByType = animals.filter(
+    (animal) => animal.animal_type.toLowerCase() === animalType.toLowerCase()
+  );
   
   res.status(200).json(animalByType);
 
@@ -37,9 +41,12 @@ app.get("/animals/type/:animal_type", (req, res) => {
 
 //Id 
 //animals/id/186
-app.get("/animals/id/:id", (req, res) => {
-  const animalById = animals.find((animal) => animal.id === +req.params.id);
-  //console.log(animalById);
+app.get("/animals/id/:animalId", (req, res) => {
+
+  const { animalId } = req.params;
+  const animalById = animals.find(
+    (animal) => animal.id === +animalId
+  );
 
   if (!animalById) {
     res.status(404).json({
