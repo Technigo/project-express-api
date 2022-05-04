@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import animals from './data/zoo-animals.json';
+import { all } from "express/lib/application";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -59,6 +60,32 @@ app.get("/animals/id/:animalId", (req, res) => {
         success: true
       });
   }
+});
+
+//Type and geo_range
+// animals?type=fish&geo=Australia
+app.get("/animals", (req, res) => {
+  const { type, geo } = req.query;
+
+  let allAnimals = animals;
+
+  if (type) {
+    allAnimals = allAnimals.filter(
+      (animal) => animal.animal_type.toLowerCase() === type.toLowerCase()
+    );
+  }
+
+  if (geoRange) {
+    allAnimals = allAnimals.filter(
+      (animal) => animal.geo_range.toLowerCase() === geo.toLowerCase()
+    );
+  }
+
+  res.status(200).json({
+    data: allAnimals,
+    success: true
+  });
+
 });
 
 
