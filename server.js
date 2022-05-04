@@ -1,13 +1,6 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-import members from "./data/technigo-members.json";
 import goldenGlobesData from "./data/golden-globes.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -25,65 +18,77 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-//RETURNS ALL NOMINATIONS
+//ALL NOMINATIONS WITH CHOICES YEAR/NOMINEE/WIN//QUERY
 app.get("/nominations", (req, res) => {
-  res.json(goldenGlobesData);
-});
+  const { year_award, nominee, win } = req.query;
 
-//RETURNS NOMINATIONS A SPECIFIC YEAR. ADDITIONALLY SORTS ON WINS WITH ?WON=TRUE
-app.get("/year/:year", (req, res) => {
-  const year = req.params.year;
-  // console.log({ year });
-  const showWon = req.query.win;
-  let nominationsFromYear = goldenGlobesData.filter(
-    (item) => item.year_award === +year
-  );
+  let selectNominations = goldenGlobesData;
 
-  if (showWon) {
-    nominationsFromYear = nominationsFromYear.filter((item) => item.win);
+  if (year_award) {
+    selectNominations = selectNominations.filter(
+      (item) => item.year_award === +year_award
+    );
   }
-  res.json(nominationsFromYear);
+
+  if (nominee) {
+    selectNominations = selectNominations.filter(
+      (item) => item.nominee.toLowerCase() === nominee.toLowerCase()
+    );
+  }
+
+  if (win) {
+    selectNominations = selectNominations.filter((item) => item.win === true);
+  }
+
+  if (selectNominations.length === 0) {
+    res
+      .status(404)
+      .json("Sorry, we can´t find any nominations for your chosen combination");
+  } else {
+    res.status(200).json({
+      data: selectNominations,
+      success: true,
+    });
+  }
 });
 
-//SEARCH FOR IF A SPECIFIC FILM EVER BEEN NOMINATED ONE OR SEVERAL TIMES
-app.get("/nominations/:film", (req, res) => {
-  const film = req.params.film;
+//SEARCH FOR IF A SPECIFIC FILM/PERSON EVER BEEN NOMINATED ONE OR SEVERAL TIMES//WORKS
+app.get("/nominations/:nominee", (req, res) => {
+  const nominee = req.params.nominee;
   const filmNominees = goldenGlobesData.filter(
-    (movie) => movie.nominee === film
+    (movie) => movie.nominee.toLocaleLowerCase() === nominee.toLocaleLowerCase()
   );
 
   if (filmNominees.length === 0) {
-    res
-      .status(404)
-      .json(`Sorry, we can´t find any nomination for the movie ${nominee} `);
+    res.status(404).json(`Sorry, we can´t find any nomination for ${nominee} `);
   } else {
     res.status(200).json(filmNominees);
   }
 });
 
-//TEST FROM NOTION SEARCH BOTH NOMINEE AND CATEGORY// förstår inte vad denna gör
+//SEARCH BOTH NOMINEE AND CATEGORY//WORKS
 app.get("/test", (request, response) => {
   const { nominee, category } = request.query;
   let testfilter = goldenGlobesData;
 
   if (nominee) {
-    testfilter.filter((item) =>
+    testfilter = testfilter.filter((item) =>
       item.nominee.toLocaleLowerCase().includes(nominee.toLocaleLowerCase())
     );
   }
   if (category) {
-    testfilter.filter((item) =>
+    testfilter = testfilter.filter((item) =>
       item.category.toLocaleLowerCase().includes(category.toLocaleLowerCase())
     );
   }
 
   if (testfilter.length === 0) {
-    response.status(404).json("Sorry we couldn't find book you seek");
+    response.status(404).json("Sorry");
   } else {
     response.json(testfilter);
   }
 }),
-  //SEARCH ON CATEGORIES//CASE WITH BUTTONS
+  //SEARCH ON CATEGORIES//CASE WITH BUTTONS(NO SEARCHFIELD)//WORKS
   app.get("/categories/:category", (req, res) => {
     const category = req.params.category;
     const categorySearch = goldenGlobesData.filter(
@@ -93,51 +98,27 @@ app.get("/test", (request, response) => {
     res.status(200).json(categorySearch);
   });
 
-//RETURNS ALL WINNERS A SPECIFIC YEAR
-app.get("/winners/:year", (req, res) => {
+//RETURNS ALL WINNERS, FILTER IN A SPECIFIC CATEGORY AND YEAR(QUERY)//WORKS
+app.get("/winners", (req, res) => {
+  const { category, year_award } = req.query;
+
   let theWinners = goldenGlobesData.filter((item) => item.win === true);
 
-  const yearWon = req.params.year;
-  // console.log({ yearWon });
-  const theYearWinners = theWinners.filter(
-    (item) => item.year_award === +yearWon
-  );
+  if (category) {
+    theWinners = theWinners.filter(
+      (item) => item.category.toLowerCase() === category.toLowerCase()
+    );
+  }
 
-  res.status(200).json(theYearWinners);
+  if (year_award) {
+    theWinners = theWinners.filter((item) => item.year_award === +year_award);
+  }
+
+  res.status(200).json({
+    data: theWinners,
+    success: true,
+  });
 });
-
-//RETURNS ALL WINNERS IN A SPECIFIC CATEGORY
-app.get("/winners/:category", (req, res) => {
-  let theWinners = goldenGlobesData.filter((item) => item.win === true);
-
-  const categoryWon = req.params.category;
-  // console.log({ yearWon });
-  const categoryWinners = theWinners.filter(
-    (item) => item.category === categoryWon
-  );
-
-  res.status(200).json(categoryWinners);
-});
-
-//TESTS WITH TECHNIGO_MEMBERS DATA
-app.get("/members", (req, res) => {
-  res.json(members);
-});
-
-app.get("/members/:role", (req, res) => {
-  const memberByRole = members.find(
-    (member) => member.role === req.params.role
-  );
-
-  res.status(200).json(memberByRole);
-});
-
-// app.get("/members/:role", (req, res) => {
-//   const role = req.params.role;
-//   const memberByRole = members.filter((item) => item.role === role);
-
-//   res.status(200).json(memberByRole);
-// });
 
 // Start the server
 app.listen(port, () => {
