@@ -4,7 +4,7 @@ import app from "../app";
 import nasaAstronauts from "../data/nasa-astronauts.json";
 
 const pagination = (data, pageNumber=1, response) => {
-  const pageSize = 50;
+  const pageSize = 52;
   const startIndex = (pageNumber - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   const itemsOnPage = data.slice(startIndex, endIndex);
