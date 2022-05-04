@@ -1,0 +1,192 @@
+[
+    {
+        "name": "Williot Swedberg",
+        "year-born": 2004,
+        "age": 18,
+        "position": "midfielder",
+        "nationality": "Sweden",
+        "shirt_number": 44,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Nahir Besara",
+        "year-born": 1991,
+        "age": 31,
+        "position": "midfielder",
+        "nationality": "Sweden",
+        "shirt_number": 20,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Gustav Ludwigson",
+        "year-born": 1993,
+        "age": 28,
+        "position": "striker",
+        "nationality": "Sweden",
+        "shirt_number": 16,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Edvin Kurtulus",
+        "year-born": 2000,
+        "age": 22,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 21,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Mayckel Lahdo",
+        "year-born": 2002,
+        "age": 19,
+        "position": "midfielder",
+        "nationality": "Sweden",
+        "shirt_number": 15,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Davor Blazevic",
+        "year-born": 1993,
+        "age": 29,
+        "position": "goalkeeper",
+        "nationality": "Sweden",
+        "shirt_number": 25,
+        "done_goal": "no"
+    },
+    {
+        "name": "Oliver Dovin",
+        "year-born": 2002,
+        "age": 19,
+        "position": "goalkeeper",
+        "nationality": "Sweden",
+        "shirt_number": 24,
+        "done_goal": "no"
+    },
+    {
+        "name": "Björn Paulsen",
+        "year-born": 1991,
+        "age": 30,
+        "position": "defender",
+        "nationality": "Denmark",
+        "shirt_number": 42,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Joel Nilsson",
+        "year-born": 1994,
+        "age": 27,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 22,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Mads Fenger",
+        "year-born": 1990,
+        "age": 31,
+        "position": "defender",
+        "nationality": "Denmark",
+        "shirt_number": 13,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Abdulrahman Khalili",
+        "year-born": 1992,
+        "age": 29,
+        "position": "midfielder",
+        "nationality": "Sweden",
+        "shirt_number": 17,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Darijan Bojanic",
+        "year-born": 1994,
+        "age": 27,
+        "position": "midfielder",
+        "nationality": "Sweden",
+        "shirt_number": 6,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Astrit Selmani",
+        "year-born": 1997,
+        "age": 24,
+        "position": "striker",
+        "nationality": "Sweden",
+        "shirt_number": 9,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Jusef Erabi",
+        "year-born": 2003,
+        "age": 18,
+        "position": "striker",
+        "nationality": "Sweden",
+        "shirt_number": 19,
+        "done_goal": "no"
+    },
+    {
+        "name": "Jeppe Andersen",
+        "year-born": 1992,
+        "age": 29,
+        "position": "midfielder",
+        "nationality": "Denmark",
+        "shirt_number": 8,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Simon Sandberg",
+        "year-born": 1994,
+        "age": 28,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 2,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Richard Magyar",
+        "year-born": 1991,
+        "age": 31,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 4,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Mohanad Jeahze",
+        "year-born": 1997,
+        "age": 25,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 5,
+        "done_goal": "yes"
+    },
+    {
+        "name": "Loret Sadiku",
+        "year-born": 1991,
+        "age": 30,
+        "position": "defender",
+        "nationality": "Albania",
+        "shirt_number": 18,
+        "done_goal": "no"
+    },
+    {
+        "name": "Dennis Widgren",
+        "year-born": 1994,
+        "age": 28,
+        "position": "defender",
+        "nationality": "Sweden",
+        "shirt_number": 3,
+        "done_goal": "no"
+    },
+    {
+        "name": "Bubacarr Bubbis Trawally",
+        "year-born": 1994,
+        "age": 27,
+        "position": "striker",
+        "nationality": "Gambia",
+        "shirt_number": 11,
+        "done_goal": "no"
+    }
+    
+]
