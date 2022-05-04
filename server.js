@@ -40,6 +40,7 @@ app.get("/avocadosales/:region", (req, res) => {
   if (avocadoRegion) {
     res.status(200).json({ data: avocadoRegion, success: true });
   } else {
+    // IN THEORY: Should not send back 404. The data should be an empty array.
     res.status(404).json({ data: "Data not found", success: false });
   }
 });
@@ -51,6 +52,7 @@ app.get("/regions", (req, res) => {
   if (regions) {
     res.status(200).json({ data: regions, success: true });
   } else {
+    // IN THEORY: Should not send back 404. The data should be an empty array.
     res.status(404).json({ data: "Data not found", success: false });
   }
 });
