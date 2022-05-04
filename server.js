@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("This is my API");
+  res.send("NETFLIX STREAMS. This is an API with information about different Netflix movies and tv shows");
 });
 
 // Simple get request, sending back the complete list
