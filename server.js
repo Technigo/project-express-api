@@ -26,7 +26,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/avocadosales", (req, res) => {
-  res.send(avocadoSalesData);
+  res.status(200).json({
+    data: avocadoSalesData,
+    success: true,
+  });
 });
 
 app.get("/avocadosales/:region", (req, res) => {
@@ -34,13 +37,22 @@ app.get("/avocadosales/:region", (req, res) => {
   const avocadoRegion = avocadoSalesData.filter(
     (item) => item.region === region
   );
-  res.status(200).json(avocadoRegion);
+  if (avocadoRegion) {
+    res.status(200).json({ data: avocadoRegion, success: true });
+  } else {
+    res.status(404).json({ data: "Data not found", success: false });
+  }
 });
 
 app.get("/regions", (req, res) => {
   const regionsList = avocadoSalesData.map((o) => o.region);
   const regions = [...new Set(regionsList)];
-  res.status(200).json(regions);
+
+  if (regions) {
+    res.status(200).json({ data: regions, success: true });
+  } else {
+    res.status(404).json({ data: "Data not found", success: false });
+  }
 });
 
 // Start the server
