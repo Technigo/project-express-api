@@ -1,14 +1,7 @@
 import express from "express";
 import cors from "cors";
+import streams from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-import netflixDatas from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-// import members from './data/technigo-members.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -26,23 +19,23 @@ app.get("/", (req, res) => {
 });
 
 // Simple get request, sending back the complete list
-app.get("/netflixStreams", (req, res) => {
+app.get("/streams", (req, res) => {
   res.status(200).json({
-    data: netflixDatas,
+    data: streams,
     success: true})
 })
 
 // Find one specific movie/show by name
-app.get('/netflixStreams/name/:title', (req, res) => {
+app.get('/streams/name/:title', (req, res) => {
   const { title } = req.params
 
-  const netflixTitle = netflixDatas.find(
-  (netflixData) => netflixData.title.toLowerCase() === title.toLowerCase()
+  const netflixTitle = streams.find(
+  (stream) => stream.title.toLowerCase() === title.toLowerCase()
   )
 
   if(!netflixTitle){
     res.status(404).json({
-      data: "Not found",
+      data: "This title is not found",
       success: false })
   } else {
     res.status(200).json({
@@ -52,11 +45,11 @@ app.get('/netflixStreams/name/:title', (req, res) => {
   })
 
 // Filter movies/shows by release year
-  app.get('/netflixStreams/year/:release_year', (req, res) => {
+  app.get('/streams/year/:release_year', (req, res) => {
     const { release_year } = req.params
 
-    const releaseYear = netflixDatas.filter(
-      (netflixData) => netflixData.release_year === +release_year
+    const releaseYear = streams.filter(
+      (stream) => stream.release_year === +release_year
     )
 
   res.status(200).json({
@@ -66,9 +59,9 @@ app.get('/netflixStreams/name/:title', (req, res) => {
   })
 
 // Filter by dynamic type, i.e. Movie or TV Show... Maybe change it.
-app.get('/netflixStreams/:type', (req, res) => {
-  const netflixTypes = netflixDatas.filter(
-  (netflixData) => netflixData.type.toLowerCase() === req.params.type.toLowerCase()
+app.get('/streams/type/:type', (req, res) => {
+  const netflixTypes = streams.filter(
+  (stream) => stream.type.toLowerCase() === req.params.type.toLowerCase()
   )
     res.status(200).json(netflixTypes) 
   })
