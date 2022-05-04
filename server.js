@@ -3,14 +3,10 @@ import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-// import members from "./data/technigo-members.json";
-import { json } from "express/lib/response";
-import { resetWatchers } from "nodemon/lib/monitor/watch";
+import avocados from "./data/avocado-sales.json";
+
+// import { json } from "express/lib/response";
+// import { resetWatchers } from "nodemon/lib/monitor/watch";
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -27,45 +23,64 @@ app.get("/", (req, res) => {
 });
 
 app.get("/avocados", (req, res) => {
-  res.status(200).json(avocadoSalesData);
+  const { date, region } = req.query;
+
+  let allAvocados = avocados;
+
+  if (region) {
+    allAvocados = allAvocados.filter(
+      (avocado) => avocado.region.toLowerCase() === region.toLowerCase()
+    );
+  }
+
+  if (date) {
+    allAvocados = allAvocados.filter((avocado) => avocado.date === date);
+  }
+  res.status(200).json({
+    data: allAvocados,
+    success: true,
+  });
 });
 
 //Date
-app.get("/avocados/:date", (req, res) => {
-  const avocadoByDate = avocadoSalesData.find(
-    (dates) => dates.date === req.params.date
-  );
-  res.status(200).json(avocadoByDate);
+app.get("/avocados/date/:date", (req, res) => {
+  const { date } = req.params;
+
+  const avocadoByDate = avocados.find((avocado) => avocado.date === date);
+
+  if (!avocadoByDate) {
+    res.status(404).json({
+      data: "Not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: avocadoByDate,
+      success: true,
+    });
+  }
 });
 
-//Region
-app.get("/avocados/byregion/:region", (req, res) => {
-  const avocadoByRegion = avocadoSalesData.filter(
-    (region) => region.region === "Albany"
+// //Region
+app.get("/avocados/region/:region", (req, res) => {
+  const { region } = req.params;
+
+  const avocadoByRegion = avocados.filter(
+    (avocado) => avocado.region.toLowerCase() === region.toLowerCase()
   );
-  res.status(200).json(avocadoByRegion);
+
+  res.status(200).json({
+    data: avocadoByRegion,
+    success: true,
+  });
 });
 
 // Price < 1.0
-app.get("/avocados/byaveragePrice/:averagePrice", (req, res) => {
-  const avocadoAveragePrice = avocadoSalesData.filter(
-    (price) => price.averagePrice < 1.0
-  );
-  res.status(200).json(avocadoAveragePrice);
-});
-
-// const result = words.filter((word) => word.length > 6);
-// app.get("/members", (req, res) => {
-//   // to print the api
-//   res.status(200).json(members);
-// });
-
-// const = to look for a specific member
-// app.get("/members/:name", (req, res) => {
-//   const memberByName = members.find(
-//     (member) => member.name === req.params.name
+// app.get("/avocados/averagePrice/:averagePrice", (req, res) => {
+//   const avocadoAveragePrice = avocados.filter(
+//     (price) => price.averagePrice < 1.0
 //   );
-//   res.status(200).json(memberByName);
+//   res.status(200).json(avocadoAveragePrice);
 // });
 
 // Start the server
