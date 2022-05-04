@@ -25,25 +25,40 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  res.status(200).json(avocadoSalesData);
+  res.status(200).json({
+    data: avocadoSalesData,
+    success: true
+  });
   console.log(avocadoSalesData);
 });
 
-app.get("/api/:region", (req, res) => {
+app.get("/api/:region/:id?", (req, res) => {
+  const { region } = req.params;
+  
   const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
-    avocadoData.region === req.params.region
+    avocadoData.region === region
   );
 
   if (dataPerRegion && dataPerRegion.length !== 0) {
-    res.status(200).send(dataPerRegion);
+    res.status(200).send({
+      data: dataPerRegion,  
+      success: true
+    });
   } else {
-    res.status(404).send('No region with this name exists');
+    res.status(404).send({
+      data: 'No region with this name exists',
+      success: false
+    });
   }
 
-  
-  //if req.params.region === undefined or null or doesnt exist {
-    //res.status(404).json({'Error: no matching result'})
-  //} else {print the status 200 line of code}
+  // const idForRegion = avocadoSalesData.find((idData) => 
+  //   idData.id === parseInt(req.params.id)
+  // );
+
+  // if (idForRegion) {
+  //   res.status(200).send(idForRegion);  
+  // }
+
 });
 
 // app.get("/api/:region/:id?", (req, res) => {
