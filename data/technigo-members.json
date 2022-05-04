@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"name": "Matilda",
+		"role": "Code coach"
+	},
+	{
+		"id": 2,
+		"name": "Petra",
+		"role": "Career coach"
+	},
+	{
+		"id": 3,
+		"name": "Marie",
+		"role": "Project manager"
+	},
+	{
+		"id": 4,
+		"name": "Poya",
+		"role": "Project manager"
+	},
+	{
+		"id": 5,
+		"name": "Daniel",
+		"role": "Code coach"
+	},
+	{
+		"id": 6,
+		"name": "Maksymilian",
+		"role": "Code coach"
+	}
+]
