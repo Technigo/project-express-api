@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Stephannie",
+        "likes": "bubble tea",
+        "strength": "Enthusiasm"
+    },
+    {
+        "id": 2,
+        "name": "Michael",
+        "likes": "sports",
+        "strength": "Patience"
+    },
+    {
+        "id": 3,
+        "name": "Josefin",
+        "likes": "gossip",
+        "strength": "Respectfulness"
+    },
+    {
+        "id": 4,
+        "name": "Lisen",
+        "likes": "cars",
+        "strength": "Dedication"
+    },
+    {
+        "id": 5,
+        "name": "Nabeel",
+        "likes": "books",
+        "strength": "Discipline"
+    },
+    {
+        "id": 6,
+        "name": "Tomoyo",
+        "likes": "shopping",
+        "strength": "Trustworthiness"
+    },
+    {
+        "id": 7,
+        "name": "Li",
+        "likes": "horror movies",
+        "strength": "Determination"
+    },
+    {
+        "id": 8,
+        "name": "Mathilda",
+        "likes": "dogs",
+        "strength": "Honesty"
+    },
+    {
+        "id": 9,
+        "name": "Louisa",
+        "likes": "cats",
+        "strength": "Creativity"
+    },
+    {
+        "id": 10,
+        "name": "Amanda",
+        "likes": "programming",
+        "strength": "Versatility"
+    }
+]
