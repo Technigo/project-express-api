@@ -1,12 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was a fun introduction to backend by creating an API in Node using Express. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+There were some issues throwing error messages with the filter method at first. But thanks to StackOverflow I found a way to solve this. 
+Playing around with query and path params was a fun practice for this project. 
+
 
 ## View it live
 
