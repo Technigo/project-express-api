@@ -20,9 +20,38 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get("/members/name/:name", (req, res) => {
+  const { name } = req.params;
+
+  const memberByName = members.find((member) => member.name === name);
+
+  if (!memberByName) {
+    res.status(404).json({
+      data: "Not found",
+      sucess: false,
+    });
+  } else {
+    res.status(200).json({
+      data: memberByName,
+      sucess: true,
+    });
+
+  }
 });
+
+app.get("/members/role/:role", (req, res) => {
+  const { role } = req.params;
+
+  const membersByRole = members.filter(
+    (member) => member.role.toLowerCase() === role.toLowerCase()
+  );
+
+  res.status(200).json({
+    data: membersByRole,
+    success: true,
+  });
+});
+
 
 // Start the server
 app.listen(port, () => {
