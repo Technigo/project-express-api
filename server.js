@@ -48,7 +48,7 @@ app.get('/books/top-rated', (req, res) => {
 // will look for a specific param, in this case a specific ID from books
 app.get('/books/book/:bookID', (req, res) => {
 const { bookID } = req.params
-const { book } = books.find((b) => b.bookID === +bookID)
+const { book } = books.find((item) => item.bookID === +bookID)
 
 if (!book) {
   res.status(404).send(`Error, there is no book with book-ID ${bookID}`)
