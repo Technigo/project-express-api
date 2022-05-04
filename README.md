@@ -1,10 +1,10 @@
 # Project Express API
 
-This was my first back end project.
+This was my first backend project.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+At first I had difficulties getting my endpoints to show.
 
 ## View it live
 
