@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
   res.send(Start);
 });
 
-// get list of female nobel laureats
+// get list of female nobel laureates
 app.get("/laureates"),
   (req, res) => {
     const { name, country, category } = req.query;
