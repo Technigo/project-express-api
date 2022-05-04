@@ -35,7 +35,7 @@ app.get("/avocadosales", (req, res) => {
 app.get("/avocadosales/:region", (req, res) => {
   const region = req.params.region;
   const avocadoRegion = avocadoSalesData.filter(
-    (item) => item.region === region
+    (item) => item.region.toLowerCase() === region.toLowerCase()
   );
   if (avocadoRegion) {
     res.status(200).json({ data: avocadoRegion, success: true });
