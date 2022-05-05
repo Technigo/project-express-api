@@ -20,8 +20,24 @@ app.get("/", (req, res) => {
 })
 
 app.get("/chocolates", (req, res) => {
-  const { company, company_location, review_date, country_of_bean_origin, count_of_ingredients, has_cocoa_butter,
-    first_taste, second_taste } = req.query
+  const {
+    company,
+    company_location,
+    review_date,
+    country_of_bean_origin,
+    count_of_ingredients,
+    has_cocoa_butter,
+    // TO ADD
+    // has_vanilla,
+    // has_lecithin,
+    // has_salt,
+    // has_sugar,
+    // has_other_sweetener,
+    first_taste,
+    second_taste,
+    third_taste,
+    fourth_taste
+  } = req.query
 
   let allChocolatesData = chocolatesData
 
@@ -55,6 +71,8 @@ app.get("/chocolates", (req, res) => {
     )
   }
 
+// %&?&% has_cocoa_butter?????????
+
   // if (has_cocoa_butter) {
   //   allChocolatesData = allChocolatesData.filter(
   //     chocolate => chocolate.has_cocoa_butter === has_cocoa_butter
@@ -85,25 +103,54 @@ app.get("/chocolates", (req, res) => {
   //   )
   // }
 
-  if (!has_cocoa_butter) {
-    allChocolatesData = allChocolatesData.filter(
-      chocolate => !chocolate.has_cocoa_butter
-    )
-  }
+  // if (!has_cocoa_butter) {
+  //   allChocolatesData = allChocolatesData.filter(
+  //     chocolate => !chocolate.has_cocoa_butter
+  //   )
+  // }
 
+  // if (has_cocoa_butter) {
+  //   allChocolatesData = allChocolatesData.filter(
+  //     chocolate => chocolate.has_cocoa_butter === false
+  //   )
+  // }
+
+  // if (has_cocoa_butter) {
+  //   allChocolatesData = allChocolatesData.filter(
+  //     chocolate => chocolate.has_cocoa_butter
+  //   )
+  // }
+
+  // TO ADD
+  // has_vanilla
+  // has_lecithin
+  // has_salt
+  // has_sugar
+  // has_other_sweetener
 
   if (first_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.first_taste.toLowerCase() === first_taste.toLowerCase()
+      chocolate => chocolate.first_taste.toLowerCase().includes(first_taste.toLowerCase())
     )
   }
 
   if (second_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.second_taste.toLowerCase() === second_taste.toLowerCase()
+      chocolate => chocolate.second_taste.toLowerCase().includes(second_taste.toLowerCase())
     )
   }
 
+  if (third_taste) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.third_taste.toLowerCase().includes(third_taste.toLowerCase())
+    )
+  }
+
+  if (fourth_taste) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.fourth_taste.toLowerCase().includes(fourth_taste.toLowerCase())
+    )
+  }
 
   res.status(200).json({
     data: allChocolatesData,
@@ -111,9 +158,121 @@ app.get("/chocolates", (req, res) => {
   })
 })
 
+app.get("/chocolates/id/:id", (req, res) => {
+  const { id } = req.params
+  const chocolateByID = chocolatesData.find(chocolate => chocolate.id === +id)
 
+  if (!chocolateByID) {
+    res.status(404).json({
+      data: `No chocolate found with the id: ${id}`,
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      data: chocolateByID,
+      success: true,
+    })
+  }
+})
 
+app.get("/chocolates/name/:name", (req, res) => {
+  const { name } = req.params
+  const chocolateByName =
+    chocolatesData.find(
+      chocolate => chocolate.specific_bean_origin_or_bar_name.toLowerCase() === name.toLowerCase()
+    )
 
+  if (!chocolateByName) {
+    res.status(404).json({
+      data: `No chocolate found with the name: ${name}`,
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      data: chocolateByName,
+      success: true,
+    })
+  }
+})
+
+app.get("/chocolates/latest_reviews", (req, res) => {
+  const latestReviewedChocolates = chocolatesData.filter(chocolate => chocolate.review_date >= 2019)
+
+  res.status(200).json({
+    data: latestReviewedChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/oldest_reviews", (req, res) => {
+  const oldestReviewedChocolates = chocolatesData.filter(chocolate => chocolate.review_date <= 2006)
+
+  res.status(200).json({
+    data: oldestReviewedChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/best_ratings", (req, res) => {
+  const bestRatedChocolates = chocolatesData.filter(chocolate => chocolate.rating >= 4)
+
+  res.status(200).json({
+    data: bestRatedChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/worst_ratings", (req, res) => {
+  const worstRatedChocolates = chocolatesData.filter(chocolate => chocolate.rating <= 1.75)
+
+  res.status(200).json({
+    data: worstRatedChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/highest_in_cocoa", (req, res) => {
+  const highestCocoaChocolates = chocolatesData.filter(chocolate => chocolate.cocoa_percentage >= 90)
+
+  res.status(200).json({
+    data: highestCocoaChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/lowest_in_cocoa", (req, res) => {
+  const lowestCocoaChocolates = chocolatesData.filter(chocolate => chocolate.cocoa_percentage <= 55)
+
+  res.status(200).json({
+    data: lowestCocoaChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/most_ingredients", (req, res) => {
+  const mostIngredientsChocolates = chocolatesData.filter(chocolate => chocolate.count_of_ingredients > 5)
+
+  res.status(200).json({
+    data: mostIngredientsChocolates,
+    success: true
+  })
+})
+
+app.get("/chocolates/least_ingredients", (req, res) => {
+  const leastIngredientsChocolates = chocolatesData.filter(chocolate => chocolate.count_of_ingredients = 1)
+
+  res.status(200).json({
+    data: leastIngredientsChocolates,
+    success: true
+  })
+})
+
+// another endpoint to add: items with no sweetener at all (no sugar AND no other sweetener)
+// pages in query
+// think of other status codes?
+// documentation
+// readme to write
+// another endpoint idea: filter and combine 2 or more properties(ex: highest ratings without sugar)
 
 app.get('/endpoints', (req, res) => {
   res.send(allEndpoints(app))
