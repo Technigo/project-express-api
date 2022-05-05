@@ -4,10 +4,11 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+//import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
+import members from "./data/technigo-members.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -23,6 +24,23 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+app.get("/members", (req, res) => {
+  res.status(200).json(members);
+});
+
+app.get("/members/:name", (req, res) => {
+  const memberByName = members.find(member => member.name === req.params.name
+    );
+
+    if (!memberByName) {
+      
+    } else {
+
+    }
+
+    res.status(200).json(memberByName)
+})
 
 // Start the server
 app.listen(port, () => {
