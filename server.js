@@ -1,40 +1,79 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
 import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-//1. endpoint that returns the whole array of book ratings. 
+//1. endpoint that returns the whole array of book ratings.
 app.get("/bookratings", (req, res) => {
-  res.status(200).json(booksData);
+  res.status(200).json({
+    data: booksData,
+    success: true,
+  });
 });
 
-// 2. endpoint that returns a rated book by its title. 
-app.get("/bookratings/:title", (req, res)=> {
-  const bookByTitle = booksData.find(book => book.title === req.params.title)
-  res.status(200).json(bookByTitle);
-})
+// 2. endpoint that returns a rated book by its title.
+app.get("/bookratings/title/:title", (req, res) => {
+  const { title } = req.params;
 
+  const bookByTitle = booksData.find(
+    (book) => book.title.toLowerCase === title.toLowerCase
+  );
+
+  if (!bookByTitle) {
+    res.status(404).json({
+      data: "Not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: bookByTitle,
+      success: true,
+    });
+  }
+});
+
+// 3. endpoint that returns all rated books written by a specific author.
+app.get("/bookratings/authors/:authors", (req, res) => {
+  const { authors } = req.params;
+
+  const bookByAuthor = booksData.filter(
+    (book) => book.authors.toLowerCase() === authors.toLowerCase()
+  );
+
+  if (!bookByAuthor) {
+    res.status(404).json({
+      data: "Not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: bookByAuthor,
+      success: true,
+    });
+  }
+});
+
+
+ app.get("/bookratings/rating/:rating", (req, res)=>{
+   const {average_rating} = req.params;
+
+   const bookByRating = booksData.filter(
+     (book)=> book.average_rating === average_rating);
+     res.status(200).json({
+       data: bookByRating,
+       success: true
+     })
+ })
 
 // Start the server
 app.listen(port, () => {
