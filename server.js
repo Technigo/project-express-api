@@ -53,17 +53,11 @@ app.get("/songs/artistName/:artistName", (req, res) => {
       data.artistName.toLocaleLowerCase() ===
       req.params.artistName.toLocaleLowerCase()
   );
-  if (!artistName) {
-    res.status(404).json({
-      data: "not found",
-      success: false,
-    });
-  } else {
-    res.status(200).json({
-      data: artistName,
-      success: true,
-    });
-  }
+
+  res.status(200).json({
+    data: artistName,
+    success: true,
+  });
 });
 // Start the server
 app.listen(port, () => {
