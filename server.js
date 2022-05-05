@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import laureatesData from "./data/laureates.json";
 import listEndpoints from "express-list-endpoints";
+import e from "express";
 
 const port = process.env.PORT || 8081;
 const app = express();
@@ -29,38 +30,35 @@ app.get("/", (req, res) => {
   res.send(Landing);
 });
 
-// get list of female nobel laureates
-app.get("/laureates"),
-  (req, res) => {
-    const { name, country, category } = req.query;
+app.get("/laureates", (req, res) => {
+  let data = laureatesData;
 
-    let laureatesDataToSend = laureatesData;
+  const { name, country, category } = req.query;
 
-    if (name) {
-      laureatesDataToSend = laureatesDataToSend.filter(
-        (item) => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
-      );
-    }
+  if (name) {
+    data = laureatesDataToSend.filter(
+      (item) => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+    );
+  }
 
-    if (country) {
-      laureatesDataToSend = laureatesData.filter(
-        (item) =>
-          item.country.toLowerCase().indexOf(country.toLowerCase()) !== -1
-      );
-    }
+  if (category) {
+    data = laureatesData.filter(
+      (item) =>
+        item.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+    );
+  }
 
-    if (category) {
-      laureatesDataToSend = laureatesData.filter(
-        (item) =>
-          item.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-      );
-    }
+  if (country) {
+    laureatesDataToSend = laureatesData.filter(
+      (item) => item.country.toLowerCase().indexOf(country.toLowerCase()) !== -1
+    );
+  }
 
-    res.json({
-      response: laureatesDataToSend,
-      success: true,
-    });
-  };
+  res.json({
+    response: data,
+    success: true,
+  });
+});
 
 app.get("/endpoints", (req, res) => {
   res.send(listEndpoints(app));
@@ -68,12 +66,12 @@ app.get("/endpoints", (req, res) => {
 
 app.get("/laureates/id/:id", (req, res) => {
   const { id } = req.params;
-  let showId = laureatesData.find((item) => item.id === +id);
+  let laureateId = laureatesData.find((item) => item.id === id);
 
-  if (!showId) {
+  if (!laureateId) {
     res.status(404).send(`ID ${id} not found`);
   } else {
-    res.json(showId);
+    res.json(laureateId);
   }
 });
 
