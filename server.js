@@ -36,9 +36,6 @@ app.get("/laureates"),
 
     let laureatesDataToSend = laureatesData;
 
-    const laureatesByCountry = laureates.filter(
-      (laureates) => laureates.country.toLowerCase() === country.toLowerCase()
-    );
     if (name) {
       laureatesDataToSend = laureatesDataToSend.filter(
         (item) => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
