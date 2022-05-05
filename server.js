@@ -8,7 +8,8 @@ import cors from "cors";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
-import healthyLifestyle from "./data/healthy-lifestyle-cities-2021.json";
+import listEndpoints from "express-list-endpoints";
+import healthyLifestyles from "./data/healthy-lifestyle-cities-2021.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -22,18 +23,66 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(listEndpoints(app));
 });
 
-app.get("/healthyLifestyle", (req, res) => {
-  res.status(200).json(healthyLifestyle);
+// All the cities
+app.get("/healthyLifestyles", (req, res) => {
+  res.status(200).json({
+    data: healthyLifestyles,
+    success: true,
+  });
 });
 
-app.get("/healthyLifestyle/:city", (req, res) => {
-  const cityName = healthyLifestyle.find(
-    (capital) => capital.city === req.params.city
+// Return only the city you have typed in
+app.get("/healthyLifestyles/:city", (req, res) => {
+  const city = req.params.city;
+
+  const cityByName = healthyLifestyles.filter(
+    (capital) => capital.city.toLowerCase() === city.toLowerCase()
   );
-  res.status(200).json(cityName);
+
+  if (!cityByName) {
+    res.status(404).json({
+      data: "not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: cityByName,
+      success: true,
+    });
+  }
+});
+
+//Return the city by the rank number you have typed in
+app.get("/healthyLifestyles/rank/:rank", (req, res) => {
+  const { rank } = req.params;
+
+  const rankNumber = healthyLifestyles.find((number) => number.rank === +rank);
+
+  if (!rankNumber) {
+    res.status(404).json({
+      data: "not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: rankNumber,
+      success: true,
+    });
+  }
+});
+
+//Return the top contester's
+app.get("/healthyLifestyles/top/sunshineHours", (req, res) => {
+  const sunshineHours = healthyLifestyles.filter(
+    (hours) => hours.sunshine_hours_city > 2500
+  );
+  if (sunshineHours.length === 0) {
+    res.status(404).json("sorry no sunshine here");
+  }
+  res.json(sunshineHours);
 });
 
 // Start the server
