@@ -42,7 +42,7 @@ app.get("/bookratings/title/:title", (req, res) => {
   }
 });
 
-// 3. endpoint that returns all rated books written by a specific author.
+// 3. endpoint that returns all rated books written by a specific author..
 app.get("/bookratings/authors/:authors", (req, res) => {
   const { authors } = req.params;
 
