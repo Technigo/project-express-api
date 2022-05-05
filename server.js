@@ -29,16 +29,51 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-res.status(200).json(books);
+res.status(200).json({
+  data: books,
+  success:true,
+});
 });
 
-app.get("/books/:title", (req, res) => {
-const bookByTitle = books.find(
-  (book ) => book.title=== req.params.title
-  );
+app.get("/books/title/:title", (req, res) => {
+const { title } =req.params;
 
-  res.status(200).json(bookByTitle);
+const bookByTitle = books.find((book ) => book.title=== title);
+
+if (!bookByTitle){
+  res.status(404).json({
+    data: "Not found",
+    success: false
+  });
+} else {
+  res.status(200).json({
+    data: bookByTitle, 
+    success: true,
 });
+}
+});
+
+app.get('/books/authors/:authors', (req, res) => {
+  const { authors} = req.params;
+
+  const booksByAuthor = books.filter((book) => book.authors === authors);
+
+
+  if (!booksByAuthor){
+    res.status(404).json({
+      data: "Not found",
+      success: false
+    });
+  } else {
+    res.status(200).json({
+      data: booksByAuthor, 
+      success: true,
+  });
+  }
+
+
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
