@@ -47,17 +47,25 @@ app.get("/directory/title/:title", (req, res) => {
   };
 });
 
-// Route for user to type an actor/actress name and see what movies/tv shows they are in. (Code not correct yet)
+// Route for user to type an actor/actress name and see what movies/tv shows they are in. (Code not completely finished)
 app.get("/directory/cast/:cast", (req, res) => {
-  const castMember = netflixData.find((data) => data.cast.toLocaleLowerCase() === req.params.cast.toLocaleLowerCase());
-  if (!castMember) {
+  const { cast } = req.params;
+
+  let filteredCastMember = netflixData;
+
+  if (cast) {
+    filteredCastMember = filteredCastMember
+      .filter((item) => item.cast.toLocaleLowerCase().includes(cast.toLocaleLowerCase()));
+  };
+
+  if (!filteredCastMember) {
     res.status(404).json({
       data: "I couldn't find any cast member with that name. 😭 Please try another name!",
       success: false,
     });
   } else {
     res.status(200).json({
-      data: castMember,
+      data: filteredCastMember,
       success: true,
     });
   };
