@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import listEndpoints from 'express-list-endpoints'
 
 import netflixData from './data/netflix-titles.json'
 
