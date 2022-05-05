@@ -21,8 +21,20 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const WelcomePage = {
+    " Hello music lovers": " This is an open API for top music albums.",
+    Routes: [
+      {
+        "/songs": "Get listed songs.",
+        "/songs/trackName/:trackName": "Lists the song track",
+        "//songs/artistName/:artistName": "Lists the artist anme with songs",
+        "/endpoints": "To get API endpoints",
+      },
+    ],
+  };
+  res.send(WelcomePage);
 });
+
 app.get("/songs", (req, res) => {
   res.status(200).json({
     data: topMusicData,
@@ -46,6 +58,10 @@ app.get("/songs/trackName/:trackName", (req, res) => {
       success: true,
     });
   }
+});
+const listEndpoints = require("express-list-endpoints");
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app));
 });
 app.get("/songs/artistName/:artistName", (req, res) => {
   const artistName = topMusicData.filter(
