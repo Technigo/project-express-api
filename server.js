@@ -19,7 +19,17 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(listEndpoints(app));
+  const Landing = {
+    Welcome: "Hi! This is an open API for Avocado sales!",
+    Routes: [
+      {
+        "/avocados": "Get avocado sales.",
+        "/avocados/date/:date": "Get avocado sale by date.",
+        "/avocados/region/:region": "Get avocado sale by country.",
+      },
+    ],
+  };
+  res.send(Landing);
 });
 
 app.get("/avocados", (req, res) => {
@@ -74,14 +84,6 @@ app.get("/avocados/region/:region", (req, res) => {
     success: true,
   });
 });
-
-// Price < 1.0
-// app.get("/avocados/averagePrice/:averagePrice", (req, res) => {
-//   const avocadoAveragePrice = avocados.filter(
-//     (price) => price.averagePrice < 1.0
-//   );
-//   res.status(200).json(avocadoAveragePrice);
-// });
 
 // Start the server
 app.listen(port, () => {
