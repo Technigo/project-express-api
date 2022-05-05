@@ -1,13 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
  import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,7 +15,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Avocado sales data api. Endpoints: /api, dynamic routes: /api/region, /api/region/id. Query parameter: /api?date=");
 });
 
 app.get("/api", (req, res) => {
@@ -39,23 +33,24 @@ app.get("/api", (req, res) => {
     data: allAvocadoSalesData,
     success: true
   });
-  console.log(avocadoSalesData);
 });
 
-app.get("/api/:region/:id?", (req, res) => {
-  const { region } = req.params;
+app.get("/api/:regions", (req, res) => {
+  const { regions } = req.params;
 
+  //how to make this dataPerRegion accessible in the next app.get?
   const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
-    avocadoData.region.toLowerCase() === region.toLowerCase()
+    avocadoData.region.toLowerCase() === regions.toLowerCase()
   );
 
+  //regions if statements for printing
   if (dataPerRegion && dataPerRegion.length !== 0) {
     res.status(200).send({
       data: dataPerRegion,  
       success: true
     });
   } else if (dataPerRegion.length === 0) {
-    res.status(204).send({
+    res.status(200).send({
       data: 'Response is successful but no region with that name exists',  
       success: true
     });
@@ -65,38 +60,34 @@ app.get("/api/:region/:id?", (req, res) => {
       success: false
     });
   }
-
-  // const idForRegion = avocadoSalesData.find((idData) => 
-  //   idData.id === parseInt(req.params.id)
-  // );
-
-  // if (idForRegion) {
-  //   res.status(200).send(idForRegion);  
-  // }
-
 });
 
-// app.get("/api/:region/:id?", (req, res) => {
-//   const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
-//     avocadoData.region === req.params.region
-//   );
+app.get("/api/:regions/:id", (req, res) => {
+  const { id, regions } = req.params;
 
-//   if (req.params.id) {
-//     const idPerRegion = avocadoSalesData.find((idData) => 
-//       idData.id === parseInt(req.params.id)
-//     );
-    
-//     res.status(200).json(idPerRegion);
-//   }
+  const dataPerRegion = avocadoSalesData.filter((avocadoData) => 
+    avocadoData.region.toLowerCase() === regions.toLowerCase()
+  );
+  //filtrerar ut array med alla valda regions
 
-//   res.status(200).json(dataPerRegion);
-  
-//   //if req.params.region === undefined or null or doesnt exist {
-//     //res.status(404).json({'Error: no matching result'})
-//   //} else {print the status 200 line of code}
-// });
+  //kollar om något elements (objekt) id matchar med anigvet req.param id 
+  const idPerRegion = dataPerRegion.find((idData) => 
+    parseInt(idData.id) === parseInt(id)
+  );
 
-
+  //om den har hittat angivet id som matchar ett elements id i arrayen med valda regioner, kör res.status(200)
+  if (idPerRegion) {
+    res.status(200).send({
+      data: idPerRegion,
+      success: true
+    });
+  } else {
+    res.status(200).send({
+      data: 'No region with such id found',
+      success: true
+    });
+  }
+});
 
 // Start the server
 app.listen(port, () => {
