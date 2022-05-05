@@ -6,19 +6,15 @@ import data from "./data/seattle-restaurants.json";
 // list of unique areas, 65 values (one of which is '')
 const areas = new Set(data.map((item) => item.Area).sort());
 
+// make this a query
 // restaurants with a rating of 4 stars or higher
 const highRanked = data.filter((item) => item.Star >= 4);
 
+// make this a query
 // Capitol Hill restaurants
 const capitolHillRestaurants = data.filter((item) => item.Area === "Capitol Hill");
 
-// Example of a specific restaurant
-const walrus = data.filter((item) => item.Name === "The Walrus and the Carpenter");
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-
+// Defines the port the app will run on
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -32,7 +28,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/restaurants", (req, res) => {
-  res.status(200).json(data);
+  const page = req.query.page ? req.query.page : 1;
+  const size = req.query.pageSize ? req.query.pageSize : 10;
+  const start = (page - 1) * size;
+  const end = start + size;
+  const restaurants = data.slice(start, end);
+
+  res.json({
+    total: data.length,
+    pages: Math.ceil(data.length / size),
+    currentPage: page,
+    pageSize: size,
+    results: restaurants,
+    success: true,
+  });
 });
 
 // this works
@@ -54,12 +63,12 @@ app.get("/restaurants/:name", (req, res) => {
 
   if (namedRestaurant) {
     res.status(200).json({
-      data: namedRestaurant,
+      response: namedRestaurant,
       success: true,
     });
   } else {
     res.status(404).json({
-      data: `Sorry, the restaurant ${name} could not be found`,
+      response: `Sorry, the restaurant ${name} could not be found`,
       success: true,
     });
   }
