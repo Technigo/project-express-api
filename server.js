@@ -26,12 +26,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  res.status(200).json(booksData);
+  // const { name, id } = req.query;
+
+  // const allBooks = booksData;
+
+  res.status(200).json({
+    data: booksData,
+    success: true
+  });
 });
 
-app.get("/books/:bookID/", (req, res) => {
+app.get("/books/:id/", (req, res) => {
   const bookByID = booksData.find(
-    (book) => book.bookID === req.params.bookID);
+    (book) => book.bookID === parseInt(req.params.id));
   // console.log(req.params);
 
   res.status(200).json(bookByID);
@@ -45,7 +52,18 @@ app.get("/rating/:rating", (req, res) => {
   const rating = req.params.rating;
   let averageRatings = booksData.filter((book) => book.average_rating.toString().slice(0, 1) === rating);
 
-  res.json(averageRatings)
+  if (!averageRatings) {
+    res.status(404).json({
+      data: 'Not found',
+      success: false
+    });
+  } else {
+    res.status(200).json({
+      data: averageRatings,
+      success: true
+    });
+  }
+  
 });
 
 // Start the server
