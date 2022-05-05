@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-//ALL NOMINATIONS WITH CHOICES YEAR/NOMINEE/WIN//QUERY
+//ALL NOMINATIONS WITH CHOICES YEAR/NOMINEE/WIN//QUERY//WORKS
 app.get("/nominations", (req, res) => {
   const { year_award, nominee, win } = req.query;
 
