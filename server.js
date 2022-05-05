@@ -14,9 +14,6 @@ app.use(express.json());
 
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
 
 app.get("/books", (req, res) => {
   res.json(booksData)
