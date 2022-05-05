@@ -1,11 +1,10 @@
 import express from "express";
+import getEndpoints from "express-list-endpoints";
 import cors from "cors";
 
 import goldenGlobesData from "./data/golden-globes.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+// Defines the port the app will run on.
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -15,12 +14,12 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(getEndpoints(app));
 });
 
-//ALL NOMINATIONS WITH CHOICES YEAR/NOMINEE/WIN//QUERY//WORKS
+//ALL NOMINATIONS WITH CHOICES YEAR/NOMINEE/WIN//QUERY
 app.get("/nominations", (req, res) => {
-  const { year_award, nominee, win } = req.query;
+  const { year_award, nominee, win, category } = req.query;
 
   let selectNominations = goldenGlobesData;
 
@@ -29,15 +28,18 @@ app.get("/nominations", (req, res) => {
       (item) => item.year_award === +year_award
     );
   }
-
   if (nominee) {
     selectNominations = selectNominations.filter(
       (item) => item.nominee.toLowerCase() === nominee.toLowerCase()
     );
   }
-
   if (win) {
     selectNominations = selectNominations.filter((item) => item.win === true);
+  }
+  if (category) {
+    selectNominations = selectNominations.filter(
+      (item) => item.category.toLowerCase() === category.toLowerCase()
+    );
   }
 
   if (selectNominations.length === 0) {
@@ -66,39 +68,17 @@ app.get("/nominations/:nominee", (req, res) => {
   }
 });
 
-//SEARCH BOTH NOMINEE AND CATEGORY//WORKS
-app.get("/test", (request, response) => {
-  const { nominee, category } = request.query;
-  let testfilter = goldenGlobesData;
+//SEARCH ON CATEGORIES
+app.get("/categories/:category", (req, res) => {
+  const category = req.params.category;
+  const categorySearch = goldenGlobesData.filter(
+    (item) => item.category === category
+  );
 
-  if (nominee) {
-    testfilter = testfilter.filter((item) =>
-      item.nominee.toLocaleLowerCase().includes(nominee.toLocaleLowerCase())
-    );
-  }
-  if (category) {
-    testfilter = testfilter.filter((item) =>
-      item.category.toLocaleLowerCase().includes(category.toLocaleLowerCase())
-    );
-  }
+  res.status(200).json(categorySearch);
+});
 
-  if (testfilter.length === 0) {
-    response.status(404).json("Sorry");
-  } else {
-    response.json(testfilter);
-  }
-}),
-  //SEARCH ON CATEGORIES//CASE WITH BUTTONS(NO SEARCHFIELD)//WORKS
-  app.get("/categories/:category", (req, res) => {
-    const category = req.params.category;
-    const categorySearch = goldenGlobesData.filter(
-      (item) => item.category === category
-    );
-
-    res.status(200).json(categorySearch);
-  });
-
-//RETURNS ALL WINNERS, FILTER IN A SPECIFIC CATEGORY AND YEAR(QUERY)//WORKS
+//RETURNS ALL WINNERS, FILTER IN A SPECIFIC CATEGORY AND YEAR(QUERY)
 app.get("/winners", (req, res) => {
   const { category, year_award } = req.query;
 
@@ -109,7 +89,6 @@ app.get("/winners", (req, res) => {
       (item) => item.category.toLowerCase() === category.toLowerCase()
     );
   }
-
   if (year_award) {
     theWinners = theWinners.filter((item) => item.year_award === +year_award);
   }
