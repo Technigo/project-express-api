@@ -24,34 +24,14 @@ app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 // Geting my first request
-app.get('/shows', (req, res) => {
+app.get('/myNetflix', (req, res) => {
   res.json(netflixDatas)
 })
-
-app.get('/shows/name/:title', (req, res) => {
-  const { showTitle } = req.params
-  const netflixTitle = netflixDatas.find(
-    (netflixData) =>
-      netflixData.showTitle.toLowerCase() === showTitle.toLowerCase(),
-  )
-  console.log('movies', netflixTitle)
-  if (!netflixTitle) {
-    res.status(404).json({
-      data: 'Not found',
-      success: false,
-    })
-  } else {
-    res.status(200).json({
-      data: netflixTitle,
-      success: true,
-    })
-  }
-})
 // Filter on movies or tv shows
-app.get('/shows/:type', (req, res) => {
+app.get('/myNetflix/type/:type', (req, res) => {
   const { type } = req.params
   const showTypes = netflixDatas.filter(
-    (netflixData) => netflixData.type.toLowerCase() === type.toLowerCase(),
+    (data) => data.type.toLowerCase() === type.toLowerCase(),
   )
   if (!showTypes) {
     res.status(404).json({
@@ -65,9 +45,29 @@ app.get('/shows/:type', (req, res) => {
     })
   }
 })
-app.get('/year/:year', (req, res) => {
+// when u search for a
+app.get('/myNetflix/title/:title', (req, res) => {
+  const netflixTitle = netflixDatas.find(
+    (data) =>
+      data.title.toLocaleLowerCase() === req.params.title.toLocaleLowerCase(),
+  )
+
+  if (!netflixTitle) {
+    res.status(404).json({
+      data: 'Did not found that movie',
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      data: netflixTitle,
+      success: true,
+    })
+  }
+})
+// when you search for a year
+app.get('/myNetflix/year/:year', (req, res) => {
   const year = req.params.year
-  const releaseYear = netflixDatas.filter((show) => show.release_year === +year)
+  const releaseYear = netflixDatas.filter((data) => data.release_year === +year)
   res.json(releaseYear)
 })
 
