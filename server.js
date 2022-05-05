@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
 
+import booksData from "./data/books.json";
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -15,6 +16,7 @@ import cors from "cors";
 const port = process.env.PORT || 8080;
 const app = express();
 
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
@@ -22,6 +24,18 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+app.get("/booksData", (req, res) => {
+  res.json(booksData);
+});
+
+app.get("/booksData/:title", (req, res) => {
+  const bookByTitle = booksData.find(
+    (book) => book.title === req.params.title
+    );
+
+    res.status(200).json(bookByTitle);
 });
 
 // Start the server
