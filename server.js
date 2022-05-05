@@ -73,9 +73,6 @@ app.get("/restaurants/:name", (req, res) => {
       });
 });
 
-const neighborhoods = new Set(data.map((item) => item.Area));
-console.log(neighborhoods);
-
 app.get("/neighborhoods", (req, res) => {
   const neighborhoods = [...new Set(data.map((item) => item.Area))].sort();
   res.status(200).json({
@@ -90,7 +87,7 @@ app.get("/neighborhoods/:neighborhood", (req, res) => {
   const neighborhoodResults = data.filter(
     (item) => formatText(item.Area) === formatText(neighborhood)
   );
-  res.status(200).json(paginateResults(neighborhoodResults, req));
+  res.status(200).json(paginateResults(neighborhoodResults, req, res));
 });
 
 app.listen(port, () => {
