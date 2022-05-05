@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the Netflix API! Enter /endpoints to see what endpoints there are. 🍿 🎬 🥤");
+  res.send("Welcome to the Netflix API! Type in: /endpoints in the address bar to see what endpoints there are. 🍿 🎬 🥤");
 });
 
 app.get("/endpoints", (req, res) => {
