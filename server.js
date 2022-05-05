@@ -93,6 +93,26 @@ app.get("/laureates/name/:name", (req, res) => {
   }
 });
 
+app.get("/laureates/country/:country", (req, res) => {
+  const { country } = req.params;
+
+  const laureateByCountry = laureatesData.find(
+    (item) => item.country === country
+  );
+
+  if (!laureateByCountry) {
+    res.status(404).json({
+      response: "Nobel laureate not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      response: laureateByCountry,
+      success: true,
+    });
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
