@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from 'express-list-endpoints'
 
 import booksData from "./data/books.json";
 
@@ -14,6 +15,9 @@ app.use(express.json());
 
 
 // Start defining your routes here
+app.get("/", (req, res) => {
+  res.send(listEndpoints(app));
+});
 
 app.get("/books", (req, res) => {
   res.json(booksData)
