@@ -1,13 +1,25 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Build a simple Express server and practice data manipulation in Javascript - selecting, filtering and limiting arrays
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Understand the concept of routing, querying and path parameters
+
+## API Spec
+
+- Retrieve all books
+  [GET] https://express-deployment-2022.herokuapp.com/books
+
+- Limit first N items of book collection
+  [GET] https://express-deployment-2022.herokuapp.com/books?limit=N
+
+- Filter collection by book title
+  [GET] https://express-deployment-2022.herokuapp.com/books?title=Title
+
+- Retrieve a book by bookId
+  [GET] https://express-deployment-2022.herokuapp.com/books/:bookId
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-deployment-2022.herokuapp.com/
