@@ -1,13 +1,10 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal of this project was to create an API using Express that has a couple of RESTful endpoints which return either an array of data, or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project doesn't include databases, so I used a hard-coded set of data about avocados stored as a JSON file. This API only performs GET requests and is built using Express.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://heroku-lisa.herokuapp.com/
