@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/netflixshows", (req, res) => {
-  const { title, type } = req.query
+  const { title, type, country } = req.query
   let allShows = netflixShows
 
   if (title) {
@@ -35,22 +35,40 @@ app.get("/netflixshows", (req, res) => {
   }
   if (type) {
     allShows = allShows.filter(
-      (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase
+      (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase()
     )
   }
 
-  res.status(200).json(netflixShows)
+  if (country) {
+    allShows = allShows.filter(
+      (item) => item.country.toLocaleLowerCase() === country.toLocaleLowerCase()
+    )
+  }
+
+  res.status(200).json({
+    data: allShows,
+    success: true,
+  })
 })
+
+//Row 57+58 is one way to wright, another way is row 76-78.
 
 app.get("/netflixshows/title/:title", (req, res) => {
   const netflixtitle = netflixShows.find(
-    (item) => item.title === req.params.title
+    (item) =>
+      item.title.toLocaleLowerCase() === req.params.title.toLocaleLowerCase()
   )
 
   if (!netflixtitle) {
-    res.status(404).json("Can't find a Netfix show with this name")
+    res.status(404).json({
+      data: "Can't find a Netfix show with this name",
+      success: false,
+    })
   } else {
-    res.status(200).json(netflixtitle)
+    res.status(200).json({
+      data: netflixtitle,
+      success: true,
+    })
   }
 })
 
@@ -59,7 +77,21 @@ app.get("/netflixShows/type/:type", (req, res) => {
   const showType = netflixShows.filter(
     (item) => item.type.toLocaleLowerCase() === type.toLocaleLowerCase()
   )
-  res.status(200).json(showType)
+  res.status(200).json({
+    data: showType,
+    success: true,
+  })
+})
+
+app.get("/netflixShows/country/:country", (req, res) => {
+  const { country } = req.params
+  const showCountry = netflixShows.filter(
+    (item) => item.country.toLocaleLowerCase() === country.toLocaleLowerCase()
+  )
+  res.status(200).json({
+    data: showCountry,
+    success: true,
+  })
 })
 
 // Start the server
