@@ -1,8 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was an backend project were I created an API using Express. The API is organized using REST and the data behind the API is 1375 Netflix titles and some data about them. I created different API endpoints to filter, find, limit and order the items returned in the response, which are sent in JSON format.
 
 ## The problem
 
