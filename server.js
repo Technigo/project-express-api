@@ -1,13 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import booksData from "./data/books.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,7 +15,43 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("For the bookworms!");
+});
+
+app.get("/books", (req, res) => {
+  res.status(200).json(booksData);
+});
+
+app.get("/books/title/:title", (req, res) => {
+  const { title } = req.params;
+
+  const bookByName = booksData.find(
+    (book) => book.title.toLowerCase() === req.params.title.toLowerCase()
+  );
+
+  if (!bookByName) {
+    res.status(404).json({
+      data: "Not found",
+      success: false,
+    });
+  } else {
+    res.status(200).json({
+      data: bookByName,
+      success: true,
+    });
+  }
+});
+
+app.get("/books/author/:author", (req, res) => {
+  const { author } = req.params;
+
+  const booksByAuthor = booksData.filter(
+    (book) => book.authors.toLowerCase() === author.toLowerCase()
+  );
+  res.status(200).json({
+    data: booksByAuthor,
+    success: true,
+  });
 });
 
 // Start the server
