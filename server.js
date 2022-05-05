@@ -56,7 +56,9 @@ if (!bookByTitle){
 app.get('/books/authors/:authors', (req, res) => {
   const { authors} = req.params;
 
-  const booksByAuthor = books.filter((book) => book.authors === authors);
+  const booksByAuthor = books.filter(
+    (book) => book.authors.toLowerCase () === authors.toLowerCase()
+    );
 
 
   if (!booksByAuthor){
