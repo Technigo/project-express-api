@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-import bookData from "./data/books.json";
+import books from "./data/books.json";
+import { parseAsync } from "@babel/core";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -15,62 +16,112 @@ app.use(express.json());
 
 
 //Start defining your routes here
-app.get("/", (req, res) => {
-  res.json(bookData);
+app.get("/books", (req, res) => {
+ 
+  const { title, authors, language, page, limit } = req.query;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+
+  let allBooks = books;
+
+  //Search result - To look up books by keywords: title, authors, languages, limited results
+  if(title) {
+    allBooks = allBooks.filter(item => item.title.toLowerCase() === title.toLowerCase())
+  } 
+  
+  if (authors) {
+    allBooks = allBooks.filter(item => item.authors.toLowerCase() === authors.toLowerCase())
+  }
+
+  if (language) {
+    allBooks = allBooks.filter(item => item.language_code === language)
+  }
+  
+  
+  if (page && limit) {
+    allBooks = allBooks.slice(startIndex, endIndex);
+
+      res.json({
+        data: allBooks,
+        prev_page: startIndex > 0 ?  +page - 1 : '',
+        next_page: endIndex < books.length ? +page + 1 : '',
+        limit: limit,
+        success: true
+      })
+    
+   
+  }
+
+  res.json({
+    data: allBooks,
+    success: true
+  });
+ 
 });
 
 //Return book datas according to ID 
-app.get("/bookId/:id", (req, res) => {
+app.get("/books/bookId/:id", (req, res) => {
 
   const id = +req.params.id;
-  const bookId = bookData.find(book => book.bookID === id);
+  const bookId = books.find(book => book.bookID === id);
   
   if(!bookId) {
-    res.status(404).json('Sorry, no book found. Please try another id')
+    res.status(404).json({
+      data: 'Sorry, no book found. Please try another id',
+      success: false
+    })
   }
-  res.json(bookId)
+  res.status(200).json({
+    data: bookId,
+    success: true
+  })
 })
 
 //Return highest rating books
-app.get("/rating", (req,res) => {
-  const highestRatingBook = bookData.filter(book => book.average_rating > 4);
+app.get("/books/highRating", (req,res) => {
+  const highRatingBooks = books.filter(book => book.average_rating > 4);
 
-  if(highestRatingBook.length === 0) {
-    res.status(404).json('Sorry, no book with high rating found')
-  }
-  res.json(highestRatingBook)
+  res.status(200).json({
+    data: highRatingBooks,
+    success: true
+  })
 })
 
-//Return book datas according to title
-app.get("/title/:title", (req,res) => {
-  const bookTitle = req.params.title;
-  const existingBook = bookData.find(book => book.title === bookTitle);
+//Empty endpoint for future usage 
 
-  if(!existingBook) {
-    res.status(404).json ('The book with given title was not found')
-  }
-  res.json(existingBook)
-})
+ //Return book datas by years
+  app.get("/books/year/:year", (req, res) => {
+    const year = req.params.year;
+    const bookByYear = books.filter(book => book.publish_year === year);
 
-//Return book datas according to specific author and title
-app.get("/book/:author/:title" , (req,res) => {
-   const findAuthor = bookData.filter(book => book.authors === req.params.author);
+    res.status(200).json({
+      data: bookByYear,
+      success: true
+    })
+  })
 
-  const findTitle = findAuthor.find(book => book.title === req.params.title);
-     
-  if (!findTitle) {
-    res.status(404).json('The book with given title was not found')
-  }
+  //ADDING REVIEWS TO EXISTING BOOOKS
+  app.post("/books/review/:id", (req, res) => {
     
-  res.json(findTitle)
+    //Here, we map through the original array and then find the item whose id matches with the param
+    const existingBook = books.map(book => {
+      if (book.bookID === +req.params.id) {
+        return {...book, review: req.body.review}
+      } else return book
+    });
     
-})
+    if(existingBook) {
+      res.status(200).json({
+        data: existingBook,
+        success: true
+      })  
+    }
+  })
 
-app.get("/newBook/book?title=Leviahan", (req, res) => {
-  const filterTit = bookData.find(item => item.title === 'Leviathan');
 
-  res.json(filterTit)
-})
+
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
