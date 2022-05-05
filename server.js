@@ -3,16 +3,12 @@ import cors from "cors";
 
 import data from "./data/seattle-restaurants.json";
 
-// list of unique areas, 65 values (one of which is '')
-const areas = new Set(data.map((item) => item.Area).sort());
-
-// make this a query
-// restaurants with a rating of 4 stars or higher
-const highRanked = data.filter((item) => item.Star >= 4);
-
-// make this a query
-// Capitol Hill restaurants
-const capitolHillRestaurants = data.filter((item) => item.Area === "Capitol Hill");
+const formatText = (result) => {
+  return result
+    .toString()
+    .toLowerCase()
+    .replace(/[\W_]+/g, " ");
+};
 
 // Defines the port the app will run on
 const port = process.env.PORT || 8080;
@@ -44,22 +40,19 @@ app.get("/restaurants", (req, res) => {
   });
 });
 
-// this works
+/// This works but look into it.. maybe make "orderedBy" query param instead?
 app.get("/restaurants/popular", (req, res) => {
   const popular = data.sort((a, b) => Number(b.Stars_count) - Number(a.Stars_count)).splice(0, 10);
 
   res.status(200).json({
-    response: popular,
+    results: popular,
     success: true,
   });
 });
 
-// this works
 app.get("/restaurants/:name", (req, res) => {
   const { name } = req.params;
-  const namedRestaurant = data.find(
-    (item) => item.Name.toString().toLowerCase().replaceAll(" ", "") === name.toLowerCase()
-  );
+  const namedRestaurant = data.find((item) => formatText(item.Name) === formatText(name));
 
   if (namedRestaurant) {
     res.status(200).json({
@@ -68,20 +61,36 @@ app.get("/restaurants/:name", (req, res) => {
     });
   } else {
     res.status(404).json({
-      response: `Sorry, the restaurant ${name} could not be found`,
+      results: "Not found",
       success: true,
     });
   }
 });
 
-//this works
 app.get("/neighborhoods", (req, res) => {
-  const areas = [...new Set(data.map((item) => item.Area.toString()))].sort();
+  const neighborhoods = [...new Set(data.map((item) => item.Area))].sort();
   res.status(200).json({
-    response: areas,
+    results: neighborhoods,
     success: true,
   });
 });
+
+app.get("/neighborhoods/:neighborhood", (req, res) => {
+  const { neighborhood } = req.params;
+  const neighborhoodResults = data.filter(
+    (item) => formatText(item.Area) === formatText(neighborhood)
+  );
+
+  res.status(200).json({
+    total: neighborhoodResults.length,
+    results: neighborhoodResults,
+    success: true,
+  });
+});
+
+// make this a query
+// restaurants with a rating of 4 stars or higher
+const highRanked = data.filter((item) => item.Star >= 4);
 
 // Start the server
 app.listen(port, () => {
