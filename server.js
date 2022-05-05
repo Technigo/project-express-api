@@ -3,7 +3,7 @@ import cors from "cors";
 import laureatesData from "./data/laureates.json";
 import listEndpoints from "express-list-endpoints";
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
@@ -12,24 +12,21 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  const Start = {
+  const Landing = {
     Welcome:
       "Hi! This is an open API for female Nobel Prize winners from 1901 to 2019",
     Routes: [
       {
-        "/laureates_____________________________": "Get laureates.",
-        "/laureates/id/'number'_________________":
-          "Get laureates with matching id.",
-        "/laureates?name='laureates name'_______":
+        "/laureates": "Get laureates.",
+        "/laureates/id/'number'": "Get laureates with matching id.",
+        "/laureates?name='laureates name'":
           "Get laureates with matching titles.",
-        "/laureates/?country='country'___________": "Get laureates by country.",
-        "/laureates/?year='year'_________________":
-          "Get laureates by the year of award.",
-        "/endpoints______________________________": "Get API endpoints.",
+        "/laureates/?country='country'": "Get laureates by country.",
+        "/endpoints": "Get API endpoints.",
       },
     ],
   };
-  res.send(Start);
+  res.send(Landing);
 });
 
 // get list of female nobel laureates
@@ -37,7 +34,8 @@ app.get("/laureates"),
   (req, res) => {
     const { name, country, category } = req.query;
 
-    let laureatesDataToSend;
+    let laureatesDataToSend = laureatesData;
+
     const laureatesByCountry = laureates.filter(
       (laureates) => laureates.country.toLowerCase() === country.toLowerCase()
     );

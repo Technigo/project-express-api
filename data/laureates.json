@@ -1,5 +1,6 @@
 [
   {
+    "id": "0",
     "name": "Ada Yonath",
     "year": 2009,
     "country": "Israel",
@@ -7,6 +8,7 @@
     "description": "For studies of the structure and function of the ribosome"
   },
   {
+    "id": "1",
     "name": "Alice Munro",
     "year": 2013,
     "country": "Canada",
@@ -14,6 +16,7 @@
     "description": "Master of the contemporary short story"
   },
   {
+    "id": "2",
     "name": "Alva Myrdal",
     "year": 1982,
     "country": "Sweden",
@@ -21,6 +24,7 @@
     "description": "Former Cabinet Minister; Diplomat; Writer."
   },
   {
+    "id": "3",
     "name": "Aung San Suu Kyi",
     "year": 1991,
     "country": "Burma",
@@ -28,6 +32,7 @@
     "description": "For her non-violent struggle for democracy and human rights"
   },
   {
+    "id": "4",
     "name": "Barbara McClintock",
     "year": 1983,
     "country": "United States",
@@ -35,6 +40,7 @@
     "description": "For her discovery of mobile genetic elements"
   },
   {
+    "id": "5",
     "name": "Bertha von Suttner",
     "year": 1905,
     "country": "Czech Republic",
@@ -42,6 +48,7 @@
     "description": "Honorary President of Permanent International Peace Bureau, Bern, Switzerland; Author of \"Lay Down Your Arms\"."
   },
   {
+    "id": "6",
     "name": "Betty Williams",
     "year": 1976,
     "country": "Ireland, United Kingdom",
@@ -49,6 +56,7 @@
     "description": "Founder of the Northern Ireland Peace Movement (later renamed Community of Peace People)"
   },
   {
+    "id": "7",
     "name": "Carol W. Greider",
     "year": 2009,
     "country": "United States",
@@ -56,6 +64,7 @@
     "description": "For the discovery of how chromosomes are protected by telomeres and the enzyme telomerase"
   },
   {
+    "id": "8",
     "name": "Christiane Nüsslein-Volhard",
     "year": 1995,
     "country": "Germany",
@@ -63,6 +72,7 @@
     "description": "For their discoveries concerning the genetic control of early embryonic development"
   },
   {
+    "id": "9",
     "name": "Donna Strickland",
     "year": 2018,
     "country": "Canada",
@@ -70,6 +80,7 @@
     "description": "For their method of generating high-intensity, ultra-short optical pulses"
   },
   {
+    "id": "10",
     "name": "Doris Lessing",
     "year": 2007,
     "country": "Iran, United Kingdom",
@@ -77,6 +88,7 @@
     "description": "That epicist of the female experience, who with scepticism, fire and visionary power has subjected a divided civilisation to scrutiny"
   },
   {
+    "id": "11",
     "name": "Dorothy Hodgkin",
     "year": 1964,
     "country": "United Kingdom",
@@ -84,6 +96,7 @@
     "description": "For her determinations by X-ray techniques of the structures of important biochemical substances"
   },
   {
+    "id": "12",
     "name": "Elfriede Jelinek",
     "year": 2004,
     "country": "Austria",
@@ -91,6 +104,7 @@
     "description": "For her musical flow of voices and counter-voices in novels and plays that with extraordinary linguistic zeal reveal the absurdity of society's clichés and their subjugating power"
   },
   {
+    "id": "13",
     "name": "Elinor Ostrom",
     "year": 2009,
     "country": "United States",
@@ -98,6 +112,7 @@
     "description": "For her analysis of economic governance, especially the commons"
   },
   {
+    "id": "14",
     "name": "Elizabeth Blackburn",
     "year": 2009,
     "country": "Australia, United States",
@@ -105,6 +120,7 @@
     "description": "For the discovery of how chromosomes are protected by telomeres and the enzyme telomerase"
   },
   {
+    "id": "15",
     "name": "Ellen Johnson Sirleaf",
     "year": 2011,
     "country": "Liberia",
@@ -112,6 +128,7 @@
     "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
   },
   {
+    "id": "16",
     "name": "Emily Greene Balch",
     "year": 1946,
     "country": "United States",
@@ -119,6 +136,7 @@
     "description": "Formerly Professor of History and Sociology; Honorary International President, Women's International League for Peace and Freedom."
   },
   {
+    "id": "17",
     "name": "Esther Duflo",
     "year": 2019,
     "country": "France, United States",
@@ -126,6 +144,7 @@
     "description": "For their experimental approach to alleviating global poverty"
   },
   {
+    "id": "18",
     "name": "Frances H. Arnold",
     "year": 2018,
     "country": "United States",
@@ -133,6 +152,7 @@
     "description": "For the directed evolution of enzymes"
   },
   {
+    "id": "19",
     "name": "Françoise Barré-Sinoussi",
     "year": 2008,
     "country": "France",
@@ -140,6 +160,7 @@
     "description": "For their discovery of HIV, human immunodeficiency virus"
   },
   {
+    "id": "20",
     "name": "Gabriela Mistral",
     "year": 1945,
     "country": "Chile",
@@ -147,6 +168,7 @@
     "description": "For her lyric poetry which, inspired by powerful emotions, has made her name a symbol of the idealistic aspirations of the entire Latin American world"
   },
   {
+    "id": "21",
     "name": "Gertrude B. Elion",
     "year": 1988,
     "country": "United States",
@@ -154,6 +176,7 @@
     "description": "For their discoveries of important principles for drug treatment"
   },
   {
+    "id": "22",
     "name": "Gerty Cori",
     "year": 1947,
     "country": "Czech Republic, United States",
@@ -161,6 +184,7 @@
     "description": "For their discovery of the course of the catalytic conversion of glycogen"
   },
   {
+    "id": "23",
     "name": "Grazia Deledda",
     "year": 1926,
     "country": "Italy",
@@ -168,6 +192,7 @@
     "description": "For her idealistically inspired writings which with plastic clarity picture the life on her native island and with depth and sympathy deal with human problems in general"
   },
   {
+    "id": "24",
     "name": "Herta Müller",
     "year": 2009,
     "country": "Germany, Romania",
@@ -175,6 +200,7 @@
     "description": "Who, with the concentration of poetry and the frankness of prose, depicts the landscape of the dispossessed"
   },
   {
+    "id": "25",
     "name": "Irène Joliot-Curie",
     "year": 1935,
     "country": "France",
@@ -182,6 +208,7 @@
     "description": "For their synthesis of new radioactive elements"
   },
   {
+    "id": "26",
     "name": "Jane Addams",
     "year": 1931,
     "country": "United States",
@@ -189,6 +216,7 @@
     "description": "Sociologist; International President, Women's International League for Peace and Freedom."
   },
   {
+    "id": "27",
     "name": "Jody Williams",
     "year": 1997,
     "country": "United States",
@@ -196,6 +224,7 @@
     "description": "For their work for the banning and clearing of anti-personnel mines"
   },
   {
+    "id": "28",
     "name": "Leymah Gbowee",
     "year": 2011,
     "country": "Liberia",
@@ -203,6 +232,7 @@
     "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
   },
   {
+    "id": "29",
     "name": "Linda B. Buck",
     "year": 2004,
     "country": "United States",
@@ -210,6 +240,7 @@
     "description": "For their discoveries of odorant receptors and the organization of the olfactory system"
   },
   {
+    "id": "30",
     "name": "Mairead Maguire",
     "year": 1976,
     "country": "Ireland, United Kingdom",
@@ -217,6 +248,7 @@
     "description": "Founder of the Northern Ireland Peace Movement (later renamed Community of Peace People)"
   },
   {
+    "id": "31",
     "name": "Malala Yousafzai",
     "year": 2014,
     "country": "Pakistan",
@@ -224,6 +256,7 @@
     "description": "For their struggle against the suppression of children and young people and for the right of all children to education\"."
   },
   {
+    "id": "32",
     "name": "Maria Goeppert-Mayer",
     "year": 1963,
     "country": "Germany, United States",
@@ -231,6 +264,7 @@
     "description": "For their discoveries concerning nuclear shell structure"
   },
   {
+    "id": "33",
     "name": "Marie Skłodowska-Curie",
     "year": 1903,
     "country": "France, Poland",
@@ -238,6 +272,7 @@
     "description": "In recognition of the extraordinary services they have rendered by their joint researches on the radiation phenomena discovered by Professor Henri Becquerel"
   },
   {
+    "id": "34",
     "name": "Marie Skłodowska-Curie",
     "year": 1911,
     "country": "France, Poland",
@@ -245,6 +280,7 @@
     "description": "For her discovery of radium and polonium"
   },
   {
+    "id": "35",
     "name": "May-Britt Moser",
     "year": 2014,
     "country": "Norway",
@@ -252,6 +288,7 @@
     "description": "For their discoveries of cells that constitute a positioning system in the brain"
   },
   {
+    "id": "36",
     "name": "Mother Teresa",
     "year": 1979,
     "country": "India, North Macedonia",
@@ -259,6 +296,7 @@
     "description": "Leader of Missionaries of Charity, Calcutta."
   },
   {
+    "id": "37",
     "name": "Nadia Murad",
     "year": 2018,
     "country": "Iraq",
@@ -266,6 +304,7 @@
     "description": "For their efforts to end the use of sexual violence as a weapon of war and armed conflict"
   },
   {
+    "id": "38",
     "name": "Nadine Gordimer",
     "year": 1991,
     "country": "South Africa",
@@ -273,6 +312,7 @@
     "description": "Who through her magnificent epic writing has - in the words of Alfred Nobel - been of very great benefit to humanity"
   },
   {
+    "id": "39",
     "name": "Nelly Sachs",
     "year": 1966,
     "country": "Germany, Sweden",
@@ -280,6 +320,7 @@
     "description": "For her outstanding lyrical and dramatic writing, which interprets Israel's destiny with touching strength"
   },
   {
+    "id": "40",
     "name": "Olga Tokarczuk",
     "year": 2018,
     "country": "Poland",
@@ -287,6 +328,7 @@
     "description": "“For a narrative imagination that with encyclopedic passion represents the crossing of boundaries as a form of life”"
   },
   {
+    "id": "41",
     "name": "Pearl S. Buck",
     "year": 1938,
     "country": "United States",
@@ -294,6 +336,7 @@
     "description": "For her rich and truly epic descriptions of peasant life in China and for her biographical masterpieces"
   },
   {
+    "id": "42",
     "name": "Rigoberta Menchú",
     "year": 1992,
     "country": "Guatemala",
@@ -301,6 +344,7 @@
     "description": "In recognition of her work for social justice and ethno-cultural reconciliation based on respect for the rights of indigenous peoples"
   },
   {
+    "id": "43",
     "name": "Rita Levi-Montalcini",
     "year": 1986,
     "country": "Italy, United States",
@@ -308,6 +352,7 @@
     "description": "For their discoveries of growth factors"
   },
   {
+    "id": "44",
     "name": "Rosalyn Sussman Yalow",
     "year": 1977,
     "country": "United States",
@@ -315,6 +360,7 @@
     "description": "For the development of radioimmunoassays of peptide hormones"
   },
   {
+    "id": "45",
     "name": "Selma Lagerlöf",
     "year": 1909,
     "country": "Sweden",
@@ -322,6 +368,7 @@
     "description": "In appreciation of the lofty idealism, vivid imagination and spiritual perception that characterize her writings"
   },
   {
+    "id": "46",
     "name": "Shirin Ebadi",
     "year": 2003,
     "country": "Iran",
@@ -329,6 +376,7 @@
     "description": "For her efforts for democracy and human rights. She has focused especially on the struggle for the rights of women and children"
   },
   {
+    "id": "47",
     "name": "Sigrid Undset",
     "year": 1928,
     "country": "Norway",
@@ -336,6 +384,7 @@
     "description": "Principally for her powerful descriptions of Northern life during the Middle Ages"
   },
   {
+    "id": "48",
     "name": "Svetlana Alexievich",
     "year": 2015,
     "country": "Belarus, Ukraine",
@@ -343,6 +392,7 @@
     "description": "For her polyphonic writings, a monument to suffering and courage in our time"
   },
   {
+    "id": "49",
     "name": "Tawakkol Karman",
     "year": 2011,
     "country": "Yemen",
@@ -350,6 +400,7 @@
     "description": "For their non-violent struggle for the safety of women and for women's rights to full participation in peace-building work"
   },
   {
+    "id": "50",
     "name": "Toni Morrison",
     "year": 1993,
     "country": "United States",
@@ -357,6 +408,7 @@
     "description": "Who in novels characterized by visionary force and poetic import, gives life to an essential aspect of American reality"
   },
   {
+    "id": "51",
     "name": "Tu Youyou",
     "year": 2015,
     "country": "China",
@@ -364,6 +416,7 @@
     "description": "For her discoveries concerning a novel therapy against Malaria (artemisinin)"
   },
   {
+    "id": "52",
     "name": "Wangari Maathai",
     "year": 2004,
     "country": "Kenya",
@@ -371,6 +424,7 @@
     "description": "For her contribution to sustainable development, democracy and peace"
   },
   {
+    "id": "53",
     "name": "Wisława Szymborska",
     "year": 1996,
     "country": "Poland",
