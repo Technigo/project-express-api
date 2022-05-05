@@ -21,7 +21,7 @@ app.get("/bookratings", (req, res) => {
   });
 });
 
-// 2. endpoint that returns a rated book by its title.
+// 2. endpoint that returns one rated book by its title.
 app.get("/bookratings/title/:title", (req, res) => {
   const { title } = req.params;
 
@@ -63,17 +63,18 @@ app.get("/bookratings/authors/:authors", (req, res) => {
   }
 });
 
+// 3. endpoint that returns all rated books based on their average rating.
+app.get("/bookratings/rating/:average_rating", (req, res) => {
+  const { average_rating } = req.params;
 
- app.get("/bookratings/rating/:rating", (req, res)=>{
-   const {average_rating} = req.params;
-
-   const bookByRating = booksData.filter(
-     (book)=> book.average_rating === average_rating);
-     res.status(200).json({
-       data: bookByRating,
-       success: true
-     })
- })
+  const bookByRating = booksData.filter(
+    (book) => book.average_rating === +average_rating
+  );
+  res.status(200).json({
+    data: bookByRating,
+    success: true,
+  });
+});
 
 // Start the server
 app.listen(port, () => {
