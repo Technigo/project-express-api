@@ -1,13 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
 import netflixData from './data/netflix-titles.json';
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,7 +15,9 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello Technigo!');
+  res.send(
+    'Netflix-titles! End-points: /movies , /movies/country/:country , /movies/title/:title , /movies/releaseyear/:year, /movies/:id/  '
+  );
 });
 
 app.get('/movies', (req, res) => {
@@ -31,10 +27,11 @@ app.get('/movies', (req, res) => {
   });
 });
 
+//Country
 app.get('/movies/country/:country', (req, res) => {
-  /*const { country } = req.params;*/
+  const { country } = req.params;
   const whatCountry = netflixData.filter(
-    (movie) => movie.country.toLowerCase() === req.params.country
+    (movie) => movie.country.toLowerCase() === country
   );
 
   res.status(200).json({
@@ -43,9 +40,11 @@ app.get('/movies/country/:country', (req, res) => {
   });
 });
 
+//Movie title
 app.get('/movies/title/:title', (req, res) => {
+  const { title } = req.params;
   const whatTitle = netflixData.find(
-    (movie) => movie.title.toLowerCase() === req.params.title
+    (movie) => movie.title.toLowerCase() === title
   );
 
   if (!whatTitle) {
@@ -58,13 +57,26 @@ app.get('/movies/title/:title', (req, res) => {
   }
 });
 
+//Release year
 app.get('/movies/releaseyear/:year', (req, res) => {
+  const { year } = req.params;
   const whatYear = netflixData.filter(
-    (movie) => movie.release_year.toString() === req.params.year
+    (movie) => movie.release_year.toString() === year
   );
 
   res.status(200).json({
     data: whatYear,
+    success: true,
+  });
+});
+
+//Release year
+app.get('/movies/:id/', (req, res) => {
+  const { id } = req.params;
+  const whatId = netflixData.filter((movie) => movie.show_id.toString() === id);
+
+  res.status(200).json({
+    data: whatId,
     success: true,
   });
 });
