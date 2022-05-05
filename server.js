@@ -27,15 +27,62 @@ app.get("/", (req, res) => {
 });
 
 app.get("/booksData", (req, res) => {
-  res.json(booksData);
+  res.json({
+    data: booksData,
+    success: true,
+  });
 });
 
-app.get("/booksData/:title", (req, res) => {
-  const bookByTitle = booksData.find(
-    (book) => book.title === req.params.title
-    );
+app.get("/booksData/:bookID", (req, res) => {
+  const { bookID } = req.params;
 
-    res.status(200).json(bookByTitle);
+
+  const bookById = booksData.find((book) => +book.bookID === +bookID);
+
+    if (!bookById) {
+      res.status(404).json({
+        data: "Can not find the book you are looking for!",
+        success: false,
+      });
+    } else {
+      res.status(200).json({
+        data: bookById,
+        success: true,
+      });
+    }
+   
+});
+
+app.get("/booksData/title/:title", (req, res) => {
+  const { title } = req.params;
+
+
+  const bookByTitle = booksData.find((book) => book.title === title);
+
+    if (!bookByTitle) {
+      res.status(404).json({
+        data: "Can not find the book you are looking for!",
+        sucess: false,
+      });
+    } else {
+      res.status(200).json({
+        data: bookByTitle,
+        sucess: true,
+      });
+    }
+   
+});
+
+app.get("/booksData/authors/:authors", (req, res) => {
+  const { authors } = req.params;
+
+  const booksByAuthors = booksData.filter((book) => book.authors === authors);
+
+  res.status(200).json({
+    data: booksByAuthors,
+    sucess: true,
+  })
+  
 });
 
 // Start the server
