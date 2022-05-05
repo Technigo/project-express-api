@@ -28,15 +28,16 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-app.get("/books", (request, response) => {
+app.get("/books", (req, res) => {
 res.status(200).json(books);
 });
 
-app.get("/books/:authors", (req, res) => {
-const booksByAuthor = books.find(book => book.authors === req.params.authors
+app.get("/books/:title", (req, res) => {
+const bookByTitle = books.find(
+  (book ) => book.title=== req.params.title
   );
 
-  res.status(200).json(booksByAuthor);
+  res.status(200).json(bookByTitle);
 });
 // Start the server
 app.listen(port, () => {
