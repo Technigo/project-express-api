@@ -2,6 +2,7 @@ import express, { request, response } from "express";
 import cors from "cors";
 import books from "./data/books.json";
 import res from "express/lib/response";
+/* import res from "express/lib/response"; */
 
 
 
@@ -25,33 +26,19 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Welcome to the ultimate BOOK LIBRARY!");
 });
+
+//Start fetching data (books) from API:
 
 app.get("/books", (req, res) => {
 res.status(200).json({
   data: books,
-  success:true,
+  success: true,
 });
 });
 
-app.get("/books/title/:title", (req, res) => {
-const { title } =req.params;
-
-const bookByTitle = books.find((book ) => book.title=== title);
-
-if (!bookByTitle){
-  res.status(404).json({
-    data: "Not found",
-    success: false
-  });
-} else {
-  res.status(200).json({
-    data: bookByTitle, 
-    success: true,
-});
-}
-});
+//Route 1: Books by author
 
 app.get('/books/authors/:authors', (req, res) => {
   const { authors} = req.params;
@@ -60,21 +47,131 @@ app.get('/books/authors/:authors', (req, res) => {
     (book) => book.authors.toLowerCase () === authors.toLowerCase()
     );
 
+  if (booksByAuthor && booksByAuthor.length !== 0){
+    res.status(200).json({
+      data: booksByAuthor, 
+      success: true,
+    });
+  } else if (booksByAuthor.length === 0) {
+    res.status(200).json({
+      data: "Successful response, but no books by this author is available at this library",
+      success: true
+  });
+  } else {
+    res.status(404).send({
+      data: "Not found",
+      success: false
+    });
+  }
+});
 
-  if (!booksByAuthor){
+//Route 2: Books by title
+
+app.get("/books/title/:title", (req, res) => {
+  const { title } =req.params;
+  
+  const bookByTitle = books.find((book ) => book.title=== title);
+  
+  if (!bookByTitle){
+    res.status(404).json({
+      data: "That title is not available in this library",
+      success: false
+    });
+  } else {
+    res.status(200).json({
+      data: bookByTitle, 
+      success: true,
+  });
+  }
+  });
+
+
+  //Route 3: Books by language
+
+  app.get('/books/language_code/:language_code', (req, res) => {
+    const { language_code } = req.params;
+  
+    const booksByLanguage = books.filter(
+      (book) => book.language_code.toLowerCase () === language_code.toLowerCase()
+      );
+  
+      if (booksByLanguage && booksByLanguage.length !== 0){
+        res.status(200).json({
+          data: booksByLanguage, 
+          success: true,
+        });
+      } else if (booksByLanguage.length === 0) {
+        res.status(200).json({
+          data: "Successful response, but this library has no books in required language available.",
+          success: true
+      });
+      } else {
+        res.status(404).send({
+          data: "Not found",
+          success: false
+        });
+      }
+    });
+
+
+/*   const { title, authors } = req.query;
+
+  let allBooks = books;
+
+  if(authors) {
+    allBooks =allBooks.filter((book) => book.authors.toLowerCase() === authors.toLowerCase()
+    );
+  }
+
+  if (title) {
+    allBooks =allBooks.filter((book) => book.title.toLowerCase() === title.toLowerCase()
+    );
+  }
+
+res.status(200).json({
+  data: allBooks,
+  success:true,
+});
+}); */
+
+//First route "title"
+
+
+
+//Second route "authors"
+
+
+
+//Third route "language_code"
+
+
+
+//Fourth route "average_rating"
+
+app.get('/books/text_reviews_count/:text_reviews_count', (req, res) => {
+  const { text_reviews_count } = req.params;
+
+  const booksByReviews= books.filter(
+    (book) => book.text_reviews_count === text_reviews_count
+    );
+
+  if (booksByReviews !== booksByReviews){
     res.status(404).json({
       data: "Not found",
       success: false
     });
   } else {
     res.status(200).json({
-      data: booksByAuthor, 
+      data: booksByReviews, 
       success: true,
   });
   }
 
-
 });
+
+
+
+
 
 // Start the server
 app.listen(port, () => {
