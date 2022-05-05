@@ -27,12 +27,11 @@ app.get("/chocolates", (req, res) => {
     country_of_bean_origin,
     count_of_ingredients,
     has_cocoa_butter,
-    // TO ADD
-    // has_vanilla,
-    // has_lecithin,
-    // has_salt,
-    // has_sugar,
-    // has_other_sweetener,
+    has_vanilla,
+    has_lecithin,
+    has_salt,
+    has_sugar,
+    has_other_sweetener,
     first_taste,
     second_taste,
     third_taste,
@@ -71,84 +70,92 @@ app.get("/chocolates", (req, res) => {
     )
   }
 
-// %&?&% has_cocoa_butter?????????
+  // doesn't work if I combine two of the following has_x.includes()
+  if (has_cocoa_butter.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_cocoa_butter === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_cocoa_butter === true
+    )
+  }
 
-  // if (has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.has_cocoa_butter === has_cocoa_butter
-  //     )
-  // }
+  if (has_vanilla.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_vanilla === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_vanilla === true
+    )
+  }
 
-  // if (has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.has_cocoa_butter
-  //   )
-  // }
+  if (has_lecithin.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_lecithin === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_lecithin === true
+    )
+  }
 
-  // if (has_cocoa_butter == false) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.has_cocoa_butter == false
-  //   )
-  // }
+  if (has_salt.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_salt === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_salt === true
+    )
+  }
 
-  // if (!has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.!has_cocoa_butter
-  //   )
-  // }
+  if (has_sugar.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_sugar === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_sugar === true
+    )
+  }
 
-  // if (!has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => !chocolate.has_cocoa_butter
-  //   )
-  // }
-
-  // if (!has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => !chocolate.has_cocoa_butter
-  //   )
-  // }
-
-  // if (has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.has_cocoa_butter === false
-  //   )
-  // }
-
-  // if (has_cocoa_butter) {
-  //   allChocolatesData = allChocolatesData.filter(
-  //     chocolate => chocolate.has_cocoa_butter
-  //   )
-  // }
-
-  // TO ADD
-  // has_vanilla
-  // has_lecithin
-  // has_salt
-  // has_sugar
-  // has_other_sweetener
+  if (has_other_sweetener.includes(false)) {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_other_sweetener === false
+    )
+  } else {
+    allChocolatesData = allChocolatesData.filter(
+      chocolate => chocolate.has_other_sweetener === true
+    )
+  }
 
   if (first_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.first_taste.toLowerCase().includes(first_taste.toLowerCase())
+      chocolate => chocolate.first_taste.toLowerCase()
+        .includes(first_taste.toLowerCase())
     )
   }
 
   if (second_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.second_taste.toLowerCase().includes(second_taste.toLowerCase())
+      chocolate => chocolate.second_taste.toLowerCase()
+        .includes(second_taste.toLowerCase())
     )
   }
 
   if (third_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.third_taste.toLowerCase().includes(third_taste.toLowerCase())
+      chocolate => chocolate.third_taste.toLowerCase()
+        .includes(third_taste.toLowerCase())
     )
   }
 
   if (fourth_taste) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.fourth_taste.toLowerCase().includes(fourth_taste.toLowerCase())
+      chocolate => chocolate.fourth_taste.toLowerCase()
+        .includes(fourth_taste.toLowerCase())
     )
   }
 
