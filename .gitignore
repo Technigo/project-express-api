@@ -5,3 +5,4 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+// All endpoints are listed here: https://express-deployment-kim.herokuapp.com/endpoints
