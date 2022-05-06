@@ -1,13 +1,14 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Building API-endpoints in Node using Express. Then deploy to Heroku.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+JSON files with hard-coded data was already prepared. I used tha data to create different endpoints.
+To sort things out I used array methods such as .find() and .filter().
+The API was then deployed to Heroku.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://thereese-expressapi.herokuapp.com/

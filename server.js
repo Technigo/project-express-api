@@ -55,7 +55,7 @@ app.get("/nominations", (req, res) => {
 });
 
 //SEARCH FOR IF A SPECIFIC FILM/PERSON EVER BEEN NOMINATED ONE OR SEVERAL TIMES//WORKS
-app.get("/nominations/:nominee", (req, res) => {
+app.get("/nominations/nominee/:nominee", (req, res) => {
   const nominee = req.params.nominee;
   const filmNominees = goldenGlobesData.filter(
     (movie) => movie.nominee.toLocaleLowerCase() === nominee.toLocaleLowerCase()
