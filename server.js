@@ -23,8 +23,22 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello, here is an api of random famous books")
+  const landingPage = {
+     Hello: 
+     "here is an api of random famous books",
+     Routes: [{
+       "/books": "Get whole array of books",
+       "/books/id/'idnumber'": "Get unique book by id",
+       "/books?id='idnumber'": "Get unique book by id",
+       "/books/author/'name of author": "Get list of books from particular author",
+       "/books?author='name of author": "Get list of books from particular author",
+       "/books/title/'title of book": "Get books by title",
+       "/books?title='title of book": "Get books by title",
+     }]
+   }
+  res.send(landingPage)
 })
+
 
 //query example in browser http://localhost:8080/books?title=galaxy&author=douglas adams&id=377
 app.get("/books", (req, res) => {
