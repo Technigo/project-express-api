@@ -36,7 +36,7 @@ app.get("/healthyLifestyles", (req, res) => {
 
 // Return only the city you have typed in
 app.get("/healthyLifestyles/:city", (req, res) => {
-  const city = req.params.city;
+  const { city } = req.params;
 
   const cityByName = healthyLifestyles.filter(
     (capital) => capital.city.toLowerCase() === city.toLowerCase()
@@ -84,6 +84,46 @@ app.get("/healthyLifestyles/top/sunshineHours", (req, res) => {
   }
   res.json(sunshineHours);
 });
+
+// Return only the facts with a key name including _city & _country
+
+// app.get("/healthyLifestyles/facts/city", (req, res) => {
+//   const { onlyCityFacts } = req.params;
+//   const onlyCity = healthyLifestyles.filter(
+//     (cities) => cities.cost_of_a_monthly_gym_membership_city === onlyCityFacts
+//   );
+
+//   if (!onlyCity) {
+//     res.status(404).json({
+//       data: "not found",
+//       success: false,
+//     });
+//   } else {
+//     res.status(200).json({
+//       data: onlyCityFacts,
+//       success: true,
+//     });
+//   }
+// });
+
+// app.get("/healthyLifestyles/facts/country", (req, res) => {
+//   const { onlyCountryFacts } = req.params;
+//   const onlyCountry = healthyLifestyles.filter(
+//     (country) => country._country === onlyCountryFacts
+//   );
+
+//   if (!onlyCountry) {
+//     res.status(404).json({
+//       data: "not found",
+//       success: false,
+//     });
+//   } else {
+//     res.status(200).json({
+//       data: onlyCountryFacts,
+//       success: true,
+//     });
+//   }
+// });
 
 // Start the server
 app.listen(port, () => {
