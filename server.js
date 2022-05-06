@@ -23,66 +23,81 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Welcome to the magical world of the written word: hopefully you will find the book you are looking for");
 });
 
 app.get("/booksData", (req, res) => {
-  res.json({
-    data: booksData,
-    success: true,
-  });
+  const { title, authors } = req.query;
+
+  let results = booksData;
+
+  if (title) {
+    results = results.filter((item) => 
+    item.title.toLowerCase().includes(title.toLowerCase()))
+  }
+  if (authors) {
+    results = results.filter((item) => 
+      item.authors.toLowerCase().includes(authors.toLowerCase()))
+  }
+  if (results.length === 0) {
+    res.status(404).json({
+      data: "Can not find the book you are looking for!",
+      sucess: false,
+    })
+  } else {
+    res.json({
+      data: results,
+      success: true,
+    });
+  }
 });
 
-app.get("/booksData/:bookID", (req, res) => {
-  const { bookID } = req.params;
-
-
-  const bookById = booksData.find((book) => +book.bookID === +bookID);
-
-    if (!bookById) {
-      res.status(404).json({
-        data: "Can not find the book you are looking for!",
-        success: false,
-      });
-    } else {
-      res.status(200).json({
-        data: bookById,
-        success: true,
-      });
-    }
-   
-});
 
 app.get("/booksData/title/:title", (req, res) => {
   const { title } = req.params;
 
 
-  const bookByTitle = booksData.find((book) => book.title === title);
-
-    if (!bookByTitle) {
-      res.status(404).json({
-        data: "Can not find the book you are looking for!",
-        sucess: false,
-      });
-    } else {
+  const bookByTitle = booksData.filter(
+    (book) => book.title.toLowerCase().includes(title.toLowerCase())
+    );
       res.status(200).json({
         data: bookByTitle,
         sucess: true,
-      });
-    }
+      })
    
 });
 
 app.get("/booksData/authors/:authors", (req, res) => {
   const { authors } = req.params;
 
-  const booksByAuthors = booksData.filter((book) => book.authors === authors);
+  const booksByAuthors = booksData.filter(
+    (book) => book.authors.toLowerCase().includes(authors.toLowerCase())
+    );
 
   res.status(200).json({
     data: booksByAuthors,
     sucess: true,
   })
   
+});
+
+app.get("/booksData/:bookID", (req, res) => {
+  const { bookID } = req.params;
+
+const bookById = booksData.find((book) => +book.bookID === +bookID);
+
+if (!bookById) {
+  res.status(404).json({
+    data: `Can not find the book you are looking for with this id: ${bookID}`,
+    success: false,
+  });
+} else {
+  res.status(200).json({
+    data: bookById,
+    success: true,
+  });
+}
+
 });
 
 // Start the server
