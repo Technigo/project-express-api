@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -22,27 +23,53 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello Technigo!');
+  res.send(listEndpoints(app));
 });
 
 // all the drivers
 // http://localhost:8080/drivers
 app.get('/drivers', (req, res) => {
-  res.status(200).json(drivers);
-  res.send(drivers);
+  // lägg till fler här om du skapar fler endpoints
+  const { driverId } = req.query;
+
+  let allDrivers = drivers;
+
+  if (driverId) {
+    allDrivers = allDrivers.find((driver) => driver.driverId === +driverId);
+  }
+
+  res.status(200).json({
+    data: allDrivers,
+    sucess: true,
+  });
+
   // console.log(drivers);
 });
 
 // specific driver
 // ex: http://localhost:8080/drivers/1
-app.get('/drivers/:driverId', (req, res) => {
+app.get('/drivers/driver/:driverId', (req, res) => {
   // console.log(req.params);
 
-  const driverById = drivers.find(
-    (driver) => driver.driverId === +req.params.driverId
-  );
+  const { driverId } = req.params;
 
-  res.status(200).json(driverById);
+  const driverById = drivers.find((driver) => driver.driverId === +driverId);
+
+  // const driverById = drivers.find(
+  //   (driver) => driver.driverId === +req.params.driverId
+  // );
+
+  if (!driverById) {
+    res.status(404).json({
+      data: 'Not found',
+      sucess: false,
+    });
+  } else {
+    res.status(200).json({
+      data: driverById,
+      sucess: true,
+    });
+  }
 });
 
 // Start the server
