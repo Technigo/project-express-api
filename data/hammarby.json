@@ -1,7 +1,7 @@
 [
     {
         "name": "Williot Swedberg",
-        "year-born": 2004,
+        "year_born": 2004,
         "age": 18,
         "position": "midfielder",
         "nationality": "Sweden",
@@ -10,7 +10,7 @@
     },
     {
         "name": "Nahir Besara",
-        "year-born": 1991,
+        "year_born": 1991,
         "age": 31,
         "position": "midfielder",
         "nationality": "Sweden",
@@ -19,7 +19,7 @@
     },
     {
         "name": "Gustav Ludwigson",
-        "year-born": 1993,
+        "year_born": 1993,
         "age": 28,
         "position": "striker",
         "nationality": "Sweden",
@@ -28,7 +28,7 @@
     },
     {
         "name": "Edvin Kurtulus",
-        "year-born": 2000,
+        "year_born": 2000,
         "age": 22,
         "position": "defender",
         "nationality": "Sweden",
@@ -37,7 +37,7 @@
     },
     {
         "name": "Mayckel Lahdo",
-        "year-born": 2002,
+        "year_born": 2002,
         "age": 19,
         "position": "midfielder",
         "nationality": "Sweden",
@@ -46,7 +46,7 @@
     },
     {
         "name": "Davor Blazevic",
-        "year-born": 1993,
+        "year_born": 1993,
         "age": 29,
         "position": "goalkeeper",
         "nationality": "Sweden",
@@ -55,7 +55,7 @@
     },
     {
         "name": "Oliver Dovin",
-        "year-born": 2002,
+        "year_born": 2002,
         "age": 19,
         "position": "goalkeeper",
         "nationality": "Sweden",
@@ -64,7 +64,7 @@
     },
     {
         "name": "Björn Paulsen",
-        "year-born": 1991,
+        "year_born": 1991,
         "age": 30,
         "position": "defender",
         "nationality": "Denmark",
@@ -73,7 +73,7 @@
     },
     {
         "name": "Joel Nilsson",
-        "year-born": 1994,
+        "year_born": 1994,
         "age": 27,
         "position": "defender",
         "nationality": "Sweden",
@@ -82,7 +82,7 @@
     },
     {
         "name": "Mads Fenger",
-        "year-born": 1990,
+        "year_born": 1990,
         "age": 31,
         "position": "defender",
         "nationality": "Denmark",
@@ -91,7 +91,7 @@
     },
     {
         "name": "Abdulrahman Khalili",
-        "year-born": 1992,
+        "year_born": 1992,
         "age": 29,
         "position": "midfielder",
         "nationality": "Sweden",
@@ -100,7 +100,7 @@
     },
     {
         "name": "Darijan Bojanic",
-        "year-born": 1994,
+        "year_born": 1994,
         "age": 27,
         "position": "midfielder",
         "nationality": "Sweden",
@@ -109,7 +109,7 @@
     },
     {
         "name": "Astrit Selmani",
-        "year-born": 1997,
+        "year_born": 1997,
         "age": 24,
         "position": "striker",
         "nationality": "Sweden",
@@ -118,7 +118,7 @@
     },
     {
         "name": "Jusef Erabi",
-        "year-born": 2003,
+        "year_born": 2003,
         "age": 18,
         "position": "striker",
         "nationality": "Sweden",
@@ -127,7 +127,7 @@
     },
     {
         "name": "Jeppe Andersen",
-        "year-born": 1992,
+        "year_born": 1992,
         "age": 29,
         "position": "midfielder",
         "nationality": "Denmark",
@@ -136,7 +136,7 @@
     },
     {
         "name": "Simon Sandberg",
-        "year-born": 1994,
+        "year_born": 1994,
         "age": 28,
         "position": "defender",
         "nationality": "Sweden",
@@ -145,7 +145,7 @@
     },
     {
         "name": "Richard Magyar",
-        "year-born": 1991,
+        "year_born": 1991,
         "age": 31,
         "position": "defender",
         "nationality": "Sweden",
@@ -154,7 +154,7 @@
     },
     {
         "name": "Mohanad Jeahze",
-        "year-born": 1997,
+        "year_born": 1997,
         "age": 25,
         "position": "defender",
         "nationality": "Sweden",
@@ -163,7 +163,7 @@
     },
     {
         "name": "Loret Sadiku",
-        "year-born": 1991,
+        "year_born": 1991,
         "age": 30,
         "position": "defender",
         "nationality": "Albania",
@@ -172,7 +172,7 @@
     },
     {
         "name": "Dennis Widgren",
-        "year-born": 1994,
+        "year_born": 1994,
         "age": 28,
         "position": "defender",
         "nationality": "Sweden",
@@ -181,7 +181,7 @@
     },
     {
         "name": "Bubacarr Bubbis Trawally",
-        "year-born": 1994,
+        "year_born": 1994,
         "age": 27,
         "position": "striker",
         "nationality": "Gambia",

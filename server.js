@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import data from './data/hammarby.json'
 
+import data from './data/hammarby.json'
 import hammarby from './data/hammarby.json'
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -14,9 +14,29 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Forza Bajen!");
+  res.send(
+    {"Welcome":"This is an open API with Hammarbys football players.",
+    "Routes":[{
+    "/hammarby":"Get all the players",
+    "/hammarby/names/${name}":"Get a player by name",
+    "/hammarby/ages/${age}":"Get the player with a specific age",
+    "/hammarby/positions/${position}":"Get player based on their position (eg: striker, midfielder, defender, goalkeeper)",
+    "/hammarby/goals/${yes/no}":"Shows the players who has done at least one goal for Hammarby"
+  }],
+  "Querys":[{
+    "/hammarby?number=${number}":"Shows the player with a specific shirt number (eg: 15)",
+    "/hammarby?name=${name}":"Shows the named player (eg: Gustav Ludwigson)",
+    "/hammarby?position=${position}":"Shows player based on their position (eg: striker, midfielder, defender, goalkeeper)",
+    "/hammarby?age=${age}":"Get the player with a specific age (eg: 18)",
+    "/hammarby?born=${year}":"Shows players that was bort on a specific year (eg: 1991)",
+    "/hammarby?nationality=${Sweden/Denmark/Albania/Gambia}":"Shows players based on their nationality",
+    "/hammarby?goal=${yes/no}":"Shows the players who has done at least one goal for Hammarby",
+
+    "You can play around with these endpoitns and querys":"Eg: /hammarby?born=1991&goal=yes",
+    }]
+}
+  );
 });
 
 // ex: http://localhost:8080/hammarby?number=2 or http://localhost:8080/hammarby?age=18&position=striker
@@ -69,6 +89,18 @@ app.get('/hammarby/ages/:age', (req, res) => {
     res.status(404).send(`Sorry no player in Hammarby is the age of ${age}.`)
   } else {
     res.json(ageOfPlayer)
+  }
+})
+
+//Find player by name
+app.get('/hammarby/names/:name', (req, res) => {
+  const name = req.params.name
+  let nameOfPlayer = data.find((item) => item.name === name)
+
+  if (!nameOfPlayer) {
+    res.status(404).send(`Sorry no player in Hammarby is called ${name}`)
+  } else {
+    res.json(nameOfPlayer)
   }
 })
 
