@@ -17,7 +17,20 @@ app.use(express.json())
 
 // defining my routes, starts here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!")
+
+  const LandingPage = {
+    Welcome:
+    "This is an open API with 500 book reviews.",
+    Routes: [
+      {
+          "/books/:title": "Get the title of the book",
+          "/books/top-rated": "Get how the books are rated, from highest to lowest rated books",
+          "/books/book/:bookID": "Shows a specifik bookID",
+      }
+    ]
+  }
+
+  res.send(LandingPage)
 })
 
 // books to get all the books
@@ -33,8 +46,8 @@ app.get('/books/:title', (req, res) => {
     res.status(200).json(booksTitle)
 })
 
-// http://localhost:8080/books/top-rated
-// res will be: top rated books sorted from top ranked -> least top ranked
+// /books/top-rated
+// res: shows top rated to lowest rated
 // using slice() to show top 10 out of all rated books
 app.get('/books/top-rated', (req, res) => {
   const bookRating = books.sort(

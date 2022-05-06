@@ -1,13 +1,24 @@
-# Project Express API
+## Project Express API
 
-Replace this readme with your own information about your project.
+🔵 Blue Level (Minimum Requirements)
+Your API should have at least 2 routes. Try to push yourself to do more, though!
+A minimum of one endpoint to return a collection of results (array of elements)
+A minimum of one endpoint to return a single result (single element).
+Your API should be RESTful
+💡 Make sure you've committed and pushed a version of your project before starting with the intermediary and advanced goals.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## 🔴 Red Level (Intermediary Goals)
 
-## The problem
+On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+Create some empty/dummy endpoints which could contain more complex operations in the future. Find good names for them (think back to the labs)
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## ⚫ Black Level (Advanced Goals)
+
+Build a frontend which uses your API in some way to show the data in a nice way (use the react-starter template to get up and running fast).
+If your dataset is large, try implementing 'pages' using .slice() to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
+Create useful documentation for your endpoints. What's a good way to present this documentation? What if it changes in the future? Are there any npm packages that could help with this?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://emmas-books.herokuapp.com/
