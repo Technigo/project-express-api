@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
+import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -9,7 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to My Book Store📚");
+  const landing = {
+    about: "Welcome to My Book Store📚",
+    APIs: listEndpoints(app),
+  };
+  res.send(landing);
 });
 
 app.get("/books", (req, res) => {
