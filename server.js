@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import listEndpoints from 'express-list-endpoints';
 
 import netflixData from './data/netflix-titles.json';
 
@@ -15,9 +16,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send(
-    'Netflix-titles! End-points: /movies , /movies/country/:country , /movies/title/:title , /movies/releaseyear/:year, /movies/:id/  '
-  );
+  res.send(listEndpoints(app));
 });
 
 app.get('/movies', (req, res) => {
