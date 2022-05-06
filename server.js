@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 import booksData from "./data/books.json";
 
@@ -10,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(listEndpoints(app));
 });
 
 //1. endpoint that returns the whole array of book ratings.
