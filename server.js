@@ -40,18 +40,14 @@ res.status(200).json({
 })
 })
 
-app.get('books/:author', (req, res) => {
-  const { author } = req.params
-
-  const authorsOfBooks = books.filter(books => books.author === author)
-  console.log('Members by role:', authorsOfBooks)
-})
-
 
 // Titles
 app.get('/books/:title', (req, res) => {
   const { title } = req.params
-  const booksTitle = books.find((books) => books.title === title)
+
+
+  const booksTitle = books.filter(
+    (books) => books.title.toLowerCase() === title.toLowerCase())
 
     if (!booksTitle) {
       res.status(404).json({
