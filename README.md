@@ -9,5 +9,7 @@ This first project with backend was very easy in my opinion, I had no trouble to
 ## View it live
 
 Project deployed here: [Sweetest API](https://sweetest-api.herokuapp.com/)
+
 Documentation: (https://sweetest-api.herokuapp.com/)
+
 All endpoints: (https://sweetest-api.herokuapp.com/endpoints)
