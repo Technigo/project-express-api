@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import allEndpoints from 'express-list-endpoints'
+import allEndpoints from "express-list-endpoints"
 
 import chocolatesData from "./data/chocolates.json"
 
@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
         "/chocolates/lowest_in_cocoa": "Get the chocolates with the lowest percentage of cocoa (<= 55).",
         "/chocolates/most_ingredients": "Get the chocolates with the most ingredients (>= 6).",
         "/chocolates/least_ingredients": "Get the chocolates with the least ingredients (== 1).",
-        "/chocolates/without_sweetener":"Get the chocolates without any sweetener (no sugar or other_sweetener)."
+        "/chocolates/without_sweetener": "Get the chocolates without any sweetener (no sugar or other_sweetener)."
       },
       "Routes with path parameters": {
         "/chocolates/name/${name}": "Get a chocolate by name.",
@@ -103,26 +103,26 @@ app.get("/chocolates", (req, res) => {
     page
   } = req.query
 
-  if (company === '' ||
-    company_location === '' ||
-    review_date === '' ||
-    country_of_bean_origin === '' ||
-    count_of_ingredients === '' ||
-    has_cocoa_butter === '' ||
-    has_vanilla === '' ||
-    has_lecithin === '' ||
-    has_salt === '' ||
-    has_sugar === '' ||
-    has_other_sweetener === '' ||
-    first_taste === '' ||
-    second_taste === '' ||
-    third_taste === '' ||
-    fourth_taste === '' ||
-    page === '') {
+  if (company === "" ||
+    company_location === "" ||
+    review_date === "" ||
+    country_of_bean_origin === "" ||
+    count_of_ingredients === "" ||
+    has_cocoa_butter === "" ||
+    has_vanilla === "" ||
+    has_lecithin === "" ||
+    has_salt === "" ||
+    has_sugar === "" ||
+    has_other_sweetener === "" ||
+    first_taste === "" ||
+    second_taste === "" ||
+    third_taste === "" ||
+    fourth_taste === "" ||
+    page === "") {
     res.status(400).json({
       success: false,
       status_code: 400,
-      message: 'At least one of the query parameters in the path has no value, please make sure that you use property=value.'
+      message: "At least one of the query parameters in the path has no value, please make sure that you use property=value."
     })
   }
 
@@ -309,7 +309,7 @@ app.get("/chocolates/id", (req, res) => {
   res.status(400).json({
     success: false,
     status_code: 404,
-    message: 'Type an ID at the end of the path if you want to find a specific chocolate.'
+    message: "Type an ID at the end of the path if you want to find a specific chocolate."
   })
 })
 
@@ -335,7 +335,7 @@ app.get("/chocolates/name", (req, res) => {
   res.status(400).json({
     success: false,
     status_code: 404,
-    message: 'Type a name at the end of the path if you want to find a specific chocolate.'
+    message: "Type a name at the end of the path if you want to find a specific chocolate."
   })
 })
 
@@ -450,7 +450,7 @@ app.get("/chocolates/without_sweetener", (req, res) => {
   res.status(200).json(pagination(withoutSweetenerChocolates, page, res))
 })
 
-app.get('/endpoints', (req, res) => {
+app.get("/endpoints", (req, res) => {
   res.send(allEndpoints(app))
 })
 
