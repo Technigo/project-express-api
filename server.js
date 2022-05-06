@@ -1,15 +1,11 @@
 import express from "express";
 import cors from "cors";
-//import members from "./data/technigo-members.json";
+import getEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
 
 import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -23,22 +19,42 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello MovieJunky sa sa sa!");
+  res.send(getEndpoints(app));
 });
 
+// Query params
 app.get("/shows", (req, res) => {
-  res.status(200).json({ data: netflixData, sucess: true });
+  const { cast, director } = req.query;
+  let queriedShowsDetails = netflixData;
+
+  if (cast) {
+    queriedShowsDetails = queriedShowsDetails.filter((item) =>
+      item.cast.toLocaleLowerCase().includes(cast.toLocaleLowerCase())
+    );
+  }
+
+  if (director) {
+    queriedShowsDetails = queriedShowsDetails.filter((item) =>
+      item.director.toLocaleLowerCase().includes(director.toLocaleLowerCase())
+    );
+  }
+
+  res.status(200).json({
+    data: queriedShowsDetails,
+    success: true,
+  });
 });
 
+// Path params
 app.get("/shows/title/:title", (req, res) => {
   const { title } = req.params;
 
   const showByTitle = netflixData.find((item) => item.title === title);
 
   if (showByTitle) {
-    res.status(200).json({ data: showByTitle, sucess: true });
+    res.status(200).json({ data: showByTitle, success: true });
   } else {
-    res.status(404).json({ data: "not found", sucess: false });
+    res.status(404).json({ data: "not found", success: false });
   }
 });
 
@@ -49,7 +65,7 @@ app.get("/shows/country/:country", (req, res) => {
     (item) => item.country.toLocaleLowerCase() === country.toLocaleLowerCase()
   );
 
-  res.status(200).json({ data: showByCountry, sucees: true });
+  res.status(200).json({ data: showByCountry, success: true });
 });
 
 // Start the server
