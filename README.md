@@ -4,8 +4,8 @@ This project was a fun introduction to backend by creating an API in Node using 
 
 ## The problem
 
-There were some issues throwing error messages with the filter method at first. But thanks to StackOverflow I found a way to solve this. 
-Playing around with query and path params was a fun practice for this project. 
+The problem encountered was to type any name or title without the need to print out exact word but rather using lower case or just simply typing a part of the name/title. 
+Using the include and filter() method I managed to solve this problem. If I would have more time I would try to play around with query params in the endpoints that were created. 
 
 ## View it live
 
