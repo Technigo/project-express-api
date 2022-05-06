@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
     "This is an open API with 500 book reviews.",
     Routes: [
       {
+          "/books": "Get all the books",
           "/books/:title": "Get the title of the book",
           "/books/top-rated": "Get how the books are rated, from highest to lowest rated books",
           "/books/book/:bookID": "Shows a specifik bookID",
