@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Ocean View",
+    "year": "2019",
+    "media": "Digital photography",
+    "price": "250",
+    "size": "Medium",
+    "url": "https://www.emmasprings.com/wp-content/uploads/2019/11/DSC0634huesat2_4050-1.jpg"
+  },
+
+  {
+    "id": 2,
+    "title": "Vera",
+    "year": "2017",
+    "media": "Digitally colourised scanned photography",
+    "price": "300",
+    "size": "Small"
+  },
+
+  {
+    "id": 3,
+    "title": "Blocks",
+    "year": "2018",
+    "media": "Illustration",
+    "price": "250",
+    "size": "Large"
+  },
+
+  {
+    "id": 4,
+    "title": "Above",
+    "year": "2019",
+    "media": "Digital photography",
+    "price": "400",
+    "size": "Large"
+  },
+
+  {
+    "id": 5,
+    "title": "Moon phase",
+    "year": "2017",
+    "media": "Illustration",
+    "price": "300",
+    "size": "Medium"
+  },
+
+  {
+    "id": 6,
+    "title": "Escapeland / Land Escape",
+    "year": "2017",
+    "media": "Digital photography collage",
+    "price": "400",
+    "size": "Medium"
+  },
+
+  {
+    "id": 7,
+    "title": "Trough trees and sky",
+    "year": "2020",
+    "media": "Digital photography collage",
+    "price": "400",
+    "size": "Large"
+  },
+
+  {
+    "id": 8,
+    "title": "Having a baby",
+    "year": "2013",
+    "media": "Digital photography",
+    "price": "300",
+    "size": "Small"
+  }
+]
