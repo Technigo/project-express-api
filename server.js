@@ -67,16 +67,20 @@ app.get('/streams/type/:type', (req, res) => {
   const netflixTypes = streams.filter(
   (stream) => stream.type.toLowerCase() === type.toLowerCase()
   )
-    res.status(200).json(netflixTypes) 
+    res.status(200).json({
+      data: netflixTypes,
+      success: true }) 
   })
 
-   // I want to sort by release year??
+   // Sorted by release year (although the streams are already filtered in the original format)
    app.get('/streams/newest', (req, res) => {
     const newToOld = streams.sort(
       (a, b) => b.release_year - a.release_year
     )
 
-    res.json(newToOld.slice(0, 2022))
+    res.status(200).json({
+      data: newToOld.slice(0, 2022),
+      success: true })
   })
 
 
