@@ -33,10 +33,34 @@ app.get("/", (req, res) => {
 
  //Gives the whole array of objects 
 app.get("/netflix", (req, res) => {
-  res.status(200).json({
-    data: netflix,
-    success: true
-  })
+  console.log(req.query)
+  const { director, title } = req.query
+  console.log(director)
+
+  let result = netflix
+
+  //result can be used again for filtering title
+  if(director) {
+    result = result.filter((item) => 
+    item.director.toLowerCase().includes(director.toLowerCase()))
+  }
+
+  if(title) {
+    result = result.filter((item) => 
+    item.title.toLowerCase().includes(title.toLowerCase()))
+  }
+
+  if(result.length === 0) {
+    res.status(404).json({
+      data: 'Could not find a match',
+      success: false
+    })
+  }else {
+    res.status(200).json({
+      data: result,
+      success: true
+    })
+  }
 })
 
 //Gives an array of all TV shows
@@ -54,7 +78,8 @@ app.get("/netflix/movies", (req, res) => {
 
 //Get an array with directors
 app.get("/netflix/directors/:director", (req, res) => {
-  const netflixByDirector = netflix.filter((item) => item.director.toLowerCase().includes(req.params.director.toLowerCase()))
+  const { director } = req.params
+  const netflixByDirector = netflix.filter((item) => item.director.toLowerCase().includes(director.toLowerCase()))
     res.status(200).json({
       data: netflixByDirector, 
       success: true
@@ -105,6 +130,7 @@ app.get("/netflix/ids/:show_id", (req, res) => {
     })
   }
 })
+
 
 
 //Empty endpoints
