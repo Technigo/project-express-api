@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal for this weeks project was to create an API with Express. The project has a couple of endpoints, all using GET method, to get arrays of data or a single item. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This was the first time I used Express and creating my own API. I enjoyed better understanding the structure of APIs as well as getting into the RESTfulness mindset. When I have more time I would love to create a frontend with documentation to my API as well as using queries in combination with params. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://pacific-forest-01405.herokuapp.com/
