@@ -1,13 +1,13 @@
 # Week 17: Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to create an API using Express with RESTful endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This first project with backend was very easy in my opinion, I had no trouble to understand what to do and how to do it. However, because of that, I had an ambitious (too amitious) plan at first for which I created my own dataset. By lack of time to build the nice frontend for which this dataset was created, I had to start over with an already made dataset, and I decided to make it quite simple and to leave out the optional frontend. I had an issue with filtering the properties with boolean values but with lots of thinking/googling/asking for help, I made it work.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Project deployed here: [Sweetest API](https://sweetest-api.herokuapp.com/)
+Documentation: (https://sweetest-api.herokuapp.com/)
+All endpoints: (https://sweetest-api.herokuapp.com/endpoints)
