@@ -1,9 +1,9 @@
-import express, { request, response } from "express";
+import express from "express";
 import cors from "cors";
+import getEndpoints from "express-list-endpoints";
 
 
 import goldenGlobesData from "./data/golden-globes.json";
-import res from "express/lib/response";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -17,12 +17,12 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (request, response) => {
-  response.send("And the nominees are...!");
+  response.send(getEndpoints(app));
 });
 
 // Endpoint that shows nominees with a choice of year/nominee/win/query
-app.get("/nominees", (req, res) => {
-  const { year_award, nominee, win, category } = req.query;
+app.get("/nominees", (request, response) => {
+  const { year_award, nominee, win, category } = request.query;
 
   let selectNominations = goldenGlobesData;
 
@@ -47,11 +47,11 @@ app.get("/nominees", (req, res) => {
   }
 
   if (selectNominations.length === 0) {
-    res
+    response
       .status(404)
       .json("Sorry, we can't find any nominations for your chosen combination");
   } else {
-    res.status(200).json({
+    response.status(200).json({
       data: selectNominations,
       success: true,
     });
