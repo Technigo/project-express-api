@@ -21,7 +21,7 @@
         "id": 4,
         "name": "Lisen",
         "likes": "cars",
-        "strength": "Dedication"
+        "strength": "Determination"
     },
     {
         "id": 5,
@@ -39,13 +39,13 @@
         "id": 7,
         "name": "Li",
         "likes": "horror movies",
-        "strength": "Determination"
+        "strength": "Dedication"
     },
     {
         "id": 8,
         "name": "Mathilda",
         "likes": "dogs",
-        "strength": "Honesty"
+        "strength": "Ambitious"
     },
     {
         "id": 9,
@@ -57,6 +57,6 @@
         "id": 10,
         "name": "Amanda",
         "likes": "programming",
-        "strength": "Versatility"
+        "strength": "Helpful"
     }
 ]

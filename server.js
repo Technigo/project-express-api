@@ -14,10 +14,23 @@ app.use(express.json());
 
 //endpoint 1
 app.get("/", (req, res) => {
-  res.send("Hello there! This page is for educational purpose only");
+  res.send(
+  {"Welcome": "Hello there! This page is for educational purpose only",
+    "Endpoints/Routes": [
+    {
+      "/books": " Finding array of books",
+      "/books/title/:title": "Finding book by title",
+      "/members": "Finding array of members of Lion group",
+      "/members/name/:name": "Finding single lion member by name",
+      "/nominations": "Finding array of objects with nominations for the Golden Globes Awards",
+      "/nominations/year/:year": "Finding nominations by year (2010-2019)",
+      "/nominations/year/2010?won=true": "Using query to filter out all nominees that won for a given year"
+    }
+  ]
+  });
 });
 
-//endpoint 2 finding array of elements from 
+//endpoint 2
 app.get("/members", (req, res) => {
 
   res.status(200).json({
@@ -26,12 +39,13 @@ app.get("/members", (req, res) => {
   });
 });
 
-//endpoint 3 finding single lionMember by name
+//endpoint 3 
 app.get("/members/name/:name", (req, res)=> {
   const { name } = req.params;
-  const memberByName = lionMembers.find(
-    (member) => member.name === name); 
-  
+  let memberByName = lionMembers.find(
+    (member) => member.name.toLowerCase()
+    .includes(name.toLocaleLowerCase()));
+    
   if (!memberByName) {
     res.status(404).json({
       data: `${name} not found in the database.`,
@@ -45,7 +59,7 @@ app.get("/members/name/:name", (req, res)=> {
   }
 });
 
-//endpoint 4 finding array of elements 
+//endpoint 4 
 app.get("/nominations", (req, res) => {
 
   res.status(200).json({
@@ -54,7 +68,7 @@ app.get("/nominations", (req, res) => {
   });
 });
 
-//endpoint 5 filtering nominations by year.
+//endpoint 5 
 app.get("/nominations/year/:year", (req, res)=> {
 
   const year = req.params.year
@@ -71,7 +85,7 @@ app.get("/nominations/year/:year", (req, res)=> {
   });
 })
 
-//endpoint 6 finding array of books
+//endpoint 6 
 app.get("/books", (req, res) => {
 
   res.status(200).json({
@@ -80,7 +94,7 @@ app.get("/books", (req, res) => {
   });
 })
 
-//endpoint 7 , searching title with filter(), include() and 'toLocaleLowerCase()' to maximize search results. 
+//endpoint 7 , sear/books/title/:titleching title with filter(), include() and 'toLocaleLowerCase()' to maximize search results. 
 app.get("/books/title/:title", (req, res) =>{
 
   const { title } = req.params;
