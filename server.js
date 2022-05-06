@@ -24,18 +24,27 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the ultimate BOOK LIBRARY!");
+  res.send(
+    {"Welcome to the ultimate BOOK REVIEW LIST!":  [
+{
+      "books": "All books available", 
+      "/books/title/:title": "Search for book by specific title",
+      "/books/authors/:authors": "Search for book/books written by specific author (alone or with others)",
+      "/books/language_code/:language_code": "Search for books available in specific language",
+    }
+    ]
+  } );
 });
 
+//All books available
 app.get("/books", (req, res) => {
-res.status(200).json({
-  data: books,
-  success: true,
-});
-});
+  res.status(200).json({
+    data: books,
+    success: true,
+  });
+  });
 
-//Endpoint 1: Searching for a specific  book title
-
+//Search for book by specific title
 app.get("/books/title/:title", (req, res) => {
   const { title } =req.params;
   
@@ -54,57 +63,104 @@ app.get("/books/title/:title", (req, res) => {
   }
   });
 
+  //Search for book/books written by specific author (alone or with others)
+
+  app.get('/books/authors/:authors', (req, res) => {
+    const { authors } = req.params;
+  
+    let filteredAuthor = books;
+  
+    if (authors) {
+  filteredAuthor = filteredAuthor
+  .filter((item) => item.authors.toLowerCase().includes(authors.toLowerCase()));
+    };
+    if (filteredAuthor.length ===0) {
+      res.status(200).json({
+        data: "Successful search, but no books available by this author",
+        success: false,
+      });
+    } else {
+      res.status(200).json({
+        data: filteredAuthor,
+        success: true,
+      });
+    };
+    });
+
+    //Search for books available in specific language
+    app.get('/books/language_code/:language_code', (req, res) => {
+      const { language_code } = req.params;
+    
+      const booksByLanguage = books.filter(
+        (book) => book.language_code.toLowerCase () === language_code.toLowerCase()
+        );
+    
+        if (booksByLanguage && booksByLanguage.length !== 0){
+          res.status(200).json({
+            data: booksByLanguage, 
+            success: true,
+          });
+        } else if (booksByLanguage.length === 0) {
+          res.status(200).json({
+            data: "Successful response, but this library has no books in required language available.",
+            success: true
+        });
+        } else {
+          res.status(404).send({
+            data: "Not found",
+            success: false
+          });
+        }
+      });
+  
+
+  
+
+
+
+
+/* const { language_code, authors } = req.query;
+
+let allBooks = books;
+
+if (language_code) {
+  allBooks = allBooks.filter(
+    (item) => item.language_code.toLowerCase() === language_code.toLowerCase() 
+  );
+}
+
+if (authors) {
+  allBooks = allBooks.filter(
+    (item) => item.authors.toLowerCase() === authors.toLowerCase()
+  );
+}
+
+if (!allBooks.length) {
+response
+.status(404)
+.json ("sorry");
+} else {
+  res.status(200).json({
+    data: allBooks,
+    success: true,
+  });
+}
+});
+ */
+//Endpoint 1: Searching for a specific  book title
+
+
+
 
   //Endpoint 2: Searching for books written by a specific author (alone or with authors)
 
-  app.get('/books/authors/:authors', (req, res) => {
-  const { authors } = req.params;
 
-  let filteredAuthor = books;
-
-  if (authors) {
-filteredAuthor = filteredAuthor
-.filter((item) => item.authors.toLowerCase().includes(authors.toLowerCase()));
-  };
-  if (filteredAuthor.length ===0) {
-    res.status(404).json({
-      data: "Cannot find",
-      success: false,
-    });
-  } else {
-    res.status(200).json({
-      data: filteredAuthor,
-      success: true,
-    });
-  };
-  });
 
   //Endpoint 3: Searching for all books in  a specific language
 
-  app.get('/books/language_code/:language_code', (req, res) => {
-    const { language_code } = req.params;
-  
-    const booksByLanguage = books.filter(
-      (book) => book.language_code.toLowerCase () === language_code.toLowerCase()
-      );
-  
-      if (booksByLanguage && booksByLanguage.length !== 0){
-        res.status(200).json({
-          data: booksByLanguage, 
-          success: true,
-        });
-      } else if (booksByLanguage.length === 0) {
-        res.status(200).json({
-          data: "Successful response, but this library has no books in required language available.",
-          success: true
-      });
-      } else {
-        res.status(404).send({
-          data: "Not found",
-          success: false
-        });
-      }
-    });
+ 
+
+
 
 
 
