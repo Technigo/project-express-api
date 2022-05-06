@@ -40,11 +40,9 @@ res.status(200).json({
 })
 })
 
-
 // Titles
 app.get('/books/:title', (req, res) => {
   const { title } = req.params
-
 
   const booksTitle = books.filter(
     (books) => books.title.toLowerCase() === title.toLowerCase())
@@ -106,7 +104,6 @@ app.get('/random-book', (req, res) => {
     }
 
 })
-
 
 // Start the server
 app.listen(port, () => {
