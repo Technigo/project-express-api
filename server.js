@@ -3,8 +3,6 @@ import express from "express";
 import cors from "cors";
 
 import netflix from "./data/netflix-titles.json";
-import { transformIncludesAndExcludes } from "@babel/preset-env";
-
 
 // import avocadoSalesData from "./data/avocado-sales.json";
 //import books from "./data/books.json";
@@ -30,7 +28,7 @@ app.use(express.json());
 
 // Start defining your routes here (first example of the endpoint)
 app.get("/", (req, res) => {
-  res.send("What to watch next?");
+  res.send("What to watch next? Search for netflix titles here");
 });
 
  //Gives the whole array of objects 
@@ -91,13 +89,13 @@ app.get("/netflix/titles/:title", (req, res) => {
   }
 })
 
-//
+//Search for id
 app.get("/netflix/ids/:show_id", (req, res) => {
   
   const netflixById =  netflix.find((item) => +item.show_id === +req.params.show_id )
   if (!netflixById) {
     res.status(404).json({
-      data: "Sorry, can't find a match",
+      data: `Sorry, can't find a match for ${req.params.show_id }`,
       success: false,
     })
   } else {
@@ -109,7 +107,7 @@ app.get("/netflix/ids/:show_id", (req, res) => {
 })
 
 
-//app.get("/netflix/bydirector/:director", dummy endpoint
+//Empty endpoints
 //app.get("/netflix/getsuggestions", (req, res) => {
 
   // Get movie suggestions, look up what users friends are watching and return a subset of those.
@@ -121,60 +119,3 @@ app.get("/netflix/ids/:show_id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 })
-
-
-
-app.get("/members", (req, res) => {
-  const { name, role } = req.query
-
-  let allMembers = members 
-
-  if (role) {
-    allMembers = allMembers.filter(
-      member => member.role.toLowerCase() === role.toLowerCase())
-  }
-
-  if (name) {
-    allMembers = allMembers.filter(member => member.name === name)
-  }
-
-  res.status(200).json({
-    data: allMembers,
-    success: true
-  })
-})
-
-//We want to destructure our object
-app.get("/members/name/:name", (req, res) => {
-  const { name } = req.params
-  const memberByName = members.find((member) => member.name === name)
-   
-if (!memberByName){
-  res.status(404).json({
-    data: "Not found", 
-    success: false,
-  })
-} else {
-  res.status(200).json({
-    data: memberByName,
-    success: true,
-  })
-}
-})
-
-app.get("/members/role/:role", (req, res) => {
-  const { role } = req.params
-
-  const membersByRole = members.filter(member => member.role.toLowerCase() === role.toLowerCase())
-  if (!membersByRole){
-    res.status(404).json({
-      data: "Not found", 
-      success: false,
-    })
-  } else {
-    res.status(200).json({
-      data: membersByRole,
-      success: true,
-    })
-  }
- })
