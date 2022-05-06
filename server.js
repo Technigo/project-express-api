@@ -14,6 +14,35 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const pagination = (data, pageNumber = 1, res) => {
+  const pageSize = 50
+  const startIndex = (pageNumber - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const itemsOnPage = data.slice(startIndex, endIndex)
+  const totalOfPages = Math.ceil(data.length / pageSize)
+
+  if (pageNumber < 1 || pageNumber > totalOfPages && data.length > 0) {
+    res.status(400)
+      .json({
+        success: false,
+        status_code: 404,
+        message: `This page doesn't exist: page ${totalOfPages} is the last one.`
+      })
+  } else {
+    const returnObject = {
+      page: pageNumber,
+      page_size: pageSize,
+      items_on_page: itemsOnPage.length,
+      total_of_pages: totalOfPages,
+      total_of_results: data.length,
+      success: true,
+      results: itemsOnPage
+    }
+
+    return returnObject
+  }
+}
+
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!")
@@ -35,7 +64,8 @@ app.get("/chocolates", (req, res) => {
     first_taste,
     second_taste,
     third_taste,
-    fourth_taste
+    fourth_taste,
+    page
   } = req.query
 
   let allChocolatesData = chocolatesData
@@ -48,7 +78,8 @@ app.get("/chocolates", (req, res) => {
 
   if (company_location) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.company_location.toLowerCase() === company_location.toLowerCase()
+      chocolate => chocolate.company_location.toLowerCase()
+        === company_location.toLowerCase()
     )
   }
 
@@ -60,7 +91,8 @@ app.get("/chocolates", (req, res) => {
 
   if (country_of_bean_origin) {
     allChocolatesData = allChocolatesData.filter(
-      chocolate => chocolate.country_of_bean_origin.toLowerCase() === country_of_bean_origin.toLowerCase()
+      chocolate => chocolate.country_of_bean_origin.toLowerCase()
+        === country_of_bean_origin.toLowerCase()
     )
   }
 
@@ -69,75 +101,82 @@ app.get("/chocolates", (req, res) => {
       chocolate => chocolate.count_of_ingredients === +count_of_ingredients
     )
   }
-
+  // Still an issue for all boolean properties, give all false results 
+  // with every query that is something else than TRUE
   if (has_cocoa_butter) {
-    if (has_cocoa_butter.includes(false)) {
+    const booleanCocoaButter = req.query.has_cocoa_butter === "true"
+    if (booleanCocoaButter) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_cocoa_butter === false
+        chocolate => chocolate.has_cocoa_butter
       )
-    } else {
+    } else if (!booleanCocoaButter) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_cocoa_butter === true
+        chocolate => !chocolate.has_cocoa_butter
       )
     }
   }
 
   if (has_vanilla) {
-    if (has_vanilla.includes(false)) {
+    const booleanVanilla = req.query.has_vanilla === "true"
+    if (booleanVanilla) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_vanilla === false
+        chocolate => chocolate.has_vanilla
       )
-    } else {
+    } else if (!booleanVanilla) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_vanilla === true
+        chocolate => !chocolate.has_vanilla
       )
     }
   }
 
   if (has_lecithin) {
-    if (has_lecithin.includes(false)) {
+    const booleanLecithin = req.query.has_lecithin === "true"
+    if (booleanLecithin) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_lecithin === false
+        chocolate => chocolate.has_lecithin
       )
-    } else {
+    } else if (!booleanLecithin) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_lecithin === true
+        chocolate => !chocolate.has_lecithin
       )
     }
   }
 
   if (has_salt) {
-    if (has_salt.includes(false)) {
+    const booleanSalt = req.query.has_salt === "true"
+    if (booleanSalt) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_salt === false
+        chocolate => chocolate.has_salt
       )
-    } else {
+    } else if (!booleanSalt) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_salt === true
+        chocolate => !chocolate.has_salt
       )
     }
   }
 
   if (has_sugar) {
-    if (has_sugar.includes(false)) {
+    const booleanSugar = req.query.has_sugar === "true"
+    if (booleanSugar) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_sugar === false
+        chocolate => chocolate.has_sugar
       )
-    } else {
+    } else if (!booleanSugar) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_sugar === true
+        chocolate => !chocolate.has_sugar
       )
     }
   }
 
   if (has_other_sweetener) {
-    if (has_other_sweetener.includes(false)) {
+    const booleanOtherSweetener = req.query.has_other_sweetener === "true"
+    if (booleanOtherSweetener) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_other_sweetener === false
+        chocolate => chocolate.has_other_sweetener
       )
-    } else {
+    } else if (!booleanOtherSweetener) {
       allChocolatesData = allChocolatesData.filter(
-        chocolate => chocolate.has_other_sweetener === true
+        chocolate => !chocolate.has_other_sweetener
       )
     }
   }
@@ -170,9 +209,14 @@ app.get("/chocolates", (req, res) => {
     )
   }
 
-  res.status(200).json({
-    data: allChocolatesData,
-    success: true
+  res.status(200).json(pagination(allChocolatesData, page, res))
+})
+
+app.get("/chocolates/id", (req, res) => {
+  res.status(400).json({
+    success: false,
+    status_code: 404,
+    message: `Type an ID at the end of the path if you want to find a specific chocolate.`
   })
 })
 
@@ -180,17 +224,26 @@ app.get("/chocolates/id/:id", (req, res) => {
   const { id } = req.params
   const chocolateByID = chocolatesData.find(chocolate => chocolate.id === +id)
 
-  if (!chocolateByID) {
-    res.status(404).json({
-      data: `No chocolate found with the id: ${id}`,
-      success: false,
+  if (chocolateByID) {
+    res.status(200).json({
+      success: true,
+      results: chocolateByID,
     })
   } else {
-    res.status(200).json({
-      data: chocolateByID,
-      success: true,
+    res.status(404).json({
+      success: false,
+      status_code: 404,
+      message: `No chocolate found with the id: ${id}`
     })
   }
+})
+
+app.get("/chocolates/name", (req, res) => {
+  res.status(400).json({
+    success: false,
+    status_code: 404,
+    message: `Type a name at the end of the path if you want to find a specific chocolate.`
+  })
 })
 
 app.get("/chocolates/name/:name", (req, res) => {
@@ -200,97 +253,112 @@ app.get("/chocolates/name/:name", (req, res) => {
       chocolate => chocolate.specific_bean_origin_or_bar_name.toLowerCase() === name.toLowerCase()
     )
 
-  if (!chocolateByName) {
-    res.status(404).json({
-      data: `No chocolate found with the name: ${name}`,
-      success: false,
+  if (chocolateByName) {
+    res.status(200).json({
+      success: true,
+      results: chocolateByName,
     })
   } else {
-    res.status(200).json({
-      data: chocolateByName,
-      success: true,
+    res.status(404).json({
+      success: false,
+      status_code: 404,
+      message: `No chocolate found with the name: ${name}`
     })
   }
 })
 
 app.get("/chocolates/latest_reviews", (req, res) => {
-  const latestReviewedChocolates = chocolatesData.filter(chocolate => chocolate.review_date >= 2019)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: latestReviewedChocolates,
-    success: true
-  })
+  const latestReviewedChocolates = chocolatesData.filter(
+    chocolate => chocolate.review_date >= 2019
+  )
+
+  res.status(200).json(pagination(latestReviewedChocolates, page, res))
 })
 
 app.get("/chocolates/oldest_reviews", (req, res) => {
-  const oldestReviewedChocolates = chocolatesData.filter(chocolate => chocolate.review_date <= 2006)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: oldestReviewedChocolates,
-    success: true
-  })
+  const oldestReviewedChocolates = chocolatesData.filter(
+    chocolate => chocolate.review_date <= 2006
+  )
+
+  res.status(200).json(pagination(oldestReviewedChocolates, page, res))
 })
 
 app.get("/chocolates/best_ratings", (req, res) => {
-  const bestRatedChocolates = chocolatesData.filter(chocolate => chocolate.rating >= 4)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: bestRatedChocolates,
-    success: true
-  })
+  const bestRatedChocolates = chocolatesData.filter(
+    chocolate => chocolate.rating >= 4
+  )
+
+  res.status(200).json(pagination(bestRatedChocolates, page, res))
 })
 
 app.get("/chocolates/worst_ratings", (req, res) => {
-  const worstRatedChocolates = chocolatesData.filter(chocolate => chocolate.rating <= 1.75)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: worstRatedChocolates,
-    success: true
-  })
+  const worstRatedChocolates = chocolatesData.filter(
+    chocolate => chocolate.rating <= 2
+  )
+
+  res.status(200).json(pagination(worstRatedChocolates, page, res))
 })
 
 app.get("/chocolates/highest_in_cocoa", (req, res) => {
-  const highestCocoaChocolates = chocolatesData.filter(chocolate => chocolate.cocoa_percentage >= 90)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: highestCocoaChocolates,
-    success: true
-  })
+  const highestCocoaChocolates = chocolatesData.filter(
+    chocolate => chocolate.cocoa_percentage >= 90
+  )
+
+  res.status(200).json(pagination(highestCocoaChocolates, page, res))
 })
 
 app.get("/chocolates/lowest_in_cocoa", (req, res) => {
-  const lowestCocoaChocolates = chocolatesData.filter(chocolate => chocolate.cocoa_percentage <= 55)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: lowestCocoaChocolates,
-    success: true
-  })
+  const lowestCocoaChocolates = chocolatesData.filter(
+    chocolate => chocolate.cocoa_percentage <= 55
+  )
+
+  res.status(200).json(pagination(lowestCocoaChocolates, page, res))
 })
 
 app.get("/chocolates/most_ingredients", (req, res) => {
-  const mostIngredientsChocolates = chocolatesData.filter(chocolate => chocolate.count_of_ingredients > 5)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: mostIngredientsChocolates,
-    success: true
-  })
+  const mostIngredientsChocolates = chocolatesData.filter(
+    chocolate => chocolate.count_of_ingredients > 5
+  )
+
+  res.status(200).json(pagination(mostIngredientsChocolates, page, res))
 })
 
 app.get("/chocolates/least_ingredients", (req, res) => {
-  const leastIngredientsChocolates = chocolatesData.filter(chocolate => chocolate.count_of_ingredients = 1)
+  const { page } = req.query
 
-  res.status(200).json({
-    data: leastIngredientsChocolates,
-    success: true
-  })
+  const leastIngredientsChocolates = chocolatesData.filter(
+    chocolate => chocolate.count_of_ingredients == 1
+  )
+
+  res.status(200).json(pagination(leastIngredientsChocolates, page, res))
 })
 
-// another endpoint to add: items with no sweetener at all (no sugar AND no other sweetener)
-// pages in query
-// think of other status codes?
+app.get("/chocolates/without_sweetener", (req, res) => {
+  const { page } = req.query
+
+  const withoutSweetenerChocolates = chocolatesData.filter(
+    chocolate => !chocolate.has_sugar && !chocolate.has_other_sweetener
+  )
+
+  res.status(200).json(pagination(withoutSweetenerChocolates, page, res))
+})
+
 // documentation
 // readme to write
-// another endpoint idea: filter and combine 2 or more properties(ex: highest ratings without sugar)
 
 app.get('/endpoints', (req, res) => {
   res.send(allEndpoints(app))
