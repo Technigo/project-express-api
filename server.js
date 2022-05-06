@@ -5,19 +5,20 @@ import listEndpoints from "express-list-endpoints";
 // Importing the Netflix JSON data 
 import netflixData from "./data/netflix-titles.json";
 
-// Defines the port the app will run on.
+// Defines the port the app will run on
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
+// Middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Routes
 app.get("/", (req, res) => {
   res.send("Welcome to the Netflix API! Type in: /endpoints in the address bar to see what endpoints there are. 🍿 🎬 🥤");
 });
 
+// Route to see all available endpoints
 app.get("/endpoints", (req, res) => {
   res.send(listEndpoints(app))
 });
@@ -30,7 +31,7 @@ app.get("/directory", (req, res) => {
   });
 });
 
-// Route for user to type a title and either show it (200 = successful) or not (404 = not found).
+// Route for user to type a title and either show it (200 = successful) or not (404 = not found)
 app.get("/directory/title/:title", (req, res) => {
   const netflixTitle = netflixData.find((data) => data.title.toLocaleLowerCase() === req.params.title.toLocaleLowerCase());
 
@@ -47,7 +48,7 @@ app.get("/directory/title/:title", (req, res) => {
   };
 });
 
-// Route for user to type an actor/actress name and see what movies/tv shows they are in. (Code not completely finished)
+// Route for user to type an actor/actress name and see what movies/tv shows they are in
 app.get("/directory/cast/:cast", (req, res) => {
   const { cast } = req.params;
 
@@ -58,7 +59,7 @@ app.get("/directory/cast/:cast", (req, res) => {
       .filter((item) => item.cast.toLocaleLowerCase().includes(cast.toLocaleLowerCase()));
   };
 
-  if (!filteredCastMember) {
+  if (filteredCastMember.length === 0) {
     res.status(404).json({
       data: "I couldn't find any cast member with that name. 😭 Please try another name!",
       success: false,
@@ -71,7 +72,7 @@ app.get("/directory/cast/:cast", (req, res) => {
   };
 });
 
-// Route to get the titles from a specific year.
+// Route to get the titles from a specific year
 app.get("/directory/year/:year", (req, res) => {
   const year = req.params.year
   const titlesFromYear = netflixData.filter((data) => data.release_year === +year)
