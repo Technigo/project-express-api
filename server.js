@@ -1,7 +1,7 @@
-import express from "express";
-import cors from "cors";
+import express from "express"
+import cors from "cors"
 
-import books from "./data/books.json";
+import books from "./data/books.json"
 
 // Defines the port the app will run on. Defaults to 8080
 // PORT=9000 npm start
@@ -13,9 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 
-// ROUTES
-
-// Defining my routes, starts here
+// --------------- ROUTES ---------------- //
 app.get("/", (req, res) => {
 
   const LandingPage = {
@@ -23,32 +21,53 @@ app.get("/", (req, res) => {
     "This is an open API with 500 book reviews.",
     Routes: [
       {
-          "/books": "Get all the books",
-          "/books/:title": "Get the title of the book",
-          "/books/top-rated": "Get how the books are rated, from highest to lowest rated books",
-          "/books/book/:bookID": "Shows a specifik bookID",
+          "/books": "All the books",
+          "/books/:title": "The specific title of the book",
+          "/books/top-rated": "How the books are rated, from highest to lowest rated books",
+          "/books/book/:bookID": "The specific bookID",
+          "/random-book": "A random book",
       }
     ]
   }
   res.send(LandingPage)
 })
 
-// Books to get all the books
+// All the books
 app.get('/books', (req, res) => {
-res.status(200).json(books)
+res.status(200).json({
+  data: books,
+  success: true,
+})
 })
 
-// Title to get the title
+app.get('books/:author', (req, res) => {
+  const { author } = req.params
+
+  const authorsOfBooks = books.filter(books => books.author === author)
+  console.log('Members by role:', authorsOfBooks)
+})
+
+
+// Titles
 app.get('/books/:title', (req, res) => {
-    const booksTitle = books.find(
-      (books) => books.title === req.params.title)
+  const { title } = req.params
+  const booksTitle = books.find((books) => books.title === title)
 
-    res.status(200).json(booksTitle)
+    if (!booksTitle) {
+      res.status(404).json({
+        data: "Not found",
+        success: false,
+      })
+    } else {
+      res.status(200).json({
+        data: booksTitle,
+        success: true,
+    })
+    }
 })
 
-// /books/top-rated
-// res: shows top rated to lowest rated
-// using slice() to show top 10 out of all rated books
+// Res: shows top rated to lowest rated
+// Using slice() to show top 10 out of all rated books
 app.get('/books/top-rated', (req, res) => {
   const bookRating = books.sort(
     (a, b) => b.average_rating - a.average_rating
@@ -56,17 +75,40 @@ app.get('/books/top-rated', (req, res) => {
   res.json(bookRating.slice(0, 50))
 })
 
-// /books/book/1
 // :bookID = param to trigger a param example console(req params)
-// will look for a specific param, in this case a specific ID from books
+// Will look for a specific param, in this case a specific ID from books
 app.get('/books/book/:bookID', (req, res) => {
 const { bookID } = req.params
 const { book } = books.find((item) => item.bookID === +bookID)
 
 if (!book) {
-  res.status(404).send(`Error, there is no book with book-ID ${bookID}`)
-} 
-res.json(book)
+  res.status(404).json({
+    data: `Error, there is no book with book-ID ${bookID}`,
+    success: false,
+  }) 
+} else {
+    res.status(200).json({
+      data: bookID,
+      success: true,
+    })
+  }
+})
+
+// Random book
+app.get('/random-book', (req, res) => {
+    const randomBook = books[Math.floor(Math.random() * books.length)]
+    if (!randomBook) {
+        res.status(400).json({
+              response: `There are no books with id number`,
+              success: false,
+        })
+    } else {
+      res.status(200).json({
+          response: randomBook,
+          success: true,
+      })
+    }
+
 })
 
 
