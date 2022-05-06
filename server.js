@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints"
 import streams from "./data/netflix-titles.json";
 
 
@@ -15,7 +16,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("NETFLIX STREAMS. This is an API with information about different Netflix movies and tv shows");
+  res.send(listEndpoints(app));
 });
 
 // Simple get request, sending back the complete list
@@ -58,12 +59,24 @@ app.get('/streams/name/:title', (req, res) => {
     
   })
 
-// Filter by dynamic type, i.e. Movie or TV Show... Maybe change it.
+
+// Filter by dynamic type, i.e. Movie or TV Show 
 app.get('/streams/type/:type', (req, res) => {
+  const { type } = req.params
+
   const netflixTypes = streams.filter(
-  (stream) => stream.type.toLowerCase() === req.params.type.toLowerCase()
+  (stream) => stream.type.toLowerCase() === type.toLowerCase()
   )
     res.status(200).json(netflixTypes) 
+  })
+
+   // I want to sort by release year??
+   app.get('/streams/newest', (req, res) => {
+    const newToOld = streams.sort(
+      (a, b) => b.release_year - a.release_year
+    )
+
+    res.json(newToOld.slice(0, 2022))
   })
 
 
@@ -120,3 +133,6 @@ app.listen(port, () => {
   //     data: allStreams,
   //     success: true })
   // })
+
+
+ 
