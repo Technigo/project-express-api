@@ -15,7 +15,7 @@ app.use(express.json())
 
 // ROUTES
 
-// defining my routes, starts here
+// Defining my routes, starts here
 app.get("/", (req, res) => {
 
   const LandingPage = {
@@ -30,16 +30,15 @@ app.get("/", (req, res) => {
       }
     ]
   }
-
   res.send(LandingPage)
 })
 
-// books to get all the books
+// Books to get all the books
 app.get('/books', (req, res) => {
 res.status(200).json(books)
 })
 
-// title to get the title
+// Title to get the title
 app.get('/books/:title', (req, res) => {
     const booksTitle = books.find(
       (books) => books.title === req.params.title)
