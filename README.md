@@ -1,11 +1,11 @@
 # Project Express API
 
-API with RESTful endpoints built using Express
+API for Netflix-titles with RESTful endpoints, built with Express
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by deciding on what endpoints I wanted to display. I then used both query parameters and path parameters for the end point in order to practice both. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Heroku: https://projectexpressapi.herokuapp.com/
