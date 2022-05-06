@@ -37,7 +37,16 @@ app.get('/movies', (req, res) => {
 })
 
 app.get('/movies/:title', (req, res) => {
-  const movieByName = netflixData.find(movie => movie.type === 'Movie' && movie.title === req.params.title)
+
+  const { title } = req.params
+
+  const movieByName = netflixData.find(movie => movie.type === 'Movie' && movie.title === title)
+
+  if (!movieByName) {
+    res.status(404).json('Not found') 
+  } else {
+    res.status(200).json(movieByName)
+  } 
 
   res.status(200).json(movieByName)
 })
@@ -49,9 +58,16 @@ app.get('/tvshows', (req, res) => {
 })
 
 app.get('/tvshows/:title', (req, res) => {
-  const tvShowByName = netflixData.find(show => show.type === 'TV Show' && show.title === req.params.title)
 
-  res.status(200).json(tvShowByName)
+  const { title } = req.params
+
+  const tvShowByName = netflixData.find(show => show.type === 'TV Show' && show.title === title)
+
+  if (!tvShowByName) {
+    res.status(404).json('Not found') 
+  } else {
+    res.status(200).json(tvShowByName)
+  }  
 })
 
 // // Start defining your routes here
