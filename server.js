@@ -2,13 +2,13 @@ import express from "express";
 import cors from "cors";
 
 import books from "./data/books.json";
-import { parseAsync } from "@babel/core";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
-const app = express();
+const listEndpoints = require('express-list-endpoints')
+const app = require('express')();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -16,9 +16,41 @@ app.use(express.json());
 
 
 //Start defining your routes here
-app.get("/books", (req, res) => {
+app.get("/",(req,res) => {
+	res.json({
+    message: "Welcome to my page, you can find list of API endpoints for book data below",
+    reference_link: 'https://github.com/sukiphan97/project-express-api',
+    data: listEndpoints(app)
+  });
+})
+
+//ADDING REVIEWS TO EXISTING BOOOKS
+app.post("/books/review/:id", (req, res) => {
+    
+  //Here, we map through the original array and then find the item whose id matches with the param
+  const existingBook = books.map(book => {
+
+    //First, find the book has id that match with path param: id
+    //If matched, update the item with the review
+    if (book.bookID === +req.params.id) {
+      return {...book, review: req.body.review}
+    } 
+    //then return the rest of the items
+    else return book
+  });
+  
+  if(existingBook) {
+    res.status(200).json({
+      data: existingBook,
+      success: true
+    })  
+  }
+})
+
+//GET DATA FROM QUERY PARAMTERS
+.get("/books", (req, res) => {
  
-  const { title, authors, language, page, limit } = req.query;
+  const { title, authors, page, limit } = req.query;
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -33,12 +65,7 @@ app.get("/books", (req, res) => {
   if (authors) {
     allBooks = allBooks.filter(item => item.authors.toLowerCase() === authors.toLowerCase())
   }
-
-  if (language) {
-    allBooks = allBooks.filter(item => item.language_code === language)
-  }
-  
-  
+   
   if (page && limit) {
     allBooks = allBooks.slice(startIndex, endIndex);
 
@@ -49,8 +76,6 @@ app.get("/books", (req, res) => {
         limit: limit,
         success: true
       })
-    
-   
   }
 
   res.json({
@@ -60,7 +85,7 @@ app.get("/books", (req, res) => {
  
 });
 
-//Return book datas according to ID 
+//GET BOOK DATA BY ID 
 app.get("/books/bookId/:id", (req, res) => {
 
   const id = +req.params.id;
@@ -78,7 +103,7 @@ app.get("/books/bookId/:id", (req, res) => {
   })
 })
 
-//Return highest rating books
+//GET HIGH-RATING BOOKS
 app.get("/books/highRating", (req,res) => {
   const highRatingBooks = books.filter(book => book.average_rating > 4);
 
@@ -88,7 +113,7 @@ app.get("/books/highRating", (req,res) => {
   })
 })
 
-//Empty endpoint for future usage 
+//EMPTY ENDPOINTS FOR FUTURE USAGE
 
  //Return book datas by years
   app.get("/books/year/:year", (req, res) => {
@@ -101,28 +126,10 @@ app.get("/books/highRating", (req,res) => {
     })
   })
 
-  //ADDING REVIEWS TO EXISTING BOOOKS
-  app.post("/books/review/:id", (req, res) => {
-    
-    //Here, we map through the original array and then find the item whose id matches with the param
-    const existingBook = books.map(book => {
-      if (book.bookID === +req.params.id) {
-        return {...book, review: req.body.review}
-      } else return book
-    });
-    
-    if(existingBook) {
-      res.status(200).json({
-        data: existingBook,
-        success: true
-      })  
-    }
-  })
 
 
 
-
-// Start the server
+// START THE SERVER
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
