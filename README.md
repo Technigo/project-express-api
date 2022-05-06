@@ -1,13 +1,16 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+Open RESTful API with a couple endpoints and queries. The data consists of 450 books.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Routes:
+/books, /books/:id, /ratings/:rating.
+
+Queries: /books?author=string, /books?title=string,
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The problem for me for this project was mainly the abstract nature of APIs but I think it went well for being the first time writing backend code of this nature. The other most problematic this was installing the heroku cli and getting it to connect to my already existing repo. I think the instructions for that were a little lacking and and it ended with me having to go a little off script to get it to work. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-w17.herokuapp.com/
