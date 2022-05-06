@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import getEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -22,8 +23,9 @@ app.use(express.json()); //unpacks info from requests
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hey Technigo!");
+  res.send(getEndpoints(app));
 });
+
 
 app.get("/titles", (req, res)=>//second argument is callback, request (info that comes) and response(what we send back).
 { 
@@ -40,12 +42,10 @@ if(type==="TV Show"){allTitles=allTitles.filter(title=>title.type===type)}
 
 if(type==="Movie"){allTitles=allTitles.filter(title=>title.type===type)}
 
-
-//res.send()      more universal, can send different datatypes
 res.status(202).json({
   data:allTitles,
   success:true,
-})      //more pragmatic since we usually send in json format
+}) 
 }) 
 
 app.get("/titles/title/:name",(req, res)=>{
@@ -67,17 +67,7 @@ else{
 }
 })
 
-app.get('/members/role/:role', (req,res)=>{
-  
-  const { role }= req.params;
-  const membersByRole =members.filter((member)=>member.role.toLowerCase()===role.toLowerCase())
- 
-  res.status(200).json({
- data: membersByRole,
- success:true,
 
-  })
-})
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
