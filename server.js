@@ -4,13 +4,9 @@ import allEndpoints from 'express-list-endpoints'
 
 import chocolatesData from "./data/chocolates.json"
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors())
 app.use(express.json())
 
@@ -44,8 +40,52 @@ const pagination = (data, pageNumber = 1, res) => {
 }
 
 // Start defining your routes here
+// app.get("/", (req, res) => {
+//   res.send("Hello Technigo!")
+// })
+
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!")
+  res.send(
+    {
+      "Welcome": "Sweetest API is all about chocolate. 🍫 Enjoy!",
+      "Routes (can all be combined with query parameter: page=${page}": {
+        "/": "Documentation",
+        "/endpoints": "All endpoints",
+        "/chocolates": "Get all chocolates.",
+        "/chocolates/latest_reviews": "Get the chocolates with the latest reviews (>= 2019).",
+        "/chocolates/oldest_reviews": "Get the chocolates with the oldest reviews (<= 2006).",
+        "/chocolates/best_ratings": "Get the chocolates with the best ratings (>= 4).",
+        "/chocolates/worst_ratings": "Get the chocolates with the worst ratings (<= 2).",
+        "/chocolates/highest_in_cocoa": "Get the chocolates with the highest percentage of cocoa (>= 90).",
+        "/chocolates/lowest_in_cocoa": "Get the chocolates with the lowest percentage of cocoa (<= 55).",
+        "/chocolates/most_ingredients": "Get the chocolates with the most ingredients (>= 6).",
+        "/chocolates/least_ingredients": "Get the chocolates with the least ingredients (== 1).",
+        "/chocolates/without_sweetener":"Get the chocolates without any sweetener (no sugar or other_sweetener)."
+      },
+      "Routes with path parameters": {
+        "/chocolates/name/${name}": "Get a chocolate by name.",
+        "/chocolates/id/${id}": "Get a chocolate by ID."
+      },
+
+      "Query parameters (can be combined together)": {
+        "/chocolates?company=string": "Filter the chocolates from a specific company.",
+        "/chocolates?company_location=string": "Filter the chocolates from a specific company location.",
+        "/chocolates?review_date=number": "Filter the chocolates from a specific review date.",
+        "/chocolates?country_of_bean_origin=string": "Filter the chocolates from a specific country of bean origin.",
+        "/chocolates?count_of_ingredients=number": "Filter the chocolates with a specific count of ingredients.",
+        "/chocolates?has_cocoa_butter=boolean": "Filter the chocolates with cocoa butter or not.",
+        "/chocolates?has_vanilla=boolean": "Filter the chocolates with vanilla or not.",
+        "/chocolates?has_lecithin=boolean": "Filter the chocolates with lecithin or not.",
+        "/chocolates?has_sugar=boolean": "Filter the chocolates with sugar or not.",
+        "/chocolates?has_other_sweetener=boolean": "Filter the chocolates with other sweetener or not.",
+        "/chocolates?first_taste=string": "Filter the chocolates with a first taste that includes the string.",
+        "/chocolates?second_taste=string": "Filter the chocolates with a second taste that includes the string.",
+        "/chocolates?third_taste=string": "Filter the chocolates with a third taste that includes the string.",
+        "/chocolates?fourth_taste=string": "Filter the chocolates with a fourth taste that includes the string.",
+        "Combination example": "/chocolates?company_location=France&review_date=2019&has_vanilla=true"
+      }
+    }
+  )
 })
 
 app.get("/chocolates", (req, res) => {
@@ -67,6 +107,29 @@ app.get("/chocolates", (req, res) => {
     fourth_taste,
     page
   } = req.query
+
+  if (company === '' ||
+    company_location === '' ||
+    review_date === '' ||
+    country_of_bean_origin === '' ||
+    count_of_ingredients === '' ||
+    has_cocoa_butter === '' ||
+    has_vanilla === '' ||
+    has_lecithin === '' ||
+    has_salt === '' ||
+    has_sugar === '' ||
+    has_other_sweetener === '' ||
+    first_taste === '' ||
+    second_taste === '' ||
+    third_taste === '' ||
+    fourth_taste === '' ||
+    page === '') {
+    res.status(400).json({
+      success: false,
+      status_code: 400,
+      message: 'At least one of the query parameters in the path has no value, please make sure that you use property=value.'
+    })
+  }
 
   let allChocolatesData = chocolatesData
 
@@ -101,82 +164,117 @@ app.get("/chocolates", (req, res) => {
       chocolate => chocolate.count_of_ingredients === +count_of_ingredients
     )
   }
-  // Still an issue for all boolean properties, give all false results 
-  // with every query that is something else than TRUE
+
   if (has_cocoa_butter) {
-    const booleanCocoaButter = req.query.has_cocoa_butter === "true"
-    if (booleanCocoaButter) {
+    const trueCocoaButter = req.query.has_cocoa_butter === "true"
+    const falseCocoaButter = req.query.has_cocoa_butter === "false"
+
+    if (trueCocoaButter) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_cocoa_butter
       )
-    } else if (!booleanCocoaButter) {
+    } else if (falseCocoaButter) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_cocoa_butter
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_cocoa_butter === has_cocoa_butter
       )
     }
   }
 
   if (has_vanilla) {
-    const booleanVanilla = req.query.has_vanilla === "true"
-    if (booleanVanilla) {
+    const trueVanilla = req.query.has_vanilla === "true"
+    const falseVanilla = req.query.has_vanilla === "false"
+
+    if (trueVanilla) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_vanilla
       )
-    } else if (!booleanVanilla) {
+    } else if (falseVanilla) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_vanilla
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_vanilla === has_vanilla
       )
     }
   }
 
   if (has_lecithin) {
-    const booleanLecithin = req.query.has_lecithin === "true"
-    if (booleanLecithin) {
+    const trueLecithin = req.query.has_lecithin === "true"
+    const falseLecithin = req.query.has_vanilla === "false"
+
+    if (trueLecithin) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_lecithin
       )
-    } else if (!booleanLecithin) {
+    } else if (falseLecithin) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_lecithin
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_lecithin === has_lecithin
       )
     }
   }
 
   if (has_salt) {
-    const booleanSalt = req.query.has_salt === "true"
-    if (booleanSalt) {
+    const trueSalt = req.query.has_salt === "true"
+    const falseSalt = req.query.has_salt === "false"
+
+    if (trueSalt) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_salt
       )
-    } else if (!booleanSalt) {
+    } else if (falseSalt) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_salt
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_salt === has_salt
       )
     }
   }
 
   if (has_sugar) {
-    const booleanSugar = req.query.has_sugar === "true"
-    if (booleanSugar) {
+    const trueSugar = req.query.has_sugar === "true"
+    const falseSugar = req.query.has_sugar === "false"
+
+    if (trueSugar) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_sugar
       )
-    } else if (!booleanSugar) {
+    } else if (falseSugar) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_sugar
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_sugar === has_sugar
       )
     }
   }
 
   if (has_other_sweetener) {
-    const booleanOtherSweetener = req.query.has_other_sweetener === "true"
-    if (booleanOtherSweetener) {
+    const trueOtherSweetener = req.query.has_other_sweetener === "true"
+    const falseOtherSweetener = req.query.has_other_sweetener === "false"
+
+    if (trueOtherSweetener) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => chocolate.has_other_sweetener
       )
-    } else if (!booleanOtherSweetener) {
+    } else if (falseOtherSweetener) {
       allChocolatesData = allChocolatesData.filter(
         chocolate => !chocolate.has_other_sweetener
+      )
+    } else {
+      allChocolatesData = allChocolatesData.filter(
+        chocolate => chocolate.has_other_sweetener === has_other_sweetener
       )
     }
   }
@@ -216,7 +314,7 @@ app.get("/chocolates/id", (req, res) => {
   res.status(400).json({
     success: false,
     status_code: 404,
-    message: `Type an ID at the end of the path if you want to find a specific chocolate.`
+    message: 'Type an ID at the end of the path if you want to find a specific chocolate.'
   })
 })
 
@@ -242,7 +340,7 @@ app.get("/chocolates/name", (req, res) => {
   res.status(400).json({
     success: false,
     status_code: 404,
-    message: `Type a name at the end of the path if you want to find a specific chocolate.`
+    message: 'Type a name at the end of the path if you want to find a specific chocolate.'
   })
 })
 
@@ -331,7 +429,7 @@ app.get("/chocolates/most_ingredients", (req, res) => {
   const { page } = req.query
 
   const mostIngredientsChocolates = chocolatesData.filter(
-    chocolate => chocolate.count_of_ingredients > 5
+    chocolate => chocolate.count_of_ingredients >= 6
   )
 
   res.status(200).json(pagination(mostIngredientsChocolates, page, res))
@@ -356,9 +454,6 @@ app.get("/chocolates/without_sweetener", (req, res) => {
 
   res.status(200).json(pagination(withoutSweetenerChocolates, page, res))
 })
-
-// documentation
-// readme to write
 
 app.get('/endpoints', (req, res) => {
   res.send(allEndpoints(app))
