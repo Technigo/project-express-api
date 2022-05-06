@@ -23,7 +23,7 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!")
+  res.send("Hello, here is an api of random famous books")
 })
 
 //query example in browser http://localhost:8080/books?title=galaxy&author=douglas adams&id=377
