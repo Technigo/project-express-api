@@ -39,11 +39,6 @@ const pagination = (data, pageNumber = 1, res) => {
   }
 }
 
-// Start defining your routes here
-// app.get("/", (req, res) => {
-//   res.send("Hello Technigo!")
-// })
-
 app.get("/", (req, res) => {
   res.send(
     {
