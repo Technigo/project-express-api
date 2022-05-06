@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import members from "./data/technigo-members.json"
+// import members from "./data/technigo-members.json"
 
 import netflixData from "./data/netflix-titles.json";
 
@@ -17,7 +17,7 @@ app.use(express.json());
 // Start defining your routes here
 // first endpoint use send the others .json
 app.get("/", (req, res) => {
-  res.send("Hello Reality shows!");
+  res.send("Hello Frontend developer, please fix!");
 });
 
 //frist argument is end url and second is express callback
@@ -28,14 +28,34 @@ app.get("/", (req, res) => {
 //json always send json data but we will mostly use
 //express use 200 as default
 
-//this returns chaos since to big!
-
+//this returns chaos since to big! All objects in the array
 app.get("/netflixData", (req, res) => {
 res.status(200).json({
 data: netflixData,
 success: true,
 });
 });
+
+//this returns the one object you type in, title
+//http://localhost:8080/netflixData/title/Stranger%20Things
+app.get("/netflixData/title/:title", (req, res) => {
+const { title } = req.params
+
+const showByTitle = netflixData.filter(
+  (show) => show.title.toLowerCase() === title.toLowerCase())
+
+  if (!showByTitle) {
+    res.status(404).json({
+      data:"Not Found",
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      data:showByTitle,
+      success:true,
+    })
+  }
+})
 
 //netflixData/listed_in/Reality TV works! But not for multiple categories!
 //but works with all different listed_in categorys like Horror TV etc
@@ -63,26 +83,27 @@ app.get("/netflixData/listed_in/:listed_in", (req, res) => {
   }
 })
 
-//get listed in and title? other combos xD? it is only supposed to get ONE here so only choice ...
+//both get listed in and title
 //?role=Codecoach&name=Poya
+//?title=Jeopardy!&listed_in=Reality TV
 
-app.get("/members", (req, res) => {
-  const { name, role } = req.query
+app.get("/netflixData", (req, res) => {
+  const { title, listed_in } = req.query
 
-  let allMembers = members
+  let allNetflixData = netflixData
 
-  if (role) {
-    allMembers = allMembers.filter(
-      (member) => member.role.toLowerCase() === role.toLowerCase())
+  if (listed_in) {
+    allNetflixData = allNetflixData.filter(
+      (show) => show.listed_in.toLowerCase() === listed_in.toLowerCase())
   }
 
   // when we type only matilda this gives us only mathilda
-  if (name) {
-    allMembers = allMembers.filter(
-      (member) => member.name === name)
+  if (title) {
+    allNetflixData = allNetflixData.filter(
+      (show) => show.title === title)
   }
   res.status(200).json({
-    data: allMembers,
+    data: allNetflixData,
     success: true,
     });
 })
