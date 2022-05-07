@@ -6,7 +6,7 @@ import cors from "cors";
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -21,7 +21,23 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Netflix data!");
+});
+
+app.get('/movies', (req, res) => {
+  res.status(200).json(netflixData);
+});
+
+app.get("/movies/id/:id", (req,res) => {
+  const { id } = req.params
+  const showId = netflixData.find(show => show.show_id === +id)
+
+  if (!showId) {
+    res.status(404).send("No movie found")
+  } else {
+    res.json(showId)
+  }
+  
 });
 
 // Start the server
