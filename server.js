@@ -29,6 +29,7 @@ const infoGreeting = {
 
   Endpoints: [
     {
+      "/prints": "lists all of the prints",
    "prints/year/{year}": "find prints per year created",
    "prints/title/{title}": "find prints per title",
    "prints/price/{price}": "see price",
