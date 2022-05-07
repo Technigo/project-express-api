@@ -8,9 +8,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//first page
 app.get("/", (req, res) => {
-  res.send("Hello frontend developer!");
-});
+ 
+const landingPage = {
+  Hello: 
+  "here is an api with data on some Netflix movies and TV shows",
+  Routes: [{
+    "/netflixShows": "Get whole array of the Netflix movies and TV shows",
+    "/netflixShows/director/'director name'": "Get array of shows from specific director",
+    "/netflixShows/cast/'name of cast member'": "Get array of shows from specific cast member",
+    "/netflixShows/country/'country name'": "Get array of shows from specific country",
+    "/netflixShows/release_year/'year of release'": "Get array of shows from specific release year",
+    "/netflixShows/title/'title of show": "Get one specific show by it's title, or array of shows by word in title",
+    "/netflixShows/listed_in/'category show is listed in'": "Get array of shows from specific category such as reality TV, horror etc",
+
+  }]
+}
+res.send(landingPage)
+})
 
 //all the movies and TV shows
 app.get("/netflixShows", (req, res) => {
