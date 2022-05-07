@@ -35,6 +35,7 @@ app.get("/members", (req, res) => {
 // find = finds the first element that meets the req (this is used with id which is UNIQ compared to a name like below example)
 // filter = finds all elements that meet the req
 
+// line 39 - 55 is called endpoint , the "url/uri" on line 39 is route
 app.get("/members/name/:name", (req, res) => {
   const { name } = req.params
 
@@ -43,21 +44,27 @@ app.get("/members/name/:name", (req, res) => {
   if (!memberByName) {
     res.status(404).json({
       data: "Not Found",
-      success: false
+      success: false,
     })
   } else {
     res.status(200).json({
       data: memberByName,
-      success: true
+      success: true,
     })
   }
 })
 
-app.get("/members/role/:role", (req, res)=> {
+app.get("/members/role/:role", (req, res) => {
   const { role } = req.params
 
-  const membersByRole = members.filter(member => member.role === role)
-  console.log('members by role:', membersByRole)
+  const membersByRole = members.filter(
+    (member) => member.role.toLowerCase() === role.toLowerCase()
+  )
+
+  res.status(200).json({
+    data: membersByRole,
+    success: true,
+  })
 })
 
 // Start the server
