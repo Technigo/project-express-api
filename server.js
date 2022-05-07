@@ -25,13 +25,16 @@ app.get('/', (req, res) => {
 })
 // Geting my first request
 app.get('/myNetflix', (req, res) => {
-  res.json(netflixDatas)
+  res.status(200).json({
+    data: netflixDatas,
+    success: true,
+  })
 })
 // Filter on movies or tv shows
 app.get('/myNetflix/type/:type', (req, res) => {
-  const { type } = req.params
   const showTypes = netflixDatas.filter(
-    (data) => data.type.toLowerCase() === type.toLowerCase(),
+    (data) =>
+      data.type.toLocaleLowerCase() === req.params.type.toLocaleLowerCase(),
   )
   if (!showTypes) {
     res.status(404).json({
@@ -45,7 +48,7 @@ app.get('/myNetflix/type/:type', (req, res) => {
     })
   }
 })
-// when u search for a
+// when u search for a title
 app.get('/myNetflix/title/:title', (req, res) => {
   const netflixTitle = netflixDatas.find(
     (data) =>
