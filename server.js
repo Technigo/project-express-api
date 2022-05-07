@@ -1,46 +1,74 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
-import data from './data.json'
+import express from 'express';
+import cors from 'cors';
+import nominations from './data/golden-globes.json';
 
+const port = process.env.PORT || 8080
+const app = express();
 
-
-import goldenGlobesData from "./data/golden-globes.json";
-import res from 'express/lib/response';
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
-const app = express()
-
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+  res.send('Golden globe');
+});
 
 app.get('/nominations', (req, res) => {
-  res.json(data)
-})
 
-app.get('/year/:year', (req, res) => {
-  const year = req.params.year
-  const showWon = req.query.won
-  let nominationsFromYear = data.filter((item) => item.year_award === +year)
+  const { category } = req.params;
+  const allNominations = nominations;
+
+  if (category) {
+    allNominations = allNominations.filter(
+      (category) => nominations.category.toLowerCase() === category.toLowerCase()
+    );
+  };
+
+  res.status(200).json({
+    data: allNominations,
+    success: true,
+
+  });
+});
+
+app.get('/years/film/:film', (req, res) => {
+
+  const { film } = req.params;
+
+  const filmYear = years.find((year) => year.film.toLowerCase() === film).toLowerCase();
+
+  if (!filmYear) {
+    res.status(404).json({
+      data: 'Not found',
+      success: false,
+
+    });
+  } else {
+    res.status(200).json({
+      data: filmYear,
+      success: true,
+    });
+  }
+});
+
+app.get('/nominations/categoy/:category', (req, res) => {
+  const { category } = req.params;
+
+  const filmCategory = nominations.filter((nomination) => nomination.category.toLowerCase() === category.toLowerCase());
+  if (!filmCategory) {
+      res.status(404).json({
+        data: 'Not found',
+        success: false,
   
+      });
 
-if (showWon) {
-  nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-}
+    } else {
+      res.status(200).json({
+        data: filmCategory,
+        success: true,
+      });
+    }
+  });
 
-res.json(nominationsFromYear)
-})
-
-
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
-})
+});
