@@ -36,11 +36,13 @@ app.get('/myNetflix/type/:type', (req, res) => {
     (data) =>
       data.type.toLocaleLowerCase() === req.params.type.toLocaleLowerCase(),
   )
+  // If not found
   if (!showTypes) {
     res.status(404).json({
       data: 'Not found',
       success: false,
     })
+    I // If its found
   } else {
     res.status(200).json({
       data: showTypes,
