@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the magical world of the written word: hopefully you will find the book you are looking for");
 });
 
+
 app.get("/booksData", (req, res) => {
   const { title, authors } = req.query;
 
@@ -52,10 +53,9 @@ app.get("/booksData", (req, res) => {
   }
 });
 
-
+//Titles
 app.get("/booksData/title/:title", (req, res) => {
   const { title } = req.params;
-
 
   const bookByTitle = booksData.filter(
     (book) => book.title.toLowerCase().includes(title.toLowerCase())
@@ -67,6 +67,7 @@ app.get("/booksData/title/:title", (req, res) => {
    
 });
 
+//Authors
 app.get("/booksData/authors/:authors", (req, res) => {
   const { authors } = req.params;
 
@@ -81,6 +82,7 @@ app.get("/booksData/authors/:authors", (req, res) => {
   
 });
 
+//ID:s
 app.get("/booksData/:bookID", (req, res) => {
   const { bookID } = req.params;
 
