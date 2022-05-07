@@ -32,7 +32,7 @@ const pagination = (data, pageNumber=1, response) => {
 }
 
 const listEndPoints = (req, res) => {
-  res.send(listEndpoints(app))
+  res.json(listEndpoints(app))
 };
 
 const getAllAstronauts = (req, res) => {

@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.set('json spaces', 2);
+
 app.get("/", astronautsApi.listEndPoints);
 
 app.get("/api/astronauts", astronautsApi.getAllAstronauts);
