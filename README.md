@@ -1,13 +1,9 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we built an API in Node using Express. We used a hard-coded JSON dataset and created routes with app.get() with status codes, and used .filter() method to select the data returned in our responses. 
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had an issue with .filter() method returning items with multiple keywords, like if I filtered category of movie/TV show on Reality TV it would only return the items that were only Reality TV and not Reality TV and Horror, or if I filtered on actor name it would not be displayed since multiple actors. This I solved fast with .includes() method with help from team and StackOverflow.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-api-w17.herokuapp.com/
