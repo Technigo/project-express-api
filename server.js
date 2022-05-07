@@ -23,7 +23,25 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Find a print");
+const infoGreeting = {
+  Info: 
+  "A print API",
+
+  Endpoints: [
+    {
+   "prints/year/{year}": "find prints per year created",
+   "prints/title/{title}": "find prints per title",
+   "prints/price/{price}": "see price",
+   "prints/media/{media}": "see what type of media was used"
+    }
+  ],
+
+  More:
+  "See more at https://emmasprings.com"
+
+
+}
+  res.send(infoGreeting);
 });
 
 app.get("/prints", (req, res) => {
