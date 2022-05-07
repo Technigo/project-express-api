@@ -43,13 +43,8 @@ const listEndPoints = (req, res) => {
 };
 
 const getAllAstronauts = (req, res) => {
-  const { name, status, mission, gender, major, graduateMajor, page } = req.query;
+  const { status, mission, gender, major, graduateMajor, page } = req.query;
   let filteredAstronauts = nasaAstronauts;
-
-  if (name) {
-    filteredAstronauts = filteredAstronauts
-      .filter((astronaut) => formatString(astronaut.name).includes(formatString(name)));
-  };
 
   if (status) {
     filteredAstronauts = filteredAstronauts
@@ -58,7 +53,7 @@ const getAllAstronauts = (req, res) => {
 
   if (mission) {
     filteredAstronauts = filteredAstronauts
-      .filter((astronaut) => formatString(astronaut.missions).includes(formatString(mission)));
+      .filter((astronaut) => astronaut.missions.toLowerCase().includes(mission.toLowerCase()));
   };
 
   if (gender) {
