@@ -25,7 +25,7 @@ app.get("/netflixShows/director/:director", (req, res) => {
   const { director } = req.params
 
   const showByDirector = netflixShows.filter(
-    (show) => show.director.toLowerCase() === director.toLowerCase()
+    (show) => show.director.toLowerCase().includes(director.toLowerCase())
     )
   
   res.status(200).json({
@@ -35,23 +35,25 @@ app.get("/netflixShows/director/:director", (req, res) => {
 })
 
 //cast
-app.get("/netflixShows/cast/:cast", (req, res) => {
-  const { cast } = req.params
-
-  const showByCast = netflixShows.find((show) => show.cast === cast)
-
-    res.status(200).json({
-      data: showByCast,
-      success: true,
+  app.get("/netflixShows/cast/:cast", (req, res) => {
+    const { cast } = req.params
+  
+     const showByCast = netflixShows.filter(
+        (show) => show.cast.toLowerCase().includes(cast.toLowerCase())
+     )
+  
+      res.status(200).json({
+        data: showByCast,
+        success: true,
       })
-  });
+  })
 
 //country 
 app.get("/netflixShows/country/:country", (req, res) => {
   const { country } = req.params
 
   const showByCountry = netflixShows.filter(
-    (show) => show.country.toLowerCase() === country.toLowerCase()
+    (show) => show.country.toLowerCase().includes(country.toLowerCase())
     )
   
   res.status(200).json({
@@ -59,12 +61,13 @@ app.get("/netflixShows/country/:country", (req, res) => {
     success: true,
   })
 })
+
 //release year
 app.get("/netflixShows/release_year/:release_year", (req, res) => {
   const { release_year } = req.params
 
   const showByReleaseYear = netflixShows.filter(
-    (show) => show.release_year === release_year
+    (show) => show.release_year.toString() === release_year.toString()
     )
   
   res.status(200).json({
@@ -74,13 +77,12 @@ app.get("/netflixShows/release_year/:release_year", (req, res) => {
 })
 
 //title
-//this returns the one object of the title you type in
-//http://localhost:8080/netflixShows/title/Stranger%20Things
 app.get("/netflixShows/title/:title", (req, res) => {
 const { title } = req.params
 
 const showByTitle = netflixShows.filter(
-  (show) => show.title.toLowerCase() === title.toLowerCase())
+  (show) => show.title.toLowerCase().includes(title.toLowerCase())
+  )
 
   // since title is unique 404 is used
   if (!showByTitle) {
@@ -97,14 +99,12 @@ const showByTitle = netflixShows.filter(
 })
 
 //listed in, category
-//netflixShows/listed_in/Reality TV works! But not for multiple categories!
-//but works with all different listed_in categorys like Horror TV etc
-
 app.get("/netflixShows/listed_in/:listed_in", (req, res) => {
   const { listed_in } = req.params
 
   const showByListedIn = netflixShows.filter(
-    (show) => show.listed_in.toLowerCase() === listed_in.toLowerCase())
+    (show) => show.listed_in.toLowerCase().includes(listed_in.toLowerCase())
+    )
 
     res.status(200).json({
       data: showByListedIn,
