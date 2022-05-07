@@ -28,7 +28,7 @@ app.use(express.json());
 
 // Start defining your routes here (first example of the endpoint)
 app.get("/", (req, res) => {
-  res.send(listEndpoints(app));
+  res.send("What to watch next? Search for netflix titles here");
 });
 
  //Gives the whole array of objects 
