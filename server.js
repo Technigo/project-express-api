@@ -1,13 +1,13 @@
-import express from "express";
-import cors from "cors";
+import express from 'express';
+import cors from 'cors';
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
+// import avocadoSalesData from './data/avocado-sales.json';
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import songs from './data/top-music.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -20,11 +20,47 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get('/', (req, res) => {
+	res.send('Hello!');
+});
+
+app.get('/songs', (req, res) => {
+	res.status(200).json(songs);
+});
+
+app.get('/title/:title', (req, res) => {
+	const { title } = req.params;
+	const songByTitle = songs.filter(
+		(song) => song.trackName.toLowerCase() == title.toLowerCase()
+	);
+
+	if (!songByTitle) {
+		res.status(400).json({
+			data: 'Not found',
+			success: false,
+		});
+	} else {
+		res.status(200).json({
+			data: songByTitle,
+			sucess: true,
+		});
+	}
+});
+
+app.get('/artist/:artist', (req, res) => {
+	const { artist } = req.params;
+
+	const songsByArtist = songs.filter(
+		(songs) => songs.artistName.toLowerCase() === artist.toLowerCase()
+	);
+
+	res.status(200).json({
+		data: songsByArtist,
+		success: true,
+	});
 });
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+	console.log(`Server running on http://localhost:${port}`);
 });
