@@ -25,21 +25,17 @@ app.use(express.json());
 app.get("/", (req, res) => {
 const infoGreeting = {
   Info: 
-  "A print API",
+  "Gallery on the Go API",
 
   Endpoints: [
     {
-      "/prints": "lists all of the prints",
-   "prints/year/{year}": "find prints per year created",
-   "prints/title/{title}": "find prints per title",
-   "prints/price/{price}": "see price",
-   "prints/media/{media}": "see what type of media was used"
+   "/prints": "lists all of the prints",
+   "/prints/year/{year}": "find prints per year created",
+   "/prints/title/{title}": "find prints per title",
+   "/prints/price/{price}": "see price",
+   "/prints/media/{media}": "see what type of media was used"
     }
-  ],
-
-  More:
-  "See more at https://emmasprings.com"
-
+  ]
 
 }
   res.send(infoGreeting);
