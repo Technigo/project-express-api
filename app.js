@@ -13,7 +13,7 @@ app.set('json spaces', 2);
 app.get("/", astronautsApi.listEndPoints);
 
 app.get("/api/astronauts", astronautsApi.getAllAstronauts);
-app.get("/api/astronauts/:id", astronautsApi.getAstronautById);
+app.get("/api/astronauts/:name", astronautsApi.getAstronautByName);
 
 app.get("/api/year/:year", astronautsApi.getAstronautByYear);
 
