@@ -8,4 +8,4 @@ The project was to create endpoints that either could return an array of data or
 
 ## View it live
 
-
+https://expo.dev/@emmabe/project-react-native-app
