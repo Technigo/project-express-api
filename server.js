@@ -17,15 +17,15 @@ app.use(express.json());
 app.get("/", (req, res) => {
 
   const documentation = {
-    "Welcome": "An API about Sweden's football team",
+    "About": "This is an open API about the Sweden women's national football team",
     "Routes": [
       {
-        "/players": "List all players",
-        "/players/goals/descending": "List players sorted by number of goals in descending order",
-        "/players/games/descending": "List players sorted by number of games in descending order",
-        "/players/position/:position": "List all players in the specified position",
-        "/players/random-player": "Show info about a random player",
-        "/players/name/:name": "Show info about a specific player",
+        "/players": "Get all players",
+        "/players/goals/descending": "Get all players sorted by number of goals in descending order",
+        "/players/games/descending": "Get all players sorted by number of games in descending order",
+        "/players/position/${position}": "Get all players in a specific position (goalkeeper, defender, midfielder or forward)",
+        "/players/random": "Get random player",
+        "/players/name/${name}": "Get a specific player by name",
       }
     ]
   }
@@ -33,7 +33,6 @@ app.get("/", (req, res) => {
   res.send(documentation);
 });
 
-// List all players
 app.get('/players', (req, res) => {
   res.status(200).json({
     numberOfPlayers: players.length,
@@ -80,16 +79,13 @@ app.get('/players/position/:position', (req, res) => {
   
 })
 
-
-// Kanske göra om detta till en query i stället?
-app.get('/players/random-player', (req, res) => {
+app.get('/players/random', (req, res) => {
 
   const randomPlayer = players[Math.floor(Math.random()*players.length)]
 
   res.status(200).json(randomPlayer)
 })
 
-// Get data about a specific player
 app.get('/players/name/:name', ( req, res ) => {
   const { name } = req.params;
 
