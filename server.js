@@ -33,8 +33,7 @@ app.get('/myNetflix', (req, res) => {
 // Filter on movies or tv shows
 app.get('/myNetflix/type/:type', (req, res) => {
   const showTypes = netflixDatas.filter(
-    (data) =>
-      data.type.toLocaleLowerCase() === req.params.type.toLocaleLowerCase(),
+    (data) => data.type.toLowerCase() === req.params.type.toLowerCase(),
   )
   // If not found
   if (!showTypes) {
@@ -53,8 +52,7 @@ app.get('/myNetflix/type/:type', (req, res) => {
 // when u search for a title
 app.get('/myNetflix/title/:title', (req, res) => {
   const netflixTitle = netflixDatas.find(
-    (data) =>
-      data.title.toLocaleLowerCase() === req.params.title.toLocaleLowerCase(),
+    (data) => data.title.toLowerCase() === req.params.title.toLowerCase(),
   )
 
   if (!netflixTitle) {
