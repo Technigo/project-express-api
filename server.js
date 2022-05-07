@@ -32,7 +32,7 @@ app.get('/myNetflix', (req, res) => {
 })
 // Filter on movies or tv shows
 app.get('/myNetflix/type/:type', (req, res) => {
-  const showTypes = netflixDatas.filter(
+  const showTypes = netflixDatas.find(
     (data) => data.type.toLowerCase() === req.params.type.toLowerCase(),
   )
   // If not found
@@ -41,7 +41,7 @@ app.get('/myNetflix/type/:type', (req, res) => {
       data: 'Not found',
       success: false,
     })
-    I // If its found
+    // If its found
   } else {
     res.status(200).json({
       data: showTypes,
