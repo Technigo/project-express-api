@@ -72,7 +72,7 @@ app.get('/streams/type/:type', (req, res) => {
       success: true }) 
   })
 
-
+// Filter by actors in movies and TV shows
   app.get('/streams/actor/:cast', (req, res) => {
     const { cast } = req.params
 
