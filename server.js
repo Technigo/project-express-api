@@ -39,9 +39,7 @@ app.use(cors()); //middlewares to enable cors and json body parsing
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res
-    .status(200)
-    .json(["Welcome to Seattle Restaurants API using data from Yelp.", listEndpoints(app)]);
+  res.redirect("/api-docs/");
 });
 
 app.get("/restaurants", (req, res) => {
