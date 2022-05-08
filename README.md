@@ -1,13 +1,23 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This week's project was to start our backend journey by creating an API using Express.
+The API should have at least a couple of RESTful endpoints which return either an array
+of data or a single item. We have also talked a little about the usage of path parma which
+is often more used for something specific and query which is used more for a collection of things.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The project
 
-## The problem
+I used a data set I found on kaggle that I converted from a CSV to a JSON about the top 44 healthy
+cities in the world 2021.
+The dataset shows the city and its rank,
+City info: sunshine hours, cost of a water bottle, pollution index, annual hours work, outdoor activity, number of takeout places, cost of a monthly gym membership.
+Country info: obesity level, life expectancy years,happiness level.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The routs I've done are for all the data /healthyLifestyles
+a route for only on city /healthyLifestyles/:city
+a route for the rank a city is in /healthyLifestyles/rank/:rank
+a route showing the cities with sunshine hours are over 2500 /healthyLifestyles/top/sunshineHours
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://healthy-lifestyle-cities-2021.herokuapp.com/
