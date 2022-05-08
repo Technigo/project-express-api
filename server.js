@@ -23,7 +23,17 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the magical world of the written word: hopefully you will find the book you are looking for");
+  const HomePage = {
+    Welcome: "Welcome to the magical world of the written word: hopefully you will find the book you are looking for!",
+    Routes: [
+      {
+        "/bookData": "Time to exercise your brain with a good book.",
+        "/bookData/date/:title": "Choose your next book title.",
+        "/bookData/region/:autors": "Find your next book trough your favourite author.",
+      },
+    ],
+  };
+  res.send(HomePage);
 });
 
 
