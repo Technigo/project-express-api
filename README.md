@@ -1,13 +1,13 @@
 # Project Express API
+The purpose of this project was to build a RESTful API in Node using Express, including:
+- A minimum of one endpoint to return an array of elements
+- A minimum of one endpoint to return a single element
+- Filtering using query parameters
+- On routes which return a single item, handle when the item doesn't exist
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Personal stretch goals that were achieved:
+- Paginated results with queries for page number and results per page
+- Documentation with OpenAPI and Swagger tooling
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+http://seattlerestaurants.herokuapp.com/
