@@ -3,6 +3,9 @@ import listEndpoints from "express-list-endpoints";
 import cors from "cors";
 import data from "./data/seattle-restaurants.json";
 
+const swaggerUi = require("swagger-ui-express"),
+  swaggerDocument = require("./openapi.json");
+
 const formatText = (result) => {
   return result
     .toString()
@@ -29,22 +32,6 @@ const paginateResults = (data, req) => {
   };
 };
 
-const orderData = (data, sorting) => {
-  switch (sorting) {
-    case "cheapest":
-      data = data.sort((a, b) => formatText(a.Price.length) - formatText(b.Price.length));
-    case "priciest":
-      data = data.sort((a, b) => formatText(b.Price.length) - formatText(a.Price.length));
-    case "popular":
-      data = data.sort((a, b) => Number(b.Stars_count) - Number(a.Stars_count));
-    case "unpopular":
-      data = data.sort((a, b) => Number(a.Stars_count) - Number(b.Stars_count));
-    default:
-      data = data;
-  }
-  return data;
-};
-
 const port = process.env.PORT || 8080; //defines the port the app will run on
 const app = express();
 
@@ -52,7 +39,9 @@ app.use(cors()); //middlewares to enable cors and json body parsing
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).json(["Welcome to Seattle Restaurants API using data from Yelp.", listEndpoints(app)]);
+  res
+    .status(200)
+    .json(["Welcome to Seattle Restaurants API using data from Yelp.", listEndpoints(app)]);
 });
 
 app.get("/restaurants", (req, res) => {
@@ -90,6 +79,8 @@ app.get("/neighborhoods/:neighborhood", (req, res) => {
   );
   res.status(200).json(paginateResults(neighborhoodResults, req, res));
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument)); //openapi documentation with swagger
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

@@ -1,0 +1,194 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Seattle Restaurants API",
+    "version": "1.0.0",
+    "description": "A basic API for Seattle restaurant data provided by Yelp"
+  },
+  "paths": {
+    "/restaurants": {
+      "summary": "Get all restaurants",
+      "description": "This path is used to retrieve all of the restaurants ",
+      "get": {
+        "summary": "All restaurants",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The page number to return"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The numbers of items per page to return"
+          }
+        ],
+        "description": "Retrieves all restaurant data and displays results paginated",
+        "operationId": "get_restaurants",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "restaurants": {
+                    "value": "{\n    \"success\": true,\n    \"total\": 1919,\n    \"pages\": 192,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"pageSize\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Pike Place Chowder\",\n            \"Star\": 4.5,\n            \"Stars_count\": 7695,\n            \"Price\": \"$$\",\n            \"Area\": \"Downtown\",\n            \"Category\": \"['Seafood', 'Soup']\",\n            \"Services\": \"['Outdoor dining', 'Delivery', 'Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n    ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Restaurants"
+        ]
+      }
+    },
+    "/restaurants/{name}": {
+      "summary": "Get data for a single restaurant",
+      "description": "This path provides data for a single restaurant",
+      "get": {
+        "summary": "Data for a single restaurant",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Full name of the restaurant"
+          }
+        ],
+        "description": "Get data for a single restaurant using the full name of the restaurant",
+        "operationId": "get_restaurant",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "restaurants/thewalrusandthecarpenter": {
+                    "value": "{\n    \"success\": true,\n    \"results\": {\n        \"Name\": \"The Walrus and the Carpenter\",\n        \"Star\": 4,\n        \"Stars_count\": 1680,\n        \"Price\": \"$$$\",\n        \"Area\": \"Ballard\",\n        \"Category\": \"['Seafood', 'Tapas/Small Plates']\",\n        \"Services\": \"['Outdoor dining', 'Takeout']\",\n        \"Searched City\": \"Seattle\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "restaurants/asdfghjk": {
+                    "value": "{\n    \"success\": false,\n    \"results\": \"Not found\"\n}"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Restaurants"
+        ]
+      }
+    },
+    "/neighborhoods": {
+      "summary": "Get list of neighborhoods",
+      "description": "This path retrieves a list of neighborhood areas to use",
+      "get": {
+        "summary": "List of all neighborhoods",
+        "description": "Get a list of all neighborhoods in the dataset",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "neighborhoods": {
+                    "value": "{\n    \"success\": true,\n    \"total\": 65,\n    \"results\": [\n        \"\",\n        \"Alki\",\n        \"Atlantic\",\n        \"Ballard\",\n        \"Beacon Hill\",\n        \"Bellevue\",\n        \"Belltown\",\n        \"Bitter Lake\",\n        \"Broadview\",\n        \"Capitol Hill\",\n        \"...\"\n    ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Neighborhoods"
+        ]
+      }
+    },
+    "/neighborhoods/{neighborhood}": {
+      "summary": "Get all restaurants for a specific neighborhood",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "neighborhood",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "Full name of a single neighborhood"
+        },
+        {
+          "in": "query",
+          "name": "page",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The page number to return"
+        },
+        {
+          "in": "query",
+          "name": "pageSize",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The numbers of items per page to return"
+        }
+      ],
+      "description": "This path provides all restaurants for a given neighborhood",
+      "get": {
+        "summary": "List of restaurants in a specific neighborhood",
+        "description": "Get list of restaurants for a specific neighborhood",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "neighborhoods/capitolhill": {
+                    "value": "{\n    \"success\": true,\n    \"total\": 63,\n    \"pages\": 7,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"pageSize\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Tacos Chukis\",\n            \"Star\": 4.5,\n            \"Stars_count\": 1772,\n            \"Price\": \"$\",\n            \"Area\": \"Capitol Hill\",\n            \"Category\": \"['Mexican']\",\n            \"Services\": \"['Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Neighborhoods"
+        ]
+      }
+    }
+  }
+}
