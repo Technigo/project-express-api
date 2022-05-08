@@ -48,16 +48,11 @@ app.get('/drivers', (req, res) => {
 
 // specific driver
 // ex: http://localhost:8080/drivers/1
+// https://vanhaj-express-api.herokuapp.com/drivers?driver=1
 app.get('/drivers/driver/:driverId', (req, res) => {
-  // console.log(req.params);
-
   const { driverId } = req.params;
 
   const driverById = drivers.find((driver) => driver.driverId === +driverId);
-
-  // const driverById = drivers.find(
-  //   (driver) => driver.driverId === +req.params.driverId
-  // );
 
   if (!driverById) {
     res.status(404).json({
