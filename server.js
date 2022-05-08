@@ -27,9 +27,9 @@ app.get("/", (req, res) => {
     Welcome: "Welcome to the magical world of the written word: hopefully you will find the book you are looking for!",
     Routes: [
       {
-        "/bookData": "Time to exercise your brain with a good book.",
-        "/bookData/title/:title": "Choose your next book title.",
-        "/bookData/authors/:authors": "Find your next book trough your favourite author.",
+        "/booksData": "Time to exercise your brain with a good book.",
+        "/booksData/title/:title": "Choose your next book title.",
+        "/booksData/authors/:authors": "Find your next book trough your favourite author.",
       },
     ],
   };
