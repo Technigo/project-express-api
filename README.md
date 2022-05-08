@@ -1,13 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This weeks projects was about backend and get an understanding by adding endpoints and and routes. I also chose to build my own API file - print-collection.json to better understand what is added and how. It is not big but I also chose to create a very simple single page front end application to see that it worked. This can be seen here https://ephemeral-sherbet-9ff17e.netlify.app/
+
+I still need to read up more on this with backend, express and API, but am happy that I got things to work and will take it from there, as backend is not my favourite. I like the visual part that comes with front end. However I like to understand and be able to build a simple foundation that this API is. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://free-gallery.herokuapp.com/
