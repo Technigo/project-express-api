@@ -1,0 +1,962 @@
+[
+  { 
+    "mission": "STS-1", 
+    "shuttle": "Columbia", 
+    "crew": 2, 
+    "duration": "02d 06h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards"
+  },
+  { 
+    "mission": "STS-2", 
+    "shuttle": "Columbia", 
+    "crew": 2, 
+    "duration": "02d 06h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-3", 
+    "shuttle": "Columbia", 
+    "crew": 2, 
+    "duration": "08d 00h",
+    "launch_pad": "LC-39A",
+    "landing_site": "White Sands" 
+  },
+  { 
+    "mission": "STS-4", 
+    "shuttle": "Columbia", 
+    "crew": 2, 
+    "duration": "07d 01h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-5", 
+    "shuttle": "Columbia", 
+    "crew": 4, 
+    "duration": "05d 02h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-6", 
+    "shuttle": "Columbia", 
+    "crew": 4, 
+    "duration": "05d 00h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-7", 
+    "shuttle": "Challenger", 
+    "crew": 5, 
+    "duration": "06d 02h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-8", 
+    "shuttle": "Challenger", 
+    "crew": 5, 
+    "duration": "06d 01h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-9", 
+    "shuttle": "Columbia", 
+    "crew": 6, 
+    "duration": "10d 07h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-26", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "04d 01h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-27", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 09h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-28", 
+    "shuttle": "Columbia", 
+    "crew": 5, 
+    "duration": "05d 01h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-29", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "04d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-30", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 00h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-31", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "05d 01h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-32", 
+    "shuttle": "Columbia", 
+    "crew": 5, 
+    "duration": "10d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-33", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "05d 00h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-34", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-35", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "08d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-36", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 10h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-37", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "05d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-38", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-39", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "08d 07h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-40", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "09d 02h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-41", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "04d 02h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-42", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "08d 01h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-43", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "08d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-44", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "06d 22h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-45", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "08d 22h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-46", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "07d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-47", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "07d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-48", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "05d 08h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-49", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "08d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-50", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "13d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-51", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "09d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-51-J", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "04d 01h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-52", 
+    "shuttle": "Columbia", 
+    "crew": 6, 
+    "duration": "09d 20h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-53", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "07d 07h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-54", 
+    "shuttle": "Endeavour", 
+    "crew": 5, 
+    "duration": "05d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-55", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "09d 23h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-56", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "09d 06h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-57", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "09d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-58", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "14d 00h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-59", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "11d 05h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-60", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "07d 06h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-61", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-62", 
+    "shuttle": "Columbia", 
+    "crew": 5, 
+    "duration": "13d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-63", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "08d 06h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-64", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "10d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-65", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "14d 17h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-66", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "10d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-67", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "16d 15h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-68", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "11d 05h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-69", 
+    "shuttle": "Endeavour", 
+    "crew": 5, 
+    "duration": "10d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-70", 
+    "shuttle": "Discovery", 
+    "crew": 5, 
+    "duration": "08d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-71", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "09d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-72", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "08d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-73", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "15d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-74", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "08d 04h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-75", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "15d 17h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-76", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "09d 05h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-77", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "10d 00h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-78", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "16d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-79", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "10d 03h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-80", 
+    "shuttle": "Columbia", 
+    "crew": 5, 
+    "duration": "17d 15h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-81", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "10d 04h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-82", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "09d 23h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-83", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "03d 23h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-84", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "11d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-85", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "14d 17h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-86", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-87", 
+    "shuttle": "Columbia", 
+    "crew": 6, 
+    "duration": "15d 16h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-88", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "11d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-89", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "08d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-90", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "15d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-91", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "09d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-92", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "12d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-93", 
+    "shuttle": "Columbia", 
+    "crew": 5, 
+    "duration": "04d 22h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-94", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "15d 16h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-95", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "08d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-96", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "09d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-97", 
+    "shuttle": "Endeavour", 
+    "crew": 5, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-98", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "12d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-99", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "11d 05h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-100", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "11d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-101", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "09d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-102", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "12d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-103", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "07d 23h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-104", 
+    "shuttle": "Atlantis", 
+    "crew": 5, 
+    "duration": "12d 18h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-105", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "11d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-106", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "11d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-107", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "15d 22h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Did not land" 
+  },
+  { 
+    "mission": "STS-108", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "11d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-109", 
+    "shuttle": "Columbia", 
+    "crew": 7, 
+    "duration": "10d 22h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-110", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-111", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "13d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-112", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-113", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "13d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-114", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "13d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-115", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "11d 19h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-116", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "12d 21h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-117", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "13d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-118", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "12d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-119", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "12d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-120", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "15d 02h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-121", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "12d 18h",
+    "launch_pad": "LC-39B",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-122", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "12d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-123", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "15d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-124", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "13d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-125", 
+    "shuttle": "Atlantis", 
+    "crew": 7, 
+    "duration": "12d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-126", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "15d 20h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-127", 
+    "shuttle": "Endeavour", 
+    "crew": 7, 
+    "duration": "15d 16h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-128", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "13d 21h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Edwards" 
+  },
+  { 
+    "mission": "STS-129", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "10d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-130", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "13d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-131", 
+    "shuttle": "Discovery", 
+    "crew": 7, 
+    "duration": "15d 03h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-132", 
+    "shuttle": "Atlantis", 
+    "crew": 6, 
+    "duration": "11d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-133", 
+    "shuttle": "Discovery", 
+    "crew": 6, 
+    "duration": "12d 19h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-134", 
+    "shuttle": "Endeavour", 
+    "crew": 6, 
+    "duration": "15d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  },
+  { 
+    "mission": "STS-135", 
+    "shuttle": "Atlantis", 
+    "crew": 4, 
+    "duration": "12d 18h",
+    "launch_pad": "LC-39A",
+    "landing_site": "Kennedy" 
+  }
+]

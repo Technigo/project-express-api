@@ -2,6 +2,7 @@ import listEndpoints from "express-list-endpoints";
 
 import app from "../app";
 import nasaAstronauts from "../data/nasa-astronauts.json";
+import missions from "../data/missions.json";
 
 const pagination = (data, pageNumber=1, response) => {
   const pageSize = 52;
@@ -135,9 +136,60 @@ const getAstronautByYear = (req, res) => {
   res.status(200).json(pagination(astronautsFromYear, page, res))
 };
 
+const getAllMissions = (req, res) => {
+  const { shuttle, crew, launch_pad, landing_site, page } = req.query;
+  let filteredMissions = missions;
+
+  if (shuttle) {
+    filteredMissions = filteredMissions
+      .filter((mission) => formatString(mission.shuttle).includes(formatString(shuttle)));
+  };
+
+  if (crew) {
+    filteredMissions = filteredMissions
+      .filter((mission) => mission.crew === +crew);
+  };
+
+  if (launch_pad) {
+    filteredMissions = filteredMissions
+      .filter((mission) => mission.launch_pad.toUpperCase().includes(launch_pad.toUpperCase()));
+  };
+
+  if (landing_site) {
+    filteredMissions = filteredMissions
+      .filter((mission) => formatString(mission.landing_site).includes(formatString(landing_site)));
+  };
+
+  res.status(200).json(pagination(filteredMissions, page, res))
+};
+
+const getOneMission = (req, res) => {
+  const { name } = req.params;
+  const specificMission = missions.find((oneMission) => oneMission.mission.toUpperCase() === name.toUpperCase());
+
+  if (!specificMission) {
+    res.status(404).json({
+      success: false,
+      status_code: 404,
+      status_message: `Mission ${name} can't be found`
+    })
+  } else {
+    res.status(200).json({
+      page: 1,
+      page_size: 1,
+      success: true,
+      astronaut: specificMission,
+      total_pages: 1,
+      total_results: 1
+    })
+  }
+};
+
 module.exports = {
   listEndPoints,
   getAllAstronauts,
   getAstronautByName,
-  getAstronautByYear
+  getAstronautByYear,
+  getAllMissions,
+  getOneMission
 };
