@@ -28,14 +28,25 @@ app.use(express.json());
 
 // Start defining your routes here (first example of the endpoint)
 app.get("/", (req, res) => {
-  res.send("What to watch next? Search for netflix titles here");
+  const endpoints = {
+    Welcome: "Hi! This is an open API fpr Netflix titles",
+    Routes: [
+      {
+        "/netflix" : "Get an array of all Netflix content",
+        "/netflix/shows" : "Gives an array of all TV shows",
+        "/netflix/movies": "Gives an array of all movies",
+        "/netflix/directors/:director": "Get movies/TV shows by directors",
+        "/netflix/genres/:listed_in": "Get movies/TV shows based on genres",
+        "/netflix/titles/:title" : "Get movie/TV show by title",
+        "/netflix/ids/:show_id": "Get a movie/TV show by id"
+      },
+    ],
+  }
+  res.send(endpoints)
 });
 
- //Gives the whole array of objects 
 app.get("/netflix", (req, res) => {
-  console.log(req.query)
   const { director, title } = req.query
-  console.log(director)
 
   let result = netflix
 
@@ -63,20 +74,16 @@ app.get("/netflix", (req, res) => {
   }
 })
 
-//Gives an array of all TV shows
 app.get("/netflix/shows", (req, res) => {
   const netflixType = netflix.filter((item) => item.type === "TV Show")
   res.status(200).json(netflixType)
 })
 
-//Gives an array of all movies
 app.get("/netflix/movies", (req, res) => {
   const netflixType = netflix.filter((item) => item.type === "Movie")
   res.status(200).json(netflixType)
 })
 
-
-//Get an array with directors
 app.get("/netflix/directors/:director", (req, res) => {
   const { director } = req.params
   const netflixByDirector = netflix.filter((item) => item.director.toLowerCase().includes(director.toLowerCase()))
@@ -86,16 +93,12 @@ app.get("/netflix/directors/:director", (req, res) => {
     })
   })
 
-
-//Get an array with genres 
 app.get("/netflix/genres/:listed_in", (req,res) => {
   const { listed_in } = req.params
   const netflixByGenre = netflix.filter((item) => item.listed_in.toLowerCase().includes(listed_in.toLowerCase()))
   res.status(200).json(netflixByGenre)
 })
 
-
-//Returns the object when a specific title is mentioned
 app.get("/netflix/titles/:title", (req, res) => {
   const { title } = req.params
 
@@ -114,7 +117,6 @@ app.get("/netflix/titles/:title", (req, res) => {
   }
 })
 
-//Search for id
 app.get("/netflix/ids/:show_id", (req, res) => {
   
   const netflixById =  netflix.find((item) => +item.show_id === +req.params.show_id )
