@@ -26,8 +26,8 @@ app.get("/", (req, res) => {
     Routes: [
       {
         "/songs": "Get listed songs.",
-        "/songs/trackName/:trackName": "Lists the song track",
-        "//songs/artistName/:artistName": "Lists the artist anme with songs",
+        "/songs/trackName/:trackName": "Lists the specific song track",
+        "//songs/artistName/:artistName": "Lists the specific artist name ",
         "/endpoints": "To get API endpoints",
       },
     ],
