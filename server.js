@@ -72,6 +72,31 @@ app.get('/streams/type/:type', (req, res) => {
       success: true }) 
   })
 
+
+  app.get('/streams/actor/:cast', (req, res) => {
+    const { cast } = req.params
+
+    let filteredCastMember = streams;
+
+    if (cast) {
+      filteredCastMember = filteredCastMember
+      .filter(
+    (stream) => stream.cast.toLowerCase().includes(cast.toLowerCase()))
+      }
+
+    if (filteredCastMember.length === 0) {
+      res.status(404).json({
+        data: "This actor doesn't starr in any of our streams",
+        success: false,
+      })
+        
+    } else {res.status(200).json({
+      data: filteredCastMember,
+      success: true }) 
+    }
+  })
+
+
    // Sorted by release year (although the streams are already filtered in the original format)
    app.get('/streams/newest', (req, res) => {
     const newToOld = streams.sort(
@@ -137,6 +162,3 @@ app.listen(port, () => {
   //     data: allStreams,
   //     success: true })
   // })
-
-
- 
