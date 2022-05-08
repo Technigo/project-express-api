@@ -160,7 +160,14 @@ const getAllMissions = (req, res) => {
       .filter((mission) => formatString(mission.landing_site).includes(formatString(landing_site)));
   };
 
-  res.status(200).json(pagination(filteredMissions, page, res))
+  res.status(200).json({
+    page: 1,
+    page_size: 120,
+    success: true,
+    result: filteredMissions,
+    total_pages: 1,
+    total_results: 1
+  })
 };
 
 const getOneMission = (req, res) => {
@@ -178,7 +185,7 @@ const getOneMission = (req, res) => {
       page: 1,
       page_size: 1,
       success: true,
-      astronaut: specificMission,
+      mission: specificMission,
       total_pages: 1,
       total_results: 1
     })
