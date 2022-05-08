@@ -15,33 +15,24 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-	res.send('Hello!');
+	const Home = {
+		About: 'Top music API',
+		Routes: [
+			{
+				'/songs': 'Get all songs',
+				'/artists/{artist}': 'Get songs from artist',
+				'/titles/{title}': 'Get song by title',
+			},
+		],
+	};
+	res.send(Home);
 });
 
 app.get('/songs', (req, res) => {
 	res.status(200).json(songs);
 });
 
-app.get('/titles/:title', (req, res) => {
-	const { title } = req.params;
-	const songByTitle = songs.filter(
-		(song) => song.trackName.toLowerCase() == title.toLowerCase()
-	);
-
-	if (!songByTitle) {
-		res.status(400).json({
-			data: 'Not found',
-			success: false,
-		});
-	} else {
-		res.status(200).json({
-			data: songByTitle,
-			sucess: true,
-		});
-	}
-});
-
-app.get('/artist/:artist', (req, res) => {
+app.get('/artists/:artist', (req, res) => {
 	const { artist } = req.params;
 
 	const songsByArtist = songs.filter(
@@ -50,6 +41,18 @@ app.get('/artist/:artist', (req, res) => {
 
 	res.status(200).json({
 		data: songsByArtist,
+		success: true,
+	});
+});
+
+app.get('/titles/:title', (req, res) => {
+	const { title } = req.params;
+	const songByTitle = songs.filter(
+		(song) => song.trackName.toLowerCase() == title.toLowerCase()
+	);
+
+	res.status(200).json({
+		data: songByTitle,
 		success: true,
 	});
 });
