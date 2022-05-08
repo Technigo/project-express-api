@@ -9,12 +9,10 @@ import booksData from "./data/books.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
 
-// Start defining your routes here
 app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
@@ -25,12 +23,12 @@ app.get("/books", (req, res) => {
 
 app.get("/books/top-rated", (req, res) => {
   const highAvgRating =  booksData.filter((book) => book.average_rating >= 4)
-  res.json(highAvgRating)
+  res.status(200).json(highAvgRating)
 })
 
 app.get("/books/title/:title", (req, res) => {
   const title = req.params.title
-  let titleInput = booksData.filter((str) => str.title.toLowerCase() === title.toLowerCase())
+  let titleInput = booksData.find((str) => str.title.toLowerCase() === title.toLowerCase())
 
   if(titleInput) {
     res.status(200).json({
@@ -43,7 +41,7 @@ app.get("/books/title/:title", (req, res) => {
   }
 })
 
-app.get("/books/authors/:authors", (req, res) => {
+app.get("/books/author/:authors", (req, res) => {
   const authors = req.params.authors
   let authorsInput = booksData.filter((str)=> str.authors.toLowerCase() === authors.toLowerCase())
   if(authorsInput) {
@@ -51,14 +49,13 @@ app.get("/books/authors/:authors", (req, res) => {
       data: authorsInput,
       success: true})
   } else {
-    res.status(400).json({
+    res.status(200).json({
       data: "Not found",
       success: false})
   }
 })
 
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
