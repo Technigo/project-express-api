@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
     Routes: [
       {
         "/bookData": "Time to exercise your brain with a good book.",
-        "/bookData/date/:title": "Choose your next book title.",
-        "/bookData/region/:autors": "Find your next book trough your favourite author.",
+        "/bookData/title/:title": "Choose your next book title.",
+        "/bookData/authors/:authors": "Find your next book trough your favourite author.",
       },
     ],
   };
