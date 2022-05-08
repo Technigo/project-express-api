@@ -9,17 +9,17 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Golden globe');
+  res.send('Here is a Golden globe Api!');
 });
 
 app.get('/nominations', (req, res) => {
 
-  const { category } = req.params;
+  const { nominees } = req.params;
   const allNominations = nominations;
 
-  if (category) {
+  if (nominees) {
     allNominations = allNominations.filter(
-      (category) => nominations.category.toLowerCase() === category.toLowerCase()
+      (nominees) => nominations.nominees.toLowerCase() === +nominees.toLowerCase()
     );
   };
 
@@ -30,7 +30,7 @@ app.get('/nominations', (req, res) => {
   });
 });
 
-app.get('/years/film/:film', (req, res) => {
+app.get('/years/:year', (req, res) => {
 
   const { film } = req.params;
 
@@ -50,24 +50,24 @@ app.get('/years/film/:film', (req, res) => {
   }
 });
 
-app.get('/nominations/categoy/:category', (req, res) => {
-  const { category } = req.params;
+app.get('/categoy/:category', (req, res) => {
+ const { category } = req.params;
 
   const filmCategory = nominations.filter((nomination) => nomination.category.toLowerCase() === category.toLowerCase());
   if (!filmCategory) {
       res.status(404).json({
         data: 'Not found',
         success: false,
-  
-      });
 
-    } else {
-      res.status(200).json({
-        data: filmCategory,
+       });
+
+     } else {
+       res.status(200).json({
+         data: filmCategory,
         success: true,
-      });
-    }
-  });
+       });
+     }
+   });
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
