@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
-
 import netflixData from './data/netflix-titles.json';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -30,7 +29,7 @@ app.get('/movies', (req, res) => {
 app.get('/movies/country/:country', (req, res) => {
   const { country } = req.params;
   const whatCountry = netflixData.filter(
-    (movie) => movie.country.toLowerCase() === country
+    (movie) => movie.country.toLowerCase() === country.toLowerCase()
   );
 
   res.status(200).json({
@@ -43,7 +42,7 @@ app.get('/movies/country/:country', (req, res) => {
 app.get('/movies/title/:title', (req, res) => {
   const { title } = req.params;
   const whatTitle = netflixData.find(
-    (movie) => movie.title.toLowerCase() === title
+    (movie) => movie.title.toLowerCase() === title.toLowerCase()
   );
 
   if (!whatTitle) {
