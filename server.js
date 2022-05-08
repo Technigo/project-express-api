@@ -2,16 +2,6 @@ import express, { request, response } from "express";
 import cors from "cors";
 import books from "./data/books.json";
 
-/* import res from "express/lib/response"; */
-
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -29,6 +19,7 @@ app.get("/", (req, res) => {
     {"Welcome to the ultimate BOOK REVIEW LIST!":  [
 {
       "books": "All books available", 
+      "/books/id/:id": "Search for a book by specific id",
       "/books/title/:title": "Search for a book by specific title",
       "/books/authors/:authors": "Search for book/books written by specific author (alone or with others)",
       "/books/language_code/:language_code": "Search for books available in specific language",
@@ -45,7 +36,26 @@ app.get("/books", (req, res) => {
   });
   });
 
-  //Endpoint 1: Searching for a specific  book title
+
+  //Endpoint 1: Searchning for a specific book by bookid
+app.get('/books/id/:id', (req, res) => {
+  const { id } = req.params
+  const bookById = books.find ((item) => item.bookID === +id)
+
+  if (!bookById) {
+    res.status(400).json({
+      ressponse: "There is no book with that ID number", 
+      success: false,
+    })
+  } else {
+    res.status(200).json({
+      response: bookById, 
+      success: true,
+    })
+  }
+})
+
+  //Endpoint 2: Searching for a specific  book title
   app.get("/books/title/:title", (req, res) => {
     const { title } =req.params;
     
@@ -65,8 +75,7 @@ app.get("/books", (req, res) => {
     });
   
   
-    //Endpoint 2: Searching for books written by a specific author (alone or with authors)
-  
+    //Endpoint 3: Searching for books written by a specific author (alone or with authors)
     app.get('/books/authors/:authors', (req, res) => {
     const { authors } = req.params;
   
@@ -77,9 +86,9 @@ app.get("/books", (req, res) => {
   .filter((item) => item.authors.toLowerCase().includes(authors.toLowerCase()));
     };
     if (filteredAuthor.length ===0) {
-      res.status(404).json({
-        data: "Cannot find",
-        success: false,
+      res.status(200).json({
+        data: "Successful search, but  there are no books by this author available here.",
+        success: true,
       });
     } else {
       res.status(200).json({
@@ -89,8 +98,8 @@ app.get("/books", (req, res) => {
     };
     });
   
-    //Endpoint 3: Searching for all books in  a specific language
-  
+
+    //Endpoint 4: Searching for all books in  a specific language  
     app.get('/books/language_code/:language_code', (req, res) => {
       const { language_code } = req.params;
     
@@ -105,7 +114,7 @@ app.get("/books", (req, res) => {
           });
         } else if (booksByLanguage.length === 0) {
           res.status(200).json({
-            data: "Successful response, but this library has no books in required language available.",
+            data: "Successful search, but there are no books in this language available here.",
             success: true
         });
         } else {
@@ -116,176 +125,6 @@ app.get("/books", (req, res) => {
         }
       });
   
-  app.get('/books/id/:id', (req, res) => {
-    const { id } = req.params
-    const bookById = books.find ((item) => item.bookID === +id)
-
-    if (!bookById) {
-      res.status(400).json({
-        ressponse: "Error", 
-        success: false,
-      })
-    } else {
-      res.status(200).json({
-        response: bookById, 
-        success: true,
-      })
-    }
-  })
-    
-
-
-
-
-
-      
-  
-  
-  
-   /*  app.get('/books/authors/:authors', (req, res) => {
-      const { authors } = req.params;
-    
-      const booksByAuthor = books.filter(
-        (book) => book.authors.toLowerCase() === authors.toLowerCase()
-        );
-    
-      if (booksByAuthor && booksByAuthor.length !== 0){
-        res.status(200).json({
-          data: booksByAuthor, 
-          success: true,
-        });
-      } else if (booksByAuthor.length === 0) {
-        res.status(200).json({
-          data: "Succesful search, but there are no books written by that author available here.",
-          success: true
-      });
-      } else {
-        res.status(404).send({
-          data: "Not found",
-          success: false
-        });
-      }
-    }); */
-  
-  
-  
-  
-  
-
-/* const { language_code, authors } = req.query;
-
-let allBooks = books;
-
-if (language_code) {
-  allBooks = allBooks.filter(
-    (item) => item.language_code.toLowerCase() === language_code.toLowerCase() 
-  );
-}
-
-if (authors) {
-  allBooks = allBooks.filter(
-    (item) => item.authors.toLowerCase() === authors.toLowerCase()
-  );
-}
-
-if (!allBooks.length) {
-response
-.status(404)
-.json ("sorry");
-} else {
-  res.status(200).json({
-    data: allBooks,
-    success: true,
-  });
-}
-});
- */
-//Endpoint 1: Searching for a specific  book title
-
-
-
-
-  //Endpoint 2: Searching for books written by a specific author (alone or with authors)
-
-
-
-  //Endpoint 3: Searching for all books in  a specific language
-
- 
-
-
-
-
-
-
-
- /*  app.get('/books/authors/:authors', (req, res) => {
-    const { authors } = req.params;
-  
-    const booksByAuthor = books.filter(
-      (book) => book.authors.toLowerCase() === authors.toLowerCase()
-      );
-  
-    if (booksByAuthor && booksByAuthor.length !== 0){
-      res.status(200).json({
-        data: booksByAuthor, 
-        success: true,
-      });
-    } else if (booksByAuthor.length === 0) {
-      res.status(200).json({
-        data: "Succesful search, but there are no books written by that author available here.",
-        success: true
-    });
-    } else {
-      res.status(404).send({
-        data: "Not found",
-        success: false
-      });
-    }
-  }); */
-
-
-
-
-
-
-
-
-    
-/*   const { title, authors } = req.query;
-
-  let allBooks = books;
-
-  if(authors) {
-    allBooks =allBooks.filter((book) => book.authors.toLowerCase() === authors.toLowerCase()
-    );
-  }
-
-  if (title) {
-    allBooks =allBooks.filter((book) => book.title.toLowerCase() === title.toLowerCase()
-    );
-  }
-
-res.status(200).json({
-  data: allBooks,
-  success:true,
-});
-}); */
-
-//First route "title"
-
-
-
-//Second route "authors"
-
-
-
-//Third route "language_code"
-
-
-
-//Fourth route "average_rating"
-
 
 // Start the server
 app.listen(port, () => {
