@@ -97,6 +97,23 @@ const getAstronautByName = (req, res) => {
   }
 };
 
+const listAstronautsYears = (req, res) => {
+  let astronautsYears = [];
+
+  nasaAstronauts.forEach((astronaut) => {
+    if (!astronautsYears.includes(astronaut.year)) {
+      astronautsYears.push(astronaut.year);
+    };
+  });
+
+  const sortedYears = astronautsYears.sort((a, b) =>  a - b);
+
+  res.status(200).json({
+    success: true,
+    years: sortedYears,
+  });
+};
+
 const getAstronautByYear = (req, res) => {
   const { year } = req.params;
   const { gender, group, spaceFlights, spaceHours, spaceWalks, walksHours, page } = req.query;
@@ -196,6 +213,7 @@ module.exports = {
   listEndPoints,
   getAllAstronauts,
   getAstronautByName,
+  listAstronautsYears, 
   getAstronautByYear,
   getAllMissions,
   getOneMission

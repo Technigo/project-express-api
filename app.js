@@ -18,7 +18,8 @@ app.get("/api/astronauts/:name", astronautsApi.getAstronautByName);
 app.get("/api/missions", astronautsApi.getAllMissions);
 app.get("/api/missions/:name", astronautsApi.getOneMission);
 
-app.get("/api/year/:year", astronautsApi.getAstronautByYear);
+app.get("/api/years", astronautsApi.listAstronautsYears)
+app.get("/api/years/:year", astronautsApi.getAstronautByYear);
 
 app.get('*', (req, res) => res.status(404).send("Not Found"));
 
