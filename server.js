@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Here is a Golden globe Api!');
+  res.send('Here is a Golden globes api!');
 });
 
 app.get('/nominations', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/nominations', (req, res) => {
 
   if (nominees) {
     allNominations = allNominations.filter(
-      (nominees) => nominations.nominees.toLowerCase() === +nominees.toLowerCase()
+      (nominees) => nominations.nominees.toLowerCase() === nominees.toLowerCase()
     );
   };
 
@@ -34,7 +34,7 @@ app.get('/years/:year', (req, res) => {
 
   const { film } = req.params;
 
-  const filmYear = years.find((year) => year.film.toLowerCase() === film).toLowerCase();
+  const filmYear = years.find((year) => year.film.toLowerCase() === film.toLowerCase());
 
   if (!filmYear) {
     res.status(404).json({
@@ -50,10 +50,11 @@ app.get('/years/:year', (req, res) => {
   }
 });
 
-app.get('/categoy/:category', (req, res) => {
+app.get('/category/:category', (req, res) => {
  const { category } = req.params;
 
-  const filmCategory = nominations.filter((nomination) => nomination.category.toLowerCase() === category.toLowerCase());
+  const filmCategory = nominations.filter(
+    (nomination) => nomination.category.toLowerCase() ===category.toLowerCase());
   if (!filmCategory) {
       res.status(404).json({
         data: 'Not found',
