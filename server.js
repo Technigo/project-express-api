@@ -36,11 +36,11 @@ app.get('/content', (req, res) => {
       );
   };
 
-  if (title) {
-    allContent = allContent.filter(
-      (content) => content.title.toLowerCase() === title.toLowerCase()
-      );
-  };
+  // if (title) {
+  //   allContent = allContent.filter(
+  //     (content) => content.title.toLowerCase() === title.toLowerCase()
+  //     );
+  // };
     
   if (director) {
     allContent = allContent.filter(
@@ -62,11 +62,11 @@ app.get('/content', (req, res) => {
 });
 
 
-app.get("/content/id/:show_id", (req, res) => {
-  const { show_id } = req.params;
+app.get("/content/id/:id", (req, res) => {
+  const { id } = req.params;
 
   const contentById = netflixData.find(
-    (content) => content.show_id === +{show_id}
+    (content) => content.show_id === +id
   );
 
   if (contentById) {
