@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
       { "/avocadosales": "all avocado sales data" },
       { "/regions": "returns list of regions" },
       { "/avocadosales/:regions": "returns data for specific region" },
+      { "https://avocadosales-week17.netlify.app/": "Frontend" },
     ],
   });
 });
