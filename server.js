@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
     }
   res.send(welcomePage)
   });
+  
 
 //Endpoint with all available content from API
 
