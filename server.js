@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   res.send("Netflix data!");
 });
 
-app.get('/movies', (req, res) => {
+app.get("/movies", (req, res) => {
   res.status(200).json(netflixData);
 });
 
