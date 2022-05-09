@@ -17,13 +17,13 @@ app.get("/", (req, res) => {
         "/content/id/'id-number": "GET a specific movie/tv-show by it's unique id-number",
         "/content/title/'title of movie/show": "GET movies/tv-shows by title",
         "/content/director/'director of movie/show": "GET movies/tv-shows by director",
-        "/content/type/movies": "GET whole array of movies",
-        "/content/type/shows": "GET whole array of tv-shows",
+        "/content/type/movie": "GET whole array of movies",
+        "/content/type/show": "GET whole array of tv-shows",
       }]
     }
   res.send(welcomePage)
   });
-  
+
 
 //Endpoint with all available content from API
 
