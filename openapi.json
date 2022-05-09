@@ -22,7 +22,7 @@
           },
           {
             "in": "query",
-            "name": "pageSize",
+            "name": "limit",
             "schema": {
               "type": "integer"
             },
@@ -38,7 +38,7 @@
               "application/json": {
                 "examples": {
                   "restaurants": {
-                    "value": "{\n    \"success\": true,\n    \"total\": 1919,\n    \"pages\": 192,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"pageSize\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Pike Place Chowder\",\n            \"Star\": 4.5,\n            \"Stars_count\": 7695,\n            \"Price\": \"$$\",\n            \"Area\": \"Downtown\",\n            \"Category\": \"['Seafood', 'Soup']\",\n            \"Services\": \"['Outdoor dining', 'Delivery', 'Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n    ]\n}"
+                    "value": "{\n    \"success\": true,\n    \"total\": 1919,\n    \"pages\": 192,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"limit\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Pike Place Chowder\",\n            \"Star\": 4.5,\n            \"Stars_count\": 7695,\n            \"Price\": \"$$\",\n            \"Area\": \"Downtown\",\n            \"Category\": \"['Seafood', 'Soup']\",\n            \"Services\": \"['Outdoor dining', 'Delivery', 'Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n    ]\n}"
                   }
                 }
               }
@@ -147,7 +147,7 @@
         },
         {
           "in": "query",
-          "name": "pageSize",
+          "name": "limit",
           "schema": {
             "type": "integer"
           },
@@ -166,7 +166,7 @@
               "application/json": {
                 "examples": {
                   "neighborhoods/capitolhill": {
-                    "value": "{\n    \"success\": true,\n    \"total\": 63,\n    \"pages\": 7,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"pageSize\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Tacos Chukis\",\n            \"Star\": 4.5,\n            \"Stars_count\": 1772,\n            \"Price\": \"$\",\n            \"Area\": \"Capitol Hill\",\n            \"Category\": \"['Mexican']\",\n            \"Services\": \"['Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n]\n}"
+                    "value": "{\n    \"success\": true,\n    \"total\": 63,\n    \"pages\": 7,\n    \"startIndex\": 1,\n    \"currentPage\": 1,\n    \"limit\": 10,\n    \"orderedBy\": \"popularity\",\n    \"results\": [\n        {\n            \"Name\": \"Tacos Chukis\",\n            \"Star\": 4.5,\n            \"Stars_count\": 1772,\n            \"Price\": \"$\",\n            \"Area\": \"Capitol Hill\",\n            \"Category\": \"['Mexican']\",\n            \"Services\": \"['Takeout']\",\n            \"Searched City\": \"Seattle\"\n        }\n]\n}"
                   }
                 }
               }

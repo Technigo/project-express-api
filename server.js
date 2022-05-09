@@ -14,8 +14,8 @@ const formatText = (result) => {
 
 const paginateResults = (data, req) => {
   data = data.sort((a, b) => Number(b.Stars_count) - Number(a.Stars_count));
-  const page = req.query.page ? req.query.page : 1;
-  const size = req.query.pageSize ? req.query.pageSize : 10;
+  const page = req.query.page ? Number(req.query.page) : 1;
+  const size = req.query.limit ? Number(req.query.limit) : 10;
   const start = (page - 1) * size;
   const end = start + size;
 
@@ -25,7 +25,7 @@ const paginateResults = (data, req) => {
     pages: Math.ceil(data.length / size),
     startIndex: 1,
     currentPage: page,
-    pageSize: size,
+    limit: size,
     orderedBy: "popularity",
     results: data.slice(start, end),
   };
