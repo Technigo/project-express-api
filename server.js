@@ -21,8 +21,8 @@ const pagination = (data, pageNumber = 1, res) => {
     res.status(400)
       .json({
         success: false,
-        status_code: 404,
-        message: `This page doesn't exist: page ${totalOfPages} is the last one.`
+        status_code: 400,
+        message: `Bad request: this page doesn't exist, page ${totalOfPages} is the last one.`
       })
   } else {
     const returnObject = {
@@ -306,9 +306,9 @@ app.get("/chocolates", (req, res) => {
 })
 
 app.get("/chocolates/id", (req, res) => {
-  res.status(400).json({
-    success: false,
-    status_code: 404,
+  res.status(200).json({
+    success: true,
+    status_code: 200,
     message: "Type an ID at the end of the path if you want to find a specific chocolate."
   })
 })
@@ -332,9 +332,9 @@ app.get("/chocolates/id/:id", (req, res) => {
 })
 
 app.get("/chocolates/name", (req, res) => {
-  res.status(400).json({
-    success: false,
-    status_code: 404,
+  res.status(200).json({
+    success: true,
+    status_code: 200,
     message: "Type a name at the end of the path if you want to find a specific chocolate."
   })
 })
