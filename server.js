@@ -4,7 +4,7 @@ import cors from "cors";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -21,8 +21,38 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  
+  const EntryPage = {
+    Welcome: "Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers.” ― Charles W",
+    Routes: [
+      {
+        "/booksData": "All books",
+        "/booksData/title/:title": "Choose the specific title",
+        "/booksData/authors/:authors": "Autors",
+      },
+    ],
+  };
+  res.send(EntryPage);
 });
+
+app.get('/booksData', (req, res) => {
+  res.status(200).json({
+    data: booksData,
+    success: true,
+  })
+  })
+
+app.get("/booksData/title/:title", (req, res) => {
+  const { title } = req.params;
+
+  const booksByTitle = booksData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase())
+    );
+      res.status(200).json({
+        data: booksByTitle,
+        success: true,
+    })
+});
+
 
 // Start the server
 app.listen(port, () => {
