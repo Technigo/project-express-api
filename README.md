@@ -1,13 +1,15 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I created a RESTful API using Express. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by creating different route paths for the API which were returning both single items and objects. I used filter() and find() methods to execute this.
+I then also added query paths to filter the data in different ways. I used the starting page of the app to list the different paths and their descriptions.
+With more time I would like to add sorting and pagination to my app.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to my deployed project:
+
+https://top-tracks-tiiliu.herokuapp.com/
