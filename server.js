@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { json } from "express/lib/response";
 import netflixData from "./data/netflix-titles.json";
 
 const port = process.env.PORT || 8080;
@@ -25,42 +24,19 @@ app.get("/", (req, res) => {
   res.send(welcomePage)
   });
 
-app.get('/content', (req, res) => {
-  const { show_id, title, director, type } = req.query;
-  
-  let allContent = netflixData;
-  
-  if (show_id) {
-    allContent = allContent.find(
-      (content) => content.show_id === +show_id
-      );
-  };
+//Endpoint with all available content from API
 
-  // if (title) {
-  //   allContent = allContent.filter(
-  //     (content) => content.title.toLowerCase() === title.toLowerCase()
-  //     );
-  // };
-    
-  if (director) {
-    allContent = allContent.filter(
-      (content) => content.director.toLowerCase() === director.toLowerCase()
-      );
-  }
-    
-  if (type) {
-    allContent = allContent.filter(
-      (content) => content.type.toLowerCase() === type.toLowerCase()
-    );
-  }
-      
+app.get('/content', (req, res) => {
+ 
   res.status(200).json({
-    data: allContent,
+    data: netflixData,
     success: true,
   });
   
 });
 
+
+//Endpoint with movie/tv-show id-number
 
 app.get("/content/id/:id", (req, res) => {
   const { id } = req.params;
@@ -82,6 +58,9 @@ app.get("/content/id/:id", (req, res) => {
   }
         
 });
+
+
+//Endpoint with title of movie/tv-show
     
 app.get("/content/:title", (req, res) => {
   const { title } = req.params;
@@ -105,7 +84,9 @@ app.get("/content/:title", (req, res) => {
 });
 
 
-app.get("/content/director:director", (req, res) => {
+//Endpoint with director name
+
+app.get("/content/director/:director", (req, res) => {
   const { director } = req.params;
 
   const contentByDirector = netflixData.filter(
@@ -126,7 +107,10 @@ app.get("/content/director:director", (req, res) => {
         
 });
 
-app.get("/content/type:type", (req, res) => {
+
+//Endpoint with type (movies or tv-shows)
+
+app.get("/content/type/:type", (req, res) => {
   const { type } = req.params;
 
   const contentByType = netflixData.filter(
