@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
         "/booksData": "Display all books",
         "/booksData/title/:title": "Look for a specific title",
         "/booksData/average_rating/": "Sort on rating (Higest to lowest)",
+        "/booksData/num_pages/": "Find the book with most pages",
       },
     ],
   };
@@ -59,6 +60,14 @@ app.get("/booksData/average_rating/", (req, res) => {
   const booksByRating = booksData.sort((a, b) => b.average_rating - a.average_rating) //.sort b-a sorts the elements of an array as strings in an ascending order. a (the first element for comparison. b = the second element for comparison.
 
     res.json(booksByRating.slice(0, [-1])) //The res.json() function sends a JSON response.
+})
+
+app.get("/booksData/num_pages/", (req, res) => {
+  const { num_pages } = req.params;
+
+  const booksByPages = booksData.sort((a,b)=>b.num_pages-a.num_pages) // Sorts out the book with the most pages.
+
+    res.json(booksByPages[0])
 })
 
 // Start the server
