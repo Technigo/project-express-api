@@ -23,7 +23,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   
   const EntryPage = {
-    Welcome: "Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers.” ― Charles W",
+    Welcome: "It's the possibility of having a dream come true that makes life interesting. - The Alchemist",
     Endpoints: [
       {
         "/booksData": "Display all books",
