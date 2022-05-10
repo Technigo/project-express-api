@@ -24,11 +24,11 @@ app.get("/", (req, res) => {
   
   const EntryPage = {
     Welcome: "Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers.” ― Charles W",
-    Routes: [
+    Endpoints: [
       {
-        "/booksData": "All books",
+        "/booksData": "Display all books",
         "/booksData/title/:title": "Look for a specific title",
-        "/booksData/average_rating/": "Higest to lowest rating",
+        "/booksData/average_rating/": "Sort on rating (Higest to lowest)",
       },
     ],
   };
