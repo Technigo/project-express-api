@@ -1,14 +1,17 @@
 import express from "express";
 import cors from "cors";
-import booksData from "./data/books.json";
 import listEndpoints from "express-list-endpoints";
+import startDB, { getBookModel } from "./database/database";
+import { dbErrorHandler } from "./middleware/dbErrorHandler";
 
 const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(dbErrorHandler);
 
+//Router setup
 app.get("/", (req, res) => {
   const landing = {
     about: "Welcome to My Book Store📚",
@@ -17,60 +20,73 @@ app.get("/", (req, res) => {
   res.send(landing);
 });
 
-app.get("/books", (req, res) => {
+app.get("/books", async (req, res) => {
   const { limit, title } = req.query;
 
-  let data = booksData;
-  let success = true;
-  let message = "";
+  const bookModel = getBookModel();
+  try {
+    let data = await bookModel.find({}).exec();
+    let success = true;
+    let error = "";
 
-  if (title) {
-    data = booksData.filter(
-      (book) => book.title.toLowerCase().search(title.toLowerCase()) !== -1
-    );
-  }
+    if (title) {
+      //Partial search
+      data = await bookModel
+        .find({
+          $or: [{ title: { $regex: title, $options: "i" } }],
+        })
+        .exec();
 
-  if (limit) {
-    const numLimit = Number(limit);
-    if (numLimit < 0 || !Number.isInteger(numLimit)) {
-      success = false;
-      message = "Invalid limit value";
-    } else {
-      data = data.slice(0, numLimit);
+      if (!data.length) {
+        success = false;
+        error = "No result found";
+        return res.status(404).json({ data, success, error });
+      }
     }
-  }
 
-  if (!data.length) {
-    success = false;
-    message = "No result found";
-  }
+    if (limit) {
+      const numLimit = Number(limit);
+      if (numLimit < 0 || !Number.isInteger(numLimit)) {
+        success = false;
+        error = "Invalid limit value";
+      } else {
+        data = await bookModel.find().limit(limit);
+      }
+    }
 
-  res.status(200).json({ data, success, message });
+    return res.status(200).json({ data, success, error });
+  } catch (error) {
+    return res.status(400).json({ error: error.toString() });
+  }
 });
 
-app.get("/books/:bookId", (req, res) => {
-  const id = Number(req.params.bookId);
+app.get("/books/:bookId", async (req, res) => {
+  const bookID = Number(req.params.bookId);
 
   let data = {};
   let success = true;
-  let message = "";
+  let error = "";
 
-  if (id < 0 || !Number.isInteger(id)) {
-    res.status(404).json({ data, success: false, message: "Invalid bookId" });
+  if (bookID < 0 || !Number.isInteger(bookID)) {
+    res.status(404).json({ data, success: false, error: "Invalid bookId" });
   }
+  try {
+    data = await getBookModel().find({ bookID }).exec();
 
-  data = booksData.find((book) => book.bookID === id);
-
-  if (!data) {
-    data = {};
-    success = false;
-    message = "No result found";
+    if (!data) {
+      data = {};
+      success = false;
+      error = "No result found";
+      return res.status(404).json({ data, success, error });
+    }
+    return res.status(200).json({ data, success, error });
+  } catch (error) {
+    return res.status(400).json({ error: error.toString() });
   }
-
-  res.status(200).json({ data, success, message });
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+startDB().then(
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  })
+);
