@@ -22,7 +22,7 @@ router.get("/title/:title", (req, res) => {
             success: true
         })
     } else {
-        res.status(400).json({
+        res.status(404).json({
             data: "Not found",
             success: false
         })
