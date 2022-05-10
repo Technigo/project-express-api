@@ -21,7 +21,7 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Lovisa Brorson!")
+  res.send("Hello word! Here can you find shows at Netflix")
 })
 
 app.get("/netflixshows", (req, res) => {
