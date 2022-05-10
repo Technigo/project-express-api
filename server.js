@@ -73,11 +73,13 @@ app.get('/players/position/:position', (req, res) => {
   } else {
     res.status(404).json({
       data: "Not found",
-      success: true,
+      success: false,
     })
   }
   
 })
+
+
 
 app.get('/players/random', (req, res) => {
 
@@ -90,7 +92,7 @@ app.get('/players/name/:name', ( req, res ) => {
   const { name } = req.params;
 
   const playerByName = players.find(
-    (player) => player.name === name
+    (player) => player.name.toLowerCase() === name.toLowerCase()
   );
 
   if (playerByName) {
