@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
     Routes: [
       {
         "/booksData": "All books",
-        "/booksData/title/:title": "Choose the specific title",
-        "/booksData/authors/:authors": "Autors",
+        "/booksData/title/:title": "Look for a specific title",
+        "/booksData/average_rating/": "Higest to lowest rating",
       },
     ],
   };
@@ -45,7 +45,7 @@ app.get('/booksData', (req, res) => {
 app.get("/booksData/title/:title", (req, res) => {
   const { title } = req.params;
 
-  const booksByTitle = booksData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase())
+  const booksByTitle = booksData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase()) //.includes() for defining whether the array contains the specified element or not. 
     );
       res.status(200).json({
         data: booksByTitle,
@@ -53,6 +53,13 @@ app.get("/booksData/title/:title", (req, res) => {
     })
 });
 
+app.get("/booksData/average_rating/", (req, res) => {
+  const { average_rating } = req.params;
+
+  const booksByRating = booksData.sort((a, b) => b.average_rating - a.average_rating) //.sort b-a sorts the elements of an array as strings in an ascending order. a (the first element for comparison. b = the second element for comparison.
+
+    res.json(booksByRating.slice(0, [-1])) //The res.json() function sends a JSON response.
+})
 
 // Start the server
 app.listen(port, () => {
