@@ -14,7 +14,7 @@ City info: sunshine hours, cost of a water bottle, pollution index, annual hours
 Country info: obesity level, life expectancy years,happiness level.
 
 The routs I've done are for all the data /healthyLifestyles
-a route for only on city /healthyLifestyles/:city
+a route for only one city /healthyLifestyles/:city
 a route for the rank a city is in /healthyLifestyles/rank/:rank
 a route showing the cities with sunshine hours are over 2500 /healthyLifestyles/top/sunshineHours
 
