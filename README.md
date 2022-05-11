@@ -1,13 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+The week's project was creating an RESTful API using Express which includes
+- A minimum of one endpoint to return an array of elements
+- A minimum of one endpoint to return a single element.
+- On routes which return a single item, handle when the item doesn't exist and return some an message in the response.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://express-api-new.herokuapp.com/
