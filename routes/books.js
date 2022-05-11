@@ -32,7 +32,8 @@ router.get("/title/:title", (req, res) => {
 router.get("/author/:authors", (req, res) => {
     const authors = req.params.authors
     let authorsInput = booksData.filter((str) => str.authors.toLowerCase() === authors.toLowerCase())
-    if (authorsInput) {
+    // always console.log to troubleshoot!! --> console.log(authorsInput)
+    if (authorsInput.length > 0) {
         res.status(200).json({
             data: authorsInput,
             success: true
