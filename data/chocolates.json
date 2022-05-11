@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Madagascar",
@@ -22,7 +22,7 @@
   },
   {
     "id": 1,
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Dominican republic",
@@ -43,7 +43,7 @@
   },
   {
     "id": 2,
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Tanzania",
