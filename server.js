@@ -2,14 +2,6 @@ import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -24,10 +16,11 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  
+  res.send("Hi there! Here you can look for books by ID or title. Enjoy!");
 });
 
-//the get is just the last part of https://localhost8080/booksData for example:
+//The first request with GET
 app.get('/booksData', (req, res) => {
   res.status(200).json({
     data: booksData,
@@ -35,28 +28,64 @@ app.get('/booksData', (req, res) => {
   });
 });
 
+//Find books by their ID number
+app.get('/booksData/id/:id', (req, res) => {
+const { id } = req.params;
 
-app.get('/booksData/:title', (req, res) => {
-  const { title} = req.params;
+const bookById = booksData.find((booksData) => booksData.bookID == id); 
 
-  const bookByTitle = booksData.filter((booksData) => booksData.title === title);
-  console.log("Book by title:", bookByTitle);
+console.log("Books by id:", bookById);
+
+  if (!bookById) {
+  res.status(404).json({
+   data:"Not found",
+   sucess: false,
+  });
+  } else {
+  res.status(200).json({
+    data: bookById,
+    sucess: true,
+ });
+};
 });
 
-  //or if(!bookByTitle)
-  //if(bookByTitle===undefined){
-    //res.status(404).json({
-      //data:"Not found",
-      //sucess: false,
-  //  });
-  //} else{
-  //res.status(200).json({
-   // data: bookByTitle,
-   // sucess: true,
-  //});
-//};
+
+//Find books by their ISBN number
+app.get('/booksData/isbn/:isbn', (req, res) => {
+  const { isbn } = req.params;
+  console.dir(isbn);
   
-//});
+  const bookByIsbn = booksData.find((booksData) => booksData.isbn == isbn); 
+  console.log(bookByIsbn);
+  
+  
+    if (!bookByIsbn) {
+    res.status(404).json({
+     data:"Not found",
+     sucess: false,
+    });
+    } else {
+    res.status(200).json({
+      data: bookByIsbn,
+      sucess: true,
+   });
+  };
+  });
+
+//Get the book by title by filter method
+app.get('/booksData/title/:title', (req, res) => {
+  const { title } = req.params;
+
+  const bookByTitle = booksData.filter((booksData) => booksData.title.toLowerCase() === title.toLowerCase()
+  );
+  res.status(200).json({
+    data: bookByTitle,
+    sucess: true,
+    });
+  
+});
+//console.log("Books by title:", bookByTitle);
+
 
 // Start the server
 app.listen(port, () => {
