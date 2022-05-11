@@ -17,10 +17,10 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   
-  res.send("Hi there! Here you can look for books by ID or title. Enjoy!");
+  res.send("Hi there! Here you can look for books by ID, ISBN number or title. Enjoy!");
 });
 
-//The first request with GET
+//The first request to get the whole array of books
 app.get('/booksData', (req, res) => {
   res.status(200).json({
     data: booksData,
@@ -28,14 +28,14 @@ app.get('/booksData', (req, res) => {
   });
 });
 
-//Find books by their ID number
+//Find books by their ID number in the array
 app.get('/booksData/id/:id', (req, res) => {
 const { id } = req.params;
 
 const bookById = booksData.find((booksData) => booksData.bookID == id); 
 
-console.log("Books by id:", bookById);
-
+//console.log("Books by id:", bookById);
+//Deliver a status of 404 if the ISBN number is not found and 200 if it returns ok
   if (!bookById) {
   res.status(404).json({
    data:"Not found",
@@ -58,7 +58,7 @@ app.get('/booksData/isbn/:isbn', (req, res) => {
   const bookByIsbn = booksData.find((booksData) => booksData.isbn == isbn); 
   console.log(bookByIsbn);
   
-  
+  //Deliver a status of 404 if the ISBN number is not found and 200 if it returns ok
     if (!bookByIsbn) {
     res.status(404).json({
      data:"Not found",
@@ -89,5 +89,5 @@ app.get('/booksData/title/:title', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`this is shown in terminal:Server running on http://localhost:${port}`);
+  console.log(`This is shown in terminal: Server running on http://localhost:${port}`);
 });
