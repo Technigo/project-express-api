@@ -2,23 +2,32 @@ import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+// Defines the port the app will run on, can be overridden 
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing- dont change them
+// Middlewares to enable cors and json body parsing (should not be changed)
 app.use(cors());
 app.use(express.json());
 
 
+// ROUTES
 
-// Start defining your routes here
+//Startpage with definition of routes
 app.get("/", (req, res) => {
   
-  res.send("Hi there! Here you can look for books by ID, ISBN number or title. Enjoy!");
+  res.send({
+    "Books API" : "Look for books by ID, ISBN number or title",
+    "Routes":[{
+      "/booksData": "Get all books",
+      "/booksData/isbn/:isbn": "Get a book by its ISBN number",
+      "/booksData/id/:id": "Get a book by its ID number in the database",
+      "/booksData/authors/:authors": "Get a book by its author/authors",
+    }]
+  });
+ 
 });
+
 
 //The first request to get the whole array of books
 app.get('/booksData', (req, res) => {
@@ -28,14 +37,13 @@ app.get('/booksData', (req, res) => {
   });
 });
 
-//Find books by their ID number in the array
+//Find books by their ID number of the array by .find() method
 app.get('/booksData/id/:id', (req, res) => {
 const { id } = req.params;
 
 const bookById = booksData.find((booksData) => booksData.bookID == id); 
 
-//console.log("Books by id:", bookById);
-//Deliver a status of 404 if the ISBN number is not found and 200 if it returns ok
+//Deliver a status of 404 if the ID number is not found and 200 if it returns ok
   if (!bookById) {
   res.status(404).json({
    data:"Not found",
@@ -50,14 +58,12 @@ const bookById = booksData.find((booksData) => booksData.bookID == id);
 });
 
 
-//Find books by their ISBN number
+//Find books by their ISBN number by .find() method
 app.get('/booksData/isbn/:isbn', (req, res) => {
   const { isbn } = req.params;
-  console.dir(isbn);
-  
+    
   const bookByIsbn = booksData.find((booksData) => booksData.isbn == isbn); 
-  console.log(bookByIsbn);
-  
+    
   //Deliver a status of 404 if the ISBN number is not found and 200 if it returns ok
     if (!bookByIsbn) {
     res.status(404).json({
@@ -72,7 +78,7 @@ app.get('/booksData/isbn/:isbn', (req, res) => {
   };
   });
 
-//Get the book by title by filter method
+//Get the book by title by filter.() method
 app.get('/booksData/title/:title', (req, res) => {
   const { title } = req.params;
 
@@ -81,12 +87,22 @@ app.get('/booksData/title/:title', (req, res) => {
   res.status(200).json({
     data: bookByTitle,
     sucess: true,
-    });
-  
+  });
 });
-//console.log("Books by title:", bookByTitle);
 
 
+//Get the books from a certain author by .filter() method
+app.get('/booksData/authors/:authors', (req, res) => {
+  const { authors } = req.params;
+
+  const booksByAuthor = booksData.filter((booksData) => booksData.authors.toLowerCase() === authors.toLowerCase()
+  );
+     res.status(200).json({
+      data: booksByAuthor,
+      sucess: true,
+    });
+  });
+// });
 // Start the server
 app.listen(port, () => {
   console.log(`This is shown in terminal: Server running on http://localhost:${port}`);
