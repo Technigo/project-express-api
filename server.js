@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
         "/books": "All the books",
         "/books/:title": "The specific title of the book",
         "/top-rated": "How the books are rated, from highest to lowest rated books",
-        "/books/book/:bookID": "The specific bookID",
         "/random-book": "A random book",
       }
     ]
@@ -58,23 +57,8 @@ app.get('/top-rated', (req, res) => {
   )
   res.json(bookRating.slice(0, 10))
 })
-// :bookID = param to trigger a param example console(req params)
-// Will look for a specific param, in this case a specific ID from books
-app.get('/books/book/:bookID', (req, res) => {
-  const { bookID } = req.params
-  const { book } = books.find((item) => item.bookID === +bookID)
-  if (!book) {
-    res.status(404).json({
-      data: `Error, there is no book with book-ID ${bookID}`,
-      success: false,
-    })
-  } else {
-    res.status(200).json({
-      data: bookID,
-      success: true,
-    })
-  }
-})
+
+
 // Random book
 app.get('/random-book', (req, res) => {
   const randomBook = books[Math.floor(Math.random() * books.length)]
