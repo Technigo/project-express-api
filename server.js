@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
       {
         "/books": "All the books",
         "/books/:title": "The specific title of the book",
-        "/books/top-rated": "How the books are rated, from highest to lowest rated books",
+        "/top-rated": "How the books are rated, from highest to lowest rated books",
         "/books/book/:bookID": "The specific bookID",
         "/random-book": "A random book",
       }
