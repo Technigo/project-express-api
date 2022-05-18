@@ -24,28 +24,6 @@ app.get("/",(req,res) => {
   });
 })
 
-//ADDING REVIEWS TO EXISTING BOOOKS
-app.post("/books/review/:id", (req, res) => {
-    
-  //Here, we map through the original array and then find the item whose id matches with the param
-  const existingBook = books.map(book => {
-
-    //First, find the book has id that match with path param: id
-    //If matched, update the item with the review
-    if (book.bookID === +req.params.id) {
-      return {...book, review: req.body.review}
-    } 
-    //then return the rest of the items
-    else return book
-  });
-  
-  if(existingBook) {
-    res.status(200).json({
-      data: existingBook,
-      success: true
-    })  
-  }
-})
 
 //GET DATA FROM QUERY PARAMTERS
 .get("/books", (req, res) => {
