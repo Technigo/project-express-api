@@ -1,5 +1,4 @@
 import express from "express";
-import bodyParser from 'body-parser'
 import cors from "cors";
 import listEndpoints from "express-list-endpoints"
 
@@ -33,13 +32,34 @@ app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-//Basic main endpoint
+//Main endpoint with the option to filter by type of recipe and name
+// Types: bread, meat, chicken, veggies
 
-// app.get('/recipes', (req, res) => {
-//   res.json(recipes)
-// })
 
-//Enpoint for individual object
+app.get('/recipes', (req, res) => {
+
+  const { name, type } = req.query
+  
+  let recipesToSend = recipes
+  
+  if (name) {
+    recipesToSend = recipesToSend.filter(
+      (item) => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+    )
+  }
+  if (type) {
+    recipesToSend = recipesToSend.filter(
+      (item) => item.type.toLowerCase() === type.toLowerCase()
+    )
+  }
+  
+  res.json({recipesToSend})
+  
+  })
+
+
+//Endpoint for individual object
+
 app.get('/recipes/:index', (req, res) => {
   const {index} = req.params
 
@@ -53,6 +73,7 @@ app.get('/recipes/:index', (req, res) => {
   }
 });
 
+//Also endpoint for individual object
 
 app.get('/recipes/id/:index', (req, res) => {
   const {index} = req.params
@@ -75,29 +96,6 @@ app.get('/vegetarian', (req, res) => {
 
 })
 
-app.get('/recipes', (req, res) => {
-
-
-
-const { name, type } = req.query
-
-let recipesToSend = recipes
-
-if (name) {
-  recipesToSend = recipesToSend.filter(
-    (item) => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
-  )
-}
-if (type) {
-  recipesToSend = recipesToSend.filter(
-    (item) => item.type.toLowerCase() === type.toLowerCase()
-  )
-}
-
-
-res.json({recipesToSend})
-
-})
 
 
 // app.get('/recipes/type/:type', (req, res) => {
@@ -133,7 +131,7 @@ res.json({recipesToSend})
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on: ${port}`);
 });
 
 
