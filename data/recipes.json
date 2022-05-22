@@ -586,5 +586,42 @@
         ],
         "imageURL": "http://www.chatelaine.com/wp-content/uploads/2013/05/Curried-chicken-salad.jpg",
         "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/"
+    },
+
+    {
+    "id": 9,
+    "name": "Caesar Salad",
+    "type": "Chicken",
+    "vegetarian": false,
+    "ingredients": [
+        {
+            "quantity": "1",
+            "name": "Chicken cooked"
+        },
+        {
+            "quantity": "1",
+            "name": "head of lettuce"
+        },
+        {
+            "quantity": "1 packet",
+            "name": "croutons"
+        },
+        {
+            "quantity": " ",
+            "name": "dressing"
+        }
+    ],
+    "steps": [
+        "Chop salad",
+        "Cut up chicken",
+        "Mix in bowl - all done!"
+               ],
+    "timers": [
+        
+        0
+    ],
+    "imageURL": "",
+    "originalURL": "/"
     }
+
 ]
