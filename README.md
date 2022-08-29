@@ -1,3 +1,10 @@
+# Weekly project for Technigo's bootcamp, week 17
+Task: build an API with Express
+
+Tech: JavaScript, API, Node.js, Express
+
+----
+
 # Week 17: Project Express API
 
 This week's project was to create an API using Express with RESTful endpoints.
