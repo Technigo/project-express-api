@@ -1,17 +1,7 @@
 import express from "express";
 import cors from "cors";
+import netflixData from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -21,7 +11,31 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const movies = {
+  Welcome: "Hi! This a Netflix Api",
+  Routes: [{
+    "/titles": "Get movie titles",
+    "/titles/id/'number'": "Get movie titles with matching id."
+  }]
+}
+  res.send(movies);
+});
+
+// Router for titles
+app.get("/titles", (req,res) => {
+ res.json(netflixData)
+});
+
+// Router for Id
+app.get("/titles/id/:id", (req, res) => {
+  const id = req.params.id
+  const displayId = netflixData.find((movie) => movie.show_id === +id)
+
+  if(!displayId) {
+    res.status(404).send("No movie title found")
+  } else {
+  res.json(displayId)
+  }
 });
 
 // Start the server
