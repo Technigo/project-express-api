@@ -32,9 +32,9 @@ app.get("/titles/id/:id", (req, res) => {
   const displayId = netflixData.find((movie) => movie.show_id === +id)
 
   if(!displayId) {
-    res.status(404).send("No movie title found")
+    res.status(404).send("Not Found")
   } else {
-  res.json(displayId)
+    res.status(200).send(displayId)
   }
 });
 
