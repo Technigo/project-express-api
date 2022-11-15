@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
+import technigoMembers from "./data/technigo-members.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -21,7 +22,57 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+//console.log("req", req);
+//console.log("req", res);
+ // res.send({responseMessage: "Hello Technigo!" }) // Already processing something as a json property, a raw body. String before = will be sending a string
+  res.json({responseMessage: booksData }) // Expects an json object and will be sent accordingly. More secure. 
+});  //KLAR
+
+app.get("/hej/:bookID", (req, res) => {
+  const singleBookId = booksData.find((singleId) => {
+    return singleId.bookID === +req.params.bookID;
+  })
+  res.status(200).json({singleBookId});
+}); //KLAR
+
+app.get("/hupp/:language_code", (req, res) => {
+  const showLanguage = booksData.filter((test) => {
+    return test.language_code === req.params.language_code;
+  })
+  res.status(200).json({showLanguage});
+}); //KLAR
+
+app.get("/hopp/:title", (req, res) => {
+ const title = req.params.title
+ const titleOfTheBook = booksData.filter((item) => item.title === title)
+ res.json(titleOfTheBook)
+ })  //KLAR
+
+
+
+app.get("/titles/:title", (req, res) => {
+  const singleTitle = booksData.find((item) => {
+    return item.title === req.params.title; 
+  })
+    res.status(200).json({singleTitle});
+  });  //KLAR
+
+  app.get("/members/:id", (req, res) => {
+    const singleMember = technigoMembers.find((member) => {
+      return member.id === +req.params.id; 
+      //return member.id === Number(req.params.id);
+      //return member.id.toString() === req.params.id;
+      //return member.id == req.params.id;
+    })
+    res.status(200).json({singleMember});
+  });
+
+app.get("/testar", (req, res) => 
+  res.send("nu testar jag")
+);
+
+app.get("/name", (req, res) => {
+  res.json([{ name: "Cecilia" }, { name: "Jonatan" }])
 });
 
 // Start the server
