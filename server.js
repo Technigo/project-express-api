@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import data from "./data/technigo-members.json"
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +22,32 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  /* console.log("req", req);
+  console.log("res", res); */
+  /* res.send({responseMessage: "Hello Technigo!"}); */
+
+  res.json({responseMessage: "Hello Technigo!"});
+});
+
+/* HTMLElement.addEventListener('nameOfTheListener', () => {
+
+}); */
+
+app.get("/members", (req, res) => {
+  
+  res.status(200).json({data: data});
+});
+
+app.get("/members/:id", (req, res) => {
+  const singleMember = data.find((item) => {
+    return item.id === +req.params.id;
+  })
+  /* use + because it needs to change to number from string
+  other way to do it;
+  return item.id === Number(req.params.id;)
+ */
+  
+  res.status(200).json(singleMember);
 });
 
 // Start the server
