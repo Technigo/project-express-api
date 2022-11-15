@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This aim for this week's project is to start learning the basic of backend. The main focus is building our own API. I created my own Ramen API (aside from what Technigo suggested).
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Surprisingly, this first step on backend programming was pretty smooth and I had lots of good time searching for ideas of which API I want to use. I decided to search for database on kaggle.com and then convert the csv file into json file via csvjson.com. I mostly used the knowledge I got from codealong with both Damien and Daniel to make all this API works. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-5dpplzryzq-lz.a.run.app
