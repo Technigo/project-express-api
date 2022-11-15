@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-
+import books from "./data/books"
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -23,6 +23,36 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+app.get("/books", (req, res) => {
+  res.status(200).json({books: books});
+});
+
+app.get("/books/:id", (req, res) => {
+  const singleBook = books.find((book) => {
+    return book.bookID === Number(req.params.id)
+  })
+  res.status(200).json(singleBook);
+});
+
+/*  app.get("/books/:authors", (req, res) => {
+  const author = req.params.authors
+  
+  const authorOfBook = books.authors.find((author) => {
+    return author.authors === req.params.authors
+  })
+  console.log(authorOfBook)
+  res.status(200).json(authorOfBook);
+});  */
+
+ app.get("/authors", (req, res) => {
+  /* const author = req.params.authors */
+  let authorOfBooks = books.map((item) => {
+    return item["authors"];
+  })
+  res.status(200).json({authorOfBooks});
+ /*  var keyArray = objArray.map(function(item) { return item["key"]; }); */
+}); 
 
 // Start the server
 app.listen(port, () => {
