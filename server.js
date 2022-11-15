@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import avocado from './data/avocado-sales.json'
+import books from './data/books.json'
+import movies from './data/netflix-titles.json'
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,8 +24,29 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(movies);
 });
+
+app.get("/movies", (req, res) => {
+  const releaseYear = req.query.release_year;
+  console.log(releaseYear);
+  let allMovies = movies.filter((movie) => movie.type === "Movie");
+  if(releaseYear) {
+    allMovies = allMovies.filter((movie) => movie.release_year === +releaseYear )
+  }
+  res.json(allMovies)
+})
+
+app.get("/tvShows", (req, res) => {
+  res.send(movies.filter((movie) => movie.type === "TV Show"))
+})
+
+app.get('/country/:country', (req, res) => {
+  const selectedCountry = req.params.country;
+  selectedCountry.toLowerCase();
+  const moviesFromCountry = movies.filter((movie) => movie.country.toLowerCase() === selectedCountry);
+  res.send(moviesFromCountry);
+})
 
 // Start the server
 app.listen(port, () => {
