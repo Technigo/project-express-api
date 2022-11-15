@@ -16,25 +16,26 @@ app.get("/", (req, res) => {
   Routes: [{
     "/titles": "Get movie titles",
     "/titles/id/'number'": "Get movie titles with matching id",
+    "titles/type/'choose Tv show or Movie'": "Get type of titles",
     "/titles?country='country name'": "Get movie titles from specific country.",
   }]
 }
   res.send(movies);
 });
 
-// Router for titles
+// All titles
 app.get("/titles", (req,res) => {
 res.json(netflixData)
 });
 
-//Router for countries
+// Filter by country on the same router
 app.get("/titles", (req,res) => {
   const { countries } = req.query
   let filteredCountry = []
 
   if (countries) {
        filteredCountry = netflixData.filter((movie) =>
-      movie.country.toLocaleLowerCase()
+       movie.country.toLocaleLowerCase()
         .includes(countries.toLocaleLowerCase())
     );
   }
@@ -53,6 +54,28 @@ app.get("/titles/:id", (req, res) => {
     res.status(200).send(displayId)
   }
 });
+
+//Router for Type
+app.get("/titles/type/:type", (req, res) => {
+  const type = req.params.type
+
+  let filteredType = []
+
+  if (type) {
+      filteredType = netflixData.filter((movie) => movie.type
+      .toLowerCase()
+      .includes(type.toLocaleLowerCase())
+  );
+  }
+
+  if(!filteredType) {
+    res.status(404).send("Not Found")
+  } else {
+    res.status(200).send(filteredType)
+  }
+
+});
+
 
 // Start the server
 app.listen(port, () => {
