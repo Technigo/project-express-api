@@ -15,7 +15,8 @@ app.get("/", (req, res) => {
   Welcome: "Hi! This a Netflix Api",
   Routes: [{
     "/titles": "Get movie titles",
-    "/titles/id/'number'": "Get movie titles with matching id."
+    "/titles/id/'number'": "Get movie titles with matching id",
+    "/titles?country='country name'": "Get movie titles from specific country.",
   }]
 }
   res.send(movies);
@@ -23,11 +24,26 @@ app.get("/", (req, res) => {
 
 // Router for titles
 app.get("/titles", (req,res) => {
- res.json(netflixData)
+res.json(netflixData)
+});
+
+//Router for countries
+app.get("/titles", (req,res) => {
+  const { countries } = req.query
+  let filteredCountry = []
+
+  if (countries) {
+       filteredCountry = netflixData.filter((movie) =>
+      movie.country.toLocaleLowerCase()
+        .includes(countries.toLocaleLowerCase())
+    );
+  }
+
+ res.json(filteredCountry)
 });
 
 // Router for Id
-app.get("/titles/id/:id", (req, res) => {
+app.get("/titles/:id", (req, res) => {
   const id = req.params.id
   const displayId = netflixData.find((movie) => movie.show_id === +id)
 
