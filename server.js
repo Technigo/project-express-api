@@ -1,54 +1,78 @@
 import express from "express";
 import cors from "cors";
-import data from "./data/technigo-members.json"
+import data from "./data/ramen.json"
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+// I am using another database I found on Kaggle.com which is a data about instant ramen products
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
+
 // Start defining your routes here
 app.get("/", (req, res) => {
-  /* console.log("req", req);
-  console.log("res", res); */
-  /* res.send({responseMessage: "Hello Technigo!"}); */
-
-  res.json({responseMessage: "Hello Technigo!"});
+  res.send({
+    "World of Instant Ramen": "Because Ramen safes your busy life",
+      "Routes":[{
+        "/ramen": "get list of all ramen",
+        "/ramen/country/:country": "get list of all ramen from specific country",
+        "/ramen/brand/:brand": "get list of all ramen with specific brand",
+        "/ramen/style/:style": "get list of all ramen with specific type of serving",
+        "/ramen/best": "get list of ramen from the highest rating to lowest rating"
+      }]
+  });
 });
 
-/* HTMLElement.addEventListener('nameOfTheListener', () => {
 
-}); */
+// Route to all ramen data
+app.get("/ramen", (req, res) => {
 
-app.get("/members", (req, res) => {
+  res.json(data)
+})
+
+
+// Route to ramen based on distribution between countries
+app.get("/ramen/country/:country", (req, res) => {
+  const country = req.params.country
+  let selectedCountry = data.filter((item) => item.Country === country)
   
-  res.status(200).json({data: data});
+  res.status(200).json(selectedCountry);
 });
 
-app.get("/members/:id", (req, res) => {
-  const singleMember = data.find((item) => {
-    return item.id === +req.params.id;
-  })
-  /* use + because it needs to change to number from string
-  other way to do it;
-  return item.id === Number(req.params.id;)
- */
+
+// Route to ramen based on the brand name
+app.get("/ramen/brand/:brand", (req, res) => {
+  const brand = req.params.brand
+  let selectedBrand = data.filter((item) => item.Brand === brand)
   
-  res.status(200).json(singleMember);
+  res.status(200).json(selectedBrand);
 });
+
+
+// Route to ramen based on how it is served
+app.get("/ramen/style/:style", (req, res) => {
+  const style = req.params.style
+  let selectedStyle = data.filter((item) => item.Style === style)
+  
+  res.status(200).json(selectedStyle);
+});
+
+
+// Route to sort ramen from best rating to lowest
+app.get("/ramen/best", (req, res) => {
+  const best = data.sort(
+    (a, b) => b.Stars - a.Stars
+  )
+
+  res.status(200).json(best)
+})
+
 
 // Start the server
 app.listen(port, () => {
