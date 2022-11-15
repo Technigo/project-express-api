@@ -40,7 +40,7 @@ app.get("/ramen", (req, res) => {
 // Route to ramen based on distribution between countries
 app.get("/ramen/country/:country", (req, res) => {
   const country = req.params.country
-  let selectedCountry = data.filter((item) => item.Country === country)
+  let selectedCountry = data.filter((item) => item.Country.toLowerCase() === country.toLowerCase())
   
   res.status(200).json(selectedCountry);
 });
@@ -49,7 +49,7 @@ app.get("/ramen/country/:country", (req, res) => {
 // Route to ramen based on the brand name
 app.get("/ramen/brand/:brand", (req, res) => {
   const brand = req.params.brand
-  let selectedBrand = data.filter((item) => item.Brand === brand)
+  let selectedBrand = data.filter((item) => item.Brand.toLowerCase() === brand.toLowerCase())
   
   res.status(200).json(selectedBrand);
 });
@@ -58,7 +58,7 @@ app.get("/ramen/brand/:brand", (req, res) => {
 // Route to ramen based on how it is served
 app.get("/ramen/style/:style", (req, res) => {
   const style = req.params.style
-  let selectedStyle = data.filter((item) => item.Style === style)
+  let selectedStyle = data.filter((item) => item.Style.toLowerCase() === style.toLowerCase())
   
   res.status(200).json(selectedStyle);
 });
