@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Startscreen
 app.get("/", (req, res) => {
-  res.send("Hello and welcome to your friendly book search! Add /endpoints in url to see what you which routes you can!");
+  res.send("Hello and welcome to your friendly book search! Add /endpoints in url to see what you which routes you can use.");
 });
 
 // To see what endpoints exists
