@@ -1,0 +1,4530 @@
+[
+  {
+    "Title": "Consultant",
+    "Company": "Infosys Limited",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Synergy Labs",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "REGex Software Services",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Zuvomo",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "CoinFantasy",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "SAVE - NGO",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "MPACT",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Ably Corporate",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zorang Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "ClassHose India Pvt. Ltd.",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SDLC Corporation",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Nexonweb Solution Pvt Ltd",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "HRsimpli",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Cubicle Crew Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Consulting Manager",
+    "Company": "Sopra Steria",
+    "Location": "Pune",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Tokyotechie",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Synergy Labs",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Zuvomo",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "REGex Software Services",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "LCX",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "TeraBlock",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "CoinFantasy",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "SAVE - NGO",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Ably Corporate",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zorang Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "ClassHose India Pvt. Ltd.",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SDLC Corporation",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Nexonweb Solution Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "HRsimpli",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Consulting Manager",
+    "Company": "Cubicle Crew Pvt Ltd",
+    "Location": "Pune",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Sopra Steria",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Tokyotechie",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Synergy Labs",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "REGex Software Services",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "TeraBlock",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "CoinFantasy",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Ably Corporate",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Zorang Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Hack2skill",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "ClassHose India Pvt. Ltd.",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SDLC Corporation",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Nexonweb Solution Pvt Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consulting Manager",
+    "Company": "HRsimpli",
+    "Location": "Pune",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Cubicle Crew Pvt Ltd",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Tokyotechie",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Infosys Limited",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Synergy Labs",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "REGex Software Services",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Zuvomo",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SAVE - NGO",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Ably Corporate",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Zorang Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "ClassHose India Pvt. Ltd.",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SDLC Corporation",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Nexonweb Solution Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1800000
+  },
+  {
+    "Title": "Consulting Manager",
+    "Company": "IBM",
+    "Location": "Pune",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "HRsimpli",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Sopra Steria",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Tokyotechie",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Synergy Labs",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Zuvomo",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "REGex Software Services",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "LCX",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Zuvomo",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "TeraBlock",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "CoinFantasy",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Ably Corporate",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zorang Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "ClassHose India Pvt. Ltd.",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "SDLC Corporation",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Consulting Manager",
+    "Company": "Nexonweb Solution Pvt Ltd",
+    "Location": "Pune",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Database Administrator Leader",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "HRsimpli",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Cubicle Crew Pvt Ltd",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Tokyotechie",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "IBM",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Infosys Limited",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "REGex Software Services",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "IBM",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Lapits Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Zuvomo",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "SAVE - NGO",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "CoinFantasy",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Hack2skill",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "KiwiTech",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Lapits Technologies",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Zorang Technologies",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Infosys Limited",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Zuvomo",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "REGex Software Services",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "SAVE - NGO",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Sopra Steria",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Wits Innovation Lab",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "LCX",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Hack2skill",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "KiwiTech",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Lapits Technologies",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Zorang Technologies",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Synergy Labs",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Zuvomo",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "REGex Software Services",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "LCX",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "CoinFantasy",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Senior Blockchain Developer",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Hack2skill",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "KiwiTech",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "IBM",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Lapits Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "IBM",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Zorang Technologies",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Sparx IT Solutions",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Synergy Labs",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "REGex Software Services",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "SAVE - NGO",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Senior Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "TeraBlock",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Binance",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Hack2skill",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "KiwiTech",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "IBM",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Sparx IT Solutions",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Infosys Limited",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Synergy Labs",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "REGex Software Services",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Senior Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "MPACT",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "TeraBlock",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Binance",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Sopra Steria",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Hack2skill",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Lapits Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zorang Technologies",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sparx IT Solutions",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Synergy Labs",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "REGex Software Services",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Senior Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Lapits Technologies",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "SAVE - NGO",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "MPACT",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "TeraBlock",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "CoinFantasy",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "LCX",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Hack2skill",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "KiwiTech",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zorang Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sparx IT Solutions",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Synergy Labs",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "REGex Software Services",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "LCX",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Lapits Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Zuvomo",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "SAVE - NGO",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "CoinFantasy",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Binance",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Sopra Steria",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "LCX",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Zorang Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Infosys Limited",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "REGex Software Services",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "IBM",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Zuvomo",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "SAVE - NGO",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "MPACT",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "CoinFantasy",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Binance",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Sopra Steria",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Zorang Technologies",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Synergy Labs",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "REGex Software Services",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "IBM",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Lapits Technologies",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Zuvomo",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "MPACT",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "TeraBlock",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "CoinFantasy",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Binance",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sopra Steria",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Hack2skill",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "IBM",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Lapits Technologies",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Zorang Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Infosys Limited",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "REGex Software Services",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "IBM",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Lapits Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Zuvomo",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "SAVE - NGO",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "CoinFantasy",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "KiwiTech",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Lapits Technologies",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "IBM",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Zorang Technologies",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Infosys Limited",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Synergy Labs",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Zuvomo",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "REGex Software Services",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Sopra Steria",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Wits Innovation Lab",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "LCX",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Hack2skill",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "KiwiTech",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "IBM",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Zorang Technologies",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Infosys Limited",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Infosys Limited",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Zuvomo",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "REGex Software Services",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "LCX",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "MPACT",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "CoinFantasy",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Binance",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Wits Innovation Lab",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "KiwiTech",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "IBM",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "Lapits Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "IBM",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Zorang Technologies",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Synergy Labs",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "REGex Software Services",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Lapits Technologies",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "MPACT",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "TeraBlock",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Binance",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "Sopra Steria",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "Hack2skill",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "KiwiTech",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "IBM",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "Zorang Technologies",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "Infosys Limited",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Infosys Limited",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "REGex Software Services",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Lead Finance Manager",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "IBM",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Zuvomo",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "SAVE - NGO",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "MPACT",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Business Development Associate",
+    "Company": "TeraBlock",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "CoinFantasy",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Binance",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Sopra Steria",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "Wits Innovation Lab",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "IBM",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Lapits Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "IBM",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Zorang Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "Interwork Software Solutions Pvt.Ltd",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Content Manager",
+    "Company": "Infosys Limited",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Infosys Limited",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Test Engineer",
+    "Company": "Synergy Labs",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Senior Blockchain Developer",
+    "Company": "Zuvomo",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Non Title",
+    "Company": "REGex Software Services",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Analyst",
+    "Company": "LCX",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Varaha ClimateAg Private Limited",
+    "Location": "Pune",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Head Finance Manager",
+    "Company": "IBM",
+    "Location": "New Delhi",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Consultant",
+    "Company": "Sarahna Industries Pvt. Ltd.",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Senior Consultant",
+    "Company": "Lapits Technologies",
+    "Location": "Bangalore",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 200000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Zuvomo",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 900000
+  },
+  {
+    "Title": "Social Media Manager",
+    "Company": "Panaesha Capital ltd. pvt",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 100000,
+    "Salary_Upper_Limit": 200000
+  },
+  {
+    "Title": "Field Interviewer",
+    "Company": "MPACT",
+    "Location": "Sonipat",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 900000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "TeraBlock",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 96000,
+    "Salary_Upper_Limit": 100000
+  },
+  {
+    "Title": "Digital Marketing",
+    "Company": "CoinFantasy",
+    "Location": "Gurgaon",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1100000
+  },
+  {
+    "Title": "Blockchain Developer Intern",
+    "Company": "Binance",
+    "Location": "Noida",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Trainer",
+    "Company": "QuillHash Technologies Pvt Ltd",
+    "Location": "Warangal",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 2000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Sopra Steria",
+    "Location": "Alwar",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Technical Recruiter",
+    "Company": "Wits Innovation Lab",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 1200000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "LCX",
+    "Location": "Remote",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 1500000
+  },
+  {
+    "Title": "Associate Blockchain Developer",
+    "Company": "Sweply Technology Pvt Ltd",
+    "Location": "Gurgaon",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Hack2skill",
+    "Location": "Nashik",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 500000,
+    "Salary_Upper_Limit": 700000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "KiwiTech",
+    "Location": "Bangalore",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 1000000
+  },
+  {
+    "Title": "Blockchain Developer",
+    "Company": "Waterneer Biokube Technologies",
+    "Location": "Noida",
+    "easyapply": "FALSE",
+    "Salary_Lower_Limit": 800000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Business Development Manager",
+    "Company": "IBM",
+    "Location": "India",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 400000,
+    "Salary_Upper_Limit": 800000
+  },
+  {
+    "Title": "Full Stack Engineer",
+    "Company": "Lapits Technologies",
+    "Location": "New Delhi",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 300000,
+    "Salary_Upper_Limit": 300000
+  },
+  {
+    "Title": "Project Manager",
+    "Company": "IBM",
+    "Location": "Tiruppūr",
+    "easyapply": "TRUE",
+    "Salary_Lower_Limit": 1200000,
+    "Salary_Upper_Limit": 1200000
+  }
+]
