@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -68,14 +68,43 @@ app.get("/authors/:author", (req, res) => {
   }
 });
 
-//TODO fix pagination 
 
 //sort by ratings in ascending order
-app.get("/ratings/top100", (req, res) => {
-    booksData.sort((a, b) => a.average_rating - b.average_rating).reverse();
-    res.json(booksData);
+app.get("/ratings", paginatedResults(booksData), (req, res) => {
+  booksData.sort((a, b) => a.average_rating - b.average_rating).reverse();
+  res.json(res.paginatedResults);
 });
 
+
+function paginatedResults (model) {
+  return (req, res, next) => {
+    const page = +req.query.page
+    const limit = +req.query.limit
+  
+    const startIndex = (page - 1) * limit
+    const endIndex = 100
+    
+    const results = {}
+  
+    if (endIndex < 100) {
+      results.next = {
+        page: page + 1,
+        limit: limit
+      }
+    }
+      if (startIndex > 0) {
+      results.previous = {
+        page: page - 1,
+        limit: limit
+      }
+    }
+  
+    results.results = model.slice(startIndex, endIndex)
+
+    res.paginatedResults = results
+    next()
+    }
+}
 
 
 
