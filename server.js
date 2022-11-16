@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import data from "./data/netflix-titles.json"
+import listEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 const port = process.env.PORT || 8080;
@@ -30,9 +31,15 @@ const pagination = (data, pageNumber) => {
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Find the different movies from a netflix api build backend , /movies, /movies/title/:title, /movies/year/:year, /movies/type/:type, /random-movie");
+  res.send("An Api of netflixe movies titels. Go to /endpoints to see all endpoints");
 });
 
+// list endpoints for all routers that is created in this file. 
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app))
+})
+
+// see all movies in the data file
 app.get("/movies", (req,res) => {
   const { title, country, director, cast } = req.params; 
   let allMovies = data 
@@ -52,9 +59,10 @@ app.get("/movies", (req,res) => {
       data: allMovies,
       success: true,
     });
- 
+ console.log(allMovies)
 })
 
+// see specific movie title 
 app.get("/movies/title/:title", (req, res) => {
   const { title } = req.params;
   const moviesByName = data.find(
@@ -63,7 +71,7 @@ app.get("/movies/title/:title", (req, res) => {
 
   if (!moviesByName) {
     res.status(404).json({
-      data: "Not found",
+      data: "Oh sorry, we cant find a movie with that name. ",
       success: false,
     });
   } else {
@@ -77,9 +85,10 @@ app.get("/movies/title/:title", (req, res) => {
 /* it´s not showing data */
 app.get("/movies/year/:year", (req, res) => {
   const { release_year } = req.params;
-  console.log({ release_year })
+
   
-  const releaseYear = data.filter((item) => item.release_year === +release_year)
+  const releaseYear = data.filter((item) => item.release_year === release_year)
+  console.log( 'year',releaseYear)
 
   if(!releaseYear) {
     res.status(404).json({
@@ -117,7 +126,7 @@ app.get("/random-movie", (req,res) => {
   const randomMovie = data[Math.floor(Math.random()* data.length)]
   if(!randomMovie) {
     res.status(404).json({
-      data: "No movies like this ",
+      data: "Opps, we couldnt find any random movie right now. Please try again.",
       success: false, 
     })
   } else {
