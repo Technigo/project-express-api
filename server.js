@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-
+import technigoMembers from "./data/technigo-members.json";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -16,12 +16,28 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
+// The cors helps us to have both frontend and backend
+// to be on the local host, without having errors.
 app.use(cors());
+//Allows us to read the bodies from the request as a json
 app.use(express.json());
 
 // Start defining your routes here
+// This is the first Get request
+//The path is the slash. Is the base path in this case.
+// req = request res = result
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  //console.log("req", req);
+  //console.log("res", res);
+  //res.send({responseMessage: "Hello Technigo!"});
+  res.json({responseMessage: "Hello Technigo!"});
+});
+//HTMLElement.addEventListener('nameOfTheListener', () => {
+
+//});
+app.get("/members", (req, res) => {
+
+  res.status(200).json({technigoMembers: technigoMembers});
 });
 
 // Start the server
