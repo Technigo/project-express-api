@@ -1,0 +1,24 @@
+[
+{
+    "id": 1,
+    "name": "Matilda",
+    "role": "code coach"
+},
+
+{
+    "id": 2,
+    "name": "Poya",
+    "role": "project manager"
+},
+
+{
+    "id": 3,
+    "name": "Daniel",
+    "role": "code coach"
+},
+{
+    "id": 4,
+    "name": "Petra",
+    "role": "Career coach"
+}
+]   
