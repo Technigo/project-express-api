@@ -1,1 +1,1 @@
-GET http://localhost:8080/titles?countries=argentina
+GET http://localhost:8080/titles?country=argentina

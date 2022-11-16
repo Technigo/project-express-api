@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
-import listEndpoints from "express-list-endpoints"
+import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -37,7 +37,7 @@ res.json(netflixData)
 
 app.get("/titles", (req, res) => {
   const { country, releaseYear } = req.query
-  let filteredData = []
+  let filteredData = netflixData
 
   if (country) {
     filteredData = netflixData.filter((movie) =>
@@ -78,15 +78,10 @@ app.get("/titles/:id", (req, res) => {
 
 app.get("/titles/type/:type", (req, res) => {
   const type = req.params.type
-
-  let filteredType = []
-
-  if (type) {
-    filteredType = netflixData.filter((movie) => movie.type
+  const filteredType = netflixData.filter((movie) => movie.type
       .toLowerCase()
       .includes(type.toLocaleLowerCase())
     );
-  }
 
   if (!filteredType) {
     res.status(404).send("Not Found")
