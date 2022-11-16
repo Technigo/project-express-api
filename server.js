@@ -1,17 +1,15 @@
 import express, { request } from "express";
+// import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json";
+import booksData from "./data/books.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+	// 	Routes
+	// 		  "/books": "All books",
+  //       "/books/author": "authors in alphabetic order",
+  //       "/books/:id/": "Search books by BookID",
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
+// when starting the server. Example command to overwrite PORT envornmental variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -22,31 +20,30 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-	// console.log("req", req);
-	// console.log("res", res);
-  // res.send("Hello Technigo!");
-	// res.send({responseMessage: "Hello Technigo!"});
-	
-	res.json({responseMessage: "Hello Technigo!"});
-});
-// HTMLElement.addEventListener('nameOfListener', () =>{
-
-// })
-
-app.get("/members", (req, res) => {
-	
-	res.status(200).json({technigoMembers: technigoMembers});
+	res.json({BooksClubMessage: "Welcome to API for book data!"});
 });
 
-app.get("/members/:id", (req, response) => {
-	const singleMember = technigoMembers.find((member) => {
-		return member.id === +request.params.id
-	})
-	console.log(singleMember)
-	response.status(200).json(singleMember);
+//Create a new endpoint with collection of all Books data
+app.get("/books", (req, res) => {
+	res.status(200).json({booksData: booksData});
 });
-
-// Start the server
+//Create a new endpoint with authors in alphabetic order
+app.get("/books/authors/", (req, response) => {
+  const allAuthors = booksData.map((item) => item.authors).sort();
+	console.log(allAuthors);
+	response.status(200).json(allAuthors);
+});
+//Create a new endpoint with bookID
+app.get('/books/:id', (req, res) => {
+  const id = req.params.id
+  const bookId = booksData.find((item) => item.bookID === +id)
+//404
+  if (!bookId) {
+    res.status(404).send({ errorMessage: `No book with this id found. Try to find the right id` })
+  }
+  res.send(bookId)
+})
+// Start the server.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
