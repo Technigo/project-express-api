@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Route 1: Main page
 app.get("/", (req, res) => {
-  res.send("📚 Hello and welcome to your digital library! 📚 Look for books at these endpoints: /books, books/id/:id, books/top-rated, /books/search?author=, books/lang/:lang");
+  res.send("📚 Hello and welcome to your digital library! 📚 Look for books at these endpoints: /books, books/id/:id, books/top-rated, /books/search?author=, /books/title/:title, books/lang/:lang");
 });
 
 //Route 2: All books data
@@ -54,7 +54,16 @@ app.get("/books/search", (req, res) => {
   res.json(getAuthor)
 })
 
-//Route 6: Filter books by language code, example path: books/lang/eng
+// Route 6: Get book by title, example path: /books/title/hamlet
+app.get("/books/title/:title", (req, res) => {
+  const title = req.params.title
+  const getTitle= booksData.filter((item) => item.title.toLowerCase().includes(title.toLowerCase())) 
+
+  res.json(getTitle)
+});
+
+
+//Route 7: Filter books by language code, example path: books/lang/eng
 app.get("/books/lang/:lang", (req, res) => {
   const lang = req.params.lang
   const bookLanguage = booksData.filter((item) => item.language_code === lang);
@@ -65,6 +74,7 @@ app.get("/books/lang/:lang", (req, res) => {
 
   res.json(bookLanguage)
 })
+
 
 // Start the server
 app.listen(port, () => {
