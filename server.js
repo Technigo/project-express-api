@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json("Hello Europe!");
+  res.json("Hello Europe! Let's explore the winners from the Eurovision Song Contest throughout the years! See the entire list by adding '/winners' to this adress!");
 });
 
 app.get("/winners", (req, res) => {
@@ -29,9 +29,9 @@ app.get("/winners/:year", (req, res) => {
   res.status(200).json({ singleWinner })
 })
 
-app.get("/:country", (req, res) => {
-  const winningCountry = eurovisionWinners.filter((c) => {
-    return c.country === req.params.country
+app.get("/:countries", (req, res) => {
+  const winningCountries = eurovisionWinners.filter((c) => {
+    return c.countries.toLowerCase() === req.params.country.toLowerCase()
   })
   console.log(winningCountry)
   res.status(200).json({ winningCountry })
