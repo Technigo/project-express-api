@@ -1,1 +1,1 @@
-GET http://localhost:8080/titles/type/TV Show
+GET http://localhost:8080/titles/type/TV%20Show
