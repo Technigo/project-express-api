@@ -14,8 +14,10 @@ app.get("/", (req, res) => {
     Endpoints: [
       {
         "/bookData": "Display all books",
+        "/bookData/authors/:authors": "Search for a author",
+        "/bookData/title/:title": "Search for a title", 
         "/bookData/average_rating/": "Average rating of books",
-        "/bookData/num_pages/": "Sorts the books based on number of pages",
+        "/bookData/num_pages/": "The thickest book",
       },
     ],
   };
@@ -30,12 +32,71 @@ app.get('/bookData', (req, res) => {
   })
   })
 
+
+  app.get("/booksData/title/:title", (req, res) => {
+    const { title } = req.params;
+    const booksByTitle = bookData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase())
+      );
+        res.status(200).json({
+          data: booksByTitle,
+          success: true,
+      })
+  });
+
+
 // sorts the api to display  book rating from highest to lowest
 app.get("/bookData/average_rating/", (req, res) => {
   const { average_rating } = req.params;
   const bookRating = bookData.sort((a, b) => b.average_rating - a.average_rating)
     res.json(bookRating.slice(0, [-1])) 
 })
+
+// if the user search for a author 
+app.get('/bookData/authors/:authors', (req, res) => {
+  const { authors } = req.params;
+
+  let byAuthor = bookData;
+
+  if (authors) {
+    byAuthor = byAuthor
+.filter((item) => item.authors.toLowerCase().includes(authors.toLowerCase()));
+  };
+  if (byAuthor.length === 0) {
+    res.status(200).json({
+      data: "We don't have any books by that author - did you spell correctly?",
+      success: true,
+    });
+  } else {
+    res.status(200).json({
+      data: byAuthor,
+      success: true,
+    });
+  };
+  });
+
+// if the user searches for title 
+  app.get('/bookData/title/:title', (req, res) => {
+    const { title } = req.params;
+  
+    let byTitle = bookData;
+  
+    if (title) {
+      byTitle = byTitle
+  .filter((item) => item.title.toLowerCase().includes(title.toLowerCase()));
+    };
+    if (byTitle.length === 0) {
+      res.status(200).json({
+        data: "There's no books here by that name",
+        success: true,
+      });
+    } else {
+      res.status(200).json({
+        data: byTitle,
+        success: true,
+      });
+    };
+    });  
+
 
 // sorts the books in order from most to fewest pages
 app.get("/bookData/num_pages/", (req, res) => {
