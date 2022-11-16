@@ -37,32 +37,22 @@ app.get("/", (req, res) => {
 });
 
 app.get('/tracks', (req, res) => {
-  const highBpm = req.query.highbpm
-  const mediumBpm = req.query.mediumbpm
-  const lowBpm  = req.query.lowbpm
+  const highBpm = req.query
+  const mediumBpm = req.query
+  const lowBpm  = req.query
   let filteredTracks = data
 
-  if (lowBpm) {
-    filteredTracks = filteredTracks.filter((item) => item.bpm < 80)
-  }
+  if (lowBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm < 80)}
 
-  if (mediumBpm) {
-    filteredTracks = filteredTracks.filter((item) => item.bpm = 81 > 119)
-  }
+  if (mediumBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm = 81 > 119)}
 
-  if (highBpm) {
-    filteredTracks = filteredTracks.filter((item) => item.bpm > 120)
-  }
+  if (highBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm > 120)}
 
-  if (filteredTracks.length === 0) {
-    res.status(200).json({
-      data: "Sorry, we did not find a track matching your search.",
-    })
-  } else {
-    res.status(200).json(filteredTracks)
-  }
+  if (filteredTracks.length === 0) {res.json("Sorry, no track match your criteria.")} 
+  
+  //else {res.json(filteredTracks)}
 
-  res.status(200).json(data)
+  res.json(filteredTracks)
 })
 
 app.get('/artist/:artist', (req, res) => {
