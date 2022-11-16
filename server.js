@@ -28,46 +28,43 @@ app.get('/books', (req, res) => {
 	let filteredBooks = booksData
 	
 	if(author) {
-    const singleAuthor = filteredBooks.filter((item) => 
+    filteredBooks = filteredBooks.filter((item) => 
     item.authors.toLocaleLowerCase()
     .includes(author.toLocaleLowerCase()))
-
-    if(singleAuthor.length === 0) {
-      return res.status(404).json("Sorry we couldn't find the author you seek")
-    } else {
-      return res.json(singleAuthor);
-	  }
+    console.log(filteredBooks)
   }
+
 	if(title) {
-    const singleTitle = filteredBooks.filter((item) => 
+    filteredBooks = filteredBooks.filter((item) => 
     item.title.toLocaleLowerCase()
     .includes(title.toLocaleLowerCase()))
+  }
 
-    if(singleTitle.length === 0) {
-      return res.status(404).json("Sorry we couldn't find book you seek")
-    } else {
-      return res.json(singleTitle);
-	  }
-	}
+  if(filteredBooks.length === 0) {
+    return res.status(404).json("Sorry we couldn't find book you seek")
+  } else {
+    res.json(filteredBooks);
+  }
+  
 })
 
 // filter books by id
-// app.get("/books/:id", (req, res) => {
-//   const singleBook = booksData.filter((item) => item.bookID == req.params.id)
-//   if (singleBook.length === 0) {
-//     return res.status(404).json("Sorry, this book does not exist. Try again with another number");
-//   } else {
-//     return res.json(singleBook)
-//   }
-// });
+app.get("/books/:id", (req, res) => {
+  const singleBook = booksData.filter((item) => item.bookID == req.params.id)
+  if (singleBook.length === 0) {
+    res.status(404).json("Sorry, this book does not exist. Try again with another number");
+  } else {
+    res.json(singleBook)
+  }
+});
 
 //filter books by specific author
 app.get("/authors/:author", (req, res) => {
   const singleAuthor = booksData.filter((item) => item.authors === req.params.author)
   if (singleAuthor.length === 0) {
-    return res.status(404).json("Sorry, this author does not exist. Try again with another name.");
+    res.status(404).json("Sorry, this author does not exist. Try again with another name.");
   } else {
-    return res.json(singleAuthor);
+    res.json(singleAuthor);
   }
 });
 
