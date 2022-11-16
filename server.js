@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json"
+import topMusicData from "./data/top-music";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,24 +21,35 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  // console.log("req", req)
-  // console.log("res", req)
-  // res.send({responseMessage: "Hello Technigo!"});
-  res.json({responseMessage: "Hello Technigo!"});
+app.get("/", (request, response) => {
+  response.json("this is top music on spötify");
 });
 
-app.get("/members", (request, response) => {
-  response.status(200).json({technigoMembers: technigoMembers});
+app.get("/songs", (request, response) => {
+  response.status(200).json({topMusicData: topMusicData});
 });
 
-app.get("/members/:id", (request, response) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === Number(request.params.id);
+app.get("/songs/:id", (request, response) => {
+  const singleSong = topMusicData.find((song) => {
+    return song.id === Number(request.params.id);
   });
-  console.log(singleMember)
-  response.status(200).json(singleMember);
+  console.log(singleSong)
+  response.status(200).json(singleSong);
 });
+
+app.get("/songs/:id", (request, response) => {
+  const singleSong = request.params.id
+  const popMusic = request.query.genre
+  let topPopMusic = topMusicData.filter((item) => item.genre === +singleSong)
+
+  if (popMusic) {
+    topPopMusic = topPopMusic.filter((item) => item.genre)
+  }
+
+  response.status(200).json(topPopMusic);
+});
+
+
 
 // Start the server
 app.listen(port, () => {
