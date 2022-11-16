@@ -1,13 +1,6 @@
 import express from "express";
 import cors from "cors";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
 import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -20,24 +13,54 @@ app.use(cors());
 app.use(express.json());
 
 // Route that returns all data on all books
-app.get("/books", (req, res) => {
-  // usually written: res.send({responseMessage: "Hello Technigo"})
-  let allBooks = booksData;
+app.get('/books', (req, res) => {
 
-  // Filter for top-rated books
-  const showTop = req.query.top;
-  if (showTop) {
-    allBooks = allBooks.filter((book) => book.average_rating > '4.5')
+  // function for pagination:
+  const pagination = (data, pageNumber) => {
+    const pageSize = 45
+    const startIndex = (pageNumber-1) * pageSize
+    const endIndex = startIndex + pageSize
+    const itemsOnPage = data.slice(startIndex, endIndex)
+
+    const returnObject = {
+        page_size: pageSize,
+        page: pageNumber,
+        num_of_pages: Math.ceil(data.length / pageSize),  //was pagesize
+        items_on_page: booksOnPage.length,
+        results: itemsOnPage
+    }
+    return returnObject
+}
+  const author = req.query.author
+  const top = req.query.top
+  let allBooks = booksData;
+  
+  // Filter for specific author: /books?author=douglas%20adams
+  if (author) {
+    allBooks = allBooks.filter((book) => 
+      book.authors.toLocaleLowerCase()
+      .includes(author.toLocaleLowerCase()))
+  }
+  // Filter for top-rated books: /books?top=true
+  if (top) {
+    allBooks = allBooks.filter((book) => 
+      book.average_rating > '4.3')
   } 
-  res.json({ booksData: allBooks }) 
+  if (allBooks.length === 0) {
+		res.status(404).json("Sorry we couldn't find the book you seek")
+	} else res.status(200).json(allBooks) 
 });
 
 
-// Route for books by a specific author
-app.get("/books/:author", (req, res) => {
-  const author = req.params.author
-  const byAuthor = booksData.filter((book) => book.authors.toLowerCase() === author.toLowerCase())
-  res.json({ byAuthor }) 
+// Route for a single book based on id 
+app.get("/books/:id", (req, res) => {
+  const id = req.params.id
+  const singleBook = booksData.find((book) => {
+    return book.bookID === +id})
+
+  if (!singleBook) {
+    res.status(404).json("Sorry we couldn't find a book with that id")
+	} else res.status(200).json(singleBook) 
 })
 
 // Start the server
