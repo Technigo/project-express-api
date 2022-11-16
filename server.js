@@ -52,6 +52,7 @@ app.get("/ramen/id/:id", (req, res) => {
 
 // Route to ramen based on distribution between countries
 // example route: /ramen/country/indonesia
+// example route to good ramen: /country/south%20korea?good=true
 app.get("/ramen/country/:country", (req, res) => {
   const country = req.params.country
   const { bad, good } = req.query
@@ -62,7 +63,7 @@ app.get("/ramen/country/:country", (req, res) => {
   if(good){
     selectedCountry = selectedCountry.filter((item) => item.Stars > 4)
   }
-  
+
   res.status(200).json(selectedCountry);
 });
 
