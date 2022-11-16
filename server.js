@@ -1,6 +1,6 @@
-import express from "express";
+import express, { request } from "express";
 import cors from "cors";
-
+import technigomembers from "./data/technigo-members";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -21,7 +21,18 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({responseMessage: "hej"}); //sending as json object and show it as json
+});
+
+app.get("/members", (req, res) => {
+  res.status(200).json({technigomembers: technigomembers}); //sending as json object and show it as json
+});
+
+app.get("/members/:id", (req, res) => {
+  const singleMembler = technigomembers.find((member) => { //find-method  needs return statement
+    return member.id == req.params.id;
+  })
+  res.status(200).json({singleMembler}); //sending as json object and show it as json
 });
 
 // Start the server
