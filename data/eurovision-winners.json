@@ -1,0 +1,632 @@
+[
+  {
+    "year": 1956,
+    "country": "Switzerland",
+    "song": "Refrain",
+    "artist": "Lys Assia",
+    "songwriters": "Géo Voumard\nÉmile Gardaz",
+    "total_points": 0,
+    "location": "Lugano"
+  },
+  {
+    "year": 1957,
+    "country": "Netherlands",
+    "song": "Net als toen",
+    "artist": "Corry Brokken",
+    "songwriters": "Guus Jansen\nWilly van Hemert",
+    "total_points": 31,
+    "location": "Frankfurt"
+  },
+  {
+    "year": 1958,
+    "country": "France",
+    "song": "Dors, mon amour",
+    "artist": "André Claveau",
+    "songwriters": "Hubert Giraud\nPierre Delanoë",
+    "total_points": 27,
+    "location": "Hilversum"
+  },
+  {
+    "year": 1959,
+    "country": "Netherlands",
+    "song": "Een beetje",
+    "artist": "Teddy Scholten",
+    "songwriters": "Dick Schallies\nWilly van Hemert",
+    "total_points": 21,
+    "location": "Cannes"
+  },
+  {
+    "year": 1960,
+    "country": "France",
+    "song": "Tom Pillibi",
+    "artist": "Jacqueline Boyer",
+    "songwriters": "André Popp\nPierre Cour",
+    "total_points": 32,
+    "location": "London"
+  },
+  {
+    "year": 1961,
+    "country": "Luxembourg",
+    "song": "Nous les amoureux",
+    "artist": "Jean-Claude Pascal",
+    "songwriters": "Jacques Datin\nMaurice Vidalin",
+    "total_points": 31,
+    "location": "Cannes"
+  },
+  {
+    "year": 1962,
+    "country": "France",
+    "song": "Un premier amour",
+    "artist": "Isabelle Aubret",
+    "songwriters": "Claude-Henri Vic\nRoland Valade",
+    "total_points": 26,
+    "location": "Luxembourg"
+  },
+  {
+    "year": 1963,
+    "country": "Denmark",
+    "song": "Dansevise",
+    "artist": "Grethe and Jørgen Ingmann",
+    "songwriters": "Otto Francker\nSejr Volmer-Sørensen",
+    "total_points": 42,
+    "location": "London"
+  },
+  {
+    "year": 1964,
+    "country": "Italy",
+    "song": "Non ho l'età",
+    "artist": "Gigliola Cinquetti",
+    "songwriters": "Nicola Salerno\nMario Panzeri",
+    "total_points": 49,
+    "location": "Copenhagen"
+  },
+  {
+    "year": 1965,
+    "country": "Luxembourg",
+    "song": "Poupée de cire, poupée de son",
+    "artist": "France Gall",
+    "songwriters": "Serge Gainsbourg",
+    "total_points": 32,
+    "location": "Naples"
+  },
+  {
+    "year": 1966,
+    "country": "Austria",
+    "song": "Merci, Chérie",
+    "artist": "Udo Jürgens",
+    "songwriters": "Udo Jürgens\nThomas Hörbiger",
+    "total_points": 31,
+    "location": "Luxembourg"
+  },
+  {
+    "year": 1967,
+    "country": "United Kingdom",
+    "song": "Puppet on a String",
+    "artist": "Sandie Shaw",
+    "songwriters": "Bill Martin\nPhil Coulter",
+    "total_points": 47,
+    "location": "Vienna"
+  },
+  {
+    "year": 1968,
+    "country": "Spain",
+    "song": "La, la, la",
+    "artist": "Massiel",
+    "songwriters": "Manuel de la Calva\nRamón Arcusa (Dúo Dinámico)",
+    "total_points": 29,
+    "location": "London"
+  },
+  {
+    "year": 1969,
+    "country": "Spain",
+    "song": "Vivo cantando",
+    "artist": "Salomé",
+    "songwriters": "María José de Cerato\nAniano Alcalde",
+    "total_points": 18,
+    "location": "Madrid"
+  },
+  {
+    "year": 1969,
+    "country": "United Kingdom",
+    "song": "Boom Bang-a-Bang",
+    "artist": "Lulu",
+    "songwriters": "Alan Moorhouse\nPeter Warne",
+    "total_points": 18,
+    "location": ""
+  },
+  {
+    "year": 1969,
+    "country": "Netherlands",
+    "song": "De troubadour",
+    "artist": "Lenny Kuhr",
+    "songwriters": "David Hartsema\nLenny Kuhr",
+    "total_points": 18,
+    "location": ""
+  },
+  {
+    "year": 1969,
+    "country": "France",
+    "song": "Un jour, un enfant",
+    "artist": "Frida Boccara",
+    "songwriters": "Émile Stern\nEddy Marnay",
+    "total_points": 18,
+    "location": ""
+  },
+  {
+    "year": 1970,
+    "country": "Ireland",
+    "song": "All Kinds of Everything",
+    "artist": "Dana",
+    "songwriters": "Derry Lindsay\nJackie Smith",
+    "total_points": 32,
+    "location": "Amsterdam"
+  },
+  {
+    "year": 1971,
+    "country": "Monaco",
+    "song": "Un banc, un arbre, une rue",
+    "artist": "Séverine",
+    "songwriters": "Jean-Pierre Bourtayre\nYves Dessca",
+    "total_points": 128,
+    "location": "Dublin"
+  },
+  {
+    "year": 1972,
+    "country": "Luxembourg",
+    "song": "Après toi",
+    "artist": "Vicky Leandros",
+    "songwriters": "Leo Leandros\nKlaus Munro\nYves Dessca",
+    "total_points": 128,
+    "location": "Edinburgh"
+  },
+  {
+    "year": 1973,
+    "country": "Luxembourg",
+    "song": "Tu te reconnaîtras",
+    "artist": "Anne-Marie David",
+    "songwriters": "Claude Morgan\nVline Buggy",
+    "total_points": 129,
+    "location": "Luxembourg"
+  },
+  {
+    "year": 1974,
+    "country": "Sweden",
+    "song": "Waterloo",
+    "artist": "ABBA",
+    "songwriters": "Benny Andersson\nBjörn Ulvaeus\nStig Anderson",
+    "total_points": 24,
+    "location": "Brighton"
+  },
+  {
+    "year": 1975,
+    "country": "Netherlands",
+    "song": "Ding-a-dong",
+    "artist": "Teach-In",
+    "songwriters": "Dick Bakker\nWill Luikinga\nEddy Ouwens",
+    "total_points": 152,
+    "location": "Stockholm"
+  },
+  {
+    "year": 1976,
+    "country": "United Kingdom",
+    "song": "Save Your Kisses for Me",
+    "artist": "Brotherhood of Man",
+    "songwriters": "Tony Hiller\nLee Sheriden\nMartin Lee",
+    "total_points": 164,
+    "location": "The Hauge"
+  },
+  {
+    "year": 1977,
+    "country": "France",
+    "song": "L'oiseau et l'enfant",
+    "artist": "Marie Myriam",
+    "songwriters": "Jean-Paul Cara\nJoe Gracy",
+    "total_points": 135,
+    "location": "London"
+  },
+  {
+    "year": 1978,
+    "country": "Israel",
+    "song": "A-Ba-Ni-Bi\" (א-ב-ני-בי)",
+    "artist": "Izhar Cohen and the Alphabeta",
+    "songwriters": "Nurit Hirsh\nEhud Manor",
+    "total_points": 157,
+    "location": "Paris"
+  },
+  {
+    "year": 1979,
+    "country": "Israel",
+    "song": "Hallelujah\" (הללויה)",
+    "artist": "Milk and Honey",
+    "songwriters": "Kobi Oshrat\nShimrit Orr",
+    "total_points": 125,
+    "location": "Jerusalem"
+  },
+  {
+    "year": 1980,
+    "country": "Ireland",
+    "song": "What's Another Year",
+    "artist": "Johnny Logan",
+    "songwriters": "Shay Healy",
+    "total_points": 143,
+    "location": "The Hauge"
+  },
+  {
+    "year": 1981,
+    "country": "United Kingdom",
+    "song": "Making Your Mind Up",
+    "artist": "Bucks Fizz",
+    "songwriters": "Andy Hill\nJohn Danter",
+    "total_points": 136,
+    "location": "Dublin"
+  },
+  {
+    "year": 1982,
+    "country": "Germany",
+    "song": "Ein bißchen Frieden",
+    "artist": "Nicole",
+    "songwriters": "Ralph Siegel\nBernd Meinunger",
+    "total_points": 161,
+    "location": "Harrogate"
+  },
+  {
+    "year": 1983,
+    "country": "Luxembourg",
+    "song": "Si la vie est cadeau",
+    "artist": "Corinne Hermès",
+    "songwriters": "Jean-Pierre Millers\nAlain Garcia",
+    "total_points": 142,
+    "location": "Munich"
+  },
+  {
+    "year": 1984,
+    "country": "Sweden",
+    "song": "Diggi-Loo Diggi-Ley",
+    "artist": "Herreys",
+    "songwriters": "Torgny Söderberg\nBritt Lindeborg",
+    "total_points": 145,
+    "location": "Luxembourg"
+  },
+  {
+    "year": 1985,
+    "country": "Norway",
+    "song": "La det swinge",
+    "artist": "Bobbysocks!",
+    "songwriters": "Rolf Løvland",
+    "total_points": 123,
+    "location": "Gothenburg"
+  },
+  {
+    "year": 1986,
+    "country": "Belgium",
+    "song": "J'aime la vie",
+    "artist": "Sandra Kim",
+    "songwriters": "Jean-Paul Furnémont\nAngelo Crisci\nRosario Marino Atria",
+    "total_points": 176,
+    "location": "Bergen"
+  },
+  {
+    "year": 1987,
+    "country": "Ireland",
+    "song": "Hold Me Now",
+    "artist": "Johnny Logan",
+    "songwriters": "Johnny Logan",
+    "total_points": 172,
+    "location": "Brussels"
+  },
+  {
+    "year": 1988,
+    "country": "Switzerland",
+    "song": "Ne partez pas sans moi",
+    "artist": "Céline Dion",
+    "songwriters": "Nella Martinetti\nAtilla Şereftuğ",
+    "total_points": 137,
+    "location": "Dublin"
+  },
+  {
+    "year": 1989,
+    "country": "Yugoslavia",
+    "song": "Rock Me",
+    "artist": "Riva",
+    "songwriters": "Rajko Dujmić\nStevo Cvikić",
+    "total_points": 137,
+    "location": "Lausanne"
+  },
+  {
+    "year": 1990,
+    "country": "Italy",
+    "song": "Insieme: 1992",
+    "artist": "Toto Cutugno",
+    "songwriters": "Toto Cutugno",
+    "total_points": 149,
+    "location": "Zagreb"
+  },
+  {
+    "year": 1991,
+    "country": "Sweden",
+    "song": "Fångad av en stormvind",
+    "artist": "Carola",
+    "songwriters": "Stephan Berg",
+    "total_points": 146,
+    "location": "Rome"
+  },
+  {
+    "year": 1992,
+    "country": "Ireland",
+    "song": "Why Me?",
+    "artist": "Linda Martin",
+    "songwriters": "Johnny Logan",
+    "total_points": 155,
+    "location": "Malmö"
+  },
+  {
+    "year": 1993,
+    "country": "Ireland",
+    "song": "In Your Eyes",
+    "artist": "Niamh Kavanagh",
+    "songwriters": "Jimmy Walsh",
+    "total_points": 187,
+    "location": "Millstreet"
+  },
+  {
+    "year": 1994,
+    "country": "Ireland",
+    "song": "Rock 'n' Roll Kids",
+    "artist": "Paul Harrington and Charlie McGettigan",
+    "songwriters": "Brendan Graham",
+    "total_points": 226,
+    "location": "Dublin"
+  },
+  {
+    "year": 1995,
+    "country": "Norway",
+    "song": "Nocturne",
+    "artist": "Secret Garden",
+    "songwriters": "Rolf Løvland\nPetter Skavlan",
+    "total_points": 148,
+    "location": "Dublin"
+  },
+  {
+    "year": 1996,
+    "country": "Ireland",
+    "song": "The Voice",
+    "artist": "Eimear Quinn",
+    "songwriters": "Brendan Graham",
+    "total_points": 162,
+    "location": "Oslo"
+  },
+  {
+    "year": 1997,
+    "country": "United Kingdom",
+    "song": "Love Shine a Light",
+    "artist": "Katrina and the Waves",
+    "songwriters": "Kimberley Rew",
+    "total_points": 227,
+    "location": "Dublin"
+  },
+  {
+    "year": 1998,
+    "country": "Israel",
+    "song": "Diva\" (דיווה)",
+    "artist": "Dana International",
+    "songwriters": "Svika Pick\nYoav Ginai",
+    "total_points": 172,
+    "location": "Birmingham"
+  },
+  {
+    "year": 1999,
+    "country": "Sweden",
+    "song": "Take Me to Your Heaven",
+    "artist": "Charlotte Nilsson",
+    "songwriters": "Lars Diedricson\nMarcos Ubeda",
+    "total_points": 163,
+    "location": "Jerusalem"
+  },
+  {
+    "year": 2000,
+    "country": "Denmark",
+    "song": "Fly on the Wings of Love",
+    "artist": "Olsen Brothers",
+    "songwriters": "Jørgen Olsen",
+    "total_points": 195,
+    "location": "Stockholm"
+  },
+  {
+    "year": 2001,
+    "country": "Estonia",
+    "song": "Everybody",
+    "artist": "Tanel Padar, Dave Benton and 2XL",
+    "songwriters": "Ivar Must\nMaian-Anna Kärmas",
+    "total_points": 198,
+    "location": "Copenhagen"
+  },
+  {
+    "year": 2002,
+    "country": "Latvia",
+    "song": "I Wanna",
+    "artist": "Marie N",
+    "songwriters": "Marija Naumova\nMarats Samauskis",
+    "total_points": 176,
+    "location": "Tallinn"
+  },
+  {
+    "year": 2003,
+    "country": "Turkey",
+    "song": "Everyway That I Can",
+    "artist": "Sertab Erener",
+    "songwriters": "Demir Demirkan\nSertab Erener",
+    "total_points": 167,
+    "location": "Riga"
+  },
+  {
+    "year": 2004,
+    "country": "Ukraine",
+    "song": "Wild Dances",
+    "artist": "Ruslana",
+    "songwriters": "Ruslana Lyzhychko\nAlexandr Ksenofontov",
+    "total_points": 280,
+    "location": "Istanbul"
+  },
+  {
+    "year": 2005,
+    "country": "Greece",
+    "song": "My Number One",
+    "artist": "Helena Paparizou",
+    "songwriters": "Manos Psaltakis\nChristos Dantis\nNatalia Germanou",
+    "total_points": 230,
+    "location": "Kyiv"
+  },
+  {
+    "year": 2006,
+    "country": "Finland",
+    "song": "Hard Rock Hallelujah",
+    "artist": "Lordi",
+    "songwriters": "Lordi",
+    "total_points": 292,
+    "location": "Athens"
+  },
+  {
+    "year": 2007,
+    "country": "Serbia",
+    "song": "Molitva\" (Молитва)",
+    "artist": "Marija Šerifović",
+    "songwriters": "Vladimir Graić\nSaša Milošević Mare",
+    "total_points": 268,
+    "location": "Helsimki"
+  },
+  {
+    "year": 2008,
+    "country": "Russia",
+    "song": "Believe",
+    "artist": "Dima Bilan",
+    "songwriters": "Dima Bilan",
+    "total_points": 272,
+    "location": "Belgrade"
+  },
+  {
+    "year": 2009,
+    "country": "Norway",
+    "song": "Fairytale",
+    "artist": "Alexander Rybak",
+    "songwriters": "Alexander Rybak",
+    "total_points": 387,
+    "location": "Moscow"
+  },
+  {
+    "year": 2010,
+    "country": "Germany",
+    "song": "Satellite",
+    "artist": "Lena",
+    "songwriters": "Julie Frost\nJohn Gordon",
+    "total_points": 246,
+    "location": "Oslo"
+  },
+  {
+    "year": 2011,
+    "country": "Azerbaijan",
+    "song": "Running Scared",
+    "artist": "Ell and Nikki",
+    "songwriters": "Stefan Örn\nSandra Bjurman\nIain James Farquharson",
+    "total_points": 221,
+    "location": "Dussëldorf"
+  },
+  {
+    "year": 2012,
+    "country": "Sweden",
+    "song": "Euphoria",
+    "artist": "Loreen",
+    "songwriters": "Thomas G:son\nPeter Boström",
+    "total_points": 372,
+    "location": "Baku"
+  },
+  {
+    "year": 2013,
+    "country": "Denmark",
+    "song": "Only Teardrops",
+    "artist": "Emmelie de Forest",
+    "songwriters": "Lise Cabble\nJulia Fabrin Jakobsen\nThomas Stengaard",
+    "total_points": 281,
+    "location": "Malmö"
+  },
+  {
+    "year": 2014,
+    "country": "Austria",
+    "song": "Rise Like a Phoenix",
+    "artist": "Conchita Wurst",
+    "songwriters": "Charlie Mason\nJoey Patulka\nAli Zuckowski\nJulian Maas",
+    "total_points": 290,
+    "location": "Copenhagen"
+  },
+  {
+    "year": 2015,
+    "country": "Sweden",
+    "song": "Heroes",
+    "artist": "Måns Zelmerlöw",
+    "songwriters": "Anton Hård af Segerstad\nJoy Deb\nLinnea Deb",
+    "total_points": 365,
+    "location": "Vienna"
+  },
+  {
+    "year": 2016,
+    "country": "Ukraine",
+    "song": 1944,
+    "artist": "Jamala",
+    "Songwriter(s)": "Jamala",
+    "total_points": 534,
+    "location": "Stockholm"
+  },
+  {
+    "year": 2017,
+    "country": "Portugal",
+    "song": "Amar pelos dois",
+    "artist": "Salvador Sobral",
+    "songwriters": "Luísa Sobral",
+    "total_points": 758,
+    "location": "Kyiv"
+  },
+  {
+    "year": 2018,
+    "country": "Israel",
+    "song": "Toy",
+    "artist": "Netta",
+    "songwriters": "Doron Medalie\nStav Beger",
+    "total_points": 529,
+    "location": "Lisbon"
+  },
+  {
+    "year": 2019,
+    "country": "Netherlands",
+    "song": "Arcade",
+    "artist": "Duncan Laurence",
+    "songwriters": "Duncan Laurence\nJoel Sjöö\nWouter Hardy\nWill Knox",
+    "total_points": 498,
+    "location": "Tel Aviv"
+  },
+  {
+    "year": 2020,
+    "country": "Contest cancelled due to the COVID-19 pandemic",
+    "song": "Contest cancelled due to the COVID-19 pandemic",
+    "artist": "Contest cancelled due to the COVID-19 pandemic",
+    "songwriters": "Contest cancelled due to the COVID-19 pandemic",
+    "total_points": "Contest cancelled due to the COVID-19 pandemic",
+    "location": "Contest cancelled due to the COVID-19 pandemic"
+  },
+  {
+    "year": 2021,
+    "country": "Italy",
+    "song": "Zitti e buoni",
+    "artist": "Måneskin",
+    "songwriters": "Damiano David\nEthan Torchio\nThomas Raggi\nVictoria De Angelis",
+    "total_points": 524,
+    "location": "Rotterdam"
+  },
+  {
+    "year": 2022,
+    "country": "Ukraine",
+    "song": "Stefania\" (Стефанія)",
+    "artist": "Kalush Orchestra",
+    "songwriters": "Ihor Didenchuk\nIvan Klymenko\nOleh Psiuk\nTymofii Muzychuk\nVitalii Duzhyk",
+    "total_points": 631,
+    "location": "Turin"
+  }
+]
