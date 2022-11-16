@@ -26,7 +26,7 @@ app.get('/endpoints', (req, res) => {
 
 // All books
 app.get("/books", (req, res) => {
-  res.status(200).json({books: booksData.slice(0, 20)})
+  res.status(200).json(booksData)
   // res.status(200).json({books: booksData})
 });
 
