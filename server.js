@@ -55,13 +55,8 @@ app.get('/books', (req, res) => {
       book.average_rating > '4.3')
   } 
   if (allBooks.length === 0) {
-		res.status(404).json({
-      success: false,
-      message: "Sorry we couldn't find any match for your search",
-      body: {}
-    }
-      )
-	} else res.status(200).json({booksData: allBooks})
+		res.status(404).json("Sorry we couldn't find any match for your search")
+	} else res.status(200).json({ booksData: allBooks })
 });
 
 
@@ -72,18 +67,8 @@ app.get("/books/:id", (req, res) => {
     return book.bookID === +id})
 
   if (!singleBook) {
-    res.status(404).json({
-      success: false,
-      message: "Sorry we couldn't find a book with that id",
-      body: {} 
-    })
-	} else res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        book: singleBook 
-      }
-  }) 
+    res.status(404).json("Sorry we couldn't find a book with that id")
+	} else res.status(200).json({ book: singleBook }) 
 })
 
 // Start the server
