@@ -12,12 +12,8 @@ body {
     color: #f3edeb;
     letter-spacing: 0.1em;
     text-align: center;
-    /* width: 80%; */
     text-shadow: 3px 3px 5px rgba(0,0,0,0.53);
-    /* position: absolute; */
     text-align: center;
-    /* top: 69%;
-    left:10%; */
   }
 
   h2 {
@@ -51,19 +47,19 @@ div {
 
 
 @media (max-width: 1024px) and (min-width: 668px)  {
-div {
-    top: 45%;
-    left:5%;
-    width: 90%;
-  }
+    div {
+        top: 45%;
+        left:5%;
+        width: 90%;
+    }
 
-h1 {
-    font-size: 3rem;
-}
+    h1 {
+        font-size: 3rem;
+    }
 
-h2 {
-    font-size: 1.5rem;
-}
+    h2 {
+        font-size: 1.5rem;
+    }
 
 }
 
@@ -88,5 +84,4 @@ h2 {
 p {
     font-size: 0.9rem;
     }
-    
 }
