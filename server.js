@@ -1,12 +1,8 @@
 import express, { request } from "express";
+import listEndpoints from "express-list-endpoints";
 // import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
-
-	// 	Routes
-	// 		  "/books": "All books",
-  //       "/books/author": "authors in alphabetic order",
-  //       "/books/:id/": "Search books by BookID",
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT envornmental variable value:
@@ -20,12 +16,12 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-	res.json({BooksClubMessage: "Welcome to API for book data!"});
+	res.json({BooksClubMessage: " Welcome to API for book data!", data: listEndpoints(app)});
 });
 
 //Create a new endpoint with collection of all Books data
 app.get("/books", (req, res) => {
-	res.status(200).json({booksData: booksData});
+	res.status(200).json({booksData: booksData, success: true});
 });
 //Create a new endpoint with authors in alphabetic order
 app.get("/books/authors/", (req, response) => {
@@ -34,14 +30,14 @@ app.get("/books/authors/", (req, response) => {
 	response.status(200).json(allAuthors);
 });
 //Create a new endpoint with bookID
-app.get('/books/:id', (req, res) => {
+app.get("/books/:id", (req, res) => {
   const id = req.params.id
   const bookId = booksData.find((item) => item.bookID === +id)
 //404
   if (!bookId) {
-    res.status(404).send({ errorMessage: `No book with this id found. Try to find the right id` })
+    res.status(404).json({ errorMessage: "No book with this id found. Try to find the right id" })
   }
-  res.send(bookId)
+  res.json(bookId)
 })
 // Start the server.
 app.listen(port, () => {

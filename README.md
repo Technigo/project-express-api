@@ -1,13 +1,14 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+BooksData API built in Node using Express. The task was to create an API with different endpoints. The API uses a static data set stored as a JSON-file.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+My Routes:
+        "/": "Welcome Page to API BookData",
+	 		  "/books": "All books",
+        "/books/author": "authors in alphabetic order",
+        "/books/:id/": "Search books by BookID",
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://hello-mpmfihtsfa-lz.a.run.app/
