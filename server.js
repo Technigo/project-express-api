@@ -15,8 +15,7 @@ import technigoMembers from "./data/technigo-members.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
-
-// Look at the end of Daniels code to see where to impelement this in the code
+// To list all endpoints in the app
 const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
@@ -28,6 +27,7 @@ app.get("/", (req, res) => {
   // console.log("req", req);
   // console.log("res", res);
   // res.send(app.routes);
+  // List all endpoint on first page
   res.json(listEndpoints(app));
 });
 // Members endpoint
@@ -54,9 +54,6 @@ app.get("/members", (req, res) => {
     },
   });
 });
-
-// look at daniels code to see if this is correct:
-console.log("end points", listEndpoints(app));
 
 // Members/ID endpoint
 app.get("/members/:id", (request, response) => {
