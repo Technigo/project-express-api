@@ -18,6 +18,11 @@ Show an author by name or includes a name. Ex Rowling <br/>
 
 ## The problem
 
+✓ How to deploy Node projects
+✓ How to build an API in Node using Express
+✓ How to create routes in Express
+✓ Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+
 
 ## View it live
 
