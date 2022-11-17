@@ -7,7 +7,8 @@ import cors from "cors";
 // import data from "./data/books.json";
 // import data from "./data/golden-globes.json";
 // import data from "./data/netflix-titles.json";
-import data from "./data/top-music.json";
+// import data from "./data/top-music.json";
+import data from "./data/top-2000-spotify.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -37,20 +38,17 @@ app.get("/", (req, res) => {
 });
 
 app.get('/tracks', (req, res) => {
-  const highBpm = req.query
-  const mediumBpm = req.query
-  const lowBpm  = req.query
+  const highBpm = req.query.highBpm
+  const mediumBpm = req.query.mediumBpm
+  const lowBpm = req.query.lowBpm
+  // const { lowBpm, mediumBpm, highBpm } = req.query
   let filteredTracks = data
 
   if (lowBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm < 80)}
+   
+  if (mediumBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm > 91 && item.bpm < 119)}
 
-  if (mediumBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm = 81 > 119)}
-
-  if (highBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm > 120)}
-
-  if (filteredTracks.length === 0) {res.json("Sorry, no track match your criteria.")} 
-  
-  //else {res.json(filteredTracks)}
+  if (highBpm) {filteredTracks = filteredTracks.filter((item) => item.bpm > 120)} 
 
   res.json(filteredTracks)
 })
@@ -59,7 +57,7 @@ app.get('/artist/:artist', (req, res) => {
   const artist = req.params.artist
   console.log({ artist })
   // const showWon = req.query.won 
-  let tracksOfArtist = data.filter((item) => item.artistName === artist)
+  let tracksOfArtist = data.filter((item) => item.artist === artist)
 
   // if (showWon) { nominationsFromYear = nominationsFromYear.filter((item) => item.win) }
 
@@ -68,7 +66,7 @@ app.get('/artist/:artist', (req, res) => {
 
 app.get('/title/:title', (req, res) => {
   const title = req.params.title 
-  let tracksWithTitle = data.filter((item) => item.trackName === title)
+  let tracksWithTitle = data.filter((item) => item.title === title)
   res.json(tracksWithTitle)
 })
 
