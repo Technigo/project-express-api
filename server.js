@@ -47,8 +47,14 @@ app.get("/year/:year", (req, res) => {
   const year = +req.params.year;
   const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
     
-  response.status(200).json(yearAward)
-  })
+  if (yearAward ===!year) {
+    res.status(404).send("no nominations that year!");
+  } else 
+    res.json(yearAward)
+   })
+
+  // response.status(200).json(yearAward)
+  // })
 
   //ROUTE 4 - a single result (single element) using find
   app.get("/nominations/:film", (req, res) => {
