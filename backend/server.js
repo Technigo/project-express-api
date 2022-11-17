@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import nesGames from "../data/NES-games.json";
+import nesGames from "./data/NES-games.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
