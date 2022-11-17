@@ -1,8 +1,15 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This is a backend project using Express API and locally stored json file. My project is using a json file showing books.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Routes created for API:
+
+/books: Show all books
+/books/:id: "Show a book by its id (1-1461)
+/books/titles/:title: Show books by title or that includes a word in title you want to see. Ex Harry Potter
+/authors: Sort out authors with their books
+/authors/:name: Show an author by name or includes a name. Ex Rowling
+
 
 ## The problem
 
@@ -10,4 +17,5 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to api: https://books-api-7kza2noima-lz.a.run.app/
+Link to frontend: https://little-library.netlify.app/

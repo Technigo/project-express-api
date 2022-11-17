@@ -14,7 +14,7 @@ app.use(express.json());
 // Startscreen
 app.get("/", (req, res) => {
   res.send({
-    Message: "Hello and welcome to your friendly book search. Below is the endpoints you can use to display data.",
+    Message: "Hello and welcome to your friendly book search 📚. Below is the endpoints you can use to display data.",
     Routes: [
       {
         "/books": "Show all books.",
@@ -54,7 +54,7 @@ app.get('/books/titles/:title', (req, res) => {
   if (!bookTitle) {
     res.status(404).json({
       message: 'Sorry, no book with that name. Try another',
-    }) 
+      error: 404}) 
   }
 
   res.status(200).json(bookTitle) 
@@ -88,7 +88,6 @@ app.get("/authors/:name", (req, res) => {
   res.status(200).json(authorName)
 
  });
-
 
 
 // Start the server
