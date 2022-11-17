@@ -30,8 +30,31 @@ app.get("/", (req, res) => {
 });
 
 app.get("/shows", (req, res) => {
-  //will have title, year, country, type
-})
+  const { title, country, year, type } = req.query;
+  
+  let totalShows = netflixData;
+  
+  if (title) {
+    totalShows = totalShows.filter((show) => show.title.toLowerCase() === title.toLowerCase())
+  }
+  if (country) {
+    totalShows = totalShows.filter((show) => show.country.toLowerCase() === country.toLowerCase())
+  }
+  if (year) {
+    totalShows = totalShows.filter((show) => show.year.toLowerCase() === year.toLowerCase())
+  }
+  if (type) {
+    totalShows = totalShows.filter((show) => show.type.toLowerCase() === type.toLowerCase())
+  }
+
+  res.status(200).json({ 
+    success: true,
+    message: "OK",
+    response: {
+      netflixData: totalShows
+    }
+  });
+});
 
 
 
