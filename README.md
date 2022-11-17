@@ -4,11 +4,11 @@ This is a backend project using Express API and locally stored json file. My pro
 
 Routes created for API:
 
-/books: Show all books
-/books/:id: "Show a book by its id (1-1461)
-/books/titles/:title: Show books by title or that includes a word in title you want to see. Ex Harry Potter
-/authors: Sort out authors with their books
-/authors/:name: Show an author by name or includes a name. Ex Rowling
+/books: Show all books <br/>
+/books/:id: Show a book by its id (1-1461) <br/>
+/books/titles/:title: Show books by title or that includes a word in title you want to see. Ex Harry Potter <br/>
+/authors: Sort out authors with their books <br/>
+/authors/:name: Show an author by name or includes a name. Ex Rowling <br/>
 
 
 ## The problem
