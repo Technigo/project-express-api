@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import technigoMembers from "./data/technigo-members.json";
 
@@ -25,9 +25,9 @@ app.get("/", (req, res) => {
 //console.log("req", req);
 //console.log("req", res);
  // res.send({responseMessage: "Hello Technigo!" }) // Already processing something as a json property, a raw body. String before = will be sending a string
-  res.json({responseMessage: booksData }) // Expects an json object and will be sent accordingly. More secure. 
+  res.json({responseMessage: "Welcome to my page where you can find information on 500 books. Please add /*** in the address field to read about a book" }) // Expects an json object and will be sent accordingly. More secure. 
 });  //KLAR
-
+/*
 app.get("/hej/:bookID", (req, res) => {
   const singleBookId = booksData.find((singleId) => {
     return singleId.bookID === +req.params.bookID;
@@ -48,16 +48,41 @@ app.get("/hopp/:title", (req, res) => {
  res.json(titleOfTheBook)
  })  //KLAR
 
-
+*/
 
 app.get("/titles/:title", (req, res) => {
   const singleTitle = booksData.find((item) => {
     return item.title === req.params.title; 
   })
+  if(singleTitle) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+books: singleTitle
+      }
+    })
+  }
     res.status(200).json({singleTitle});
   });  //KLAR
 
-  app.get("/members/:id", (req, res) => {
+
+ app.get("/books", (req, res) => {
+    const { title, authors } = req.query;
+let books = booksData; 
+
+if (title) {
+books = books.filter(singleTitle => singleTechnigoMember.role.toLowerCase === role.toLowerCase());
+}
+
+if (authors) {
+  books = books.filter(singleTitle => singleTitle.name.toLowerCase() === name.toLowerCase())
+}
+
+    response.status(200).json({singleTitle: books})
+  });
+
+  /*app.get("/members/:id", (req, res) => {
     const singleMember = technigoMembers.find((member) => {
       return member.id === +req.params.id; 
       //return member.id === Number(req.params.id);
@@ -66,14 +91,14 @@ app.get("/titles/:title", (req, res) => {
     })
     res.status(200).json({singleMember});
   });
-
+ 
 app.get("/testar", (req, res) => 
   res.send("nu testar jag")
 );
 
 app.get("/name", (req, res) => {
   res.json([{ name: "Cecilia" }, { name: "Jonatan" }])
-});
+}); */
 
 // Start the server
 app.listen(port, () => {
