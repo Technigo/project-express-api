@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import booksData from "./data/books.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +22,30 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  /*   console.log("req", req);
+    console.log("res". res); */
+    // res.send({responseMessage: "Hello Technigo!"});
+  
+    res.json({responseMessage: "Hello bookworm!"});
+  });
+
+// All books
+app.get("/books", (request, response) => {
+  response.json(booksData);
+  });
+
+// Single book by id
+app.get("/books/:id", (request, response) => {
+  const { id } = request.params
+  const singleBook = booksData.filter((book) => book.bookID === +id)
+
+  if (singleBook && singleBook?.length > 0) {
+    response.status(200).json(singleBook)
+    } else {
+    response.status(404).send({
+      message: "Sorry, we can't find that book",
+      error: 404})
+  }
 });
 
 // Start the server
