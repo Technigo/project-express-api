@@ -1,5 +1,6 @@
 import express, { query } from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 import avocadoSalesData from "./data/avocado-sales.json";
 
 
@@ -23,38 +24,41 @@ app.use(express.json());
 // Start defining your routes here
 
 app.get("/", (req, res) => {
-   res.send("Hello world!!");
+   res.json({
+      responseMessage: "This is API for avocado sales data endpoints year 2015",
+      data: listEndpoints(app)
+    })
 });
 
 app.get("/avocadosales", (req, res) => {
   res.status(200).json({
-    data: avocadoSalesData,
-    success: true,
+    avocadoSalesData: avocadoSalesData,
+    success: true
   });
-});
-
-app.get("/regions", (req, res) => {
-  const regionsList = avocadoSalesData.map((data) => data.region);
-  const regions = [...new Set(regionsList)];
-
-  if (regions) {
-    res.status(200).json({ data: regions, success: true });
-  } else {
-    res.status(200).json({ data: [], success: false });
-  }
 });
 
 app.get("/avocadosales/:region", (req, res) => {
   const region = req.params.region;
   const avocadoRegion = avocadoSalesData.filter(
     (item) => item.region.toLowerCase() === region.toLowerCase()
-  );
-  if (avocadoRegion) {
-    res.status(200).json({ data: avocadoRegion, success: true });
-  } else {
-    res.status(200).json({ data: [], success: false });
-  }
-});
+    );
+    if (avocadoRegion) {
+      res.status(200).json({ data: avocadoRegion, success: true });
+    } else {
+      res.status(200).json({ data: [], success: false });
+    }
+  });
+  
+app.get("/regions", (req, res) => {
+  const regionsList = avocadoSalesData.map((data) => data.region);
+  const regions = [...new Set(regionsList)];
+  
+   if (regions) {
+     res.status(200).json({ data: regions, success: true });
+   } else {
+     res.status(200).json({ data: [], success: false });
+   }
+ });
 
 
 // Start the server
