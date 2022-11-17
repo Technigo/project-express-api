@@ -7,7 +7,6 @@ import avocadoSalesData from "./data/avocado-sales.json";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import goldenGlobesData from "./data/golden-globes.json";
-
 // import booksData from "./data/books.json";
 // import topMusicData from "./data/top-music.json";
 // import netflixData from "./data/netflix-titles.json";
@@ -42,23 +41,19 @@ app.get("/avocadosales/:region", (req, res) => {
   const avocadoRegion = avocadoSalesData.filter(
     (item) => item.region.toLowerCase() === region.toLowerCase()
     );
-    if (avocadoRegion) {
+    if (avocadoRegion.length !==0) {
       res.status(200).json({ data: avocadoRegion, success: true });
     } else {
-      res.status(200).json({ data: [], success: false });
+      res.status(404).send("Region not found")
     }
   });
   
 app.get("/regions", (req, res) => {
   const regionsList = avocadoSalesData.map((data) => data.region);
   const regions = [...new Set(regionsList)];
-  
-   if (regions) {
-     res.status(200).json({ data: regions, success: true });
-   } else {
-     res.status(200).json({ data: [], success: false });
-   }
- });
+
+    res.status(200).json({ data: regions, success: true });
+  });
 
 
 // Start the server
