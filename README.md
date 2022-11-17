@@ -1,13 +1,14 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+My first API built using Node js and Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The API has 4 routes:
+ROUTE 1: "/nominations" to view all data
+ROUTE 2: "/year/2010" to view all movies with nominations from a specific year
+ROUTE 3: "/nominations/avatar" to view a specific movie
+ROUTE 4: "/year/2010?win=true" to view won movies in a specific year
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-qsiaxpz6dq-lz.a.run.app/

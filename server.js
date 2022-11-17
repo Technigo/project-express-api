@@ -54,6 +54,7 @@ app.get("/year/:year", (req, res) => {
   const year = +req.params.year;
   const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
 
+  //404 doesn't work, but leaving it for now
   if (year === yearAward) {
     response.status(200).json({
       success: true,
@@ -78,7 +79,7 @@ app.get("/year/:year", (req, res) => {
       }); 
        res.status(200).json(singleFilm);
     });
-    
+  
 
 // Start the server 
 app.listen(port, () => {
