@@ -46,22 +46,8 @@ app.get("/year/:year", (req, res) => {
 app.get("/year/:year", (req, res) => {
   const year = +req.params.year;
   const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
-
-  //404 doesn't work, but leaving it for now
-  if (year === yearAward) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-       year: yearAward
-            }})
-  } else {
-    response.status(404).json({
-      success: false,
-      message: "Not Found",
-      body: {}
-    })};
-
+    
+  response.status(200).json(yearAward)
   })
 
   //ROUTE 4 - a single result (single element) using find
