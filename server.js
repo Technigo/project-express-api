@@ -8,6 +8,7 @@ import booksData from "./data/books.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -15,7 +16,8 @@ app.use(express.json());
 
 // Route welcoming user
 app.get('/', (req, res) => {
-  res.send("Welcome to ReadIt! - See this API live at: https://xxx-app.netlify.app/")
+  //res.send("Welcome to ReadIt! - See this API live at: https://xxx-app.netlify.app/")
+  res.json(listEndpoints(app));
 });
 
 // Route that returns all data on all books
@@ -59,13 +61,7 @@ app.get('/books', (req, res) => {
       body: {}
     }
       )
-	} else res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        booksData: allBooks
-      }
-  }) 
+	} else res.status(200).json({booksData: allBooks})
 });
 
 
