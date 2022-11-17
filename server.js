@@ -85,6 +85,28 @@ app.get("/avocado-sales", (req, res) => {
   res.status(200).json({avocadoSalesData});
 });
 
+app.get("/avocado-sales/:id", (req, res) => {
+  const singleAvocado = avocadoSalesData.find((avocado) => {
+  return avocado.id === Number(req.params.id);
+});
+if(singleAvocado) {
+    res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      avocadoSalesData: singleAvocado
+    }
+  });
+} else {
+    res.status(404).json({
+    success: false,
+    message: "Not found",
+    body: {}
+});
+}
+console.log(singleAvocado);
+});
+
 app.get("/avocado-sales/region/:region", (req, res) => {
   const region = req.params.region
   const filteredOnRegionName = avocadoSalesData.filter((item) => item.region === region)
