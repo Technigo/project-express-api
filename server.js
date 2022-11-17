@@ -25,33 +25,58 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  res.status(200).json({books: books});
+  const { title, authors } = req.query;
+  let allBooks = books;
+/*  Write for example: http://localhost:8080/books?authors=Gary Paulsen to get all the authors books
+    Write for example: http://localhost:8080/books?title=Hatchet to get the singel books info */
+
+  if (authors) {
+    allBooks = allBooks.filter(singleBook => singleBook.authors.toLowerCase() === authors.toLowerCase());
+  }
+
+  if (title) {
+    allBooks = allBooks.filter(singleBook => singleBook.title.toLowerCase() === title.toLowerCase());
+  } 
+
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: { 
+      books: allBooks
+    }
+    });
 });
 
 app.get("/books/:id", (req, res) => {
   const singleBook = books.find((book) => {
     return book.bookID === Number(req.params.id)
   })
+
+  if (singleBook) {
+    res.status(200).json({
+    success: true,
+    message: "OK",
+    body: { 
+      book: singleBook 
+    }
+    })
+  } else  {
+    res.status(400).json({
+    success: false,
+    message: "Not Found",
+    body: {}
+    })
+  }
   res.status(200).json(singleBook);
 });
 
-/*  app.get("/books/:authors", (req, res) => {
-  const author = req.params.authors
-  
-  const authorOfBook = books.authors.find((author) => {
-    return author.authors === req.params.authors
-  })
-  console.log(authorOfBook)
-  res.status(200).json(authorOfBook);
-});  */
+ /* solution from StackOverflow var keyArray = objArray.map(function(item) { return item["key"]; }); */
 
  app.get("/authors", (req, res) => {
-  /* const author = req.params.authors */
   let authorOfBooks = books.map((item) => {
     return item["authors"];
   })
   res.status(200).json({authorOfBooks});
- /*  var keyArray = objArray.map(function(item) { return item["key"]; }); */
 }); 
 
 // Start the server
