@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import nesGames from "./data/NES-games.json";
+import nesGames from "../data/NES-games.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -9,12 +9,13 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
+
 app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json({responseMessage: "NES-games library at /games"});
+  res.json({responseMessage: "TEST - NES-games library at /games"});
 });
 
 app.get("/games", (req, res) => {
