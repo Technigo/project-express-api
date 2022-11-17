@@ -30,16 +30,48 @@ app.get("/", (req, res) => {
 //HTMLElement.addEventListerner('nameOfTheListerner', () => {})
 
 app.get("/members", (req, response) => {
-  respons.status(200).json({technigoMembers: technigoMembers});
-})
+  const { name, role } =req.query;
+  let members =technigoMembers;
+
+  if (role) {
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLocaleLowerCase() === 
+    role.toLocaleLowerCase());
+  }
+
+  if (name) {
+    members.members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLocaleLowerCase() === 
+      name.toLocaleLowerCase()});
+  }
+  respons.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      technigoMembers: members
+    }
+  });
+});
 
 app.get("/members/:id", (request, response) => {
   const singleMember = technigoMembers.find((member) => {
     return member.id === Number(request.params.id);
   });
-  console.log(singleMember)
-  response.status(200).json(singleMember);
-})
+  if(singleMember) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        member: singleMember
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
+  }
+  console.log(singleMember);
+});
 
 
 // Start the server
