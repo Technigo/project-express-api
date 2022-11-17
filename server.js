@@ -1,5 +1,6 @@
-import express from "express";
-import cors from "cors";
+import express, { response } from 'express';
+import cors from 'cors';
+import technigoMembers from './data/technigo.members.json';
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -20,8 +21,75 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get('/', (req, res) => {
+  res.json({ responseMessage: 'Hello Technigo' });
+});
+app.get('/members', (req, res) => {
+  const { name, role } = req.query;
+  let members = technigoMembers;
+
+  if (role) {
+    members = technigoMembers.filter(
+      (singleTechnigoMember) =>
+        singleTechnigoMember.role.toLowerCase() === role.toLocaleLowerCase()
+    );
+  }
+  if (name) {
+    members = members.filter((singleTechnigoMember) => {
+      return singleTechnigoMember.name.toLowerCase() === name.toLowerCase();
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: 'OK',
+    body: {
+      technigoMembers: members
+    }
+  });
+});
+
+app.get('/members/:id', (request, response) => {
+  const singleMember = technigoMembers.find((member) => {
+    return member.id === Number(request.params.id);
+  });
+  if (singleMember) {
+    response.status(200).json({
+      success: true,
+      message: 'OK',
+      body: {
+        singleMember
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: 'Not Found',
+      body: {}
+    });
+  }
+  console.log(singleMember);
+});
+
+app.get('/allMovies', (req, res) => {
+  const { title, country, duration, type } = req.query;
+  let filteredNetflixData = netflixData;
+  if (title) {
+    filteredNetflixData = filteredNetflixData.filter((item) =>
+      item.title.toLowerCase().includes(title.toLowerCase)
+    );
+  }
+  if (country) {
+    filteredNetflixData = filteredNetflixData.filter(
+      (item) => item.country.toLocaleLowerCase
+    );
+  }
+  if (duration) {
+    //
+  }
+  if (type) {
+    //
+  }
 });
 
 // Start the server
