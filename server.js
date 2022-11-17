@@ -99,13 +99,16 @@ app.get('/content/director/:director', (req, res) => {
 		res.status(404).json({ message: 'Not Found', success: false, body: {} });
 });
 
-/* //get the title, director, country using param query
+//get the title, director, country using param query
 app.get('/content', (req, res) => {
 	const { title, director, country } = req.query;
 	let filteredContent = netflixData;
 	if (title) {
 		filteredContent = filteredContent.filter((item) =>
-			item.title.toLowerCase().includes(title.toLowerCase())
+			//item.title.toLowerCase().includes(title.toLowerCase())
+			{
+				return item.title.toLowerCase() === title.toLowerCase();
+			}
 		);
 	}
 	if (director) {
@@ -118,10 +121,12 @@ app.get('/content', (req, res) => {
 			item.country.toLowerCase().includes(country.toLowerCase())
 		);
 	}
-	res
-		.status(200)
-		.json({ body: {filteredContent:filteredContent}, success: true, message: 'OK' });
-}); */
+	res.status(200).json({
+		body: { filteredContent: filteredContent },
+		success: true,
+		message: 'OK',
+	});
+});
 
 app.get('/content/type/:type', (req, res) => {
 	const { type } = req.params;
