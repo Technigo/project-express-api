@@ -18,8 +18,27 @@ app.get('/', (req, res) => {
   res.send("Hello World!");
 });
 
-app.get('/songs', (req, res) => {
-  const { name, role } = req.query; // när det är unika värden som t ex id
+app.get('/songs/', (req, res) => {
+  const genre = req.query.genre;
+  let allSongs = topMusic;
+
+  if (genre) {
+    allSongs = allSongs.filter((song) => song.genre === genre);
+ };
+
+ res.json(allSongs);
+});
+
+app.get('/songs/:id', (req, res) => {
+  const id = req.params.id;
+  const songById = topMusic.filter(song => song.id === +id);
+  res.json(songById);
+});
+
+// LÄGG TILL felmedd om inte genren finns 
+// kolla common pitfalls
+
+/*   const { name, role } = req.query; // när det är unika värden som t ex id
   let members = technigoMembers;
 
   if (role) {
@@ -48,23 +67,6 @@ app.get('/songs', (req, res) => {
       "Page not found."
     }
   });
-});
-
-/* app.get("/bpm/:bpm", (req, res) => {
-  const filteredByBpm = topMusicData.filter((song) => {
-    return song.bpm === +req.params.bpm
-  });
-  if (!filteredByBpm) {
-    return res.status(404).json('Sorry, no songs ')
-  } else
-  res.status(200).json(filteredByBpm);
-}); */
-
-/* app.get("/members/:id", (req, res) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === +req.params.id
-    });
-  res.status(200).json(singleMember);
 }); */
 
 // Start the server
