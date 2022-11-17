@@ -1,13 +1,16 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+Aa backend project that lists 450 books, using Express API and a locally stored json file.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Routes created for API:
+/books: Shows all books (450) data
+/books/book/:id: Shows a single book based on its id 
+/books/top-rated: Shows books with an average rating of 4 or more.
+/books/search?author=: Shows books by author search
+/books/title/:title: Shows books by title
+/books/lang/:lang: Show books by language
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-oitd5nga3a-lz.a.run.app/
