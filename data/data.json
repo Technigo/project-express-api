@@ -1,0 +1,3350 @@
+[
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Avatar",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Hurt Locker, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Inglourious Basterds",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Precious: Based On The Novel Push By Sapphire",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Up In The Air",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Hangover, The",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "(500) Days of Summer",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "It's Complicated",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Julie & Julia",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Nine",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Sandra Bullock",
+    "film": "Blind Side, The",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Emily Blunt",
+    "film": "Young Victoria, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Helen Mirren",
+    "film": "Last Station, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Carey Mulligan",
+    "film": "Education, An",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Gabourey Sidibe",
+    "film": "Precious: Based On The Novel Push By Sapphire",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Jeff Bridges",
+    "film": "Crazy Heart",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "George Clooney",
+    "film": "Up In The Air",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Colin Firth",
+    "film": "A Single Man",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Morgan Freeman",
+    "film": "Invictus",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Tobey Maguire",
+    "film": "Brothers",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Meryl Streep",
+    "film": "Julie & Julia",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Sandra Bullock",
+    "film": "Proposal, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Marion Cotillard",
+    "film": "Nine",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Julia Roberts",
+    "film": "Duplicity",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Meryl Streep",
+    "film": "It's Complicated",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Robert Downey Jr.",
+    "film": "Sherlock Holmes",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Matt Damon",
+    "film": "The Informant!",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Daniel Day-Lewis",
+    "film": "Nine",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Joseph Gordon-Levitt",
+    "film": "(500) Days of Summer",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Michael Stuhlbarg",
+    "film": "Serious Man, A",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Mo'Nique",
+    "film": "Precious: Based On The Novel Push By Sapphire",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Vera Farmiga",
+    "film": "Up In The Air",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Anna Kendrick",
+    "film": "Up In The Air",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Julianne Moore",
+    "film": "A Single Man",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Penélope Cruz",
+    "film": "Nine",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Christoph Waltz",
+    "film": "Inglourious Basterds",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Matt Damon",
+    "film": "Invictus",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Woody Harrelson",
+    "film": "Messenger, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Christopher Plummer",
+    "film": "Last Station, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Stanley Tucci",
+    "film": "Lovely Bones, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Director - Motion Picture",
+    "nominee": "James Cameron",
+    "film": "Avatar",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Kathryn Bigelow",
+    "film": "Hurt Locker, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Jason Reitman",
+    "film": "Up In The Air",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Quentin Tarantino",
+    "film": "Inglourious Basterds",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Clint Eastwood",
+    "film": "Invictus",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Jason Reitman, Sheldon Turner",
+    "film": "Up In The Air",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Neill Blomkamp, Terri Tatchell",
+    "film": "District 9",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Mark Boal",
+    "film": "Hurt Locker, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Nancy Meyers",
+    "film": "It's Complicated",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Quentin Tarantino",
+    "film": "Inglourious Basterds",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Up",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Coraline",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Fantastic Mr. Fox",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Princess And The Frog, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Cloudy With A Chance Of Meatballs",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The White Ribbon (Das Weisse Band - Eine Deutsche Kindergeschichte)",
+    "film": "Germany, Michael Haneke",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "Baarìa",
+    "film": "Italy, Giuseppe Tornatore",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "Broken Embraces",
+    "film": "Spain, Pedro Almodóvar",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Maid (La Nana)",
+    "film": "Chile, Sebastián Silva",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "A Prophet (Un Prophete)",
+    "film": "France, Jacques Audiard",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Michael Giacchino",
+    "film": "Up",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Marvin Hamlisch",
+    "film": "The Informant!",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "James Horner",
+    "film": "Avatar",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Abel Korzeniowski",
+    "film": "A Single Man",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Karen O, Carter Burwell",
+    "film": "Where The Wild Things Are",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "The Weary Kind (Theme From Crazy Heart)\", T Bone Burnett, Ryan Bingham",
+    "film": "Crazy Heart",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Winter\", U2",
+    "film": "Brothers",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Cinema Italiano\", Maury Yeston",
+    "film": "Nine",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "(I Want To) Come Home\", Paul McCartney",
+    "film": "Everybody's Fine",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "I See You, James Horner, Simon Franglen, Kuk Harrell",
+    "film": "Avatar",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Drama",
+    "nominee": "Mad Men",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Drama",
+    "nominee": "Big Love",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Drama",
+    "nominee": "Dexter",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Drama",
+    "nominee": "House",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Drama",
+    "nominee": "True Blood",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Glee",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Office, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "30 Rock",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Entourage",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Modern Family",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Grey Gardens",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Georgia O'Keeffe",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Into The Storm",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Little Dorrit",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Taking Chance",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Drew Barrymore",
+    "film": "Grey Gardens",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Jessica Lange",
+    "film": "Grey Gardens",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Anna Paquin",
+    "film": "The Courageous Heart of Irena Sendler",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Sigourney Weaver",
+    "film": "Prayers For Bobby",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Joan Allen",
+    "film": "Georgia O'Keeffe",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Kevin Bacon",
+    "film": "Taking Chance",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Kenneth Branagh",
+    "film": "Wallander: One Step Behind",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Chiwetel Ejiofor",
+    "film": "Endgame",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Brendan Gleeson",
+    "film": "Into The Storm",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Jeremy Irons",
+    "film": "Georgia O'Keeffe",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Julianna Margulies",
+    "film": "The Good Wife",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Glenn Close",
+    "film": "Damages",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "January Jones",
+    "film": "Mad Men",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Anna Paquin",
+    "film": "True Blood",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Kyra Sedgwick",
+    "film": "Closer, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Michael C. Hall",
+    "film": "Dexter",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Simon Baker",
+    "film": "Mentalist, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Jon Hamm",
+    "film": "Mad Men",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Hugh Laurie",
+    "film": "House",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Bill Paxton",
+    "film": "Big Love",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Toni Collette",
+    "film": "United States Of Tara",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Courteney Cox",
+    "film": "Cougar Town",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Edie Falco",
+    "film": "Nurse Jackie",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Tina Fey",
+    "film": "30 Rock",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Lea Michele",
+    "film": "Glee",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Alec Baldwin",
+    "film": "30 Rock",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Steve Carell",
+    "film": "Office, The",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "David Duchovny",
+    "film": "Californication",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Thomas Jane",
+    "film": "Hung",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Matthew Morrison",
+    "film": "Glee",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Chloë Sevigny",
+    "film": "Big Love",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Jane Adams",
+    "film": "Hung",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Rose Byrne",
+    "film": "Damages",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Jane Lynch",
+    "film": "Glee",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Janet McTeer",
+    "film": "Into The Storm",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "John Lithgow",
+    "film": "Dexter",
+    "win": true
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Michael Emerson",
+    "film": "Lost",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Neil Patrick Harris",
+    "film": "How I Met Your Mother",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "William Hurt",
+    "film": "Damages",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Jeremy Piven",
+    "film": "Entourage",
+    "win": false
+  },
+  {
+    "year_film": 2009,
+    "year_award": 2010,
+    "ceremony": 67,
+    "category": "Cecil B. deMille Award",
+    "nominee": "Martin Scorsese",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "The Social Network",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Black Swan",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Fighter, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Inception",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "The King's Speech",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Kids Are All Right, The",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Alice in Wonderland",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Burlesque",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Red",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Tourist, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Natalie Portman",
+    "film": "Black Swan",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Halle Berry",
+    "film": "Frankie and Alice",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Nicole Kidman",
+    "film": "Rabbit Hole",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Jennifer Lawrence",
+    "film": "Winter's Bone",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Michelle Williams",
+    "film": "Blue Valentine",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Colin Firth",
+    "film": "The King's Speech",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Ryan Gosling",
+    "film": "Blue Valentine",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Mark Wahlberg",
+    "film": "Fighter, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Jesse Eisenberg",
+    "film": "The Social Network",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "James Franco",
+    "film": "127 Hours",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Annette Bening",
+    "film": "Kids Are All Right, The",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Anne Hathaway",
+    "film": "Love & Other Drugs",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Angelina Jolie",
+    "film": "Tourist, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Julianne Moore",
+    "film": "Kids Are All Right, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Emma Stone",
+    "film": "Easy A",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Paul Giamatti",
+    "film": "Barney's Version",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Johnny Depp",
+    "film": "Alice in Wonderland",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Johnny Depp",
+    "film": "Tourist, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Jake Gyllenhaal",
+    "film": "Love & Other Drugs",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Kevin Spacey",
+    "film": "Casino Jack",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Melissa Leo",
+    "film": "Fighter, The",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Helena Bonham Carter",
+    "film": "The King's Speech",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Mila Kunis",
+    "film": "Black Swan",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Jacki Weaver",
+    "film": "Animal Kingdom",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Amy Adams",
+    "film": "Fighter, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Christian Bale",
+    "film": "Fighter, The",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Michael Douglas",
+    "film": "Wall Street: Money Never Sleeps",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Andrew Garfield",
+    "film": "The Social Network",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Jeremy Renner",
+    "film": "Town, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Geoffrey Rush",
+    "film": "The King's Speech",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Director - Motion Picture",
+    "nominee": "David Fincher",
+    "film": "The Social Network",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Darren Aronofsky",
+    "film": "Black Swan",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Tom Hooper",
+    "film": "The King's Speech",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Christopher Nolan",
+    "film": "Inception",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Director - Motion Picture",
+    "nominee": "David O. Russell",
+    "film": "Fighter, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Aaron Sorkin",
+    "film": "The Social Network",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Danny Boyle, Simon Beaufoy",
+    "film": "127 Hours",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Lisa Cholodenko, Stuart Blumberg",
+    "film": "Kids Are All Right, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Christopher Nolan",
+    "film": "Inception",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "David Seidler",
+    "film": "The King's Speech",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Toy Story 3",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "How To Train Your Dragon",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Illusionist, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Tangled",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Despicable Me",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "In A Better World",
+    "film": "Denmark, Susanne Bier",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "Biutiful",
+    "film": "Spain, Mexico, Alejandro González Iñárritu",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Concert",
+    "film": "France, Radu Mihaileanu",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Edge",
+    "film": "Russia, Aleksey Uchitel",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "I Am Love",
+    "film": "Italy, Luca Guadagnino",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Trent Reznor, Atticus Ross",
+    "film": "The Social Network",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Alexandre Desplat",
+    "film": "The King's Speech",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Danny Elfman",
+    "film": "Alice in Wonderland",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "A. R. Rahman",
+    "film": "127 Hours",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Hans Zimmer",
+    "film": "Inception",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "You Haven't Seen The Last of Me\", Diane Warren",
+    "film": "Burlesque",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Coming Home\", Bob DiPiero, Tom Douglas, Hillary Lindsey, Troy Verges",
+    "film": "Country Strong",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "I See The Light, Alan Menken, Glenn Slater",
+    "film": "Tangled",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "There's A Place For Us\", Carrie Underwood, David Hodges, Hillary Lindsey",
+    "film": "The Chronicles of Narnia: The Voyage of The Dawn Treader",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Bound To You\", Sia, Christina Aguilera, Samuel Dixon",
+    "film": "Burlesque",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Drama",
+    "nominee": "Boardwalk Empire",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Drama",
+    "nominee": "Dexter",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Drama",
+    "nominee": "The Good Wife",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Drama",
+    "nominee": "Mad Men",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Drama",
+    "nominee": "Walking Dead, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Glee",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Big Bang Theory, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Big C, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Modern Family",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Nurse Jackie",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "30 Rock",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Carlos",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "The Pacific",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Pillars Of The Earth",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Temple Grandin",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "You Don't Know Jack",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Claire Danes",
+    "film": "Temple Grandin",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Judi Dench",
+    "film": "Return To Cranford",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Romola Garai",
+    "film": "Emma",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Jennifer Love Hewitt",
+    "film": "Client List, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Hayley Atwell",
+    "film": "Pillars Of The Earth",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Al Pacino",
+    "film": "You Don't Know Jack",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Idris Elba",
+    "film": "Luther",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Ian McShane",
+    "film": "Pillars Of The Earth",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Dennis Quaid",
+    "film": "Special Relationship, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Edgar Ramírez",
+    "film": "Carlos",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Katey Sagal",
+    "film": "Sons of Anarchy",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Julianna Margulies",
+    "film": "The Good Wife",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Elisabeth Moss",
+    "film": "Mad Men",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Piper Perabo",
+    "film": "Covert Affairs",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Kyra Sedgwick",
+    "film": "Closer, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Steve Buscemi",
+    "film": "Boardwalk Empire",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Bryan Cranston",
+    "film": "Breaking Bad",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Michael C. Hall",
+    "film": "Dexter",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Jon Hamm",
+    "film": "Mad Men",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Hugh Laurie",
+    "film": "House",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Laura Linney",
+    "film": "Big C, The",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Lea Michele",
+    "film": "Glee",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Toni Collette",
+    "film": "United States Of Tara",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Edie Falco",
+    "film": "Nurse Jackie",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Tina Fey",
+    "film": "30 Rock",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Jim Parsons",
+    "film": "Big Bang Theory, The",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Alec Baldwin",
+    "film": "30 Rock",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Steve Carell",
+    "film": "Office, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Thomas Jane",
+    "film": "Hung",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Matthew Morrison",
+    "film": "Glee",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Jane Lynch",
+    "film": "Glee",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Sofia Vergara",
+    "film": "Modern Family",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Hope Davis",
+    "film": "Special Relationship, The",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Kelly MacDonald",
+    "film": "Boardwalk Empire",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Julia Stiles",
+    "film": "Dexter",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Chris Colfer",
+    "film": "Glee",
+    "win": true
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Scott Caan",
+    "film": "Hawaii Five-O",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Chris Noth",
+    "film": "The Good Wife",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Eric Stonestreet",
+    "film": "Modern Family",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Best Performance by an Actor in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "David Strathairn",
+    "film": "Temple Grandin",
+    "win": false
+  },
+  {
+    "year_film": 2010,
+    "year_award": 2011,
+    "ceremony": 68,
+    "category": "Cecil B. deMille Award",
+    "nominee": "Robert De Niro",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Descendants, The",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Moneyball",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "War Horse",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "The Help",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Hugo",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Drama",
+    "nominee": "Ides of March, The",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "The Artist",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "50/50",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Bridesmaids",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "Midnight In Paris",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Musical or Comedy",
+    "nominee": "My Week With Marilyn",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Meryl Streep",
+    "film": "Iron Lady, The",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Glenn Close",
+    "film": "Albert Nobbs",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Viola Davis",
+    "film": "The Help",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Rooney Mara",
+    "film": "The Girl With The Dragon Tattoo",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Drama",
+    "nominee": "Tilda Swinton",
+    "film": "We Need To Talk About Kevin",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "George Clooney",
+    "film": "Descendants, The",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Ryan Gosling",
+    "film": "Ides of March, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Brad Pitt",
+    "film": "Moneyball",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Leonardo DiCaprio",
+    "film": "J. Edgar",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Drama",
+    "nominee": "Michael Fassbender",
+    "film": "Shame",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Michelle Williams",
+    "film": "My Week With Marilyn",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Jodie Foster",
+    "film": "Carnage",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Charlize Theron",
+    "film": "Young Adult",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Kristen Wiig",
+    "film": "Bridesmaids",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Motion Picture - Musical or Comedy",
+    "nominee": "Kate Winslet",
+    "film": "Carnage",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Jean Dujardin",
+    "film": "The Artist",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Brendan Gleeson",
+    "film": "Guard, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Joseph Gordon-Levitt",
+    "film": "50/50",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Ryan Gosling",
+    "film": "Crazy, Stupid, Love.",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Motion Picture - Musical or Comedy",
+    "nominee": "Owen Wilson",
+    "film": "Midnight In Paris",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Octavia Spencer",
+    "film": "The Help",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Bérénice Bejo",
+    "film": "The Artist",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Jessica Chastain",
+    "film": "The Help",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Janet McTeer",
+    "film": "Albert Nobbs",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in any Motion Picture",
+    "nominee": "Shailene Woodley",
+    "film": "Descendants, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Christopher Plummer",
+    "film": "Beginners",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Albert Brooks",
+    "film": "Drive",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Jonah Hill",
+    "film": "Moneyball",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Viggo Mortensen",
+    "film": "Dangerous Method, A",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Supporting Role in any Motion Picture",
+    "nominee": "Kenneth Branagh",
+    "film": "My Week With Marilyn",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Martin Scorsese",
+    "film": "Hugo",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Alexander Payne",
+    "film": "Descendants, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Woody Allen",
+    "film": "Midnight In Paris",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Director - Motion Picture",
+    "nominee": "George Clooney",
+    "film": "Ides of March, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Director - Motion Picture",
+    "nominee": "Michel Hazanavicius",
+    "film": "The Artist",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Woody Allen",
+    "film": "Midnight In Paris",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "George Clooney, Grant Heslov, Beau Willimon",
+    "film": "Ides of March, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Michel Hazanavicius",
+    "film": "The Artist",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Aaron Sorkin, Steve Zaillian, Stan Chervin",
+    "film": "Moneyball",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Screenplay - Motion Picture",
+    "nominee": "Nat Faxon, Jim Rash, Alexander Payne",
+    "film": "Descendants, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Adventures of Tintin, The",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Rango",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Arthur Christmas",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Cars 2",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Animated",
+    "nominee": "Puss In Boots",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "A Separation",
+    "film": "Iran, Asghar Farhadi",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Flowers Of War",
+    "film": "China, Zhang Yimou",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "In The Land Of Blood And Honey",
+    "film": "United States, Angelina Jolie",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Kid With A Bike",
+    "film": "Belgium, Jean-Pierre Dardenne, Luc Dardenne",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Motion Picture - Foreign Language",
+    "nominee": "The Skin I Live In",
+    "film": "Spain, Pedro Almodóvar",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Ludovic Bource",
+    "film": "The Artist",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Abel Korzeniowski",
+    "film": "W.E.",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Atticus Ross, Trent Reznor",
+    "film": "The Girl With The Dragon Tattoo",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "Howard Shore",
+    "film": "Hugo",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Score - Motion Picture",
+    "nominee": "John Williams",
+    "film": "War Horse",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Masterpiece\", Madonna, Julie Frost, Jimmy Harry",
+    "film": "W.E.",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Hello Hello, Elton John, Lady Gaga, Bernie Taupin",
+    "film": "Gnomeo & Juliet",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "The Keeper\", Chris Cornell",
+    "film": "Machine Gun Preacher",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "Lay Your Head Down\", Brian Byrne, Glenn Close",
+    "film": "Albert Nobbs",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Original Song - Motion Picture",
+    "nominee": "The Living Proof\", Mary J. Blige, Thomas Newman, Harvey Mason, Jr., Damon Thomas",
+    "film": "The Help",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Drama",
+    "nominee": "Homeland",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Drama",
+    "nominee": "Boardwalk Empire",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Drama",
+    "nominee": "Boss",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Drama",
+    "nominee": "Game of Thrones",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Drama",
+    "nominee": "American Horror Story: Asylum",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Modern Family",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Enlightened",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Episodes",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "Glee",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Series - Musical or Comedy",
+    "nominee": "New Girl",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Downton Abbey",
+    "film": "",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Cinema Verite",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "The Hour",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Mildred Pierce",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Television Limited Series or Motion Picture Made for Television",
+    "nominee": "Too Big To Fail",
+    "film": "",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Kate Winslet",
+    "film": "Mildred Pierce",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Romola Garai",
+    "film": "The Hour",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Diane Lane",
+    "film": "Cinema Verite",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Elizabeth McGovern",
+    "film": "Downton Abbey",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Emily Watson",
+    "film": "Appropriate Adult",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Idris Elba",
+    "film": "Luther",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Hugh Bonneville",
+    "film": "Downton Abbey",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "William Hurt",
+    "film": "Too Big To Fail",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Bill Nighy",
+    "film": "Page Eight (Masterpiece)",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Limited Series or a Motion Picture Made for Television",
+    "nominee": "Dominic West",
+    "film": "The Hour",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Claire Danes",
+    "film": "Homeland",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Madeleine Stowe",
+    "film": "Revenge",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Callie Thorne",
+    "film": "Necessary Roughness",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Mireille Enos",
+    "film": "Killing, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress In A Television Series - Drama",
+    "nominee": "Julianna Margulies",
+    "film": "The Good Wife",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Kelsey Grammer",
+    "film": "Boss",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Jeremy Irons",
+    "film": "Borgias, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Damian Lewis",
+    "film": "Homeland",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Steve Buscemi",
+    "film": "Boardwalk Empire",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor In A Television Series - Drama",
+    "nominee": "Bryan Cranston",
+    "film": "Breaking Bad",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Laura Dern",
+    "film": "Enlightened",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Zooey Deschanel",
+    "film": "New Girl",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Tina Fey",
+    "film": "30 Rock",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Laura Linney",
+    "film": "Big C, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Television Series - Musical or Comedy",
+    "nominee": "Amy Poehler",
+    "film": "Parks And Recreation",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Matt LeBlanc",
+    "film": "Episodes",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Alec Baldwin",
+    "film": "30 Rock",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "David Duchovny",
+    "film": "Californication",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Johnny Galecki",
+    "film": "Big Bang Theory, The",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actor in a Television Series - Musical or Comedy",
+    "nominee": "Thomas Jane",
+    "film": "Hung",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Jessica Lange",
+    "film": "American Horror Story",
+    "win": true
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Kelly MacDonald",
+    "film": "Boardwalk Empire",
+    "win": false
+  },
+  {
+    "year_film": 2011,
+    "year_award": 2012,
+    "ceremony": 69,
+    "category": "Best Performance by an Actress in a Supporting Role in a Series, Limited Series or Motion Picture Made for Television",
+    "nominee": "Maggie Smith",
+    "film": "Downton Abbey",
+    "win": false
+  }
+]  
