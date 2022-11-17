@@ -8,17 +8,19 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+const listEndpoints = require('express-list-endpoints')
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(
-    "Spotify playlist - Top 2000 songs",
-    "Routes",
-    "/tracks to Get all songs",
-    "/artists/:artist to Get songs from a spesific artist",
-    "/titles/:title to Get a song by its title",
-    "/genres/:genre to Get songs by genre",
-    );
+  res.json(listEndpoints(app));
+  // res.send(
+  //   "Spotify playlist - Top 2000 songs",
+  //   "Routes",
+  //   "/tracks to Get all songs",
+  //   "/artists/:artist to Get songs from a spesific artist",
+  //   "/titles/:title to Get a song by its title",
+  //   "/genres/:genre to Get songs by genre",
+  //   );
 });
 
 app.get('/tracks', (req, res) => {
