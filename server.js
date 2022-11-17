@@ -30,10 +30,6 @@ app.get("/", (req, res) => {
   res.send(movies);
 });
 
-// All titles
-/* app.get("/titles", (req,res) => {
-res.json(netflixData)
-}); */
 
 app.get("/titles", (req, res) => {
   const { country, releaseYear } = req.query
@@ -43,7 +39,7 @@ app.get("/titles", (req, res) => {
     filteredData = netflixData.filter((movie) =>
       movie.country.toLocaleLowerCase()
         .includes(country.toLocaleLowerCase())
-    );
+    )
   }
 
   if (releaseYear) {
@@ -60,7 +56,12 @@ app.get("/titles", (req, res) => {
     )
   }
 
-  res.json(filteredData)
+  res.status(200).json({
+    response: filteredData,
+    message: "Ok",
+    success: true,
+  })
+
 });
 
 
