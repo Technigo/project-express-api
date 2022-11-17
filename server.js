@@ -1,7 +1,6 @@
-import express from "express";
+import express, { request } from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
-import bodyParser from "body-parser";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -20,7 +19,7 @@ const app = express(); //this function call will allows us to create the whole A
 // Cors makes it easier to use the API, allows API's to say where the requests come from.
 // bodyParser allows express to read json in post requests
 app.use(cors());
-app.use(bodyParser.json()); //allows us to read the bodies from the request
+app.use(express.json()); //allows us to read the bodies from the request
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -57,6 +56,31 @@ app.get("/shows", (req, res) => {
 });
 
 
+app.get("/shows/:id", (req, res) => {
+  // const { id } = req.params;
+  const singleShowByID = netflixData.find((totalShows) => {
+    return totalShows.id === Number(request.params.id);
+  })
+  // const singleShowByID = netflixData.find((title) => title.show_id === +id)
+   
+
+    if (singleShowByID) {
+      res.status(200).json({
+      success: true,
+      message: "OK",
+      response: {
+        totalShows: singleShowByID
+      }
+  })
+} else {
+  res.status(404).json({ 
+    success: false,
+    message: 'Not Found with id number',
+    response: {}
+});
+}
+console.log(singleShowByID)
+});
 
 // Start the server
 app.listen(port, () => {
