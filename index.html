@@ -3,6 +3,7 @@
 
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -12,7 +13,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Technigo React App</title>
+    <title>Express API</title>
+
+    <style>  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); </style>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');</style>
   </head>
 
   <body>
@@ -20,11 +24,27 @@
     <div id="root"></div>
 
 
-    <h1>seasons of rupauls drag race</h1>
+ 
+<section 
+style="width:100%;height:0;padding-bottom:54%;position:relative;">
+<iframe src="https://giphy.com/embed/fwWsqZ4DtVKCyOdueN"
+width="100%" 
+height="100%" 
+style="position:absolute" 
+frameBorder="0" 
+class="giphy-embed" 
+allowFullScreen></iframe>
+</section>
 
-    <p>please add a <span>path</span> to view different endpoints</p>
-    <p><span>/seasons</span> to view all data</p>
-    <p><span>/seasons/1</span> to view a specific season</p>
+<div>
+    <h1>Golden Globe nominations</h1>
+    <h2>please add a <span>path</span> to view different endpoints</h2>
+    <p><span>/nominations</span> to view all data</p>
+    <p><span> /year/2010 </span>to view all movies with nominations from a specific year</p>
+    <p><span>/nominations/avatar</span> to view a specific movie</p>
+    <p><span>/year/2010?win=true</span> to view won movies in a specific year </p>
+ </div>
+<!-- <p><a href="https://giphy.com/gifs/goldenglobes-golden-globes-2020-fwWsqZ4DtVKCyOdueN"></a></p> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

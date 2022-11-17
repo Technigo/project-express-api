@@ -36,18 +36,41 @@ app.get("/nominations", (req, res) => {
   res.status(200).json(goldenGlobesData); 
 });
 
-//ROUTE 2 - - collection of results (array of elements) using filter
+// ROUTE 2 Two filters - see won movies in a specific year
+app.get("/year/:year", (req, res) => {
+  const year = req.params.year
+  const showWin = req.query.win
+
+  let nominationsFromYear = goldenGlobesData.filter ((item) => item.year_award === +year)
+
+  if (showWin) {
+    nominationsFromYear = nominationsFromYear.filter ((item) => item.win)
+  }
+  res.json(nominationsFromYear)
+})
+
+// ROUTE 3 - collection of results (array of elements) using filter
 app.get("/year/:year", (req, res) => {
   const year = +req.params.year;
   const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
 
-  if (!year) {
-  res.status(404).send("no season found with that id");
-  } else 
-  res.json(yearAward)
+  if (year === yearAward) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+       year: yearAward
+            }})
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    })};
+
   })
- 
-  //ROUTE 3 - a single result (single element) using find
+
+  //ROUTE 4 - a single result (single element) using find
 
   app.get("/nominations/:film", (req, res) => {
       const singleFilm = goldenGlobesData.find((movie) => {
@@ -56,9 +79,8 @@ app.get("/year/:year", (req, res) => {
        res.status(200).json(singleFilm);
     });
     
-// Route 4 Two filters
 
-// Start the server
+// Start the server 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
