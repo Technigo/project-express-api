@@ -27,16 +27,26 @@ app.get("/", (req, res) => {
 
 
 app.get("/netflix", (req, res) => {
-  const { title } = req.query
+  const { title, year, type } = req.query
   let netflix = netflixData; //default response
 
   if(title) {
     netflix = netflix.filter((item) =>
-    item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
+    item.title.toString().toLocaleLowerCase().includes(title.toLocaleLowerCase()))
   }
-  if(netflix.length === 0)
-  {res.status(404).json
-  ("We could not find this movie")
+  if(year) {
+    netflix = netflix.filter((item) =>
+    item.relese_year.toString().toLocaleLowerCase().includes(year.toLocaleLowerCase()))
+  }
+  if(type) {
+    netflix = netflix.filter((item) =>
+    item.type.toLocaleLowerCase().includes(type.toLocaleLowerCase()))
+  }
+  if(netflix.length === 0){
+  res.status(404).json({
+    success: true,
+    message: "Try again"
+  })
   }
 
   res.status(200).json({
