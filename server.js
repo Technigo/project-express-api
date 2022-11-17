@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json({responseMessage: "Hello Technigo!"});
+  res.json({responseMessage: "NES-games library at /games"});
 });
 
 app.get("/games", (req, res) => {
