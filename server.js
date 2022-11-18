@@ -15,59 +15,35 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get('/songs/', (req, res) => {
-  const genre = req.query.genre;
-  let allSongs = topMusic;
-
-  if (genre) {
-    allSongs = allSongs.filter((song) => song.genre === genre);
- };
-
- res.json(allSongs);
+  res.status(200).send("Hello World!");
 });
 
 app.get('/songs/:id', (req, res) => {
   const id = req.params.id;
-  const songById = topMusic.filter(song => song.id === +id);
-  res.json(songById);
+  let songById = topMusic.find(song => song.id === +id);
+  res.status(200).json({
+    response: songById,
+    success: true
+   });
 });
 
-// LÄGG TILL felmedd om inte genren finns 
-// kolla common pitfalls
+app.get('/songs/', (req, res) => {
+  const { bpm, genre } = req.query;
+  let songs = topMusic;
 
-/*   const { name, role } = req.query; // när det är unika värden som t ex id
-  let members = technigoMembers;
-
-  if (role) {
-    members = members.filter((singleMember) => {
-      return singleMember.role.toLowerCase() === role.toLowerCase();
-    })
+  if (genre) {
+    songs = songs.filter(song => song.genre.toLowerCase().includes(genre.toLowerCase()));
   }
 
-  if (name) {
-    members = members.filter((singleMember) => {
-      return singleMember.name.toLowerCase() === name.toLowerCase();
-    })
+  if (bpm) {
+    songs = songs.filter(song => song.bpm === +bpm);
   }
 
   res.status(200).json({
-    success: true,
-    message: "OK",
-    body: {
-      technigoMembers: members
-    }
+    response: songs,
+    success: true
   });
-    res.status(404).json({
-    success: false,
-    message: "Not OK",
-    body: {
-      "Page not found."
-    }
-  });
-}); */
+});
 
 // Start the server
 app.listen(port, () => {
