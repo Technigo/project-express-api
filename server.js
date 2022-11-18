@@ -1,14 +1,7 @@
 import express from "express";
 import cors from "cors";
-//import technigoMembers from "./data/technigo-members.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
 import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -68,8 +61,8 @@ app.get("/avocado-sales/region/:region", (req, res) => {
   res.status(200).json({filteredOnRegionName});
 });
 
-// get a list of avocado sales under or equal to the route parameter
-app.get('/avocado-sales/averagePrice/:averagePrice', (req, res) => {
+// get a list of avocado sales under or equal to the route parameter average price
+app.get("/avocado-sales/averagePrice/:averagePrice", (req, res) => {
   const { averagePrice } = req.params
   const avocados = avocadoSalesData.filter(avocado => avocado.averagePrice <= averagePrice)
 

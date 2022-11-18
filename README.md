@@ -14,6 +14,8 @@ Link to deployed version in google cloud: https://project-express-api-mkauwz3guq
 
 Use these endpoints:
 1. Avocado-sales (list of total): /avocado-sales
-2. Search by id: /avocado-sales/:id
-3. Search by a region: /avocado-sales/region/:region
-4. Sorted by average price: /avocado-sales/averagePrice
+2. Reversed list of total: /avocado-sales/reversed
+3. Search by id: /avocado-sales/:id
+4. Search by a region: /avocado-sales/region/:region
+5. List of sales under or equal to the route parameter (average price): /avocado-sales/averagePrice/:averagePrice
+6. Sorted by average price: /avocado-sales/averagePrice
