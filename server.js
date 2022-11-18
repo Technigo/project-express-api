@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import technigoMembers from "./data/technigo-members.json"
+import booksData from "./data/books.json"
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -80,6 +81,29 @@ app.get("/members/:id", (request, response) => {
   
 });
 
+// EP2 Books
+
+app.get("/books", (request, response) => {
+  const { authors, title } = request.query
+  let books = booksData
+
+  if (authors) {
+    books = books.filter(singleBookData => singleBookData.authors.toLowerCase() === authors.toLowerCase())
+  }
+
+  if (title) {
+    books = books.filter(singleBookData => singleBookData.title.toLowerCase() ===
+    title.toLowerCase())
+  }
+
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      booksData: books
+    }
+  });
+});
 
 // Start the server
 app.listen(port, () => {
