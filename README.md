@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Small intro project to Backend built using Express API. Displaying members of Technigo and Popular books, title and author.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I followed the code along in which I created Technigo members and then followed the same principles to create a small endpoint for books as well. This week I decided to meet requirements with minimal effort and time focusing on understanding. The decision ws made plan like this to give more time to focus on final project planning, as well as cacthing up on some previous tech that I don't feel fully comfortable with yet.
+
+There is opportunity to extend the books endpoint significantly which I would have done with more time, or rather if I had chosen to plan my time differently.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+google cloud: https://project-express-api-yd2d4q5kyq-lz.a.run.app
