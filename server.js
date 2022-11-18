@@ -1,13 +1,6 @@
-import express, { request } from "express";
+import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -23,15 +16,15 @@ app.use(express.json()); //allows us to read the bodies from the request
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  // console.log("req", req);
-  // console.log("res", res);
+
   res.send({responseMessage: "Hello! An API for netflix-titles."});
 });
 
 app.get("/shows", (req, res) => {
   const { title, country, year, type } = req.query;
   
-  let totalShows = netflixData;
+  let totalShows = [...netflixData]; // Clone
+  // let totalShows = netflixData; Share the same memory adress
   
   if (title) {
     totalShows = totalShows.filter((show) => show.title.toLowerCase() === title.toLowerCase())
@@ -57,12 +50,11 @@ app.get("/shows", (req, res) => {
 
 
 app.get("/shows/:id", (req, res) => {
-  // const { id } = req.params;
-  const singleShowByID = netflixData.find((totalShows) => {
-    return totalShows.id === Number(request.params.id);
-  })
-  // const singleShowByID = netflixData.find((title) => title.show_id === +id)
-   
+  const { id } = req.params;
+  console.log(id);
+  // const singleShowByID = netflixData.find((totalShows) => totalShows.id === Number(request.params.id));
+  const singleShowByID = netflixData.find(({show_id}) => show_id === Number(id));
+  console.log(JSON.stringify(singleShowByID));
 
     if (singleShowByID) {
       res.status(200).json({
@@ -75,7 +67,7 @@ app.get("/shows/:id", (req, res) => {
 } else {
   res.status(404).json({ 
     success: false,
-    message: 'Not Found with id number',
+    message: `Not Found with id number ${id}`,
     response: {}
 });
 }
