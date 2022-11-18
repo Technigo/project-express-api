@@ -36,10 +36,17 @@ app.get("/avocadosales", (req, res) => {
   });
 });
 
+app.get("/regions", (req, res) => {
+  const regionsList = avocadoSalesData.map((data) => data.region);
+  const regions = [...new Set(regionsList)];
+
+    res.status(200).json({ data: regions, success: true });
+  });
+
 app.get("/avocadosales/:region", (req, res) => {
   const region = req.params.region;
   const avocadoRegion = avocadoSalesData.filter(
-    (item) => item.region.toLowerCase() === region.toLowerCase()
+    (singleRegion) => singleRegion.region.toLowerCase() === region.toLowerCase()
     );
     if (avocadoRegion.length !==0) {
       res.status(200).json({ data: avocadoRegion, success: true });
@@ -48,14 +55,6 @@ app.get("/avocadosales/:region", (req, res) => {
     }
   });
   
-app.get("/regions", (req, res) => {
-  const regionsList = avocadoSalesData.map((data) => data.region);
-  const regions = [...new Set(regionsList)];
-
-    res.status(200).json({ data: regions, success: true });
-  });
-
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
