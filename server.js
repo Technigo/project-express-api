@@ -30,7 +30,30 @@ app.get("/nominations", (req, res) => {
   res.status(200).json(goldenGlobesData); 
 });
 
-// ROUTE 2 Two filters - see won movies in a specific year
+  // response.status(200).json(yearAward)
+  // })
+
+      //ROUTE 2 - collection of results (array of elements) using filter
+app.get("/nominations/:year", (req, res) => {
+  const year = +req.params.year;
+  const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
+    
+  if (yearAward ===!year) {
+    res.status(404).send("no nominations that year!");
+  } else 
+    res.json(yearAward)
+   })
+
+  //ROUTE 3 - a single result (single element) using find
+  app.get("/movies/:film", (req, res) => {
+      const singleFilm = goldenGlobesData.find((movie) => {
+        return movie.film.toLowerCase() === req.params.film.toLowerCase();
+      }); 
+       res.status(200).json(singleFilm);
+    });
+
+
+// ROUTE 4 Two filters - see won movies in a specific year
 app.get("/year/:year", (req, res) => {
   const year = req.params.year
   const showWin = req.query.win
@@ -41,28 +64,6 @@ app.get("/year/:year", (req, res) => {
   }
     res.json(nominationsFromYear)
 })
-
-// ROUTE 3 - collection of results (array of elements) using filter
-app.get("/year/:year", (req, res) => {
-  const year = +req.params.year;
-  const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
-    
-  if (yearAward ===!year) {
-    res.status(404).send("no nominations that year!");
-  } else 
-    res.json(yearAward)
-   })
-
-  // response.status(200).json(yearAward)
-  // })
-
-  //ROUTE 4 - a single result (single element) using find
-  app.get("/nominations/:film", (req, res) => {
-      const singleFilm = goldenGlobesData.find((movie) => {
-        return movie.film.toLowerCase() === req.params.film.toLowerCase();
-      }); 
-       res.status(200).json(singleFilm);
-    });
 
 
 // Start the server 
