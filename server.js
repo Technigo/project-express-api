@@ -33,17 +33,6 @@ app.get('/bookData', (req, res) => {
   })
 
 
-  app.get('/bookData/title/:title', (req, res) => {
-    const { title } = req.params;
-    const booksByTitle = bookData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase())
-      );
-        res.status(200).json({
-          data: booksByTitle,
-          success: true,
-      })
-  });
-
-
 // sorts the api to display  book rating from highest to lowest
 app.get('/bookData/average_rating/', (req, res) => {
   const { average_rating } = req.params;
@@ -63,7 +52,7 @@ app.get('/bookData/authors/:authors', (req, res) => {
   };
   if (byAuthor.length === 0) {
     res.status(200).json({
-      data: "We don't have any books by that author - did you spell correctly?",
+      message: "We don't have any books by that author - did you spell correctly?",
       success: true,
     });
   } else {
@@ -86,7 +75,7 @@ app.get('/bookData/authors/:authors', (req, res) => {
     };
     if (byTitle.length === 0) {
       res.status(200).json({
-        data: "There's no books here by that name",
+        message: "There's no books here by that name",
         success: true,
       });
     } else {
