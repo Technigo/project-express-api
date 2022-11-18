@@ -11,24 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// define how many objects per site
-
-const pagination = (data, pageNumber) => {
-  const pageSize = 20
-  const startIndex = (pageNumber-1) * pageSize
-  const endIndex = startIndex + pageSize
-  const itemsOnPage = data.slice(startIndex, endIndex)
-
-  const returnObject = {
-      page_size: pageSize,
-      page: pageNumber,
-      num_of_pages: Math.ceil(data.length / pagesize),
-      items_on_page: booksOnPage.length,
-      results: itemsOnPage
-  }
-  return returnObject
-}
-
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("An Api of netflixe movies titels. Go to /endpoints to see all endpoints");
@@ -42,7 +24,7 @@ app.get("/endpoints", (req, res) => {
 // see all movies in the data file
 app.get("/movies", (req,res) => {
   const { title, country, director, cast } = req.params; 
-  let allMovies = data 
+  let allMovies = data.slice(0, 200)
   if (title) {
     allMovies = allMovies.filter((movie) => movie.title.toLocaleLowerCase() === title.toLocaleLowerCase())
   }
@@ -81,27 +63,6 @@ app.get("/movies/title/:title", (req, res) => {
     });
   }
 });
-
-/* it´s not showing data */
-app.get("/movies/year/:year", (req, res) => {
-  const { release_year } = req.params;
-
-  
-  const releaseYear = data.filter((item) => item.release_year === release_year)
-  console.log( 'year',releaseYear)
-
-  if(!releaseYear) {
-    res.status(404).json({
-      data: "Not found",
-      success: false, 
-    })
-  } else {
-    res.status(200).json({
-      data: releaseYear,
-      success: true,
-    })
-  }
-})
 
 // make it more clear if you looking at movies or tvshow 
 app.get("/movies/type/:type", (req, res) => {
