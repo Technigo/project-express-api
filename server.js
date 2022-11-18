@@ -32,7 +32,6 @@ app.get('/bookData', (req, res) => {
   })
   })
 
-
 // sorts the api to display  book rating from highest to lowest
 app.get('/bookData/average_rating/', (req, res) => {
   const { average_rating } = req.params;
@@ -85,7 +84,6 @@ app.get('/bookData/authors/:authors', (req, res) => {
       });
     };
     });  
-
 
 // sorts the books in order from most to fewest pages
 app.get('/bookData/num_pages/', (req, res) => {
