@@ -13,7 +13,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 // Start route on default port
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -24,34 +23,30 @@ app.get("/style.css", (req, res) => {
   res.sendFile(__dirname + "/style.css");
 });
 
-
 // ROUTE 1 - collection of results (array of elements)
 app.get("/nominations", (req, res) => {
   res.status(200).json(goldenGlobesData); 
 });
 
-  // response.status(200).json(yearAward)
-  // })
-
-      //ROUTE 2 - collection of results (array of elements) using filter
+//ROUTE 2 - collection of results (array of elements) using filter
 app.get("/nominations/:year", (req, res) => {
   const year = +req.params.year;
   const yearAward = goldenGlobesData.filter((item)=>item.year_award === year)
     
-  if (yearAward ===!year) {
+if (yearAward.length === 0) {
     res.status(404).send("no nominations that year!");
-  } else 
+} else { 
     res.json(yearAward)
-   })
+}
+})
 
   //ROUTE 3 - a single result (single element) using find
-  app.get("/movies/:film", (req, res) => {
-      const singleFilm = goldenGlobesData.find((movie) => {
-        return movie.film.toLowerCase() === req.params.film.toLowerCase();
-      }); 
-       res.status(200).json(singleFilm);
-    });
-
+app.get("/movies/:film", (req, res) => {
+  const singleFilm = goldenGlobesData.find((movie) => {
+  return movie.film.toLowerCase() === req.params.film.toLowerCase();
+  }); 
+  res.status(200).json(singleFilm);
+});
 
 // ROUTE 4 Two filters - see won movies in a specific year
 app.get("/year/:year", (req, res) => {
@@ -59,12 +54,11 @@ app.get("/year/:year", (req, res) => {
   const showWin = req.query.win
   let nominationsFromYear = goldenGlobesData.filter ((item) => item.year_award === +year)
   
-  if (showWin) {
-    nominationsFromYear = nominationsFromYear.filter ((item) => item.win)
-  }
-    res.json(nominationsFromYear)
+if (showWin) {
+  nominationsFromYear = nominationsFromYear.filter ((item) => item.win)
+}
+  res.json(nominationsFromYear)
 })
-
 
 // Start the server 
 app.listen(port, () => {
