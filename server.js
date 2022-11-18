@@ -35,12 +35,27 @@ app.get("/", (req, res) => {
 //HTMLElement.addEventListener('nameOfTheListener', () => {
 
 //});
-app.get("/members", (req, res) => {
-
-  res.status(200).json({technigoMembers: technigoMembers});
+app.get("/members", (req, response) => {
+  response.status(200).json({technigoMembers: technigoMembers});
 });
 
-// Start the server
+app.get("/members/:id", (request, response) => {
+  const singleMember = technigoMembers.find((member) => {
+    // need the + to not be a string, make it a number.
+    //return member.id === +req.params.id;
+    // The 2 underneath is the same;
+    // return member.id.toString() === +req.params.id;
+    // return member.id == +req.params.id;
+    return member.id === Number(request.params.id);
+
+  })
+  console.log(singleMember);
+  response.status(200).json(singleMember);
+});
+
+// Start the server, write: npm run dev
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+// Kill the server when done testing, to save battery:
+// = ctrl + c
