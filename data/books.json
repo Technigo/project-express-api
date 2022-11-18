@@ -1,7 +1,7 @@
 [
   {
     "bookID": 1,
-    "title": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
+    "title": "Harry Potter and the Half-Blood Prince",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.56,
     "isbn": 439785960,
@@ -13,7 +13,7 @@
   },
   {
     "bookID": 2,
-    "title": "Harry Potter and the Order of the Phoenix (Harry Potter  #5)",
+    "title": "Harry Potter and the Order of the Phoenix",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.49,
     "isbn": 439358078,
@@ -25,7 +25,7 @@
   },
   {
     "bookID": 3,
-    "title": "Harry Potter and the Sorcerer's Stone (Harry Potter  #1)",
+    "title": "Harry Potter and the Sorcerer's Stone",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.47,
     "isbn": 439554934,
@@ -37,7 +37,7 @@
   },
   {
     "bookID": 4,
-    "title": "Harry Potter and the Chamber of Secrets (Harry Potter  #2)",
+    "title": "Harry Potter and the Chamber of Secrets",
     "authors": "J.K. Rowling",
     "average_rating": 4.41,
     "isbn": 439554896,
@@ -49,7 +49,7 @@
   },
   {
     "bookID": 8,
-    "title": "Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)",
+    "title": "Harry Potter Boxed Set Books 1-5",
     "authors": "J.K. Rowling-Mary GrandPré",
     "average_rating": 4.78,
     "isbn": 439682584,
@@ -61,7 +61,7 @@
   },
   {
     "bookID": 9,
-    "title": "Unauthorized Harry Potter Book Seven News: \"Half-Blood Prince\" Analysis and Speculation",
+    "title": "Unauthorized Harry Potter Book Seven News Half-Blood Prince Analysis and Speculation",
     "authors": "W. Frederick Zimmerman",
     "average_rating": 3.69,
     "isbn": 976540606,
@@ -73,7 +73,7 @@
   },
   {
     "bookID": 10,
-    "title": "Harry Potter Collection (Harry Potter  #1-6)",
+    "title": "Harry Potter Collection",
     "authors": "J.K. Rowling",
     "average_rating": 4.73,
     "isbn": 439827604,
@@ -85,7 +85,7 @@
   },
   {
     "bookID": 12,
-    "title": "The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5)",
+    "title": "The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story",
     "authors": "Douglas Adams",
     "average_rating": 4.38,
     "isbn": 517226952,
@@ -109,7 +109,7 @@
   },
   {
     "bookID": 14,
-    "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)",
+    "title": "The Hitchhiker's Guide to the Galaxy",
     "authors": "Douglas Adams",
     "average_rating": 4.22,
     "isbn": 1400052920,
@@ -121,7 +121,7 @@
   },
   {
     "bookID": 16,
-    "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)",
+    "title": "The Hitchhiker's Guide to the Galaxy",
     "authors": "Douglas Adams-Stephen Fry",
     "average_rating": 4.22,
     "isbn": 739322206,
@@ -133,7 +133,7 @@
   },
   {
     "bookID": 18,
-    "title": "The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy #1-5)",
+    "title": "The Ultimate Hitchhiker's Guide",
     "authors": "Douglas Adams",
     "average_rating": 4.38,
     "isbn": 517149257,
@@ -241,7 +241,7 @@
   },
   {
     "bookID": 31,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
+    "title": "The Lord of the Rings",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.49,
     "isbn": 618517650,
@@ -253,7 +253,7 @@
   },
   {
     "bookID": 32,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
+    "title": "The Lord of the Rings",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.49,
     "isbn": 618346244,
@@ -265,7 +265,7 @@
   },
   {
     "bookID": 34,
-    "title": "The Fellowship of the Ring (The Lord of the Rings  #1)",
+    "title": "The Fellowship of the Ring",
     "authors": "J.R.R. Tolkien",
     "average_rating": 4.35,
     "isbn": 618346252,
@@ -277,7 +277,7 @@
   },
   {
     "bookID": 35,
-    "title": "The Lord of the Rings (The Lord of the Rings  #1-3)",
+    "title": "The Lord of the Rings 1-3",
     "authors": "J.R.R. Tolkien-Alan  Lee",
     "average_rating": 4.49,
     "isbn": 618260587,
@@ -337,7 +337,7 @@
   },
   {
     "bookID": 51,
-    "title": "Hatchet: A Guide for Using \"Hatchet\" in the Classroom",
+    "title": "Hatchet: A Guide for Using Hatchet in the Classroom",
     "authors": "Donna Ickes-Edward Sciranko-Keith Vasconcelles",
     "average_rating": 3.97,
     "isbn": 1557344493,
@@ -385,7 +385,7 @@
   },
   {
     "bookID": 57,
-    "title": "A Changeling for All Seasons (Changeling Seasons #1)",
+    "title": "A Changeling for All Seasons",
     "authors": "Angela Knight-Sahara Kelly-Judy Mays-Marteeka Karland-Kate Douglas-Shelby Morgen-Lacey Savage-Kate Hill-Willa Okati",
     "average_rating": 3.75,
     "isbn": 1595962808,
@@ -397,7 +397,7 @@
   },
   {
     "bookID": 58,
-    "title": "Changeling (Changeling  #1)",
+    "title": "Changeling",
     "authors": "Delia Sherman",
     "average_rating": 3.6,
     "isbn": 670059676,
@@ -445,7 +445,7 @@
   },
   {
     "bookID": 66,
-    "title": "The Changeling (Daughters of England  #15)",
+    "title": "The Changeling",
     "authors": "Philippa Carr",
     "average_rating": 3.99,
     "isbn": 449146979,
@@ -505,7 +505,7 @@
   },
   {
     "bookID": 74,
-    "title": "The John McPhee Reader (John McPhee Reader  #1)",
+    "title": "The John McPhee Reader",
     "authors": "John McPhee-William Howarth",
     "average_rating": 4.43,
     "isbn": 374517193,
@@ -721,7 +721,7 @@
   },
   {
     "bookID": 98,
-    "title": "What to Expect the First Year (What to Expect)",
+    "title": "What to Expect the First Year",
     "authors": "Heidi Murkoff-Sharon Mazel-Heidi Murkoff-Arlene Eisenberg-Sandee Hathaway-Mark D. Widome",
     "average_rating": 3.88,
     "isbn": 761129588,
@@ -757,7 +757,7 @@
   },
   {
     "bookID": 103,
-    "title": "God Emperor of Dune (Dune Chronicles  #4)",
+    "title": "God Emperor of Dune",
     "authors": "Frank Herbert",
     "average_rating": 3.83,
     "isbn": 441294677,
@@ -769,7 +769,7 @@
   },
   {
     "bookID": 105,
-    "title": "Chapterhouse: Dune (Dune Chronicles #6)",
+    "title": "Chapterhouse: Dune",
     "authors": "Frank Herbert",
     "average_rating": 3.9,
     "isbn": 441102670,
@@ -781,7 +781,7 @@
   },
   {
     "bookID": 106,
-    "title": "Dune Messiah (Dune Chronicles #2)",
+    "title": "Dune Messiah",
     "authors": "Frank Herbert",
     "average_rating": 3.87,
     "isbn": 441172695,
@@ -805,7 +805,7 @@
   },
   {
     "bookID": 109,
-    "title": "Heretics of Dune (Dune Chronicles  #5)",
+    "title": "Heretics of Dune",
     "authors": "Frank Herbert",
     "average_rating": 3.85,
     "isbn": 399128980,
@@ -817,7 +817,7 @@
   },
   {
     "bookID": 110,
-    "title": "The Road to Dune (Dune Universe)",
+    "title": "The Road to Dune",
     "authors": "Frank Herbert-Brian Herbert-Kevin J. Anderson",
     "average_rating": 3.87,
     "isbn": 765353709,
@@ -829,7 +829,7 @@
   },
   {
     "bookID": 112,
-    "title": "Children of Dune (Dune Chronicles #3)",
+    "title": "Children of Dune",
     "authors": "Frank Herbert",
     "average_rating": 3.92,
     "isbn": 441104029,
@@ -841,7 +841,7 @@
   },
   {
     "bookID": 117,
-    "title": "Heretics of Dune (Dune Chronicles #5)",
+    "title": "Heretics of Dune",
     "authors": "Frank Herbert",
     "average_rating": 3.85,
     "isbn": 441328008,
@@ -853,7 +853,7 @@
   },
   {
     "bookID": 123,
-    "title": "The Power of One (The Power of One  #1)",
+    "title": "The Power of One",
     "authors": "Bryce Courtenay",
     "average_rating": 4.35,
     "isbn": 385732546,
@@ -1237,7 +1237,7 @@
   },
   {
     "bookID": 181,
-    "title": "A Wrinkle in Time: With Related Readings (A Wrinkle in Time Quintet #1)",
+    "title": "A Wrinkle in Time: With Related Readings",
     "authors": "Madeleine L'Engle",
     "average_rating": 4.01,
     "isbn": 821925326,
@@ -1261,7 +1261,7 @@
   },
   {
     "bookID": 204,
-    "title": "The Long Shadow (The Morland Dynasty  #6)",
+    "title": "The Long Shadow",
     "authors": "Cynthia Harrod-Eagles",
     "average_rating": 4.11,
     "isbn": 751506435,
@@ -1285,7 +1285,7 @@
   },
   {
     "bookID": 208,
-    "title": "A Shadow in Summer (Long Price Quartet  #1)",
+    "title": "A Shadow in Summer",
     "authors": "Daniel Abraham",
     "average_rating": 3.6,
     "isbn": 765313405,
@@ -1297,7 +1297,7 @@
   },
   {
     "bookID": 213,
-    "title": "New Hope for the Dead (Hoke Mosely #2)",
+    "title": "New Hope for the Dead",
     "authors": "Charles Willeford-James Lee Burke",
     "average_rating": 3.91,
     "isbn": 1400032490,
@@ -1609,7 +1609,7 @@
   },
   {
     "bookID": 302,
-    "title": "Treasure Island (Great Illustrated Classics)",
+    "title": "Treasure Island",
     "authors": "Deidre S. Laiken-A.J. McAllister-Robert Louis Stevenson",
     "average_rating": 4.04,
     "isbn": 1577658051,
@@ -1813,7 +1813,7 @@
   },
   {
     "bookID": 356,
-    "title": "Time for the Stars (Heinlein's Juveniles  #10)",
+    "title": "Time for the Stars",
     "authors": "Robert A. Heinlein",
     "average_rating": 3.97,
     "isbn": 765314932,
@@ -1825,7 +1825,7 @@
   },
   {
     "bookID": 357,
-    "title": "The Long Dark Tea-Time of the Soul (Dirk Gently  #2)",
+    "title": "The Long Dark Tea-Time of the Soul",
     "authors": "Douglas Adams",
     "average_rating": 4.06,
     "isbn": 671742515,
@@ -1849,7 +1849,7 @@
   },
   {
     "bookID": 360,
-    "title": "Mostly Harmless (Hitchhiker's Guide to the Galaxy  #5)",
+    "title": "Mostly Harmless",
     "authors": "Douglas Adams",
     "average_rating": 3.97,
     "isbn": 345418778,
@@ -2245,7 +2245,7 @@
   },
   {
     "bookID": 432,
-    "title": "City of Glass (The New York Trilogy  #1)",
+    "title": "City of Glass",
     "authors": "Paul Auster",
     "average_rating": 3.79,
     "isbn": 140097317,
@@ -2257,7 +2257,7 @@
   },
   {
     "bookID": 435,
-    "title": "The Locked Room (The New York Trilogy  #3)",
+    "title": "The Locked Room",
     "authors": "Paul Auster",
     "average_rating": 3.89,
     "isbn": 940650762,
@@ -2593,7 +2593,7 @@
   },
   {
     "bookID": 539,
-    "title": "Lovely in Her Bones (Elizabeth MacPherson  #2)",
+    "title": "Lovely in Her Bones",
     "authors": "Sharyn McCrumb",
     "average_rating": 3.81,
     "isbn": 345360354,
@@ -3157,7 +3157,7 @@
   },
   {
     "bookID": 820,
-    "title": "Golgotha (Cryptonomicon  #3)",
+    "title": "Golgotha",
     "authors": "Neal Stephenson",
     "average_rating": 4.13,
     "isbn": 2228894699,
@@ -3169,7 +3169,7 @@
   },
   {
     "bookID": 821,
-    "title": "Le Réseau Kinakuta (Cryptonomicon  #2)",
+    "title": "Le Réseau Kinakuta",
     "authors": "Neal Stephenson",
     "average_rating": 4.11,
     "isbn": 2228894168,
@@ -3181,7 +3181,7 @@
   },
   {
     "bookID": 822,
-    "title": "The Confusion (The Baroque Cycle  #2)",
+    "title": "The Confusion",
     "authors": "Neal Stephenson",
     "average_rating": 4.25,
     "isbn": 60733357,
@@ -3193,7 +3193,7 @@
   },
   {
     "bookID": 823,
-    "title": "Quicksilver (The Baroque Cycle  #1)",
+    "title": "Quicksilver",
     "authors": "Neal Stephenson",
     "average_rating": 3.93,
     "isbn": 60593083,
@@ -3421,7 +3421,7 @@
   },
   {
     "bookID": 871,
-    "title": "Fullmetal Alchemist  Vol. 4 (Fullmetal Alchemist  #4)",
+    "title": "Fullmetal Alchemist  Vol. 4",
     "authors": "Hiromu Arakawa-Akira Watanabe",
     "average_rating": 4.55,
     "isbn": 1591169291,
@@ -3433,7 +3433,7 @@
   },
   {
     "bookID": 873,
-    "title": "Fullmetal Alchemist  Vol. 2 (Fullmetal Alchemist  #2)",
+    "title": "Fullmetal Alchemist  Vol. 2",
     "authors": "Hiromu Arakawa-Akira Watanabe",
     "average_rating": 4.52,
     "isbn": 1591169232,
@@ -3661,7 +3661,7 @@
   },
   {
     "bookID": 968,
-    "title": "The Da Vinci Code (Robert Langdon  #2)",
+    "title": "The Da Vinci Code",
     "authors": "Dan Brown",
     "average_rating": 3.82,
     "isbn": 307277674,
@@ -3673,7 +3673,7 @@
   },
   {
     "bookID": 972,
-    "title": "Da Vinci Code (Robert Langdon  #2)",
+    "title": "Da Vinci Code",
     "authors": "Dan Brown-Daniel Roche",
     "average_rating": 3.82,
     "isbn": 2266144340,
@@ -3757,7 +3757,7 @@
   },
   {
     "bookID": 991,
-    "title": "Eye of the Storm (Hudson  #3)",
+    "title": "Eye of the Storm",
     "authors": "V.C. Andrews",
     "average_rating": 3.82,
     "isbn": 743409159,
@@ -3805,7 +3805,7 @@
   },
   {
     "bookID": 1014,
-    "title": "Pragmatic Version Control: Using Subversion (The Pragmatic Starter Kit Series)",
+    "title": "Pragmatic Version Control: Using Subversion",
     "authors": "Mike   Mason",
     "average_rating": 3.57,
     "isbn": 977616657,
@@ -3925,7 +3925,7 @@
   },
   {
     "bookID": 1078,
-    "title": "The Good Earth (House of Earth  #1)",
+    "title": "The Good Earth",
     "authors": "Pearl S. Buck",
     "average_rating": 3.98,
     "isbn": 1416500189,
@@ -4117,7 +4117,7 @@
   },
   {
     "bookID": 1167,
-    "title": "Junie B. Jones and a Little Monkey Business (Junie B. Jones  #2)",
+    "title": "Junie B. Jones and a Little Monkey Business",
     "authors": "Barbara Park-Denise Brunkus",
     "average_rating": 3.98,
     "isbn": 679838864,
@@ -4753,7 +4753,7 @@
   },
   {
     "bookID": 1331,
-    "title": "Babrius and Phaedrus: Fables (Loeb Classical Library #436)",
+    "title": "Babrius and Phaedrus: Fables",
     "authors": "Babrius-Phaedrus-Ben Edwin Perry",
     "average_rating": 4.31,
     "isbn": 674994809,

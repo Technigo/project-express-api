@@ -84,16 +84,16 @@ app.get("/members/:id", (request, response) => {
 // EP2 Books
 
 app.get("/books", (request, response) => {
-  const { authors, title } = request.query
+  const { title, authors } = request.query
   let books = booksData
-
-  if (authors) {
-    books = books.filter(singleBookData => singleBookData.authors.toLowerCase() === authors.toLowerCase())
-  }
 
   if (title) {
     books = books.filter(singleBookData => singleBookData.title.toLowerCase() ===
     title.toLowerCase())
+  }
+
+  if (authors) {
+    books = books.filter(singleBookData => singleBookData.authors.toLowerCase() === authors.toLowerCase())
   }
 
   response.status(200).json({
