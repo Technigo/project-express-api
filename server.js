@@ -10,14 +10,14 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   const navigation = {
-    API_description: "These are the routes for this book API",
+    guide: "These are the routes for this book API!",
     Endpoints: [
       {
         "/bookData": "Display all books",
         "/bookData/authors/:authors": "Search for a author",
         "/bookData/title/:title": "Search for a title", 
-        "/bookData/average_rating/": "Average rating of books",
-        "/bookData/num_pages/": "The thickest book",
+        "/bookData/average_rating/": "Average rating of books - high to low",
+        "/bookData/num_pages/": "The book with most number of pages",
       },
     ],
   };
@@ -33,7 +33,7 @@ app.get('/bookData', (req, res) => {
   })
 
 
-  app.get("/booksData/title/:title", (req, res) => {
+  app.get('/bookData/title/:title', (req, res) => {
     const { title } = req.params;
     const booksByTitle = bookData.filter((book) => book.title.toUpperCase().includes(title.toUpperCase())
       );
@@ -45,7 +45,7 @@ app.get('/bookData', (req, res) => {
 
 
 // sorts the api to display  book rating from highest to lowest
-app.get("/bookData/average_rating/", (req, res) => {
+app.get('/bookData/average_rating/', (req, res) => {
   const { average_rating } = req.params;
   const bookRating = bookData.sort((a, b) => b.average_rating - a.average_rating)
     res.json(bookRating.slice(0, [-1])) 
@@ -99,7 +99,7 @@ app.get('/bookData/authors/:authors', (req, res) => {
 
 
 // sorts the books in order from most to fewest pages
-app.get("/bookData/num_pages/", (req, res) => {
+app.get('/bookData/num_pages/', (req, res) => {
   const { num_pages } = req.params;
   const bookPages = bookData.sort((a,b)=>b.num_pages-a.num_pages)
   res.json(bookPages[0]) 
