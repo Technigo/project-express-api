@@ -1,13 +1,14 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This is a smaller backend project where an API was built using Express. 
+The data used is book data, displaying all books, search for title & author,
+Average rating and the book with most number of pages.
+There's no frontend to this api. 
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Use the link in the browser or through a platform like PostMan with the added endpoints. 
+https://project-express-api-iacmsx6uiq-lz.a.run.app/
+        "/bookData": "Display all books",
+        "/bookData/authors/:authors": "Search for a author",
+        "/bookData/title/:title": "Search for a title", 
+        "/bookData/average_rating/": "Average rating of books - high to low",
+        "/bookData/num_pages/": "The book with most number of pages",
