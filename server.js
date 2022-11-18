@@ -39,10 +39,17 @@ app.get('/songs/', (req, res) => {
     songs = songs.filter(song => song.bpm === +bpm);
   }
 
-  res.status(200).json({
-    response: songs,
-    success: true
-  });
+  if (!songs.length) {
+    res.status(200).json({
+      response: "No songs found.",
+      success: true
+    })
+  } else {
+    res.status(200).json({
+      response: songs,
+      success: true
+    });
+  }
 });
 
 // Start the server
