@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
-// install for viewing all routes?? https://www.npmjs.com/package/express-list-endpoints
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -14,41 +13,30 @@ const listEndpoints = require('express-list-endpoints');
 app.use(cors());
 app.use(express.json());
 
-// Route welcoming user
+// Route for start page
 app.get('/', (req, res) => {
-  //res.send("Welcome to ReadIt! - See this API live at: https://xxx-app.netlify.app/")
+  // For now, start page lists the two routes available:
   res.json(listEndpoints(app));
+
+  // Start page for once the frontend is ready:
+  //res.send("Welcome to ReadIt! - See this API live at: https://xxxxxxxx.netlify.app/")
 });
+
 
 // Route that returns all data on all books
 app.get('/books', (req, res) => {
 
-  // function for pagination:
-//   const pagination = (data, pageNumber) => {
-//     const pageSize = 45
-//     const startIndex = (pageNumber-1) * pageSize
-//     const endIndex = startIndex + pageSize
-//     const itemsOnPage = data.slice(startIndex, endIndex)
-
-//     const returnObject = {
-//         page_size: pageSize,
-//         page: pageNumber,
-//         num_of_pages: Math.ceil(data.length / pageSize),  //was pagesize
-//         items_on_page: booksOnPage.length,
-//         results: itemsOnPage
-//     }
-//     return returnObject
-// }
   //FILTERS:
   const { author, top } = req.query
   let allBooks = booksData;
   
-  // ... for specific author: e.g. /books?author=douglas%20adams
+  // ... for specific author: e.g. /books?author=douglas adams
   if (author) {
     allBooks = allBooks.filter((book) => 
       book.authors.toLocaleLowerCase()
       .includes(author.toLocaleLowerCase()))
   }
+
   // ... for top-rated books: e.g. /books?top=true
   if (top) {
     allBooks = allBooks.filter((book) => 
@@ -58,7 +46,6 @@ app.get('/books', (req, res) => {
 		res.status(404).json("Sorry we couldn't find any match for your search")
 	} else res.status(200).json({ booksData: allBooks })
 });
-
 
 // Route for a single book based on id 
 app.get("/books/:id", (req, res) => {
@@ -75,3 +62,21 @@ app.get("/books/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+
+// Function for pagination, to be used later:
+//   const pagination = (data, pageNumber) => {
+//     const pageSize = 45
+//     const startIndex = (pageNumber-1) * pageSize
+//     const endIndex = startIndex + pageSize
+//     const itemsOnPage = data.slice(startIndex, endIndex)
+
+//     const returnObject = {
+//         page_size: pageSize,
+//         page: pageNumber,
+//         num_of_pages: Math.ceil(data.length / pageSize),  //was pagesize
+//         items_on_page: booksOnPage.length,
+//         results: itemsOnPage
+//     }
+//     return returnObject
+// }
