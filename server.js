@@ -24,25 +24,60 @@ app.use(express.json());
 app.get("/", (req, res) => {
   // console.log("req", req)
   // console.log("res", res)
-  // res.send({responseMessage: "Hello Technigo!"});
-  
+  // res.send({responseMessage: "Hello Technigo!"}); 
   res.json({responseMessage: "Hello Technigo!"});
 });
 // HTMLElement.addEventListener('nameOfTheListener', () => {
 
 // })
+
+// EP1 Technigo members code along
 app.get("/members", (request, response) => {
-  response.status(200).json({technigoMembers: technigoMembers});
+  const { name, role } = request.query
+  let members = technigoMembers
+
+  if (role) {
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() ===
+    role.toLowerCase())
+    // members = technigoMembers.filter(singleTechnigoMember => { return singleTechnigoMember.role === role}) //this works too
+  }
+  if (name) {
+    members = members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLowerCase() === name.toLowerCase()})
+  }
+
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      technigoMembers: members
+    }
+  });
 });
 
 app.get("/members/:id", (request, response) => {
   const singleMember = technigoMembers.find((member) => {
     return member.id === +request.params.id
-    // return member.id === Number(request.params.id)
-    // return member.id.toString() === request.params.id
+    // return member.id === Number(request.params.id) //this works too
+    // return member.id.toString() === request.params.id // and this
   })
+  if (singleMember) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        member: singleMember
+      }
+    })
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not found",
+      body: {}
+    })
+  }
+
   console.log(singleMember)
-  response.status(200).json(singleMember);
+  
 });
 
 
