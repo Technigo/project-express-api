@@ -13,7 +13,18 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("An Api of netflixe movies titels. Go to /endpoints to see all endpoints");
+  res.send({
+    Message: "Here you can browse in Netflix movie and tv shows. Below you find the endpoints you can use. ",
+    Routes: [
+      {
+        "/movies": "show all movies and tv shows",
+        "/movies/title/:title": "Show a specifick title, write the name of the movie/tv show you want to see instead of :title",
+        "/movies/type/:type": " shows only titles that is a movie or tv show, type  movie or tv show ",
+        "/random-movie": "need inspiration for a new movie/tv show to watch? Will give you a random title"
+
+      }
+    ],
+  })
 });
 
 // list endpoints for all routers that is created in this file. 
