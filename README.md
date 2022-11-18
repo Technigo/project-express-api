@@ -21,4 +21,4 @@ With time, I plan to add pagination to limit the number of results shown on a pa
 ## View it live
 Google Cloud Platform is used to deploy the API:
 
-https://project-express-api-eyln4nn5aa-lz.a.run.app/books
+https://project-express-api-eyln4nn5aa-lz.a.run.app/
