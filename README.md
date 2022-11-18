@@ -19,8 +19,6 @@ If I had more time I would like to have:
 
 ✓ Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
 
-✓ Create some empty/dummy endpoints which could contain more complex operations in the future.  Find good names for them (think back to the labs).
-
 ✓ Build a frontend which uses your API in some way to show the data in a nice way 
 
 ## View it live
