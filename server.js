@@ -45,14 +45,24 @@ app.get("/ramen", (req, res) => {
 // example route: /ramen/id/2502
 app.get("/ramen/id/:id", (req, res) => {
   const id = req.params.id
-  let selectedId = data.filter((item) => item.Id === +id)
+  let selectedId = data.find((item) => item.Id === +id)
+  if (!selectedId){
+    res.status(404).send({
+      data: "ID not found",
+      success: false 
+    })
+  } else {
+    res.status(200).json({
+      data: selectedId,
+    success: true
+  });
+  }
   
-  res.status(200).json(selectedId);
 });
 
 // Route to ramen based on distribution between countries
 // example route: /ramen/country/indonesia
-// example route to good ramen: /country/south%20korea?good=true
+// example route to good ramen: ramen/country/south%20korea?good=true
 app.get("/ramen/country/:country", (req, res) => {
   const country = req.params.country
   const { bad, good } = req.query
@@ -67,14 +77,24 @@ app.get("/ramen/country/:country", (req, res) => {
   res.status(200).json(selectedCountry);
 });
 
-
 // Route to ramen based on the brand name
 // example route: /ramen/brand/indomie
 app.get("/ramen/brand/:brand", (req, res) => {
   const brand = req.params.brand
-  let selectedBrand = data.filter((item) => item.Brand.toLowerCase() === brand.toLowerCase())
+  let selectedBrand = data.find((item) => item.Brand.toLowerCase() === brand.toLowerCase())
   
-  res.status(200).json(selectedBrand);
+  if (!selectedBrand){
+    res.status(404).send({
+      data: "Brand not found",
+      success: false 
+    })
+  } else {
+    res.status(200).json({
+      data: selectedBrand,
+      success: true
+    });
+  }
+  
 });
 
 
@@ -82,9 +102,20 @@ app.get("/ramen/brand/:brand", (req, res) => {
 // example route: /ramen/style/cup
 app.get("/ramen/style/:style", (req, res) => {
   const style = req.params.style
-  let selectedStyle = data.filter((item) => item.Style.toLowerCase() === style.toLowerCase())
+  let selectedStyle = data.find((item) => item.Style.toLowerCase() === style.toLowerCase())
   
-  res.status(200).json(selectedStyle);
+  if (!selectedStyle){
+    res.status(404).send({
+      data: "Style not found",
+      success: false 
+    })
+  } else {
+    res.status(200).json({
+      data: selectedStyle,
+    success: true
+  });
+  }
+  
 });
 
 

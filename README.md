@@ -6,6 +6,8 @@ The aim for this week's project is to start learning the basic of backend. Main 
 
 Surprisingly, this first step on backend programming was pretty smooth and I had lots of good time searching for ideas of which API I want to use. I decided to search for database on kaggle.com and then convert the csv file into json file via csvjson.com. I mostly used the knowledge I got from codealong with both Damien and Daniel to make all this API works. 
 
+If I had more time, I would try to create the frontend part of it. 
+
 ## View it live
 
 https://project-express-api-5dpplzryzq-lz.a.run.app
