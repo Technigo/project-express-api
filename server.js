@@ -12,8 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-
+// Documentation added at default path
 app.get("/", (req, res) => {
   res.status(200).json({
     resMessage: "Netflix movies",
@@ -22,7 +21,7 @@ app.get("/", (req, res) => {
     endPointsSingleItem: "/movies/id/:id - /movies/title/:title"
   });
 });
-
+// Returns an array of all movies and adds the possibility to query filter type, director and year
 app.get("/movies", (req, res) => {
   const { type, director, year } = req.query;
   let movies = netflixData;
@@ -45,7 +44,7 @@ app.get("/movies", (req, res) => {
     }
   });
 });
-
+// Returns a movie filtered by id and handles status 200 if OK and 404 if not found
 app.get("/movies/id/:id", (req, res) => {
   const singleMovie = netflixData.find((movie) => {
     return movie.show_id === +req.params.id;
@@ -66,7 +65,7 @@ app.get("/movies/id/:id", (req, res) => {
     });
   }
 });
-
+// Returns a movie filtered by title and handles status 200 if OK and 404 if not found
 app.get("/movies/title/:title", (req, res) => {
   const singleMovie = netflixData.find((movie) => {
     return movie.title.toLowerCase() === req.params.title.toLowerCase();
