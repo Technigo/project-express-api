@@ -57,7 +57,6 @@ app.get("/ramen/id/:id", (req, res) => {
     success: true
   });
   }
-  
 });
 
 // Route to ramen based on distribution between countries
@@ -93,8 +92,7 @@ app.get("/ramen/brand/:brand", (req, res) => {
       data: selectedBrand,
       success: true
     });
-  }
-  
+  } 
 });
 
 
@@ -115,7 +113,6 @@ app.get("/ramen/style/:style", (req, res) => {
     success: true
   });
   }
-  
 });
 
 

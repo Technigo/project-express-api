@@ -1,6 +1,6 @@
 # Project Express API
 
-The aim for this week's project is to start learning the basic of backend. Main focus is building our own API. I created my own Ramen API (aside from what Technigo suggested). Then I created several endpoints that return single result and array of elements.
+The aim for this week's project is to start learning the basic of backend. Main focus is building our own API. I created my own Ramen API (aside from what Technigo suggested). Then I created several routes and endpoints that return single result or array of elements.
 
 ## The problem
 
