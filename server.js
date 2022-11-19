@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json";
+import avocadoSales from "./data/avocado-sales.json";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -25,12 +25,12 @@ app.use(express.json());
 // Start defining your routes here
 // This is the first Get request
 //The path is the slash. Is the base path in this case.
-// req = request res = result
+// req = request, res = result
 app.get("/", (req, res) => {
   //console.log("req", req);
   //console.log("res", res);
   //res.send({responseMessage: "Hello Technigo!"});
-  res.json({responseMessage: "Hello Technigo!"});
+  res.json({responseMessage: "Hello Avocado Sales Lover!"});
 });
 //HTMLElement.addEventListener('nameOfTheListener', () => {
 
@@ -43,19 +43,21 @@ app.get("/", (req, res) => {
 // query parameters = after the ?
 // apply the query parameter value by using the equal sign: =
 // parameters value = after the =
-app.get("/members", (req, response) => {
-  const { name, role } = req.query;
-  let members = technigoMembers;
+app.get("/sales", (req, response) => {
+  const { date, averagePrice } = req.query;
+  let sales = avocadoSales;
 
-  if (role) {
+  if (averagePrice) {
     // http://localhost:8080/members?role=code coach
     // members = technigoMembers.filter(singleTechnigoMember => { return singleTechnigoMember.role === role})
-    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
+    sales = sales.filter(singleAvocadoSale => singleAvocadoSale.averagePrice.toString() === averagePrice);
   }
-  if (name) {
+  if (date) {
     // several parameter names => use the ampersant: &
     // http://localhost:8080/members?role=Code coach&name=matilda
-    members = members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLowerCase() === name.toLowerCase()});
+    // sales = sales.filter(singleAvocadoSale => { return singleAvocadoSale.date.toLowerCase() === date.toLowerCase()});
+    sales = sales.filter(singleAvocadoSale => { return singleAvocadoSale.date.toString() === date});
+
   }
 
     // important that the 3rd property is the same in your responses
@@ -64,27 +66,27 @@ app.get("/members", (req, response) => {
     success: true,
     message: "OK",
     body: {
-      technigoMembers: members
+      avocadoSales: sales
     }
   });
 });
 
-app.get("/members/:id", (request, response) => {
-  const singleMember = technigoMembers.find((member) => {
+app.get("/sales/:id", (request, response) => {
+  const singleSale = avocadoSales.find((sale) => {
     // need the + to not be a string, make it a number.
     //return member.id === +req.params.id;
     // The 2 underneath is the same;
     // return member.id.toString() === +req.params.id;
     // return member.id == +req.params.id;
-    return member.id === Number(request.params.id);
+    return sale.id === Number(request.params.id);
 
   })
-  if (singleMember) {
+  if (singleSale) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        member: singleMember
+        sale: singleSale
       }
     });
   } else {
@@ -94,7 +96,7 @@ app.get("/members/:id", (request, response) => {
       body: {}
     });
   }
-  console.log(singleMember);
+  console.log(singleSale);
 });
 
 // Start the server, write: npm run dev
