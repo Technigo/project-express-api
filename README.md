@@ -1,7 +1,7 @@
 # Project Express API
 
 This is Maria Wellander's first backend project.
-I've created an RESTful avocado sales API in Node.js with the Express framework.
+I've created a RESTful avocado sales API in Node.js with the Express framework.
 
 ## The problem
 
