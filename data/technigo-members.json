@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Charlotte",
+        "role": "mom"
+    },
+    {
+        "id": 2,
+        "name": "Markus",
+        "role": "dad"
+    },
+    {
+        "id": 3,
+        "name": "Sigrid",
+        "role": "daughter"
+    },
+    {
+        "id": 4,
+        "name": "Carina",
+        "role": "grandmother"
+    },
+    {
+        "id": 5,
+        "name": "Peter",
+        "role": "grandfather"
+    }
+]
