@@ -19,17 +19,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/blockchainjobs", (req, res) => {
+  /*const q = req.query
+  q.page
+  blockchainjobs.slice(() =>)*/
+
   res.json(blockchainjobs) // extraction of the whole data set which you imported
 })
 
-app.get("/title/:title", (req, res) => {
+app.get("/blockchainjobs/:title", (req, res) => {
   const title = req.params.title  // getting the value :title in to a variable
   const easyApply = req.query.easyApply
   console.log({ easyApply })
-  let allTitles = blockchainjobs.filter((item) => item.Title === title)
+  let allTitles = blockchainjobs.find((item) => item.Title.toLowerCase() === title.toLowerCase())
 
-  if (easyApply) {  // query  ?easyApply=true
-    allTitles = allTitles.filter((item) => item.Easy_Apply)
+  if(!allTitles) {
+    return('Item not found.')
   }
 
   res.status(200).json(allTitles)
@@ -38,21 +42,27 @@ app.get("/title/:title", (req, res) => {
 
 app.get("/company/:company", (req, res) => {
   const company = req.params.company
-  const allCompanies = blockchainjobs.filter((item) => item.Company === company)
+  const allCompanies = blockchainjobs.filter((item) => item.Company.toLocaleLowerCase() === company.toLocaleLowerCase())
   res.status(200).json(allCompanies)
   console.log({ company })
 })
 
-app.get("/location/:location" , (req, res) => {
-  const location = req.params.location
-  const allLoc = blockchainjobs.filter((item) => item.Location === location)
-  const city = req.query.Salary_Upper_Limit
-  if (city) {
-    allLoc = allLoc.filter((item) => item.Salary_Upper_Limit)
-  }
-  res.status(200).json(allLoc)
-  console.log({ allLoc })
+app.get("/location", (req, res) => {
+  const { salarylowerlimit, location } = req.query
+  let all = blockchainjobs
+
+  let info = blockchainjobs.filter((item) => // example: location?salarylowerlimit=200000
+  item.Salary_Lower_Limit.toString() === salarylowerlimit.toString())
+  console.log({ info })
+ 
+  /*let loc =  blockchainjobs.filter((item) => // example: location?salarylowerlimit=200000
+  item.Location.toLowerCase() === location.toLowerCase())
+  console.log({loc })*/
+
+  res.status(200).json({info})
 })
+
+
 
 
 // Start the server
