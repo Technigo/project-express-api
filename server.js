@@ -35,8 +35,38 @@ app.get("/", (req, res) => {
 //HTMLElement.addEventListener('nameOfTheListener', () => {
 
 //});
+// http://localhost:8080/members?role=Code coach
+// in the browser, the blank space is represented by %20
+// syntax for the query parameters:
+// ?paramname=paramvalue&anotherparamname=anotherparamvalue
+// apply the query parameter name by using the questionmark: ?
+// query parameters = after the ?
+// apply the query parameter value by using the equal sign: =
+// parameters value = after the =
 app.get("/members", (req, response) => {
-  response.status(200).json({technigoMembers: technigoMembers});
+  const { name, role } = req.query;
+  let members = technigoMembers;
+
+  if (role) {
+    // http://localhost:8080/members?role=code coach
+    // members = technigoMembers.filter(singleTechnigoMember => { return singleTechnigoMember.role === role})
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
+  }
+  if (name) {
+    // several parameter names => use the ampersant: &
+    // http://localhost:8080/members?role=Code coach&name=matilda
+    members = members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLowerCase() === name.toLowerCase()});
+  }
+
+    // important that the 3rd property is the same in your responses
+    // have the same structure. 3rd on our case: body
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      technigoMembers: members
+    }
+  });
 });
 
 app.get("/members/:id", (request, response) => {
@@ -49,8 +79,22 @@ app.get("/members/:id", (request, response) => {
     return member.id === Number(request.params.id);
 
   })
+  if (singleMember) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        member: singleMember
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
+  }
   console.log(singleMember);
-  response.status(200).json(singleMember);
 });
 
 // Start the server, write: npm run dev
@@ -59,3 +103,4 @@ app.listen(port, () => {
 });
 // Kill the server when done testing, to save battery:
 // = ctrl + c
+// To start the terminal in Windows = ctrl + ö
