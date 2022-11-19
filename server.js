@@ -1,64 +1,126 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json";
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import topMusicData from "./data/top-music.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// START PAGE
 app.get("/", (req, res) => {
-  // console.log("req", req);
-  // console.log("res", res);
-  // res.send({responseMessage: "Hello Technigo!"});
-
-  res.json({responseMessage: "Hello Technigo!"});
-});
-// HTMLElement.addEventListener('nameOfTheListener', () => {
-
-// });
-app.get("/members", (req, response) => {
-  const { name, role } = req.query;
-  let members = technigoMembers;
-
-  if (role) {
-    members = technigoMembers.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
-  }
-  if (name) {
-    members = technigoMembers.filter(singleTechnigoMember => {return singleTechnigoMember.name.toLowerCase() === name.toLowerCase()});
-  }
-  
-  response.status(200).json({technigoMembers: members});
+  res.json({responseMessage: "Hello Dance Music!"});
 });
 
-app.get("/members/:id", (request, response) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === Number(request.params.id);
-    // return member.id === +request.params.id;
-    // return member.id.toString() === request.params.id;
-    // return member.id == request.params.id;
+// ALL TRACKS - works
+app.get("/tracks", (req, res) => {
+  res.status(200).json({topMusicData})
+});
+
+// ALL TRACKS IN REVERSED ORDER - works
+app.get("/tracks/reversed", (req, res) => {
+  const topMusicDataReversed = topMusicData.reverse()
+  res.status(200).json({topMusicDataReversed});
+});
+
+//TRACKS BY ID - works
+app.get("/tracks/:id", (request, response) => {
+  const singleTrack = topMusicData.find((track) => {
+    return track.id === Number(request.params.id);
   });
-  console.log(singleMember);
-   response.status(200).json(singleMember);
+  if(singleTrack) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        tracks: singleTrack
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
+  }
+  console.log(singleTrack);
 });
 
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+//TRACKS SEARCH BY BPM - works
+app.get("/tracks/bpm/:bpm", (request, response) => {
+  const singleTrack = topMusicData.find((track) => {
+    return track.bpm === Number(request.params.bpm);
+     });
+  if(singleTrack) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        tracks: singleTrack
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "No tracks found with this BPM",
+      body: {}
+    });
+  }
+  console.log(singleTrack);
 });
-// ctrl + c
-// ctrl + `
+
+//OTHER TEST ROUTES WHICH DOES NOT WORK ATM ---------------------
+
+// RANDOM TRACK - does not work!
+app.get("/random-track", (req, res) => {
+  const topMusicDataRandom = topMusicData[Math.floor(Math.random()* data.length)]
+  if(!topMusicDataRandom) {
+    res.status(404).json({
+      data: "No random track found, please try again.",
+      success: false, 
+    })
+  } else {
+    res.status(200).json({
+      data: topMusicDataRandom,
+      success: true,
+    })
+  }
+})
+
+//DANCEABILITY : SORT FROM HIGHER TO LOWER RATE - does not work
+app.get("/tracks/danceability/", (request, response) => {
+  const singleTrack = topMusicData.find((track) => {
+    return track.topMusicData.sort(
+      (a, b) => b.danceability - a.danceability);
+  });
+  if(singleTrack) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        tracks: singleTrack
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
+  }
+  console.log(singleTrack);
+});
+
+/*ALL TRACKS - This way also works
+app.get("/tracks", (req, response) => {
+  const { energy, danceability } = req.query;
+  let tracks = topMusicData;
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      topMusicData: tracks
+    }
+  });
+}); */
