@@ -1,13 +1,14 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Create an express API with at least 2 routes that return single result or an array of elements.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+My first basic backend-project. 
+I created the api by using an database from kaggle.com, converted from csv to json through csvjson.com. I also used postman for testing and all given video-material and tutorials.
+
+If I had more time I would create a frontend page and more relevant routes.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+TBC
