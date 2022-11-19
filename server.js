@@ -26,28 +26,131 @@ app.get("/", (request, response) => {
 });
 
 app.get("/songs", (request, response) => {
-  response.status(200).json({topMusicData: topMusicData});
+  let songs = topMusicData;
+
+  const {
+    trackName,
+    artistName,
+    genre,
+    bpm,
+    energy,
+    danceability,
+    loudness,
+    liveness,
+    valence,
+    length,
+    acousticness,
+    speechiness,
+    popularity
+  } = request.query;
+
+  //get song from specific song name
+  if (trackName) {
+    songs = songs.filter(singleSongData => singleSongData.trackName.toLowerCase() === trackName.toLowerCase());
+  }
+
+  //get music from specific artist
+  if (artistName) {
+    songs = songs.filter(singleSongData => singleSongData.artistName.toLowerCase() === artistName.toLowerCase());
+  }
+
+  //get music from specific genre
+  if (genre) {
+    songs = songs.filter(singleSongData => singleSongData.genre.toLowerCase() === genre.toLowerCase());
+  }
+
+  //get music from specific bpm
+  if (bpm) {
+    songs = songs.filter(singleSongData => singleSongData.bpm === +bpm);
+  }
+
+  //get music from specific energy
+  if (energy) {
+    songs = songs.filter(singleSongData => singleSongData.energy === +energy);
+  }
+
+  //get music from specific danceability
+  if (danceability) {
+    songs = songs.filter(singleSongData => singleSongData.danceability === +danceability);
+  }
+
+  //get music from specific loudness
+  if (loudness) {
+    songs = songs.filter(singleSongData => singleSongData.loudness === +loudness);
+  }
+
+  //get music from specific liveness
+  if (liveness) {
+    songs = songs.filter(singleSongData => singleSongData.liveness === +liveness);
+  }
+
+  //get music from specific valence
+  if (valence) {
+    songs = songs.filter(singleSongData => singleSongData.valence === +valence);
+  }
+
+  //get music from specific length
+  if (length) {
+    songs = songs.filter(singleSongData => singleSongData.length === +length);
+  }
+
+  //get music from specific acousticness
+  if (acousticness) {
+    songs = songs.filter(singleSongData => singleSongData.acousticness === +acousticness);
+  }
+
+   //get music from specific speechiness
+  if (speechiness) {
+    songs = songs.filter(singleSongData => singleSongData.speechiness === +speechiness);
+  }
+
+   //get music from specific popularity
+  if (popularity) {
+    songs = songs.filter(singleSongData => singleSongData.popularity === +popularity);
+  } 
+
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      topMusicData: songs
+    }
+  });
 });
 
 app.get("/songs/:id", (request, response) => {
   const singleSong = topMusicData.find((song) => {
     return song.id === Number(request.params.id);
   });
-  console.log(singleSong)
-  response.status(200).json(singleSong);
-});
 
-app.get("/songs/:id", (request, response) => {
-  const singleSong = request.params.id
-  const popMusic = request.query.genre
-  let topPopMusic = topMusicData.filter((item) => item.genre === +singleSong)
-
-  if (popMusic) {
-    topPopMusic = topPopMusic.filter((item) => item.genre)
+  if (singleSong) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        song: singleSong
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
   }
-
-  response.status(200).json(topPopMusic);
+  console.log(singleSong)
 });
+
+// app.get("/songs/:id", (request, response) => {
+//   const singleSong = request.params.id
+//   const popMusic = request.query.genre
+//   let topPopMusic = topMusicData.filter((item) => item.genre === +singleSong)
+
+//   if (popMusic) {
+//     topPopMusic = topPopMusic.filter((item) => item.genre)
+//   }
+//   response.status(200).json(topPopMusic);
+// });
 
 
 
