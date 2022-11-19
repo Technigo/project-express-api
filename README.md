@@ -9,7 +9,7 @@ To solve the problem I made a good plan. The fundamentals for me was to not over
 
 Firstly, I planned on getting a good understanding of the project goals and achieve a decent result by; reading and watching all the material and taking part in all the activities for the week. During the building of the project, if I got stuck I wanted to really take the time to understand by re-read and re-watch the material. Secondly, I made a Google Jamboard with a Kanban board to structure up my project and my plans. Finally, I planned on code along to the lectures to have a base and then to modify the code during off-lecture-time and to add the features that I needed.
 
-For this backend project I used; Node.js, Express, Postman, nodemon, Google Cloud, REST API, JSON, Google Jamboard & Kanban board.
+For this backend project I used; JavaScript, Node.js, Express, Postman, nodemon, Google Cloud, REST API, JSON, Google Jamboard & Kanban board.
 
 If I had more time I would've enjoyed building a frontend to it.
 
