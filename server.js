@@ -1,5 +1,6 @@
-import express from "express";
+import express, { request } from "express";
 import cors from "cors";
+import technigoMembers from "./data/technigo-members.json"
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +22,37 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({responseMessage: "Welcome to my API! Navigate to /books to view the entire array, or enter any of the following queries to find a specific book: bookID, title, authors, average_rating, isbn, isbn13, language_code, num_pages, ratings_count, text_reviews_count"});
+});
+
+// This get request below includes query parameters, allowing you to filter by the role or name in the array.
+app.get("/members", (req, res) => {
+  const { name, role } = req.query;
+  let members = technigoMembers;
+  if (role) {
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
+  }
+  if (name) {
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.name.toLowerCase() === role.toLowerCase());
+  }
+
+
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      technigoMembers: members
+    }
+    
+  });
+});
+
+app.get("/members/:id", (req, res) => {
+  const singleMember = technigoMembers.find((member) => {
+    return member.id === Number(+request.params.id);
+  });
+  res.status(200).json({singleMember});
+
 });
 
 // Start the server
