@@ -79,7 +79,7 @@ app.get("/books/search", (req, res) => {
 // Get book by title, example path: /books/title/hamlet
 app.get("/books/title/:title", (req, res) => {
   const title = req.params.title
-  const getTitle= booksData.filter((item) => item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())) 
+  const getTitle= booksData.filter((book) => book.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())) 
 
   if (getTitle.length === 0) {
     res.status(404).send({
