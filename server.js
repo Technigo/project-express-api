@@ -5,7 +5,7 @@ import technigoMembers from "./data/technigo-members.json";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -42,6 +42,21 @@ app.get("/members/:id", (req, res) => {
   });
   console.log(singleMember)
   res.status(200).json(singleMember);
+});
+
+app.get("/books", (req, res) => {
+  res.status(200).json({booksData: booksData});
+});
+
+app.get("/books/:bookID", (req, res) => {
+  const singleBook = booksData.find((book) => {
+    return book.bookID === +req.params.bookID;
+    // return member.id === Number(req.params.id);
+    // return member.id.toString() === req.params.id;
+    // return member.id == req.params.id;
+  });
+  console.log(singleBook)
+  res.status(200).json(singleBook);
 });
 
 
