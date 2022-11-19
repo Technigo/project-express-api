@@ -1,6 +1,6 @@
 import express, { request } from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json"
+import booksData from "./data/books.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -15,6 +15,7 @@ import technigoMembers from "./data/technigo-members.json"
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -22,45 +23,43 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  //console.log("req", req);
-  //console.log("res", res);
-  //res.send({respondMessege:"Hello Technigo"});
-  res.send({responsMessege:"Hello Technigo!"});
+  res.json(listEndpoints(app));
+  res.json("Let us see if this message will show and if it is possible to search for book titles and authors")
 });
-//HTMLElement.addEventListerner('nameOfTheListerner', () => {})
 
-app.get("/members", (req, response) => {
-  const { name, role } =req.query;
-  let members =technigoMembers;
+app.get("/books", (req, res) => {
+  const { authors, title } = req.query;
+  let books = booksData;
 
-  if (role) {
-    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLocaleLowerCase() === 
-    role.toLocaleLowerCase());
+  if (author) {
+    books = books.filter(name => name.authors.toLowerCase() === 
+    authors.toLowerCase());
   }
 
-  if (name) {
-    members.members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLocaleLowerCase() === 
-      name.toLocaleLowerCase()});
+  if (title) {
+    books = books.filter(singleBook => { return singleBook.title.toLowerCase() === 
+      title.toLowerCase()});
   }
   respons.status(200).json({
     success: true,
     message: "OK",
     body: {
-      technigoMembers: members
+      booksData: filteredBooks
     }
   });
 });
 
-app.get("/members/:id", (request, response) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === Number(request.params.id);
+app.get("/books/:bookID", (req, res) => {
+  const singleBook = booksData.find((item) => {
+    return (item.bookID === +req.params.id);
   });
-  if(singleMember) {
+
+  if(singleBook) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        member: singleMember
+        book: singleBook
       }
     });
   } else {
@@ -70,7 +69,7 @@ app.get("/members/:id", (request, response) => {
       body: {}
     });
   }
-  console.log(singleMember);
+  console.log(singleBook);
 });
 
 
