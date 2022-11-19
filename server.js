@@ -1,89 +1,94 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo.json";
+// import technigoMembers from "./data/technigo.json";
+// import data from "./data/netflix-titles.json";
+
+import tedTalkData from "./data/ted-talks.json";
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started! 
 // NB3: This in the import nr 2
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+
 // import topMusicData from "./data/top-music.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-// NB2:express create the hole API boilerplate, express() is a function call, a package.
+// Defines the port the app will run on.
 const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-// NB4: cors To be able to have requests from the same origin => both backend and frontend on lcalhost
-// express.json() reads the body of the requests as a json
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-// NB1: What shows in localhost:8080
-// NB5: first requests a "get" (adding a functionality), "/" = base path, end point, as in React Router.
-// NB7: get request variables (req - request and res - responce) (simularity to Redux stor and action)
+// Start ROUTE on defalt port 8080.
+// --------skapa mer detaljerat meddelande med alla endpoints-----------
 app.get("/", (req, res) => {
-  // console.log("req", req)
-  // console.log("res", res)
-  // res.send("Hello Technigo!");
-  // res.send({responseMassage: "Hello Technigo!"});
-  res.json({responseMassage: "Hello Technigo!"});
-  
+   res.json({responseMassage: "Hello Everybody, welcome!"});
+  //  const navigation = {
+  //   guide: "These are the routes for this book API!",
+  //   Endpoints: [
+  //     {
+  //       "/bookData": "Display all books",
+  //       "/bookData/authors/:authors": "Search for a author",
+  //       "/bookData/title/:title": "Search for a title", 
+  //       "/bookData/average_rating/": "Average rating of books - high to low",
+  //       "/bookData/num_pages/": "The book with most number of pages",
+  //     },
+  //   ],
+  // };
+  // res.send(navigation);
 });
 
-// NB6: Syntax: any html element. nameOfTheListner is the path, ex (event)
-// HTMLElement.addEventListner('nameOfTheListner', () => {
-// 
-// })
+// ROUTE 1 - collection of results (array of elements)
+app.get("/allTedTalks", (req, res) => {
+  res.status(200).json(tedTalkData); 
+});
 
-// NB new request, new endpoint, members-
-// NB Query Params, {}
-app.get("/members", (req, res) => {
-  const { name, role } = req.query;
-  // new response, like the "find" methode below. but with filter
-  let members = technigoMembers; // default responce
-  if (role) {
-    // one liner()
-    // members = members.filter(singleTechnigoMember => singleTechnigoMember.role === role)
-    // {} use return for statement
-    members = members.filter(singleTechnigoMember => { 
-      return singleTechnigoMember.role.toLowerCase() === role.toLowerCase()});
+// ROUTE 2 - collection of results (array of elements) using filter
+// ex /tedTalks?speaker=hans rosling
+app.get("/tedTalks", (req, res) => {
+  const { title, speaker, event } = req.query;
+ 
+  let tedTalks = tedTalkData.slice(0, 8)
+
+  if (title) {
+  tedTalks = tedTalks.filter((tedTalk) => {
+    return tedTalks.title.toLowerCase() === title.toLowerCase()});
   }
-  if (name) {
-    members = members.filter(singleTechnigoMember => { 
-      return singleTechnigoMember.name.toLowerCase() === name.toLowerCase()});
+  if (speaker) {
+    tedTalks = tedTalks.filter((tedTalk) => {
+      return tedTalks.speaker.toLowerCase() === speaker.toLowerCase()});
+  }
+  if (event) {
+    tedTalks = tedTalks.filter((tedTalk) => {
+      return tedTalks.event.toLowerCase() === event.toLowerCase()});
   }
 
-  // res.status(200).json({technigoMembers: members});
   res.status(200).json({
     success: true,
-    //Error massage
-    message: "OK",
+    massage: "OK",
     body: {
-      technigoMembers: members
+      tedTalkData: tedTalks
     }
   });
-});
+  // console.log(tedTalks);
+}); 
 
-// NB params uniqe id /:id => ex 1,2,3
-app.get("/members/:id", (req, res) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === +req.params.id;
-    // return member.id === Number(req.params.id);
-    // return member.id.toString() === req.params.id;
-    // return member.id == req.params.id;
-  });
-  if(singleMember) {
+// Route 3 -  id, return a single result
+
+app.get("/tedTalk/:id", (req, res) => {
+  const singleTedTalk = tedTalkData.find((talk) => {
+    return talk.talk_id === +req.params.id;
+  }); 
+  // res.status(200).json(singleMovie);
+    
+  if(singleTedTalk) {
     res.status(200).json({
       success: true,
       message: "OK",
       body: {
-        members: singleMember
+        talk: singleTedTalk
       }
     });
   } else {
@@ -93,11 +98,102 @@ app.get("/members/:id", (req, res) => {
       body: {}
     })
   }
-  console.log(singleMember);
-  
+   
 });
+
+// ROUTE 4 Two filters - see won movies in a specific year
+// ----------skapa specifik filtrering----------
+// app.get("/year/:year", (req, res) => {
+//   const year = req.params.year
+//   const showWin = req.query.win
+//   let nominationsFromYear = goldenGlobesData.filter ((item) => item.year_award === +year)
+
+// if (showWin) {
+//   nominationsFromYear = nominationsFromYear.filter ((item) => item.win)
+// }
+//   res.json(nominationsFromYear)
+// })
+
+// // --------Netflix ----------------------------
+
+// app.get("/allMovies", (req, res) => {
+//   const { title, director, duration } = req.query;
+ 
+//   let allMovies = data.slice(0, 5)
+
+//   if (title) {
+//   allMovies = allMovies.filter((movies) => {
+//     return movies.title.toLowerCase() === title.toLowerCase()});
+//   }
+//   if (director) {
+//     allMovies = allMovies.filter((movies) => {
+//       return movies.director.toLowerCase() === director.toLowerCase()});
+//   }
+//   if (duration) {
+//     allMovies = allMovies.filter((movies) => {
+//       return movies.duration.toLowerCase() === duration.toLowerCase()});
+//   }
+
+//   res.status(200).json({
+//     success: true,
+//     massage: "OK",
+//     body: {
+//       data: allMovies
+//     }
+//   });
+//   // console.log(allMovies);
+// });   
+
+// // Route 2 -  id, return a single result
+
+// app.get("/movie/:id", (req, res) => {
+//   const singleMovie = data.find((movie) => {
+//     return movie.show_id === +req.params.id;
+//   }); 
+//   // res.status(200).json(singleMovie);
+    
+//   if(singleMovie) {
+//     res.status(200).json({
+//       success: true,
+//       message: "OK",
+//       body: {
+//         movie: singleMovie
+//       }
+//     });
+//   } else {
+//     res.status(404).json({
+//       success: false,
+//       message: "Not Found",
+//       body: {}
+//     })
+//   }
+   
+// });
+
+// -------------------------------------
+
+// ----skapa en random val av tedtalk, -------------------
+// // random movie title
+// app.get("/random-movie", (req,res) => {
+//   const randomMovie = data[Math.floor(Math.random()* data.length)]
+//   if(!randomMovie) {
+//     res.status(404).json({
+//       data: "Opps, we couldnt find any random movie right now. Please try again.",
+//       success: false, 
+//     })
+//   } else {
+//     res.status(200).json({
+//       data: randomMovie,
+//       success: true,
+//     })
+//   }
+// })
+
+
 
 // NBStart the server, port = (const port = process.env.PORT || 8080;) längst upp.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+// ------ändra "duration" till hur många minuter tedtalket är
