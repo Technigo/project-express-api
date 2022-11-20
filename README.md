@@ -1,13 +1,12 @@
 # Project Express API
 
-Installed and deployed and connected the code to Google Cloud.
-
-* Google cloud installation , graph reading
+* Google cloud installation , graph reading + connecting it to github
 * Created a RESTful API.
 * Created routes
 * Returned a collection of results
 * Returned a single result 
 * Handle when the item doesn't exist and return some useful data in the response.
+* Version control very active
 
 * The JSON data was from kaggle about Blockchain JObs in India at 2022 =)
 * Converted the CSV file to a JSON through a convertor.
