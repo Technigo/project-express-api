@@ -70,6 +70,11 @@ app.get("/tracks/bpm/:bpm", (request, response) => {
   console.log(singleTrack);
 });
 
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+
 //OTHER TEST ROUTES WHICH DOES NOT WORK ATM ---------------------
 
 // RANDOM TRACK - does not work!
