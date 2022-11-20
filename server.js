@@ -26,18 +26,19 @@ app.get("/blockchainjobs", (req, res) => {
   res.json(blockchainjobs) // extraction of the whole data set which you imported
 })
 
-app.get("/blockchainjobs/:title", (req, res) => {
+app.get("/blockchainjobs/:title", (req, res) => { //  /blockchainjobs/consultant
   const title = req.params.title  // getting the value :title in to a variable
   const easyApply = req.query.easyApply
   console.log({ easyApply })
-  let allTitles = blockchainjobs.find((item) => item.Title.toLowerCase() === title.toLowerCase())
+  let allTitles = blockchainjobs.find((item) => // finding the first jobtitle of the list individually
+    item.Title.toLowerCase() === title.toLowerCase())
 
-  if(!allTitles) {
-    return('Item not found.')
+  if (!allTitles) {
+    res.json("Error, please check your jobtitle again.")
+  } else {
+    res.status(200).json(allTitles)
   }
-
-  res.status(200).json(allTitles)
-  console.log({ title })
+  
 })
 
 app.get("/company/:company", (req, res) => {
@@ -54,21 +55,16 @@ app.get("/location", (req, res) => {
   let info = blockchainjobs.filter((item) => // example: location?salarylowerlimit=200000
   item.Salary_Lower_Limit.toString() === salarylowerlimit.toString())
   console.log({ info })
- 
-  /*let loc =  blockchainjobs.filter((item) => // example: location?salarylowerlimit=200000
-  item.Location.toLowerCase() === location.toLowerCase())
-  console.log({loc })*/
 
   res.status(200).json({info})
 })
-
-
-
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
-// http://localhost:8080/blockchainjobs
-// http://localhost:8080/blockchainjobs?Easy_apply=true
+// http://localhost:8080/blockchainjobs                               *the data fully available*
+// http://localhost:8080/blockchainjobs?easyapply=true                *accesing through query*
+// http://localhost:8080/location?salarylowerlimit=200000             *accesing through query, editing limit will show different data*
+// http://localhost:8080/blockchainjobs/consultant                    *pulling out specific jobtitle*
