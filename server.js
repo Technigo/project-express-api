@@ -34,7 +34,7 @@ app.get("/blockchainjobs/:title", (req, res) => { //  /blockchainjobs/consultant
     item.Title.toLowerCase() === title.toLowerCase())
 
   if (!allTitles) {
-    res.json("Error, please check your jobtitle again.")
+    res.status(400).json("Error, please check your jobtitle again.")
   } else {
     res.status(200).json(allTitles)
   }
@@ -64,7 +64,8 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+// http://localhost:8080/company/Tokyotechie                          *accesing through query*
 // http://localhost:8080/blockchainjobs                               *the data fully available*
-// http://localhost:8080/blockchainjobs?easyapply=true                *accesing through query*
-// http://localhost:8080/location?salarylowerlimit=200000             *accesing through query, editing limit will show different data*
 // http://localhost:8080/blockchainjobs/consultant                    *pulling out specific jobtitle*
+// http://localhost:8080/location?salarylowerlimit=200000             *accesing through query, editing limit will show different data*
+// http://localhost:8080/blockchainjobs?easyapply=true                *accesing through query*
