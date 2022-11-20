@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import booksData from "./data/books.json"
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -19,12 +21,45 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// listed endpoints here, had to removed it since it crashed app - new try when code is done
+
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(" Hello go to --> /books ");
 });
+
+app.get("/books", (req, res) => {
+
+  const { author, title  } = req.query; //params
+  let filteredBooks = booksData;
+
+  if (author) {
+    filteredBooks = filteredBooks
+    .filter((item) => item.authors.toLocaleLowerCase()
+    .includes(author.toLocaleLowerCase()))
+  };
+
+  if (title) {
+    filteredBooks = filteredBooks
+    .filter((item) => item.title.toLocaleLowerCase()
+    .includes(title.toLocaleLowerCase()))
+  }
+
+  if (filteredBooks.length === 0) {
+    res.status(404).json({
+      data: "could not find author with that name",
+      success: false,
+  }); 
+  } else {
+    res.status(200).json({
+      booksData: filteredBooks
+    });
+  };
+});
+
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
