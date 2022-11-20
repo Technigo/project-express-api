@@ -1,5 +1,8 @@
 # Project Express API
 
+Installed and deployed and connected the code to Google Cloud.
+
+* Google cloud installation , graph reading
 * Created a RESTful API.
 * Created routes
 * Returned a collection of results
