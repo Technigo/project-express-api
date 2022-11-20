@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
 
@@ -22,7 +22,17 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send('Welcome to Netflix data!');
+  res.send({
+    "Netflix API": "You can serch for movie/show, title or ID",
+    Routes: [
+      {
+        "/movies": "Get all movies",
+        "/show": "Get all shows",
+        "/titles/:id": "Get a show or movie by the ID",
+        "/titles/name/:title": "Filter the movies/show for the title",
+      },
+    ],
+  })
 });
 
 app.get("/movies", (req, res) => {
@@ -52,12 +62,13 @@ app.get("/shows", (req, res) => {
 app.get("/titles/:id", (req, res) => {
   const { id } = req.params
   const showInfoId = netflixData.filter((show) => show.show_id === +id)
-  if (showInfoId && showInfoId?.length > 0){
-    res.status(200).json(showInfoId)
-  } else {
+  if (showInfoId.length === 0){
     res.status(404).send({
-    message: "showId not found, try another number",
-    error: 404})
+      message: "showId not found, try another ID",
+      error: 404})
+  } else {
+    res.status(200).json(showInfoId)
+
   }
 });
 
