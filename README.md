@@ -1,6 +1,8 @@
 # Project Express API
 
-To make a server with express.js and create different routes
+## Overview
+
+The task was to create a server with express.js with different routes.
 
 ## View it live
 
