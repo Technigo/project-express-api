@@ -9,47 +9,59 @@ app.use(cors());
 app.use(express.json()); 
 
 app.get("/", (req, res) => {
-  res.send({responseMessage: "Golden Globe stats, library at /golbes"}); 
+  res.send({responseMessage: "Golden Globe stats, library at /globes"}); 
 });
 
-/* app.get("/globes", (req, res) => {
-  res.status(200).json({goldenGlobesData: goldenGlobesData});
-}); */
-
-app.get("/globes", (req, res) => {
-  res.send(goldenGlobesData)
- });
-
-app.get("/globes/:year_film", (req, res) => {
-  const singleGlobe = goldenGlobesData.filter((globe) => {
-    return globe.year_film === +req.params.year_film;
+ app.get("/globes/:ceremony", (req, res) => {
+  const ceremonyNumber = goldenGlobesData.filter((globe) => {
+    return globe.ceremony === +req.params.ceremony;
   });
-  res.status(200).json(singleGlobe);
+  if (ceremonyNumber) {
+      res.status(200).json({
+      success: true,
+      message: "OK",
+      response: {
+      goldenGlobesData: ceremonyNumber
+    }
+  });
+} else {
+  res.status(404).json(`Ceremony number ${ceremonyNumber} not found`); //This part does not work 
+}
  });
+
+ // tried this one, and it does'nt work together with ceremony. Also the else does not work
+
+/*  app.get('/globes/:release', (req, res) => {
+  const release = +req.params.year_film
+  const yearFilm = goldenGlobesData.filter((globe) => globe.year_film)
+
+  if(yearFilm) {
+    res.json({ yearFilm: yearFilm }) 
+  } else {
+    res.status(404).json(`Sorry, no release year: ${release}`)
+  }
+})  */
 
  app.get("/globes", (req, res) => {
   const { category, nominee, film } = req.query
     let globes = goldenGlobesData;
-  if (category) {
-      globes = goldenGlobesData.filter(singleCategory => singleCategory.category.toLowerCase() === category.toLowerCase());
+  if (film) {
+      globes = globes.filter((singleGlobe) => { return singleGlobe.film.toLowerCase() === film.toLowerCase() });
   }
   if (nominee) {
-    globes = goldenGlobesData.filter(singleNominee => singleNominee.nominee.toLowerCase() === nominee.toLowerCase());
+      globes = globes.filter((singleGlobe) => { return singleGlobe.nominee.toLowerCase() === nominee.toLowerCase() });
   }
- res.status(200).json({goldenGlobesData: globes})
+  if (category) {
+      globes = globes.filter(singleGlobe => singleGlobe.category.toString().toLowerCase().includes(category.toLowerCase()));
+  }
+ res.status(200).json({
+   success: true,
+   message: "OK",
+   response: {
+   goldenGlobesData: globes
+}
 });
-
-// gör en för actors / film tv?
-
-/*  app.get("/sales/:date", (req, res) => {
-  const allDates = avocadoSales.filter((sale) => {
-    return sale.date === +req.query.date;
-  });
-  res.status(200).json(allDates);
- }); */
-
-
-
+});
 
 // Start the server
 app.listen(port, () => {
