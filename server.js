@@ -1,4 +1,4 @@
-import express, { response } from "express"
+import express from "express"
 import cors from "cors"
 import booksData from "./data/books.json"
 
@@ -14,19 +14,48 @@ app.use(express.json())
 
 // ROUTE 1: Main "page"
 app.get("/", (req, res) => {
-  res.json({responseMessage: "Welcome to Jessika's book-API 📚. The following endpoints are available: /books (with the query parameters language_code and authors) and /books/:bookID"})
+  res.json({
+    responseMessage: "Welcome to Jessika's book-API 📚",
+    routes: 
+      {
+        "/books": "lists all the books",
+        "/books?author=*NAME OF AUTHOR*": "search for a specific author",
+        "/books?title=*TITLE OF BOOK*": "search for a specific title", 
+        "/books?highRating=true": "search for a book with a rating over 4",
+        "/books?lowRating=true": "search for a book with a rating below 4",
+        "/books/*ID OF BOOK*": "search for a book by its unique id"
+    }
+    })
 })
 
-// ROUTE 2: All books with query paramenters (language code and authors)
+// ROUTE 2: All books with query paramenters (author, title, high rating and low rating)
 app.get("/books", (req, res) => {
-  const { authors, language_code } = req.query
+  const { author, title, highRating, lowRating } = req.query
   let books = booksData
-  if (language_code) {
-    books = books.filter(code => code.language_code.toLowerCase() === language_code.toLocaleLowerCase())
+
+  // Find a specific author: books?author=NAME OF AUTHOR (since I have used .includes, the name does not have to be written out in full)
+  if (author) {
+    books = books.filter((singleAuthor) =>
+    singleAuthor.authors.toLowerCase()
+    .includes(author.toLowerCase()))
   }
-  if (authors) {
-    books = books.filter(name => { return name.authors.toLowerCase() === authors.toLocaleLowerCase()})
+
+  // Find a specific title: books?title=TITLE OF BOOK (same as above regarding .includes)
+  if (title) {
+    books = books.filter((name) => name.title.toLowerCase()
+    .includes(title.toLowerCase()))
   }
+
+  // Find books with a rating over 4: books?highRating=true
+  if (highRating) {
+    books = books.filter((rating) => rating.average_rating > '4')
+  }
+
+  // Find books with a rating below 4: books?lowRating=true
+  if (lowRating) {
+    books = books.filter((rating) => rating.average_rating < '4')
+  }
+
   res.status(200).json({
     success: true, 
     message: "OK",
