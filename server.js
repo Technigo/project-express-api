@@ -4,13 +4,6 @@ import technigomembers from "./data/technigo-members";
 import topMusicData from "./data/top-music.json";
 import listEndpoints from "express-list-endpoints";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-
-// import netflixData from "./data/netflix-titles.json";
-
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT envornmental variable value:
 // PORT=9000 npm start
@@ -21,17 +14,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Start defining routes here
 app.get("/", (req, res) => {
 	res.json({musicMessgae: " Welcome to Top Music Data API", data: listEndpoints(app)});
 });
 
 
-//Creates a new endpoint with collection of all  Top music Data
+//Creates a new route with collection of all Top music Data
 app.get("/music", (req, res) => {
 	res.status(200).json({topMusicData: topMusicData, success: true});
 });
-//Creates a new endpoint with all artists in alphabetic order
+//Creates a new route with all artists in alphabetic order
 app.get("/music/artists/", (req, res) => {
   const allArtists = topMusicData.map((item) => item.artistName).sort();
 	console.log(allArtists);
@@ -49,7 +42,7 @@ app.get("/music/:id", (req, res) => {
   res.json(musicId)
 })
 
-  //Creates a new endpoint with all artists in alphabetic order
+  //Creates a new endpoint with one specifik artist when providing artist name
 app.get("/music/artists/:oneArtist", (req, res) => {
   const oneArtist = req.params.oneArtist
   const artistInput = topMusicData.find((item) => item.artistName === oneArtist)
