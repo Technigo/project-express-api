@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json";
+// import technigoMembers from "./data/technigo-books.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
+import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -26,60 +26,127 @@ app.use(express.json());
 app.get("/", (req, res) => {
   // console.log("req", req);
   // console.log("res", res);
-  // res.send(app.routes);
+  res.send({
+    "Books API": "Look for books by ID, ISBN number or title",
+    Routes: [
+      {
+        "/books": "Get all books",
+        "/books/isbn/:isbn": "Get a book by its ISBN number",
+        "/books/id/:BooksID": "Get a book by its ID number in the database",
+        "/books?authors=:author": "Filter a book by its author/authors",
+        "/books?title=:title": "Filter a book by its title",
+        "/books?language_code=:language_code":
+          "Filter a book by its language code",
+      },
+    ],
+  });
   // List all endpoint on first page
-  res.json(listEndpoints(app));
+  // res.json(listEndpoints(app));
 });
-// Members endpoint
-app.get("/members", (req, res) => {
+// Books endpoint
+app.get("/books", (req, res) => {
   // queary parameters: we will deploy a new response
-  const { name, role } = req.query;
-  let members = technigoMembers;
-  // filter method to deploy more results with same role or name
-  if (role) {
-    members = members.filter((singleTechnigoMember) => {
-      return singleTechnigoMember.role.toLowerCase() === role.toLowerCase();
+  const { title, authors, language_code } = req.query;
+  let books = booksData;
+  // filter method to deploy more results with same authors or title
+  if (authors) {
+    books = books.filter((singleAuthor) => {
+      return singleAuthor.authors.toLowerCase() === authors.toLowerCase();
     });
   }
-  if (name) {
-    members = members.filter((singleTechnigoMember) => {
-      return singleTechnigoMember.name.toLowerCase() === name.toLowerCase();
+  if (title) {
+    books = books.filter((singleBook) => {
+      return singleBook.title.toLowerCase() === title.toLowerCase();
+    });
+  }
+  if (language_code) {
+    books = books.filter((language) => {
+      return (
+        language.language_code.toLowerCase() === language_code.toLowerCase()
+      );
     });
   }
   res.status(200).json({
     success: true,
     message: "OK",
     body: {
-      technigoMembers: members,
+      booksData: books,
     },
   });
 });
 
-// Members/ID endpoint
-app.get("/members/:id", (request, response) => {
+// Books by ISBN endpoint using path parameter
+app.get("/books/isbn/:isbn", (request, response) => {
   // find method will return the first object that fits descrition
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === Number(request.params.id);
-    // return member.id === +request.params.id;
-    // return member.id.toString() === request.params.id;
-    // return member.id === request.params.id;
+  const bookByISBN = booksData.find((book) => {
+    return book.isbn === Number(request.params.isbn);
   });
-  if (singleMember) {
+  if (bookByISBN) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        member: singleMember,
+        booksData: bookByISBN,
       },
     });
   } else {
     response.status(404).json({
       success: false,
-      message: "Not Found",
+      message: "ISBN not Found",
       body: {},
     });
   }
-  console.log(singleMember);
+});
+
+// Books/bookID endpoint
+app.get("/books/id/:bookID", (request, response) => {
+  // find method will return the first object that fits descrition
+  const singleBook = booksData.find((book) => {
+    return book.bookID === Number(request.params.bookID);
+    // return book.id === +request.params.id;
+    // return book.id.toString() === request.params.id;
+    // return book.id === request.params.id;
+  });
+  if (singleBook) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        book: singleBook,
+      },
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "ID not Found",
+      body: {},
+    });
+  }
+});
+
+app.get("/books/rating/:average_rating", (request, response) => {
+  // find method will return the first object that fits descrition
+  const ratingAverage = booksData.find((book) => {
+    return book.average_rating === Number(request.params.average_rating);
+    // return book.id === +request.params.id;
+    // return book.id.toString() === request.params.id;
+    // return book.id === request.params.id;
+  });
+  if (ratingAverage) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        book: ratingAverage,
+      },
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "ID not Found",
+      body: {},
+    });
+  }
 });
 
 // Start the server
