@@ -33,7 +33,6 @@ app.get('/books', (req, res) => {
     filteredBooks = filteredBooks.filter((item) => 
     item.authors.toLocaleLowerCase()
     .includes(author.toLocaleLowerCase()))
-    console.log(filteredBooks)
   }
 
 	if(title) {
@@ -43,10 +42,22 @@ app.get('/books', (req, res) => {
   }
 
   if(filteredBooks.length === 0) {
-    return res.status(404).json("Sorry we couldn't find book you seek")
+    return res.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
   } else {
-    res.json(filteredBooks);
+      res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        booksData: filteredBooks
+      }
+    });
   }
+
+
   
 })
 
@@ -54,11 +65,21 @@ app.get('/books', (req, res) => {
 // e.g. http://localhost:8080/books/23
 
 app.get("/books/:id", (req, res) => {
-  const singleBook = booksData.filter((item) => item.bookID == req.params.id)
+  const singleBook = booksData.find((item) => item.bookID == req.params.id)
   if (singleBook.length === 0) {
-    res.status(404).json("Sorry, this book does not exist. Try again with another number");
+    return res.status(404).json({
+      success: false,
+      message: "Not Found",
+      body: {}
+    });
   } else {
-    res.json(singleBook)
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        booksData: singleBook
+      }
+    })
   }
 });
 
