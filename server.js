@@ -57,9 +57,23 @@ app.get("/members/:id", (req, res) => {
     // return member.id.toString() === req.params.id;
     // return member.id == req.params.id;
   });
-  console.log(singleMember)
-  res.status(200).json(singleMember);
-});
+if(singleMember) {
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      member: singleMember
+    }
+  });
+} else {
+  res.status(404).json({
+    success: false,
+    message: "Not found",
+    body: {}
+  });
+ }
+ console.log(singleMember)
+})
 
 app.get("/books", (req, res) => {
   res.status(200).json({booksData: booksData});
