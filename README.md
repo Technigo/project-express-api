@@ -1,13 +1,16 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+Learning the basics of backend,  Build my own API by using Node js and Express.
+Then to create several routes and endpoints that returns different results or array of elements.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I chose a new dataset. I used Kaggle to get the dataset, TED Talks, by downloading a CSV file and then using a service to convert from CSV to JSON.
 
 ## The problem
+I mostly used the knowledge I got from codealong with both Damien and Daniel to make all this API works. 
+And after choosing my on dataset, figure out what I whanted ti show and create some different Routes and Querys.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+If I had more time I would have figured out how to find the mostviewd TED Talk and show which one not only how many views.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
