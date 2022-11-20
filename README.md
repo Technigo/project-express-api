@@ -21,14 +21,14 @@ Next step would be creating a pagination with an interface to display certain sl
  
 https://project-express-api-ng4ww37pwq-lz.a.run.app
 
-/blockchainjobs                                   *the whole data
+/blockchainjobs                                         *the whole data
 
 
 
-/company/Tokyotechie                              *specific end point
+/company/Tokyotechie                                    *specific end point
 
 
-/location?salarylowerlimit=200000                 *query (change the digit to 5 for example you see a different extraction =)   
+/location?salarylowerlimit=200000                       *query (change the digit to 5 for example you see a different extraction =)   
 
 
 
