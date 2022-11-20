@@ -90,9 +90,8 @@ app.get("/movies/:id", (request, response) => {
 });
 
 
-
 //get all movie data from a specific year
-app.get("/movies/year/:year", (request, response) => {
+app.get("/", (request, response) => {
   console.log('Looking up year')
   let year = request.params.year;
   let releaseYearMovieData = netflixData.filter((movie) => movie.release_year === +year
@@ -112,8 +111,6 @@ app.get("/movies/year/:year", (request, response) => {
 });
 
 
-
-
 //filter rating
 // app.get("/movies/", (request, respons) => {
 //   const { rating, type } = request.query;
@@ -128,11 +125,12 @@ app.get("/movies/year/:year", (request, response) => {
 //   respons.status(200).json({
 //     success: true,
 //     message: "OK",
-//     body: {
+//     data: {
 //       netflixData: filteredMovies
 //     }
 //   });
 // });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
