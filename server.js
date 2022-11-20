@@ -7,7 +7,7 @@ import technigoMembers from './data/technigo.members.json';
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -75,8 +75,9 @@ app.get('/allMovies', (req, res) => {
   const { title, country, duration, type } = req.query;
   let filteredNetflixData = netflixData;
   if (title) {
+    
     filteredNetflixData = filteredNetflixData.filter((item) =>
-      item.title.toLowerCase().includes(title.toLowerCase)
+      item.title.toLowerCase().includes(title.toLowerCase())
     );
   }
   if (country) {
@@ -89,6 +90,22 @@ app.get('/allMovies', (req, res) => {
   }
   if (type) {
     //
+  }
+  if (filteredNetflixData.length > 0) {
+
+    res.status(200).json({
+      success: true,
+      message: 'OK',
+      body: {
+        filteredNetflixData
+      }
+    }); 
+  } else {
+    res.status(404).json({
+      success: false,
+      message: 'Not Found',
+      body: {}
+    });
   }
 });
 
