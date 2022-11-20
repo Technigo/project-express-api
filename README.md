@@ -1,13 +1,34 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+Installed and deployed and connected the code to Google Cloud.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+* Google cloud installation , graph reading
+* Created a RESTful API.
+* Created routes
+* Returned a collection of results
+* Returned a single result 
+* Handle when the item doesn't exist and return some useful data in the response.
 
-## The problem
+* The JSON data was from kaggle about Blockchain JObs in India at 2022 =)
+* Converted the CSV file to a JSON through a convertor.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Next step would be creating a pagination with an interface to display certain slice of a data.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+ * Use these end points/queries to see it in action
+ 
+https://project-express-api-ng4ww37pwq-lz.a.run.app
+
+/blockchainjobs                                         *the whole data
+
+
+
+/company/Tokyotechie                                    *specific end point
+
+
+/location?salarylowerlimit=200000                       *query (change the digit to 5 for example you see a different extraction =)   
+
+
+
