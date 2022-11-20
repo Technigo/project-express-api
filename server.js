@@ -37,7 +37,7 @@ app.get("/music/:id", (req, res) => {
 
   //404
   if (!musicId) {
-    res.status(404).json({ errorMessage: "No globe with this id found. Try to find the right id" })
+    res.status(404).json({ errorMessage: "No music with this id found. Try to find the right id (one between 1-50)" })
   }
   res.json(musicId)
 })
@@ -48,7 +48,7 @@ app.get("/music/artists/:oneArtist", (req, res) => {
   const artistInput = topMusicData.find((item) => item.artistName === oneArtist)
 //404
 if (!artistInput) {
-  res.status(404).json({ errorMessage: "No artist with this name found. Try to find the right name" })
+  res.status(404).json({ errorMessage: "No artist with this name found. Try to search with the right name" })
 }
 res.json(artistInput)
 });
