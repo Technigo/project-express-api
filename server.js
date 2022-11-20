@@ -44,8 +44,8 @@ app.get("/music/:id", (req, res) => {
 
   //Creates a new endpoint with one specifik artist when providing artist name
 app.get("/music/artists/:oneArtist", (req, res) => {
-  const oneArtist = req.params.oneArtist
-  const artistInput = topMusicData.find((item) => item.artistName === oneArtist)
+  const oneArtist = req.params.oneArtist.toLowerCase()
+  const artistInput = topMusicData.find((item) => item.artistName.toLocaleLowerCase() === oneArtist)
 //404
 if (!artistInput) {
   res.status(404).json({ errorMessage: "No artist with this name found. Try to search with the right name" })
