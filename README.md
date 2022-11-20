@@ -1,13 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to install and set up an Express server, deploy Node and filtering data. Here it is done with an JSON file with golden globe stats. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Some of the filters are not working the way I want to, and that is someting I want to work more on. When i discoverd this i tried different aproaches, since the movies does not have an uniqe ID, find() does not work. Also the else does not work. This is problems i want to fix and will do when i have more time. Tools i used where postman.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-duw4f5pdba-lz.a.run.app/
+
