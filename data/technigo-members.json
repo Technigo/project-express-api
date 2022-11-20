@@ -2,26 +2,26 @@
     {
         "id": 1,
         "name": "Charlotte",
-        "role": "mom"
+        "role": "Mom"
     },
     {
         "id": 2,
         "name": "Markus",
-        "role": "dad"
+        "role": "Dad"
     },
     {
         "id": 3,
         "name": "Sigrid",
-        "role": "daughter"
+        "role": "Daughter"
     },
     {
         "id": 4,
         "name": "Carina",
-        "role": "grandmother"
+        "role": "Grandmother"
     },
     {
         "id": 5,
         "name": "Peter",
-        "role": "grandfather"
+        "role": "Grandfather"
     }
 ]

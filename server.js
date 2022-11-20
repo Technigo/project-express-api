@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import technigoMembers from "./data/technigo-members.json";
+import booksData from "./data/books.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
@@ -30,7 +30,24 @@ app.get("/", (req, res) => {
 });
 
 app.get("/members", (req, res) => {
-  res.status(200).json({technigoMembers: technigoMembers});
+  const { name, role } = req.query;
+  let members = technigoMembers;
+
+  if (role) {
+    // members = technigoMembers.filter(singleTechnigoMember => { return singleTechnigoMember.role === role });
+    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
+  }
+  if (name) {
+    members = members.filter(singleTechnigoMember => { return singleTechnigoMember.name.toLowerCase() === name.toLowerCase() });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      technigoMembers: members
+    }
+  });
 });
 
 app.get("/members/:id", (req, res) => {
