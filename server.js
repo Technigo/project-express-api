@@ -22,7 +22,27 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (request, response) => {
-  response.json("this is top music on spötify");
+  res.send({
+    Message: "Welcome to top music on Spotify! Look for your favorite top music with these endpoints.",
+    Routes: [
+      {
+        "/songs": "Show all songs (50) data.",
+        "/songs/:id": "Show a single song based on its id.",
+        "/songs?trackName=": "Show songs based on it's name",
+        "/songs?artistName=": "Show songs based on the artist name",
+        "/songs?genre=": "Show songs based on genre",
+        "/songs?bpm=": "Show songs based on it's bpm",
+        "/songs?energy=": "Show songs based on energy",
+        "/songs?danceability=": "Show songs based on danceability",
+        "/songs?loudness=": "Show songs based on loudness",
+        "/songs?liveness=": "Show songs based on liveness",
+        "/songs?valence=": "Show songs based on valence",
+        "/songs?length=": "Show songs based on length",
+        "/songs?acousticness=": "Show songs based on acousticness",
+        "/songs?speechiness=": "Show songs based on speechiness",
+        "/songs?popularity=": "Show songs based on popularity"
+      },
+    ]})
 });
 
 app.get("/songs", (request, response) => {
