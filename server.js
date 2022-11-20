@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 import booksData from "./data/books.json"
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -14,10 +15,17 @@ app.use(express.json());
 
 // listed endpoints here, had to removed it since it crashed app - new try when code is done
 
+
 // Start Route
 app.get("/", (req, res) => {
   res.send(" Hello go to --> /books la ");
 });
+
+//shows the available endpoints
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app))
+});
+
 
 app.get("/books", (req, res) => {
   const { author, title  } = req.query; //params
@@ -56,7 +64,14 @@ app.get("/books/:isbn", (req, res) => {
 })
 if (!singleBook) {
   res.status(404).json("Could not find a book that match the isbn number")
-     } else res.status(200).json({ singleBook }); 
+     } else 
+     res.status(200).json({
+     success: true,
+     message: "OK",
+        body: { 
+          singleBook 
+        }
+}); 
 })
 
 // Start the server
