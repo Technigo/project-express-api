@@ -1,16 +1,18 @@
-import express, { request } from "express";
+import express, { request, response } from "express";
 import cors from "cors";
 import technigomembers from "./data/technigo-members";
+import topMusicData from "./data/top-music.json";
+import listEndpoints from "express-list-endpoints";
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
+
 // import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
+// when starting the server. Example command to overwrite PORT envornmental variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -21,21 +23,46 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json({responseMessage: "hej"}); //sending as json object and show it as json
+	res.json({musicMessgae: " Welcome to Top Music Data API", data: listEndpoints(app)});
 });
 
-app.get("/members", (req, res) => {
-  res.status(200).json({technigomembers: technigomembers}); //sending as json object and show it as json
+
+//Creates a new endpoint with collection of all  Top music Data
+app.get("/music", (req, res) => {
+	res.status(200).json({topMusicData: topMusicData, success: true});
+});
+//Creates a new endpoint with all artists in alphabetic order
+app.get("/music/artists/", (req, res) => {
+  const allArtists = topMusicData.map((item) => item.artistName).sort();
+	console.log(allArtists);
+	res.status(200).json(allArtists);
+});
+//Shows just one item in Top Music, depending on id-input.
+app.get("/music/:id", (req, res) => {
+  const id = req.params.id
+  const musicId = topMusicData.find((item) => item.id === +id)
+
+  //404
+  if (!musicId) {
+    res.status(404).json({ errorMessage: "No globe with this id found. Try to find the right id" })
+  }
+  res.json(musicId)
+})
+
+  //Creates a new endpoint with all artists in alphabetic order
+app.get("/music/artists/:oneArtist", (req, res) => {
+  const oneArtist = req.params.oneArtist
+  const artistInput = topMusicData.find((item) => item.artistName === oneArtist)
+//404
+if (!artistInput) {
+  res.status(404).json({ errorMessage: "No artist with this name found. Try to find the right name" })
+}
+res.json(artistInput)
 });
 
-app.get("/members/:id", (req, res) => {
-  const singleMembler = technigomembers.find((member) => { //find-method  needs return statement
-    return member.id == req.params.id;
-  })
-  res.status(200).json({singleMembler}); //sending as json object and show it as json
-});
 
-// Start the server
+// Start the server.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
