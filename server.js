@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Start Route
 app.get("/", (req, res) => {
-  res.send(" Hello go to --> /books la ");
+  res.send(" Go to /endpoints to see available endpoints ");
 });
 
 //shows the available endpoints
@@ -28,7 +28,7 @@ app.get("/endpoints", (req, res) => {
 
 
 app.get("/books", (req, res) => {
-  const { author, title  } = req.query; //params
+  const { author, title  } = req.query; 
   let filteredBooks = booksData;
 
   if (author) {
