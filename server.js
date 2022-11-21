@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import avocados from "./data/avocado-sales.json"
+import avocados from "./data/avocado-sales.json";
+import listEndpoints from "express-list-endpoints";
 
 
 const port = process.env.PORT || 8080;
@@ -12,18 +13,28 @@ app.use(express.json());
 
 //  Start defining your routes here
 app.get("/", (req, res) => {
-res.json({responseMessage: "If you`re desperado, eat an avocado! 🥑"})
+  res.json({responseMessage: "If you`re desperado, eat an avocado! 🥑", data: listEndpoints(app)})
 });
 
 app.get('/sales', (req, res) => {
   res.json(avocados)
-  })
+})
 
-  app.get('/state/:state', (req, res) => {
-    const state = req.params.state;
-    const salesFromState = avocados.filter((item) => item.region.toLowerCase() === state.toLowerCase())
-    res.status(200).json(salesFromState)
-  })
+app.get("/sales/:id", (req, res) => {
+  const id = req.params.id
+  const AvocadoSaleId = avocados.find((item) => item.id === +id)
+//404
+  if (!AvocadoSaleId) {
+    res.status(404).json({ errorMessage: "No avocado sale with this id found. Try to find the right id" })
+  }
+  res.json(AvocadoSaleId)
+})
+
+app.get('/state/:state', (req, res) => {
+  const state = req.params.state;
+  const salesFromState = avocados.filter((item) => item.region.toLowerCase() === state.toLowerCase())
+  res.status(200).json(salesFromState)
+})
 
   app.get("/albany", (req, res) => {
     res.send(avocados.filter((item) => item.region === "Albany"))
@@ -37,15 +48,6 @@ app.get('/sales', (req, res) => {
     res.send(avocados.filter((item) => item.id === +1))
   })
 
-  app.get("/sales/:id", (req, res) => {
-    const id = req.params.id
-    const AvocadoSaleId = avocados.find((item) => item.id === +id)
-  //404
-    if (!AvocadoSaleId) {
-      res.status(404).json({ errorMessage: "No avocado sale with this id found. Try to find the right id" })
-    }
-    res.json(AvocadoSaleId)
-  })
 
 // Start the server
  app.listen(port, () => {
