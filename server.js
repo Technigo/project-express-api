@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 // at /movies filtering matches the query with the corresponding key of the data 
 app.get("/movies", (req, res) => {
   let { key, value } = req.query;
-  key = key.toLowerCase();
-  value = value.toLowerCase()
+    key = key?.toLowerCase();
+    value = value?.toLowerCase()
 
 // if query contain a key but no value or vice versa the api sends bad request.
   if((!key && value) || (key && !value)) {
@@ -64,8 +64,9 @@ app.get("/movies", (req, res) => {
 
 app.get("/tvShows", (req, res) => {
   let { key, value } = req.query;
-  key = key.toLowerCase();
-  value = value.toLowerCase()
+  // question mark here to account for that key and value might be undefined
+    key = key?.toLowerCase();
+    value = value?.toLowerCase()
 
   if((!key && value) || (key && !value)) {
     res.status(400).json({
@@ -103,6 +104,14 @@ app.get("/tvShows", (req, res) => {
 //generate random title
 app.get('/random', (req, res) => {
   let selectedTitle = netflixTitles[Math.floor(Math.random()*(netflixTitles.length))]  
+
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      result: selectedTitle
+    }
+  });
 })
 
 // Start the server
