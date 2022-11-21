@@ -91,7 +91,7 @@ app.get("/movies/:id", (request, response) => {
 
 
 //get all movie data from a specific year
-app.get("/", (request, response) => {
+app.get("/movies/year/:year", (request, response) => {
   console.log('Looking up year')
   let year = request.params.year;
   let releaseYearMovieData = netflixData.filter((movie) => movie.release_year === +year
