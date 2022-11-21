@@ -34,25 +34,7 @@ app.get("/endpoints", (req, res) => {
 
 // see all movies in the data file
 app.get("/movies", (req,res) => {
-  const { title, country, director, cast } = req.params; 
-  let allMovies = data.slice(0, 200)
-  if (title) {
-    allMovies = allMovies.filter((movie) => movie.title.toLocaleLowerCase() === title.toLocaleLowerCase())
-  }
-  if (country) {
-    allMovies = allMovies.filter((movie) => movie.country.toLocaleLowerCase().includes() === country.toLocaleLowerCase())
-  }
-  if (director) {
-    allMovies = allMovies.filter((movie) => movie.director.toLocaleLowerCase().includes() === director.toLocaleLowerCase())
-  }
-  if (cast) {
-    allMovies = allMovies.filter((movie) => movie.cast.toLocaleLowerCase().includes() === cast.toLocaleLowerCase())
-  }
-    res.status(200).json({
-      data: allMovies,
-      success: true,
-    });
- console.log(allMovies)
+  res.status(200).json(data)
 })
 
 // see specific movie title 
