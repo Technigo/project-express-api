@@ -57,9 +57,9 @@ app.get('/content/:id', (req, res) => {
 		res.status(200).json({ body: showId, success: true, message: 'OK' });
 	} else
 		res.status(404).json({
+			success: false,
 			message:
 				"The ID you're trying to look for doesn't exist, please try again",
-			success: false,
 			body: {},
 		});
 });
@@ -72,14 +72,15 @@ app.get('/content/title/:title', (req, res) => {
 	});
 	if (searchedTitle) {
 		res.status(200).json({
-			response: { title: searchedTitle },
 			success: true,
 			message: 'OK',
+			body: { title: searchedTitle },
 		});
 	} else
 		res.status(404).json({
-			message: "show doesn't exist, please try another",
 			success: false,
+			message: "show doesn't exist, please try another",
+			body: {},
 		});
 });
 
@@ -91,12 +92,12 @@ app.get('/content/director/:director', (req, res) => {
 	);
 	if (searchedDirector) {
 		res.status(200).json({
-			body: { director: searchedDirector },
 			success: true,
 			message: 'OK',
+			body: { director: searchedDirector },
 		});
 	} else
-		res.status(404).json({ message: 'Not Found', success: false, body: {} });
+		res.status(404).json({ success: false, message: 'Not Found', body: {} });
 });
 
 //get the title, director, country using param query
@@ -122,9 +123,9 @@ app.get('/content', (req, res) => {
 		);
 	}
 	res.status(200).json({
-		body: { filteredContent: filteredContent },
 		success: true,
 		message: 'OK',
+		body: { filteredContent: filteredContent },
 	});
 });
 
@@ -134,9 +135,9 @@ app.get('/content/type/:type', (req, res) => {
 		item.type.toLowerCase().includes(type.toLowerCase())
 	);
 	if (showType) {
-		res.status(200).json({ response: showType, success: true, message: 'OK' });
+		res.status(200).json({ success: true, message: 'OK', response: showType });
 	} else {
-		res.status(404).json({ message: '404, try again', success: false });
+		res.status(404).json({ success: false, message: '404, try again' });
 	}
 });
 
