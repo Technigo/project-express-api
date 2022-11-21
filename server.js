@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (request, response) => {
-  res.send({
+  response.send({
     Message: "Welcome to top music on Spotify! Look for your favorite top music with these endpoints.",
     Routes: [
       {
