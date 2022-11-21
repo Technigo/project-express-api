@@ -1,18 +1,7 @@
 import express, { request } from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json"
+import booksData from "./data/books.json"
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -26,14 +15,14 @@ app.get("/", (req, res) => {
 });
 
 // This get request below includes query parameters, allowing you to filter by the role or name in the array.
-app.get("/members", (req, res) => {
-  const { name, role } = req.query;
-  let members = technigoMembers;
-  if (role) {
-    members = members.filter(singleTechnigoMember => singleTechnigoMember.role.toLowerCase() === role.toLowerCase());
+app.get("/books", (req, res) => {
+  const { title, authors } = req.query;
+  let books = booksData;
+  if (title) {
+    books = books.filter(singleBook => singleBook.title.toLowerCase() === role.toLowerCase());
   }
-  if (name) {
-    members = members.filter(singleTechnigoMember => singleTechnigoMember.name.toLowerCase() === role.toLowerCase());
+  if (authors) {
+    books = books.filter(singleBook => singleBook.name.toLowerCase() === role.toLowerCase());
   }
 
 
@@ -41,18 +30,17 @@ app.get("/members", (req, res) => {
     success: true,
     message: "OK",
     body: {
-      technigoMembers: members
+      booksData: books
     }
     
   });
 });
 
-app.get("/members/:id", (req, res) => {
-  const singleMember = technigoMembers.find((member) => {
-    return member.id === Number(+request.params.id);
+app.get("/books/id/:bookID", (req, res) => {
+  const singleBook = booksData.find((book) => {
+    return book.bookID === Number(+req.params.bookID);
   });
-  res.status(200).json({singleMember});
-
+  res.status(200).json({singleBook});
 });
 
 // Start the server
