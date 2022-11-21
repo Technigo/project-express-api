@@ -19,12 +19,32 @@ app.get('/sales', (req, res) => {
   res.json(avocados)
   })
 
-
   app.get('/state/:state', (req, res) => {
-    const state = req.query
-    console.log(state)
-    let salesFromState = data.filter((item) => item.region.toLowerCase() === state.toLowerCase())
-    res.json(salesFromState)
+    const state = req.params.state;
+    const salesFromState = avocados.filter((item) => item.region.toLowerCase() === state.toLowerCase())
+    res.status(200).json(salesFromState)
+  })
+
+  app.get("/albany", (req, res) => {
+    res.send(avocados.filter((item) => item.region === "Albany"))
+  })
+
+  app.get("/luciasdaysales", (req, res) => {
+    res.send(avocados.filter((item) => item.date === "2015-12-13"))
+  })
+
+  app.get("/firstitem", (req, res) => {
+    res.send(avocados.filter((item) => item.id === +1))
+  })
+
+  app.get("/sales/:id", (req, res) => {
+    const id = req.params.id
+    const AvocadoSaleId = avocados.find((item) => item.id === +id)
+  //404
+    if (!AvocadoSaleId) {
+      res.status(404).json({ errorMessage: "No avocado sale with this id found. Try to find the right id" })
+    }
+    res.json(AvocadoSaleId)
   })
 
 // Start the server
