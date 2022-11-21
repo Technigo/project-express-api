@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(movies);
+  res.send(netflixTitles);
 });
 
 // at /movies filtering matches the query with the corresponding key of the data 
