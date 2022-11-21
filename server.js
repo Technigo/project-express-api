@@ -48,8 +48,8 @@ app.get("/avocadoSales/:date", (req, res) => {
         avocadoSalesData: dateSale
       }
     });
-  }
-})
+  };
+});
 
 // this returns the highest average price 
 app.get("/highestPrice", (req, res) => {
@@ -64,7 +64,13 @@ app.get("/highestPrice", (req, res) => {
       "Highest average price": price[0]
     }
   });
-})
+});
+
+app.get("/mostExpensive", (req, res) => {
+  const pricy = avocadoSalesData.sort((a, b) => b.averagePrice - a.averagePrice)
+
+  res.status(200).json(pricy[0])
+});
 
 // returns a single result 
 app.get("/avocados/:id", (req, res) => {
