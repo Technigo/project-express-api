@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import netflixTitles from './data/netflix-titles.json'
+import listEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -14,8 +15,20 @@ app.use(express.json());
 
 
 // Start defining your routes here
-app.get("/", (req, res) => {
+
+/* app.get("/", (req, res) => {
   res.send(netflixTitles);
+}); */
+app.get("/", (req, res) => {
+	res.json({
+    NetflixTitles: "Information about movies and tv-shows, from Netflix", 
+    randomEndpoint: "/random generates a random movie or tv-show",
+    moviesEndpoint: "/movies will return all movies",
+    tvShowsEndpoint: "/tvShows will return all TV shows",
+    queries: "at movies and tvShows endpoints you can make a query using key and value, e.g. /movies?key=title&value=The Accidental Spy"
+  
+    });
+
 });
 
 // at /movies filtering matches the query with the corresponding key of the data 
