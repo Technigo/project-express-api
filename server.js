@@ -21,8 +21,8 @@ app.use(cors())
 app.use(express.json())
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.json({responseMessage: "Hello Technigo!"})
+app.get("/", (request, response) => {
+  response.json({responseMessage: "Hi there! Type in /books to browse all books, or try /random-book to get a random book recommendation!"})
 })
 
 app.get("/books", (request, response) => {
@@ -54,8 +54,8 @@ app.get("/books", (request, response) => {
       page,
       pageSize, 
       totalPages,
-      nextPage: page < totalPages && `http://localhost:8080/books?page=${page + 1}`,
-      previousPage: page > 1 && `http://localhost:8080/books?page=${page - 1}`,
+      nextPage: page < totalPages && `https://project-express-api-6jhpdpxubq-lz.a.run.app/books?page=${page + 1}`,
+      previousPage: page > 1 && `https://project-express-api-6jhpdpxubq-lz.a.run.app/books?page=${page - 1}`,
       books: booksAfterPagination
     }
   })
