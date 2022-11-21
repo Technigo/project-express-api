@@ -66,10 +66,12 @@ app.get("/highestPrice", (req, res) => {
   });
 });
 
+// this sorts the whole list by average price, it does the same (sorting) as the one above,
+// but with a more neat code and presenting the whole array instead of one number. Learnt from classmates during demo! 
 app.get("/mostExpensive", (req, res) => {
   const pricy = avocadoSalesData.sort((a, b) => b.averagePrice - a.averagePrice)
 
-  res.status(200).json(pricy[0])
+  res.status(200).json(pricy)
 });
 
 // returns a single result 
