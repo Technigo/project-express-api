@@ -1,13 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is my first backend project where I have created an API in Node using Express. The API have RESTful endpoints and I chose to use the API with data from Netflix that was provied in the project file. (The data is stored in a json-file)
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created some routes and used methods like filer, map, find to select and display the correct info on each route. Apart from Express I also used Postman to test my routes.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Here is a link to the project:
+https://project-express-api-vi7n7a5g7a-lz.a.run.app/
