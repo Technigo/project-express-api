@@ -8,5 +8,7 @@ https://project-express-api-o4tanbh6ta-lz.a.run.app/
 
 Endpoints:
 /avocadosales
+
 /regions
+
 /avocadosales/:region
