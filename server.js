@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (request, response) => {
-  response.status(200).json({
+response.status(200).json({
     Hello: "Here you can see all my routes!",
     Routes: [
       { "/movies": "all movie data" },
