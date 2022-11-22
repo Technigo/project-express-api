@@ -7,6 +7,7 @@ Intro to backend by creating an API using Express. The API should have at least 
 https://project-express-api-o4tanbh6ta-lz.a.run.app/
 
 Endpoints:
+
 /avocadosales
 
 /regions
