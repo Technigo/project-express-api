@@ -31,7 +31,7 @@ app.get("/sales/:id", (req, res) => {
 })
 
 app.get("/avocadosales", (req,res) => {
-  const { region, id, averageprice } = req.query;
+  const { region, id, averagePrice } = req.query;
   let avocadosales = [...avocados];
 
   if (region) {
@@ -42,9 +42,9 @@ app.get("/avocadosales", (req,res) => {
     avocadosales = avocadosales.filter((item) => item.id === +id)
   }
 
-  // if (averageprice) {
-  //   avocadosales = avocadosales.filter((item) => item.averagePrice === Number(averageprice))
-  // } Does not work dunno why
+  if (averagePrice) {
+    avocadosales = avocadosales.filter((item) => item.averagePrice === +averagePrice)
+  }
 
   res.status(200).json({ 
     success: true,
@@ -52,7 +52,7 @@ app.get("/avocadosales", (req,res) => {
     response: {
       avocados: avocadosales
     }
-  });
+  })
 });
 
 app.get('/state/:state', (req, res) => {
