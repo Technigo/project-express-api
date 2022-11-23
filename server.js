@@ -103,7 +103,10 @@ app.get("/tedTalk/:id", (req, res) => {
   const singleTedTalk = tedTalkData.find((talk) => {
     return talk.talk_id === +req.params.id;
   }); 
-  // res.status(200).json(singleMovie);
+  // "/tedTalk/id/:id"
+  // const id = req.params.id
+  // let singleTedTalk = tedTalkData.find((talk) => talk.talk_Id === +id)
+ 
     
   if(singleTedTalk) {
     res.status(200).json({
