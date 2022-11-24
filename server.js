@@ -9,10 +9,15 @@ app.use(cors());
 app.use(express.json()); 
 
 app.get("/", (req, res) => {
-  res.send({responseMessage: "Golden Globe stats, library at /globes"}); 
+  res.status(200).json({
+    responseMessage: "Golden Globe statistics",
+    endPointsArray: "/globes - returns an array of all movies",
+    endPointsArrayQuery: "/globes ? category, nominee, film",
+    endPointsSingleItem: "/globes/ceremony/:ceremony - /globes/release/:release"
+  }); 
 });
 
- app.get("/globes/:ceremony", (req, res) => {
+ app.get("/globes/ceremony/:ceremony", (req, res) => {
   const ceremonyNumber = goldenGlobesData.filter((globe) => {
     return globe.ceremony === +req.params.ceremony;
   });
@@ -21,26 +26,37 @@ app.get("/", (req, res) => {
       success: true,
       message: "OK",
       response: {
-      goldenGlobesData: ceremonyNumber
+      ceremonyNumber: ceremonyNumber
     }
   });
 } else {
-  res.status(404).json(`Ceremony number ${ceremonyNumber} not found`); //This part does not work 
+  res.status(404).json({
+    success: false,
+    message: "Ceremony not found",
+    response: (`Ceremony number ${params.ceremony} not found`)
+  }) 
 }
  });
 
- // tried this one, and it does'nt work together with ceremony. Also the else does not work
-
-/*  app.get('/globes/:release', (req, res) => {
+app.get('/globes/release/:release', (req, res) => {
   const release = +req.params.year_film
   const yearFilm = goldenGlobesData.filter((globe) => globe.year_film)
 
   if(yearFilm) {
-    res.json({ yearFilm: yearFilm }) 
+    res.status(200).json({ 
+      success: true,
+      message: "OK",
+      response: {
+      yearFilm: yearFilm } 
+    }); 
   } else {
-    res.status(404).json(`Sorry, no release year: ${release}`)
+    res.status(404).json({
+      success: false,
+      message: "Ceremony not found",
+      response: (`Sorry, no release year: ${release}`) // else does not work, if year 2020, it returns all movies
+    })
   }
-})  */
+}) 
 
  app.get("/globes", (req, res) => {
   const { category, nominee, film } = req.query
