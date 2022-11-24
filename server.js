@@ -1,11 +1,7 @@
 import express from "express";
 import cors from "cors";
 import netflixTitles from './data/netflix-titles.json'
-import listEndpoints from "express-list-endpoints";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -13,12 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-// Start defining your routes here
-
-/* app.get("/", (req, res) => {
-  res.send(netflixTitles);
-}); */
+// information about routes and queries
 app.get("/", (req, res) => {
 	res.json({
     NetflixTitles: "Information about movies and tv-shows, from Netflix", 
