@@ -2,8 +2,8 @@
 
 Simple RESTful API in Express to practise Node.js backend development
 
-GET /members
-GET /members/:id
+GET /members  
+GET /members/:id  
 GET /allMovies
 
 ## View it live
