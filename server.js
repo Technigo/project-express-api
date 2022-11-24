@@ -80,7 +80,7 @@ app.get("/ramen/country/:country", (req, res) => {
 // example route: /ramen/brand/indomie
 app.get("/ramen/brand/:brand", (req, res) => {
   const brand = req.params.brand
-  let selectedBrand = data.find((item) => item.Brand.toLowerCase() === brand.toLowerCase())
+  let selectedBrand = data.filter((item) => item.Brand.toLowerCase() === brand.toLowerCase())
   
   if (!selectedBrand){
     res.status(404).send({
@@ -100,7 +100,7 @@ app.get("/ramen/brand/:brand", (req, res) => {
 // example route: /ramen/style/cup
 app.get("/ramen/style/:style", (req, res) => {
   const style = req.params.style
-  let selectedStyle = data.find((item) => item.Style.toLowerCase() === style.toLowerCase())
+  let selectedStyle = data.filter((item) => item.Style.toLowerCase() === style.toLowerCase())
   
   if (!selectedStyle){
     res.status(404).send({
