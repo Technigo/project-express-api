@@ -21,25 +21,53 @@ response.status(200).json({
       { "/titles": "a list of all titles" },
       { "/movies/:id": "E.g. if you add 81193313 as the id, it will show information about a specific movie, for instance id 81193313 will give us info about the movie Chocolate" },
       { "/movies/year/:year": "a list of movie data from a specific release year" },
+      { "/movies?director=": "show movies based on director's name, for instance Mati Diop"},
+      { "/movies?type=": "show movies based on a type, for instance TV show"}
     ],
   });
 });
 //get all data
 app.get("/movies", (request, response) => {
-  console.log('Movies...')
-  if (netflixData) {
-    response.status(200).json({ 
-      data: netflixData, 
-      success: true,
-      message: "OK",
-      debug: 'Movies' });
-  } else {
-    response.status(200).json({ 
-      data: [], 
-      success: false,
-      message: "Not Found"});
+  let movieData = netflixData;
+  
+  const {
+    director,
+    type
+  } = request.query;
+
+    //get movies created by a specific director
+
+  if (director) {
+    movieData = movieData.filter(singleMovieData => singleMovieData.director.toLowerCase() === director.toLowerCase());
   }
+    //get movies with a specific type
+
+  if (type) {
+    movieData = movieData.filter(singleMovieData => singleMovieData.type.toLowerCase() === type.toLowerCase());
+  }
+
+  response.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+    netflixData: movieData
+    }
+  });
 });
+
+//   if (movieData) {
+//     response.status(200).json({ 
+//       data: netflixData, 
+//       success: true,
+//       message: "OK",
+//       debug: 'Movies' });
+//   } else {
+//     response.status(200).json({ 
+//       data: [], 
+//       success: false,
+//       message: "Not Found"});
+//   }
+// });
 
 //get all titles
 
@@ -64,10 +92,7 @@ app.get("/movies/:id", (request, response) => {
   console.log('Looking up id')
   const singleMovie = netflixData.find((movie) => {
   return movie.show_id === +request.params.id;
-   // return movie.show_id === +id;
-    // return member.id === +request.params.id;
-    // return member.id.toString() === request.params.id;
-    // return member.id == request.params.id;
+
   });
   console.log('singleMovie', singleMovie)
   if(singleMovie) {
@@ -110,26 +135,6 @@ app.get("/movies/year/:year", (request, response) => {
   }
 });
 
-
-//filter rating
-// app.get("/movies/", (request, respons) => {
-//   const { rating, type } = request.query;
-//   let filteredMovies = netflixData;
-//   if (rating) {
-//     // members = technigoMembers.filter(singleTechnigoMember => { return singleTechnigoMember.role === role});
-//     filteredMovies = filteredMovies.filter(singleMovie => singleMovie.rating.toLowerCase() === rating.toLowerCase());
-//   }
-//   if (type) {
-//     filteredMovies = filteredMovies.filter(singleMovie => singleMovie.type.toLowerCase() === type.toLowerCase());
-//   }
-//   respons.status(200).json({
-//     success: true,
-//     message: "OK",
-//     data: {
-//       netflixData: filteredMovies
-//     }
-//   });
-// });
 
 // Start the server
 app.listen(port, () => {
