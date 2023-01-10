@@ -3,7 +3,7 @@ import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
+import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
@@ -21,8 +21,48 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({responseMessage: "Yay avocados!"});
 });
+
+//Shows entire avocado-sales list
+app.get("/sales", (req, res) => {
+const { region } = req.query;
+let  sales = avocadoSalesData;
+
+if (region) {
+  sales = avocadoSalesData.filter(region => region.region === region);
+}
+
+    res.status(200).json({ avocadoSalesData: avocadoSalesData });
+ }); 
+
+
+//Shows sales from one object 
+app.get("/sales/:id", (req, res) => {
+
+  const singleDateSales = avocadoSalesData.find((date)=> {
+    return date.id === +req.params.id;
+  }) 
+
+  res.status(200).json({singleDateSales});
+});
+
+
+// Shows sales from same region
+
+app.get("/avocadosales/:region", (req, res) => {
+  const region = req.params.region;
+  const salesByRegion = avocadoSalesData.filter(
+    (singleRegion) => singleRegion.region.toLowerCase() === region.toLowerCase()
+  );
+  if (salesByRegion.length !==0) {
+    res.status(200).json({ data: salesByRegion, success: true});
+  } else {
+    res.status(404).send("Region not found")
+  }
+});
+
+
 
 // Start the server
 app.listen(port, () => {
