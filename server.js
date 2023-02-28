@@ -22,22 +22,43 @@ app.get('/', (req, res) => {
   //res.send("Welcome to ReadIt! - See this API live at: https://xxxxxxxx.netlify.app/")
 });
 
+// Function for pagination, to be used later:
+const pagination = (data, pageNumber) => {
+  const pageSize = 15
+  const startIndex = (pageNumber-1) * pageSize
+  const endIndex = startIndex + pageSize
+  const itemsOnPage = data.slice(startIndex, endIndex)
+
+  const returnObject = {
+      page_size: pageSize,
+      page: pageNumber,
+      num_of_pages: Math.ceil(data.length / pageSize),
+      items_on_page: itemsOnPage.length,
+      results: itemsOnPage
+  }
+  return returnObject
+}
 
 // Route that returns all data on all books
 app.get('/books', (req, res) => {
-
-  //FILTERS:
-  const { author, top } = req.query
-  let allBooks = booksData;
   
-  // ... for specific author: e.g. /books?author=douglas adams
+  //FILTERS:
+  const { author, top, page } = req.query
+
+  let allBooks = booksData;
+
+  if (page) {
+    allBooks = pagination(allBooks, page)
+  }
+
+  // for specific author: e.g. /books?author=douglas adams
   if (author) {
     allBooks = allBooks.filter((book) => 
       book.authors.toLocaleLowerCase()
       .includes(author.toLocaleLowerCase()))
   }
 
-  // ... for top-rated books: e.g. /books?top=true
+  // for top-rated books: e.g. /books?top=true
   if (top) {
     allBooks = allBooks.filter((book) => 
       book.average_rating > '4.3')
@@ -62,21 +83,3 @@ app.get("/books/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
-
-// Function for pagination, to be used later:
-//   const pagination = (data, pageNumber) => {
-//     const pageSize = 45
-//     const startIndex = (pageNumber-1) * pageSize
-//     const endIndex = startIndex + pageSize
-//     const itemsOnPage = data.slice(startIndex, endIndex)
-
-//     const returnObject = {
-//         page_size: pageSize,
-//         page: pageNumber,
-//         num_of_pages: Math.ceil(data.length / pageSize),  //was pagesize
-//         items_on_page: booksOnPage.length,
-//         results: itemsOnPage
-//     }
-//     return returnObject
-// }
