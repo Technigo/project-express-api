@@ -4,10 +4,13 @@ import data from './data/data.json'
 
 const port = process.env.PORT || 8081;
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 // Middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Index route
 app.get("/", (req, res) => {
@@ -19,7 +22,7 @@ app.get('/companies', (req, res) => {
   res.json(data)
 })
 
-// Use for example http://localhost:8081/companies/name?name=Apple%20Inc. to get data for companies in different sectors
+// Use for example http://localhost:8081/companies/names?names=Apple%20Inc. to get data for companies in different sectors
 app.get('/companies/names', (req, res) => {
   const names = req.query.names.toLowerCase()
   let companiesNames = data.filter((item) => item.company_name.toLowerCase() === names)

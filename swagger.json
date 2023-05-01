@@ -1,0 +1,52 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Top 50 Tech Companies API",
+      "version": "1.0.0"
+    },
+    "host": "project-express-api-cvzekbgn3q-lz.a.run.app",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/companies": {
+        "get": {
+          "description": "Returns the full data for all companies",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            }
+          }
+        }
+      },
+      "/companies/names": {
+        "get": {
+          "description": "Returns data for companies by name",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "names",
+              "in": "query",
+              "description": "Company name",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            },
+            "404": {
+              "description": "Company not found"
+            }
+          }
+        }
+      }
+    }
+  }  
