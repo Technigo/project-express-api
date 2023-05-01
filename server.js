@@ -36,7 +36,7 @@ app.get('/companies/sectors', (req, res) => {
   }
 })
 
-// Use for example http://localhost:8081/companies/Apple%20Inc. to get data for companies in different sectors
+// Use for example http://localhost:8081/companies/apple%20inc. to get data for companies in different sectors
 // https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/apple%20inc.
 app.get('/companies/:name', (req, res) => {
   const name = decodeURIComponent(req.params.name).toLowerCase();
@@ -49,7 +49,8 @@ app.get('/companies/:name', (req, res) => {
   }
 })
 
-// Use for example http://localhost:8081/companies/state/California to get data for all companies with a HQ in California
+// Use for example http://localhost:8081/companies/states/california to get data for all companies with a HQ in California
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/states/california
 app.get('/companies/states/:state', (req, res) => {
   const states = decodeURIComponent(req.params.state).toLowerCase();
   const showSectors = req.query.sectors
@@ -66,7 +67,8 @@ app.get('/companies/states/:state', (req, res) => {
   }
 })
 
-// Use for example http://localhost:8081/companies/year/2004 to get data for all companies founded in 2004
+// Use for example http://localhost:8081/companies/years/2004 to get data for all companies founded in 2004
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/years/2004
 app.get('/companies/years/:year', (req, res) => {
   const years = req.params.year
   const showYears = req.query.founding_year
@@ -85,6 +87,7 @@ app.get('/companies/years/:year', (req, res) => {
 
 // Use for example http://localhost:8081/companies/sectors/software%20infrastructure/california to get data for companies
 // in the software infrastructure sector with a HQ in California
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/sectors/software%20infrastructure/california
 app.get('/companies/sectors/:sector/:state', (req, res) => {
   const sectors = decodeURIComponent(req.params.sector).toLowerCase();
   const state = req.params.state.toLowerCase();
