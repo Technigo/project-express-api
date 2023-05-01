@@ -24,7 +24,7 @@ app.get('/companies', (req, res) => {
 
 // Use for example http://localhost:8081/companies/sector?sector=Software%20Infrastructure to get data for companies in different sectors
 app.get('/companies/sectors', (req, res) => {
-  const sectors = req.query.sectors.toLowerCase()
+  const sectors = decodeURIComponent(req.query.sectors).toLowerCase()
   let companiesInSectors = data.filter((item) => item.sector.toLowerCase() === sectors)
   
   if (companiesInSectors.length === 0) {
@@ -35,6 +35,7 @@ app.get('/companies/sectors', (req, res) => {
 })
 
 // Use for example http://localhost:8081/companies/Apple%20Inc. to get data for companies in different sectors
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/apple%20inc.
 app.get('/companies/:name', (req, res) => {
   const name = decodeURIComponent(req.params.name).toLowerCase();
   let companiesNames = data.filter((item) => item.company_name.toLowerCase() === name)
@@ -48,7 +49,7 @@ app.get('/companies/:name', (req, res) => {
 
 // Use for example http://localhost:8081/companies/state/California to get data for all companies with a HQ in California
 app.get('/companies/states/:state', (req, res) => {
-  const states = req.params.state.toLowerCase()
+  const states = decodeURIComponent(req.params.state).toLowerCase();
   const showSectors = req.query.sectors
   let companiesFromStates = data.filter((item) => item.hq_state.toLowerCase() === states)
   
@@ -83,7 +84,7 @@ app.get('/companies/years/:year', (req, res) => {
 // Use for example http://localhost:8081/companies/sector/software%20infrastructure/california to get data for companies
 // in the software infrastructure sector with a HQ in California
 app.get('/companies/sectors/:sector/:state', (req, res) => {
-  const sectors = req.params.sector.toLowerCase()
+  const sectors = decodeURIComponent(req.params.sector).toLowerCase()
   const showStates = req.params.state.toLowerCase()
   let companiesInSectorsInStates = data.filter((item) => item.sector.toLowerCase() === sectors)
   
