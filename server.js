@@ -83,23 +83,25 @@ app.get('/companies/years/:year', (req, res) => {
   }
 })
 
-// Use for example http://localhost:8081/companies/sector/software%20infrastructure/california to get data for companies
+// Use for example http://localhost:8081/companies/sectors/software%20infrastructure/california to get data for companies
 // in the software infrastructure sector with a HQ in California
 app.get('/companies/sectors/:sector/:state', (req, res) => {
-  const sectors = decodeURIComponent(req.params.sector).toLowerCase()
-  const showStates = req.params.state.toLowerCase()
-  let companiesInSectorsInStates = data.filter((item) => item.sector.toLowerCase() === sectors)
-  
-  if (showStates) {
-    companiesInSectorsInStates = companiesInSectorsInStates.filter((item) => item.hq_state.toLowerCase() === showStates.toLowerCase());
-  }
-  
+  const sectors = decodeURIComponent(req.params.sector).toLowerCase();
+  const state = req.params.state.toLowerCase();
+  let companiesInSectorsInStates = data.filter(
+    (item) =>
+      item.sector.toLowerCase() === sectors &&
+      item.hq_state.toLowerCase() === state
+  );
+
   if (companiesInSectorsInStates.length === 0) {
-    res.status(404).send(`None of the top 50 companies match the provided ${sectors} sector and ${showStates} state criteria`); //This catches if no HQ's are in the provided state
+    res.status(404).send(
+      `None of the top 50 companies match the provided ${sectors} sector and ${state} state criteria`
+    );
   } else {
     res.json(companiesInSectorsInStates);
   }
-})
+});
 
 
 // ERROR route
