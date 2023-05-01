@@ -22,18 +22,6 @@ app.get('/companies', (req, res) => {
   res.json(data)
 })
 
-// Use for example http://localhost:8081/companies/names?names=Apple%20Inc. to get data for companies in different sectors
-app.get('/companies/names', (req, res) => {
-  const names = req.query.names.toLowerCase()
-  let companiesNames = data.filter((item) => item.company_name.toLowerCase() === names)
-  
-  if (companiesNames.length === 0) {
-    res.status(404).send(`None of the top 50 companies have the name ${names}`);
-  } else {
-    res.json(companiesNames);
-  }
-})
-
 // Use for example http://localhost:8081/companies/sector?sector=Software%20Infrastructure to get data for companies in different sectors
 app.get('/companies/sectors', (req, res) => {
   const sectors = req.query.sectors.toLowerCase()
@@ -46,6 +34,18 @@ app.get('/companies/sectors', (req, res) => {
   }
 })
 
+// Use for example http://localhost:8081/companies/Apple%20Inc. to get data for companies in different sectors
+app.get('/companies/:name', (req, res) => {
+  const names = req.params.name.toLowerCase()
+  let companiesNames = data.filter((item) => item.company_name.toLowerCase() === name)
+  
+  if (companiesNames.length === 0) {
+    res.status(404).send(`None of the top 50 companies have the name ${name}`);
+  } else {
+    res.json(companiesNames);
+  }
+})
+
 // Use for example http://localhost:8081/companies/state/California to get data for all companies with a HQ in California
 app.get('/companies/states/:state', (req, res) => {
   const states = req.params.state.toLowerCase()
@@ -53,7 +53,7 @@ app.get('/companies/states/:state', (req, res) => {
   let companiesFromStates = data.filter((item) => item.hq_state.toLowerCase() === states)
   
   if (showSectors) {
-    companiesFromStates = companyFromStates.filter((item) => item.sectors)
+    companiesFromStates = companiesFromStates.filter((item) => item.sectors)
   }
   
   if (companiesFromStates.length === 0) {
