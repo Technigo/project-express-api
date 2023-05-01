@@ -1,13 +1,47 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This project is a RESTful API that provides data for the top 50 tech companies in the US. It was built using Node.js, Express, and JSON data.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+# The problem
+The main challenge of this project was designing an API that allows users to filter and retrieve data about the top 50 tech companies based on various parameters such as company name, sector, state, and founding year.
 
-## The problem
+# Technologies used:
+Node.js
+Express
+CORS
+JSON
+Swagger
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+# Features:
+Retrieve data for all top 50 tech companies
+Filter companies by sector
+Filter companies by name
+Filter companies by state
+Filter companies by founding year
+Filter companies by sector and state
+Error handling for invalid routes
 
-## View it live
+# Endpoints:
+/ - Index route with a welcome message
+/companies - Get data for all companies
+/companies/sectors - Get data for companies in different sectors
+/companies/:name - Get data for companies by name
+/companies/states/:state - Get data for all companies with a HQ in a specified state
+/companies/years/:year - Get data for all companies founded in a specified year
+/companies/sectors/:sector/:state - Get data for companies in a specified sector with a HQ in a specified state
+* - Error route
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+# How to run the API locally:
+Clone the repository
+Install dependencies with npm install
+Run the server with npm start
+Access the API at http://localhost:8081
+
+# The API is also deployed and can be accessed at:
+https://project-express-api-cvzekbgn3q-lz.a.run.app/
+
+# API docs can be viewed at:
+https://project-express-api-cvzekbgn3q-lz.a.run.app/api-docs/
+
+# Data coming from:
+https://www.kaggle.com/datasets/lamiatabassum/top-50-us-tech-companies-2022-2023-dataset
