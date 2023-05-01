@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
+import styled from 'styled-components'
 
-const Bookview = (random) => {
+const BookviewContainer = styled.div``
+
+const BookTitle = styled.h1``
+
+const BookInfoContainer = styled.div``
+
+const BookInfoText = styled.p``
+
+const Bookview = ({ random }) => {
   const [book, setBook] = useState({});
+  const { bookId } = useParams();
+  console.log(`book id is ${bookId}`)
 
   useEffect(() => {
     if (random) {
@@ -10,14 +21,27 @@ const Bookview = (random) => {
         .then((res) => res.json())
         .then((json) => setBook(json))
     } else {
-      const bookId = { useParams }
       fetch(`http://localhost:8080/books/${bookId}`)
         .then((res) => res.json())
         .then((json) => setBook(json))
     }
-  }, [random])
+  }, [random, bookId])
 
-  return (<h1>{book.title}</h1>);
+  return (
+    <BookviewContainer>
+      <BookTitle>{book.title}</BookTitle>
+      <BookInfoContainer>
+        <BookInfoText>by {book.authors}</BookInfoText>
+        <BookInfoText>
+          {book.average_rating} / 5 ({book.ratings_count} ratings)
+        </BookInfoText>
+        <BookInfoText>
+            nr of pages: {book.num_pages}
+        </BookInfoText>
+      </BookInfoContainer>
+    </BookviewContainer>
+
+  );
 }
 
 export default Bookview;
