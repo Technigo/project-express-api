@@ -1,8 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project provides a comprehensive guide on setting up and deploying an Express server, building an API using Express, and creating routes. Additionally, it covers data manipulation techniques in JavaScript and how to run unit tests.
 
 ## The problem
 
