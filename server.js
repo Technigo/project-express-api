@@ -18,11 +18,13 @@ app.get("/", (req, res) => {
 });
 
 // Use http://localhost:8081/companies to get the full data for all companies
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies
 app.get('/companies', (req, res) => {
   res.json(data)
 })
 
-// Use for example http://localhost:8081/companies/sector?sector=Software%20Infrastructure to get data for companies in different sectors
+// Use for example http://localhost:8081/companies/sectors?sectors=Software%20Infrastructureto get data for companies in different sectors
+// https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/?sector=software%20infrastructure
 app.get('/companies/sectors', (req, res) => {
   const sectors = decodeURIComponent(req.query.sectors).toLowerCase()
   let companiesInSectors = data.filter((item) => item.sector.toLowerCase() === sectors)
