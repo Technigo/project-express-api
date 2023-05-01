@@ -36,7 +36,7 @@ app.get('/companies/sectors', (req, res) => {
 
 // Use for example http://localhost:8081/companies/Apple%20Inc. to get data for companies in different sectors
 app.get('/companies/:name', (req, res) => {
-  const name = req.params.name.toLowerCase()
+  const name = decodeURIComponent(req.params.name).toLowerCase();
   let companiesNames = data.filter((item) => item.company_name.toLowerCase() === name)
   
   if (companiesNames.length === 0) {
