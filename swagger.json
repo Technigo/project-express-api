@@ -47,6 +47,88 @@
             }
           }
         }
-      }
+      },
+      "/companies/states/{state}": {
+        "get": {
+          "description": "Returns data for all companies with a HQ in the specified state",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "state",
+              "in": "path",
+              "description": "State where the company's HQ is located",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            },
+            "404": {
+              "description": "No companies found with HQ in the specified state"
+            }
+          }
+        }
+      },
+      "/companies/years/{year}": {
+        "get": {
+          "description": "Returns data for all companies founded in the specified year",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "year",
+              "in": "path",
+              "description": "Year the company was founded",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            },
+            "404": {
+              "description": "No companies found founded in the specified year"
+            }
+          }
+        }
+      },
+      "/companies/sectors/{sector}/{state}": {
+        "get": {
+          "description": "Returns data for companies in the specified sector with a HQ in the specified state",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "sector",
+              "in": "path",
+              "description": "Sector the company operates in",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "state",
+              "in": "path",
+              "description": "State where the company's HQ is located",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            },
+            "404": {
+              "description": "No companies found matching the specified sector and state criteria"
+            }
+          }
+        }
     }
-  }  
+  }
+}
