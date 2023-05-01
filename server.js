@@ -25,6 +25,25 @@ app.get("/", (req, res) => {
   res.send("Hello avocados!");
 });
 
+//avocados by region
+//avocados by month
+//total avocados
+app.get("/avocadosales", (req, res) => {
+  res.json(avocadoSalesData)
+})
+
+app.get("/regions", (req, res) => {
+const regions = req.query.region
+const regionList = avocadoSalesData.map((sale) => sale.region)
+  res.json(regionList)
+})
+
+app.get("/month", (req, res) => {
+  const date = req.params.date
+  const month = avocadoSalesData.includes((date) => date.date)
+  res.json (month)
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
