@@ -10,6 +10,19 @@
       "https"
     ],
     "paths": {
+        "/": {
+            "get": {
+              "description": "Index route - displays a welcome message",
+              "produces": [
+                "text/plain"
+              ],
+              "responses": {
+                "200": {
+                  "description": "Welcome message displayed successfully"
+                }
+              }
+            }
+          },
       "/companies": {
         "get": {
           "description": "Returns the full data for all companies",
@@ -23,7 +36,7 @@
           }
         }
       },
-      "/companies/names": {
+      "/companies/{name}": {
         "get": {
           "description": "Returns data for companies by name",
           "produces": [
@@ -31,8 +44,8 @@
           ],
           "parameters": [
             {
-              "name": "names",
-              "in": "query",
+              "name": "name",
+              "in": "path",
               "description": "Company name",
               "required": true,
               "type": "string"
@@ -60,7 +73,22 @@
               "in": "path",
               "description": "State where the company's HQ is located",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "arizona",
+                "california",
+                "connecticut",
+                "florida",
+                "idaho",
+                "massachusetts",
+                "montana",
+                "new jersey",
+                "new york",
+                "north carolina",
+                "texas",
+                "washington",
+                "wisconsin"
+              ]
             }
           ],
           "responses": {
@@ -73,6 +101,42 @@
           }
         }
       },
+      "/companies/sectors": {
+        "get": {
+          "description": "Returns data for companies in the specified sector",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "sectors",
+              "in": "query",
+              "description": "Sector the company operates in",
+              "required": true,
+              "type": "string",
+              "enum": [
+                "communication equipments",
+                "computer hardware",
+                "consumer electronics",
+                "electronic components",
+                "it services",
+                "semiconductors",
+                "software application",
+                "software infrastructure"
+              ]
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Data returned successfully"
+            },
+            "404": {
+              "description": "No companies found in the specified sector"
+            }
+          }
+        }
+      },
+
       "/companies/years/{year}": {
         "get": {
           "description": "Returns data for all companies founded in the specified year",
@@ -110,14 +174,39 @@
               "in": "path",
               "description": "Sector the company operates in",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "communication equipments",
+                "computer hardware",
+                "consumer electronics",
+                "electronic components",
+                "it services",
+                "semiconductors",
+                "software application",
+                "software infrastructure"
+              ]
             },
             {
               "name": "state",
               "in": "path",
               "description": "State where the company's HQ is located",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "arizona",
+                "california",
+                "connecticut",
+                "florida",
+                "idaho",
+                "massachusetts",
+                "montana",
+                "new jersey",
+                "new york",
+                "north carolina",
+                "texas",
+                "washington",
+                "wisconsin"
+              ]
             }
           ],
           "responses": {
@@ -129,6 +218,19 @@
             }
           }
         }
+      },
+      "/*": {
+        "get": {
+          "description": "Error route - displays an error message for unrecognized routes",
+          "produces": [
+            "text/plain"
+          ],
+          "responses": {
+            "200": {
+              "description": "Error message displayed successfully"
+            }
+          }
+        }
+      }
     }
   }
-}
