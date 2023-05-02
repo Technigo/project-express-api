@@ -26,8 +26,8 @@ app.get("/", (req, res) => {
 });
 
 // Get all Technigo members:
-app.get("/members", (request, response) => {
-  const { role } = request.query;
+app.get("/members", (req, res) => {
+  const { role } = req.query;
   let members = technigoMembers;
 
   if (role) {
@@ -37,7 +37,7 @@ app.get("/members", (request, response) => {
   } 
 
   if (members) {
-    response.status(200).json({
+    res.status(200).json({
       success: true,
       message: "OK",
       body: {
@@ -45,7 +45,7 @@ app.get("/members", (request, response) => {
       }
     });
   } else {
-    response.status(500).json({
+    res.status(500).json({
       success: false,
       message: "Something went wrong",
       body: {}
@@ -53,6 +53,7 @@ app.get("/members", (request, response) => {
   }
 });
 
+// :,(
 // Get one specific technigo member:
 app.get("/members/:id", (request, response) => {
   const { id } = request.params;
