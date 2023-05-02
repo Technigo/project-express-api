@@ -6,6 +6,7 @@ const port = process.env.PORT || 8081;
 const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const listEndpoints = require('express-list-endpoints');
 
 // Middlewares to enable cors and json body parsing
 app.use(cors());
@@ -13,8 +14,12 @@ app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Index route
+// List of all endpoints
 app.get("/", (req, res) => {
-  res.send("Search for data for the top 50 tech companies in the US!");
+  const welcomeMessage = "Search for data for the top 50 tech companies in the US!";
+  const endpoints = listEndpoints(app);
+
+  res.json({ welcomeMessage, endpoints });
 });
 
 // Use http://localhost:8081/companies to get the full data for all companies
