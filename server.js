@@ -8,7 +8,12 @@ const app = express();
 // middlewares to enable cors and json body parsing
 app.use(cors()); 
 app.use(express.json());
+const listEndpoints = require('express-list-endpoints');
 
+app.get("/", (req, res) => {
+  // res.send("Hello Technigo!");
+  res.json(listEndpoints(app));
+});
 // All sales data
 app.get('/sales', (request,response)=>{
   const { region, date, page = 1, limit = 10 } = request.query;
