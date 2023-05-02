@@ -16,15 +16,24 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
+// Access locally our server and recieve req cross origin (cors)
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Start defining your routes here to grt access. 
+//First argument is the route and then a callback function (req, rep).
+// Req is Front End sends and response what we send back in res.send.
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-// Start the server
+//Get all famil members from technigo members
+app.get("/", (req, res) => {
+  res.send("Second Hello!");
+});
+
+// Start the server/application. It needs to listen to a port.
+// That is defined in line 15. 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
