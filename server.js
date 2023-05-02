@@ -25,20 +25,20 @@ app.use(express.json());
 // Start defining your routes here to grt access. 
 //First argument is the route and then a callback function (req, rep).
 // Req is Front End sends and response what we send back in res.send.
-app.get("/", (req, res) => {
+app.get("/", (request, response) => {
   res.send("Golden globes time!"); 
 });
 
 //Get all goldenGlobe movies from json file
-app.get("/year_film", (req, res) => {
-  const yearOfMovie = goldenGlobesData;
+app.get("/category", (req, response) => {
+  const category = goldenGlobesData;
 
-  if (yearOfMovie) {
+  if (category) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        goldenGlobesData: yearOfMovie
+        goldenGlobesData: category
       }
     });
   
