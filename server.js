@@ -6,7 +6,8 @@ import cors from "cors";
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+import netflixData from "./data/netflix-titles.json";
+// console.log(netflixData.length)
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -23,6 +24,17 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
+
+app.get('/titles', (req, res) => {
+  res.json(netflixData)
+})
+
+app.get('/type/:type', (req, res) => {
+  const type = req.params.type.toLowerCase();
+  console.log({ type })
+  let typeOfTitle = netflixData.filter((item) => item.type.toLowerCase() === type)
+  res.json(typeOfTitle)
+})
 
 // Start the server
 app.listen(port, () => {
