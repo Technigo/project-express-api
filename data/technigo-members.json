@@ -1,0 +1,32 @@
+[
+    {
+        "_id": 1,
+        "name": "Jennie",
+        "role": "code coach"
+    },
+    {
+        "_id": 2,
+        "name": "Giorgio",
+        "role": "code coach"
+    },
+    {
+        "_id": 3,
+        "name": "Daniel",
+        "role": "code coach"
+    },
+    {
+        "_id": 4,
+        "name": "Poya",
+        "role": "code coach"
+    },
+    {
+        "_id": 5,
+        "name": "Pino",
+        "role": "Project Manager"
+    },
+    {
+        "_id": 6,
+        "name": "Gino",
+        "role": "code coach"
+    }
+]

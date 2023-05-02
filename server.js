@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import technigoMembers from "./data/technigo-members.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -22,6 +23,49 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+// get member
+app.get("/members", (request, response) => {
+  const members = false;
+  if (members) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        technigoMembers: members
+      }
+    });
+  } else {
+    response.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      body: {}
+    });
+  }
+});
+
+// get single member
+app.get("/members/:id", (request, response) => {
+  const singleMembers = technigoMembers.find((member) => {
+    const { id } = request.params
+    return member._id === Number(id);
+  });
+  if (members) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        technigoMembers: members
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Member not found",
+      body: {}
+    });
+  }
 });
 
 // Start the server
