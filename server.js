@@ -11,12 +11,11 @@ app.use(express.json());
 const listEndpoints = require('express-list-endpoints');
 
 app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
   res.json(listEndpoints(app));
 });
 // All sales data
 app.get('/sales', (request,response)=>{
-  const { region, date, page = 1, limit = 10 } = request.query;
+  const { region, date, page = 1, limit = 10, averagePrice, minPrice = 0, maxPrice = 10 } = request.query;
   let salesData = avocadoSalesData;
   
   if (region) {
@@ -26,6 +25,11 @@ app.get('/sales', (request,response)=>{
   } else if (date) {
     salesData = avocadoSalesData.filter((singleSale) => {
       return singleSale.date === date;
+    });
+  }
+    else if (averagePrice && minPrice && maxPrice) {
+    salesData = avocadoSalesData.filter((singleSale) => {
+      return singleSale.averagePrice >= minPrice && singleSale.averagePrice <= maxPrice
     });
   }
   
@@ -70,8 +74,6 @@ app.get('/salesRank', (request,response)=>{
     return prev.totalVolume < current.totalVolume ? prev : current;
   });
   const salesRanking = [maxSale, minSale]
-  console.log(maxSale)
-  console.log(minSale)
     response.status(200).json({
       success: true,
       message: "OK",
