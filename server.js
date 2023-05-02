@@ -1,45 +1,82 @@
 import express from "express";
 import cors from "cors";
-import data from './data/golden-globes.json'
+import avocadoSalesData from "./data/avocado-sales.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors()); // a technology that allwos the apis to say where requests can come from to add a little bit of extra security
+// middlewares to enable cors and json body parsing
+app.use(cors()); 
 app.use(express.json());
 
-// Start defining your routes here, this is the end point
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
-
-app.get('/nominations', (req,res)=>{
-  res.json(data)
-})
-
-app.get('/year/:year', (req,res)=>{
-   const year=req.params.year
-   const showWon = req.query.won
-  let nominationsFromYear = data.filter((item)=>item.year_award === +year)
-  if(showWon){
-    nominationsFromYear = nominationsFromYear.filter((item)=> item.win)
+// All sales data
+app.get('/sales', (request,response)=>{
+  const { region, date, page = 1, limit = 10 } = request.query;
+  let salesData = avocadoSalesData;
+  
+  if (region) {
+    salesData = avocadoSalesData.filter((singleSale) => {
+      return singleSale.region === region;
+    });
+  } else if (date) {
+    salesData = avocadoSalesData.filter((singleSale) => {
+      return singleSale.date === date;
+    });
   }
-  res.json(nominationsFromYear)
+  
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const results = salesData.slice(startIndex, endIndex);
+  
+  response.json({
+    results: results,
+    totalPages: Math.ceil(salesData.length / limit),
+    currentPage: parseInt(page),
+    totalResults: salesData.length
+  });
 })
 
-// Start the server that is on line 15
+// Single sales item
+app.get('/sales/:id', (request,response)=>{
+  const singleSales = avocadoSalesData.find((singleSale)=>singleSale.id === Number(request.params.id))
+    if (singleSales) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        singleSales: singleSales
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Single sale not found",
+      body: {}
+    });
+  }
+})
+
+// Top and bottom totalVolume sold
+app.get('/salesRank', (request,response)=>{
+ const maxSale = avocadoSalesData.reduce((prev, current) => {
+    return prev.totalVolume > current.totalVolume ? prev : current;
+  });
+   const minSale = avocadoSalesData.reduce((prev, current) => {
+    return prev.totalVolume < current.totalVolume ? prev : current;
+  });
+  const salesRanking = [maxSale, minSale]
+  console.log(maxSale)
+  console.log(minSale)
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        salesRanking: salesRanking
+      }
+    });
+})
+
+// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
