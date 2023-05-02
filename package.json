@@ -13,7 +13,13 @@
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "cors": "^2.8.5",
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.22"
   }
 }
