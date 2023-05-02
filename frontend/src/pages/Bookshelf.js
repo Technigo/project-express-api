@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { fetchBooks } from 'reducers/bookstore'
 import Book from '../components/Book'
 
 const StyledBookshelf = styled.div``
@@ -10,8 +12,11 @@ grid-template-columns: 1fr 1fr 1fr 1fr;
 gap: 10px;`
 
 const Bookshelf = () => {
+  const dispatch = useDispatch();
+
   const [bookshelfBooks, setBookshelfBooks] = useState([]);
   const [page, setPage] = useState(1);
+  const bookshelfBooksStore = useSelector((state) => state.bookstore.books)
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -24,20 +29,19 @@ const Bookshelf = () => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/bookshelf/page/${page}`)
-      .then((res) => res.json())
-      .then((json) => setBookshelfBooks(json))
-  }, [page])
+    dispatch(fetchBooks(page));
+    setBookshelfBooks(bookshelfBooksStore)
+  }, [dispatch, bookshelfBooksStore, page])
 
   return (
     <StyledBookshelf>
       <h1>Bookshelf</h1>
       <BookshelfBooks>
-        {bookshelfBooks.map((book) => {
+        {bookshelfBooks && bookshelfBooks.map((book) => {
           return (<Book key={book.bookID} book={book} />)
         })}
       </BookshelfBooks>
-      <button type="button" onClick={handlePrevPage}>previous page</button>
+      {page > 1 && <button type="button" onClick={handlePrevPage}>previous page</button>}
       page: {page}
       <button type="button" onClick={handleNextPage}>next page</button>
     </StyledBookshelf>

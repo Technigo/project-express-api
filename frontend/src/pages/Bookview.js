@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux'
+
 import styled from 'styled-components'
+import { fetchRandomBook, fetchBook } from 'reducers/bookstore';
 
 const BookviewContainer = styled.div``
 
@@ -13,19 +16,18 @@ const BookInfoText = styled.p``
 const Bookview = ({ random }) => {
   const [book, setBook] = useState({});
   const { bookId } = useParams();
-  console.log(`book id is ${bookId}`)
+  const dispatch = useDispatch();
+  const bookData = useSelector((state) => state.bookstore.book)
 
   useEffect(() => {
     if (random) {
-      fetch('http://localhost:8080/random')
-        .then((res) => res.json())
-        .then((json) => setBook(json))
+      dispatch(fetchRandomBook());
+      setBook(bookData);
     } else {
-      fetch(`http://localhost:8080/books/${bookId}`)
-        .then((res) => res.json())
-        .then((json) => setBook(json))
+      dispatch(fetchBook(bookId));
+      setBook(bookData);
     }
-  }, [random, bookId])
+  }, [])
 
   return (
     <BookviewContainer>
