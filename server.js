@@ -46,9 +46,8 @@ app.get("/year_film", (req, res) => {
     response.status(500).json({
       success: false,
       message: "Something went wrong",
-      body: {
-        goldenGlobesData: yearOfMovie
-  }});
+      body: {}
+  });
 }
 });
 
