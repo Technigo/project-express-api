@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import data from "./data/million-songs.json";
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,8 +23,32 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json(data);
 });
+
+app.get('/songs', (req, res) => {
+  res.json(data)
+})
+
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  let musicFromYear = data.filter((item) => item.year === +year)
+
+  res.json(musicFromYear)
+})
+app.get('/tags/:tag', (req, res) => {
+  const tag = req.params.tag
+  const musicTags = data.filter((item) => item.tags === tag)
+
+  res.json(musicTags)
+})
+
+app.get('/artist/:artist', (req, res) => {
+  const artist = req.params.artist
+  const singleArtist = data.filter((item) => item.artist === artist)
+
+  res.json(singleArtist)
+})
 
 // Start the server
 app.listen(port, () => {
