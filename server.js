@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import goldenGlobesData from "./data/golden-globes.json";
+
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -24,12 +26,30 @@ app.use(express.json());
 //First argument is the route and then a callback function (req, rep).
 // Req is Front End sends and response what we send back in res.send.
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Golden globes time!"); 
 });
 
-//Get all famil members from technigo members
-app.get("/", (req, res) => {
-  res.send("Second Hello!");
+//Get all goldenGlobe movies from json file
+app.get("/year_film", (req, res) => {
+  const yearOfMovie = goldenGlobesData;
+
+  if (yearOfMovie) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        goldenGlobesData: yearOfMovie
+      }
+    });
+  
+  } else {
+    response.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      body: {
+        goldenGlobesData: yearOfMovie
+  }});
+}
 });
 
 // Start the server/application. It needs to listen to a port.
