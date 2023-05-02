@@ -11,11 +11,12 @@ Express
 CORS
 JSON
 Swagger
+Express List Endpoints
 
 # Features:
 Retrieve data for all top 50 tech companies
 Filter companies by sector
-Filter companies by name
+Finds companies by name
 Filter companies by state
 Filter companies by founding year
 Filter companies by sector and state
