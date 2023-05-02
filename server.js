@@ -40,12 +40,12 @@ app.get('/companies/sectors', (req, res) => {
 // https://project-express-api-cvzekbgn3q-lz.a.run.app/companies/apple%20inc.
 app.get('/companies/:name', (req, res) => {
   const name = decodeURIComponent(req.params.name).toLowerCase();
-  let companiesNames = data.filter((item) => item.company_name.toLowerCase() === name)
+  const company = data.find((item) => item.company_name.toLowerCase() === name);
   
-  if (companiesNames.length === 0) {
+  if (!company) {
     res.status(404).send(`None of the top 50 companies have the name ${name}`);
   } else {
-    res.json(companiesNames);
+    res.json(company);
   }
 })
 
