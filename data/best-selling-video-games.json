@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "title": "Minecraft",
+    "sales": 238000000,
+    "series": "Minecraft",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 18, 2011",
+    "developers": "Mojang Studios",
+    "publishers": "Xbox Game Studios"
+  },
+  {
+    "rank": 2,
+    "title": "Grand Theft Auto V",
+    "sales": 175000000,
+    "series": "Grand Theft Auto",
+    "platforms": "Multi-platform",
+    "initial_release _date": "September 17, 2013",
+    "developers": "Rockstar North",
+    "publishers": "Rockstar Games"
+  },
+  {
+    "rank": 3,
+    "title": "Tetris (EA)",
+    "sales": 100000000,
+    "series": "Tetris",
+    "platforms": "Multi-platform",
+    "initial_release _date": "September 12, 2006",
+    "developers": "EA Mobile",
+    "publishers": "Electronic Arts"
+  },
+  {
+    "rank": 4,
+    "title": "Wii Sports",
+    "sales": 82900000,
+    "series": "Wii",
+    "platforms": "Wii",
+    "initial_release _date": "November 19, 2006",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 5,
+    "title": "PUBG: Battlegrounds",
+    "sales": 75000000,
+    "series": "PUBG Universe",
+    "platforms": "Multi-platform",
+    "initial_release _date": "December 20, 2017",
+    "developers": "PUBG Corporation",
+    "publishers": "PUBG Corporation"
+  },
+  {
+    "rank": 6,
+    "title": "Mario Kart 8 / Deluxe",
+    "sales": 60460000,
+    "series": "Mario Kart",
+    "platforms": "Wii U / Switch",
+    "initial_release _date": "May 29, 2014",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 7,
+    "title": "Super Mario Bros.",
+    "sales": 58000000,
+    "series": "Super Mario",
+    "platforms": "Multi-platform",
+    "initial_release _date": "September 13, 1985",
+    "developers": "Nintendo R&D4",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 8,
+    "title": "Red Dead Redemption 2",
+    "sales": 50000000,
+    "series": "Red Dead",
+    "platforms": "Multi-platform",
+    "initial_release _date": "October 26, 2018",
+    "developers": "Rockstar Studios",
+    "publishers": "Rockstar Games"
+  },
+  {
+    "rank": 9,
+    "title": "Pokémon Red / Green / Blue / Yellow",
+    "sales": 47520000,
+    "series": "Pokémon",
+    "platforms": "Multi-platform",
+    "initial_release _date": "February 27, 1996",
+    "developers": "Game Freak",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 10,
+    "title": "Terraria",
+    "sales": 44500000,
+    "series": "None",
+    "platforms": "Multi-platform",
+    "initial_release _date": "May 16, 2011",
+    "developers": "Re-Logic",
+    "publishers": "Re-Logic / 505 Games"
+  },
+  {
+    "rank": 11,
+    "title": "Wii Fit / Plus",
+    "sales": 43800000,
+    "series": "Wii",
+    "platforms": "Wii",
+    "initial_release _date": "December 1, 2007",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 12,
+    "title": "Tetris (1989)",
+    "sales": 43000000,
+    "series": "Tetris",
+    "platforms": "Game Boy / NES",
+    "initial_release _date": "June 14, 1989",
+    "developers": "Nintendo R&D1",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 13,
+    "title": "Pac-Man",
+    "sales": 42071635,
+    "series": "Pac-Man",
+    "platforms": "Multi-platform",
+    "initial_release _date": "May 22, 1980",
+    "developers": "Namco",
+    "publishers": "Namco"
+  },
+  {
+    "rank": 14,
+    "title": "Animal Crossing: New Horizons",
+    "sales": 41590000,
+    "series": "Animal Crossing",
+    "platforms": "Nintendo Switch",
+    "initial_release _date": "March 20, 2020",
+    "developers": "Nintendo EPD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 15,
+    "title": "Human: Fall Flat",
+    "sales": 40000000,
+    "series": "None",
+    "platforms": "Multi-platform",
+    "initial_release _date": "July 22, 2016",
+    "developers": "No Brakes Games",
+    "publishers": "Curve Digital"
+  },
+  {
+    "rank": 15,
+    "title": "The Witcher 3 / Hearts of Stone / Blood and Wine",
+    "sales": 40000000,
+    "series": "The Witcher",
+    "platforms": "Multi-platform",
+    "initial_release _date": "May 19, 2015",
+    "developers": "CD Projekt Red",
+    "publishers": "CD Projekt"
+  },
+  {
+    "rank": 17,
+    "title": "Mario Kart Wii",
+    "sales": 37380000,
+    "series": "Mario Kart",
+    "platforms": "Wii",
+    "initial_release _date": "April 10, 2008",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 18,
+    "title": "Wii Sports Resort",
+    "sales": 33140000,
+    "series": "Wii",
+    "platforms": "Wii",
+    "initial_release _date": "June 25, 2009",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 19,
+    "title": "New Super Mario Bros.",
+    "sales": 30800000,
+    "series": "Super Mario",
+    "platforms": "Nintendo DS",
+    "initial_release _date": "May 15, 2006",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 20,
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "sales": 30700000,
+    "series": "The Legend of Zelda",
+    "platforms": "Wii U / Switch",
+    "initial_release _date": "March 3, 2017",
+    "developers": "Nintendo EPD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 21,
+    "title": "Super Smash Bros. Ultimate",
+    "sales": 30440000,
+    "series": "Super Smash Bros.",
+    "platforms": "Nintendo Switch",
+    "initial_release _date": "December 7, 2018",
+    "developers": "Bandai Namco Studios / Sora Ltd.",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 22,
+    "title": "New Super Mario Bros. Wii",
+    "sales": 30320000,
+    "series": "Super Mario",
+    "platforms": "Wii",
+    "initial_release _date": "November 11, 2009",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 23,
+    "title": "Call of Duty: Modern Warfare",
+    "sales": 30000000,
+    "series": "Call of Duty",
+    "platforms": "Multi-platform",
+    "initial_release _date": "October 25, 2019",
+    "developers": "Infinity Ward",
+    "publishers": "Activision"
+  },
+  {
+    "rank": 23,
+    "title": "Diablo III / Reaper of Souls",
+    "sales": 30000000,
+    "series": "Diablo",
+    "platforms": "Multi-platform",
+    "initial_release _date": "May 16, 2012",
+    "developers": "Blizzard Entertainment",
+    "publishers": "Blizzard Entertainment"
+  },
+  {
+    "rank": 23,
+    "title": "The Elder Scrolls V: Skyrim",
+    "sales": 30000000,
+    "series": "The Elder Scrolls",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 11, 2011",
+    "developers": "Bethesda Game Studios",
+    "publishers": "Bethesda Softworks"
+  },
+  {
+    "rank": 26,
+    "title": "Pokémon Gold / Silver / Crystal",
+    "sales": 29490000,
+    "series": "Pokémon",
+    "platforms": "Game Boy Color",
+    "initial_release _date": "November 21, 1999",
+    "developers": "Game Freak",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 27,
+    "title": "Duck Hunt",
+    "sales": 28300000,
+    "series": "None",
+    "platforms": "NES",
+    "initial_release _date": "April 21, 1984",
+    "developers": "Nintendo R&D1",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 28,
+    "title": "Wii Play",
+    "sales": 28020000,
+    "series": "Wii",
+    "platforms": "Wii",
+    "initial_release _date": "December 2, 2006",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 29,
+    "title": "The Walking Dead",
+    "sales": 28000000,
+    "series": "The Walking Dead",
+    "platforms": "Multi-platform",
+    "initial_release _date": "April 24, 2012",
+    "developers": "Telltale Games",
+    "publishers": "Telltale Games"
+  },
+  {
+    "rank": 30,
+    "title": "Grand Theft Auto: San Andreas",
+    "sales": 27500000,
+    "series": "Grand Theft Auto",
+    "platforms": "Multi-platform",
+    "initial_release _date": "October 26, 2004",
+    "developers": "Rockstar North",
+    "publishers": "Rockstar Games"
+  },
+  {
+    "rank": 31,
+    "title": "Super Mario World",
+    "sales": 26662500,
+    "series": "Super Mario",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 21, 1990",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 32,
+    "title": "Call of Duty: Modern Warfare 3",
+    "sales": 26500000,
+    "series": "Call of Duty",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 8, 2011",
+    "developers": "Infinity Ward / Sledgehammer",
+    "publishers": "Activision"
+  },
+  {
+    "rank": 33,
+    "title": "Call of Duty: Black Ops",
+    "sales": 26200000,
+    "series": "Call of Duty",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 9, 2010",
+    "developers": "Treyarch",
+    "publishers": "Activision"
+  },
+  {
+    "rank": 34,
+    "title": "Borderlands 2",
+    "sales": 27000000,
+    "series": "Borderlands",
+    "platforms": "Multi-platform",
+    "initial_release _date": "September 18, 2012",
+    "developers": "Gearbox Software",
+    "publishers": "2K Games"
+  },
+  {
+    "rank": 35,
+    "title": "Pokémon Sword / Shield",
+    "sales": 25680000,
+    "series": "Pokémon",
+    "platforms": "Nintendo Switch",
+    "initial_release _date": "November 15, 2019",
+    "developers": "Game Freak",
+    "publishers": "Nintendo / The Pokémon Company"
+  },
+  {
+    "rank": 36,
+    "title": "Pokémon Sun / Moon / Ultra Sun / Ultra Moon",
+    "sales": 25410000,
+    "series": "Pokémon",
+    "platforms": "Nintendo 3DS",
+    "initial_release _date": "November 18, 2016",
+    "developers": "Game Freak",
+    "publishers": "Nintendo / The Pokémon Company"
+  },
+  {
+    "rank": 37,
+    "title": "Super Mario Odyssey",
+    "sales": 25120000,
+    "series": "Super Mario",
+    "platforms": "Nintendo Switch",
+    "initial_release _date": "October 27, 2017",
+    "developers": "Nintendo EPD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 38,
+    "title": "Grand Theft Auto IV",
+    "sales": 25000000,
+    "series": "Grand Theft Auto",
+    "platforms": "Multi-platform",
+    "initial_release _date": "April 29, 2008",
+    "developers": "Rockstar North",
+    "publishers": "Rockstar Games"
+  },
+  {
+    "rank": 39,
+    "title": "Pokémon Diamond / Pearl / Platinum",
+    "sales": 24730000,
+    "series": "Pokémon",
+    "platforms": "Nintendo DS",
+    "initial_release _date": "September 28, 2006",
+    "developers": "Game Freak",
+    "publishers": "Nintendo / The Pokémon Company"
+  },
+  {
+    "rank": 40,
+    "title": "Super Mario Bros. 3",
+    "sales": 24430000,
+    "series": "Super Mario",
+    "platforms": "Multi-platform",
+    "initial_release _date": "October 23, 1988",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 41,
+    "title": "Call of Duty: Black Ops II",
+    "sales": 24200000,
+    "series": "Call of Duty",
+    "platforms": "Multi-platform",
+    "initial_release _date": "November 12, 2012",
+    "developers": "Treyarch",
+    "publishers": "Activision"
+  },
+  {
+    "rank": 42,
+    "title": "FIFA 18",
+    "sales": 24000000,
+    "series": "FIFA",
+    "platforms": "Multi-platform",
+    "initial_release _date": "September 29, 2017",
+    "developers": "EA Vancouver",
+    "publishers": "EA Sports"
+  },
+  {
+    "rank": 42,
+    "title": "Kinect Adventures!",
+    "sales": 24000000,
+    "series": "None",
+    "platforms": "Xbox 360",
+    "initial_release _date": "November 4, 2010",
+    "developers": "Good Science Studio",
+    "publishers": "Xbox Game Studios"
+  },
+  {
+    "rank": 44,
+    "title": "Sonic the Hedgehog",
+    "sales": 23982960,
+    "series": "Sonic the Hedgehog",
+    "platforms": "Multi-platform",
+    "initial_release _date": "June 23, 1991",
+    "developers": "Sonic Team",
+    "publishers": "Sega"
+  },
+  {
+    "rank": 45,
+    "title": "Nintendogs",
+    "sales": 23960000,
+    "series": "None",
+    "platforms": "Nintendo DS",
+    "initial_release _date": "April 21, 2005",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 46,
+    "title": "New Super Mario Bros. U / Luigi U / Deluxe",
+    "sales": 23640000,
+    "series": "Super Mario",
+    "platforms": "Wii U / Switch",
+    "initial_release _date": "November 18, 2012",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 47,
+    "title": "Mario Kart DS",
+    "sales": 23600000,
+    "series": "Mario Kart",
+    "platforms": "Nintendo DS",
+    "initial_release _date": "November 14, 2005",
+    "developers": "Nintendo EAD",
+    "publishers": "Nintendo"
+  },
+  {
+    "rank": 48,
+    "title": "Pokémon Ruby / Sapphire / Emerald",
+    "sales": 23280000,
+    "series": "Pokémon",
+    "platforms": "Game Boy Advance",
+    "initial_release _date": "November 21, 2002",
+    "developers": "Game Freak",
+    "publishers": "Nintendo / The Pokémon Company"
+  },
+  {
+    "rank": 49,
+    "title": "God of War",
+    "sales": 23000000,
+    "series": "God of War",
+    "platforms": "PlayStation 4 / Windows",
+    "initial_release _date": "April 20, 2018",
+    "developers": "Santa Monica Studio",
+    "publishers": "Sony Interactive Entertainment"
+  },
+  {
+    "rank": 49,
+    "title": "Red Dead Redemption",
+    "sales": 23000000,
+    "series": "Red Dead",
+    "platforms": "PS3 / Xbox 360",
+    "initial_release _date": "May 18, 2010",
+    "developers": "Rockstar San Diego",
+    "publishers": "Rockstar Games"
+  }
+]
