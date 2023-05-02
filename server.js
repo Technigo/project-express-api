@@ -30,7 +30,7 @@ app.get('/companies/sectors', (req, res) => {
   let companiesInSectors = data.filter((item) => item.sector.toLowerCase() === sectors)
   
   if (companiesInSectors.length === 0) {
-    res.status(404).send(`None of the top 50 companies are in the ${sectors} sector`); //This catches if no HQ's are in the provided state
+    res.status(200).send(`None of the top 50 companies are in the ${sectors} sector`);
   } else {
     res.json(companiesInSectors);
   }
@@ -43,7 +43,7 @@ app.get('/companies/:name', (req, res) => {
   const company = data.find((item) => item.company_name.toLowerCase() === name);
   
   if (!company) {
-    res.status(404).send(`None of the top 50 companies have the name ${name}`);
+    res.status(200).send(`None of the top 50 companies have the name ${name}`);
   } else {
     res.json(company);
   }
@@ -61,7 +61,7 @@ app.get('/companies/states/:state', (req, res) => {
   }
   
   if (companiesFromStates.length === 0) {
-    res.status(404).send(`None of the top 50 companies has their HQ in: ${states}`); //This catches if no HQ's are in the provided state
+    res.status(200).send(`None of the top 50 companies has their HQ in: ${states}`);
   } else {
     res.json(companiesFromStates);
   }
@@ -79,7 +79,7 @@ app.get('/companies/years/:year', (req, res) => {
   }
   
   if (companiesFoundedYears.length === 0) {
-    res.status(404).send(`None of the top 50 companies were founded in the year ${years}`); //This catches if no HQ's are in the provided state
+    res.status(200).send(`None of the top 50 companies were founded in the year ${years}`);
   } else {
     res.json(companiesFoundedYears);
   }
@@ -98,7 +98,7 @@ app.get('/companies/sectors/:sector/:state', (req, res) => {
   );
 
   if (companiesInSectorsInStates.length === 0) {
-    res.status(404).send(
+    res.status(200).send(
       `None of the top 50 companies match the provided ${sectors} sector and ${state} state criteria`
     );
   } else {
