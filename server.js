@@ -30,12 +30,12 @@ app.get("/booklist", (req, res) =>
   res.json(booksData)
 );
 
-//Get book by Id
+//Get single book by Id
 app.get("/booklist/:id", (req, res) => {
   const singleBook = booksData.find((book) => {
     const { id } = req.params;
     return book.bookID === Number(req.params.id);
-  })
+  });
 
   if (singleBook) {
     res.status(200).json(singleBook)
@@ -43,34 +43,28 @@ app.get("/booklist/:id", (req, res) => {
     res.status(500).json({
       error: 'book not found'
     })
-  }
+  };
 })
 
-// Top 10 rated books
-app.get("/bookslist/top10", (req, res) => {
-  const topTenBooks = booksData.filter((topbook) => {
-    
-  })
-})
+// Books sorted by rating and top N rated numbers by query (eg. localhost:8080/rating?topN=5 gives top 5)
+app.get("/rating", (req, res) => {
+  const topN = req.query.topN;
 
-
+  let booksByRating = booksData.sort((a, b) => b.average_rating - a.average_rating);
   
-/*   if (singleMember) {
-    res.status(200).json({
-      success: true,
-      message: 'ok',
-      body: {
-        member: singleMember
-      }
-    });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: 'something wrong',
-      body: {}
-    });
+  if (topN) {
+    booksByRating = booksByRating.slice(0, topN);
   }
-}); */
+
+  res.json(booksByRating);
+});
+
+
+/* More todos:
+Add more filters, like: Return books that has a ratings count over 100
+Post, put, patch...
+
+*/
 
 // Start the server
 app.listen(port, () => {
