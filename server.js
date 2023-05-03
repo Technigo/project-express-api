@@ -25,14 +25,25 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+// all releases by title = http://localhost:8080/titles
 app.get('/titles', (req, res) => {
   res.json(netflixData)
 })
 
 app.get('/type/:type', (req, res) => {
   const type = req.params.type.toLowerCase();
+  const releaseYear = req.query.year;
   console.log({ type })
+  console.log(releaseYear)
+
+  // filter by type of title = https://localhost:8080/type/movie
   let typeOfTitle = netflixData.filter((item) => item.type.toLowerCase() === type)
+  
+    // filter by type of title and year = http://localhost:8080/type/movie?year=2019
+  if (releaseYear) {
+    typeOfTitle = typeOfTitle.filter((item) => item.release_year === Number(releaseYear))
+  }
+  
   res.json(typeOfTitle)
 })
 
