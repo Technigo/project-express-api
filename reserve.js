@@ -61,8 +61,11 @@ app.get("/members/:id", (request, response) => {
   const singleMember = technigoMembers.find((member) => {
     // return member._id == id;
     return member._id === Number(id);
+    // return member._id === id; this doesnt work because id is a numeric value in json but in the param it's always a string
     // return member._id.toString() === id;
-    // return member._id === +id; 
+    // putting a numerical operator infront of string will force js to evaluate as string
+    // return member._id === +id 
+
   });
   if (singleMember) {
     response.status(200).json({
