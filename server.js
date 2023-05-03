@@ -22,13 +22,14 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  // res.send("Hello Technigo!");
+  res.json(netflixData)
 });
 
 // all releases by title, to return an array = http://localhost:8080/titles
-app.get('/titles', (req, res) => {
-  res.json(netflixData)
-})
+// app.get('/titles', (req, res) => {
+//   res.json(netflixData)
+// })
 
 // finding one title by id, to return a single result
 app.get('/titles/:show_id', (req, res) => {
@@ -90,3 +91,5 @@ app.get('/type/:type', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+// https://project-express-api-1z7o.onrender.com/
