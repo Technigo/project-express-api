@@ -70,7 +70,7 @@ app.get('/sales/:id', (request,response)=>{
 })
 
 // Top and bottom totalVolume sold
-app.get('/sales/salesRanking', (request,response)=>{
+app.get('/sales/salesRanking/results', (request,response)=>{
  const maxSale = avocadoSalesData.reduce((prev, current) => {
     return prev.totalVolume > current.totalVolume ? prev : current;
   });
