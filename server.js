@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 
-// In this callback function, I am displaying all the data from the JSON
+// This callback function is displaying all the video game data
 app.get("/games", (req, res) => {
   res.json(videoGames)
 })
