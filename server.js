@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -29,6 +29,32 @@ app.get("/", (req, res) => {
 app.get('/titles', (req, res) => {
   res.json(netflixData)
 })
+
+app.get('/titles/:show_id', (req, res) => {
+  const { show_id } = req.params; // extracting from object, need {}
+  console.log({ show_id });
+  
+  const singleTitle = netflixData.find((item) => {
+    return item.show_id === Number(show_id);
+  })
+if (singleTitle) {
+  res.status(200).json ({
+    success: true,
+    message: 'OK',
+    body: {
+      title: singleTitle
+    }
+  });
+} else {
+  res.status(404).json({
+    success: false,
+    message: 'Title not found',
+    body: {}
+  })
+}
+res.json(singleTitle) 
+})
+
 
 app.get('/type/:type', (req, res) => {
   const type = req.params.type.toLowerCase();
