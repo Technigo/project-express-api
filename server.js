@@ -17,17 +17,19 @@ app.get("/", (req, res) => {
   res.send("Home page");
 });
 
+
+// This function will redirect all pages to a 404 page
 app.all("*", (req, res) => {
   res.status(404).send("404 Not Found")
 })
 
 
-// This callback function displays all the video game data
+// This function displays all the video game data
 app.get("/videogames", (req, res) => {
   res.json(videoGameData)
 })
 
-// Array endpoint
+// Rating endpoint
 app.get("/ratedAs/:rating", (req, res) => {
   const rating = req.params.rating
   console.log({ rating })
@@ -35,7 +37,7 @@ app.get("/ratedAs/:rating", (req, res) => {
   res.json(filteredByRating)
 })
 
-// Single item endpoint
+// Video game endpoint
 app.get("/videogames/:videogameId", (req, res) => {
   const id = req.params.videogameId
   console.log({ id })
