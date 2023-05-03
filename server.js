@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import cors from 'cors';
 import imdbData from './data/imdb-top-250-movies.json';
 
@@ -14,14 +14,17 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello banana!');
+  res.send('Hello asstwat!');
 });
 
+
+//shows all movies
 app.get('/topmovies', (req, res) => {
   res.json(imdbData);
 });
 
-app.get('/topmovies/:rank', (req, res) => {
+//makes it possible to search for a movie base on its rank
+app.get('/rank/:rank', (req, res) => {
   const rank = req.params.rank
   const rankId = imdbData.filter((item) => item.rank === +rank)
   console.log(rankId)
@@ -29,11 +32,13 @@ app.get('/topmovies/:rank', (req, res) => {
   res.json(rankId)
 });
 
+//filters movies based on the release year
 
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
   const releaseYear = imdbData.filter((item) => item.year === +year)
   console.log(releaseYear)
+  //adding a plus in front of year turns our string into number
 
   res.json(releaseYear)
 });
