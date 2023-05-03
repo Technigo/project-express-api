@@ -34,7 +34,7 @@ app.get("/books", (req, res) => {
 
 // if the user searches for title 
 app.get('/books/title/:title', (req, res) => {
-  const title = req.params;
+  const title = req.params.title;
 
   let byTitle = booksData;
 
