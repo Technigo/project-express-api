@@ -29,7 +29,7 @@ app.get("/", (request, response) => {
   res.send("Golden globes time!"); 
 });
 
-//Get all goldenGlobe movies from json file
+//Get all goldenGlobe movies from their data 
 app.get("/category", (req, response) => {
   const category = goldenGlobesData;
 
