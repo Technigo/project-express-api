@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import videoGames from "./data/video-games.json";
+import videoGameData from "./data/video-games.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -14,21 +14,33 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.send(<h1>Home page</h1>);
 });
 
-
-// This callback function is displaying all the video game data
-app.get("/games", (req, res) => {
-  res.json(videoGames)
+app.all("*", (req, res) => {
+  res.status(404).send(<h2>404 Not Found</h2>)
 })
 
-// Ratings endpoint with a rating variable
-app.get("/ratings/:rating", (req, res) => {
+
+// This callback function displays all the video game data
+app.get("/videogames", (req, res) => {
+  res.json(videoGameData)
+})
+
+// Array endpoint
+app.get("/ratedAs/:rating", (req, res) => {
   const rating = req.params.rating
   console.log({ rating })
-  const ratedAs = videoGames.filter((item) => item.Rating === +rating)
-  res.json(ratedAs)
+  const filteredByRating = videoGameData.filter((item) => item.Rating === +rating)
+  res.json(filteredByRating)
+})
+
+// Single item endpoint
+app.get("/videogames/:videogameId", (req, res) => {
+  const id = req.params.videogameId
+  console.log({ id })
+  const filteredById = videoGameData.filter((item) => item.Id === +id)
+  res.json(filteredById)
 })
 
 // Start the server
