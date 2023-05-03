@@ -15,19 +15,10 @@ app.get("/", (req, res) => {
 });
 // All sales data
 app.get('/sales', (request,response)=>{
-  const { region, date, page = 1, limit = 10, averagePrice, minPrice = 0, maxPrice = 10 } = request.query;
+  const {page = 1, limit = 10, minPrice = 0, maxPrice = 10 } = request.query;
   let salesData = avocadoSalesData;
   
-  if (region) {
-    salesData = avocadoSalesData.filter((singleSale) => {
-      return singleSale.region === region;
-    });
-  } else if (date) {
-    salesData = avocadoSalesData.filter((singleSale) => {
-      return singleSale.date === date;
-    });
-  }
-    else if (averagePrice && minPrice && maxPrice) {
+  if (minPrice && maxPrice) {
     salesData = avocadoSalesData.filter((singleSale) => {
       return singleSale.averagePrice >= minPrice && singleSale.averagePrice <= maxPrice
     });
@@ -37,12 +28,25 @@ app.get('/sales', (request,response)=>{
   const endIndex = page * limit;
   const results = salesData.slice(startIndex, endIndex);
   
-  response.json({
-    results: results,
+  if(salesData.length !== 0){
+response.status(200).json({
+     success: true,
+      message: "OK",
+      body: {
+    data: results,
     totalPages: Math.ceil(salesData.length / limit),
     currentPage: parseInt(page),
     totalResults: salesData.length
+      }
   });
+  }else{
+      response.status(404).json({
+      success: false,
+      message: "No data found",
+      body: {}
+    });
+  }
+  
 })
 
 // Single sales item
@@ -53,7 +57,7 @@ app.get('/sales/:id', (request,response)=>{
       success: true,
       message: "OK",
       body: {
-        singleSales: singleSales
+        data: singleSales
       }
     });
   } else {
@@ -66,7 +70,7 @@ app.get('/sales/:id', (request,response)=>{
 })
 
 // Top and bottom totalVolume sold
-app.get('/salesRank', (request,response)=>{
+app.get('/sales/salesRanking', (request,response)=>{
  const maxSale = avocadoSalesData.reduce((prev, current) => {
     return prev.totalVolume > current.totalVolume ? prev : current;
   });
@@ -78,9 +82,98 @@ app.get('/salesRank', (request,response)=>{
       success: true,
       message: "OK",
       body: {
-        salesRanking: salesRanking
+        data: salesRanking
       }
     });
+})
+
+// Region
+app.get('/sales/region/:region', (request,response)=>{
+  const { date, page = 1, limit = 10, minPrice = 0, maxPrice = 10 } = request.query;
+const selectedRegion = avocadoSalesData.filter((singleSale) => {
+      return singleSale.region.toLowerCase() === decodeURIComponent(request.params.region).toLowerCase();
+    });
+let salesData=selectedRegion
+    
+  if (date) {
+    salesData = salesData.filter((singleSale) => {
+      return singleSale.date === date;
+    });
+  }
+    else if (minPrice && maxPrice) {
+    salesData = salesData.filter((singleSale) => {
+      return Number(singleSale.averagePrice) >= Number(minPrice) && Number(singleSale.averagePrice) <= Number(maxPrice)
+    });
+  }
+  
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const results = salesData.slice(startIndex, endIndex);
+      if(selectedRegion.length !== 0 ){
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        data: results,
+        totalPages: Math.ceil(salesData.length / limit),
+        currentPage: parseInt(page),
+        totalResults: salesData.length
+      }
+    });
+    }
+     else {
+    response.status(404).json({
+      success: false,
+      message: "This date doesn't exist!",
+      body: {}
+    });
+  }
+})
+
+// Date
+app.get('/sales/date/:date', (request,response)=>{
+    const { region, page = 1, limit = 10, averagePrice, minPrice = 0, maxPrice = 10 } = request.query;
+const selectedDate = avocadoSalesData.filter((singleSale) => {
+      return singleSale.date === request.params.date;
+    });
+      let salesData=selectedDate
+    
+  if (region) {
+    salesData = salesData.filter((singleSale) => {
+      return singleSale.region === region;
+    });
+  }
+    else if (minPrice && maxPrice) {
+    salesData = salesData.filter((singleSale) => {
+      return Number(singleSale.averagePrice) >= Number(minPrice) && Number(singleSale.averagePrice) <= Number(maxPrice)
+    });
+  }
+  
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const results = salesData.slice(startIndex, endIndex);
+  
+console.log(selectedDate)
+    if(selectedDate.length !== 0 ){
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        data: results,
+        totalPages: Math.ceil(salesData.length / limit),
+        currentPage: parseInt(page),
+        totalResults: salesData.length
+      }
+    });
+    }
+     else {
+    response.status(404).json({
+      success: false,
+      message: "This date doesn't exist!",
+      body: {}
+    });
+  }
+
 })
 
 // Start the server
