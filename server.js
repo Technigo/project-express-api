@@ -21,7 +21,7 @@ app.get("/", (request, response) => {
 // This returns the entire array in Postman, just as it looks in the data folder, when posting http://localhost:8080/netflix-titles
 app.get("/netflix-titles", (request, response) => {
   response.json(netflixData);
-})
+});
 
 //This returns all the titles from the array, in Postman, when posting http://localhost:8080/netflix-titles/titles
 app.get("/netflix-titles/titles", (request, response) => {
@@ -35,20 +35,15 @@ app.get("/netflix-titles/:titleName", (request, response) => {
 
   let seriesTitle = netflixData.filter((item) => item.title === titleName);
   response.json(seriesTitle);
-})
+});
 
-// app.get("/netflix-titles/category", (request, response) => {
-//   const categories = [...new Set(netflixData.flatMap(item => item.listed_in.split(", ")))];
-//   response.json(categories);
-// });
-
-// This returns 
-// app.get("/netflix-titles/:category", (request, response) => {
-//   const category = request.params.category;
-
-//   let titlesCategory = netflixData.filter((item) => item.listed_in.includes(category));
-//   response.json(titlesCategory);
-// })
+app.get("/netflix-titles/directorcountry", (request, response) => {
+  const directorCountry = netflixData.map((item) => ({
+    director: item.director,
+    country: item.country,
+  }));
+  response.json(directorCountry);
+});
 
 // Start the server
 app.listen(port, () => {
