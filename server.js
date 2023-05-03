@@ -72,9 +72,10 @@ app.get("/top-music/:artist", (request, response) => {
 
 // get id with path param
 // returns a single result
-app.get("/top-music/:id", (request, response) => {
+app.get("/top-music/track/:id", (request, response) => {
+  const { id } = request.params;
   const singleTrack = topMusicData.find((track) => {
-    return track.id === Number(request.params.id);
+    return track.id === Number(id);
   });
 
   if (singleTrack) {
