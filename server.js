@@ -14,6 +14,7 @@ import booksData from "./data/books.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints')
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -21,32 +22,54 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json(listEndpoints(app));
 });
 
 app.get("/books", (req, res) => {
-  // const highlyRated = req.query.average_rating < 4
-  let ratedBooks = req.query.average_rating 
+  // const averageRating = req.average_rating
+  let books = booksData
 
-  if (ratedBooks) {
-    booksData = booksData.filter((item) => item.average_rating <= 4)
-  }
-
-  res.json(booksData)
+if (books) {
+  res.status(200).json({
+    success: true, 
+    message: "OK", 
+    body: {
+      books: books
+    }
+  })
+} else {
+  res.status(500).json({
+    success: false, 
+    message: "Something went wrong", 
+    body: {}
+  })
+}
+  // res.json(booksData)
 })
 
 app.get("/books/:id", (req, res) => {
+  // const { id } = request.params 
   const id = req.params.id
-  const highlyRated = req.query.average_rating < 4
-  let singleBook = booksData.filter((item) => item.bookID === Number(id))
+  // const singleBook = booksData.filter((item) => item.bookID === Number(id))
+  const singleBook = booksData.find((book) => {
+    return book.bookID === Number(id)
+  })
 
-  if (highlyRated) {
-    singleBook = singleBook.filter((item) => item.average_rating)
+  if (singleBook) {
+    res.status(200).json({
+      success: true,
+      message: "Book found",
+      body: {
+        book: singleBook,
+      }
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Book not found",
+      body: {}
+    })
   }
-
-  console.log('Highly rated', highlyRated)
-
-  res.json(singleBook)
 })
 
 // Start the server
