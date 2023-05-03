@@ -66,14 +66,22 @@ app.get("/book-wellrated", (req, res) => {
 // find a book with a specific title
 app.get("/book-titles/:title", (req, res) => {
   const { title } =req.params
-  const bookTitle = getBooksData.filter((book) => book.title.toLowerCase().includes(title.toLocaleLowerCase()))
+  const bookTitle = getBooksData('title').body.title.filter(
+    (book) => book.toLowerCase().includes(title.toLocaleLowerCase()));
  
-  if(!bookTitle) {
+  if(!bookTitle.length === 0) {
     res.status(404).json({
       message:"Sorry we could not find that title. Please search again",
-      error:404 })
-  }
-  res.status(200).json(getBooksData);
+      error:404 });
+  } else {
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body:{
+      title: bookTitle
+    }
+  });
+}
 });
 
 
