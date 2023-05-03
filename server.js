@@ -52,7 +52,7 @@ app.get('/house/:house', (req, res) => {
   res.json(quotesFromHouse)
 })
 
-// in browser write for example '/house/lannister?name=cersei'
+// in browser, write for example '/house/lannister?name=cersei'
 
 // Start the server
 app.listen(port, () => {
