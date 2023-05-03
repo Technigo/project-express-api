@@ -14,16 +14,15 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello asstwat!');
+  res.send('Hello mate!');
 });
 
-
-//shows all movies
+//First route which shows all movies
 app.get('/topmovies', (req, res) => {
   res.json(imdbData);
 });
 
-//makes it possible to search for a movie base on its rank
+//Second route which makes it possible to search for a movie base on its rank
 app.get('/rank/:rank', (req, res) => {
   const rank = req.params.rank
   const rankId = imdbData.filter((item) => item.rank === +rank)
@@ -32,7 +31,7 @@ app.get('/rank/:rank', (req, res) => {
   res.json(rankId)
 });
 
-//filters movies based on the release year
+//Third route which filters movies based on the release year
 
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
