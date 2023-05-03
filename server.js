@@ -24,12 +24,19 @@ app.use(express.json());
 // when accessed with an HTTP GET request.
 
 app.get("/", (req, res) => {
-  res.send(
-    "Welcome to this top-music API!"
-  );
+  res.send({
+    Hello: "Welcome to this top-music API!",
+    Routes: [
+      { "/": "Startpage / Api Info" },
+      { "/music": "all tracks-data" },
+      { "/music/:id": "singel track" },
+      { "/music/danceability/:danceability": "sort the tracks after the danceability score you want to see" },
+      { "/music/popularityover/:popularity" : "sort the tracks after the minimum popularity score you want to see"}
+    ]
+});
 });
 
-// get all technigo members
+// get all music
 app.get("/music", (req, response) => {
   const music = topMusicData;
   if (music) {
@@ -41,22 +48,21 @@ app.get("/music", (req, response) => {
       }
     });
   } else {
-    response.status(500).json({
+    response.status(404).json({
       success: false,
-      message: "Something went wrong",
+      message: "Page not found",
       body: {}
     });
   }
 });
 
-// get all technigo members
+// get single tracks
 app.get("/music/:id", (req, response) => {
-  const { id } = request.params;
+  const { id } = req.params;
   const singleTrack = topMusicData.find((track) => {
     return track.id === Number(id);
   })
-  if (singleTrack) {
-
+  if ((singleTrack.length !== 0)) {
     response.status(200).json({
       success: true,
       message: "OK",
@@ -65,9 +71,55 @@ app.get("/music/:id", (req, response) => {
       }
     });
   } else {
-    response.status(500).json({
+    response.status(404).json({
       success: false,
-      message: "Something went wrong",
+      message: "Id not found",
+      body: {}
+    });
+  }
+});
+
+// sorted by danceability rating
+app.get("/music/danceability/:danceability", (req, response) => {
+  const { danceability } = req.params;
+  const singleTrack = topMusicData.filter((track) => {
+    return track.danceability === Number(danceability);
+  })
+  if (singleTrack.length !== 0) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        track: singleTrack
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Danceability score not found",
+      body: {}
+    });
+  }
+});
+
+// sorted by popularite over 90 rating
+app.get("/music/popularity/:popularity", (req, response) => {
+  const { popularity } = req.params;
+  const singleTrack = topMusicData.filter((track) => {
+    return track.popularity >= Number(popularity);
+  })
+  if (singleTrack.length !== 0) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        track: singleTrack
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Popularity score not found",
       body: {}
     });
   }
