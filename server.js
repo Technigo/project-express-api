@@ -101,6 +101,27 @@ app.get("/books/languages/:language_code", (request, response) => {
   }
 })
 
+//// ROUTE Get the top 10 rated books based on their average rating ////////
+app.get("/top_10", (request, response) => {
+  const sortedBooks = booksData.sort((a, b) => b.average_rating - a.average_rating).slice(0, 10);
+
+  if(sortedBooks.length > 0) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        top_rated: sortedBooks
+      }
+    })
+  } else {
+    response.status(500).json({
+      success: false, 
+      message: "Something went wrong",
+      body: {}
+    })
+  }
+})
+
 
 ////////////// ROUTE Get top rated books (sort by average rating) ////////////
 /* app.get("/books/top_rated", (request, response) => {
