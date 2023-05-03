@@ -46,3 +46,6 @@ https://project-express-api-cvzekbgn3q-lz.a.run.app/api-docs/
 
 # Data coming from:
 https://www.kaggle.com/datasets/lamiatabassum/top-50-us-tech-companies-2022-2023-dataset
+
+# API is connected to React Frontend:
+https://project-express-api.netlify.app/
