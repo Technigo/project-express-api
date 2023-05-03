@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import data from "./data/million-songs.json";
+import data from "./data/top-movies.json";
 
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -23,31 +23,51 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(data);
+  const movies = data
+  if (movies) {
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    body: {
+      data: movies
+    }
+  })
+} else {
+  res.status(500).json({
+    success: false,
+    message: "Something went wrong",
+    body: {}
+  })
+}
 });
 
-app.get('/songs', (req, res) => {
+app.get('/movies', (req, res) => {
   res.json(data)
 })
 
 app.get('/year/:year', (req, res) => {
   const year = req.params.year
-  let musicFromYear = data.filter((item) => item.year === +year)
+  const movieFromYear = data.filter((item) => item.year === +year)
+  if (year) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {movieFromYear}
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Something went wrong",
+      body: {}
+    })
+  }
+}) 
 
-  res.json(musicFromYear)
-})
-app.get('/tags/:tag', (req, res) => {
-  const tag = req.params.tag
-  const musicTags = data.filter((item) => item.tags === tag)
+app.get('/rank/:rank', (req, res) => {
+  const rank = req.params.rank
+  const movieRank = data.find((item) => item.rank === +rank)
 
-  res.json(musicTags)
-})
-
-app.get('/artist/:artist', (req, res) => {
-  const artist = req.params.artist
-  const singleArtist = data.filter((item) => item.artist === artist)
-
-  res.json(singleArtist)
+  res.json(movieRank)
 })
 
 // Start the server
