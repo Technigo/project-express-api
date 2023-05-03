@@ -17,20 +17,49 @@ app.get("/", (req, res) => {
   res.send("Home page");
 });
 
+// This function covers the most common 4xx error codes
 
-// This function will redirect all pages to a 404 page
+const messages = {
+  400: "400 Bad Request: The request by the client was not processed, as the server could not understand what the client is asking for.",
+  401: "401 Unauthorized: The client is not allowed to access resources, and should re-request with the required credentials.",
+  403: "403 Forbidden: The request is valid and the client is authenticated, but the client is not allowed access the page or resource for any reason. E.g sometimes the authorized client is not allowed to access the directory on the server.",
+  404: "404 Not Found: The requested resource is not available now.",
+  410: "410 Gone: The requested resource is no longer available which has been intentionally moved."
+};
+
 app.all("*", (req, res) => {
-  res.status(404).send("404 Not Found")
-})
+  const statusCode = parseInt(res.statusCode);
+  // The statusCode property is a numeric HTTP status code that indicates the result of the HTTP request.
+  // The parseInt() function is a built-in JavaScript function that parses a string and returns an integer.
+  // In this case, it is used to ensure that the statusCode property is an integer, since it is possible that it could be a string.
+  const message = messages[statusCode] || "Unknown Error";
+  // By converting the statusCode property to an integer, we can use it as a key to retrieve the corresponding message from the messages object.
+  res.send(message);
+});
 
-
-// This function displays all the video game data
+// This function gets all the video game data received from the JSON 
 app.get("/videogames", (req, res) => {
-  res.json(videoGameData)
+  const data = videoGameData
+  if (data) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        videoGameData: data
+      }
+    })
+  } else {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      body: {}
+    })
+  }
+  
 })
 
 // Rating endpoint
-app.get("/ratedAs/:rating", (req, res) => {
+app.get("/videogames/ratedAs/:rating", (req, res) => {
   const rating = req.params.rating
   console.log({ rating })
   const filteredByRating = videoGameData.filter((item) => item.Rating === +rating)
