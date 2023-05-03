@@ -1,15 +1,7 @@
 import express from "express";
 import cors from "cors";
-import goldenGlobesData from "./data/golden-globes.json";
+import booksData from "./data/books.json"
 
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -25,31 +17,43 @@ app.use(express.json());
 // Start defining your routes here to grt access. 
 //First argument is the route and then a callback function (req, rep).
 // Req is Front End sends and response what we send back in res.send.
-app.get("/", (request, response) => {
-  res.send("Golden globes time!"); 
+app.get("/", (req, res) => {
+res.send({ responseMessage: "API about books" });
 });
 
-//Get all goldenGlobe movies from their data 
-app.get("/category", (req, response) => {
-  const category = goldenGlobesData;
+//Get all data for books
+app.get("/books", (req, res) => {
+  res.status(200).json({booksData})
+});
 
-  if (category) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        goldenGlobesData: category
-      }
-    });
-  
-  } else {
-    response.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
+//Reverse order of books
+  app.get("/books/reversed", (req, res) => {
+    const booksDataReversed = booksData.reverse()
+    res.status(200).json({booksDataReversed})
   });
-}
-});
+
+// if the user searches for title 
+app.get('/books/title/:title', (req, res) => {
+  const title = req.params;
+
+  let byTitle = booksData;
+
+  if (title) {
+    byTitle = byTitle
+.filter((data) => data.title.toLowerCase().includes(title.toLowerCase()));
+  };
+  if (byTitle.length === 0) {
+    res.status(200).json({
+      message: "There's no books here by that name",
+      success: true,
+    });
+  } else {
+    res.status(200).json({
+      data: byTitle,
+      success: true,
+    });
+  };
+  });
 
 // Start the server/application. It needs to listen to a port.
 // That is defined in line 15. 
