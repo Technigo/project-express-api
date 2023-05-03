@@ -25,10 +25,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
-
 app.get('/titles', (req, res) => {
-res.json(netflixData)
-} )
+  res.json(netflixData)
+  } )
+
 
 app.get('/titles/:id', (req, res) => {
   const { id } = req.params;
@@ -51,7 +51,7 @@ app.get('/titles/:id', (req, res) => {
     });
   }
 });
-app.get('/titles/title/:title', (req, res) => {
+app.get('/title/:title', (req, res) => {
   const { title } = req.params;
   const netflixTitle = netflixData.filter((item) => {
     return item.title.toLowerCase().includes(title.toLowerCase());
@@ -74,7 +74,7 @@ app.get('/titles/title/:title', (req, res) => {
 });
 
 
-app.get('/titles/country/:country', (req, res) => {
+app.get('/country/:country', (req, res) => {
   const { country } = req.params;
   const netflixCountry = netflixData.filter((item) => {
     return item.country.toLowerCase().includes(country.toLowerCase());
@@ -96,7 +96,7 @@ app.get('/titles/country/:country', (req, res) => {
   }
 });
 
-app.get('/title/:type', (req, res) => {
+app.get('/type/:type', (req, res) => {
   const { type } = req.params;
   const typeOfShow = netflixData.filter((item) => {
     return item.type.toLowerCase().includes(type.toLowerCase());
