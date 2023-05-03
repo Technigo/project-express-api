@@ -1,9 +1,102 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Sales
+ *   description: The books managing API
+ * /sales:
+ *   get:
+ *     summary: Lists all sales data
+ *     tags: [Sales]
+ *     responses:
+ *       200:
+ *         description: The list of sales data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Book'
+ * /sales/{id}:
+ *   get:
+ *     summary: Get one specific sales data
+ *     tags: [Sales]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: object
+ *         required: true
+ *         description: The sales data id
+ *     responses:
+ *       200:
+ *         description: The sales data response by id
+ *         contents:
+ *           application/json:
+ *       404:
+ *        description: The id was not found
+ * /sales/region/{region}:
+ *   get:
+ *     summary: Get specific sales data for a selected region
+ *     tags: [Sales]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: object
+ *         required: true
+ *         description: The sales data id
+ *     responses:
+ *       200:
+ *         description: The sales data response by id
+ *         contents:
+ *           application/json:
+ *       404:
+ *         description: The id was not found
+ * /sales/salesRanking/results:
+ *   get:
+ *     summary: Get the highest and lowest total volume
+ *     tags: [Sales]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: object
+ *         required: true
+ *         description: The sales data id
+ *     responses:
+ *       200:
+ *         description: The sales data response by id
+ *         contents:
+ *           application/json:
+ *       404:
+ *         description: The id was not found
+  * /sales/date/{date}:
+ *   get:
+ *     summary: Get all sales data on a selected date
+ *     tags: [Sales]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: object
+ *         required: true
+ *         description: The sales data id
+ *     responses:
+ *       200:
+ *         description: The sales data response by id
+ *         contents:
+ *           application/json:
+ *       404:
+ *         description: The id was not found
+ */
 import express from "express";
 import cors from "cors";
 import avocadoSalesData from "./data/avocado-sales.json";
 
 const port = process.env.PORT || 8080;
 const app = express();
+const  swaggerJsdoc = require("swagger-jsdoc");
+ const swaggerUi = require("swagger-ui-express");
 
 // middlewares to enable cors and json body parsing
 app.use(cors()); 
@@ -175,6 +268,33 @@ console.log(selectedDate)
   }
 
 })
+
+// swagger documentation
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Avocado Sales API',
+    version: '1.0.0',
+    description: 'A simple Express API for fetching avocado sales data'
+  },
+  servers: [
+    {
+      url: 'http://localhost:8080',
+      description: 'Development server'
+    }
+  ]
+};
+const options = {
+  swaggerDefinition,
+  apis: ['./server.js']
+};
+
+const specs = swaggerJsdoc(options);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+);
 
 // Start the server
 app.listen(port, () => {
