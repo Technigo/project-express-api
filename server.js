@@ -40,24 +40,24 @@ app.get("/", (request, response) => {
 
 
 // get all workouts
-app.get("/workouts", (request, response) => {
+app.get("/workouts/all", (request, response) => {
   const workouts = workoutsData;
   // responseStatus(request, response, workouts);
-  if (workouts) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        workoutsData : workouts
-      }
-    });
-  } else {
-    response.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
-    });
-  }
+  // if (workouts) {
+  //   response.status(200).json({
+  //     success: true,
+  //     message: "OK",
+  //     body: {
+  //       workoutsData : workouts
+  //     }
+  //   });
+  // } else {
+  //   response.status(500).json({
+  //     success: false,
+  //     message: "Something went wrong",
+  //     body: {}
+  //   });
+  // }
 });
 
 // get workout by id
@@ -89,7 +89,7 @@ app.get("/workouts/:Id", (request, response) => {
 });
 
 // get workouts by body part
-app.get("/workouts/body-part", (request, response) => {
+app.get("/workouts", (request, response) => {
   const { BodyPart } = request.query;
   console.log("body part: ", BodyPart)
 
