@@ -70,7 +70,7 @@ app.get("/books/:id", (request, response) => {
   } else {
     response.status(404).json({
       success: false,
-      message: "item not found",
+      message: "Book not found",
       body: {}
     });
   }
@@ -103,14 +103,10 @@ app.get("/netflix", (request, response) => {
 });
 // DRY - don't repeat yourself
 // get all technigo members
-app.get("/netflix/:id", (request, response) => {
+app.get("/netflix/id/:id", (request, response) => {
   const { id } = request.params;
-  console.log("id: ", id);
   const singleItem = netflixData.find((item) => {
-    // return member._id == id;
     return item.show_id === Number(id);
-    // return member._id.toString() === id;
-    // return member._id === +id; 
   });
   if (singleItem) {
     response.status(200).json({
@@ -127,6 +123,31 @@ app.get("/netflix/:id", (request, response) => {
       body: {}
     });
   }
+  
+});
+
+app.get("/netflix/released/:year", (request, response) => {
+  const { year } = request.params;
+  console.log("year: ", year);
+  const singleItem = netflixData.find((item) => {
+    return item.release_year === Number(year);
+  });
+  if (singleItem) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        item: singleItem
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Year not found",
+      body: {}
+    });
+  } 
+  
 });
 // Start the server
 app.listen(port, () => {
