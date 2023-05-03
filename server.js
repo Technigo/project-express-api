@@ -16,43 +16,48 @@ import data from "./data/top-movies.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
-
+const listEndpoints = require('express-list-endpoints')
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  const movies = data
-  if (movies) {
-  res.status(200).json({
-    success: true,
-    message: "OK",
-    body: {
-      data: movies
-    }
-  })
-} else {
-  res.status(500).json({
-    success: false,
-    message: "Something went wrong",
-    body: {}
-  })
-}
+  res.json(listEndpoints(app))
+//   const movies = data
+//   if (movies) {
+//   res.status(200).json({
+//     success: true,
+//     message: "OK",
+//     body: {
+//       data: movies
+//     }
+//   })
+// } else {
+//   res.status(500).json({
+//     success: false,
+//     message: "Something went wrong",
+//     body: {}
+//   })
+// }
 });
 
 app.get('/movies', (req, res) => {
   res.json(data)
 })
 
-app.get('/year/:year', (req, res) => {
-  const year = req.params.year
-  const movieFromYear = data.filter((item) => item.year === +year)
-  if (year) {
+app.get('/movies/year/:year', (req, res) => {
+  const { year } = req.params
+  const moviesFromYear = data.filter((item) => {
+    return item.year === Number(year)
+  })
+  if (moviesFromYear) {
     res.status(200).json({
       success: true,
       message: "OK",
-      body: {movieFromYear}
+      body: {
+         year: moviesFromYear
+      }
     })
   } else {
     res.status(404).json({
@@ -63,11 +68,26 @@ app.get('/year/:year', (req, res) => {
   }
 }) 
 
-app.get('/rank/:rank', (req, res) => {
-  const rank = req.params.rank
-  const movieRank = data.find((item) => item.rank === +rank)
-
-  res.json(movieRank)
+app.get('/movies/rank/:rank', (req, res) => {
+  const { rank } = req.params
+  const singleMovie = data.find((item) => {
+    return item.rank === Number(rank)
+  })
+  if (singleMovie) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        rank: singleMovie
+      }
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Movie not found",
+      body: {}
+    })
+  }
 })
 
 // Start the server
