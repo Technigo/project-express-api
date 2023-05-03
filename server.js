@@ -14,11 +14,11 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(<h1>Home page</h1>);
+  res.send("Home page");
 });
 
 app.all("*", (req, res) => {
-  res.status(404).send(<h2>404 Not Found</h2>)
+  res.status(404).send("404 Not Found")
 })
 
 
