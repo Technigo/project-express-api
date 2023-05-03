@@ -25,11 +25,12 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-// all releases by title = http://localhost:8080/titles
+// all releases by title, to return an array = http://localhost:8080/titles
 app.get('/titles', (req, res) => {
   res.json(netflixData)
 })
 
+// finding one title by id, to return a single result
 app.get('/titles/:show_id', (req, res) => {
   const { show_id } = req.params; // extracting from object, need {}
   console.log({ show_id });
@@ -59,19 +60,31 @@ res.json(singleTitle)
 app.get('/type/:type', (req, res) => {
   const type = req.params.type.toLowerCase();
   const releaseYear = req.query.year;
+  const country = req.query.country;
   console.log({ type })
   console.log(releaseYear)
+  console.log({ country} )
 
-  // filter by type of title = https://localhost:8080/type/movie
+  // filter by type of title, to return an array = https://localhost:8080/type/movie
   let typeOfTitle = netflixData.filter((item) => item.type.toLowerCase() === type)
   
-    // filter by type of title and year = http://localhost:8080/type/movie?year=2019
+  // filter by type of title and year, to return an array = http://localhost:8080/type/movie?year=2019
   if (releaseYear) {
     typeOfTitle = typeOfTitle.filter((item) => item.release_year === Number(releaseYear))
+  }
+
+  // filter by type of title and country, to return an array = http://localhost:8080/type/tv%20show?country=france
+  if (country) {
+    typeOfTitle = typeOfTitle.filter((item) => item.country.toLowerCase() === country )
   }
   
   res.json(typeOfTitle)
 })
+
+// Tried to create a dummy endpoint
+// app.post('title', (req, res) => {
+//   res.json({ message: 'title created successfully' });
+// })
 
 // Start the server
 app.listen(port, () => {
