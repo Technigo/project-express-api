@@ -37,17 +37,9 @@ app.get("/netflix-titles/:titleName", (request, response) => {
   response.json(seriesTitle);
 });
 
-app.get("/netflix-titles/directorcountry", (request, response) => {
-  const directorCountry = netflixData.map((item) => ({
-    director: item.director,
-    country: item.country,
-  }));
-  response.json(directorCountry);
-});
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
+}).on('error', (err) => {
+  console.log('Error starting server:', err);
 });
-
-/// endpoint/:pathParam1/:pathParam2?queryParamName=queryParamValue&queryParam5Name=queryParam5Value&queryParam2Name=queryParam2Value
