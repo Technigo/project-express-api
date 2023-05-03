@@ -13,77 +13,67 @@ const listEndpoints = require('express-list-endpoints')
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-// home screen
+// Start defining your routes here- home screen
 app.get("/", (req, res) => {
-  res.send("Check out our books!");
+  res.json(listEndpoints(app))
 });
 
-// get all book titles
-app.get("/book-titles", (req, res) => {
-  const bookTitles = booksData.map(book => book.title); 
-  if (bookTitles) {
-    res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        bookTitles: bookTitles
-      }
-    });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
-  });
-}
-});
-
-// get all authors
-
-app.get("/book-authors", (req, res) => {
-  const bookAuthors = booksData.map(authors => book.authors); 
-  if (bookAuthors) {
-    res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        bookAuthors: bookAuthors
-      }
-    });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
-  });
-}
-});
-
-// filter books by ratings
-
-app.get("/book-ratings", (req, res) => {
-  const bookRatings = bookRatingsAboveFour.find((bookRatings) => {
-    const { bookID } = request.params;
-    console.log("bookID")
-    return book.bookID == request.params.id
+// reusable function to get data from array
+const getBooksData = (prop, filterCriteria, filterProp) => {
+  let filteredData = booksData;
+  if (filterCriteria && filterProp) {
+    filteredData = booksData.filter(book => book[filterProp] > filterCriteria);
   }
-  ); 
-  if (bookRatings) {
-    res.status(200).json({
+  const data = filteredData.map(book => book[prop]);
+  if (data) {
+    return {
       success: true,
       message: "OK",
       body: {
-        bookRatings: bookRatings
+        [prop]: data
       }
-    });
+    }
   } else {
-    res.status(500).json({
+    return {
       success: false,
-      message: "Ratings went wrong",
+      message: "Something went wrong",
       body: {}
-  });
+    };
+  }
 }
+
+// filter books show books with ratings higher than 4
+app.get("/book-wellrated", (req, res) => {
+  res.status(200).json(getBooksData('title', 4));
+});
+
+
+// get all book titles 
+app.get("/book-titles", (req, res) => {
+res.status(200).json(getBooksData('title'))
+});
+
+// get all authors 
+app.get("/book-authors", (req, res) => {
+res.status(200).json(getBooksData('authors'))     
+});
+
+// filter books show books with ratings higher than 4
+app.get("/book-wellrated", (req, res) => {
+  res.status(200).json(getBooksData('title', 4, 'average_rating'));
+});
+
+// find a book with a specific title
+app.get("/book-titles/:title", (req, res) => {
+  const { title } =req.params
+  const bookTitle = getBooksData.filter((book) => book.title.toLowerCase().includes(title.toLocaleLowerCase()))
+ 
+  if(!bookTitle) {
+    res.status(404).json({
+      message:"Sorry we could not find that title. Please search again",
+      error:404 })
+  }
+  res.status(200).json(getBooksData);
 });
 
 
