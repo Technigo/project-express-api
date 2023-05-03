@@ -55,26 +55,28 @@ app.get("/books/title/:title", (req, res) => {
   };
   });
 
-  app.get("/books/:bookID", (req, res) => {
-    const singleBook = booksData.find((book) => {
-      return book.bookID === +req.params.bookID;
-    });
-    if(singleBook) {
+  app.get("/books/:id", (req, res) => {
+    const { id } = req.params;
+  const singleBook = booksData.find((item) => {
+    return item.bookID === Number(id)}
+  );
+ 
+    if (singleBook) {
       res.status(200).json({
         success: true,
-        message: "OK",
+        message: "ok",
         body: {
-          booksData: singleBook
+          book: singleBook
         }
       });
     } else {
       res.status(404).json({
         success: false,
-        message: "Not found",
+        message: "Sorry, book not found",
         body: {}
       });
-    }
-  });
+    } 
+  })
 
 // Start the server/application. It needs to listen to a port.
 // That is defined in line 15. 
