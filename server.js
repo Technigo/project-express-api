@@ -5,13 +5,15 @@ import cors from "cors";
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+//import goldenGlobesData from "./data/golden-globes.json";
+import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
+
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -22,6 +24,98 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+app.get('/titles', (req, res) => {
+res.json(netflixData)
+} )
+
+app.get('/titles/:id', (req, res) => {
+  const { id } = req.params;
+  const showId = netflixData.filter((title) => {
+    return title.show_id === Number(id);
+  });
+  if (showId.length) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        title: showId
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "title not found",
+      body: {}
+    });
+  }
+});
+app.get('/titles/title/:title', (req, res) => {
+  const { title } = req.params;
+  const netflixTitle = netflixData.filter((item) => {
+    return item.title.toLowerCase().includes(title.toLowerCase());
+  });
+  if (netflixTitle.length) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        title: netflixTitle
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "title not found",
+      body: {}
+    });
+  }
+});
+
+
+app.get('/titles/country/:country', (req, res) => {
+  const { country } = req.params;
+  const netflixCountry = netflixData.filter((item) => {
+    return item.country.toLowerCase().includes(country.toLowerCase());
+  });
+  if (netflixCountry.length) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        title: netflixCountry
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "title not found",
+      body: {}
+    });
+  }
+});
+
+app.get('/title/:type', (req, res) => {
+  const { type } = req.params;
+  const typeOfShow = netflixData.filter((item) => {
+    return item.type.toLowerCase().includes(type.toLowerCase());
+  });
+  if (typeOfShow.length) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        title: typeOfShow
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "title not found",
+      body: {}
+    });
+  }
 });
 
 // Start the server
