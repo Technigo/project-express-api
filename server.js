@@ -2,13 +2,6 @@ import express from "express";
 import cors from "cors";
 import topMusicData from "./data/top-music.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -25,7 +18,8 @@ app.get("/", (request, response) => {
   response.json(listEndPoints(app));
 });
 
-// get music and filter genre
+// get music and filter genre, using path and query
+// returns a collection of results
 app.get("/top-music", (request, response) => {
   const { genre } = request.query;
   let music = topMusicData;
@@ -53,6 +47,7 @@ app.get("/top-music", (request, response) => {
 });
 
 // get artist with path param
+// returns a collection of results (if the artist has multiple songs ex. Ed Sheeran)
 app.get("/top-music/:artist", (request, response) => {
   const theArtist = topMusicData.filter((artist) => {
     return artist.artistName.toString() === request.params.artist;
@@ -70,6 +65,30 @@ app.get("/top-music/:artist", (request, response) => {
     response.status(404).json({
       success: false,
       message: "Artist not found",
+      body: {}
+    })
+  }
+});
+
+// get id with path param
+// returns a single result
+app.get("/top-music/:id", (request, response) => {
+  const singleTrack = topMusicData.find((track) => {
+    return track.id === Number(request.params.id);
+  });
+
+  if (singleTrack) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        track: singleTrack
+      }
+    })
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "No result found",
       body: {}
     })
   }
