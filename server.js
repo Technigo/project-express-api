@@ -44,7 +44,27 @@ app.get("/books", (request, response) => {
   } 
 })
 
-
+app.get("/books/:id", (request, response) => {
+  const { id } = request.params;
+const singleBook = booksData.find((book) => {
+  return book._id === Number(id);
+});
+  if (singleBook) {
+    response.status(200).json({
+      success: true,
+      message: "ok",
+      body: {
+        book: singleBook
+      }
+    });
+  } else {
+    response.status(500).json({
+      success: false,
+      message: "Book not found",
+      body: {}
+    });
+  } 
+})
 
 // Start the server
 app.listen(port, () => {
