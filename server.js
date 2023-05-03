@@ -2,10 +2,6 @@ import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json"
 
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -15,8 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here to grt access. 
-//First argument is the route and then a callback function (req, rep).
-// Req is Front End sends and response what we send back in res.send.
 app.get("/", (req, res) => {
 res.send({ responseMessage: "API about books" });
 });
@@ -55,6 +49,7 @@ app.get("/books/title/:title", (req, res) => {
   };
   });
 
+//Returning single book based on ID number if it exists otherwise 404-not found.
   app.get("/books/:id", (req, res) => {
     const { id } = req.params;
   const singleBook = booksData.find((item) => {
@@ -79,7 +74,6 @@ app.get("/books/title/:title", (req, res) => {
   })
 
 // Start the server/application. It needs to listen to a port.
-// That is defined in line 15. 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
