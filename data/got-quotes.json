@@ -1,0 +1,332 @@
+[
+    {
+    "sentence": "Everyone is mine to torment.",
+    "character": {
+    "name": "Joffrey Baratheon",
+    "slug": "joffrey",
+    "house": {
+    "name": "House Baratheon of Dragonstone",
+    "slug": "baratheon"
+    }
+    }
+    },
+    {
+    "sentence": "I have a lot of experience in losing.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Leave one wolf alive and the sheep are never safe.",
+    "character": {
+    "name": "Arya Stark",
+    "slug": "arya",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "If you ever call me sister again, I'll have you strangled in your sleep.",
+    "character": {
+    "name": "Cersei Lannister",
+    "slug": "cersei",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Fighting bravely for a losing cause is admirable. Fighting for a winning cause is far more rewarding.",
+    "character": {
+    "name": "Jaime Lannister",
+    "slug": "jaime",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Everything before the word \"but\" is horseshit.",
+    "character": {
+    "name": "Jon Snow",
+    "slug": "jon",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "He was no dragon. Fire cannot kill a dragon.",
+    "character": {
+    "name": "Daenerys Targaryen",
+    "slug": "daenerys",
+    "house": {
+    "name": "House Targaryen of King's Landing",
+    "slug": "targaryen"
+    }
+    }
+    },
+    {
+    "sentence": "I don't care about checking my worst impulses. I don't care about making the world a better place. Hang the world.",
+    "character": {
+    "name": "Cersei Lannister",
+    "slug": "cersei",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "It doesn’t matter what we want. Once we get it, then we want something else.",
+    "character": {
+    "name": "Petyr Baelish",
+    "slug": "baelish",
+    "house": {
+    "name": "House Baelish of Harrenhal",
+    "slug": "baelish"
+    }
+    }
+    },
+    {
+    "sentence": "A madman sees what he sees.",
+    "character": {
+    "name": "Eddard \"Ned\" Stark",
+    "slug": "ned",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "A lion does not concern himself with the opinion of sheep.",
+    "character": {
+    "name": "Tywin Lannister",
+    "slug": "tywin",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Three victories don't make you a conqueror.",
+    "character": {
+    "name": "Jaime Lannister",
+    "slug": "jaime",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "I know that our enemies hate each other almost as much as they hate us.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "The storms come and go, the big fish eat the little fish and I keep on paddling.",
+    "character": {
+    "name": "Lord Varys",
+    "slug": "varys",
+    "house": {
+    "name": null,
+    "slug": null
+    }
+    }
+    },
+    {
+    "sentence": "When you tear out a man's tongue, you are not proving him a liar, you're only telling the world that you fear what he might say",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "No matter who you are, no matter how strong you are, sooner or later, you'll face circumstances beyond your control.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "I am the dragon's daughter, and I swear to you that those who would harm you will die screaming.",
+    "character": {
+    "name": "Daenerys Targaryen",
+    "slug": "daenerys",
+    "house": {
+    "name": "House Targaryen of King's Landing",
+    "slug": "targaryen"
+    }
+    }
+    },
+    {
+    "sentence": "If you want a whore, buy one. If you want a Queen, earn her.",
+    "character": {
+    "name": "Cersei Lannister",
+    "slug": "cersei",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "I grew up with soldiers. I learned how to die a long time ago.",
+    "character": {
+    "name": "Eddard \"Ned\" Stark",
+    "slug": "ned",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "It's not easy being drunk all the time. Everyone would do it, if it were easy.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "I am your son. I have always been your son.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "No need to seize the last word, Lord Baelish. I'll assume it was something clever.",
+    "character": {
+    "name": "Sansa Stark",
+    "slug": "sansa",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "I'm a constant disappointment to my own father, and I have learned to live with it.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Gingers are beautiful. We've been kissed by fire.",
+    "character": {
+    "name": "Tormund",
+    "slug": "tormund",
+    "house": {
+    "name": null,
+    "slug": null
+    }
+    }
+    },
+    {
+    "sentence": "Love is more powerful than reason. We all know that.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "It doesn't matter what we want. Once we get it, then we want something else.",
+    "character": {
+    "name": "Petyr Baelish",
+    "slug": "baelish",
+    "house": {
+    "name": "House Baelish of Harrenhal",
+    "slug": "baelish"
+    }
+    }
+    },
+    {
+    "sentence": "Well, my brother has his sword, and I have my mind, and a mind needs books like a sword needs a whetstone, if it's to keep its edge.",
+    "character": {
+    "name": "Tyrion Lannister",
+    "slug": "tyrion",
+    "house": {
+    "name": "House Lannister of Casterly Rock",
+    "slug": "lannister"
+    }
+    }
+    },
+    {
+    "sentence": "I am a Stark of Winterfell, this is my home. And you can't frighten me.",
+    "character": {
+    "name": "Sansa Stark",
+    "slug": "sansa",
+    "house": {
+    "name": "House Stark of Winterfell",
+    "slug": "stark"
+    }
+    }
+    },
+    {
+    "sentence": "All men must die, but we are not men.",
+    "character": {
+    "name": "Daenerys Targaryen",
+    "slug": "daenerys",
+    "house": {
+    "name": "House Targaryen of King's Landing",
+    "slug": "targaryen"
+    }
+    }
+    }
+    ]
