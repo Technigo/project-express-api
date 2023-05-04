@@ -1,12 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I have implemented a RESTful API using Node.js, Express.js, and various other middleware packages such as body-parser, cors, express-list-endpoints, swagger-ui-express, and swagger-jsdoc. The API exposes a list of wine reviews that can be queried and filtered by various parameters such as country, variety, price, and points. I have also implemented pagination and sorting of the wine data based on points. Additionally, I have provided an endpoint for retrieving the list of available endpoints of my API using express-list-endpoints.
 
 ## View it live
 
