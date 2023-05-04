@@ -30,14 +30,44 @@ app.get("/", (req, res) => {
 });*/
  
 app.get("/", (request, response) => {
-  response.send("Hello Annika!")
+  const bookAPIGuide = {
+    Routes: [
+      {
+        '/books': 'Get all books.',
+        '/books/authors=[authorname]': 'Get all books with that author. Be aware that authors is plural.',
+        '/books/?title=[title]': 'Get all books with that title.',
+        '/books/?title=[title]&authors=[authorname]': 'Get books with a specific author and title.',
+        '/books/:bookID': 'Get specific book by ID',
+        '/isbn/:isbn': 'Get a book`s isbn',
+        '/languages/language_code': 'Get book by language. For example fre, spa, eng, en-us, en-gb and mul',
+        '/top_10': 'Get the top 10 highest rating books, based on average rating'
+      },
+    ],
+  };
+    response.json({responseMessage: bookAPIGuide});
 })
 
 
 ///////////// ROUTE Get all books in the database ///////////////////////
 app.get("/books", (request, response) => {
-  const books = booksData; 
-  if (books) {
+  const authors = request.query.authors;
+  const title = request.query.title;
+
+  let books = booksData; 
+
+  if (authors) {
+    books = booksData.filter((singleBook) => {
+      return singleBook.authors.toLowerCase() === authors.toLowerCase();
+    });
+  } 
+
+  if (title) {
+    books = booksData.filter((singleBook) => {
+      return singleBook.title.toLowerCase() === title.toLocaleLowerCase()
+    })
+  }
+  
+  if (books.length !== 0){
     response.status(200).json({
       success: true, 
       message: "OK",
@@ -54,7 +84,7 @@ app.get("/books", (request, response) => {
   }
 })
 
-///////// ROUTE Get a specific book,  using the ID of the book //////////
+///////// ROUTE Get a specific book, using the ID of the book //////////
 app.get("/books/:id", (request, response) => {
 const { id } = request.params;
 console.log("id: ", id);
@@ -110,7 +140,7 @@ app.get("/top_10", (request, response) => {
       success: true,
       message: "OK",
       body: {
-        top_rated: sortedBooks
+        top_10: sortedBooks
       }
     })
   } else {
@@ -122,12 +152,30 @@ app.get("/top_10", (request, response) => {
   }
 })
 
-
-////////////// ROUTE Get top rated books (sort by average rating) ////////////
-/* app.get("/books/top_rated", (request, response) => {
-  const topbooks = booksData.sort
-}) */
-
+///// ROUTE Get book by ISBN ////////
+app.get("/books/isbn/:isbn", (request, response) => {
+  const { isbn } = request.params;
+  console.log("isbn: ", isbn);
+  const singleBook = booksData.find((book) => {
+    return book.isbn.toString() === isbn; 
+  })
+  if (singleBook) {
+    response.status(200).json({
+      success: true, 
+      message: "OK",
+      body: { 
+        book: singleBook
+      }
+    })
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Book not found!",
+      body: {}
+    })
+  }
+  
+  })
 
 /*
 // get all technigo members
