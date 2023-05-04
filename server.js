@@ -112,6 +112,28 @@ app.get('/movies/title/:title', (req, res) => {
   }
 })
 
+app.get('/movies/:id', (req, res) => {
+  const { id } = req.params
+  const movieID = data.find((item) => {
+    return item.movie_id.toLowerCase() === id.toLowerCase()
+  })
+  if (movieID) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        id: movieID
+      }
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Movie not found",
+      body: {}
+    })
+  }
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
