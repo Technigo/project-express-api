@@ -28,7 +28,9 @@ app.get('/', (req, res) => {
 //endpoint to get one random book
 app.get('/books/random', (req, res) => {
   const randomBook = Data[Math.floor(Math.random() * Data.length)];
-  res.json(randomBook);
+  randomBook.length !== 0
+    ? res.json(randomBook)
+    : res.status(404).send('No books found, please try again'); //if no books are found, send error message (this should not happen...)
 });
 
 // Endpoint to get all books in a specific language
@@ -36,7 +38,9 @@ app.get('/books/language/:lang', (req, res) => {
   const lang = req.params.lang;
   const booksInLanguage = Data.filter((item) => item.language_code === lang);
 
-  res.json(booksInLanguage);
+  booksInLanguage.length !== 0
+    ? res.json(booksInLanguage)
+    : res.status(404).send('No books in that language found, please try again'); //if no books are found, send error message
 });
 
 // Endpoint to get all books with a specific rating and in a specific language
@@ -44,17 +48,23 @@ app.get('/books/language/:lang/rating/:rating', (req, res) => {
   const rating = req.params.rating;
   const lang = req.params.lang;
   const booksInLanguageAndRating = Data.filter(
-    (item) => item.language_code === lang && item.average_rating === +rating
+    (item) => item.language_code === lang && item.average_rating === +rating //+rating to convert string to number
   );
-  res.json(booksInLanguageAndRating);
+  booksInLanguageAndRating.length !== 0
+    ? res.json(booksInLanguageAndRating)
+    : res
+        .status(404)
+        .send('No books with that rating and language found, please try again'); //if no books are found, send error message
 });
 
 // Endpoint to get all books with a specific rating
 app.get('/books/rating/:rating', (req, res) => {
   const rating = req.params.rating;
+
   const booksInRating = Data.filter((item) => item.average_rating === +rating);
-  console.log(rating);
-  res.json(booksInRating);
+  booksInRating.length !== 0
+    ? res.json(booksInRating)
+    : res.status(404).send('No books with that rating found, please try again'); //if no books are found, send error message
 });
 
 // Start the server
