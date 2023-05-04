@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import avocadoSales from './data/avocado-sales.json';
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +22,50 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Hello Avocados!");
+});
+
+app.get("/avocados", (req, res) => {
+  const avocados = avocadoSales;
+  if (avocados) {
+    res.status(200).json({
+      success: true,
+      massage: "OK",
+      body: {
+        avocadoSales: avocados
+      }
+    });
+  } else {
+    res.status(500).json({
+      success: false,
+      massage: "Something went wrong",
+      body: {}
+    });
+  }
+  
+});
+
+app.get("/avocados/:id", (req, res) => {
+  const { id } = req.params
+  const singleAvocado = avocadoSales.find((avocado) => {
+    return avocado.id === +id
+  })
+  if (singleAvocado) {
+    res.status(200).json({
+      success: true,
+      massage: "OK",
+      body: {
+        avocadoSales: singleAvocado
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      massage: "Avocado not found",
+      body: {}
+    });
+  }
+
 });
 
 // Start the server
