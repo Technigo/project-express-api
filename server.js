@@ -38,7 +38,7 @@ app.get('/shows', (req, res) => {
   const query = req.query;
   let filteredData = netflixData;
   Object.keys(query).forEach(key => {
-    filteredData = filteredData.filter(item => item[key] === query[key]);
+    filteredData = filteredData.filter(item => item[key].toLowerCase() === query[key].toLowerCase());
   });
 
   res.status(200).json({
@@ -55,7 +55,7 @@ app.get('/shows', (req, res) => {
 // http://localhost:8080/year/2020 (or other years up to 2020)
 app.get('/year/:year', (req, res) => {
   const year = req.params.year;
-  const releaseFromYear = netflixData.filter((item) => item.release_year === Number(year));
+  const releaseFromYear = netflixData.filter((item) => item.release_year.toLowerCase() === Number(year).toLowerCase());
 
   res.status(200).json({
     success: true,
@@ -72,7 +72,7 @@ app.get('/year/:year', (req, res) => {
 // http://localhost:8080/type/Movie or http://localhost:8080/type/TV%20Show
 app.get('/type/:type', (req,res) => {
   const type = req.params.type
-  const releaseFromType = netflixData.filter((item) => item.type === type) 
+  const releaseFromType = netflixData.filter((item) => item.type.toLowerCase() === type.toLowerCase()) 
 
     res.status(200).json({
     success: true,
