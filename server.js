@@ -21,22 +21,16 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
-/*
-// Start defining your routes here
-app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
-  res.json(listEndpoints(app));
 
-});*/
- 
+// This will show when you go to url of the API, it shows you how you can access different things in the API
 app.get("/", (request, response) => {
   const bookAPIGuide = {
     Routes: [
-      {
+      { 'Hello': 'Welcome to Annikas book-API! See instrucktions below',
         '/books': 'Get all books.',
         '/books/authors=[authorname]': 'Get all books with that author. Be aware that authors is plural.',
-        '/books/?title=[title]': 'Get all books with that title.',
-        '/books/?title=[title]&authors=[authorname]': 'Get books with a specific author and title.',
+        '/books/?title=[title]': 'Get all books with that title, you can write a part of the title.',
+        '/books/?title=[title]&authors=[authorname]': 'Get books with a specific author and title. You can write part of the authors name',
         '/books/:bookID': 'Get specific book by ID',
         '/isbn/:isbn': 'Get a book`s isbn',
         '/languages/language_code': 'Get book by language. For example fre, spa, eng, en-us, en-gb and mul',
@@ -44,6 +38,7 @@ app.get("/", (request, response) => {
       },
     ],
   };
+  //The response
     response.json({responseMessage: bookAPIGuide});
 })
 
@@ -53,32 +48,35 @@ app.get("/books", (request, response) => {
   const authors = request.query.authors;
   const title = request.query.title;
 
-  let books = booksData; 
+  let filteredBooks = booksData; 
 
   if (authors) {
-    books = booksData.filter((singleBook) => {
-      return singleBook.authors.toLowerCase() === authors.toLowerCase();
+    filteredBooks = filteredBooks.filter((singleBook) => {
+      return singleBook.authors.toLowerCase().includes(authors.toLocaleLowerCase())
+
     });
   } 
 
   if (title) {
-    books = booksData.filter((singleBook) => {
-      return singleBook.title.toLowerCase() === title.toLocaleLowerCase()
+    filteredBooks = filteredBooks.filter((singleBook) => {
+      return singleBook.title.toLowerCase().includes(title.toLocaleLowerCase())
     })
   }
   
-  if (books.length !== 0){
+  if (filteredBooks.length !== 0){
+    //If the books-array is NOT empty, show sucess and the items in the array
     response.status(200).json({
       success: true, 
       message: "OK",
       body: {
-        booksData: books
+        books: filteredBooks
       } 
     })
   } else {
-    response.status(500).json({
+    //If the array IS empty show error message
+    response.status(404).json({
       success: false, 
-      message: "Something went wrong",
+      message: "Something went wrong, could find what you were searching for.",
       body: {}
     })
   }
@@ -87,10 +85,11 @@ app.get("/books", (request, response) => {
 ///////// ROUTE Get a specific book, using the ID of the book //////////
 app.get("/books/:id", (request, response) => {
 const { id } = request.params;
-console.log("id: ", id);
+//Object destructuring of the is request param
 const singleBook = booksData.find((book) => {
   return book.bookID.toString() === id; 
 })
+//We 
 if (singleBook) {
   response.status(200).json({
     success: true, 
@@ -177,60 +176,6 @@ app.get("/books/isbn/:isbn", (request, response) => {
   
   })
 
-/*
-// get all technigo members
-app.get("/members", (request, response) => {
-  const { role } = request.query;
-  let members = technigoMembers;
-  if (role) {
-    members = technigoMembers.filter((singleMember) => {
-      return singleMember.role.toLowerCase() === role.toLowerCase();
-    });
-  } 
-
-  if (members) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        technigoMembers: members
-      }
-    });
-  } else {
-    response.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
-    });
-  }
-});
-// DRY - don't repeat yourself
-// get all technigo members
-app.get("/members/:id", (request, response) => {
-  const { id } = request.params;
-  console.log("id: ", id);
-  const singleMember = technigoMembers.find((member) => {
-    // return member._id == id;
-    // return member._id === Number(id);
-    // return member._id.toString() === id;
-    // return member._id === +id; 
-  });
-  if (singleMember) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        member: singleMember
-      }
-    });
-  } else {
-    response.status(404).json({
-      success: false,
-      message: "Member not found",
-      body: {}
-    });
-  }
-});*/
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
