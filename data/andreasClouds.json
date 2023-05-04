@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "name": "Cirrus",
+      "description": "Thin and wispy clouds often appearing like feathers high in the sky.",
+      "dreamyness": 47,
+      "technigoapproved": true
+    },
+    {
+      "id": 2,
+      "name": "Cumulus",
+      "description": "Large, white, fluffy clouds with a flat base and rounded tops often resembling cotton balls.",
+      "dreamyness": 81,
+      "technigoapproved": false
+    },
+    {
+      "id": 3,
+      "name": "Stratus",
+      "description": "Low-lying clouds that are often gray or white, covering the entire sky and resembling a blanket.",
+      "dreamyness": 12,
+      "technigoapproved": true
+    },
+    {
+      "id": 4,
+      "name": "Cirrostratus",
+      "description": "High, thin clouds that cover the sky like a veil and often indicate a change in weather.",
+      "dreamyness": 56,
+      "technigoapproved": true
+    },
+    {
+      "id": 5,
+      "name": "Altocumulus",
+      "description": "Mid-level clouds that are often gray or white with rounded edges and resemble fish scales.",
+      "dreamyness": 33,
+      "technigoapproved": false
+    },
+    {
+      "id": 6,
+      "name": "Nimbostratus",
+      "description": "Dark, gray clouds that cover the entire sky and often bring prolonged rain or snow.",
+      "dreamyness": 92,
+      "technigoapproved": false
+    },
+    {
+      "id": 7,
+      "name": "Cirrocumulus",
+      "description": "Small, rounded, white clouds that appear in long rows and often indicate a change in weather.",
+      "dreamyness": 76,
+      "technigoapproved": true
+    },
+    {
+      "id": 8,
+      "name": "Altocumulus Castellanus",
+      "description": "Mid-level clouds that have vertical towers or pinnacles on their top edges, resembling a castle.",
+      "dreamyness": 18,
+      "technigoapproved": false
+    },
+    {
+      "id": 9,
+      "name": "Stratocumulus",
+      "description": "Low-lying clouds that are often gray or white with a puffy appearance and can resemble waves in the sky.",
+      "dreamyness": 65,
+      "technigoapproved": true
+    },
+    {
+      "id": 10,
+      "name": "Cumulonimbus",
+      "description": "Thunderstorm clouds that are tall, dark, and can produce lightning, heavy rain, and strong winds.",
+      "dreamyness": 43,
+      "technigoapproved": false
+    }
+  ]

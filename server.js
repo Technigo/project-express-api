@@ -6,7 +6,7 @@
 
 import express from "express";
 import cors from "cors";
-import topMusicData from "./data/top-music.json";
+import andreasClouds from "./data/andreasClouds.json";
 
 // ///////////////// APP //////////////////////////////// //
 
@@ -25,26 +25,26 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send({
-    Hello: "Welcome to this top-music API!",
+    Hello: "Welcome Andreas Cloud API!",
     Routes: [
       { "/": "Startpage / Api Info" },
-      { "/music": "all tracks-data" },
-      { "/music/:id": "singel track" }, 
-      { "/music/danceabilityover/:danceability": "Sorts the tracks after the minimun danceabilityscore. From minimum and up." },
-      { "/music/popularityover/:popularity" : "Sort the tracks after the minimum popularityscore"}
+      { "/allclouds": "All clouds listed" },
+      { "/allclouds/:id": "Singel cloud" }, 
+      { "/allclouds/dreamyness/:dreamynessover": "Sorts the clouds after the minimun dreamyness. From minimum and up." },
+      { "/allclouds/technigoapproved/:trueorfalse": "Sorts the clouds. Technigoapproved or not." }
     ]
 });
 }); 
 
 // get all music
-app.get("/music", (req, response) => {
-  const music = topMusicData;
-  if (music) {
+app.get("/allclouds", (req, response) => {
+  const clouds = andreasClouds;
+  if (clouds) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        topMusicData: music
+        andreasClouds: clouds
       }
     });
   } else {
@@ -57,17 +57,17 @@ app.get("/music", (req, response) => {
 });
 
 // get single tracks
-app.get("/music/:id", (req, response) => {
+app.get("/allclouds/:id", (req, response) => {
   const { id } = req.params;
-  const singleTrack = topMusicData.find((track) => {
-    return track.id === Number(id);
+  const singleCloud = andreasClouds.find((fluff) => {
+    return fluff.id === Number(id);
   })
-  if ((singleTrack.length !== 0)) {
+  if ((singleCloud.length !== 0)) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        track: singleTrack
+        fluff: singleCloud
       }
     });
   } else {
@@ -79,52 +79,54 @@ app.get("/music/:id", (req, response) => {
   }
 });
 
-// sorted by danceability rating
-app.get("/music/danceability/:danceability", (req, response) => {
-  const { danceability } = req.params;
-  const singleTrack = topMusicData.filter((track) => {
-    return track.danceability >= Number(danceability);
+// sorted by dreamyness rating
+app.get("/allclouds/dreamyness/:dreamynessover", (req, response) => {
+  const { dreamynessover } = req.params;
+  const singleCloud = andreasClouds.filter((fluff) => {
+    return fluff.dreamyness >= Number(dreamynessover);
   })
-  const sortedTracks = singleTrack.sort((a, b) => a.danceability - b.danceability);
-  if (sortedTracks.length !== 0) {
+  const sortedFluff = singleCloud.sort((a, b) => a.dreamyness - b.dreamyness);
+  if (sortedFluff.length !== 0) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        track: sortedTracks
+        fluff: sortedFluff
       }
     });
   } else {
     response.status(404).json({
       success: false,
-      message: "Danceability score not found",
+      message: "Dreamyness score not found",
       body: {}
     });
   }
 });
 
-// sorted by popularite over your minimum
-app.get("/music/popularity/:popularity", (req, response) => {
-  const { popularity } = req.params;
-  const singleTrack = topMusicData.filter((track) => {
-    return track.popularity >= Number(popularity);
+// sorted by technigoapproved or not.
+app.get("/allclouds/technigoapproved/:trueorfalse", (req, response) => {
+  const { trueorfalse } = req.params;
+  const singleCloud = andreasClouds.filter((fluff) => {
+    return fluff.technigoapproved === (trueorfalse === 'true');
   })
-  if (singleTrack.length !== 0) {
+  const sortedFluff = singleCloud.sort((a, b) => a.technigoapproved - b.technigoapproved);
+  if (sortedFluff.length !== 0) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        track: singleTrack
+        fluff: sortedFluff
       }
     });
   } else {
     response.status(404).json({
       success: false,
-      message: "Popularity score not found",
+      message: "Approval not found",
       body: {}
     });
   }
 });
+
 
 // Start the server
 // Finally, this code starts the server and listens for incoming requests on the specified port. 
