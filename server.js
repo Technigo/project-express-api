@@ -32,8 +32,8 @@ app.get('/', (req, res) => {
 // Defines the root route which sends a string as a response
 // The code defines an endpoint to return a collection of results
 // Route takes query parameters and returns a collection of filtered data from the netflixData array.
-// http://localhost:8080/shows?type=Movie&country=United%20States
-// http://localhost:8080/shows?type=Movie&director=M.%20Night%20Shyamalan
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/shows?type=Movie&country=United%20States
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/shows?type=Movie&director=M.%20Night%20Shyamalan
 app.get('/shows', (req, res) => {
   const query = req.query;
   let filteredData = netflixData;
@@ -69,12 +69,13 @@ app.get('/year/:year', (req, res) => {
 
 
 // Defines a route that takes a parameter and returns a filtered collection of data.
-// http://localhost:8080/type/Movie or http://localhost:8080/type/TV%20Show
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/Movie or 
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/TV%20Show
 app.get('/type/:type', (req,res) => {
   const type = req.params.type
-  const releaseFromType = netflixData.filter((item) => item.type.toLowerCase() === type.toLowerCase()) 
+  const releaseFromType = netflixData.filter((item) => item.type.toLowerCase() === type.toLowerCase());
 
-    res.status(200).json({
+  res.status(200).json({
     success: true,
     message: 'OK',
     body: {
@@ -85,10 +86,10 @@ app.get('/type/:type', (req,res) => {
 
 // Filters Netflix data by title and/or director
 // title: 
-// http://localhost:8080/netflix-data?title=dead%20to%20me
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/netflix-data?title=dead%20to%20me
 
 // director: 
-// http://localhost:8080/netflix-data?director=M.%20Night%20Shyamalan
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/netflix-data?director=M.%20Night%20Shyamalan
 app.get('/netflix-data', (req, res) => {
   const { title, director } = req.query;
   let data = netflixData;
