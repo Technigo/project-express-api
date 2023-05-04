@@ -33,7 +33,7 @@ app.get('/titles', (req, res) => {
 })
 
 // Search by show id
-app.get('/:id', (req, res) => {
+app.get('/titles/id/:id', (req, res) => {
   const { id } = req.params;
   const idForShow = netflixTitlesData.find((title) => {
     return title.show_id === Number(id);
@@ -56,7 +56,7 @@ app.get('/:id', (req, res) => {
 });
 
 // Search by title
-app.get('/title/:title', (req, res) => {
+app.get('/titles/title/:title', (req, res) => {
   const { title } = req.params;
   const titleForShow = netflixTitlesData.filter((item) => {
     return item.title.toLowerCase().includes(title.toLowerCase());
@@ -79,7 +79,7 @@ app.get('/title/:title', (req, res) => {
 });
 
 // Search by partial title
-app.get('/search/title/:word', (req, res) => {
+app.get('/titles/search/title/:word', (req, res) => {
   const { word } = req.params;
   const titles = netflixTitlesData.filter(title => {
     const words = title.title.toLowerCase().split(' ');
@@ -126,7 +126,7 @@ app.get('/titles/director/:director', (req, res) => {
 });
 
 // Search by cast
-app.get('/cast/:cast', (req, res) => {
+app.get('/titles/cast/:cast', (req, res) => {
   const { cast } = req.params;
   const castForShow = netflixTitlesData.filter((item) => {
     return item.cast.toLowerCase().includes(cast.toLowerCase());
@@ -149,7 +149,7 @@ app.get('/cast/:cast', (req, res) => {
 });
 
 // Search by country
-app.get('/country/:country', (req, res) => {
+app.get('/titles/country/:country', (req, res) => {
   const { country } = req.params;
   const countryForShow = netflixTitlesData.filter((item) => {
     return item.country.toLowerCase().includes(country.toLowerCase());
@@ -172,7 +172,7 @@ app.get('/country/:country', (req, res) => {
 });
 
 //Search by date added
-app.get('/date_added/:date_added', (req, res) => {
+app.get('/titles/date_added/:date_added', (req, res) => {
   const { date_added } = req.params;
   const dateAddedForShow = netflixTitlesData.filter((item) => {
     return item.date_added.toLowerCase().includes(date_added.toLowerCase());
@@ -195,7 +195,7 @@ app.get('/date_added/:date_added', (req, res) => {
 });
 
 // Search by release year
-app.get('/release_year/:release_year', (req, res) => {
+app.get('/titles/release_year/:release_year', (req, res) => {
   const { release_year } = req.params;
   const releaseYearForShow = netflixTitlesData.filter((title) => {
     return title.release_year === Number(release_year);
@@ -218,7 +218,7 @@ app.get('/release_year/:release_year', (req, res) => {
 });
 
 // Search by rating
-app.get('/rating/:rating', (req, res) => {
+app.get('/titles/rating/:rating', (req, res) => {
   const { rating } = req.params;
   const ratingForShow = netflixTitlesData.filter((item) => {
     return item.rating.toLowerCase().includes(rating.toLowerCase());
@@ -241,7 +241,7 @@ app.get('/rating/:rating', (req, res) => {
 });
 
 //Search by duration
-app.get('/duration/:duration', (req, res) => {
+app.get('/titles/duration/:duration', (req, res) => {
   const { duration } = req.params;
   const durationForShow = netflixTitlesData.filter((item) => {
     return item.duration.toLowerCase().includes(duration.toLowerCase());
@@ -264,7 +264,7 @@ app.get('/duration/:duration', (req, res) => {
 });
 
 // Search by genre
-app.get('/listed_in/:listed_in', (req, res) => {
+app.get('/titles/listed_in/:listed_in', (req, res) => {
   const { listed_in } = req.params;
   const ListedInForShow = netflixTitlesData.filter((item) => {
     return item.listed_in.toLowerCase().includes(listed_in.toLowerCase());
@@ -287,7 +287,7 @@ app.get('/listed_in/:listed_in', (req, res) => {
 });
 
 //Search by description
-app.get('/description/:description', (req, res) => {
+app.get('/titles/description/:description', (req, res) => {
   const { description } = req.params;
   const descriptionForShow = netflixTitlesData.filter((item) => {
     return item.description.toLowerCase().includes(description.toLowerCase());
@@ -310,7 +310,7 @@ app.get('/description/:description', (req, res) => {
 });
 
 // Search by type
-app.get('/type/:type', (req, res) => {
+app.get('/titles/type/:type', (req, res) => {
   const { type } = req.params;
   const typeForShow = netflixTitlesData.filter((item) => {
     return item.type.toLowerCase().includes(type.toLowerCase());
