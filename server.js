@@ -9,8 +9,6 @@ import cors from 'cors';
 import netflixData from './data/netflix-titles.json';
 // import topMusicData from "./data/top-music.json";
 
-// console.log(netflixData.length)
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -24,7 +22,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.send({responseMessage: "Get your Netflix data"});
+  res.send({responseMessage: "Get your Netflix data, e.g. https://project-express-api-kpnlmcrmoq-lz.a.run.app/shows?type=Movie&country=United%20States "});
 
   res.json(listEndpoints(app));
 });
