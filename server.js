@@ -22,14 +22,15 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
-  res.json(netflixData)
+  res.send("This is an api for netflix data");
+  res.json(netflixData.endpoints.api)
+
 });
 
 // all releases by title, to return an array = http://localhost:8080/titles
-// app.get('/titles', (req, res) => {
-//   res.json(netflixData)
-// })
+app.get('/titles', (req, res) => {
+  res.json(netflixData)
+})
 
 // finding one title by id, to return a single result
 app.get('/titles/:show_id', (req, res) => {
