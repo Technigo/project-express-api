@@ -55,7 +55,7 @@ app.get('/shows', (req, res) => {
 // http://localhost:8080/year/2020 (or other years up to 2020)
 app.get('/year/:year', (req, res) => {
   const year = req.params.year;
-  const releaseFromYear = netflixData.filter((item) => item.release_year === +year);
+  const releaseFromYear = netflixData.filter((item) => item.release_year === Number(year));
 
   res.status(200).json({
     success: true,
