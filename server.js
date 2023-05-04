@@ -29,12 +29,12 @@ app.get("/", (req, res) => {
     Routes: [
       { "/": "Startpage / Api Info" },
       { "/music": "all tracks-data" },
-      { "/music/:id": "singel track" },
-      { "/music/danceability/:danceability": "sort the tracks after the danceability score you want to see" },
-      { "/music/popularityover/:popularity" : "sort the tracks after the minimum popularity score you want to see"}
+      { "/music/:id": "singel track" }, 
+      { "/music/danceabilityover/:danceability": "Sorts the tracks after the minimun danceabilityscore. From minimum and up." },
+      { "/music/popularityover/:popularity" : "Sort the tracks after the minimum popularityscore"}
     ]
 });
-});
+}); 
 
 // get all music
 app.get("/music", (req, response) => {
@@ -83,14 +83,15 @@ app.get("/music/:id", (req, response) => {
 app.get("/music/danceability/:danceability", (req, response) => {
   const { danceability } = req.params;
   const singleTrack = topMusicData.filter((track) => {
-    return track.danceability === Number(danceability);
+    return track.danceability >= Number(danceability);
   })
-  if (singleTrack.length !== 0) {
+  const sortedTracks = singleTrack.sort((a, b) => a.danceability - b.danceability);
+  if (sortedTracks.length !== 0) {
     response.status(200).json({
       success: true,
       message: "OK",
       body: {
-        track: singleTrack
+        track: sortedTracks
       }
     });
   } else {
@@ -102,7 +103,7 @@ app.get("/music/danceability/:danceability", (req, response) => {
   }
 });
 
-// sorted by popularite over 90 rating
+// sorted by popularite over your minimum
 app.get("/music/popularity/:popularity", (req, response) => {
   const { popularity } = req.params;
   const singleTrack = topMusicData.filter((track) => {
