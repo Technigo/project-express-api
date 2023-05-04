@@ -15,6 +15,7 @@ import technigoMembers from "./data/technigo-members.json"
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -22,13 +23,16 @@ app.use(express.json());
 
 // Start defining your routes here ("req" = request, "res" = response)
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  // res.send("Hello Technigo!");
+  res.json(listEndpoints(app));
 });
 
 // Get all Technigo members:
 app.get("/members", (req, res) => {
-  const { role } = req.query;
+  const name = req.query.name;
+  const role = req.query.role;
   let members = technigoMembers;
+  // const { name, role } = request.query;
 
   if (role) {
     members = technigoMembers.filter((singleMember) => {
