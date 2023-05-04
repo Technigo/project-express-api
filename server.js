@@ -1,5 +1,6 @@
-import express from "express";
-import cors from "cors";
+import express from 'express';
+import cors from 'cors';
+import Data from './data/books.json';
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -20,8 +21,40 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get('/', (req, res) => {
+  res.send('Welcome to my book API!');
+});
+
+//endpoint to get one random book
+app.get('/books/random', (req, res) => {
+  const randomBook = Data[Math.floor(Math.random() * Data.length)];
+  res.json(randomBook);
+});
+
+// Endpoint to get all books in a specific language
+app.get('/books/language/:lang', (req, res) => {
+  const lang = req.params.lang;
+  const booksInLanguage = Data.filter((item) => item.language_code === lang);
+
+  res.json(booksInLanguage);
+});
+
+// Endpoint to get all books with a specific rating and in a specific language
+app.get('/books/language/:lang/rating/:rating', (req, res) => {
+  const rating = req.params.rating;
+  const lang = req.params.lang;
+  const booksInLanguageAndRating = Data.filter(
+    (item) => item.language_code === lang && item.average_rating === +rating
+  );
+  res.json(booksInLanguageAndRating);
+});
+
+// Endpoint to get all books with a specific rating
+app.get('/books/rating/:rating', (req, res) => {
+  const rating = req.params.rating;
+  const booksInRating = Data.filter((item) => item.average_rating === +rating);
+  console.log(rating);
+  res.json(booksInRating);
 });
 
 // Start the server
