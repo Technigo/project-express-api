@@ -103,7 +103,7 @@ app.get('/search/title/:word', (req, res) => {
 });
 
 // Search by director
-app.get('/director/:director', (req, res) => {
+app.get('/titles/director/:director', (req, res) => {
   const { director } = req.params;
   const directorForShow = netflixTitlesData.filter((item) => {
     return item.director.toLowerCase().includes(director.toLowerCase());
