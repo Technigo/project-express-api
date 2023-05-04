@@ -1,7 +1,7 @@
 // /////////////////// IMPORTS //////////////////////////////// //
 // The first two lines import the express and cors packages,
 // which are used to create the server and enable Cross-Origin Resource Sharing (CORS).
-// The third line imports a JSON file containing data about avocado sales.
+// The third line imports a JSON file containing data about artists.
 import express from "express";
 import cors from "cors";
 import topMusicData from "./data/top-music.json";
