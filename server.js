@@ -42,12 +42,6 @@ const getBooksData = (prop, filterCriteria, filterProp) => {
   }
 }
 
-// filter books show books with ratings higher than 4
-app.get("/book-wellrated", (req, res) => {
-  res.status(200).json(getBooksData('title', 4));
-});
-
-
 // get all book titles 
 app.get("/book-titles", (req, res) => {
 res.status(200).json(getBooksData('title'))
