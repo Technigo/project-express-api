@@ -3,6 +3,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import wine from './data/wine.json';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
+
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -14,6 +17,12 @@ import wine from './data/wine.json';
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
+
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const swaggerJsdoc = require('swagger-jsdoc');
+// const swaggerUi = require('swagger-ui-express');
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -56,7 +65,9 @@ app.get('/wines/:id', (req, res) => {
 app.get('/origin/:origin', (req, res) => {
   const origin = req.params.origin;
   // add lowercase to both origin and country
-  const originCountry = wine.filter((item) => item.country === origin);
+  const originCountry = wine.filter(
+    (item) => item.country.toLowerCase() === origin.toLowerCase()
+  );
   res.json(originCountry);
 });
 
@@ -66,7 +77,9 @@ app.get('/country/:country', (req, res) => {
   const country = req.params.country;
   const points = req.query.points || 90; // if no query is added, default is 90
   const countryOrigin = wine.filter(
-    (item) => item.country === country && item.points >= +points
+    (item) =>
+      item.country.toLowerCase() === country.toLowerCase() &&
+      item.points >= +points
   );
   res.json(countryOrigin);
 });
@@ -75,7 +88,9 @@ app.get('/country/:country', (req, res) => {
 // example http://localhost:8080/variety/Chardonnay
 app.get('/variety/:variety', (req, res) => {
   const variety = req.params.variety;
-  const varietyWine = wine.filter((item) => item.variety === variety);
+  const varietyWine = wine.filter(
+    (item) => item.variety.toLowerCase() === variety.toLowerCase()
+  );
   res.json(varietyWine);
 });
 
@@ -148,6 +163,42 @@ app.get('/wines', (req, res) => {
   };
   res.json(returnObject);
 });
+
+// ERROR route
+// app.get('*', (req, res) => {
+//   res.status(404).json({
+//     success: false,
+//     message: 'Error: Route not found',
+//     body: {},
+//   });
+// });
+
+// implement swagger documentation
+// http://localhost:8080/api-docs/
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Wine Reviews API',
+      version: '1.0.0',
+      description: 'A simple Express Library API',
+    },
+    servers: [
+      {
+        url: 'http://localhost:8080',
+      },
+    ],
+  },
+  apis: ['./server.js'],
+};
+
+const specs = swaggerJsdoc(options);
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
+// explorer:true to show the operations in the left sidebar
 
 // Start the server
 app.listen(port, () => {

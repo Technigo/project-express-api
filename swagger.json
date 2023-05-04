@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Wine for accesing wine reviews"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "wines",
+      "description": "Wine for accesing wine reviews"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/wines": {
+      "get": {
+        "tags": ["wines"],
+        "description": "Get all wine reviews",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "An array of wine reviews",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Wine"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wines/{id}": {
+      "get": {
+        "tags": ["wines"],
+        "description": "Get wine review by id",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of wine review to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A wine review",
+            "schema": {
+              "$ref": "#/definitions/Wine"
+            }
+          },
+          "404": {
+            "description": "Wine review not found"
+          }
+        }
+      }
+    }
+  }
+}
