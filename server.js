@@ -26,10 +26,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  // const averageRating = req.average_rating
   let books = booksData
+  const title = req.query.title
+  const rating = req.query.average_rating
 
-if (books) {
+if (title) {
+  books = books.filter((singleBookTitle) => 
+    singleBookTitle.title.toLowerCase().includes(title.toLowerCase()))
+}
+
+// if (rating) {
+//   books = books.filter((singleBookRating) => 
+//     singleBookRating.average_rating.toString() >= rating.toString())
+//     // singleBookRating.rating.includes(rating))
+//     // singleBookRating.rating >= Number(rating))
+// }
+
+if (books.length >= 1) {
   res.status(200).json({
     success: true, 
     message: "OK", 
@@ -40,7 +53,7 @@ if (books) {
 } else {
   res.status(500).json({
     success: false, 
-    message: "Something went wrong", 
+    message: "Can't find any title that includes this query value", 
     body: {}
   })
 }
@@ -51,11 +64,11 @@ app.get("/books/:id", (req, res) => {
   // const { id } = request.params 
   const id = req.params.id
   // const singleBook = booksData.filter((item) => item.bookID === Number(id))
-  const singleBook = booksData.find((book) => {
+  const singleBookID = booksData.find((book) => {
     return book.bookID === Number(id)
   })
 
-  if (singleBook) {
+  if (singleBookID) {
     res.status(200).json({
       success: true,
       message: "Book found",
