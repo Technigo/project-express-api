@@ -16,16 +16,22 @@ console.log(netflixData.length)
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+
 app.get('/', (req, res) => {
-  res.send("Hello Cats!!");
+  res.send({responseMessage: "Get your Netflix data"});
+
+  res.json(listEndpoints(app));
 });
 
+// Defines the root route which sends a string as a response
+// The code defines an endpoint to return a collection of results
+// Route takes query parameters and returns a collection of filtered data from the netflixData array.
 // http://localhost:8080/shows?type=Movie&country=United%20States
 // http://localhost:8080/shows?type=Movie&director=M. Night Shyamalan
 app.get('/shows', (req, res) => {
@@ -37,6 +43,8 @@ app.get('/shows', (req, res) => {
   res.json(filteredData);
 });
 
+// Defines a route that takes a parameter and returns a filtered collection of data.
+// The code defines an endpoint to return a single result
 // http://localhost:8080/year/2020 (or other years up to 2020)
 app.get('/year/:year', (req,res) => {
   const year = req.params.year
@@ -45,6 +53,7 @@ app.get('/year/:year', (req,res) => {
   res.type('json').send(formattedReleaseFromYear)
 })
 
+// Defines a route that takes a parameter and returns a filtered collection of data.
 // http://localhost:8080/type/Movie or http://localhost:8080/type/TV Show
 app.get('/type/:type', (req,res) => {
   const type = req.params.type
