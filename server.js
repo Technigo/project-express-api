@@ -67,6 +67,17 @@ app.get('/books/rating/:rating', (req, res) => {
     : res.status(404).send('No books with that rating found, please try again'); //if no books are found, send error message
 });
 
+// Endpoint to get top 10
+app.get('/books/top10', (req, res) => {
+  const top10 = Data.sort((a, b) => b.average_rating - a.average_rating).slice(
+    0,
+    10
+  );
+  top10.length !== 0
+    ? res.json(top10)
+    : res.status(404).send('No books found, please try again'); //if no books are found, send error message
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
