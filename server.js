@@ -17,12 +17,10 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
   res.json(listEndpoints(app));
 
 });
 
-// get all technigo members
 app.get("/books", (request, response) => {
   const { title } = request.query;
   let books = booksData;
@@ -129,7 +127,7 @@ app.get("/netflix/id/:id", (request, response) => {
 app.get("/netflix/released/:year", (request, response) => {
   const { year } = request.params;
   console.log("year: ", year);
-  const singleItem = netflixData.find((item) => {
+  const singleItem = netflixData.filter((item) => {
     return item.release_year === Number(year);
   });
   if (singleItem) {
@@ -147,8 +145,31 @@ app.get("/netflix/released/:year", (request, response) => {
       body: {}
     });
   } 
-  
 });
+
+app.get("/netflix/origin/:country", (request, response) => {
+  const { country } = request.params;
+  const singleItem = netflixData.filter((item) => {
+    return item.country.toLowerCase().replace(/\s/g, "") === country.toLowerCase().replace(/\s/g, "");
+    // return singleItem.country.toLowerCase() === country.toLowerCase();
+  });
+  if (singleItem) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        item: singleItem
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "Country not found",
+      body: {}
+    });
+  } 
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
