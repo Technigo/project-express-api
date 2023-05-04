@@ -1,13 +1,25 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Creating an express API. This week we installed and set up an Express server using Noce and the Google Cloud Platform  
 
 ## The problem
+First I downloaded the repo and set up my account on Google cloud platform. I created the server.js using the books.json as my data package. I tested the API in postman and seemed to get all the endpoints i was searching for so I continued to try to created a frontend to better show the data from the API.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+API ENDPOINTS
+To filter books and show books with ratings higher than 4:
+/book-wellrated 
+
+To get all book titles availible with the API:
+/book-titles
+
+To get all authors: 
+/book-authors
+
+To find a book with a specific title or specific words in the title:
+/book-titles/:title
 
 ## View it live
+API from Cloud Platform 
+https://project-express-api-7co7srd3ia-lz.a.run.app
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Frontend Repo
+https://github.com/jenster5/project-express-api-frontend
