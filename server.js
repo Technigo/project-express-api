@@ -90,6 +90,28 @@ app.get('/movies/rank/:rank', (req, res) => {
   }
 })
 
+app.get('/movies/title/:title', (req, res) => {
+  const { title } = req.params
+  const movieTitle = data.find((item) => {
+    return item.title.toLowerCase() === title.toLowerCase()
+  })
+  if (movieTitle) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        title: movieTitle
+      }
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Movie not found",
+      body: {}
+    })
+  }
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
