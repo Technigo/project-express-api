@@ -16,10 +16,10 @@ app.get("/", (req, res) => {
     guide: "Routes for books API",
     Endpoints: [
       {
-        "/booksData": "Display all books",
-        "/booksData/reversed": "Reversed order of all books",
-        "/booksData/:id": "Search by numbers through all listed books",
-        "/booksData/title/:title": "Search for a title",
+        "/books": "Display all books",
+        "/books/reversed": "Reversed order of all books",
+        "/books/:id": "Search by numbers through all listed books",
+        "/books/title/:title": "Search for a title",
       },
     ],
   };
