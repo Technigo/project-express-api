@@ -26,11 +26,11 @@ app.get('/books', (req, res) => {
   // Write:
   // http://localhost:8080/books?title=hatchet to get a specific book or ....?author=douglas adams to get all the books from that author
   if (title) {
-    allBooks = allBooks.filter((singleBook) => singleBook.title.toLocaleLowerCase() === title.toLowerCase())
+    allBooks = allBooks.filter((singleBook) => singleBook.title.toLocaleLowerCase().includes(title.toLowerCase()))
   }
 
   if (author) {
-    allBooks = allBooks.filter((singleAuthor) => singleAuthor.authors.toLowerCase() === author.toLowerCase())
+    allBooks = allBooks.filter((singleAuthor) => singleAuthor.authors.toLowerCase().includes(author.toLowerCase()))
   }
 
   if (allBooks.length) {
