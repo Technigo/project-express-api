@@ -12,7 +12,18 @@ app.use(express.json());
 
 // Start defining your routes here to grt access. 
 app.get("/", (req, res) => {
-res.send({ responseMessage: "API about books" });
+  const navigation = {
+    guide: "Routes for books API",
+    Endpoints: [
+      {
+        "/booksData": "Display all books",
+        "/booksData/reversed": "Reversed order of all books",
+        "/booksData/:id": "Search by numbers through all listed books",
+        "/booksData/title/:title": "Search for a title",
+      },
+    ],
+  };
+res.send(navigation);
 });
 
 //Get all data for books
