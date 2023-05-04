@@ -31,7 +31,17 @@ const responseStatus = (request, response, workouts) => {
 
 // Defining routes
 app.get("/", (request, response) => {
-  response.json(listEndpoints(app));
+  const welcomeText = "Hello and welcome to the Keep Fit API. Use the endpoints below to search for workouts";
+  const apiLink = "https://project-express-api-cvzekbgn3q-lz.a.run.app/api-docs/";
+  const endpoints = (listEndpoints(app))
+  
+  response.send({
+    body: {
+      welcomeText,
+      apiLink,
+      endpoints
+    }
+  });
 });
 
 // get all workouts
