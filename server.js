@@ -8,7 +8,6 @@ import ITsalaryData from "./data/IT-salary.json"
 // overwrite PORT env variable value: PORT=9000 npm start:
 const port = process.env.PORT || 8080;
 const app = express();
-const listEndpoints = require('express-list-endpoints');
 
 // Add middlewares to enable cors and json body parsing:
 app.use(cors());
@@ -17,8 +16,16 @@ app.use(express.json());
 
 // Start defining your routes here ("req" = request, "res" = response):
 app.get("/", (req, res) => {
-  res.json({message: "Welcome to the IT Professional salary API! Have a look around.",
-    routes: listEndpoints(app)
+  res.json({message: "Welcome! This is a an API of salary patterns among IT professionals in the EU region, year 2020. Have a look around.",
+    routes: [
+      {"/": "Index route. Information about all available routes."},
+      {"/professionals": "All IT professionals who participated in the survey."},
+      {"/professionals?salary=[salaryhere]": "Sort IT professionals by salary."},
+      {"/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language."},
+      {"/professionals/:gender": "Sort IT professionals by gender."},
+      {"/professionals/highesttolowest": "Sort salaries by highest to lowest."},
+      {"/professionals/lowesttohighest": "Sort salaries by lowest to highest."},
+    ]
   });
 });
 
