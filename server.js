@@ -17,8 +17,8 @@ app.use(express.json());
 
 // Start defining your routes here ("req" = request, "res" = response):
 app.get("/", (req, res) => {
-  res.json({responseMessage: "Welcome to the IT Professional salary API!",
-    data: listEndpoints(app)
+  res.json({message: "Welcome to the IT Professional salary API! Have a look around.",
+    routes: listEndpoints(app)
   });
 });
 
