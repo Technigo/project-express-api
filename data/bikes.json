@@ -1,0 +1,93 @@
+[
+    {
+        "_id": 1,
+        "name": "BlueDanger",
+        "type": "BMX",
+        "alive": false
+    },
+    {
+        "_id": 2,
+        "name": "Barbie",
+        "type": "BMX",
+        "alive": false
+    },
+    {
+        "_id": 3,
+        "name": "PurpleRain",
+        "type": "MTB",
+        "alive": false
+    },
+    {
+        "_id": 4,
+        "name": "White Dakar",
+        "type": "MTB",
+        "alive": false
+    },
+    {
+        "_id": 5,
+        "name": "BlueSteel",
+        "type": "Slow",
+        "alive": false
+    },
+    {
+        "_id": 6,
+        "name": "SilverDeath",
+        "type": "Slow",
+        "alive": false
+    },
+    {
+        "_id": 7,
+        "name": "UnCanny Mr Trek",
+        "type": "MTB",
+        "alive": false
+    }
+    ,
+    {
+        "_id": 8,
+        "name": "Mrs Pain",
+        "type": "Fixie",
+        "alive": true
+    },
+    {
+        "_id": 9,
+        "name": "Dama BabySpice Bianchi",
+        "type": "Racer",
+        "alive": false
+    },
+    {
+        "_id": 10,
+        "name": "Thunder1 Canyon Aeroad",
+        "type": "Racer",
+        "alive": false
+    },
+    {
+        "_id": 11,
+        "name": "Ransom Mr Scott",
+        "type": "MTB",
+        "alive": false
+    },
+    {
+        "_id": 12,
+        "name": "Blue Braindamage",
+        "type": "Gravel",
+        "alive": false
+    },
+    {
+        "_id": 13,
+        "name": "SilverMoon",
+        "type": "Slow",
+        "alive": false
+    },
+    {
+        "_id": 14,
+        "name": "Thunder2 Canyon Aeroad",
+        "type": "Racer",
+        "alive": true
+    },
+    {
+        "_id": 15,
+        "name": "Holy Grail Canyon",
+        "type": "Gravel",
+        "alive": true
+    }
+]
