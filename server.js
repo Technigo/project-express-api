@@ -13,17 +13,55 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Enter your paths to get books from the list");
+  res.send("Welcome to The Book Server. Enter a path provided in the documentation to get book data");
 });
 
-// get the whole booklist
-app.get("/books", (req, res) =>
-  res.json(booksData)
-);
+// get the whole booklist (and filter by title, author or id)
+app.get("/books", (req, res) => {
+  const { title, author, id } = req.query;
 
-//Sorting function for ascending order
+  let filteredBooks = booksData;
+
+  if (title) {
+    filteredBooks = filteredBooks.filter((book) => {
+      return book.title.toLowerCase().includes(title.toLowerCase());
+    });
+  }
+
+  if (author) {
+    filteredBooks = filteredBooks.filter((book) => {
+      return book.authors.toLowerCase().includes(author.toLowerCase());
+    });
+  }
+
+  if (id) {
+    filteredBooks = filteredBooks.filter((book) => {
+      return book.bookID === Number(id);
+    });
+  }
+  // If there is more than 0 matches, this json is returned 
+  if (filteredBooks.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: `Found ${filteredBooks.length} books`,
+      body: {
+        books: filteredBooks,
+      },
+    });
+  } else {  // if no matches found
+    res.status(404).json({
+      success: false,
+      message: "404 No matching books found",
+      body: {},
+    });
+  }
+});
+
+
+//Sorting function for authors in ascending order
 app.get("/books/authors", (req, res) => {
-  const sorting = (arr, key, direction = 'asc') => {
+  
+  const sorting = (arr, key, direction = 'asc') => {   
     if (direction === 'asc') {
       return arr.sort((a, b) => (a[key] > b[key]) ? 1 : (b[key] > a[key] ? -1 : 0))
     } else {
@@ -31,19 +69,35 @@ app.get("/books/authors", (req, res) => {
     }
   };
 
-  const sortedByAuthorAsc = sorting(booksData, 'authors');
-  //Make if-statement to sort by title etc.
-  // const sortedByTitle = sorting(booksData, 'title');
-  res.json(sortedByAuthorAsc);
+  let sortedByAuthorAsc = sorting(booksData, 'authors');
+  
+  if (sortedByAuthorAsc.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: 'Books sorted by author',
+      body: {
+        books: sortedByAuthorAsc
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: '404 found no authors to sort',
+      body: {}
+    });
+  }
 });
+
+
 
 // Books sorted by rating and top N rated numbers by query (eg. localhost:8080/rating?topN=5 gives top 5)
 app.get("/books/ratings", (req, res) => {
-  const topN = req.query.topN;
+  const { topN } = req.query;
 
   let booksByRating = booksData.sort((a, b) => b.average_rating - a.average_rating);
   
   if (topN) {
+
     booksByRating = booksByRating.slice(0, topN)
   };
 
@@ -73,35 +127,7 @@ app.get('/books/pages', (req, res) => {
   res.json(sortedCount);
 });
 
-//Get single book by Id, title or name
-app.get("/books/:id", (req, res) => {
-  const singleBook = booksData.find((book) => {
-    const { id } = req.params;
-    return book.bookID === Number(req.params.id);
-  });
 
-  if (singleBook) {
-    res.status(200).json({
-      sucess: true,
-      message: 'OK',
-      body: {
-        book: singleBook
-      }
-      });
-  } else {
-    res.status(500).json({
-      sucess: false,
-      message: 'Book not found',
-      body: {}
-    });
-  };
-});
-
-/* More todos:
-Add more filters, like: Return books that has a ratings count over 100
-// Add a return body for the response status(200) and (500)
-
-*/
 
 // Start the server
 app.listen(port, () => {

@@ -1,12 +1,10 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a RESTful API for fetching data from a collection of books in JSON format. It allows users to filter, sort, and retrieve books based on various criteria.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started out by fetching the whole list of books and then proceeded with fetching more and more specific parts of the data. After having fetched all the aquired data, I started combining and rewriting different get-request to avoid to much repetition in the code.
 
 ## View it live
 

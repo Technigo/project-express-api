@@ -1,0 +1,22 @@
+This is a RESTful API for fetching data from a collection of books in JSON format. It allows users to filter, sort, and retrieve books based on various criteria.
+
+The endpoints are:
+GET '/': returns a welcome text indicating that the server is running.
+GET '/books': Retrieves the whole list of books and allows filtering by book title, author, and id. Returns a JSON object containing a success message, a list of books, and the number of books found.
+GET /books/authors: Retrieves the list of books sorted by author in ascending order. Allows filtering by author name.
+GET /books/ratings: Retrieves the list of books sorted by average rating in descending order. Allows filtering by the number of books to retrieve.
+GET /books/pages: Retrieves the list of books filtered by the number of pages in the book. Allows filtering by minimum and maximum number of pages. Returns a JSON object containing a list of books sorted by page count.
+
+Query parameters
+title: Filters the list of books by title. (Eg. ?title=Harry Potter)
+author: Filters the list of books by author. (Eg. ?author=Tolkien)
+id: Filters the list of books by id. (Eg. ?id=1)
+name: Filters the list of books by author name.
+topN: Filters the list of books by the number of books to retrieve. (Eg. ?topN=10 for top 10 books)
+min: Filters the list of books by minimum number of pages. (Eg. ?min=100)
+max: Filters the list of books by maximum number of pages. (Eg. ?max=500)
+
+Responses
+200 - 'OK', the request was successful. Response in body.
+404 - 'Not found', requested resource was not found.
+500 - 'Internal error', The server encountered an error while processing the request.
