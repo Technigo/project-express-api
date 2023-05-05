@@ -1,11 +1,13 @@
 # Project Express API
 
-This project provides a comprehensive guide on setting up and deploying an Express server, building an API using Express, and creating routes. Additionally, it covers data manipulation techniques in JavaScript and how to run unit tests.
+This is a backend project that has API:s built using Express. 
 
 ## The problem
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I based a lot of the code on a code long and live session from Technigo. I also got some help from ChatGPT in getting the res.status in the right place.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-kpnlmcrmoq-lz.a.run.app
+
