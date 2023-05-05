@@ -24,7 +24,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello and welcome to Ninas first express API, select: /endpoints to see more data");
+  res.send(listEndpoints(app))
 });
 
 // Route to see all available endpoints
