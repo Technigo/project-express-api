@@ -19,14 +19,14 @@ app.get("/", (req, res) => {
   res.json({message: "Welcome! This is a an API of salary patterns among IT professionals in the EU region, taken from a survey done in 2020. Have a look around.",
     routes: [
       {
-        "/": "Index route. Information about all available routes.",
-      "/professionals": "All IT professionals who participated in the survey.",
-      "/professionals?salary=[salary]": "Sort IT professionals by salary.",
-      "/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language.",
-      "/professionals/:gender": "Sort IT professionals by gender.",
-      "/random-professional": "Get a randomly selected professional.",
-      "/highesttolowest": "Sort salaries by highest to lowest.",
-      "/lowesttohighest": "Sort salaries by lowest to highest."
+        "/": "Index route. Information about all available routes",
+      "/professionals": "All IT professionals who participated in the survey",
+      "/professionals?salary=[salary]": "Sort IT professionals by salary",
+      "/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language",
+      "/professionals/:gender": "Sort IT professionals by gender",
+      "/random-professional": "Get a randomly selected professional",
+      "/highesttolowest": "Sort salaries by highest to lowest",
+      "/lowesttohighest": "Sort salaries by lowest to highest"
       }
     ]
   });
@@ -62,7 +62,7 @@ app.get("/highesttolowest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered from highest to lowest.`,
+      message: `Success! Salaries ordered from highest to lowest`,
       body: {
         professionals: sortedProfessionals
       }
@@ -71,7 +71,7 @@ app.get("/highesttolowest", (req, res) => {
   else {
     res.status(404).json({
       success: false,
-      message: "No IT professionals found.",
+      message: "No IT professionals found",
       body: {}
     })
   }
@@ -85,7 +85,7 @@ app.get("/lowesttohighest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered from lowest to highest.`,
+      message: `Success! Salaries ordered from lowest to highest`,
       body: {
         professionals: sortedProfessionals
       }
@@ -94,7 +94,7 @@ app.get("/lowesttohighest", (req, res) => {
   else {
     res.status(404).json({
       success: false,
-      message: "No IT professionals found.",
+      message: "No IT professionals found",
       body: {}
     })
   }
@@ -105,7 +105,7 @@ app.get("/random-professional", (req, res) => {
 const professional =  ITsalaryData[Math.floor(Math.random()*ITsalaryData.length)];
 res.status(200).json({
   success: true,
-  message: "Successfully selected randomized IT professional.",
+  message: "Successfully selected randomized IT professional",
   body: {
     professional
   }
@@ -131,7 +131,7 @@ app.get("/professionals/:gender", (req, res) => {
   else {
     res.status(404).json({
       success: false,
-      message: "No IT professionals found.",
+      message: "No IT professionals found",
       body: {}
     })
   }
