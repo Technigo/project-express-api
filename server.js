@@ -30,12 +30,16 @@ res.send(navigation);
 app.get("/books", (req, res) => {
   let books = booksData 
 
+  const { minirating } = req.query
+  console.log('minirating:', minirating)
+
   if (books) {
 
   res.status(200).json({
     success: true, 
     message: "OK",
     body: {
+      content: "All books!",
       books: booksData
     }
   });
