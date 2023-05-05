@@ -5,20 +5,21 @@ import ITsalaryData from "./data/IT-salary.json"
 
 // The following defines the port the app will run on. Defaults to 8080,
 // but can be overridden when starting the server (if needed). Example command to
-// overwrite PORT env variable value: PORT=9000 npm start
+// overwrite PORT env variable value: PORT=9000 npm start:
 const port = process.env.PORT || 8080;
 const app = express();
 const listEndpoints = require('express-list-endpoints');
 
-// Add middlewares to enable cors and json body parsing
+// Add middlewares to enable cors and json body parsing:
 app.use(cors());
 app.use(express.json());
 
 
-// Start defining your routes here ("req" = request, "res" = response)
+// Start defining your routes here ("req" = request, "res" = response):
 app.get("/", (req, res) => {
-  res.json(listEndpoints(app));
-  
+  res.json({responseMessage: "Welcome to the IT Professional salary API!",
+    data: listEndpoints(app)
+  });
 });
 
 // Get all developers, and sort by salary and work language:
@@ -43,7 +44,7 @@ app.get("/professionals", (req, res) => {
 });
 
 
-// Get salaries by highest to lowest:
+// Sort salaries by highest to lowest:
 app.get("/professionals/highesttolowest", (req, res) => {
   let professionals = ITsalaryData;
   const sortedProfessionals = professionals.sort((a, b) => b.yearly_salary - a.yearly_salary);
@@ -51,7 +52,7 @@ app.get("/professionals/highesttolowest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered by highest to lowest.`,
+      message: `Success! Salaries ordered from highest to lowest.`,
       body: {
         professionals: sortedProfessionals
       }
@@ -66,7 +67,7 @@ app.get("/professionals/highesttolowest", (req, res) => {
   }
 });
 
-// Get salaries by lowest to highest
+// Sort salaries by lowest to highest:
 app.get("/professionals/lowesttohighest", (req, res) => {
   let professionals = ITsalaryData;
   const sortedProfessionals = professionals.sort((a, b) => a.yearly_salary - b.yearly_salary);
@@ -74,7 +75,7 @@ app.get("/professionals/lowesttohighest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered by lowest to highest.`,
+      message: `Success! Salaries ordered from lowest to highest.`,
       body: {
         professionals: sortedProfessionals
       }
@@ -89,7 +90,7 @@ app.get("/professionals/lowesttohighest", (req, res) => {
   }
 });
 
-//Get developers by gender:
+// Filter developers by gender:
 app.get("/professionals/:gender", (req, res) => {
   const gender = req.params.gender;
   const matchingProfessionals = ITsalaryData.filter((singleProfessional) => {
@@ -114,9 +115,7 @@ app.get("/professionals/:gender", (req, res) => {
   }
 });
 
-//Order developers by salary, highest to lowest:
-
-// Start the server
+// Start the server:
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
