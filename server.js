@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Defines the routes
-app.get("/", (req, response) => {
+app.get("/", (request, response) => {
 const bookGuide = {
   Routes: [
     {
@@ -30,7 +30,7 @@ const bookGuide = {
 });
 
 // Gets all books in array
-app.get("/books", (req, response) => {
+app.get("/books", (request, response) => {
   response.status(200).json({books: books});
   
 });
@@ -86,11 +86,11 @@ app.get("/isbn/:isbn", (request, response) => {
 });
 
 // books sorted by average rating, highest to lowest
-app.get("/best", (req, res) => {
+app.get("/best", (request, response) => {
   const best = books.sort(
     (a, b) => b.average_rating - a.average_rating
   )
-  res.status(200).json(best)
+  response.status(200).json(best)
 })
 
 
