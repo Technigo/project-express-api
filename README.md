@@ -7,7 +7,7 @@
 ✓ Unit tests: What they are and how to run them
 
 ## The problem
-The startup with POSTMAN was my main difficulties. Ones I understood how it works, how to create names for the routes was also an interesting process. Still in learning process how to code more specifik API-route as I only managed one step which shows on my frontend so that will be for the future to fix. 
+The startup with POSTMAN was my main difficulties. Ones I understood how it works, how to create names for the routes was also an interesting process. Adding front end to all route paths, managed one tho API is working for futher searches. Something to practice more of in future.
 
 Adding some frontend to this project gave me more perspective of earlier programs we've been working on and how it all syncs. 
 
