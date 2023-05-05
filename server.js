@@ -1,10 +1,12 @@
-import express, { response } from "express";
+import express from 'express';
+import bodyParser from 'body-parser';
 import cors from "cors";
 import topMusicData from "./data/top-music.json";
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 
 //Global variables
 const trackNames = topMusicData.map((item) => item.trackName);
-console.log(trackNames)
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -20,83 +22,50 @@ console.log(trackNames)
 const port = process.env.PORT || 8080;
 const app = express();
 const listEndpoints = require('express-list-endpoints');
+const swaggerDocument = require('./swagger.json');
+/* const express = require("express"),
+  bodyParser = require("body-parser"),
+  swaggerJsdoc = require("swagger-jsdoc"),
+  swaggerUi = require("swagger-ui-express");
+  */
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
-app.use(express.json());
+//app.use(express.json());
+app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("go to /endpoints to see available endpoints");
+  res.send("Welcome! Go to /endpoints to see available endpoints");
 });
 
 app.get('/endpoints', (req, res) => {
  res.json(listEndpoints(app));
-//res.json(data)
 });
 
-app.get('/dataset', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "OK",
-    body: {
-      data: topMusicData
-    }
-  })
-})
-
-//gets an array of all the tracknames
-app.get('/songlist', (req, res) => {
-  const { songs } = req.query;
-  console.log(req.query)
-  let filteredTrackNames = topMusicData
- 
-  if (songs) {
-    filteredTrackNames = topMusicData.filter((singleSongs) => {
-    return singleSongs.trackName.toLowerCase() === songs.toLowerCase();
-  });
-}
-
-if (filteredTrackNames.length > 0) {
-  res.status(200).json({
-    success: true,
-    message: "OK",
-    body: {
-      trackNames: trackNames
-    }
+    // returns the full dataset
+    app.get('/dataset', (req, res) => {
+      try {
+        let allData = topMusicData;
+    
+        res.status(200).json({
+          success: true,
+          message: "OK",
+          body: {
+            allData: allData
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({
+          success: false,
+          message: "There was a problem handling the requested data",
+          body: {}
+        });
+      }
     });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: "There was a problem handling the requested data",
-      body: {}
-    });
-  }
-});
 
-// to search for a single track by name
-app.get('/songlist/name/:songname', (req, res) => {
-const { songname } = req.params;
-const song = topMusicData.find((track) => {
-  return track.trackName == songname
-})
-if(song) {
-  res.status(200).json({
-    success: true,
-      message: "OK",
-      body: {
-        track: song
-      }});
-  } else {
-    res.status(404).json({
-      success: false,
-      message: "Track not found",
-      body: {}
-    });
-  }
-})
-
-//returns a single track based on id
+    //returns a single track based on id
 app.get('/dataset/:id', (req, res) => {
   const { id } = req.params;
   const singletrack = topMusicData.find((track) => {
@@ -119,8 +88,9 @@ app.get('/dataset/:id', (req, res) => {
   }
 });
 
+
 // returns a list of all genres in the dataset
-app.get('/genre', (req, res) => {
+app.get('/genres', (req, res) => {
   const { genres } = req.query;
   console.log(req.query)
   let filteredByGenres = topMusicData
@@ -150,10 +120,9 @@ if (filteredByGenres.length > 0) {
   }
 });
 
-
 //returns all the songs in a specified genre
-app.get('/genre/:genreName', (req, res) => {
-  const { genreName } = req.params;
+app.get('/genres/:genreName', (req, res) => {
+  let { genreName } = req.params;
   const songsFilteredByGenreName = topMusicData.filter((song) => {
     return song.genre.toLowerCase() === genreName.toLowerCase();
   });
@@ -176,32 +145,217 @@ app.get('/genre/:genreName', (req, res) => {
   }
 })
 
-//songs sorted by danceability starting with the most danceable
-app.get('/songlist/danceability', (req, res) => {
-  const sortedSongs = topMusicData
-  .sort((a, b) => b.danceability - a.danceability)
-  .map(item =>item.trackName); 
 
-  if (sortedSongs.length > 0) {
+//gets an array of all the tracknames and artists
+app.get('/songlist', (req, res) => {
+ const allTracks = topMusicData.map((item) => {
+    return {
+      trackName: item.trackName,
+      artistName: item.artistName
+    }
+  })
+
+if (allTracks.length > 0) {
   res.status(200).json({
     success: true,
     message: "OK",
     body: {
-      songs: sortedSongs
+      allTracks: allTracks
     }
-  })
-} else {
-  res.status(500).json({
-    success: false,
-    message: "There was a problem handling the requested data",
-    body: {}
-  });
-}
+    });
+  } else {
+    res.status(500).json({
+      success: false,
+      message: "There was a problem handling the requested data",
+      body: {}
+    });
+  }
+});
+
+// Shows all available information on a single song
+app.get('/songlist/single/:songname', (req, res) => {
+  let { songname } = req.params;
+
+  // Remove question marks from song name, since they don't work in a URL
+  songname = songname.replace(/\?/g, "");
+
+  console.log("songname:", songname)
+
+  let bestMatch = null;
+  let highestScore = 0;
+
+  // Loop through each song and compare it to the user's input
+  for (let i = 0; i < topMusicData.length; i++) {
+    const trackName = topMusicData[i].trackName.toLowerCase();
+    const userQuery = songname.toLowerCase();
+
+    // Compute the similarity score between the song name and the user's input. This is to complete the url if the user misspells or doesn't type the full title.
+    let score = 0;
+    let j = 0;
+    for (let k = 0; k < userQuery.length; k++) {
+      if (j >= trackName.length) break;
+      if (userQuery[k] == trackName[j]) {
+        score++;
+        j++;
+      }
+    }
+    score /= trackName.length;
+
+    // Update the best match if this song is a better match than the previous best match
+    if (score > highestScore) {
+      bestMatch = topMusicData[i];
+      highestScore = score;
+    }
+  }
+
+  if (bestMatch) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        track: bestMatch
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Track not found",
+      body: {}
+    });
+  }
 })
 
+// sorts all the data according to danceability or popularity, and displays specified information
+app.get('/songlist/sort/:sortBy', (req, res) => {
+  const { sortBy } = req.params;
+  let sortedSongs = topMusicData;
+console.log("sortBy:", sortBy)
+  switch(sortBy) {
+    case 'danceability':
+      sortedSongs = topMusicData
+        .sort((a, b) => b.danceability - a.danceability)
+        .map(item => {
+          return {
+            trackName: item.trackName,
+            danceability: item.danceability,
+            bpm: item.bpm
+          }
+        })
+      break;
+    case 'popularity':
+      sortedSongs = topMusicData
+        .sort((a, b) => b.popularity - a.popularity)
+        .map(item => {
+          return {
+            trackName: item.trackName,
+            popularity: item.popularity,
+            artist: item.artistName
+          }
+        })
+      break;
+    default:
+      return res.status(400).json({
+        success: false,
+        message: "Invalid param. You can sort by 'danceability' or 'popularity'.",
+        body: {}
+      })
+  }
+
+  if (sortedSongs.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        songs: sortedSongs
+      }
+    })
+  } else {
+    res.status(500).json({
+      success: false,
+      message: "There was a problem handling the requested data",
+      body: {}
+    });
+  }
+})
+
+// makes a top 10 list of songs that have the highest parameter score. For example /top10value=energy
+app.get('/songlist/top10', (req, res) => {
+  const { top10value } = req.query;
+  let  top10tracks = topMusicData
+  console.log("top10value:", top10value)
+  if (top10value) {
+    top10tracks = topMusicData
+    .sort((a, b) => b[top10value] - a[top10value])
+  .slice(0, 9)
+  .map(item => {
+  return {
+    trackname: item.trackName,
+    [top10value]: item[top10value],
+    artistName: item.artistName
+  }
+});
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        top10tracks: top10tracks
+      }
+    })
+  } else {
+    res.status(500).json({
+      success: false,
+      message: "There was a problem handling the requested data",
+      body: {}
+    });
+  }
+})
+
+// empty endponints: 
+// '/playlist' to make a playlist out of songs based on genre or popularity score for example
+// '/top10/myTop10' an array of the top10 songs suggested for the user based on their input
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "topMusicData API",
+      version: "1.0.0",
+      description:
+        "This is a simple API application made with Express and documented with Swagger",
+      },
+    servers: [
+      {
+        url: "http://localhost:8080",
+      },
+    ],
+  },
+  apis: ['./server.js'],
+};
+
+const specs = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+//DOCUMENTATION
+//topMusicData is an API that allows the user to fetch data about a sample of 50 popular Spotify songs.
+//
+// */dataset
+//shows the entire unfiltered data
+//accept the following query params:
+//id: fetches a single song with the specified id. Available id's are 1-50
+
+// */ genres
+//returns all genres
+// accepts the following query params:
+//genreName: returns all the songs in a specified genre
+
+// */songlist
+// returns all tracknames
+// accepts the following query params:
+// songname: returns all available data on a specific song
+
+//*/songlist/sort

@@ -1,0 +1,639 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Top Music API",
+      "description": "API for accessing information about the top 50 songs on Spotify",
+      "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Home page",
+          "description": "Displays a welcome message",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "/endpoints": {
+        "get": {
+          "summary": "Endpoints",
+          "description": "Displays a list of all available endpoints",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "methods": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/dataset": {
+        "get": {
+          "summary": "All tracks",
+          "description": "Displays the full dataset of top 50 tracks",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "allData": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/Track"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
+      },
+      "/dataset/{id}": {
+        "get": {
+          "summary": "Single track",
+          "description": "Displays information about a single track by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "The ID of the track to retrieve",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "track": {
+                        "$ref": "#/definitions/Track"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Track not found",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            },
+            "/genres": {
+                "get": {
+                  "tags": ["genres"],
+                  "description": "Returns a list of all genres in the dataset",
+                  "parameters": [
+                    {
+                      "name": "genres",
+                      "in": "query",
+                      "description": "Filters the results by genre (case-insensitive)",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "Success",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "$ref": "#/components/schemas/GenreListResponse"
+                          }
+                        }
+                      }
+                    },
+                    "500": {
+                      "description": "Internal server error",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "$ref": "#/components/schemas/ErrorResponse"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/genres/{genreName}": {
+                "get": {
+                  "tags": [
+                    "Genres"
+                  ],
+                  "description": "Returns all the songs in a specified genre.",
+                  "operationId": "getAllSongsByGenre",
+                  "parameters": [
+                    {
+                      "name": "genreName",
+                      "in": "path",
+                      "description": "Name of the genre to filter songs by",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {
+                                "type": "object",
+                                "properties": {
+                                  "songNames": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "500": {
+                      "description": "No such genre in the top 50",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "/songlist": {
+                "get": {
+                  "tags": [
+                    "Songs"
+                  ],
+                  "description": "Returns an array of all the track names and artists",
+                  "responses": {
+                    "200": {
+                      "description": "Successful response",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean",
+                                "description": "Whether the request was successful"
+                              },
+                              "message": {
+                                "type": "string",
+                                "description": "Response message"
+                              },
+                              "body": {
+                                "type": "object",
+                                "properties": {
+                                  "allTracks": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "trackName": {
+                                          "type": "string",
+                                          "description": "Name of the track"
+                                        },
+                                        "artistName": {
+                                          "type": "string",
+                                          "description": "Name of the artist"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "500": {
+                      "description": "Internal server error",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean",
+                                "description": "Whether the request was successful"
+                              },
+                              "message": {
+                                "type": "string",
+                                "description": "Error message"
+                              },
+                              "body": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/songlist/single/{songname}": {
+                "get": {
+                  "tags": [
+                    "Genres"
+                  ],
+                  "description": "Returns all available information on a single song",
+                  "operationId": "getSingleSongByName",
+                  "parameters": [
+                    {
+                      "name": "songname",
+                      "in": "path",
+                      "description": "Name of the song to filter data by",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {
+                                "type": "object",
+                                "properties": {
+                                  "songNames": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "Track not found",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "/songlist/sort/{sortBy}": {
+                "get": {
+                  "tags": [
+                    "Song List"
+                  ],
+                  "summary": "Sorts all the data according to danceability or popularity, and displays specified information",
+                  "parameters": [
+                    {
+                      "name": "sortBy",
+                      "in": "path",
+                      "description": "The attribute to sort by (danceability or popularity)",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "Returns the sorted list of songs",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {
+                                "type": "object",
+                                "properties": {
+                                  "songs": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "trackName": {
+                                          "type": "string"
+                                        },
+                                        "danceability": {
+                                          "type": "number"
+                                        },
+                                        "bpm": {
+                                          "type": "number"
+                                        },
+                                        "popularity": {
+                                          "type": "number"
+                                        },
+                                        "artist": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "Invalid parameter value",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "500": {
+                      "description": "There was a problem handling the requested data",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/songlist/top10": {
+                "get": {
+                  "summary": "Returns a list of top 10 songs based on a specified parameter",
+                  "parameters": [
+                    {
+                      "name": "top10value",
+                      "in": "query",
+                      "description": "The parameter used to determine the top 10 songs (e.g. 'energy')",
+                      "required": false,
+                      "schema": {
+                        "type": "string",
+                        "enum": [
+                          "bpm",
+                          "energy",
+                          "danceability",
+                          "loudness",
+                          "liveness",
+                          "valence",
+                          "length",
+                          "acousticness",
+                          "speechiness",
+                          "popularity"
+                        ]
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "The top 10 songs based on the specified parameter",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {
+                                "type": "object",
+                                "properties": {
+                                  "top10tracks": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "trackname": {
+                                          "type": "string"
+                                        },
+                                        "bpm": {
+                                          "type": "integer"
+                                        },
+                                        "energy": {
+                                          "type": "integer"
+                                        },
+                                        "danceability": {
+                                          "type": "integer"
+                                        },
+                                        "loudness": {
+                                          "type": "integer"
+                                        },
+                                        "liveness": {
+                                          "type": "integer"
+                                        },
+                                        "valence": {
+                                          "type": "integer"
+                                        },
+                                        "length": {
+                                          "type": "integer"
+                                        },
+                                        "acousticness": {
+                                          "type": "integer"
+                                        },
+                                        "speechiness": {
+                                          "type": "integer"
+                                        },
+                                        "popularity": {
+                                          "type": "integer"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "Invalid query parameter. Must be one of: 'bpm', 'energy', 'danceability', 'loudness', 'liveness', 'valence', 'length', 'acousticness', 'speechiness', 'popularity'",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "500": {
+                      "description": "There was a problem handling the requested data",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "success": {
+                                "type": "boolean"
+                              },
+                              "message": {
+                                "type": "string"
+                              },
+                              "body": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+    }
+    
+              
+              
+              
