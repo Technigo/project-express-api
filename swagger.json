@@ -324,9 +324,6 @@
               },
               "/songlist/single/{songname}": {
                 "get": {
-                  "tags": [
-                    "Genres"
-                  ],
                   "description": "Returns all available information on a single song",
                   "operationId": "getSingleSongByName",
                   "parameters": [
@@ -633,7 +630,7 @@
             }
         }
     }
-    
+
               
               
               
