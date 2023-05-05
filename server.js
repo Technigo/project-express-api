@@ -49,7 +49,7 @@ app.get("/suit/:suit", (req, res) => {
   res.json(cardsFromSuit)
 })
 
-// End-point with single tarot cards, filtered from each suit-list
+// End-point with single tarot cards, filtered from each suit-list (because they don't have unique numbers(id))
 app.get("/suit/:suit/:number", (req, res) => {
   const suit = req.params.suit
   const number = req.params.number
