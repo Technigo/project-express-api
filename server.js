@@ -28,7 +28,24 @@ res.send(navigation);
 
 //Get all data for books
 app.get("/books", (req, res) => {
-  res.status(200).json({booksData})
+  let books = booksData 
+
+  if (books) {
+
+  res.status(200).json({
+    success: true, 
+    message: "OK",
+    body: {
+      books: booksData
+    }
+  });
+} else {
+  res.status(404).json({
+    success: false, 
+    message: "Something went wrong",
+    body: {}
+  });
+}
 });
 
 //Reverse order of books
@@ -63,16 +80,17 @@ app.get("/books/title/:title", (req, res) => {
 //Returning single book based on ID number if it exists otherwise 404-not found.
   app.get("/books/:id", (req, res) => {
     const { id } = req.params;
-  const singleBook = booksData.find((item) => {
+  const booksID = booksData.find((item) => {
     return item.bookID === Number(id)}
   );
  
-    if (singleBook) {
+    if (booksID) {
       res.status(200).json({
         success: true,
         message: "ok",
         body: {
-          book: singleBook
+          content: `Book with ID ${id}`,
+          book: booksID
         }
       });
     } else {
