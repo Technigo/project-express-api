@@ -22,7 +22,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.send({responseMessage: "Get your Netflix data, e.g. https://project-express-api-kpnlmcrmoq-lz.a.run.app/shows?type=Movie&country=United%20States "});
+  res.send({responseMessage: "Get your Netflix data, e.g. https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/TV%20Show"});
 
   res.json(listEndpoints(app));
 });
@@ -62,7 +62,6 @@ app.get('/year/:year', (req, res) => {
       netflixData: releaseFromYear
     }
   });
-
 });
 
 
@@ -81,7 +80,7 @@ app.get('/type/:type', (req,res) => {
     }
   });
 });
-
+console.log()
 // Filters Netflix data by title and/or director
 // title: 
 // https://project-express-api-kpnlmcrmoq-lz.a.run.app/netflix-data?title=dead%20to%20me
