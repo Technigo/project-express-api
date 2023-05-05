@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 import topMusicData from "./data/top-music.json";
 import swaggerUi from 'swagger-ui-express';
-import swaggerJsdoc from 'swagger-jsdoc';
 
 //Global variables
 const trackNames = topMusicData.map((item) => item.trackName);
@@ -278,7 +277,7 @@ console.log("sortBy:", sortBy)
   }
 })
 
-// makes a top 10 list of songs that have the highest parameter score. For example /top10value=energy
+// makes a top 10 list of songs that have the highest parameter score. For example /?top10value=energy
 app.get('/songlist/top10', (req, res) => {
   const { top10value } = req.query;
   let  top10tracks = topMusicData
@@ -286,7 +285,7 @@ app.get('/songlist/top10', (req, res) => {
   if (top10value) {
     top10tracks = topMusicData
     .sort((a, b) => b[top10value] - a[top10value])
-  .slice(0, 9)
+  .slice(0, 10)
   .map(item => {
   return {
     trackname: item.trackName,
@@ -332,7 +331,7 @@ const options = {
   apis: ['./server.js'],
 };
 
-const specs = require('./swagger.json');
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start the server
