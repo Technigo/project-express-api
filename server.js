@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Start defining your routes here ("req" = request, "res" = response):
 app.get("/", (req, res) => {
-  res.json({message: "Welcome! This is a an API of salary patterns among IT professionals in the EU region, year 2020. Have a look around.",
+  res.json({message: "Welcome! This is a an API of salary patterns among IT professionals in the EU region, taken from a survey done in 2020. Have a look around.",
     routes: [
       {"/": "Index route. Information about all available routes."},
       {"/professionals": "All IT professionals who participated in the survey."},
