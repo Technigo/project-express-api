@@ -14,3 +14,6 @@ https://project-express-api-jonj3fewvq-lz.a.run.app/
 
 Deployed frontend: 
 https://incandescent-lily-e46341.netlify.app/
+
+GitHub Repo for frontend:
+https://github.com/beemailley/project-express-api-frontend/
