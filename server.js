@@ -33,6 +33,13 @@ app.get("/endpoints", (req, res) => {
 });
 // get all netflix data
 app.get("/movies", (request, response) => {
+  const { title } = request.query;
+  let movies = netflixData;
+  if (title) {
+    movies = netflixData.filter((singleMovie) => {
+      return singleMovie.title.toLowerCase() == title.toLowerCase();
+    })
+  }
   response.status(200).json({
     data: netflixData,
     success: true,
