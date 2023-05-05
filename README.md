@@ -5,3 +5,7 @@ I have implemented a RESTful API using Node.js, Express.js, and various other mi
 ## View it live
 
 https://project-express-api-4yp4ksq4oa-lz.a.run.app/wines/44
+
+## Swagger
+add suffix /api-docs/
+https://project-express-api-4yp4ksq4oa-lz.a.run.app/api-docs/
