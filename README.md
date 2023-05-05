@@ -13,9 +13,14 @@ https://project-express-api-kpnlmcrmoq-lz.a.run.app
 
 Example endpoints:
 /shows?type=Movie&country=United%20States
+
 /shows?type=Movie&director=M.%20Night%20Shyamalan
+
 /year/2020
+
 /type/TV%20Show
+
 /netflix-data?title=dead%20to%20me
+
 /netflix-data?director=M.%20Night%20Shyamalan
 
