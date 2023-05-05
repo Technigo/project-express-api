@@ -1,14 +1,16 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+✓ How to install and set up an Express server
+✓ How to deploy Node projects
+✓ How to build an API in Node using Express
+✓ How to create routes in Express
+✓ Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+✓ Unit tests: What they are and how to run them
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The startup with POSTMAN was my main difficulties. Ones I understood how it works, how to create names for the routes was also an interesting process. 
+Adding some frontend to this project gave me more perspective of earlier programs we've been working on and how it all syncs. 
 
 ## View it live
 Front-End netlify link: https://leafy-klepon-2e1e55.netlify.app
 Express API link:  https://express-ip-ej5lzeqelq-lz.a.run.app
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
