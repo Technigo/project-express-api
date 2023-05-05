@@ -74,6 +74,7 @@ app.get("/", (req, res) => {
 app.get('/titles', (req, res) => {
   const type = req.query.type;
   const country = req.query.country;
+  const year = req.query.year;
 
 let titles = netflixData
 
@@ -94,24 +95,31 @@ if (country) {
   );
 }
 
-if (titles) {
-  res.status(200).json({
-    success: true,
-    message: "OK",
-    body: {
-      netflixData: titles
-    }
-  });
-}
+// filter all titles by year, to return an array = https://fiona-klacar-project-express-api.onrender.com/titles?year=2019
 
-else {
-res.status(500).json({
-  success: false,
-  message: "Something has gone wrong",
-  body: {}
+
+if (year) {
+    titles= titles.filter(singleNetflixDataPoint => 
+      singleNetflixDataPoint.release_year === Number(year))
+  }
+
+  if (titles.length === 0) {
+    res.status(500).json({
+      success: false,
+      message: "Not found",
+      body: {}
+      })
+      
+    } else {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        netflixData: titles
+  }
+  });
+ }
 })
-};
-});
 
 // filter by both type of title and country: http://localhost:8080/titles?type=tvshow&country=france
 
@@ -142,6 +150,19 @@ if (singleTitle) {
 res.json(singleTitle) 
 })
 
+
+// Dummy endpoint for POST request
+app.post('/titles', (req, res) => {
+  // Access the data from the request body
+  const title = req.body;
+
+  // Perform some action with the data
+  // Log it to the console
+  console.log(title);
+
+  // Send a response
+  res.send('New title data received');
+});
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
@@ -200,5 +221,3 @@ app.listen(port, () => {
   // if (country) {
   //   typeOfTitle = typeOfTitle.filter((item) => item.country.toLowerCase() === country )
   // }
-
-// https://fiona-klacar-project-express-api.onrender.com/
