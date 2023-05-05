@@ -68,8 +68,8 @@ app.get("/books/authors", (req, res) => {
       return arr.sort((a, b) => (a[key] < b[key]) ? 1 : ((b[key] < a[key]) ? -1 : 0))
     }
   };
-
-  let sortedByAuthorAsc = sorting(booksData, 'authors');
+  // passes the bookData and the key 'authors' to the sorting function and saves to variable.
+  const sortedByAuthorAsc = sorting(booksData, 'authors');
   
   if (sortedByAuthorAsc.length > 0) {
     res.status(200).json({
@@ -93,15 +93,27 @@ app.get("/books/authors", (req, res) => {
 // Books sorted by rating and top N rated numbers by query (eg. localhost:8080/rating?topN=5 gives top 5)
 app.get("/books/ratings", (req, res) => {
   const { topN } = req.query;
-
   let booksByRating = booksData.sort((a, b) => b.average_rating - a.average_rating);
   
   if (topN) {
-
     booksByRating = booksByRating.slice(0, topN)
   };
 
-  res.json(booksByRating);
+  if (booksByRating.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: 'Books sorted by rating', 
+      body: {
+        books: booksByRating
+      }
+    })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: '404 no books found',
+      body: {}
+    })
+  };
 });
 
 // Get books by min/max page number by query (Eg. /books/pages?minPages=100&maxPages=500)
