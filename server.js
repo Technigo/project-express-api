@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+//Show all data
 app.get("/fullmoon", (request, response) => {
   const fullmoon = fullMoonData;
   if (fullmoon) {
@@ -70,9 +71,10 @@ app.get("/fullmoon/:date", (request, response) => {
   } 
 });
 
+//Endpoint for different weekdays
 app.get("/fullmoon/weekday/:weekday", (request, response) => {
-  const weekday = request.params.weekday;
-  const weekdayWithFullmoon = fullMoonData.filter((day) => day.Day === weekday)
+  const weekday = request.params.weekday.toLowerCase();
+  const weekdayWithFullmoon = fullMoonData.filter((day) => day.Day.toLocaleLowerCase() === weekday)
 
   if (weekdayWithFullmoon.length > 0) {
     response.status(200).json({
