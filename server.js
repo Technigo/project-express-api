@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
       {"/professionals?salary=[salary]": "Sort IT professionals by salary."},
       {"/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language."},
       {"/professionals/:gender": "Sort IT professionals by gender."},
+      {"/random-professional": "Get a randomly selected professional."},
       {"/highesttolowest": "Sort salaries by highest to lowest."},
       {"/lowesttohighest": "Sort salaries by lowest to highest."},
     ]
