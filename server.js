@@ -1,6 +1,5 @@
 import express, { response } from "express";
 import cors from "cors";
-// import listEndpoints from "express-list-endpoints";
 import netflixData from "./data/netflix-titles.json";
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -25,8 +24,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  // res.send("Hello and welcome to Ninas first express API");
-  res.json(listEndpoints(app));
+  res.send("Hello and welcome to Ninas first express API, select: /endpoints to see more data");
 });
 
 // Route to see all available endpoints
@@ -42,44 +40,32 @@ app.get("/movies", (request, response) => {
 })
 
 
-app.get("/movies", (request, response) => {
+app.get("/movies/search", (request, response) => {
   const { title, release_year } = request.query;
-  let movies = netflixData;
+  let filteredMovies = netflixData;
   if (title) {
-    movies = netflixData.filter((singleMovie) => {
-      return singleMovie.title.toLowerCase() === title.toLowerCase();
+    filteredMovies = filteredMovies.filter((singleMovie) => {
+      return singleMovie.title.toLowerCase().includes(title.toLowerCase());
     });
   }
   if (release_year) {
-    movies = netflixData.filter((singleMovie) => {
+    filteredMovies = filteredMovies.filter((singleMovie) => {
       return singleMovie.release_year.toLowerCase() === release_year.toLowerCase()
     });
   }
-  if (movies) {
-    response.status(200).json({
-      success:true,
-      message: "OK",
-      body: {
-        netflixData: movies
-      }
-    });
-  } else {
-    response.status(500).json({
-      success:false,
-      message: "something went wrong",
-      body: {}
-    });
-  }
-  // res.json(netflixData);
+  res.status(200).json({
+    success: true,
+    message: "OK",
+    data: filteredMovies,
+  });
 });
 
-// DRY dont repeat yourself
 
 // get titles from netflixdata
 app.get("/movies/:title", (request, response) => {
   const { title } = request.params;
-  const singleTitle = netflixData.find((movies) => {
-    return movies.title == title;
+  const singleTitle = netflixData.find((movie) => {
+    return movie.title.toLowerCase() == title.toLowerCase();
   });
   if (singleTitle) {
     response.status(200).json({
