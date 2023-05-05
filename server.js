@@ -70,11 +70,26 @@ app.get("/fullmoon/:date", (request, response) => {
   } 
 });
 
-app.get("/fullmoon/day/:day"), (request, response) => {
-  const day = req.params.day;
-  const dayWithFullmoon = data.filter((item) => item.Day === day)
-  res.json(dayWithFullmoon)
-}
+app.get("/fullmoon/weekday/:weekday", (request, response) => {
+  const weekday = request.params.weekday;
+  const weekdayWithFullmoon = fullMoonData.filter((day) => day.Day === weekday)
+
+  if (weekdayWithFullmoon.length > 0) {
+    response.status(200).json({
+      success: true,
+      message: "ok",
+      body: {
+        weekdayFullmoons: weekdayWithFullmoon
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "No fullmoon this day",
+      body: {}
+    });
+  } 
+})
 
 
 // Start the server
