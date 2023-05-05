@@ -9,7 +9,7 @@ Bridget's Books is an API that allows users to fetch data about which books Brid
 * /bridgetsbooks
 methods: GET
 accepts the following query params: 
-readstatus: filters by the read status; the values of readstatus must be one of the following -> read, to-read, currently-reading, did-not-finish
+readstatus: filters by the read status; the values of readstatus must be one of the following -> read, to-read, currently-reading, did-not-finish & 
 author: filters by author name and accepts partial names as well as exact names
 
 * /bridgetsbooks/:isbn
