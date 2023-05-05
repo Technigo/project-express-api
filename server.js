@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import booksData from "./data/books.json";
+//import booksData from "./data/books.json";
+import fullMoonData from "./data/csvjson.json";
 //import bodyParser from 'body-parser'
 
 
@@ -25,14 +26,14 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-app.get("/books", (request, response) => {
-  const books = booksData;
-  if (books) {
+app.get("/fullmoon", (request, response) => {
+  const fullmoon = fullMoonData;
+  if (fullmoon) {
     response.status(200).json({
       success: true,
       message: "ok",
       body: {
-        booksData: books
+        fullMoonData: fullmoon
       }
     });
   } else {
@@ -44,28 +45,36 @@ app.get("/books", (request, response) => {
   } 
 })
 
-app.get("/books/:id", (request, response) => {
-const { id } = request.params;
-const singleBook = booksData.find((book) => {
-  return book.bookID === Number(id);
-});
-  if (singleBook) {
+//Endpoint for one specific date
+app.get("/fullmoon/:date", (request, response) => {
+  const singleFullmoon = fullMoonData.find((fullmoon) => {
+    const fullmoonDate = new Date(fullmoon.Date);
+    const requestDate = new Date(request.params.date);
+    return fullmoonDate.getTime() === requestDate.getTime();
+  });
+
+  if (singleFullmoon) {
     response.status(200).json({
       success: true,
       message: "ok",
       body: {
-        book: singleBook
+        fullmoon: singleFullmoon
       }
     });
   } else {
     response.status(404).json({
       success: false,
-      message: "Book not found",
+      message: "No fullmoon this date",
       body: {}
     });
   } 
-})
+});
 
+app.get("/fullmoon/day/:day"), (request, response) => {
+  const day = req.params.day;
+  const dayWithFullmoon = data.filter((item) => item.Day === day)
+  res.json(dayWithFullmoon)
+}
 
 
 // Start the server
