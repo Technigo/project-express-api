@@ -26,9 +26,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
+  res.json(data)
+})
+
+
+app.get("/books/title", (req, res) => {
   let books = booksData
   const title = req.query.title
-  const rating = req.query.average_rating
+  // const rating = req.query.average_rating
 
 if (title) {
   books = books.filter((singleBookTitle) => 
@@ -36,10 +41,10 @@ if (title) {
 }
 
 // if (rating) {
-//   books = books.filter((singleBookRating) => 
-//     singleBookRating.average_rating.toString() >= rating.toString())
+//     books = books.filter((singleBookRating) => 
+//       singleBookRating.average_rating >= Number(rating))
 //     // singleBookRating.rating.includes(rating))
-//     // singleBookRating.rating >= Number(rating))
+//    // singleBookRating.rating >= Number(rating))
 // }
 
 if (books.length >= 1) {
@@ -53,7 +58,7 @@ if (books.length >= 1) {
 } else {
   res.status(500).json({
     success: false, 
-    message: "Can't find any title that includes this query value", 
+    message: "Can't find any title that includes that value", 
     body: {}
   })
 }
