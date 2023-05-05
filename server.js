@@ -22,52 +22,99 @@ app.get("/", (req, res) => {
 });
 
 // Get all developers, and sort by salary and work language:
-app.get("/developers", (req, res) => {
-  let developers = ITsalaryData;
+app.get("/professionals", (req, res) => {
+  let professionals = ITsalaryData;
   const salary = req.query.salary;
   const worklanguage = req.query.worklanguage;
 
   if (salary) {
-    developers = ITsalaryData.filter((singleDeveloper) => {
-      return singleDeveloper.yearly_salary === parseInt(salary);
+    professionals = ITsalaryData.filter((singleProfessional) => {
+      return singleProfessional.yearly_salary === parseInt(salary);
     });
   }
 
   if (worklanguage) {
-    developers = ITsalaryData.filter((singleDeveloper) => {
-      return singleDeveloper.work_language.toLowerCase() === worklanguage.toLowerCase();
+    professionals = ITsalaryData.filter((singleProfessional) => {
+      return singleProfessional.work_language.toLowerCase() === worklanguage.toLowerCase();
     })
   }
 
-  res.send(developers);
+  res.send(professionals);
 });
 
 
-// Get developers by gender:
+// Get salaries by highest to lowest:
+app.get("/professionals/highesttolowest", (req, res) => {
+  let professionals = ITsalaryData;
+  const sortedProfessionals = professionals.sort((a, b) => b.yearly_salary - a.yearly_salary);
 
-app.get("/developers/:gender", (req, res) => {
-  const gender = req.params.gender;
-  const matchingDevelopers = ITsalaryData.filter((singleDeveloper) => {
-    return singleDeveloper.gender.toLowerCase() === gender.toLowerCase();
-  })
-
-  if (matchingDevelopers.length > 0) {
+  if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! All ${gender} developers. Amount: ${matchingDevelopers.length}`,
+      message: `Success! Salaries ordered by highest to lowest.`,
       body: {
-        developers: matchingDevelopers
+        professionals: sortedProfessionals
       }
     });
   }
   else {
     res.status(404).json({
       success: false,
-      message: "No developers found.",
+      message: "No IT professionals found.",
       body: {}
     })
   }
 });
+
+// Get salaries by lowest to highest
+app.get("/professionals/lowesttohighest", (req, res) => {
+  let professionals = ITsalaryData;
+  const sortedProfessionals = professionals.sort((a, b) => a.yearly_salary - b.yearly_salary);
+
+  if (sortedProfessionals.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: `Success! Salaries ordered by lowest to highest.`,
+      body: {
+        professionals: sortedProfessionals
+      }
+    });
+  }
+  else {
+    res.status(404).json({
+      success: false,
+      message: "No IT professionals found.",
+      body: {}
+    })
+  }
+});
+
+//Get developers by gender:
+app.get("/professionals/:gender", (req, res) => {
+  const gender = req.params.gender;
+  const matchingProfessionals = ITsalaryData.filter((singleProfessional) => {
+    return singleProfessional.gender.toLowerCase() === gender.toLowerCase();
+  })
+
+  if (matchingProfessionals.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: `Success! All ${gender} IT professionals. Amount: ${matchingProfessionals.length}`,
+      body: {
+        professionals: matchingProfessionals
+      }
+    });
+  }
+  else {
+    res.status(404).json({
+      success: false,
+      message: "No IT professionals found.",
+      body: {}
+    })
+  }
+});
+
+//Order developers by salary, highest to lowest:
 
 // Start the server
 app.listen(port, () => {
