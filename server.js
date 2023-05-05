@@ -104,7 +104,7 @@ app.get("/artists/:id", (req, res) => {
   if (singleArtist) {
     res.status(200).json({
       success: true,
-      massage: "OK",
+      message: "OK",
       body: {
         artistsMoma: singleArtist
       }
@@ -112,13 +112,13 @@ app.get("/artists/:id", (req, res) => {
   } else {
     res.status(404).json({
       success: false,
-      massage: "Artist not found",
+      message: "Artist not found",
       body: {}
     });
   }
 });
 
-app.get("/artists/:name", (req, res) => {
+app.get("/artists/name/:name", (req, res) => {
   const { name } = req.params
   console.log("The name parameter is:", name);
   const singleArtistName = artistsMoma.find((artist) => {
