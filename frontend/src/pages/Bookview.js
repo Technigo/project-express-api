@@ -3,7 +3,8 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux'
 
 import styled from 'styled-components'
-import { fetchRandomBook, fetchBook } from 'reducers/bookstore';
+import { bookstore } from 'reducers/bookstore';
+import { ui } from 'reducers/ui'
 
 const BookviewContainer = styled.div``
 
@@ -13,21 +14,31 @@ const BookInfoContainer = styled.div``
 
 const BookInfoText = styled.p``
 
-const Bookview = ({ random }) => {
+const Bookview = (random) => {
   const [book, setBook] = useState({});
   const { bookId } = useParams();
   const dispatch = useDispatch();
   const bookData = useSelector((state) => state.bookstore.book)
+  let fetchUrl = ''
+  if (random) { fetchUrl = 'http://localhost:8080/random' } else { fetchUrl = `http://localhost:8080/books/${bookId}` }
 
   useEffect(() => {
-    if (random) {
-      dispatch(fetchRandomBook());
-      setBook(bookData);
-    } else {
-      dispatch(fetchBook(bookId));
-      setBook(bookData);
-    }
-  }, [])
+    dispatch(ui.actions.setLoading(true))
+    fetch(fetchUrl, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(bookstore.actions.setBookData(json))
+      })
+      .finally(dispatch(ui.actions.setLoading(false)))
+    setBook(bookData);
+  }, [bookId, bookData, dispatch, fetchUrl]);
 
   return (
     <BookviewContainer>

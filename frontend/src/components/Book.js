@@ -45,7 +45,7 @@ const Book = (book) => {
       to={`/book/${book.book.bookID}`}>
       <BookContainer>
         <BookTitle>{book.book.title}</BookTitle>
-        <hr />
+
         <AuthorAndRatingContainer>
           <BookAuthors>{book.book.authors}</BookAuthors>
           <Rating>
