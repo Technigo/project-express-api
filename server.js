@@ -52,7 +52,7 @@ app.get("/professionals", (req, res) => {
 
 
 // Sort salaries by highest to lowest:
-app.get("/professionals/highesttolowest", (req, res) => {
+app.get("/highesttolowest", (req, res) => {
   let professionals = ITsalaryData;
   const sortedProfessionals = professionals.sort((a, b) => b.yearly_salary - a.yearly_salary);
 
@@ -75,7 +75,7 @@ app.get("/professionals/highesttolowest", (req, res) => {
 });
 
 // Sort salaries by lowest to highest:
-app.get("/professionals/lowesttohighest", (req, res) => {
+app.get("/lowesttohighest", (req, res) => {
   let professionals = ITsalaryData;
   const sortedProfessionals = professionals.sort((a, b) => a.yearly_salary - b.yearly_salary);
 
