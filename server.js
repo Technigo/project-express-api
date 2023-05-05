@@ -50,10 +50,19 @@ app.get('/shows', (req, res) => {
 
 // Defines a route that takes a parameter and returns a filtered collection of data.
 // The code defines an endpoint to return a single result
-// http://localhost:8080/year/2020 (or other years up to 2020)
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/year/2020 (or other years up to 2020)
 app.get('/year/:year', (req, res) => {
-  const year = req.params.year;
-  const releaseFromYear = netflixData.filter((item) => item.release_year.toLowerCase() === Number(year).toLowerCase());
+  const year = Number(req.params.year);
+
+  if (isNaN(year)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid year parameter',
+      body: null
+    });
+  }
+
+  const releaseFromYear = netflixData.filter((item) => item.release_year === year);
 
   res.status(200).json({
     success: true,
@@ -65,8 +74,9 @@ app.get('/year/:year', (req, res) => {
 });
 
 
+
 // Defines a route that takes a parameter and returns a filtered collection of data.
-// https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/Movie or 
+// https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/Movie  
 // https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/TV%20Show
 app.get('/type/:type', (req,res) => {
   const type = req.params.type
