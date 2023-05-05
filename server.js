@@ -55,19 +55,27 @@ app.get("/movies/search", (request, response) => {
   let filteredMovies = netflixData;
   if (title) {
     filteredMovies = filteredMovies.filter((singleMovie) => {
-      return singleMovie.title.toLowerCase().includes(title.toLowerCase());
+      return singleMovie.title.toLowerCase === (title.toLowerCase());
     });
   }
   if (release_year) {
     filteredMovies = filteredMovies.filter((singleMovie) => {
-      return singleMovie.release_year.toLowerCase() === release_year.toLowerCase()
+      return singleMovie.release_year === release_year;
     });
   }
-  res.status(200).json({
-    success: true,
-    message: "OK",
-    data: filteredMovies,
-  });
+  if (filteredMovies.length > 0) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      data: filteredMovies,
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "title not found",
+      body: {}
+    });
+  }
 });
 
 
