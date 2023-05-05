@@ -1,0 +1,55 @@
+@swagger
+components:
+  schemas:
+    NetflixShow:
+      type: object
+      properties:
+        show_id:
+          type: integer
+          description: The ID of the show
+        title:
+          type: string
+          description: The title of the show
+        director:
+          type: string
+          description: The name of the director(s)
+        cast:
+          type: string
+          description: The names of the cast members
+        country:
+          type: string
+          description: The country where the show was produced
+        date_added:
+          type: string
+          description: The date the show was added to Netflix
+        release_year:
+          type: integer
+          description: The year the show was released
+        rating:
+          type: string
+          description: The rating assigned to the show
+        duration:
+          type: string
+          description: The duration of the show
+        listed_in:
+          type: string
+          description: The categories the show is listed under
+        description:
+          type: string
+          description: A brief description of the show
+        type:
+          type: string
+          description: The type of show (either "Movie" or "TV Show")
+      example:
+        - show_id: 81193313
+          title: Chocolate
+          director: ''
+          cast: Ha Ji-won, Yoon Kye-sang, Jang Seung-jo, Kang Bu-ja, Lee Jae-ryong, Min Jin-woong, Kim Won-hae, Yoo Teo
+          country: South Korea
+          date_added: November 30, 2019
+          release_year: 2019
+          rating: TV-14
+          duration: 1 Season
+          listed_in: International TV Shows, Korean TV Shows, Romantic TV Shows
+          description: Brought together by meaningful meals in the past and present, a doctor and a chef are reacquainted when they begin working at a hospice ward.
+          type: TV Show
