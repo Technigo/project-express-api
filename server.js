@@ -85,6 +85,7 @@ app.get("/books/title/:title", (req, res) => {
     res.status(200).json({
       message: "There's no books here by that name",
       success: true,
+      body: {}
     });
   } else {
     res.status(200).json({
