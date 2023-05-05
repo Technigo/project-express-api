@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import technigoMembers from "./data/technigo-members.json"
 import ITsalaryData from "./data/IT-salary.json"
 
 
@@ -19,47 +18,56 @@ app.use(express.json());
 // Start defining your routes here ("req" = request, "res" = response)
 app.get("/", (req, res) => {
   res.json(listEndpoints(app));
+  
 });
 
-// Get all Technigo members:
+// Get all developers, and sort by salary and work language:
 app.get("/developers", (req, res) => {
-  let salary = req.query.salary;
   let developers = ITsalaryData;
+  const salary = req.query.salary;
+  const worklanguage = req.query.worklanguage;
 
   if (salary) {
     developers = ITsalaryData.filter((singleDeveloper) => {
       return singleDeveloper.yearly_salary === parseInt(salary);
     });
-  } 
+  }
+
+  if (worklanguage) {
+    developers = ITsalaryData.filter((singleDeveloper) => {
+      return singleDeveloper.work_language.toLowerCase() === worklanguage.toLowerCase();
+    })
+  }
+
   res.send(developers);
 });
 
-// Get one specific technigo member:
-// app.get("/members/:id", (request, response) => {
-//   const { id } = request.params;
-//   console.log("id: ", id);
-//   const singleMember = technigoMembers.find((member) => {
-//     // return member._id == id;
-//     return member._id === Number(id);
-//     // return member._id.toString() === id;
-//     // return member._id === +id; 
-//   });
-//   if (singleMember) {
-//     response.status(200).json({
-//       success: true,
-//       message: "OK",
-//       body: {
-//         member: singleMember
-//       }
-//     });
-//   } else {
-//     response.status(404).json({
-//       success: false,
-//       message: "Member not found",
-//       body: {}
-//     });
-//   }
-// });
+
+// Get developers by gender:
+
+app.get("/developers/:gender", (req, res) => {
+  const gender = req.params.gender;
+  const matchingDevelopers = ITsalaryData.filter((singleDeveloper) => {
+    return singleDeveloper.gender.toLowerCase() === gender.toLowerCase();
+  })
+
+  if (matchingDevelopers.length > 0) {
+    res.status(200).json({
+      success: true,
+      message: `Success! All ${gender} developers. Amount: ${matchingDevelopers.length}`,
+      body: {
+        developers: matchingDevelopers
+      }
+    });
+  }
+  else {
+    res.status(404).json({
+      success: false,
+      message: "No developers found.",
+      body: {}
+    })
+  }
+});
 
 // Start the server
 app.listen(port, () => {
