@@ -192,7 +192,7 @@ const options = {
   apis: ['./server.js'],
 };
 
-const specs = swaggerJsdoc(options);
+const specs = require('./swagger.json');
 app.use(
   '/api-docs',
   swaggerUi.serve,
