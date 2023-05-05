@@ -39,7 +39,7 @@ app.get("/movies", (request, response) => {
   const { title } = request.query;
   let movies = netflixData;
   if (title) {
-    movies = netflixData.filter((singleMovie) => {
+    movies = movies.filter((singleMovie) => {
       return singleMovie.title.toLowerCase() == title.toLowerCase();
     })
   }
