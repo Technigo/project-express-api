@@ -20,11 +20,11 @@ app.get("/", (req, res) => {
     routes: [
       {"/": "Index route. Information about all available routes."},
       {"/professionals": "All IT professionals who participated in the survey."},
-      {"/professionals?salary=[salaryhere]": "Sort IT professionals by salary."},
+      {"/professionals?salary=[salary]": "Sort IT professionals by salary."},
       {"/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language."},
       {"/professionals/:gender": "Sort IT professionals by gender."},
-      {"/professionals/highesttolowest": "Sort salaries by highest to lowest."},
-      {"/professionals/lowesttohighest": "Sort salaries by lowest to highest."},
+      {"/highesttolowest": "Sort salaries by highest to lowest."},
+      {"/lowesttohighest": "Sort salaries by lowest to highest."},
     ]
   });
 });
