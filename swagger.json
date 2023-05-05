@@ -1,0 +1,264 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "version": "1.0.6",
+        "title": ""
+    },
+    "host": "project-express-api-cpxm366faa-lz.a.run.app",
+    "basePath": "/",
+    "tags": [],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/sales": {
+            "get": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "Get all avocado sales data",
+                "description": "",
+                "operationId": "sales",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "minPrice",
+                        "in": "query",
+                        "description": "Lowest average sales price",
+                        "required": false,
+                        "type": "integer($int64)"
+                    },
+                    {
+                        "name": "maxPrice",
+                        "in": "query",
+                        "description": "In order to get this value the minimum parameter needs to be added, as well.",
+                        "required": false,
+                        "type": "integer($int64)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful request"
+                    },
+                    "404": {
+                        "description": "No data found"
+                    }
+                }
+            }
+        },
+        "/sales/{id}": {
+            "get": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "Get specific avocado sales data",
+                "description": "Id of sales data that needs to be fetched",
+                "operationId": "sales",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sales data that needs to be fetched",
+                        "required": false,
+                        "type": "integer($int64)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful request"
+                    },
+                    "404": {
+                        "description": "No specific sales data found"
+                    }
+                }
+            }
+        },
+        "/sales/region/{region}": {
+            "get": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "Get all sales data for specific region",
+                "description": "Name of the region that needs to be fetched",
+                "operationId": "sales",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "description": "Name of the region that needs to be fetched",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "Albany",
+                                "Atlanta",
+                                "BaltimoreWashington",
+                                "Boston",
+                                "BuffaloRochester",
+                                "California",
+                                "Charlotte",
+                                "Chicago",
+                                "CincinnatiDayton",
+                                "Columbus",
+                                "DallasFtWorth",
+                                "Denver",
+                                "Detroit",
+                                "GrandRapids",
+                                "GreatLakes",
+                                "HarrisburgScranton",
+                                "HartfordSpringfield",
+                                "Houston",
+                                "Indianapolis"
+                            ],
+                            "default": "available"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Get sales data on specif date in the above selected region",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "minPrice",
+                        "in": "query",
+                        "description": "Lowest average sales price",
+                        "required": false,
+                        "type": "integer($int64)"
+                    },
+                    {
+                        "name": "maxPrice",
+                        "in": "query",
+                        "description": "In order to get this value the minimum parameter needs to be added, as well.",
+                        "required": false,
+                        "type": "integer($int64)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful request"
+                    },
+                    "404": {
+                        "description": "No region was found"
+                    }
+                }
+            }
+        },
+        "/sales/date/{date}": {
+            "get": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "Get all sales data on a specific date",
+                "description": "",
+                "operationId": "sales",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The date that needs to be fetched",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "Eg: 2015-12-20"
+                            ],
+                            "default": "available"
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "query",
+                        "description": "Name of the region that needs to be fetched",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "Albany",
+                                "Atlanta",
+                                "BaltimoreWashington",
+                                "Boston",
+                                "BuffaloRochester",
+                                "California",
+                                "Charlotte",
+                                "Chicago",
+                                "CincinnatiDayton",
+                                "Columbus",
+                                "DallasFtWorth",
+                                "Denver",
+                                "Detroit",
+                                "GrandRapids",
+                                "GreatLakes",
+                                "HarrisburgScranton",
+                                "HartfordSpringfield",
+                                "Houston",
+                                "Indianapolis"
+                            ],
+                            "default": "available"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "minPrice",
+                        "in": "query",
+                        "description": "Lowest average sales price",
+                        "required": false,
+                        "type": "integer($int64)"
+                    },
+                    {
+                        "name": "maxPrice",
+                        "in": "query",
+                        "description": "In order to get this value the minimum parameter needs to be added, as well.",
+                        "required": false,
+                        "type": "integer($int64)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful request"
+                    },
+                    "404": {
+                        "description": "No date was found"
+                    }
+                }
+            }
+        },
+        "/sales/salesRanking/results": {
+            "get": {
+                "tags": [
+                    "sales"
+                ],
+                "summary": "Get the highest and lowest sales volume",
+                "operationId": "sales",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful request"
+                    },
+                    "404": {
+                        "description": "No data found"
+                    }
+                }
+            }
+        }
+    }
+}
