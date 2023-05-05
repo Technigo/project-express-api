@@ -27,25 +27,25 @@ app.get("/topmusic", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Find your groove!");
+  res.send({ responsmessage: "Find your groove!"});
 });             
 
 //endpoint that returns all data from the topMusicData array
 app.get("/topmusic/:artist", (req, res) => {
   const artist = req.params.artist;
 
-//returns all data from the topMusic-route filtered by artist "http://localhost:9090/topmusic/Ed Sheeran"
+//returns all data from the topMusic-route filtered by artist "http://localhost:9090/topmusic/EdSheeran"
   const filteredArtist = topMusicData.filter((song) => song.artistName === artist);
   res.json(filteredArtist);
 });
 
-//endpoint that returns all data from topMusic-route that has a bmp over 100 "http://localhost:9090/topmusic/bpm/100"
+//endpoint that returns all data from topMusic-route based on bpm of the song "http://localhost:9090/topmusic/bpm/100"
 app.get("/topmusic/bpm/:bpm", (req, res) => {
   const bpm = +req.params.bpm;
-  filteredBpm = topMusicData.filter((song) => song.bpm > bpm);
-  console.log(filteredBpm);
-  res.json(filteredBpm);
+  const bpmFilter = topMusicData.filter((song) => song.bpm >= bpm);
+  res.json(bpmFilter);
 });
+
 
 //endpoint to get single song by id "http://localhost:9090/topmusic/id/1"
 app.get("/topmusic/id/:id", (req, res) => {
@@ -60,12 +60,13 @@ app.get("/topmusic/id/:id", (req, res) => {
   }
 });
 
-// endpoint go select songs by genre using query parameters "http://localhost:9090/topmusic/genre?genre=pop"
-app.get("/topmusic/genre", (req, res) => {
-  const genre = req.query.genre;
-  const genreFilter = topMusicData.filter((song) => song.genre === genre);
-  res.json(genreFilter);
+// get songs by genre "http://localhost:9090/topmusic/genre/pop"
+app.get("/topmusic/genre/:genre", (req, res) => {
+  const genre = req.params.genre.toLowerCase(); // convert to lowercase
+  const genreFilter = topMusicData.filter((song) => song.genre.toLowerCase() === genre); // ignore case-sensitivity
+  res.json({ genreFilter });
 });
+
 
 // Use notFound middleware to handle any other routes that haven't matched yet
 app.use(notFound);
