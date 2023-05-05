@@ -2,17 +2,7 @@ import express, { response } from 'express';
 import cors from 'cors';
 import netflixData from './data/netflix-titles.json';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 const listEndpoints = require('express-list-endpoints')
@@ -21,28 +11,32 @@ const listEndpoints = require('express-list-endpoints')
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// routes starts here
 app.get('/', (req, res) => {
   res.json(listEndpoints(app))
 });
 
-// All titles 
+// All titles with pages
 app.get('/titles', (req, res) => {
   const { page, size } = req.query
   let titles = netflixData
 
-  const pageHits = size ? parseInt(size) : 20
+  // hits size and page nr are set to a default value, once queries are changed it will update accordingly  
+  const pageHits = size ? parseInt(size) : 50
   const pageNumber = page ? parseInt(page) : 1
 
+  // -1 to to adjust for the fact that array indices start at 0 and the first page number start at 1 
   const startIndex = (pageNumber - 1) * pageHits
   const endIndex = startIndex + pageHits
 
   const pageTitles = titles.slice(startIndex, endIndex)
+  //Math.ceil() to always round up the total amount of pages, so its shown without decimal
+  const numberOfPages = Math.ceil(titles.length / pageHits)
 
   if (pageTitles.length) {
     res.status(200).json({
       success: true,
-      message: 'OK',
+      message: `You are on page ${pageNumber} out of ${numberOfPages}`,
       body: {
         netflixTitles: pageTitles
       }
@@ -50,13 +44,13 @@ app.get('/titles', (req, res) => {
   } else {
     res.status(500).json({
       success: false,
-      message: 'something went wrong',
+      message: 'Something went wrong',
       body: {}
     })
   }
 })
 
-// Movie category
+// Movie category, with query param for year
 app.get('/titles/movies', (req, res) => {
   const { year } = req.query
   let movies = netflixData.filter(item => item.type === 'Movie')
@@ -78,16 +72,31 @@ app.get('/titles/movies', (req, res) => {
   } else {
     res.status(404).json({
       success: false,
-      message: 'No Movie titles released this year',
+      message: 'Not found',
       body: {}
     })
   }
 })
 
-// Tv show category
+// Tv show param, with queries for year, seasons, genres
 app.get('/titles/tv-shows', (req, res) => {
-  const tvShows = netflixData.filter(item => item.type === 'TV Show')
-  if (tvShows) {
+  const { year, seasons, genres } = req.query
+  let tvShows = netflixData.filter(item => item.type === 'TV Show')
+
+  if (year) {
+    tvShows = tvShows.filter((item) => {
+      return item.release_year === Number(year)
+    })
+  }
+  if (seasons) {
+    tvShows = tvShows.filter((item) => {
+      return item.duration === seasons
+    })
+  }
+  if (genres) {
+    tvShows = tvShows.filter(item => item.listed_in.toLowerCase().includes(genres.toLowerCase()))
+  }
+  if (tvShows.length) {
     res.status(200).json({
       success: true,
       message: 'OK',
@@ -96,9 +105,9 @@ app.get('/titles/tv-shows', (req, res) => {
       }
     })
   } else {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
-      message: 'something went wrong',
+      message: 'Not found',
       body: {}
     })
   }
