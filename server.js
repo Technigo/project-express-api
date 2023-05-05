@@ -1,11 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-//import goldenGlobesData from "./data/golden-globes.json";
+
 import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
@@ -30,7 +26,7 @@ app.get('/titles', (req, res) => {
   } )
 
 
-app.get('/titles/:id', (req, res) => {
+app.get('/title/:id', (req, res) => {
   const { id } = req.params;
   const showId = netflixData.filter((title) => {
     return title.show_id === Number(id);
