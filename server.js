@@ -18,14 +18,16 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({message: "Welcome! This is a an API of salary patterns among IT professionals in the EU region, taken from a survey done in 2020. Have a look around.",
     routes: [
-      {"/": "Index route. Information about all available routes."},
-      {"/professionals": "All IT professionals who participated in the survey."},
-      {"/professionals?salary=[salary]": "Sort IT professionals by salary."},
-      {"/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language."},
-      {"/professionals/:gender": "Sort IT professionals by gender."},
-      {"/random-professional": "Get a randomly selected professional."},
-      {"/highesttolowest": "Sort salaries by highest to lowest."},
-      {"/lowesttohighest": "Sort salaries by lowest to highest."},
+      {
+        "/": "Index route. Information about all available routes.",
+      "/professionals": "All IT professionals who participated in the survey.",
+      "/professionals?salary=[salary]": "Sort IT professionals by salary.",
+      "/professionals?worklanguage=[worklanguage]": "Sort IT professionals by work language.",
+      "/professionals/:gender": "Sort IT professionals by gender.",
+      "/random-professional": "Get a randomly selected professional.",
+      "/highesttolowest": "Sort salaries by highest to lowest.",
+      "/lowesttohighest": "Sort salaries by lowest to highest."
+      }
     ]
   });
 });
