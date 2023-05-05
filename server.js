@@ -1,14 +1,7 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -24,13 +17,23 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(listEndpoints(app))
+  const navigation = {
+    guide: "Routes for movies API",
+    Endpoints: [
+      {
+        "/movies": "Display all movies",
+        "/movies/title/:title": "Search for a title movie",
+      },
+    ],
+  };
+  res.send(navigation)
 });
 
 // Route to see all available endpoints
 app.get("/endpoints", (req, res) => {
-  res.send(listEndpoints(app))
-});
+ res.send(listEndpoints(app))
+ });
+
 // get all netflix data
 app.get("/movies", (request, response) => {
   const { title } = request.query;
