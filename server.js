@@ -52,8 +52,24 @@ app.get("/books", (req, res) => {
 //Reverse order of books
   app.get("/books/reversed", (req, res) => {
     const booksDataReversed = booksData.reverse()
-    res.status(200).json({booksDataReversed})
+
+    if (booksDataReversed) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+      content: "Reversed order of books",
+      booksDataReversed
+    }
   });
+  } else {
+   res.status(404).json({
+    success: false, 
+    message: "Something went wrong",
+    body: {}
+  });
+}
+});
 
 // if the user searches for title 
 app.get("/books/title/:title", (req, res) => {
