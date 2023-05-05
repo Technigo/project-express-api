@@ -97,6 +97,18 @@ app.get("/lowesttohighest", (req, res) => {
   }
 });
 
+// Get a random developer:
+app.get("/random-professional", (req, res) => {
+const professional =  ITsalaryData[Math.floor(Math.random()*ITsalaryData.length)];
+res.status(200).json({
+  success: true,
+  message: "Successfully selected randomized IT professional.",
+  body: {
+    professional
+  }
+})
+});
+
 // Filter developers by gender:
 app.get("/professionals/:gender", (req, res) => {
   const gender = req.params.gender;
