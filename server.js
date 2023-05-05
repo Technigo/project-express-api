@@ -1,3 +1,15 @@
+// netflixData is an API that allows to fetch data about movies and tv shows from Netflix
+//
+// * /titles
+// accepts the following query params:
+// type: data is filtered by type (movie, tv show etc)
+// country: data is filtered by country
+// year: data is filtered by release year
+// * /titles/:show_id
+// gets one specific title based on its id
+
+
+
 // import express, { response } from "express";
 import cors from "cors";
 import { response } from "express";
@@ -18,7 +30,7 @@ const express = require("express"),
 
   const app = express();
 
-
+  // Tried to use Swagger, may pick this up again in future 
   // const options = {
   //   definition: {
   //     openapi: "3.0.0",
@@ -53,6 +65,7 @@ const express = require("express"),
   //   swaggerUi.setup(specs)
   // );
 
+// START
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -109,7 +122,7 @@ if (year) {
       message: "Not found",
       body: {}
       })
-      
+
     } else {
     res.status(200).json({
       success: true,
@@ -167,6 +180,9 @@ app.post('/titles', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+
+// https://regex101.com/ can try in future 
 
 // ORIGINALLY DID THIS
 // all releases by title, to return an array = https://fiona-klacar-project-express-api.onrender.com/titles
