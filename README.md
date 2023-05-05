@@ -1,13 +1,33 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This project is my first RESTful API project that provides data for avocado sales in the US.
+It was built using
+- Node.js
+- Express.js
+- Swagger for API documentation. To access the documentation, go to https://project-express-api-cpxm366faa-lz.a.run.app/api-docs/
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Endpoints:
+GET
+/sales
+Get all avocado sales data
 
-## The problem
+GET
+/sales/{id}
+Get specific avocado sales data
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+GET
+/sales/region/{region}
+Get all sales data for specific region
+
+GET
+/sales/date/{date}
+Get all sales data on a specific date
+
+GET
+/sales/salesRanking/results
+Get the highest and lowest sales volume
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+The frontend of the project was built using React and React Styled Components:
+Repository: https://github.com/noraterbocs/visualizing-data-project
+Deployed website:https://avocado-data-express-api.netlify.app/
