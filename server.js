@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Welcome page
 app.get("/", (req, res) => {
   res.send("Welcome to The Book Server. Enter a path provided in the documentation to get book data");
 });
@@ -57,7 +57,6 @@ app.get("/books", (req, res) => {
   }
 });
 
-
 //Sorting function for authors in ascending order
 app.get("/books/authors", (req, res) => {
   
@@ -87,8 +86,6 @@ app.get("/books/authors", (req, res) => {
     });
   }
 });
-
-
 
 // Books sorted by rating and top N rated numbers by query (eg. localhost:8080/rating?topN=5 gives top 5)
 app.get("/books/ratings", (req, res) => {
@@ -139,12 +136,7 @@ app.get('/books/pages', (req, res) => {
   res.json(sortedCount);
 });
 
-
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
-
-/// Api for fetching booklist from pretend server
