@@ -15,119 +15,36 @@ app.use(cors());
 app.use(express.json());
 
 
-// Start defining your routes here
+// Homescreen/Start defining your routes here
 app.get("/", (req, res) => {
   const navigation = {
     guide: "Routes for movies API",
     Endpoints: [
       {
         "/movies": "Display all movies",
-        "/movies/title/:title": "Search for a title movie",
+        "/movies/release_year/release_year": "Display movies from year",
       },
     ],
   };
   res.send(navigation)
 });
 
-// Route to see all available endpoints
-app.get("/endpoints", (req, res) => {
- res.send(listEndpoints(app))
- });
-
-// get all netflix data
-app.get("/movies", (request, response) => {
-  const { title } = request.query;
-  let movies = netflixData;
-  if (title) {
-    movies = movies.filter((singleMovie) => {
-      return singleMovie.title.toLowerCase() == title.toLowerCase();
-    })
-  }
-  response.status(200).json({
-    data: movies,
-    success: true,
-  });
+app.get("/movies", (req, res) => {
+  res.json(netflixData)
 })
-/*
-app.get('/allMovies', (req, res) => {   
-  const {title, country, duration, type} = req.query   
-  let filteredNetflixData = netflixData;     
-  if (title) {
-    filteredNetflixData = filteredNetflixData.filter((item) => {
-      return item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase());
-    })
-  }    
-  if (country) {
-    filteredNetflixData = filteredNetflixData.filter((item) => {
-      return item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase());
-  })
-}
-  if (type) {
-    filteredNetflixData= filteredNetflixData.filter((item) => {
-      return item.type.toLocaleLowerCase().includes(type.toLocaleLowerCase());  
-  })
-}
-  response.status(200).json({
-    response: filteredNetflixData, 
-    success: true, 
-    message: 'OK'}) 
-  
-  if (filteredNetflixData.length === 0)
-    {response.status(404).json("Sorry, we could not find this movie, try again... ")}  
+
+app.get("/release_year/:release_year", (req, res) => {
+  const release_year = req.params.release_year
+  const moviesFromYear = netflixData.filter((movies) => movies.release_year === +release_year)
+  res.json(moviesFromYear)
 })
-*/
 
-app.get("/movies/search", (request, response) => {
-  const { title, release_year } = request.query;
-  let filteredMovies = netflixData;
-  if (title) {
-    filteredMovies = filteredMovies.filter((singleMovie) => {
-      return singleMovie.title.toLowerCase() === (title.toLowerCase());
-    });
-  }
-  if (release_year) {
-    filteredMovies = filteredMovies.filter((singleMovie) => {
-      return singleMovie.release_year === release_year;
-    });
-  }
-  if (filteredMovies.length > 0) {
-    response.status(200).json({
-      success: true,
-      message: "OK",
-      data: filteredMovies,
-    });
-  } else {
-    response.status(404).json({
-      success: false,
-      message: "title not found",
-      body: {}
-    });
-  }
-});
+app.get("/title/:title", (req, res) => {
+  const title = req.params.title
+  const titlesFromNetflix = netflixData.filter((title) => title.title.toLowerCase() === title)
+  res.json(titlesFromNetflix)
+})
 
-
-// get titles from netflixdata
-app.get("/movies/:title", (request, response) => {
-  const { title } = request.params;
-  const singleTitle = netflixData.find((movie) => {
-    return movie.title.toLowerCase() == title.toLowerCase();
-  });
-  if (singleTitle) {
-    response.status(200).json({
-      success:true,
-      message:"OK",
-      body: {
-        movie: singleTitle
-      }
-    });
-  } else {
-    response.status(404).json({
-      success: false,
-      message: "title not found",
-      body: {}
-    });
-  }
-});
 
 // Start the server
 app.listen(port, () => {
