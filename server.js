@@ -77,7 +77,7 @@ app.get("/books", (request, response) => {
 
 
 // Will return a single book based on the id (params)
-// If the book does nit exist, it will return an error code & empty body
+// If the book does not exist, it will return an error code & empty body
 app.get("/books/:id", (request, response) => {
   const { id } = request.params;
   const booksId = booksData.find((item) => {return item.bookID === Number(id)})
@@ -128,7 +128,7 @@ app.get("/books/nonenglishbooks", (request, response) => {
 
 
 // We get the data sorted by rating and make an endpoint where we show the 100 highest rated
-app.get("/top100", (request, response) => {
+app.get("/books/top100", (request, response) => {
   const sortedData = booksData.sort((a, b) => b.average_rating - a.average_rating);
   const top100 = sortedData.slice(0, 100);
 
