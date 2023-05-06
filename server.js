@@ -44,7 +44,7 @@ app.get("/movies", (request, response) => {
     })
   }
   response.status(200).json({
-    data: netflixData,
+    data: movies,
     success: true,
   });
 })
