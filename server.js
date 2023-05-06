@@ -82,7 +82,7 @@ app.get("/movies/search", (request, response) => {
   let filteredMovies = netflixData;
   if (title) {
     filteredMovies = filteredMovies.filter((singleMovie) => {
-      return singleMovie.title.toLowerCase === (title.toLowerCase());
+      return singleMovie.title.toLowerCase() === (title.toLowerCase());
     });
   }
   if (release_year) {
