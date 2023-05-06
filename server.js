@@ -48,7 +48,34 @@ app.get("/movies", (request, response) => {
     success: true,
   });
 })
-
+/*
+app.get('/allMovies', (req, res) => {   
+  const {title, country, duration, type} = req.query   
+  let filteredNetflixData = netflixData;     
+  if (title) {
+    filteredNetflixData = filteredNetflixData.filter((item) => {
+      return item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase());
+    })
+  }    
+  if (country) {
+    filteredNetflixData = filteredNetflixData.filter((item) => {
+      return item.country.toLocaleLowerCase().includes(country.toLocaleLowerCase());
+  })
+}
+  if (type) {
+    filteredNetflixData= filteredNetflixData.filter((item) => {
+      return item.type.toLocaleLowerCase().includes(type.toLocaleLowerCase());  
+  })
+}
+  response.status(200).json({
+    response: filteredNetflixData, 
+    success: true, 
+    message: 'OK'}) 
+  
+  if (filteredNetflixData.length === 0)
+    {response.status(404).json("Sorry, we could not find this movie, try again... ")}  
+})
+*/
 
 app.get("/movies/search", (request, response) => {
   const { title, release_year } = request.query;
