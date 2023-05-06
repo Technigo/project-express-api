@@ -5,7 +5,7 @@ import cors from "cors";
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
+import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
@@ -21,8 +21,33 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("This is Alexander's express API exercise");
 });
+
+app.get('/nominations', (req, res) => {
+  res.json(goldenGlobesData)
+})
+
+app.get('/year/:year', (req, res) => {
+  const year = req.params.year
+  const showWon = req.query.won
+  console.log(showWon)
+  console.log({ year })
+  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
+
+  if (showWon) {
+    nominationsFromYear = nominationsFromYear.filter((item) => item.win)
+  }
+  res.json(nominationsFromYear)
+})
+
+app.get('/ceremony/:ceremony', (req, res) => {
+  const ceremony = req.params.ceremony
+  console.log({ ceremony })
+  console.log(req.params.ceremony)
+  const ceremonyNumber = goldenGlobesData.filter((item) => item.ceremony === +ceremony)
+  res.json(ceremonyNumber)
+})
 
 // Start the server
 app.listen(port, () => {
