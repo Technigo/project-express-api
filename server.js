@@ -15,7 +15,15 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (request, response) => {
-  response.send("Hello series!");
+  response.send({
+   API: "Netflix series",
+   Routes: [
+    { "/": "Start" },
+    { "/netflix-titles": "The entire API" },
+    { "/netflix-titles/titles": "All titles" },
+    { "/netflix-titles/:titleName": "Data for a specified title, when searched for" }
+   ]
+  });
 });
 
 // This returns the entire array in Postman, just as it looks in the data folder, when posting http://localhost:8080/netflix-titles
