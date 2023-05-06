@@ -12,14 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// The endpoints are:
-// /: "Hello avocados!" message
-// /avocadosales - all the data (example: http://localhost:8080/avocadosales)
-// /regions - list of unique regions from the sales data (example: http://localhost:8080/regions)
-// /regions/ - list of sales for specific regions (example: http://localhost:8080/regions?region=Albany)
-// /months/:month  - avocado sales data for a specific month (example: http://localhost:8080/months/10)
-//  avocados/:id - avocado sales data for a specific id (example: http://localhost:8080/avocados/5)
-
 app.get("/", (req, res) => {
   res.send("Hello avocados!");
 });
@@ -30,7 +22,7 @@ app.get("/avocadosales", (req, res) => {
 })
 
 //avocados by region
-app.get("/regions", (req, res) => {
+app.get("/avocadosales/regions", (req, res) => {
 const regions = req.query.region
 const regionList = avocadoSalesData.map((sales) => sales.region)
 if (regions) {
@@ -54,7 +46,7 @@ if (regions) {
 });
 
 //avocados by month
-app.get("/months/:month", (req, res) => {
+app.get("/avocadosales/:month", (req, res) => {
   const month = req.params.month;
   const filteredAvocados = avocadoSalesData.filter((sales) => {
     // includes the month in the middle of the list
@@ -65,7 +57,7 @@ app.get("/months/:month", (req, res) => {
 
 
 //Avocado by id
-app.get("/avocados/:id", (req, res) => {
+app.get("/avocadosales/:id", (req, res) => {
   const id = req.params.id
   const singleAvocado = avocadoSalesData.find((avocado) => {
     return avocado.id === Number(id);
