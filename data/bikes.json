@@ -44,15 +44,15 @@
     ,
     {
         "_id": 8,
-        "name": "Mrs Pain",
-        "type": "Fixie",
-        "alive": true
-    },
-    {
-        "_id": 9,
         "name": "Dama BabySpice Bianchi",
         "type": "Racer",
         "alive": false
+    },
+    {
+        "_id": 9,
+        "name": "Mrs Pain",
+        "type": "Fixie",
+        "alive": true
     },
     {
         "_id": 10,

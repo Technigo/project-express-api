@@ -1,3 +1,7 @@
+// Import - Express and Cors packages are used to create the server and enable
+// Cross-Origin Resource Sharing - CORS. 
+// import bikesAll imports my JSON file containing data of my bikes
+
 import express from "express";
 import cors from "cors";
 import bikesAll from "./data/bikes.json";
@@ -15,7 +19,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
+  // res.send("Hello you!");
   res.json(listEndpoints(app));
 });
 
@@ -47,7 +51,7 @@ app.get("/bikes", (req, res) => {
   }
 });
 
-// Get only one bike by ID
+// Get only single bikes by ID
 app.get("/bikes/:id", (req, res) => {
   const { id } = req.params;
   console.log("id: ", id);
@@ -74,14 +78,36 @@ app.get("/bikes/:id", (req, res) => {
   }
 });
 
-
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+// Sorted if bikes is alive or not
+app.get("/bikes/alive/:trueorfalse", (req, res) => {
+  const { trueorfalse } = req.params;
+  const singleBike = bikesAll.filter((bike) => {
+    return bike.alive === (trueorfalse === 'true');
+  })
+  const sortedBikes = singleBike.sort((a, b) => a.alive - b.alive);
+  if (sortedBikes.length !== 0) {
+    res.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        bike: sortedBikes
+      }
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: "Bike not found",
+      body: {}
+    });
+  }
 });
 
 
+// Start the server - this code starts the server and listens for incoming request on the specified port
+// When server is running, this logs a message to the console.
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
 
 /* app.get('/nominations', (req, res) => {
   res.json(data)
@@ -98,3 +124,4 @@ app.listen(port, () => {
    }
    res.json(nominationsFromYear)
  }) */
+
