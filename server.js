@@ -21,9 +21,6 @@ app.use(express.json());
 //app.use(bodyParser.json())
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
 
 //Show all data
 app.get("/fullmoon", (request, response) => {
