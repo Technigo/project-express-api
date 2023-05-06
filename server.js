@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 //import booksData from "./data/books.json";
 import fullMoonData from "./data/csvjson.json";
-//import bodyParser from 'body-parser'
 
 
 //import avocadoSalesData from "./data/avocado-sales.json";
@@ -47,7 +46,7 @@ app.get("/fullmoon", (request, response) => {
 })
 
 //Endpoint for one specific date
-app.get("/fullmoon/:date", (request, response) => {
+app.get("/fullmoon/date/:date", (request, response) => {
   const singleFullmoon = fullMoonData.find((fullmoon) => {
     const fullmoonDate = new Date(fullmoon.Date);
     const requestDate = new Date(request.params.date);
