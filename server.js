@@ -21,6 +21,9 @@ app.use(express.json());
 
 
 // Start defining your routes here
+app.get("/", (request, response) => {
+  response.json(listEndpoints(app));
+})
 
 //Show all data
 app.get("/fullmoon", (request, response) => {
