@@ -104,7 +104,7 @@ app.get("/books/:id", (request, response) => {
 
 // Will return a full list of the books that satisfies this condition => new endpoint?
 // Will return all non-english books
-app.get("/books/nonenglishbooks", (request, response) => {
+app.get("/nonenglishbooks", (request, response) => {
   const nonEnglishBooks = booksData.filter((book) => !["eng", "en-US", "en-GB"].includes(book.language_code));
   // console.log('nonEnglishBooks:', nonEnglishBooks, '--var type:', typeof nonEnglishBooks);
 
@@ -128,7 +128,7 @@ app.get("/books/nonenglishbooks", (request, response) => {
 
 
 // We get the data sorted by rating and make an endpoint where we show the 100 highest rated
-app.get("/books/top100", (request, response) => {
+app.get("/top100", (request, response) => {
   const sortedData = booksData.sort((a, b) => b.average_rating - a.average_rating);
   const top100 = sortedData.slice(0, 100);
 
