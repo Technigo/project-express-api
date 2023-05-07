@@ -83,14 +83,14 @@ app.get("/bikes/alive/:trueorfalse", (req, res) => {
   const { trueorfalse } = req.params;
   const singleBike = bikesAll.filter((bike) => {
     return bike.alive === (trueorfalse === 'true');
-  })
-  const sortedBikes = singleBike.sort((a, b) => a.alive - b.alive);
-  if (sortedBikes.length !== 0) {
+  });
+
+  if (singleBike.length !== 0) {
     res.status(200).json({
       success: true,
       message: "OK",
       body: {
-        bike: sortedBikes
+        bike: singleBike
       }
     });
   } else {
@@ -109,19 +109,5 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
-/* app.get('/nominations', (req, res) => {
-  res.json(data)
- })
- 
- app.get('/year/:year', (req, res) => {
-   const year = req.params.year
-   const showWon = req.query.won
-   console.log(showWon)
-   let nominationsFromYear = data.filter((item) => item.year_award === +year)
- 
-   if (showWon) {
-     nominationsFromYear = nominationsFromYear.filter((item) => item.win)
-   }
-   res.json(nominationsFromYear)
- }) */
+
 
