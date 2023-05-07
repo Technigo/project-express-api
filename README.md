@@ -14,6 +14,6 @@ API:
 https://project-express-api-ebkcnf5ljq-lz.a.run.app/
 
 Front-end:
-https://earnest-madeleine-3b9bdb.netlify.app/major-arcana
+https://earnest-madeleine-3b9bdb.netlify.app/
 
 
