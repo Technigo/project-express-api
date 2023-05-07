@@ -1,13 +1,15 @@
 # Project Express API
+Build an API in Node using Express. Deploy it on for example Google cloud.
+It should have a minimum of 2routes. It shoudl be RESTful.
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+It was a bit tricky to decide what routes to create. But after thinking about it for a while I decided to just try and get as much practice as possible with routes, endpoints and query params.
+This week was very valuable in getting to actully build what we have previously just used in the frontend to fetch data.
+I got a better understanding of the connection and the possibilities to adapt the API depending on the usage in the frontend.
+I look forward to learn more and also to implement this in a project were I also create the frontend for it.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Express API week13 project](https://project-express-api-g54dl7acxq-lz.a.run.app/)
