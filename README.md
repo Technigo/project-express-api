@@ -1,13 +1,25 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The aim of this project was to build an express API, with a few different different endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Tools used:
+Express, Google Cloud Platform, React, JavaScript.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+API:
+https://project-express-api-ebkcnf5ljq-lz.a.run.app/
+
+Endpoints:
+https://project-express-api-ebkcnf5ljq-lz.a.run.app/all-cards
+https://project-express-api-ebkcnf5ljq-lz.a.run.app/major-arcana
+https://project-express-api-ebkcnf5ljq-lz.a.run.app/minor-arcana
+https://project-express-api-ebkcnf5ljq-lz.a.run.app/suit/[suit]/[number]
+
+Front-end:
+https://earnest-madeleine-3b9bdb.netlify.app/major-arcana
+
+

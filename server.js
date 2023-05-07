@@ -22,7 +22,7 @@ app.use(express.json());
 
 // START DEFINING YOUR ROUTES HERE
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Welcome to my first API");
 });
 
 // End-point with all tarot cards
