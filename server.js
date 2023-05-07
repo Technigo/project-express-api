@@ -46,7 +46,9 @@ app.get("/artists", (req, res) => {
 app.get("/nationality/:nationality", (req, res) => {
   const nationality = req.params.nationality
   const { gender } = req.query;
-  let artistsNationality = artistsMoma.filter((artist) => artist.Nationality === nationality)
+  let artistsNationality = artistsMoma.filter((artist) => {
+    return artist.Nationality.toLowerCase().includes(nationality.toLowerCase())
+  })
   if (gender) {
     artistsNationality = artistsNationality.filter((artist) => {
       return artist.Gender.toLowerCase() === gender.toLowerCase();
