@@ -15,10 +15,6 @@ console.log(genderData.length)
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
-// I imported data from Kaggle. I converted CSV to JSON and copied my json file to the folder data
-// I am using data set about gender inequality
-//  https://www.kaggle.com/datasets/gianinamariapetrascu/gender-inequality-index
-
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -38,7 +34,7 @@ app.get("/", (req, res) => {
 res.json(listEndpoints(app));
 });
 
-// get all the countries and the data 
+// get all the countries and the data, COLLECTION OF RESULTS
 app.get('/data', (req, response) => {
   // res.send(genderData);
   const data = genderData;
@@ -59,7 +55,7 @@ app.get('/data', (req, response) => {
   }
 });
 
-// get all the data based on the Rank (not all numbers available)
+// get all the data based on the Rank (not all numbers available), SINGLE RESULT
 app.get('/data/:rank', (req, response) => {
   const singleData = genderData.find((data) => {
     const { rank } = req.params; 
@@ -85,7 +81,7 @@ app.get('/data/:rank', (req, response) => {
   }
 });
 
-// get the country based on the human development 
+// get the country based on the human development, COLLECTION OF RESULTS
 app.get('/development/:development', (req, res) => {
   const development = req.params.development
   const countriesBasedonLevel = genderData.filter((item) => 
@@ -93,7 +89,7 @@ app.get('/development/:development', (req, res) => {
     res.json(countriesBasedonLevel)
 })
 
-// get the selected country
+// get the selected country, SINGLE RESULT
 app.get('/country/:country', (req, res) => {
   const country = req.params.country
   const countryChosen = genderData.filter((item) => 
