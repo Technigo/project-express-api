@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
+app.get("/quotes", (req, res) => {
   res.json(gotQuotesData);
 });
 
