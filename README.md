@@ -1,14 +1,20 @@
 # Project Express API
 Build an API in Node using Express. Deploy it on for example Google cloud.
-It should have a minimum of 2routes. It shoudl be RESTful.
+It should have a minimum of 2routes.
 
 
 ## The problem
 
-It was a bit tricky to decide what routes to create. But after thinking about it for a while I decided to just try and get as much practice as possible with routes, endpoints and query params.
-This week was very valuable in getting to actully build what we have previously just used in the frontend to fetch data.
-I got a better understanding of the connection and the possibilities to adapt the API depending on the usage in the frontend.
-I look forward to learn more and also to implement this in a project were I also create the frontend for it.
+Building the API with different endpoints, using different javascript methods to manipulate the data.
+
+Also learned how to use query params to show filtered/specific search result.
+
+I did not create any frontend for this project. But I look forward to building API when I know the specific use it will have frontend. To implement this new knowledge for something more concrete.
+
+I choose to go for a dataset with Netflix data. 
+
+It was also valuable this week to get a better understanding of the different status code you can choose from.
+
 
 ## View it live
 
