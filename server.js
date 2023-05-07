@@ -22,23 +22,24 @@ app.get("/", (req, res) => {
     Endpoints: [
       {
         "/movies": "Display all movies",
-        "/movies/release_year/release_year": "Display movies from year",
+        "/movies/release_year/:release_year": "Display movies from year",
+        "/movies/title/:title": "Search for a title"
       },
     ],
   };
   res.send(navigation)
 });
-
+// Get all Method
 app.get("/movies", (req, res) => {
   res.json(netflixData)
 })
-
+// Get by ID Method number
 app.get("/release_year/:release_year", (req, res) => {
   const release_year = req.params.release_year
   const moviesFromYear = netflixData.filter((movies) => movies.release_year === +release_year)
   res.json(moviesFromYear)
 })
-
+// Get by ID Method string
 app.get("/title/:title", (req, res) => {
   const title = req.params.title
   const titlesFromNetflix = netflixData.filter((title) => title.title.toLowerCase() === title)
