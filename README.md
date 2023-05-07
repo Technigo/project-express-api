@@ -23,9 +23,11 @@ development/Low
 ## The problem
 
 If I had more time, I'd write a rule to ignore capital/lower case letters so it doesn't matter if you write sweden or Sweden.
-I would also build a nice frontend web. 
+I would also build a nice frontend web. EDIT: I built the simple front end: https://radiant-pixie-18a2db.netlify.app/
 
 ## View it live
+
+Frontend: https://radiant-pixie-18a2db.netlify.app/
 
 Backend: https://project-express-api-uowr37jooq-lz.a.run.app/
 
