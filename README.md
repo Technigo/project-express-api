@@ -1,13 +1,24 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is to start your backend journey by creating an API using Express. Your API should have at least a couple of RESTful endpoints which return either an array of data or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+**What you need to do**
+
+✓ Your API should have at least 2 routes. Try to push yourself to do more, though!
+
+✓ A minimum of one endpoint to return a **collection** of results (array of elements).
+
+✓ A minimum of one endpoint to return a **single** result (single element).
+
+✓ Your API should be [RESTful]
+
+I used 1375 Netflix titles and some data about them. 
 
 ## View it live
+frontend (very simple)=
+https://brilliant-kelpie-29f8a0.netlify.app/
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+backend (also very simple)=
+https://project-express-api-y6ibchp5wa-lz.a.run.app/
