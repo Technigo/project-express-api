@@ -15,6 +15,7 @@ import data from './data/tarot-card.json'
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints')
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -22,7 +23,7 @@ app.use(express.json());
 
 // START DEFINING YOUR ROUTES HERE
 app.get("/", (req, res) => {
-  res.send("Welcome to my first API");
+  res.json(listEndpoints(app))
 });
 
 // End-point with all tarot cards
