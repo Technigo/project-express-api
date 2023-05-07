@@ -1,8 +1,16 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+✓ How to install and set up an Express server
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+✓ How to deploy Node projects
+
+✓ How to build an API in Node using Express
+
+✓ How to create routes in Express
+
+✓ Practice data manipulation in JavaScript - selecting, filtering, and limiting arrays
+
+✓ Unit tests: What they are and how to run them
 
 ## The problem
 
@@ -10,4 +18,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-5hr23tiejq-lz.a.run.app/
