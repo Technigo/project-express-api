@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-
 const QuoteList = () => {
   const [quoteList, setQuoteList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080')
+    fetch('https://project-express-api-d77e5zoeyq-lz.a.run.app/')
       .then((res) => res.json())
       .then((json) => setQuoteList(json));
   }, []);
