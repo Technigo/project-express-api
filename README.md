@@ -10,8 +10,8 @@ ROUTE 3: "/music/artist/:artist"    to view top music by a specific artist when 
 
 ## The problem
 
-
+I got problem to start google cloud account. 
 
 ## View it live
 
-
+Back-end: https://project-express-api-s7fgmoqnaa-lz.a.run.app/

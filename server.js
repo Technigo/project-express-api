@@ -25,6 +25,7 @@ app.get("/", (request, response) => {
 
 // Route1 : creat a new route with collection of all music data
 app.get("/music", (request, response) => {
+  console.log('music') 
   const music = musicData;
   if (music) {
     response.status(200).json({
@@ -72,6 +73,7 @@ app.get("/music/:id", (request, response) => {
 
 //Route3 : creat a new endpoint with specific artist when input artistname
 app.get("/music/artist/:artist", (request, response) => {
+  console.log('artist')
   const { artist } = request.params;
   let filteredMusic = musicData;
 
@@ -95,6 +97,30 @@ app.get("/music/artist/:artist", (request, response) => {
       body: {}
     })
   }
+})
+
+//Rounte4 : create a new endpoint with top popular music when the popularity number is greater than 90.
+app.get("/music/popular/:popular",(request,response) => {
+  const popular = musicData.filter((music) => {
+    return music.popularity > 90
+  });
+ 
+  if (popular.length > 0) {
+    response.status(200).json({
+      success: true,
+      message: "OK",
+      body: {
+        music: popular
+      }
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      message: "music not found",
+      body: {}
+    })
+  }
+  
 })
 
 
