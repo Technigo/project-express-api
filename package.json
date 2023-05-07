@@ -16,7 +16,8 @@
     "cors": "^2.8.5",
     "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "express-list-endpoints": "^6.0.0"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",

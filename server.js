@@ -1,6 +1,7 @@
 import express, { response } from 'express';
 import cors from 'cors';
 import imdbData from './data/imdb-top-250-movies.json';
+import listEndpoints from 'express-list-endpoints';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -13,8 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+
+//listEndpoints shows which possible endpoints our app has
 app.get('/', (req, res) => {
-  res.send('Hello mate!');
+  res.send(listEndpoints(app))
+  // res.send('Hello test!');
 });
 
 //First route which shows all movies
@@ -22,7 +26,7 @@ app.get('/topmovies', (req, res) => {
   res.json(imdbData);
 });
 
-//Second route which makes it possible to search for a movie base on its rank
+//Second route which makes it possible to search for a movie based on its rank
 app.get('/rank/:rank', (req, res) => {
   const rank = req.params.rank
   const rankId = imdbData.filter((item) => item.rank === +rank)
@@ -41,6 +45,31 @@ app.get('/year/:year', (req, res) => {
 
   res.json(releaseYear)
 });
+
+//makes it possible to search for a specific movie
+
+app.get('/title/:title', (req, res) => {
+  const title  = req.params.title
+  
+  let titleSearch = imdbData.filter(item => item.title === title)
+    
+  if (titleSearch.length === 0) {
+    res.status(404).json({
+      success: false,
+      message: `No movie with the name ${title} was found`,
+      body: { } 
+    })
+  } else {
+    res.status(200).json({
+      success: true,
+      message: `Here's ${title}.`,
+      body: {
+        title: titleSearch
+      }
+    })
+  }
+})
+
 
 
 // Start the server
