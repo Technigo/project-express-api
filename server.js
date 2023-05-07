@@ -93,6 +93,14 @@ app.get('/development/:development', (req, res) => {
     res.json(countriesBasedonLevel)
 })
 
+// get the selected country
+app.get('/country/:country', (req, res) => {
+  const country = req.params.country
+  const countryChosen = genderData.filter((item) => 
+    item.Country ===  country)
+    res.json(countryChosen)
+})
+
 
 // Start the server
 app.listen(port, () => {
