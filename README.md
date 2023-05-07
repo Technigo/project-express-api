@@ -12,4 +12,5 @@ This week's project is to start your backend journey by creating an API using Ex
 
 ## View it live
 
-https://express-api-test.netlify.app/
+Frontend: https://express-api-test.netlify.app/
+Backend: https://project-express-api-d77e5zoeyq-lz.a.run.app/
