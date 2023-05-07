@@ -4,8 +4,6 @@ import cors from "cors";
 import topMusicData from "./data/top-music.json";
 import swaggerUi from 'swagger-ui-express';
 
-//Global variables
-const trackNames = topMusicData.map((item) => item.trackName);
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -35,12 +33,14 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome! Go to /endpoints to see available endpoints");
+  res.json();
+  //res.send("Welcome to the TopMusicData api");
 });
 
 app.get('/endpoints', (req, res) => {
  res.json(listEndpoints(app));
 });
+
 
     // returns the full dataset
     app.get('/dataset', (req, res) => {
@@ -188,7 +188,7 @@ app.get('/songlist/single/:songname', (req, res) => {
     const trackName = topMusicData[i].trackName.toLowerCase();
     const userQuery = songname.toLowerCase();
 
-    // Compute the similarity score between the song name and the user's input. This is to complete the url if the user misspells or doesn't type the full title.
+    // Check the similarity score between the song name and the user's input. This is to complete the url if the user misspells or doesn't type the full title.
     let score = 0;
     let j = 0;
     for (let k = 0; k < userQuery.length; k++) {
@@ -277,9 +277,9 @@ console.log("sortBy:", sortBy)
   }
 })
 
-// makes a top 10 list of songs that have the highest parameter score. For example /?top10value=energy
-app.get('/songlist/top10', (req, res) => {
-  const { top10value } = req.query;
+// makes a top 10 list of songs that have the highest parameter score. For example top10/energy gives a list of the 10 songs with the most energy
+app.get('/songlist/top10/:top10value', (req, res) => {
+  const { top10value } = req.params;
   let  top10tracks = topMusicData
   console.log("top10value:", top10value)
   if (top10value) {
@@ -309,9 +309,8 @@ app.get('/songlist/top10', (req, res) => {
   }
 })
 
-// empty endponints: 
-// '/playlist' to make a playlist out of songs based on genre or popularity score for example
-// '/top10/myTop10' an array of the top10 songs suggested for the user based on their input
+// empty endponint: 
+// '/playlist' to make a playlist out of songs based on user input like genre and popularity score for example, and link to a spotify playlist with these songs
 
 const options = {
   definition: {
@@ -358,3 +357,10 @@ app.listen(port, () => {
 // songname: returns all available data on a specific song
 
 //*/songlist/sort
+//accepts the following query params:
+//sortBy: sorts the data on either danceability or popularity and returns a few specifics about each song.
+
+// */songlist/top10
+// accepts the following request params:
+// 'bpm', 'energy', 'danceability', 'loudness', 'liveness', 'valence', 'length', 'acousticness', 'speechiness', 'popularity'
+//Returns a list of the 10 songs that score highest in the requested category
