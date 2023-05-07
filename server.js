@@ -26,18 +26,41 @@ app.get('/topmovies', (req, res) => {
   res.json(imdbData);
 });
 
-//Second route which makes it possible to search for a movie based on its rank
-app.get('/rank/:rank', (req, res) => {
-  const rank = req.params.rank
-  const rankId = imdbData.filter((item) => item.rank === +rank)
-  console.log(rankId)
+// Didn't get this one to work, but will try it later.
+// app.get('/topmovies', (req, res) => {
+// 	const { genre, director, writer  } = req.query
+// 	let filteredMovies = imdbData
+	
+// 	if(genre) {
+// 		filteredMovies.filter((item) => 
+// 			item.genre.toLocaleLowerCase()
+// 			.includes(genre.toLocaleLowerCase()))
+// 	}
+// 	if(director) {
+// 		filteredMovies.filter((item) => 
+// 			item.director.toLocaleLowerCase()
+// 			.includes(director.toLocaleLowerCase()))
+// 	}
 
-  res.json(rankId)
-});
+//   if(writer) {
+// 		filteredMovies.filter((item) => 
+// 			item.writer.toLocaleLowerCase()
+// 			.includes(writer.toLocaleLowerCase()))
+// 	}
+	
+// 	if(filteredMovies.length === 0) {
+// 		res.status(404)
+// 			.json("Sorry we couldn't find what you seek")
+// 	} else {
+// 		res.json(filteredMovies)
+// 	}
 
-//Third route which filters movies based on the release year
+// }
+// )
 
-app.get('/year/:year', (req, res) => {
+//Second route which filters movies based on the release year
+
+app.get('/years/:year', (req, res) => {
   const year = req.params.year
   const releaseYear = imdbData.filter((item) => item.year === +year)
   console.log(releaseYear)
@@ -46,9 +69,9 @@ app.get('/year/:year', (req, res) => {
   res.json(releaseYear)
 });
 
-//makes it possible to search for a specific movie
+//Third route which makes it possible to search for a specific movie
 
-app.get('/title/:title', (req, res) => {
+app.get('/titles/:title', (req, res) => {
   const title  = req.params.title
   
   let titleSearch = imdbData.filter(item => item.title === title)
@@ -69,7 +92,14 @@ app.get('/title/:title', (req, res) => {
     })
   }
 })
+//Fourth route which makes it possible to search for a movie based on its rank
+app.get('/ranks/:rank', (req, res) => {
+  const rank = req.params.rank
+  const rankId = imdbData.filter((item) => item.rank === +rank)
+  console.log(rankId)
 
+  res.json(rankId)
+});
 
 
 // Start the server
