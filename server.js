@@ -24,17 +24,69 @@ app.get("/", (req, res) => {
   res.send("Hello!");
 });
 
-app.get("/books", (req, res) => {
-  res.json(booksData);
+
+app.get("/bookshelf/page/:page", (req, res) => {
+  const page = req.params.page;
+  console.log(`requested page ${page}`);
+  const limit = 10
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const result = booksData.slice(startIndex, endIndex);
+  if (result) {
+    res.status(200).json({
+      success: true,
+      message: "Found books!",
+      body: {
+      books: result },
+  })
+}  else {
+  res.status(404).json({
+    success: false,
+    message: "Books not found!",
+    body: {}
+  })
+}
+})
+
+app.get("/books/author/:author", (req, res) => {
+  const author = req.params.author;
+  let booksFromAuthor = booksData.filter((items) => items.authors === author);
+  if (booksFromAuthor) {
+    res.status(200).json({
+      success: true,
+      message: "Found books!",
+      body: {
+      books: booksFromAuthor },
+  })
+}  else {
+  res.status(404).json({
+    success: false,
+    message: "Author/book not found!",
+    body: {}
+  })
+}
 })
 
 app.get("/books/:bookId", (req, res) => {
   const bookId = req.params.bookId;
-
   let bookFromId = booksData.filter((item) => item.bookID === +bookId);
+  if (bookFromId) {
 
-  res.json(bookFromId);
+    res.status(200).json({
+      success: true,
+      message: "Found book!",
+      body: {
+      book: bookFromId[0] },
+  })
+}  else {
+  res.status(404).json({
+    success: false,
+    message: "Book not found!",
+    body: {}
+  })
+}
 })
+
 
 // Start the server
 app.listen(port, () => {
