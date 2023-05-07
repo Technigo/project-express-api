@@ -16,13 +16,12 @@ const Main = () => {
       {isLoading
         ? <Loading />
         : (
-
           <BrowserRouter>
             <TopMenu />
             <Routes>
               <Route path="/" element={<Bookshelf />} />
+              <Route path="/books/author/:author" element={<Bookshelf />} />
               <Route path="/book/:bookId" element={<Bookview />} />
-              <Route path="/random" element={<Bookview random />} />
             </Routes>
           </BrowserRouter>)}
     </MainContainer>

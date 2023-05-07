@@ -1,57 +1,71 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router';
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router';
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import styled from 'styled-components'
 import { bookstore } from 'reducers/bookstore';
-import { ui } from 'reducers/ui'
+import Loading from '../components/Loading'
 
-const BookviewContainer = styled.div``
+const BookviewContainer = styled.div`
+display: flex;
+flex-direction: column;
+margin: 0 auto;
+width: 50vh;`
 
 const BookTitle = styled.h1``
 
-const BookInfoContainer = styled.div``
+const BookInfoContainer = styled.div`display: flex; flex-direction: column;`
 
 const BookInfoText = styled.p``
 
-const Bookview = (random) => {
-  const [book, setBook] = useState({});
+const Bookview = () => {
   const { bookId } = useParams();
   const dispatch = useDispatch();
   const bookData = useSelector((state) => state.bookstore.book)
-  let fetchUrl = ''
-  if (random) { fetchUrl = 'http://localhost:8080/random' } else { fetchUrl = `http://localhost:8080/books/${bookId}` }
+  const navigate = useNavigate();
+  const onBackButtonClick = () => {
+    navigate(-1);
+  }
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(ui.actions.setLoading(true))
-    fetch(fetchUrl, {
+    setLoading(true);
+    fetch(`http://localhost:8080/books/${bookId}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch(bookstore.actions.setBookData(json))
+        dispatch(bookstore.actions.setBookData(json.body.book))
       })
-      .finally(dispatch(ui.actions.setLoading(false)))
-    setBook(bookData);
-  }, [bookId, bookData, dispatch, fetchUrl]);
+      .finally(() => { setLoading(false); })
+      .catch((error) => console.error(error));
+  }, [dispatch, bookId]);
+
+  if (loading) { return <Loading /> }
 
   return (
+
     <BookviewContainer>
-      <BookTitle>{book.title}</BookTitle>
+      <BookTitle>{bookData.title}</BookTitle>
       <BookInfoContainer>
-        <BookInfoText>by {book.authors}</BookInfoText>
+        <Link
+          key={bookData.authors}
+          to={`/books/author/${bookData.authors}`}>
+          <BookInfoText>by {bookData.authors}</BookInfoText>
+        </Link>
         <BookInfoText>
-          {book.average_rating} / 5 ({book.ratings_count} ratings)
+          {bookData.average_rating} / 5 ({bookData.ratings_count} ratings)
         </BookInfoText>
         <BookInfoText>
-            nr of pages: {book.num_pages}
+            nr of pages: {bookData.num_pages}
         </BookInfoText>
       </BookInfoContainer>
+      <button type="button" onClick={onBackButtonClick}>back</button>
     </BookviewContainer>
 
   );

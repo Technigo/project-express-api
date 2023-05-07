@@ -9,6 +9,7 @@ const LoaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 `
 const Loading = () => {
   return (

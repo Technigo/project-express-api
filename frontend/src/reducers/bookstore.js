@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ui } from './ui'
 
-const initialState = { books: [], book: {} }
+const initialState = { books: [], book: {}, loading: false }
 
 export const bookstore = createSlice({
   name: 'bookstore',
@@ -23,21 +22,3 @@ export const bookstore = createSlice({
   }
 })
 
-export const fetchRandomBook = () => {
-  return (dispatch) => {
-    dispatch(ui.actions.setLoading(true))
-    fetch('http://localhost:8080/random', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(bookstore.actions.setBookData(json))
-        dispatch(ui.actions.setLoading(false))
-      })
-  }
-}
