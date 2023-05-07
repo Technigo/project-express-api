@@ -1,9 +1,10 @@
 import React from 'react'
+import QuoteList from './components/QuoteList'
 
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      <QuoteList />
     </div>
   )
 }
