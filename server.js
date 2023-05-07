@@ -280,10 +280,10 @@ console.log("sortBy:", sortBy)
 // makes a top 10 list of songs that have the highest parameter score. For example top10/energy gives a list of the 10 songs with the most energy
 app.get('/songlist/top10/:top10value', (req, res) => {
   const { top10value } = req.params;
-  let  top10tracks = topMusicData
+  let topMusicDataCopy = JSON.parse(JSON.stringify(topMusicData));
   console.log("top10value:", top10value)
   if (top10value) {
-    top10tracks = topMusicData
+    top10tracks = topMusicDataCopy
     .sort((a, b) => b[top10value] - a[top10value])
   .slice(0, 10)
   .map(item => {
@@ -292,7 +292,8 @@ app.get('/songlist/top10/:top10value', (req, res) => {
     [top10value]: item[top10value],
     artistName: item.artistName
   }
-});
+})
+
     res.status(200).json({
       success: true,
       message: "OK",
