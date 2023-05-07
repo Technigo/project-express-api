@@ -2,21 +2,18 @@
 
 The project for this week was to create a RESTful API using Express. The API needed to have at least two endpoints - one that would return an array of data, and one that was capable of returning a specific/single item. There was also the option to accept filters via query parameters which I included. 
 
-## Some Documentation
+## The Problem
+I started by planning how and what I would include in the project from the requirements and stretch goals. I then moved onto reviewing the existing examples and codealong code to understand the level of complexity for the data set that would be used for the API. Then, I identified the data I wanted to use - my own reading data from Story Graph. I downloaded my data, cleaned up the data set to make it more useable. When I began coding I wrote one endpoint at a time, testing it before moving to the next. Once my API was functioning, I deployed the backend, and began working on the frontend. I chose to use the frontend as a way to share the API documentation, and example data from different query values. 
 
-Bridget's Books is an API that allows users to fetch data about which books Bridget has read, wants to read, is currently reading, or did not finish.
-
-* /bridgetsbooks
-methods: GET
-accepts the following query params: 
-readstatus: filters by the read status; the values of readstatus must be one of the following -> read, to-read, currently-reading, did-not-finish & 
-author: filters by author name and accepts partial names as well as exact names
-
-* /bridgetsbooks/:isbn
-methods: GET
-matches exact ISBN numbers
-
+If I had more time, I would work on paginating the data so that it doesn't return more than 50 results at a time. I would also troubleshoot the issue with the background on the frontend. The background gets distorted when the datasets are long.
 
 ## View it live
 
+Deployed API:
 https://project-express-api-jonj3fewvq-lz.a.run.app/
+
+Deployed frontend: 
+https://incandescent-lily-e46341.netlify.app/
+
+GitHub Repo for frontend:
+https://github.com/beemailley/project-express-api-frontend/
