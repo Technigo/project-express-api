@@ -32,7 +32,8 @@ app.get("/", (request, response) => {
 // If it does not find any books, it returns error message and empty body
 // Here we also add some queries
 app.get("/books", (request, response) => {
-  let books = booksData
+  // We make sure it's sorted by bookId in ascending order
+  const books = booksData.sort((a, b) => a.bookID - b.bookID);
 
   const { language_code } = request.query;
   console.log('language_code:', language_code, '-- variable type', typeof language_code)
@@ -62,15 +63,12 @@ app.get("/books", (request, response) => {
       return item.language_code.toLowerCase() === language_code.toLowerCase();
     });
   }
-
   
-  // E.g. http://localhost:8080/books?minrating=4.5
+  // E.g. http://localhost:8080/books?minrating=4.5 will give us all the books with min avergae rating 4.5
   if (minrating) {
     books = booksData.filter((singleBookRating) => 
       singleBookRating.average_rating.toString() >= minrating.toString())
   }
-  
-
 });
 
 
@@ -81,8 +79,8 @@ app.get("/books", (request, response) => {
 app.get("/books/:id", (request, response) => {
   const { id } = request.params;
   const booksId = booksData.find((item) => {return item.bookID === Number(id)})
-  console.log('id:', id)
-  console.log('booksId:', booksId)
+  // console.log('id:', id)
+  // console.log('booksId:', booksId)
 
   if (booksId) {
       response.status(200).json({
@@ -102,11 +100,10 @@ app.get("/books/:id", (request, response) => {
 }
 });
 
-// Will return a full list of the books that satisfies this condition => new endpoint?
-// Will return all non-english books
+// Will return all non-english books, sorted by bookId in ascending order.
 app.get("/nonenglishbooks", (request, response) => {
   const nonEnglishBooks = booksData.filter((book) => !["eng", "en-US", "en-GB"].includes(book.language_code));
-  // console.log('nonEnglishBooks:', nonEnglishBooks, '--var type:', typeof nonEnglishBooks);
+  const sortedNonEnglishBooks = nonEnglishBooks.sort((a, b) => a.bookID - b.bookID);
 
   if (nonEnglishBooks) {
     response.status(200).json({
@@ -114,7 +111,7 @@ app.get("/nonenglishbooks", (request, response) => {
       message: "OK",
       body: {
         content: 'All books which are not in english',
-        books: nonEnglishBooks
+        books: sortedNonEnglishBooks
       }
     });
 } else {
@@ -127,7 +124,7 @@ app.get("/nonenglishbooks", (request, response) => {
 });
 
 
-// We get the data sorted by rating and make an endpoint where we show the 100 highest rated
+// We get the data sorted by rating and make an endpoint where we show the 100 highest rated in descending order
 app.get("/top100", (request, response) => {
   const sortedData = booksData.sort((a, b) => b.average_rating - a.average_rating);
   const top100 = sortedData.slice(0, 100);
