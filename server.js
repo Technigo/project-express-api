@@ -27,7 +27,7 @@ app.get("/topmusic", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send({ responsmessage: "Find your groove!"});
+  res.send({ responsmessage: "Hey Technigo"});
 });             
 
 //endpoint that returns all data from the topMusicData array
