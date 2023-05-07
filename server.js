@@ -1,12 +1,13 @@
 // netflixData is an API that allows to fetch data about movies and tv shows from Netflix
 //
 // * /titles
-// accepts the following query params:
-// type: data is filtered by type (movie, tv show etc)
-// country: data is filtered by country
-// year: data is filtered by release year
+// - accepts the following query params:
+// --type: data is filtered by type (movie, tv show etc)
+// --country: data is filtered by country
+// --year: data is filtered by release year
 // * /titles/:show_id
-// gets one specific title based on its id
+// -gets one specific title based on its id
+// * POST request (empty/dummy) 
 
 
 
