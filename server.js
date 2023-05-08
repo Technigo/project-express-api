@@ -64,19 +64,6 @@ app.get('/nominations', (req, res) => {
 });
 
 
-// For example, you can see all the winner movies with the adrres like this:
-// http://localhost:8080/year/2010?won=true.
-// You can see all the movies from year 2020 with address like this:
-// http://localhost:8080/year/2020?/
-// You can see all the movies from year 2010, nominated with category 
-// for example Best Director Motion Picture, icluding only those who won:
-// http://localhost:8080/year/2010?category=Best%20Director%20-%20Motion%20Picture
-// You can see all the movies from year 2010, nominated with category 
-// for example Best Director Motion Picture, icluding only those who won:
-// http://localhost:8080/year/2010?category=Best%20Director%20-%20Motion%20Picture&won=true
-// For example, you can see all the nominations for Clint Eastwood like this:
-// http://localhost:8080/year/2010?nominee=Clint%20Eastwood
-
 
 // The line app.get('/year/:year', (req, res) => { is defining a GET route in your Express application.
 // app.get: This is the method used to handle a GET request. In HTTP, GET is used to request data from a specified resource.
