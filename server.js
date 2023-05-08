@@ -226,11 +226,11 @@ app.get('/songlist/single/:songname', (req, res) => {
 // sorts all the data according to danceability or popularity, and displays specified information
 app.get('/songlist/sort/:sortBy', (req, res) => {
   const { sortBy } = req.params;
-  let sortedSongs = topMusicData;
+  let sortedSongs = [...topMusicData];
 console.log("sortBy:", sortBy)
   switch(sortBy) {
     case 'danceability':
-      sortedSongs = topMusicData
+      sortedSongs
         .sort((a, b) => b.danceability - a.danceability)
         .map(item => {
           return {
@@ -241,8 +241,8 @@ console.log("sortBy:", sortBy)
         })
       break;
     case 'popularity':
-      sortedSongs = topMusicData
-        .sort((a, b) => b.popularity - a.popularity)
+      sortedSongs
+      .sort((a, b) => b.popularity - a.popularity)
         .map(item => {
           return {
             trackName: item.trackName,
@@ -279,10 +279,10 @@ console.log("sortBy:", sortBy)
 // makes a top 10 list of songs that have the highest parameter score. For example top10/energy gives a list of the 10 songs with the most energy
 app.get('/songlist/top10/:top10value', (req, res) => {
   const { top10value } = req.params;
-  let top10tracks = topMusicData
+  let top10tracks = [...topMusicData]
   console.log("top10value:", top10value)
   if (top10value) {
-    top10tracks = topMusicData
+    top10tracks
     .sort((a, b) => b[top10value] - a[top10value])
   .slice(0, 10)
   .map(item => {
