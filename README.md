@@ -25,23 +25,19 @@ https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
 
 You can see all the movies from year 2020 with address like this:
 
-https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
-/year/2020?/
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true/year/2020?/
 
 You can see all the movies from year 2010, nominated with category 
 
 for example Best Director Motion Picture, icluding only those who won:
 
-https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
-year/2010?category=Best%20Director%20-%20Motion%20Picture
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true/year/2010?category=Best%20Director%20-%20Motion%20Picture
 
 You can see all the movies from year 2010, nominated with category 
 
 for example Best Director Motion Picture, icluding only those who won:
 
-https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
-year/2010?category=Best%20Director%20-%20Motion%20Picture&won=true
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true/year/2010?category=Best%20Director%20-%20Motion%20Picture&won=true
 
 For example, you can see all the nominations for Clint Eastwood like this:
-https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
-year/2010?nominee=Clint%20Eastwood
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true/year/2010?nominee=Clint%20Eastwood
