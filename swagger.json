@@ -9,7 +9,7 @@
     "basePath": "/",
     "tags": [],
     "schemes": [
-        "http"
+        "https"
     ],
     "paths": {
         "/sales": {
