@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the TopMusicData api. Go to /endpoints to see all available endpoints");
+  res.send("Welcome to the TopMusicData api. Go to /endpoints to see all available endpoints, or go to https://thunderous-piroshki-f66300.netlify.app/ for easier browsing.");
 });
 
 app.get('/endpoints', (req, res) => {
@@ -309,7 +309,7 @@ app.get('/songlist/top10/:top10value', (req, res) => {
   }
 })
 
-// empty endponint: 
+// empty endpoint: 
 // '/playlist' to make a playlist out of songs based on user input like genre and popularity score for example, and link to a spotify playlist with these songs
 
 const options = {
