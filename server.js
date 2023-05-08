@@ -33,8 +33,7 @@ app.use(bodyParser.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json();
-  //res.send("Welcome to the TopMusicData api");
+  res.send("Welcome to the TopMusicData api. Go to /endpoints to see all available endpoints");
 });
 
 app.get('/endpoints', (req, res) => {
@@ -280,10 +279,10 @@ console.log("sortBy:", sortBy)
 // makes a top 10 list of songs that have the highest parameter score. For example top10/energy gives a list of the 10 songs with the most energy
 app.get('/songlist/top10/:top10value', (req, res) => {
   const { top10value } = req.params;
-  let topMusicDataCopy = JSON.parse(JSON.stringify(topMusicData));
+  let top10tracks = topMusicData
   console.log("top10value:", top10value)
   if (top10value) {
-    top10tracks = topMusicDataCopy
+    top10tracks = topMusicData
     .sort((a, b) => b[top10value] - a[top10value])
   .slice(0, 10)
   .map(item => {
