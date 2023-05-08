@@ -10,4 +10,38 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+this show all the data in goldenglobes.json
+
+example addres how to get all the nominations for example for Aaron Sorkin
+
+All the nominations he has got during the years:
+
+https://project-express-api-euayvvghlq-lz.a.run.app/nominations?nominee=aaron%20sorkin
+
+
+For example, you can see all the winner movies with the adrres like this:
+
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
+
+You can see all the movies from year 2020 with address like this:
+
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
+/year/2020?/
+
+You can see all the movies from year 2010, nominated with category 
+
+for example Best Director Motion Picture, icluding only those who won:
+
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
+year/2010?category=Best%20Director%20-%20Motion%20Picture
+
+You can see all the movies from year 2010, nominated with category 
+
+for example Best Director Motion Picture, icluding only those who won:
+
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
+year/2010?category=Best%20Director%20-%20Motion%20Picture&won=true
+
+For example, you can see all the nominations for Clint Eastwood like this:
+https://project-express-api-euayvvghlq-lz.a.run.app/year/2010?won=true.
+year/2010?nominee=Clint%20Eastwood
