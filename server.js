@@ -6,6 +6,9 @@ import videoGameData from "./data/video-games.json";
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Listening on port', port);
+});
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
@@ -75,6 +78,6 @@ app.get("/videogames/:videogameId", (req, res) => {
 })
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+// console.log(`Server running on http://localhost:${port}`);
+// });
