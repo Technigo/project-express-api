@@ -50,7 +50,16 @@ app.get("/professionals", (req, res) => {
     })
   }
 
+  if (professionals.length === 0) {
+    // res.status(404).send("No IT professionals found"); <- short version. OR:
+    res.status(404).json({
+      success: false, 
+      message: "No IT professionals found",
+      body: {}
+    });
+  } else {
   res.send(professionals);
+}
 });
 
 
@@ -62,7 +71,7 @@ app.get("/highesttolowest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered from highest to lowest`,
+      message: "Success! Salaries ordered from highest to lowest",
       body: {
         professionals: sortedProfessionals
       }
@@ -85,7 +94,7 @@ app.get("/lowesttohighest", (req, res) => {
   if (sortedProfessionals.length > 0) {
     res.status(200).json({
       success: true,
-      message: `Success! Salaries ordered from lowest to highest`,
+      message: "Success! Salaries ordered from lowest to highest",
       body: {
         professionals: sortedProfessionals
       }
