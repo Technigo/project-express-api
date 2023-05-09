@@ -1,6 +1,5 @@
 import express, { response } from "express";
 import cors from "cors";
-import netflixData from "./data/netflix-titles.json";
 import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -8,6 +7,7 @@ import topMusicData from "./data/top-music.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 9090;
 const app = express();
+const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -19,16 +19,14 @@ const notFound = (req, res, next) => {
 };
 
 // Start defining your routes here
-app.get("/netflix", (req, res) => {
-  res.json(netflixData);
-});
+
 app.get("/topmusic", (req, res) => {
   res.json(topMusicData);
 });
 
 app.get("/", (req, res) => {
-  res.send({ responsmessage: "Hey Technigo"});
-});             
+    res.json(listEndpoints(app));
+  });            
 
 //endpoint that returns all data from the topMusicData array
 app.get("/topmusic/:artist", (req, res) => {
