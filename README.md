@@ -4,7 +4,6 @@ This is a backend project with API:s built using Express.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 I based a lot of the code on a code long and live session from Technigo. I also got some help from ChatGPT in getting the res.status in the right place.
 
 ## View it live
