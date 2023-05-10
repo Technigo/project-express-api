@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Function for response status
 const responseStatus = (request, response, workouts) => {
-  if (workouts) {
+  if (workouts.lenth > 0) {
     response.status(200).json({
       success: true,
       message: "OK",
@@ -66,7 +66,7 @@ app.get("/workouts", (request, response) => {
   console.log("body part: ", BodyPart)
 
   let workouts = workoutsData;
-  if (workouts) {
+  if (workouts.length > 0) {
     workouts = workoutsData.filter((singleWorkout) => {
       return singleWorkout.BodyPart.toLowerCase() === BodyPart.toLowerCase();
     });
