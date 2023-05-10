@@ -99,14 +99,13 @@ app.get("/netflix", (request, response) => {
     });
   }
 });
-// DRY - don't repeat yourself
-// get all technigo members
+
 app.get("/netflix/id/:id", (request, response) => {
   const { id } = request.params;
   const singleItem = netflixData.find((item) => {
     return item.show_id === Number(id);
   });
-  if (singleItem) {
+  if (singleItem.length > 0) {
     response.status(200).json({
       success: true,
       message: "OK",
@@ -126,7 +125,6 @@ app.get("/netflix/id/:id", (request, response) => {
 
 app.get("/netflix/released/:year", (request, response) => {
   const { year } = request.params;
-  console.log("year: ", year);
   const singleItem = netflixData.filter((item) => {
     return item.release_year === Number(year);
   });
