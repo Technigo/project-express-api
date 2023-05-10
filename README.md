@@ -19,3 +19,5 @@ It was also valuable this week to get a better understanding of the different st
 ## View it live
 
 [Express API week13 project](https://project-express-api-g54dl7acxq-lz.a.run.app/)
+
+[Swagger documentation for my API](https://project-express-api-g54dl7acxq-lz.a.run.app/api-docs/)
