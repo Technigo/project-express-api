@@ -1,0 +1,244 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Netflix details about Movies and TV-shows"
+  },
+  "host": "project-express-api-g54dl7acxq-lz.a.run.app",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+        "get": {
+          "description": "Index route - displays all endpoints",
+          "produces": [
+            "text/plain"
+          ],
+          "responses": {
+            "200": {
+              "description": "All endpoints displayed succesful"
+            }
+          }
+        }
+      },
+  "/titles": {
+    "get": {
+      "tags": ["Titles"],
+      "description": "Returns the full data for all titles, with queries to limit the search result",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "page",
+          "in":"query",
+          "description": "Page number",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "size",
+          "in":"query",
+          "description": "Amount of search results on page",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "500": {
+          "description": "Something went wrong"
+        }
+      }
+    }
+  },
+  "/titles/genres/{genres}": {
+    "get": {
+      "tags": ["Titles"],
+      "description": "Returns titles based on genres",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "genres",
+          "in":"path",
+          "description": "Listed in genre",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "International TV Shows",
+            "Korean TV Shows", 
+            "Romantic TV Shows",
+            "Kids' TV",
+            "Crime TV Shows", 
+            "Spanish-Language TV Shows",
+            "Reality TV",
+            "TV Comedies",
+            "Docuseries",
+            "Anime Series",
+            "Stand-Up Comedy & Talk Shows",
+            "TV Dramas",
+            "TV Mysteries",
+            "Documentaries", 
+            "International Movies",
+            "Comedies", 
+            "Dramas",
+            "Independent Movies",
+            "Thrillers",
+            "Action & Adventure",
+            "Children & Family Movies",
+            "Romantic Movies"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "404": {
+          "description": "Genre not found"
+        }
+      }
+    }
+  },
+  "/titles/country/{country}": {
+    "get": {
+      "tags": ["Titles"],
+      "description": "Returns titles based on country",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "country",
+          "in":"path",
+          "description": "filtered based on country",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "404": {
+          "description": "No match for that country"
+        }
+      }
+    }
+  },
+  "/titles/id/{id}": {
+    "get": {
+      "tags": ["Titles"],
+      "description": "Returns specific title based on ID",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in":"path",
+          "description": "Find specific id",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "404": {
+          "description": "Title id not found"
+        }
+      }
+    }
+  },
+  "/titles/movies": {
+    "get": {
+      "tags": ["Movies"],
+      "description": "Data filtered to show all Movies, query to search for Movie based on released year",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "year",
+          "in":"query",
+          "description": "Year released",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "404": {
+          "description": "Not found"
+        }
+      }
+    }
+  },
+  "/titles/tv-shows": {
+    "get": {
+      "tags": ["TV Shows"],
+      "description": "Data filtered to show all TV shows. Queries to filter on year, seasons, genres",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "year",
+          "in":"query",
+          "description": "Year released",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "seasons",
+          "in":"query",
+          "description": "Amount of seasons, example 2 Seasons",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "genres",
+          "in":"query",
+          "description": "Listed in genre",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "International TV Shows",
+            "Korean TV Shows", 
+            "Romantic TV Shows",
+            "Kids' TV",
+            "Crime TV Shows", 
+            "Spanish-Language TV Shows",
+            "Reality TV",
+            "TV Comedies",
+            "Docuseries",
+            "Anime Series",
+            "Stand-Up Comedy & Talk Shows",
+            "TV Dramas",
+            "TV Mysteries"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Data returned successfully"
+        },
+        "404": {
+          "description": "Not found"
+        }
+      }
+    }
+  }
+    }
+  }
+

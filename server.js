@@ -1,6 +1,8 @@
 import express, { response } from 'express';
 import cors from 'cors';
 import netflixData from './data/netflix-titles.json';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 const port = process.env.PORT || 8080;
@@ -177,6 +179,32 @@ app.get('/titles/:id', (req, res) => {
     })
   }
 })
+
+// for the swagger documentation
+const options = {
+  definition: {
+    openapi: '3.1.0',
+    info: {
+      title: 'Netflix data Movies and TV Shows',
+      version: '0.1.0',
+      description:
+        'A simple Express library API, documented with Swagger',
+    },
+    servers: [
+      {
+        url: 'http://localhost:8080',
+      },
+    ],
+  },
+  apis: ['./server/.js'],
+};
+
+const specs = require('./swagger.json');
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
 // Start the server
 app.listen(port, () => {
