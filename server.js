@@ -26,7 +26,7 @@ app.get('/titles', (req, res) => {
   } )
 
 
-app.get('/title/:id', (req, res) => {
+app.get('/id/:id', (req, res) => {
   const { id } = req.params;
   const showId = netflixData.filter((title) => {
     return title.show_id === Number(id);
@@ -47,7 +47,7 @@ app.get('/title/:id', (req, res) => {
     });
   }
 });
-app.get('/title/:title', (req, res) => {
+app.get('/titles/:title', (req, res) => {
   const { title } = req.params;
   const netflixTitle = netflixData.filter((item) => {
     return item.title.toLowerCase().includes(title.toLowerCase());
