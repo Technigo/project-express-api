@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Function for response status
 const responseStatus = (request, response, workouts) => {
-  if (workouts.lenth > 0) {
+  if (workouts.length > 0) {
     response.status(200).json({
       success: true,
       message: "OK",
@@ -32,7 +32,7 @@ const responseStatus = (request, response, workouts) => {
 // Defining routes
 app.get("/", (request, response) => {
   const welcomeText = "Hello and welcome to the Keep Fit API. Use the endpoints below to search for workouts";
-  const apiLink = "https://project-express-api-cvzekbgn3q-lz.a.run.app/api-docs/";
+  const apiLink = "https://project-express-api-lldotyfewa-lz.a.run.app";
   const endpoints = (listEndpoints(app))
   
   response.send({
