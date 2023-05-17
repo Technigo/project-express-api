@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // structure of how we will be building endpoints 
-//request what Frontend sens, response what backend sends back
+// request what Frontend sends, response what backend sends back
 // Start defining your routes here
 app.get("/", (req, res) => {
   //res.send("Hello Technigo!");
@@ -27,7 +27,8 @@ app.get("/", (req, res) => {
 
 // get entire ranking 
 app.get("/ranking", (req, res) => {
-  const inequalityRanking = inequality;
+  const inequalityRanking = inequality.sort((a,b) => a.Rank - b.Rank );
+  const Human_development = req.query.Human_development;
   if (inequalityRanking) {
     res.status(200).json(
       {
@@ -47,38 +48,14 @@ app.get("/ranking", (req, res) => {
       }
     )
   }
-});
 
-/*
-//get single country ranking 
-app.get("/ranking/:country", (req, res) => {
-  const {country} = req.params;
-  console.log("country: ", country );
-  const singleCountry = inequality.find((countryRanking) => {
-    return( countryRanking.Country === country)
-  });
-  if (singleCountry) {
-    res.status(200).json(
-      {
-        success: true,
-        message: "Ok",
-        body: {
-          country: singleCountry
-        }
-      }
-    );
-  } else {
-    res.status(404).json(
-      {
-        success: false,
-        message: "Country not found",
-        body: {}        
-      }
-    )
-  }
+    // E.g. http://localhost:8080/ranking?Human_development=Very high will give us all countries Very high
+    if (Human_development) {
+      inequalityRanking = inequality.filter((item) => {
+        return item.Human_development.toLowerCase() === Human_development.toLowerCase();
+      });
+    }
 });
-
-*/
 
 
 //get single ranking 
@@ -108,6 +85,41 @@ app.get("/ranking/:rank", (req, res) => {
     )
   }
 });
+
+
+// get ranking for single country
+app.get("/country/:name", (req, res) => {
+  const name = req.params.name;
+  console.log("Name:", name);
+
+  const singleCountry = inequality.find((countryRank) => {
+    return(
+      countryRank.Country.toLowerCase() === name.toLowerCase()
+    )
+  });
+  if (singleCountry) {
+    res.status(200).json(
+      {
+        success: true,
+        message: "Ok",
+        body: {
+          Rank: singleCountry
+        }
+      }
+    );
+  } else {
+    res.status(404).json(
+      {
+        success: false,
+        message: "Country not found",
+        body: {}        
+      }
+    )
+  }
+
+}
+)
+
 
 // to start application qe go to port and we trigger endpoints 
 // Start the server
