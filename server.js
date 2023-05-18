@@ -29,6 +29,23 @@ app.get("/", (req, res) => {
 app.get("/ranking", (req, res) => {
   const inequalityRanking = inequality.sort((a,b) => a.Rank - b.Rank );
   const Human_development = req.query.Human_development;
+  const inequalityRankingCopy = inequalityRanking.filter((item) => {
+    return item.Human_development.toLowerCase() === Human_development.toLowerCase();
+  });
+
+      // E.g. http://localhost:8080/ranking?Human_development=Very high will give us all countries Very high
+      if (Human_development) {
+        res.status(200).json(
+          {
+            success: true,
+            message: "Ok",
+            body: {
+              inequality: inequalityRankingCopy
+            }
+          }
+        );
+      } else {
+
   if (inequalityRanking) {
     res.status(200).json(
       {
@@ -48,13 +65,7 @@ app.get("/ranking", (req, res) => {
       }
     )
   }
-
-    // E.g. http://localhost:8080/ranking?Human_development=Very high will give us all countries Very high
-    if (Human_development) {
-      inequalityRanking = inequality.filter((item) => {
-        return item.Human_development.toLowerCase() === Human_development.toLowerCase();
-      });
-    }
+}
 });
 
 
