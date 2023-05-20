@@ -23,8 +23,6 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.send({responseMessage: "Get your Netflix data, e.g. https://project-express-api-kpnlmcrmoq-lz.a.run.app/type/TV%20Show"});
-
   res.json(listEndpoints(app));
 });
 
