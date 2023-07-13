@@ -1,5 +1,6 @@
 # Project Express API
-Creating an express API. This week we installed and set up an Express server using Noce and the Google Cloud Platform  
+### Week 13 Technigo Bootcamp
+Creating an express API. This week we installed and set up an Express server using Node and the Google Cloud Platform.  
 
 ## The problem
 First I downloaded the repo and set up my account on Google cloud platform. I created the server.js using the books.json as my data package. I tested the API in postman and seemed to get all the endpoints i was searching for so I continued to try to created a frontend to better show the data from the API.I managed to show the books with the react carousel and just added in the other endpoints as hyperlinks. 
