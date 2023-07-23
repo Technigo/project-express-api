@@ -58,7 +58,15 @@ app.get("/professionals", (req, res) => {
       body: {}
     });
   } else {
-  res.send(professionals);
+  res.json(
+    {
+      success: true,
+      message: "All IT professionals",
+      body: {
+        professionals
+      }
+    }
+  );
 }
 });
 
