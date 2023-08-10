@@ -1,13 +1,13 @@
 # Project Express API
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Google Cloud](https://img.shields.io/badge/Google%20Cloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was our first backend project. I built my own API using Node.js and Express, and a dataset I found on Kaggle. It turned out to be a lot more exciting than I had imagined, and I had a lot of fun manipulating the dataset and creating different endpoints. I also think my API conforms to the RESTful principles.
 
 ## The problem
+The most difficult part of this week's project was definitely the deployment. Although I did get my API up and running quite quickly, I found Google Cloud difficult to wrap my head around as the UI was messy and the process of deploying a backend project quite intimidating at first.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## View frontend repository
+https://github.com/AntoniaGranit/expressAPI-frontend
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-wcsanbxhyq-lz.a.run.app
