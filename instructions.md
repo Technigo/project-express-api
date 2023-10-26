@@ -1,7 +1,7 @@
 # Instructions
 This week's project is to start your backend journey by creating an API using Express. Your API should have at least a couple of RESTful endpoints which return either an array of data or a single item.
 
-Since we're not using databases yet, you'll need to use a hard-coded set of data, stored as a JSON file in your project. The API endpoints you create will use this file along with array methods such as `[.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)`, `[.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)`, and `[.slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)` to select, filter, or limit the items returned in your responses.
+Since we're not using databases yet, you'll need to use a hard-coded set of data, stored as a JSON file in your project. The API endpoints you create will use this file along with array methods such as [.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), and [.slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) to select, filter, or limit the items returned in your responses.
 
 It's up to you to decide what sort of data you'd like to return from your API endpoints. In the repository, we've included some datasets you can use if you'd like:
 
