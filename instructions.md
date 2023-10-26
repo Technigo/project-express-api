@@ -22,13 +22,9 @@ RESTful routing can take a little time to get used to. Try to think of what the 
 
 ## Requirements:
 - Your API should have at least 3 routes. Try to push yourself to do more, though!
-
-- The endpoint "/" should return documentation of your API using e.g. [Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints)
-
-- A minimum of one endpoint to return a **collection** of results (array of elements).
-
-- A minimum of one endpoint to return a **single** result (single element).
-
+  - The endpoint "/" should return documentation of your API using e.g. [Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints)
+  - A minimum of one endpoint to return a **collection** of results (array of elements).
+  - A minimum of one endpoint to return a **single** result (single element).
 - Your API should be [RESTful](https://www.notion.so/23473abe980e40aaa932914751055d22?pvs=21).
 
 
