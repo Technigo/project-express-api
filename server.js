@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-// import avocadoSalesData from "./data/avocado-sales.json";
-import trendingYTVideos from "./data/trending.json";
+import avocadoSalesData from "./data/avocado-sales.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -20,10 +19,10 @@ app.get("/", (req, res) => {
 });
 
 // Defines a route to the entire data set of avocado sales
-app.get("/top-trending", (req, res) => {
-  const topTrending = trendingYTVideos.slice(0, 100);
-  res.json(topTrending);
-  console.log(topTrending.length);
+app.get("/top-sales", (req, res) => {
+  const topSales = avocadoSalesData.slice(0, 100);
+  res.json(topSales);
+  console.log(topSales.length);
 })
 
 // Start the server
