@@ -8,7 +8,7 @@ import avocadoSalesData from "./data/avocado-sales.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 
-const listEndpoints = require('express-list-endpoints')
+const listEndpoints = require("express-list-endpoints")
 const app = require('express')();
 // const app = express();
 
