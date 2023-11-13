@@ -5,7 +5,6 @@ import cors from "cors";
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
 import avocadoSalesData from "./data/avocado-sales.json";
-console.log(avocadoSalesData);
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -25,7 +24,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/avocado-sales", (req, res) => {
-  res.json(avocadoSalesData);
+  // /avocado-sales?region=:region
+  const region = req.query.region;
+
+  if (region) {
+    const avocadoSalesRegion = avocadoSalesData.filter(
+      (r) => r.region === region
+    );
+    if (avocadoSalesRegion.length > 0) {
+      res.json(avocadoSalesRegion);
+    } else {
+      res.status(404).send(`No avocado sales data found in region: ${region}`);
+    }
+  } else {
+    res.json(avocadoSalesData);
+  }
 });
 
 app.get("/avocado-sales/:id", (req, res) => {
@@ -34,7 +47,7 @@ app.get("/avocado-sales/:id", (req, res) => {
   if (avocadoSale) {
     res.json(avocadoSale);
   } else {
-    res.status(404).send("No avocado sale found with id: :id");
+    res.status(404).send(`No avocado sale found with id: ${id}`);
   }
 });
 
