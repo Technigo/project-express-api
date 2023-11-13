@@ -27,7 +27,8 @@ app.get("/avocado-sales", (req, res) => {
 
 // Defines a route to the entire data set of avocado sales
 app.get("/avocado-sales/top-20", (req, res) => {
-  const topSales = avocadoSalesData.slice(0, 20); // Slice the array to get the first 100 items
+  // Sorts the array to get the top 20 sales, based on the total volume
+  const topSales = avocadoSalesData.sort((a, b) => b.totalVolume - a.totalVolume).slice(0, 20); // Slices the array to get the first 20 items 
   res.json(topSales); // Return a JSON response with the top 100 avocado sales
 })
 
