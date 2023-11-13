@@ -21,4 +21,4 @@ https://avocado-sales.onrender.com/avocado-sales/volume/totalVolume?min=0.88&max
 ## View it live
 [Front-End](https://avocado-sales-express.netlify.app/)
 [Front-End-Repo](https://github.com/MikoZhu/Express-FrontEnd)
-[Back-End](https://avocado-sales.onrender.com/)
+[Back-End](https://avocado-sales.onrender.com/) It will take a while to render the back-end data
