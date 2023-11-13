@@ -2,7 +2,11 @@ import express from "express";
 import cors from "cors";
 import airportcodes from "./data/airportcodes.json";
 
-// import avocadoSalesData from "./data/avocado-sales.json";
+// Your API should have at least 3 routes. Try to push yourself to do more, though!
+// The endpoint "/" should return documentation of your API using e.g. Express List Endpoints
+// A minimum of one endpoint to return a collection of results (array of elements).
+// A minimum of one endpoint to return a single result (single element).
+// Your API should be RESTful.
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -36,9 +40,9 @@ app.get("/country/:iso_country", (req, res) => {
   );
 
   //query end point of all large airports in the country
-  if (largeAirport === "large_airport") {
-    byCountryCode = byCountryCode.filter((item) => item.type);
-  }
+  // if (largeAirport === "large_airport") {
+  //   byCountryCode = byCountryCode.filter((item) => item.type);
+  // }
 
   res.json(byCountryCode);
 });
@@ -50,6 +54,17 @@ app.get("/type/:type", (req, res) => {
   let byType = airportcodes.filter((item) => item.type === type);
 
   res.json(byType);
+});
+
+//end point to return a single result by sorting by IATA code = /iata/*iatacode
+
+app.get("/iata/:iata_code", (req, res) => {
+  const iataCode = req.params.iata_code;
+  let byIata = airportcodes.filter((item) => item.iata_code === iataCode);
+
+  res.json(byIata);
+
+  console.log(byIata);
 });
 
 // Start the server
