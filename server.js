@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Route to get all avocado sales data
+// https://avocado-sales.onrender.com/avocado-sales?page=2
 app.get("/avocado-sales/", (req, res) => {
   const { page } = req.query;
   const pageSize = 10; // Set the number of items per page
@@ -43,12 +44,14 @@ app.post("/avocado-sales", (req, res) => {
   });
 });
 // Route to get a list of all registered endpoints
+
 app.get("/", (req, res) => {
   const endpoints = listEndpoints(app);
   res.json(endpoints);
 });
 
 // Route to get data by ID
+//https://avocado-sales.onrender.com/avocado-sales/2
 app.get("/avocado-sales/:id", (req, res) => {
   const id = Number(req.params.id);
   const singleAvocado = avocadoSalesData.find((avocado) => avocado.id === id);
@@ -69,6 +72,8 @@ app.get("/avocado-sales/:id", (req, res) => {
 });
 
 // search by region
+//https://avocado-sales.onrender.com/avocado-sales/region/albany
+
 app.get("/avocado-sales/region/:region", (req, res) => {
   const region = req.params.region;
 
@@ -98,12 +103,13 @@ app.get("/avocado-sales/region/:region", (req, res) => {
     body: { filteredRegion },
   });
 });
+
 // find the minPrice and maxPrice of average price
+// make a request to https://avocado-sales.onrender.com/avocado-sales/volume/totalVolume?min=0.88&max=0.9
 app.get("/avocado-sales/volume/totalVolume", (req, res) => {
   const { min, max } = req.query;
 
   // Convert min and max to numbers
-  // make a request to http://localhost:8080/avocado-sales/volume/totalVolume?min=0.88&max=0.9
   const minPrice = min ? parseFloat(min) : 0;
   const maxPrice = max ? parseFloat(max) : Number.MAX_VALUE;
 
