@@ -24,17 +24,17 @@ app.get("/", (req, res) => {
   res.send(listEndPoints(app));
 });
 
-app.get("/avocadoSales", (req, res) => {
+app.get("/avocado-sales", (req, res) => {
   res.json(avocadoSalesData);
 });
 
-app.get("/avocadoSalesData/:id", (req, res) => {
+app.get("/avocado-sales/:id", (req, res) => {
   const id = req.params.id;
   const avocadoSale = avocadoSalesData.find((a) => a.id === parseInt(id));
   if (avocadoSale) {
     res.json(avocadoSale);
   } else {
-    res.status(404).send("Avocado sale not found");
+    res.status(404).send("No avocado sale found with id: :id");
   }
 });
 
