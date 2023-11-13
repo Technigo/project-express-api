@@ -1,13 +1,8 @@
 import express from "express";
 import cors from "cors";
+import airportcodes from "./data/airportcodes.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -22,6 +17,39 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+//end point for all data in json file
+app.get("/iatacodes", (req, res) => {
+  res.json(airportcodes);
+});
+
+console.log(airportcodes.length); //9149
+
+//end point for all airports listed by country code
+app.get("/country/:iso_country", (req, res) => {
+  const country = req.params.iso_country;
+  const largeAirport = req.query.type;
+
+  let byCountryCode = airportcodes.filter(
+    (item) => item.iso_country === country
+  );
+
+  //query end point of all large airports in the country
+  if (largeAirport === "large_airport") {
+    byCountryCode = byCountryCode.filter((item) => item.type);
+  }
+
+  res.json(byCountryCode);
+});
+
+//end point for all airports by type
+// small_airport, medium_airport, large_airport, closed
+app.get("/type/:type", (req, res) => {
+  const type = req.params.type;
+  let byType = airportcodes.filter((item) => item.type === type);
+
+  res.json(byType);
 });
 
 // Start the server
