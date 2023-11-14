@@ -21,13 +21,17 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send(
-    "Week 13 Technigo Web Development Bootcamp - Beckie's express API project"
+    "Week 13 Technigo Web Development Bootcamp - Beckie's express API project - International IATA Airport codes"
   );
 });
 
 //end point for all data in json file
 app.get("/airports", (req, res) => {
-  res.json(airportcodes);
+  if (airportcodes.length >= 0) {
+    res.json(airportcodes);
+  } else {
+    res.status(404).send("No Airport code detail were found");
+  }
 });
 
 console.log(airportcodes.length); //9149
@@ -41,7 +45,7 @@ app.get("/airports/country/:iso_country", (req, res) => {
     (item) => item.iso_country.toLowerCase() === country
   );
 
-  if (byCountryCode.length > 0) {
+  if (byCountryCode.length >= 0) {
     res.json(byCountryCode);
   } else {
     res.status(404).send("No Country details were found");
@@ -54,7 +58,15 @@ app.get("/airports/type/:type", (req, res) => {
   const type = req.params.type;
   let byType = airportcodes.filter((item) => item.type === type);
 
-  res.json(byType);
+  if (byType.length >= 0) {
+    res.json(byType);
+  } else {
+    res
+      .status(404)
+      .send(
+        "No type recognised or found. Please try again using small, medium, large or closed details were found"
+      );
+  }
 });
 
 //end point to return a single result by sorting by IATA code eg. /iata/JRO returns Kilimanjaro International Airprot
