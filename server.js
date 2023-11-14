@@ -20,51 +20,65 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(
+    "Week 13 Technigo Web Development Bootcamp - Beckie's express API project"
+  );
 });
 
 //end point for all data in json file
-app.get("/iatacodes", (req, res) => {
+app.get("/airports", (req, res) => {
   res.json(airportcodes);
 });
 
 console.log(airportcodes.length); //9149
 
 //end point for all airports listed by country code
-app.get("/country/:iso_country", (req, res) => {
-  const country = req.params.iso_country;
+app.get("/airports/country/:iso_country", (req, res) => {
+  const country = req.params.iso_country.toLowerCase();
   const largeAirport = req.query.type;
 
   let byCountryCode = airportcodes.filter(
-    (item) => item.iso_country === country
+    (item) => item.iso_country.toLowerCase() === country
   );
 
-  //query end point of all large airports in the country
-  // if (largeAirport === "large_airport") {
-  //   byCountryCode = byCountryCode.filter((item) => item.type);
-  // }
-
-  res.json(byCountryCode);
+  if (byCountryCode.length > 0) {
+    res.json(byCountryCode);
+  } else {
+    res.status(404).send("No Country details were found");
+  }
 });
 
-//end point for all airports by type
-// small_airport, medium_airport, large_airport, closed
-app.get("/type/:type", (req, res) => {
+//end point for all airports by type eg /type/small_airport returns all small airports
+// options are small_airport, medium_airport, large_airport, closed
+app.get("/airports/type/:type", (req, res) => {
   const type = req.params.type;
   let byType = airportcodes.filter((item) => item.type === type);
 
   res.json(byType);
 });
 
-//end point to return a single result by sorting by IATA code = /iata/*iatacode
+//end point to return a single result by sorting by IATA code eg. /iata/JRO returns Kilimanjaro International Airprot
+app.get("/airports/iata/:iata_code", (req, res) => {
+  const iataCode = req.params.iata_code.toLowerCase();
+  let byIata = airportcodes.find(
+    (item) => item.iata_code.toLowerCase() === iataCode
+  );
 
-app.get("/iata/:iata_code", (req, res) => {
-  const iataCode = req.params.iata_code;
-  let byIata = airportcodes.filter((item) => item.iata_code === iataCode);
+  if (byIata) {
+    res.json(byIata);
+  } else {
+    res.status(404).send("No Airport was found");
+  }
+});
 
-  res.json(byIata);
+//difference between filter and find??? find stops at the first match and only gives you one item back. filter can give you multiple
 
-  console.log(byIata);
+//End point to return the name of an Airport eg. /name/
+app.get("/airports/name/:name", (req, res) => {
+  const name = req.params.name;
+  let byName = airportcodes.filter((item) => item.name === name);
+
+  res.json(byName);
 });
 
 // Start the server
