@@ -51,6 +51,36 @@ app.get('/regions/:region', (req, res) => {
   res.json(avocadoRegions);
 });
 
+// Endpoint to return a limited number of results using slice
+app.get('/sales/limited/:limit', (req, res) => {
+  // Retrieve the "limit" parameter from the request and convert it to a number.
+  const limit = parseInt(req.params.limit);
+  // Use slice to return a limited number of avocado sales records.
+  const limitedAvocadoSales = avocadoSalesData.slice(0, limit);
+  // Return the result in JSON format, which includes a limited number of avocado sales records.
+  res.json(limitedAvocadoSales);
+});
+
+// Endpoint to return a limited number of results using slice
+app.get('/sales/limited/:limit', (req, res) => {
+  // Retrieve the "limit" parameter from the request and convert it to a number.
+  const limit = req.params.limit;
+  // Use slice to return a limited number of avocado sales records.
+  const limitedAvocadoSales = avocadoSalesData.slice(0, limit);
+  // Return the result in JSON format, which includes a limited number of avocado sales records.
+  res.json(limitedAvocadoSales);
+});
+
+// Empty endpoint for future operations
+app.post('/dummy', (req, res) => {
+  res.json({ message: 'This is an empty endpoint for future operations' });
+});
+
+// Empty endpoint with dynamic parameter
+app.get('/dummy/:param', (req, res) => {
+  const paramValue = req.params.param;
+  res.json({ message: `To jest pusty endpoint z parametrem: ${paramValue}` });
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
