@@ -8,6 +8,9 @@ import cors from "cors";
 // import goldenGlobesData from "./data/golden-globes.json";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
+import nobelData from "./data/nobel-data.json";
+
+console.log(nobelData);
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,7 +24,29 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Nobel price winners");
+});
+
+app.get("/winners", (req, res) => {
+  res.json(nobelData)
+});
+
+app.get("/year/:year", (req, res) => {
+  const year = req.params.year
+  const winnersFromYear = nobelData.filter((item) => item.year === +year)
+  res.json(winnersFromYear)
+});
+
+app.get("/category/:category", (req, res) => {
+  const category = req.params.category
+  const showBornCountry = req.query.bornCountry
+  let winnersPerCategory = nobelData.filter((item) => item.category === category);
+
+  if (showBornCountry) {
+    winnersPerCategory = winnersPerCategory.filter((item) => item.bornCountry === showBornCountry);
+  }
+
+  res.json(winnersPerCategory)
 });
 
 // Start the server
