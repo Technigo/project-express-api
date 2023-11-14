@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import avocadoSalesData from './data/avocado-sales.json';
+import listEndpoints from 'express-list-endpoints';
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -14,16 +15,42 @@ app.get('/', (req, res) => {
   res.send('Hello Technigo!');
 });
 
+// Endpoint to return API documentation
+app.get('/endpoints', (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+// Endpoint to return a collection of results (array of elements)
 app.get('/sales', (req, res) => {
   res.json(avocadoSalesData);
 });
 
+// Endpoint to return a single result (single element) based on ID
+app.get('/sales/:id', (req, res) => {
+  // Retrieve the "id" parameter from the request.
+  const id = req.params.id;
+  // Use the find method to locate the avocado sales object with the specified "id".
+  // '+id' converts 'id' to a number because the parameter is always passed as a string.
+  const avocadoSaleById = avocadoSalesData.find((item) => item.id === +id);
+  if (avocadoSaleById) {
+    res.json(avocadoSaleById);
+  } else {
+    res.status(404).json({ message: 'Sale no found' });
+  }
+});
+
+// Endpoint to return results based on region
 app.get('/regions/:region', (req, res) => {
+  // Retrieve the parameter from the request named 'region' and convert it to lowercase (case-insensitive).
   const region = req.params.region.toLowerCase();
-  const avocadoRegions = avocadoSalesData.filter((id) => id.region.toLowerCase() === region);
+  // Filter avocado sales data based on the specified region.
+  // The variable avocadoRegions will contain an array of objects matching the specified region.
+  const avocadoRegions = avocadoSalesData.filter((item) => item.region.toLowerCase() === region);
   console.log('message ', avocadoRegions);
+  // Return the result in JSON format, which includes avocado sales data for the specified region.
   res.json(avocadoRegions);
 });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
