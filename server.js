@@ -26,7 +26,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/shows", (req, res) => {
-  res.json(netflixData);
+  const type = req.query.type;
+  const rating = req.query.rating;
+
+  let shows = netflixData;
+
+  if (type) {
+    shows = shows.filter((s) => s.type === type);
+  }
+
+  if (rating) {
+    shows = shows.filter((s) => s.rating === rating);
+  }
+
+  res.json(shows);
 });
 
 app.get("/shows/:showId", (req, res) => {
