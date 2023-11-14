@@ -1,14 +1,7 @@
+import listEndpoints from "express-list-endpoints";
 import express from "express";
 import cors from "cors";
-import listEndpoints from "express-list-endpoints";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
 import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -19,6 +12,15 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+
+// Middleware that checks if the user has a key to the API
+app.use((req, res, next) => {
+  if (req.query.key === "secret-key") {
+    next()
+  } else {
+    res.status(401).json({ message: "Invalid key" });
+  }
+});
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -47,9 +49,9 @@ app.get("/shows/:showId", (req, res) => {
   const show = netflixData.find((s) => s.show_id === showId);
 
   if (show) {
-    res.json(show)
+    res.json(show);
   } else {
-    res.status(404).json({ message: 'Show not found' })
+    res.status(404).json({ message: "Show not found" });
   }
 });
 
