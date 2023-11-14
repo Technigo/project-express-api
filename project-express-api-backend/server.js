@@ -1,4 +1,4 @@
-import express from "express";
+   import express from "express";
 import cors from "cors";
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -73,6 +73,19 @@ app.get("/books/book/:bookID", (req, res) => {
         res.status(404).send("Book not found");
     }
 });
+
+app.get("/books/most-popular", (req, res) => {
+    const mostPopularBooks = [...booksData].sort((a, b) => b.ratings_count - a.ratings_count);
+
+    const top20Books = mostPopularBooks.slice(0, 20);
+
+    if (top20Books.length > 0) {
+        res.json(top20Books);
+    } else {
+        res.status(404).send("No popular books found")
+    }
+
+})
 
 app.get("/books/authors/:authors", (req, res) => {
     //defining and formatting the slur (authors name)
