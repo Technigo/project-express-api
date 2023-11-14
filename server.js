@@ -21,6 +21,27 @@ app.get(`/nominations`, (req, res) => {
   res.json(goldenGlobesData);
 });
 
+app.get(`/year/:year`, (req, res) => {
+  const year = req.params.year;
+  const showWon = req.query.won;
+  let nominationsFromYear = goldenGlobesData.filter(
+    (item) => item.year_award === +year
+  );
+
+  if (showWon) {
+    nominationsFromYear = nominationsFromYear.filter((item) => item.win);
+  }
+  res.json(nominationsFromYear);
+});
+
+// app.get(`/category`, (req, res) => {
+//   const category = req.params.category;
+//   const movieCategory = goldenGlobesData.filter(
+//     (item) => item.category === category
+//   );
+//   res.json(movieCategory);
+// });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
