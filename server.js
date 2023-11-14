@@ -31,6 +31,17 @@ app.get("/winners", (req, res) => {
   res.json(nobelData)
 });
 
+app.get("/winners/:winnerId", (req, res) => {
+  const winnerId = req.params.winnerId
+  const winner = nobelData.find((item) => item.laureateID === +winnerId)
+  
+  if (winner) {
+    res.json(winner)
+  } else {
+    res.status(404).send("Winner not found")
+  }
+});
+
 app.get("/year/:year", (req, res) => {
   const year = req.params.year
   const winnersFromYear = nobelData.filter((item) => item.year === +year)
