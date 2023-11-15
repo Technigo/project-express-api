@@ -21,7 +21,9 @@ app.get('/api-docs', (req, res) => {
 
 // Default route for the root path
 app.get("/", (req, res) => {
-  res.send("Welcome to the Netflix Titles API!");
+  const endpoints = expressListEndpoints(app);
+  const message = "Hello, this is the root path! Here are the endpoints:";
+  res.json({ message, endpoints });
 });
 
 // For all titles
