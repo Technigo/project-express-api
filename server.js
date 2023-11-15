@@ -1,27 +1,33 @@
 import express from "express";
 import cors from "cors";
+import data from "./data/json_award.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get("/api/v1/novel_award", (req, res) => {
+  res.status(200).send({ status: 200, length: data.length, data: { data } });
+});
+
+app.get("/api/v1/novel_award/year/:year", (req, res) => {
+  const awardYear = req.params.year;
+  const items = data.filter((obj) => obj.awardYear === awardYear);
+  res.status(200).send({ status: 200, length: items.length, data: { items } });
+});
+
+app.get("/api/v1/novel_award/laureates/:id", (req, res) => {
+  const id = req.params.id;
+  const item = data.find((obj) => obj.laureates.find((p) => p.id === id));
+  res.status(200).send({ status: 200, length: item.length, data: { item } });
+});
+
+app.get("/api/v1/novel_award/category/:category", (req, res) => {
+  const category = req.params.category;
+  const items = data.filter((obj) => obj.category.en.toLowerCase() === category);
+  res.status(200).send({ status: 200, length: items.length, data: { items } });
 });
 
 // Start the server
