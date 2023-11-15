@@ -69,9 +69,7 @@ app.get("/games", (req, res) => {
     const end = isAllGamesRequested ? filteredGames.length : start + parseInt(pageSize);
     const paginatedGames = filteredGames.slice(start, end);
 
-
     res.json(paginatedGames);
-
 
 });
 
