@@ -32,13 +32,13 @@ app.get("/legoSets/search", (req, res) => {
   res.json({ message: "This endpoint will allow searching for Lego sets"});
 })
 
-app.put("/legoSets/update/:setId", (req, res) => {
-  const setId = req.params.setId;
-  res.json({ message: `This endpoint will update the Lego set ID ${setId}`});
-})
-
 app.post("/legoSets/add", (req, res) => {
   res.json({ message: "This endpoint will add a new Lego set"});
+})
+
+app.put("/legoSets/:setId/update", (req, res) => {
+  const setId = req.params.setId;
+  res.json({ message: `This endpoint will update the Lego set ID ${setId}`});
 })
 
 app.delete("/legoSets/:setId", (req, res) => {
