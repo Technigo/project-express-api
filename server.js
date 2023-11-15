@@ -14,16 +14,27 @@ app.use(express.static('public'));
 
 // Endpoint for API documentation
 app.get('/api-docs', (req, res) => {
-  console.log('Request to /api-docs received');
   const endpoints = expressListEndpoints(app);
-  res.json(endpoints);
+  res.json({ endpoints });
 });
 
-// Default route for the root path
+// Updated route for the root path
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
-  const message = "Hello, this is the root path! Here are the endpoints:";
-  res.json({ message, endpoints });
+  const clickableEndpoints = endpoints.map(endpoint => ({
+    path: endpoint.path,
+    link: `http://localhost:8080${endpoint.path}`
+  }));
+
+  // Create an HTML list of clickable endpoints
+  const htmlList = clickableEndpoints.map(endpoint => `<li><a href="${endpoint.link}">${endpoint.path}</a></li>`).join('');
+
+  // Send an HTML response
+  res.send(`
+    <h1>Welcome to the Netflix Titles API!</h1>
+    <p>Here are the endpoints:</p>
+    <ul>${htmlList}</ul>
+  `);
 });
 
 // For all titles
