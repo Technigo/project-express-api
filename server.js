@@ -1,23 +1,23 @@
-import express from "express";
-import cors from "cors";
-import booksData from "./data/books.json";
-// Leaving below in purpose of learning:
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import express from "express"
+import cors from "cors"
+import booksData from "./data/books.json"
+// Leaving imports below in purpose of learning:
+// import avocadoSalesData from "./data/avocado-sales.json"
+// import goldenGlobesData from "./data/golden-globes.json"
+// import netflixData from "./data/netflix-titles.json"
+// import topMusicData from "./data/top-music.json"
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden. When starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
-const port = process.env.PORT || 8080;
-const app = express();
+const port = process.env.PORT || 8080
+const app = express()
 
 // Importing the 'express-list-endpoints' module to generate a list of available endpoints for documentation
 const listEndpoints = require("express-list-endpoints")
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
-app.use(express.json());
+app.use(cors())
+app.use(express.json())
 
 
 
@@ -45,23 +45,23 @@ app.get("/", (req, res) => {
 // Defining the route ("/books") to fetch and return all books from the JSON data
 app.get('/books', (req, res) => {
   // Get the query parameters from the request
-  const { title, authors } = req.query;
+  const { title, authors } = req.query
 
   // Filter books based on query parameters
-  let filteredBooks = booksData;
+  let filteredBooks = booksData
 
   if (title) {
     // If 'title' parameter is provided, filter books by title
-    filteredBooks = filteredBooks.filter(book => book.title.toLowerCase().includes(title.toLowerCase()));
+    filteredBooks = filteredBooks.filter(book => book.title.toLowerCase().includes(title.toLowerCase()))
   }
 
   if (authors) {
     // If 'authors' parameter is provided, filter books by author(s)
-    filteredBooks = filteredBooks.filter(book => book.authors.toLowerCase().includes(authors.toLowerCase()));
+    filteredBooks = filteredBooks.filter(book => book.authors.toLowerCase().includes(authors.toLowerCase()))
   }
 
   // Send the filtered books as the response
-  res.json(filteredBooks);
+  res.json(filteredBooks)
 });
 
 
@@ -80,8 +80,8 @@ app.get('/books/:bookID', (req, res) => {
 
 // Empty/Dummy endpoint for future development
 app.get('/dummy', (req, res) => {
-  res.json({ message: 'This is a empty/dummy endpoint for future development.' });
-});
+  res.json({ message: 'This is a empty/dummy endpoint for future development.' })
+})
 
 // **** Defining routes ends here **** //
 
@@ -89,8 +89,8 @@ app.get('/dummy', (req, res) => {
 
 // Starting the server on the specific port and logging a message to the console used for localhost.
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+  console.log(`Server running on http://localhost:${port}`)
+})
 
 // Logging additional messages to the console for testing purposes.
 console.log("Hello world")
