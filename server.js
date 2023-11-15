@@ -1,13 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+
 import nobelData from "./data/nobel-data.json";
 
 console.log(nobelData);
@@ -29,8 +23,19 @@ app.get("/", (req, res) => {
 });
 
 // Show all data (all winners of all time)
+// Filter on category and year (i.e. /winners?category=Peace&year=2000)
 app.get("/winners", (req, res) => {
-  res.json(nobelData)
+  let filteredWinners = [...nobelData]; //Makes a copy of the array
+  const { category, year } = req.query;
+if (category) {
+  filteredWinners = filteredWinners.filter((item) => item.category === category);
+}
+
+if (year) {
+  filteredWinners = filteredWinners.filter((item) => item.year === +year);
+}
+
+  res.json(filteredWinners);
 });
 
 // Shows one specific winner based on their Id
@@ -70,6 +75,22 @@ app.get("/country/:country", (req, res) => {
   const country = req.params.country
   const winnersPerCountry = nobelData.filter((item) => item.organizationCountry === country)
   res.json(winnersPerCountry)
+});
+
+// Placeholders for future enpoints
+app.get("/statistics", (req, res) => {
+  // Perform statistical operations on the Nobel data (future implementation)
+  res.send("Placeholder for statistics endpoint");
+});
+
+app.get("/predictions", (req, res) => {
+  // Perform predictive analysis on the Nobel data (future implementation)
+  res.send("Placeholder for predictions endpoint");
+});
+
+app.get("/insights", (req, res) => {
+  // Provide insights into specific categories or countries (future implementation)
+  res.send("Placeholder for insights endpoint");
 });
 
 // Start the server
