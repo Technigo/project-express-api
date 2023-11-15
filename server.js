@@ -39,7 +39,6 @@ console.log(airportcodes.length); //9149
 //end point for all airports listed by country code
 app.get("/airports/country/:iso_country", (req, res) => {
   const country = req.params.iso_country.toLowerCase();
-  const largeAirport = req.query.type;
 
   let byCountryCode = airportcodes.filter(
     (item) => item.iso_country.toLowerCase() === country
@@ -91,6 +90,25 @@ app.get("/airports/name/:name", (req, res) => {
   let byName = airportcodes.filter((item) => item.name === name);
 
   res.json(byName);
+});
+
+//Stretch goal - accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+//find all large airports in Palau (Cpuntry code: PW)
+app.get("/airports/country/:iso_country", (req, res) => {
+  const countryQuery = req.params.iso_country;
+  const showSmallAirports = req.query.type;
+
+  let smallAirportsfromCountry = data.filter(
+    (item) => item.iso_country === countryQuery
+  );
+
+  if (showSmallAirports) {
+    smallAirportsfromCountry = smallAirportsfromCountry.filter(
+      (item) => item.type
+    );
+  }
+
+  res.json(smallAirportsfromCountry);
 });
 
 // Start the server
