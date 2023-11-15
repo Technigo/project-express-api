@@ -18,11 +18,6 @@ app.get('/api-docs', (req, res) => {
   res.json(endpoints);
 });
 
-// Default route for the root path
-app.get("/", (req, res) => {
-  res.send("Welcome to the Netflix Titles API!");
-});
-
 // For all titles
 app.get("/titles", (req, res) => {
   res.json(netflixData);
