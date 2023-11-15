@@ -77,11 +77,16 @@ app.get('/books/:bookID', (req, res) => {
     res.status(404).send('Sorry, book not found, try another number')
   }
 })
+
+// Empty/Dummy endpoint for future development
+app.get('/dummy', (req, res) => {
+  res.json({ message: 'This is a empty/dummy endpoint for future development.' });
+});
 // **** Defining routes ends here **** //
 
 
 
-// Starting the server on the specific port and loggins a message to the console. Used for localhost.
+// Starting the server on the specific port and logging a message to the console used for localhost.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
