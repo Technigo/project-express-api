@@ -23,16 +23,47 @@ app.use(express.json());
 
 // ****** Defining routes starts here ****** //
 
-// Defining a route for the default endpoint ("/") to display available endpoints/documentation for the API
+// Defining a route for the default endpoint ("/") which displays available endpoints/documentation for the API
 app.get("/", (req, res) => {
-  res.send(listEndpoints(app));
+  const documentation = {
+    endpoints: listEndpoints(app),
+    additionalInfo: {
+      "/books": {
+        description: "Get a list of books with optional filtering.",
+        queryParams: {
+          author: "Filter books by author.",
+          genre: "Filter books by genre.",
+        },
+        example: "/books?author=J.K.%20Rowling&genre=Fiction",
+      },
+    },
+  };
+
+  res.json(documentation);
 });
+
 
 // Defining the route ("/books") to fetch and return all books from the JSON data
 app.get('/books', (req, res) => {
-  //Fetch all books from the database or array
-  res.json(booksData);
-})
+  // Get the query parameters from the request
+  const { author, genre } = req.query;
+
+  // Filter books based on query parameters
+  let filteredBooks = booksData;
+
+  if (author) {
+    // If 'author' parameter is provided, filter books by author
+    filteredBooks = filteredBooks.filter(book => book.author === author);
+  }
+
+  if (genre) {
+    // If 'genre' parameter is provided, filter books by genre
+    filteredBooks = filteredBooks.filter(book => book.genre === genre);
+  }
+
+  // Send the filtered books as the response
+  res.json(filteredBooks);
+});
 
 // Defining a dynamic route ("/books/:bookID") to fetch information about a specific book by ID (to see a book in the browser, type e.g: ..../books/1)
 app.get('/books/:bookID', (req, res) => {
