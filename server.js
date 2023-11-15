@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
-
 const expressListEndpoints = require('express-list-endpoints');
 
 const app = express();
