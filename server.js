@@ -3,7 +3,7 @@ import cors from "cors";
 import goldenGlobesData from "./data/golden-globes.json";
 
 
-
+console.log(goldenGlobesData.length);
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
@@ -40,6 +40,18 @@ app.get('/year/:year', (req, res) => {
   }
   res.json(nominationsFromYear)
 })
+
+app.get('/category/:category', (req, res) => {
+  const category = req.params.category;
+  const film = req.query.film;
+  let nominationsInCategory = goldenGlobesData.filter((item) => item.category === category);
+
+  if (film) {
+    nominationsInCategory = nominationsInCategory.filter((item) => item.film.includes(film));
+  }
+
+  res.json(nominationsInCategory);
+});
 
 
 // Start the server
