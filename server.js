@@ -23,14 +23,17 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+
 app.get("/", (req, res) => {
-  res.send("Nobel price winners");
+  res.send("Nobel prize winners of all times");
 });
 
+// Show all data (all winners of all time)
 app.get("/winners", (req, res) => {
   res.json(nobelData)
 });
 
+// Shows one specific winner based on their Id
 app.get("/winners/:winnerId", (req, res) => {
   const winnerId = req.params.winnerId
   const winner = nobelData.find((item) => item.laureateID === +winnerId)
@@ -42,12 +45,14 @@ app.get("/winners/:winnerId", (req, res) => {
   }
 });
 
+// Shows winner per specified year
 app.get("/year/:year", (req, res) => {
   const year = req.params.year
   const winnersFromYear = nobelData.filter((item) => item.year === +year)
   res.json(winnersFromYear)
 });
 
+//Shows winner per category and per born country 
 app.get("/category/:category", (req, res) => {
   const category = req.params.category
   const showBornCountry = req.query.bornCountry
@@ -58,6 +63,13 @@ app.get("/category/:category", (req, res) => {
   }
 
   res.json(winnersPerCategory)
+});
+
+// Shows winner per organization country
+app.get("/country/:country", (req, res) => {
+  const country = req.params.country
+  const winnersPerCountry = nobelData.filter((item) => item.organizationCountry === country)
+  res.json(winnersPerCountry)
 });
 
 // Start the server
