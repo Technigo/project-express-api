@@ -18,12 +18,6 @@ app.get('/api-docs', (req, res) => {
   res.json(endpoints);
 });
 
-// Start defining your routes here
-// Homepage
-app.get("/", (req, res) => {
-  res.send("Welcome to the Netflix Titles API!");
-});
-
 // For all titles
 app.get("/titles", (req, res) => {
   res.json(netflixData);
