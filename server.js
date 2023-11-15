@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-
+import listEndpoints from "express-list-endpoints";
 
 import nobelData from "./data/nobel-data.json";
 
@@ -17,9 +17,9 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-
 app.get("/", (req, res) => {
-  res.send("Nobel prize winners of all times");
+  const endpoints = listEndpoints(app);
+  res.json({ endpoints });
 });
 
 // Show all data (all winners of all time)
