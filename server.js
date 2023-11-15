@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
     endpoints: listEndpoints(app),
     additionalInfo: {
       "/books": {
-        description: "Get a list of books with optional filtering.",
+        description: "Get a list of books with optional filtering",
         queryParams: {
           title: "Filter books by title",
           authors: "Filter books by author/s",
