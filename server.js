@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
+
 const expressListEndpoints = require('express-list-endpoints');
 
 const app = express();
@@ -16,6 +17,11 @@ app.use(express.static('public'));
 app.get('/api-docs', (req, res) => {
   const endpoints = expressListEndpoints(app);
   res.json(endpoints);
+});
+
+// Default route for the root path
+app.get("/", (req, res) => {
+  res.send("Welcome to the Netflix Titles API!");
 });
 
 // For all titles
