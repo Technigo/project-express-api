@@ -14,8 +14,14 @@ app.use(express.static('public'));
 
 // Endpoint for API documentation
 app.get('/api-docs', (req, res) => {
+  console.log('Request to /api-docs received');
   const endpoints = expressListEndpoints(app);
   res.json(endpoints);
+});
+
+// Default route for the root path
+app.get("/", (req, res) => {
+  res.send("Welcome to the Netflix Titles API!");
 });
 
 // For all titles
