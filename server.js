@@ -31,10 +31,10 @@ app.get("/", (req, res) => {
       "/books": {
         description: "Get a list of books with optional filtering.",
         queryParams: {
-          author: "Filter books by author.",
-          genre: "Filter books by genre.",
+          title: "Filter books by title",
+          authors: "Filter books by author/s",
         },
-        example: "/books?author=J.K.%20Rowling&genre=Fiction",
+        example: "/books?authors=J.K.%20Rowling&title=Half-Blood",
       },
     },
   };
@@ -42,28 +42,28 @@ app.get("/", (req, res) => {
   res.json(documentation);
 });
 
-
 // Defining the route ("/books") to fetch and return all books from the JSON data
 app.get('/books', (req, res) => {
   // Get the query parameters from the request
-  const { author, genre } = req.query;
+  const { title, authors } = req.query;
 
   // Filter books based on query parameters
   let filteredBooks = booksData;
 
-  if (author) {
-    // If 'author' parameter is provided, filter books by author
-    filteredBooks = filteredBooks.filter(book => book.author === author);
+  if (title) {
+    // If 'title' parameter is provided, filter books by title
+    filteredBooks = filteredBooks.filter(book => book.title.toLowerCase().includes(title.toLowerCase()));
   }
 
-  if (genre) {
-    // If 'genre' parameter is provided, filter books by genre
-    filteredBooks = filteredBooks.filter(book => book.genre === genre);
+  if (authors) {
+    // If 'authors' parameter is provided, filter books by author(s)
+    filteredBooks = filteredBooks.filter(book => book.authors.toLowerCase().includes(authors.toLowerCase()));
   }
 
   // Send the filtered books as the response
   res.json(filteredBooks);
 });
+
 
 // Defining a dynamic route ("/books/:bookID") to fetch information about a specific book by ID (to see a book in the browser, type e.g: ..../books/1)
 app.get('/books/:bookID', (req, res) => {
@@ -82,6 +82,7 @@ app.get('/books/:bookID', (req, res) => {
 app.get('/dummy', (req, res) => {
   res.json({ message: 'This is a empty/dummy endpoint for future development.' });
 });
+
 // **** Defining routes ends here **** //
 
 
@@ -92,5 +93,5 @@ app.listen(port, () => {
 });
 
 // Logging additional messages to the console for testing purposes.
-console.log("hello world")
+console.log("Hello world")
 console.log(booksData)
