@@ -1,40 +1,35 @@
 import express from "express";
 import cors from "cors";
 import netflixData from "./data/netflix-titles.json";
+const expressListEndpoints = require('express-list-endpoints');
 
-
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
+// Serving static files from the 'public' directory
 app.use(express.static('public'));
+
+// Endpoint for API documentation
+app.get('/api-docs', (req, res) => {
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
+});
+
 // Start defining your routes here
-//Homepage//
+// Homepage
 app.get("/", (req, res) => {
   res.send("Welcome to the Netflix Titles API!");
 });
 
-//For all titles//
+// For all titles
 app.get("/titles", (req, res) => {
   res.json(netflixData);
 });
 
-//For one title//
+// For one title
 app.get("/titles/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const title = netflixData.find(item => item.show_id === id);
@@ -46,7 +41,7 @@ app.get("/titles/:id", (req, res) => {
   }
 });
 
-//Title by one direcor//
+// Title by one director
 app.get("/director/:director", (req, res) => {
   const directorName = req.params.director.toLowerCase();
   const titles = netflixData.filter(item => item.director?.toLowerCase().includes(directorName));
@@ -58,7 +53,7 @@ app.get("/director/:director", (req, res) => {
   }
 });
 
-//Title by releaseyear//
+// Title by release year
 app.get("/year/:releaseYear", (req, res) => {
   const releaseYear = parseInt(req.params.releaseYear);
   const titles = netflixData.filter(item => item.release_year === releaseYear);
@@ -70,11 +65,11 @@ app.get("/year/:releaseYear", (req, res) => {
   }
 });
 
-//Remove title, won't work with JSON and the deletion will not show when server restarts//
+// Remove title (won't work with JSON and the deletion will not show when the server restarts)
 app.delete("/titles/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const titleIndex = netflixData.findIndex(item => item.show_id === id);
-  
+
   if (titleIndex !== -1) {
     netflixData.splice(titleIndex, 1);
     res.status(204).end();
@@ -83,7 +78,7 @@ app.delete("/titles/:id", (req, res) => {
   }
 });
 
-//Filter titles by director,  country, rating //
+// Filter titles by director, country, rating, and type
 app.get("/titles", (req, res) => {
   let { director, country, rating, type } = req.query;
   let filteredTitles = netflixData;
@@ -111,12 +106,15 @@ app.get("/titles", (req, res) => {
   res.json(filteredTitles);
 });
 
-//Dummy for recommendations//
+// Dummy for recommendations
 app.get('/titles/recommendations', (req, res) => {
   const { country, cast } = req.query;
   res.json({ message: 'Recommendation feature is under development.' });
 });
+
 // Start the server
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
