@@ -13,74 +13,64 @@ app.use(express.json());
 
 // Define a route for the root path ('/') to display a welcome message.
 app.get("/", (req, res) => {
-  res.send("Welcome to the Top 100 Board Games API!");
+    res.send("Welcome to the Top 100 Board Games API!");
 });
 
 // Define a route to get all board games.
 app.get("/games", (req, res) => {
 
 
-    const { year, gametype, sortBy, name, page = 1, pageSize = 10, category } = req.query;
-  // Filter by year:
-// /games?year=2017, for example.
+    const { year, gametype, sortBy, name, page = 1, pageSize = 10 } = req.query;
 
-  if (year) {
-    const filteredGamesYear = boardGameData.filter((game) => game.Year === +year);
+    // Create a copy of the original boardGameData for each request
+    let filteredGames = [...boardGameData];
 
-    res.json(filteredGamesYear);
-  }
+    // Filter by year:
+    // /games?year=2017, for example.
 
-  // Filter by type of game:
-  // /games?gametype=strategy 
+    if (year) {
+        filteredGames = filteredGames.filter((game) => game.Year === +year);
+    }
 
-  if (gametype) {
-    const filteredGamesType = boardGameData.filter((game) => game.Type.toLowerCase() === gametype.toLowerCase());
 
-    res.json(filteredGamesType);
-  }
+    // Filter by type of game:
+    // /games?gametype=strategy 
 
-  // Sort by rating:
+    if (gametype) {
+        filteredGames = filteredGames.filter((game) => game.Type.toLowerCase() === gametype.toLowerCase());
+    }
+
+    // Sort by rating:
     // /games?sortBy=rating, for example.
 
-  if (sortBy === "rating") {
-
-    // The result is a new array ('sortedGames') with games sorted by descending rating.
-    const sortedGames = boardGameData.sort((a, b) => b.Rating - a.Rating);
-
-    res.json(sortedGames);
-  }
+    if (sortBy === "rating") {
+        filteredGames.sort((a, b) => b.Rating - a.Rating);
+    }
 
 
-  // Search by name:
-     // /games?name=Gloomhaven
+    // Search by name:
+    // /games?name=Gloomhaven
 
-  if (name) {
-
-    const matchingGames = boardGameData.filter((game) =>
-      game.Name.toLowerCase().includes(name.toLowerCase())
-    );
-
-    return res.json(matchingGames);
-  }
+    if (name) {
+        filteredGames = filteredGames.filter((game) => game.Name.toLowerCase().includes(name.toLowerCase()));
+    }
 
 
-  // Implement pagination:
-/*
-  Examples: 
-    /games?page=1&pageSize=all
-    /games?page=1 (defaults to pageSize = 10, the first 10 games)
-    /games (also defaults to pageSize = 10, the first 10 games)
-    /games?page=2&pageSize=5 get the second page with 5 games per page.
-  */
-  const isAllGamesRequested = pageSize === "all" || pageSize > boardGameData.length;
+    // Implement pagination:
+    /*
+      Examples: 
+        /games?page=1&pageSize=all
+        /games?page=1 (defaults to pageSize = 10, the first 10 games)
+        /games (also defaults to pageSize = 10, the first 10 games)
+        /games?page=2&pageSize=5 get the second page with 5 games per page.
+      */
+    const isAllGamesRequested = pageSize === "all" || pageSize > filteredGames.length;
+    const start = (page - 1) * pageSize;
+    const end = isAllGamesRequested ? filteredGames.length : start + parseInt(pageSize);
+    const paginatedGames = filteredGames.slice(start, end);
 
-  const start = (page - 1) * pageSize;
- 
-  const end = isAllGamesRequested ? boardGameData.length : start + parseInt(pageSize);
 
-  const paginatedGames = boardGameData.slice(start, end);
-
-  res.json(paginatedGames);
+    res.json(paginatedGames);
 
 
 });
@@ -88,20 +78,20 @@ app.get("/games", (req, res) => {
 // Define a route to get a specific board game based on its rank.
 app.get("/games/:rank", (req, res) => {
 
-  const gameRank = parseInt(req.params.rank);
+    const gameRank = parseInt(req.params.rank);
 
-  const game = boardGameData.find((item) => item.Rank === gameRank);
+    const game = boardGameData.find((game) => game.Rank === gameRank);
 
-  // If the game is not found, respond with a 404 error.
-  if (!game) {
-    return res.status(404).json({ error: "Game not found" });
-  }
+    // If the game is not found, respond with a 404 error.
+    if (!game) {
+        return res.status(404).json({ error: "Game not found" });
+    }
 
-  // Respond with the JSON data of the specific board game.
-  res.json(game);
+    // Respond with the JSON data of the specific board game.
+    res.json(game);
 });
 
 // Start the server and listen on the specified port.
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
