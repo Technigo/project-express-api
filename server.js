@@ -25,9 +25,20 @@ app.get("/titles", (req, res) => {
 })
 
 
-
-
 //One movie based on ID
+app.get("/titles/:showId", (req, res) => {
+  const { showId } = req.params
+
+  const show = netflixData.find(show => show.id === +showId)
+  console.log('showId', showId, typeof showId)
+
+  if (show) {
+    res.json(show)
+  } else {
+    res.status(404).send("No show was found!")
+  }
+
+})
 
 
 
