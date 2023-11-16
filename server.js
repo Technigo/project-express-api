@@ -79,6 +79,34 @@ app.get("/titles/:titleId", (req, res) => {
         );
 });
 
+app.get("/categories/", (req, res) => {
+  let categoryList = [];
+  const categories = netflixData.map((title) =>
+    title.listed_in.split(",").map((category) => category.trim())
+  );
+
+  for (let box of categories) {
+    for (let cate of box) {
+      if (!categoryList.includes(cate)) {
+        categoryList.push(cate);
+      }
+    }
+  }
+  // res.send(categories);
+  res.send(categoryList);
+});
+
+app.get("/categories/:titleCategory", (req, res) => {
+  const titleCategory = req.params.titleCategory.toLowerCase();
+  const catCheck = netflixData.filter((cat) => {
+    return cat.listed_in.toLowerCase().includes(titleCategory);
+  });
+
+  catCheck.length > 0
+    ? res.json(catCheck)
+    : res.status(404).send("Sorry, we have nothing in this category.");
+});
+
 //404 page
 app.use((req, res) => {
   res.send(`<div><h1>Oops, this page doesn't exist 👻</h1>
