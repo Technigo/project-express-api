@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
+import expressListEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -14,7 +15,8 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Emmy!");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
 app.get(`/title`, (req, res) => {
@@ -38,7 +40,7 @@ app.get(`/rating/:average_rating`, (req, res) => {
 });
 
 app.get(`/language/:language_code`, (req, res) => {
-  const language = req.query.language_code;
+  const language = req.params.language_code;
   const showLanguage = req.query.showLanguage === "true";
 
   if (!language) {
@@ -51,6 +53,9 @@ app.get(`/language/:language_code`, (req, res) => {
   );
 
   if (showLanguage) {
+    filteredBooks = filteredBooks.filter(
+      (item) => item.someAdditionalCondition
+    );
   }
 
   res.json(filteredBooks);
