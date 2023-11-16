@@ -15,18 +15,24 @@ app.get("/api/v1/novel_award", (req, res) => {
 app.get("/api/v1/novel_award/year/:year", (req, res) => {
   const awardYear = req.params.year;
   const items = data.filter((obj) => obj.awardYear === awardYear);
+  if (items.length === 0)
+    return res.status(404).send({ status: 404, data: "No data is available" });
+
   res.status(200).send({ status: 200, length: items.length, data: { items } });
 });
 
 app.get("/api/v1/novel_award/laureates/:id", (req, res) => {
   const id = req.params.id;
-  const item = data.find((obj) => obj.laureates.find((p) => p.id === id));
+  const item = data.find((obj) => obj?.laureates?.find((p) => p?.id === id));
+  if (!item) return res.status(404).send({ status: 404, data: "No data is available" });
   res.status(200).send({ status: 200, length: item.length, data: { item } });
 });
 
 app.get("/api/v1/novel_award/category/:category", (req, res) => {
   const category = req.params.category;
   const items = data.filter((obj) => obj.category.en.toLowerCase() === category);
+  if (items.length === 0)
+    return res.status(404).send({ status: 404, data: "No data is available" });
   res.status(200).send({ status: 200, length: items.length, data: { items } });
 });
 
