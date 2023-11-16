@@ -4,57 +4,60 @@ import cors from "cors";
 import boardGameData from "./data/boardGameData.json";
 
 const port = process.env.PORT || 8080;
-const app = express();
+
+const listEndpoints = require("express-list-endpoints")
+const app = require('express')();
 
 // Add middlewares to enable Cross-Origin Resource Sharing (CORS) 
 // and parse incoming JSON requests.
 app.use(cors());
 app.use(express.json());
 
-// Define a route for the root path ('/') to display a welcome message.
+// Define a route for the root path ('/') to display a welcome message
+// or return the list of all endpoints based on a query parameter
+// http://localhost:8080/?showEndpoints=true
 app.get("/", (req, res) => {
-    res.send("Welcome to the Top 100 Board Games API!");
+    if (req.query.showEndpoints === "true") {
+        res.json(listEndpoints(app));
+    } else {
+        res.send("Welcome to the Top 100 Board Games API!");
+    }
 });
+
 
 // Define a route to get all board games.
 app.get("/games", (req, res) => {
 
+    const { year, gametype, sortBy, name, page = 1, pageSize = 20 } = req.query;
 
-    const { year, gametype, sortBy, name, page = 1, pageSize = 10 } = req.query;
-
-    // Create a copy of the original boardGameData for each request
+    // Create a copy of the original boardGameData for each request.
+    // Using the spread operator (...) ensures that modifications made during one user's request don't affect the original data or other users' views.
     let filteredGames = [...boardGameData];
+
 
     // Filter by year:
     // /games?year=2017, for example.
-
     if (year) {
         filteredGames = filteredGames.filter((game) => game.Year === +year);
     }
 
-
     // Filter by type of game:
     // /games?gametype=strategy 
-
     if (gametype) {
         filteredGames = filteredGames.filter((game) => game.Type.toLowerCase() === gametype.toLowerCase());
     }
 
     // Sort by rating:
     // /games?sortBy=rating, for example.
-
     if (sortBy === "rating") {
         filteredGames.sort((a, b) => b.Rating - a.Rating);
     }
 
-
     // Search by name:
     // /games?name=Gloomhaven
-
     if (name) {
         filteredGames = filteredGames.filter((game) => game.Name.toLowerCase().includes(name.toLowerCase()));
     }
-
 
     // Implement pagination:
     /*
@@ -71,6 +74,8 @@ app.get("/games", (req, res) => {
 
     res.json(paginatedGames);
 
+    // Test URL: http://localhost:8080/games?page=1&pageSize=all&name=pand&sortBy=rating
+    // Response: all pandemic games sorted by rating
 });
 
 // Define a route to get a specific board game based on its rank.
