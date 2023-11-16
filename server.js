@@ -39,10 +39,23 @@ app.get("/music", (req, res) => {
   res.json(topMusicData);
 });
 
+app.get("/music/artist", (req, res) => {
+  const artistName = req.query.artist || "";
+  let filteredMusic = topMusicData;
+
+  if (artistName) {
+    filteredMusic = filteredMusic.filter((item) =>
+      item.artistName === artistName);
+  }
+
+  res.json(filteredMusic);
+});
+
 app.get("/music/:id", (req, res) => {
   const id = req.params.id;
   const popularity = req.query.popularity;
   let music = topMusicData.filter((item) => item.id === +id);
+  
 
   if ( popularity > 76 ) {
     music = music.filter((item) => item.popularity > 76);
@@ -53,7 +66,18 @@ app.get("/music/:id", (req, res) => {
   }
 
   res.json(music);
+ 
 });
+
+// Dummy endpoint for future expansion (e.g., more complex operations)
+app.get("/music/search", (req, res) => {
+  res.json({ message: "This endpoint is reserved for future search functionality" });
+});
+
+app.post("/music", (req, res) => {
+  res.status(501).json({ error: "Not Implemented", message: "This endpoint is reserved for future POST operations" });
+});
+
 
 // Start the server
 app.listen(port, () => {
