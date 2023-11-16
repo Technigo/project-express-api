@@ -1,27 +1,54 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
+import goldenGlobesData from "./data/golden-globes.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Endpoint to get documentation of my API
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = listEndpoints(app);
+  res.json(endpoints);
+});
+
+// Endpoint to get all Golden Globes nominations
+app.get("/nominations", (req, res) => {
+  let filteredNominations = goldenGlobesData;
+
+  const categoryFilter = req.query.category;
+  if (categoryFilter) {
+    filteredNominations = filteredNominations.filter((item) => item.category.toLowerCase() === categoryFilter.toLowerCase());
+  }
+
+  res.json(filteredNominations);
+});
+
+
+// Endpoint to get a single nomination by ID
+app.get("/nominations/:id", (req, res) => {
+  const nominationId = parseInt(req.params.id);
+  const nomination = goldenGlobesData.find((item) => item.year_film === nominationId);
+
+  if (nomination) {
+    res.json(nomination);
+  } else {
+    res.status(404).json({ error: "Nomination not found" });
+  }
+});
+
+// Default route for handling unspecified routes
+app.use((req, res) => {
+  res.status(404).json({ error: "Not found" });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
 });
 
 // Start the server
