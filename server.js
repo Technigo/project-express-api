@@ -21,25 +21,27 @@ console.log(netflixData.length);
 app.use(cors());
 app.use(express.json());
 
+// Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = listEndpoints(app);
   res.json({ endpoints });
 });
 
-// Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
-
+// All titles
 app.get("/allTitles", (req, res) => {
   res.json(netflixData);
 });
 
-//Filter
-// app.get("/movies", (req, res)) => {
-//   const typeMovie = req.query.type;
-//   let movies = netflixData.filter((item)=>item.type === typeMovie)
-// }
+//One movie/ show based on id
+app.get("/allTitles/:id", (req, res) => {
+  const id = req.params.id;
+  const singleId = netflixData.filter((item) => item.show_id === +id);
+  if (singleId) {
+    res.json(singleId);
+  } else {
+    res.status(404).send("No movie was found!");
+  }
+});
 
 //Filter the movies / tv show from certain year with params, then further filter the data with query
 app.get("/year/:releaseYear", (req, res) => {
