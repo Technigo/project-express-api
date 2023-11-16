@@ -1,12 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+An API for Netflix data. Several endpoints are available, all of which can be seen on the root route "/".
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This is the first API that I am creating and at first I found it really hard to grasp, especially how the root route works and what it should contain. After asking chatGPT I could slowly see the logic. 
+
+Since the backend code is way more sleek and neat compared to frontend, I felt I had time to add middleware in order to try out authentication.
 
 ## View it live
 

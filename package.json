@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
-    "start": "babel-node server.js",
-    "dev": "nodemon server.js --exec babel-node"
+    "start": "babel-node index.js",
+    "dev": "nodemon index.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
