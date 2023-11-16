@@ -9,7 +9,13 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api/v1/novel_award", (req, res) => {
-  res.status(200).send({ status: 200, length: data.length, data: { data } });
+  const pageNum = req.params.page;
+  const dataPerPageNum = 20;
+  const dataPerPage = data.slice((pageNum - 1) * dataPerPageNum, pageNum * dataPerPageNum);
+
+  if (pageNum)
+    return res.status(200).send({ status: 200, length: data.length, data: { items: dataPerPage } });
+  res.status(200).send({ status: 200, length: data.length, data: { items: data } });
 });
 
 app.get("/api/v1/novel_award/year/:year", (req, res) => {
@@ -30,9 +36,22 @@ app.get("/api/v1/novel_award/laureates/:id", (req, res) => {
 
 app.get("/api/v1/novel_award/category/:category", (req, res) => {
   const category = req.params.category;
-  const items = data.filter((obj) => obj.category.en.toLowerCase() === category);
+  const items = data.filter(
+    (obj) =>
+      obj.category.en.toLowerCase().replaceAll(" ", "") ===
+      category.toLowerCase().replaceAll(" ", "")
+  );
+
   if (items.length === 0)
     return res.status(404).send({ status: 404, data: "No data is available" });
+
+  const pageNum = req.query.page;
+
+  const dataPerPageNum = 20;
+  const dataPerPage = items.slice((pageNum - 1) * dataPerPageNum, pageNum * dataPerPageNum);
+  if (pageNum)
+    return res.status(200).send({ status: 200, length: data.length, data: { items: dataPerPage } });
+
   res.status(200).send({ status: 200, length: items.length, data: { items } });
 });
 
