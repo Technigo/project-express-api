@@ -77,19 +77,19 @@ app.get("/books/book/:bookID", (req, res) => {
     }
 });
 
-app.get("/books/most-popular", (req, res) => {
-    const mostPopularBooks = [...booksData].sort(
-        (a, b) => b.ratings_count - a.ratings_count
-    );
+// app.get("/books/most-popular", (req, res) => {
+//     const mostPopularBooks = [...booksData].sort(
+//         (a, b) => b.ratings_count - a.ratings_count
+//     );
 
-    const top20Books = mostPopularBooks.slice(0, 20);
+//     const top20Books = mostPopularBooks.slice(0, 20);
 
-    if (top20Books.length > 0) {
-        res.json(top20Books);
-    } else {
-        res.status(404).send("No popular books found");
-    }
-});
+//     if (top20Books.length > 0) {
+//         res.json(top20Books);
+//     } else {
+//         res.status(404).send("No popular books found");
+//     }
+// });
 
 
 app.get("/books/authors/:authors", (req, res) => {
