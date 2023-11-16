@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import data from "./data/books.json"
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,8 +22,27 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const limitData = data.slice(0 , 50)
+ 
+  res.json(limitData)
+  
 });
+app.get("/books" , (req,res) => {
+  const bookTitles = data.map((book) =>{
+   return book.title})
+   res.json(bookTitles)
+} )
+
+app.get('/books/:bookId', (req, res) => {
+  const bookId = req.params.bookId
+ 
+  const book = data.find(b => b.bookID === parseInt(bookId))
+  if (book) {
+      res.json(book)
+  } else {
+      res.status(404).send('Book not found')
+  }
+})
 
 // Start the server
 app.listen(port, () => {
