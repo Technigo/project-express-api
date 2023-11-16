@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import airportcodes from "./data/airportcodes.json";
+import listEndpoints from "express-list-endpoints";
 
 // Your API should have at least 3 routes. Try to push yourself to do more, though!
 // The endpoint "/" should return documentation of your API using e.g. Express List Endpoints
@@ -20,9 +21,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send(
-    "Week 13 Technigo Web Development Bootcamp - Beckie's express API project - International IATA Airport codes"
-  );
+  res.send(listEndpoints(app));
 });
 
 //end point for all data in json file
@@ -94,22 +93,10 @@ app.get("/airports/name/:name", (req, res) => {
 
 //Stretch goal - accept filters via query parameters to filter the data you return from endpoints which return an array of data.
 //find all large airports in Palau (Cpuntry code: PW)
-app.get("/airports/country/:iso_country", (req, res) => {
-  const countryQuery = req.params.iso_country;
-  const showSmallAirports = req.query.type;
 
-  let smallAirportsfromCountry = data.filter(
-    (item) => item.iso_country === countryQuery
-  );
-
-  if (showSmallAirports) {
-    smallAirportsfromCountry = smallAirportsfromCountry.filter(
-      (item) => item.type
-    );
-  }
-
-  res.json(smallAirportsfromCountry);
-});
+//access the prvided country and type query parameters
+// let countryQ = req.query.iso_country;
+// let typeQ = req.query.type;
 
 // Start the server
 app.listen(port, () => {
