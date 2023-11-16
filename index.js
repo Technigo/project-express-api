@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   if (req.query.key === "secret-key") {
     next()
   } else {
-    res.status(401).json({ message: "Invalid key" });
+    res.status(401).json({ message: "Invalid key, add 'secret-key' as a query parameter at the end of the url like this: ?key=secret-key" });
   }
 });
 

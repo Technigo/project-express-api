@@ -10,4 +10,4 @@ Since the backend code is way more sleek and neat compared to frontend, I felt I
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api.vercel.app/
