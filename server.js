@@ -82,7 +82,9 @@ app.get("/titles/:titleId", (req, res) => {
 app.get("/categories/", (req, res) => {
   let categoryList = [];
   const categories = netflixData.map((title) =>
-    title.listed_in.split(",").map((category) => category.trim())
+    title.listed_in
+      .split(",")
+      .map((category) => category.trim().replace(/ /g, "-").toLowerCase())
   );
 
   for (let box of categories) {
@@ -99,7 +101,10 @@ app.get("/categories/", (req, res) => {
 app.get("/categories/:titleCategory", (req, res) => {
   const titleCategory = req.params.titleCategory.toLowerCase();
   const catCheck = netflixData.filter((cat) => {
-    return cat.listed_in.toLowerCase().includes(titleCategory);
+    return cat.listed_in
+      .toLowerCase()
+      .replace(/ /g, "-")
+      .includes(titleCategory);
   });
 
   catCheck.length > 0
