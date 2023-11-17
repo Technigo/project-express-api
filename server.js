@@ -3,8 +3,6 @@ import cors from "cors";
 import airportcodes from "./data/airportcodes.json";
 import listEndpoints from "express-list-endpoints";
 
-// Your API should have at least 3 routes. Try to push yourself to do more, though!
-// The endpoint "/" should return documentation of your API using e.g. Express List Endpoints
 // A minimum of one endpoint to return a collection of results (array of elements).
 // A minimum of one endpoint to return a single result (single element).
 // Your API should be RESTful.
@@ -24,7 +22,8 @@ app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
-//end point for all data in json file
+//----- End point for all airports------//
+
 app.get("/airports", (req, res) => {
   if (airportcodes.length >= 0) {
     res.json(airportcodes);
@@ -35,10 +34,10 @@ app.get("/airports", (req, res) => {
 
 console.log(airportcodes.length); //9149
 
-//end point for all airports listed by country code
+//----- End point for all airports in one country ------//
+
 app.get("/airports/country/:iso_country", (req, res) => {
   const country = req.params.iso_country.toLowerCase();
-
   let byCountryCode = airportcodes.filter(
     (item) => item.iso_country.toLowerCase() === country
   );
@@ -50,8 +49,8 @@ app.get("/airports/country/:iso_country", (req, res) => {
   }
 });
 
-//end point for all airports by type eg /type/small_airport returns all small airports
-// options are small_airport, medium_airport, large_airport, closed
+//----- End point for all types of airports eg. small, medium, large, closed ------//
+
 app.get("/airports/type/:type", (req, res) => {
   const type = req.params.type;
   let byType = airportcodes.filter((item) => item.type === type);
@@ -67,7 +66,8 @@ app.get("/airports/type/:type", (req, res) => {
   }
 });
 
-//end point to return a single result by sorting by IATA code eg. /iata/JRO returns Kilimanjaro International Airprot
+//----- End point for SINGLE result for IATA code eg. /iata/JRO returns Kilimanjaro International Airport  ------//
+
 app.get("/airports/iata/:iata_code", (req, res) => {
   const iataCode = req.params.iata_code.toLowerCase();
   let byIata = airportcodes.find(
@@ -81,46 +81,42 @@ app.get("/airports/iata/:iata_code", (req, res) => {
   }
 });
 
-//difference between filter and find??? find stops at the first match and only gives you one item back. filter can give you multiple
+//----- End point for name of airport (need to add error handling)  ------//
 
-//End point to return the name of an Airport eg. /name/
 app.get("/airports/name/:name", (req, res) => {
   const name = req.params.name;
   let byName = airportcodes.filter((item) => item.name === name);
-
   res.json(byName);
 });
 
-//Stretch goal - accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+//----- Query parameters to filter airports by type and by continent ------//
+// eg. /air?type=closed OR /air?continent=oc
 
-//access the provided country and type query parameters
-// ------- /airports?country=PW
-
-// app.get("/airports", (req, res) => {
-//   const continent = req.query.continent;
-//   let airportSize = airportcodes.filter((item) => item.continent === continent);
-
-//   res.json(airportSize);
-// });
-
-// Getting the request query string - type
 app.get("/air", (req, res) => {
-  console.log("type: " + req.query.type);
   let queryT = req.query.type;
-
-  console.log("continent: " + req.query.continent);
   let queryC = req.query.continent;
 
-  if (queryT) {
-    let typo = airportcodes.filter((item) => item.type === queryT);
-    res.json(typo);
-  }
-  if (queryC) {
-    let continentQ = airportcodes.filter(
-      (item) => item.continent.toLowerCase() === queryC.toLowerCase()
+  //this code only lets you make one query on EITHER type or continent
+
+  // if (queryT) {
+  //   let typo = airportcodes.filter((item) => item.type === queryT);
+  //   res.json(typo);
+  // }
+  // if (queryC) {
+  //   let continentQ = airportcodes.filter(
+  //     (item) => item.continent.toLowerCase() === queryC.toLowerCase()
+  //   );
+  //   res.json(continentQ);
+  // }
+
+  let results = airportcodes.filter((item) => {
+    return (
+      (!queryT || item.type === queryT) &&
+      (!queryC || item.continent.toLowerCase() === queryC.toLowerCase())
     );
-    res.json(continentQ);
-  }
+  });
+
+  res.json(results);
 });
 
 // Start the server
