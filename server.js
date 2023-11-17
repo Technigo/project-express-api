@@ -126,7 +126,7 @@ app.get('/', (req, res) => {
 app.get('/titles', (req, res) => {
   res.json(netflixData);
   console.log(`Showing netliixdata`);
-})
+});
 
 // Endpoint to fetch a specific title by its show_id
 app.get('/titles/:id', (req, res) => {
