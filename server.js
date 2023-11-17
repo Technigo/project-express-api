@@ -19,13 +19,15 @@ console.log(avocadoSalesData.length);
 const port = process.env.PORT || 8080;
 const app = express();
 
+const listEndpoints = require("express-list-endpoints");
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(listEndpoints(app));
 });
 
 app.get("/avocadoData", (req, res) => {
@@ -69,7 +71,7 @@ app.get("/avocadoData/:avocadoId", (req, res) => {
 });
 
 app.get("/totalVolume/:volume", (req, res) => {
-  const volume = parseFloat(req.params.volume); // parseFloat because it's a number, could be used instead of +
+  const volume = parseFloat(req.params.volume); // parseFloat because it's a number, could be used instead of + on volume in line 77 aswell
   console.log({ volume });
 
   // filter based on the total volume
