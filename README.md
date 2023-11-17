@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is the first backend project I've ever built! The focus was on how to build an API with a few RESTful endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Since we're not using databases yet I used a hard-coded set of data that I found on Kaggle, that I stored as a JSON-file. The data presents the top 100 trending books on Amazon right now. It was fun going back to somewhat "basic" vanilla-JS, using all the array methods such as .find(), .filter() and .slice() to make the different endpoints. I've been practising on how to use RESTful routing and I went back on forth between what would be the most logic way to formulate the endpoints.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+View the deployed project here: https://books-toplist-100.onrender.com/
