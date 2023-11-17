@@ -1,3 +1,6 @@
+** Explanations API documentation.
+This information can be used by API documentation tools like Swagger or API Blueprint.
+
 /**
  * @documentation {HTTP_METHOD} PATH DESCRIPTION
  * 
@@ -32,42 +35,3 @@
  */
 
 
-# API Documentation
-
-## Endpoint: /
-
-### Display API documentation or a welcome message
-
-- **HTTP Method:** GET
-- **Description:** Displays API documentation or a welcome message.
-
-#### Parameters:
-
-- `showEndpoints` (String, optional, default: "false"): Set to "true" to display API endpoints.
-
-## Endpoint: /games
-
-### Get all board games
-
-- **HTTP Method:** GET
-- **Description:** Retrieve a list of board games with optional filters and pagination.
-
-#### Parameters:
-
-- `year` (Number, optional): Filter games by year.
-- `gametype` (String, optional): Filter games by type (e.g., strategy, family, party).
-- `sortBy` (String, optional): Sort games by rating or other criteria.
-- `name` (String, optional): Search games by name.
-- `page` (Number, optional, default: 1): Page number for pagination.
-- `pageSize` (Number|String, optional, default: 20): Number of games per page, 'all' for all games.
-
-## Endpoint: /games/:rank
-
-### Get a specific board game by rank
-
-- **HTTP Method:** GET
-- **Description:** Retrieve a specific board game based on its rank.
-
-#### Parameters:
-
-- `rank` (Number): The rank of the board game.
