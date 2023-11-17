@@ -9,3 +9,10 @@ I think the material was easy to follow and the proble I had was mostly with the
 ## View it live
 
 https://project-express-api-xk6w.onrender.com
+
+### Endpointos
+
+https://project-express-api-xk6w.onrender.com/books
+https://project-express-api-xk6w.onrender.com/book/"write a number"
+https://project-express-api-xk6w.onrender.com/books?title="write a book title"
+https://project-express-api-xk6w.onrender.com/books?author="write an author name"
