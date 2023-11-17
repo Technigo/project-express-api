@@ -7,11 +7,11 @@ const API_URL = import.meta.env.VITE_API_URL;
 function App() {
   const [nobels, setNobels] = useState<Array<NobelRes>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [query, setQuery] = useState("literature");
-  const [pages, setPages] = useState(1);
-  const [totalPage, setTotalPage] = useState(0);
+  const [query, setQuery] = useState<string>("literature");
+  const [pages, setPages] = useState<number>(1);
+  const [totalPage, setTotalPage] = useState<number>(0);
 
-  const pagesQuery = useMemo(() => {
+  const pagesQuery: string = useMemo(() => {
     return `page=${pages}`;
   }, [pages]);
 
