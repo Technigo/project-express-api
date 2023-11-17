@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import data from "./data/json_award.json";
+import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -8,11 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
 app.get("/api/v1/novel_award", (req, res) => {
-  const pageNum = req.params.page;
+  const pageNum = req.query.page;
   const dataPerPageNum = 20;
   const dataPerPage = data.slice((pageNum - 1) * dataPerPageNum, pageNum * dataPerPageNum);
-
   if (pageNum)
     return res.status(200).send({ status: 200, length: data.length, data: { items: dataPerPage } });
   res.status(200).send({ status: 200, length: data.length, data: { items: data } });

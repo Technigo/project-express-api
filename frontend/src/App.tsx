@@ -10,6 +10,7 @@ function App() {
   const [query, setQuery] = useState("literature");
   const [pages, setPages] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+
   const pagesQuery = useMemo(() => {
     return `page=${pages}`;
   }, [pages]);
@@ -68,7 +69,7 @@ function App() {
             nobels.map((nobel, i) => (
               <Card
                 nobel={nobel}
-                key={`${nobel.laureates?.[0].id}:${nobel.laureates?.[0].knownName.en}:${i}`}
+                key={`${nobel.laureates?.[0].id}:${nobel.laureates?.[0].knownName?.en}:${i}`}
               />
             ))}
         </div>
