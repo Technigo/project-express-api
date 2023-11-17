@@ -7,7 +7,7 @@ import avocadoSalesData from "./data/avocado-sales.json";
 const port = process.env.PORT || 8080;
 
 const listEndpoints = require("express-list-endpoints")
-const app = require('express')();
+const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -43,15 +43,16 @@ app.get("/avocado-sales/id/:id", (req, res) => {
   if (avocadoId) {
     res.json(avocadoId)
   } else {
-    res.status(404).json({ error: `No avocado sale with id ${id} found` })
+    res.status(404).json({ error: `No avocado sale with id ${id} found` }) // For example http://localhost:8080/avocado-sales/id/4566456 
   }
 })
 
-// Defines a query param for each region
+// Defines a query param for each region, also displays the total volume and total bags sold for the region
 app.get("/avocado-sales/region", (req, res) => {
   const queryRegion = req.query.region; // Gets the region from the query parameter
 
   // Error handling if the user doesn't provide a query parameter
+  // If the url is wrong: http://localhost:8080/avocado-sales/region
   if (!queryRegion) {
     return res.status(400).json({ error: "Please provide a 'region' query parameter. The url is to be written in the following way: avocado-sales/region?region=regionName" });
   }
@@ -61,10 +62,11 @@ app.get("/avocado-sales/region", (req, res) => {
   const totalVolume = salesRegion.reduce((sum, sale) => sum + sale.totalVolume, 0); // Iterates over each "avocado sale", and adds the total volume of each sale to the sum, starting at 0
   const totalBagsSold = salesRegion.reduce((sum, sale) => sum + sale.totalBagsSold, 0); // Iterates over each "avocado sale", and adds the total bags sold of each sale to the sum, starting at 0
 
-  // Create an array of all possible regions
+  // Create an array of all possible regions for showing them to the user. Set lets me create an array of unique values, so I don't get duplicates in the new array of allRegions
   const allRegions = [...new Set(avocadoSalesData.map((avocadoSale) => avocadoSale.region))];
 
   // Error handling and hint for the user
+  // If for example the user tries to search for Vermont: http://localhost:8080/avocado-sales/region?region=Vermont
   if (salesRegion.length === 0) {
     return res.status(404).json({ error: `${queryRegion} isn't in the list of possible regions. Possible regions are: ${allRegions.join(", ")}` });
   }
@@ -82,6 +84,7 @@ app.get("/avocado-sales/average-price", (req, res) => {
   const queryRegion = req.query.avgPrice; // Gets the region from the query parameter
 
   // Error handling if the user doesn't provide a query parameter
+  // If the url is wrong: http://localhost:8080/avocado-sales/average-price
   if (!queryRegion) {
     return res.status(400).json({ error: "Please provide an 'avgPrice' query parameter. The url is to be written in the following way: avocado-sales/average-price?avgPrice=regionName" });
   }
@@ -96,6 +99,7 @@ app.get("/avocado-sales/average-price", (req, res) => {
 
 
   // Error handling and hint for the user
+  // If for example the user tries to search for Vermont: http://localhost:8080/avocado-sales/average-price?avgPrice=Vermont
   if (salesInRegion.length === 0) {
     return res.status(404).json({ error: `${queryRegion} isn't in the list of possible regions. Possible regions are: ${allRegions.join(", ")}` });
   }
