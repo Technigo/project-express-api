@@ -109,6 +109,27 @@ app.get("/browse/:browse", (req, res) => {
   }
 });
 
+// DUMMY ENDPOINTS 
+// future operations related to user profiles, preferences, or authentication.
+app.post("/users", (req, res) => {
+  res.status(501).send("Not Implemented");
+});
+
+// Placeholder for Watchlist Management.
+app.route("/watchlist")
+  .get((req, res) => {
+    // Implement logic to retrieve user's watchlist (GET operation)
+    res.status(501).send("Not Implemented");
+  })
+  .post((req, res) => {
+    // Implement logic to add to user's watchlist (POST operation)
+    res.status(501).send("Not Implemented");
+  })
+  .delete((req, res) => {
+    // Implement logic to remove from user's watchlist (DELETE operation)
+    res.status(501).send("Not Implemented");
+  });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
