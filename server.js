@@ -25,15 +25,51 @@ app.get("/top-music", (req, res) => {
   res.json(topMusicData);
 });
 
-app.get("/top-music/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const result = topMusicData.find((item) => item.id === id);
+app.get("/genres", (req, res) => {
+  const genres = [...new Set(topMusicData.map((item) => item.genre))];
+  res.json(genres);
+});
 
-  if (!result) {
-    res.status(404).json({ message: "Not Found" });
+app.get("/songs-by-genre/:genre", (req, res) => {
+  const requestedGenre = req.params.genre;
+  const songs = topMusicData.filter((item) => item.genre === requestedGenre);
+
+  if (songs.length === 0) {
+    res.status(404).json({ message: "Genre Not Found"});
   } else {
-    res.json(result);
+    res.json(songs);
   }
+});
+
+app.get("/number-one-song", (req, res) => {
+  const numberOneSong = topMusicData.reduce((maxPopularitySong, currentSong) => {
+    return currentSong.popularity > maxPopularitySong.popularity ? currentSong : maxPopularitySong;
+  }, topMusicData[0]);
+
+  if (!numberOneSong) {
+    res.status(404).json({ message: "No Song Found" })
+  } else {
+    res.json(numberOneSong);
+  }
+});
+
+app.get("/songs-over-150-bpm", (req, res) => {
+  const songsOver150Bpm = topMusicData.filter((item) => item.bpm > 150);
+  res.json(songsOver150Bpm);
+});
+
+app.get("/most-danceable-songs", (req, res) => {
+  const sortedByDanceability = [...topMusicData].sort((a, b) => b.danceability - a.danceability);
+  const top10DanceableSongs = sortedByDanceability.slice(0, 10);
+  res.json(top10DanceableSongs);
+});
+
+app.get("/shortest-song", (req, res) => {
+  const shortestSong = topMusicData.reduce((minLengthSong, currentSong) => {
+    return currentSong.length < minLengthSong.length ? currentSong : minLengthSong;
+  }, topMusicData[0]);
+
+  res.json(shortestSong);
 });
 
 // Start the server
