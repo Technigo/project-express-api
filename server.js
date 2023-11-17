@@ -92,11 +92,36 @@ app.get("/airports/name/:name", (req, res) => {
 });
 
 //Stretch goal - accept filters via query parameters to filter the data you return from endpoints which return an array of data.
-//find all large airports in Palau (Cpuntry code: PW)
 
-//access the prvided country and type query parameters
-// let countryQ = req.query.iso_country;
-// let typeQ = req.query.type;
+//access the provided country and type query parameters
+// ------- /airports?country=PW
+
+// app.get("/airports", (req, res) => {
+//   const continent = req.query.continent;
+//   let airportSize = airportcodes.filter((item) => item.continent === continent);
+
+//   res.json(airportSize);
+// });
+
+// Getting the request query string - type
+app.get("/air", (req, res) => {
+  console.log("type: " + req.query.type);
+  let queryT = req.query.type;
+
+  console.log("continent: " + req.query.continent);
+  let queryC = req.query.continent;
+
+  if (queryT) {
+    let typo = airportcodes.filter((item) => item.type === queryT);
+    res.json(typo);
+  }
+  if (queryC) {
+    let continentQ = airportcodes.filter(
+      (item) => item.continent.toLowerCase() === queryC.toLowerCase()
+    );
+    res.json(continentQ);
+  }
+});
 
 // Start the server
 app.listen(port, () => {
