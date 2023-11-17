@@ -30,6 +30,8 @@ app.get('/nominations', (req, res) => {
   res.json(goldenGlobesData)
 })
 
+// use to /nominations test endpoint!
+
 app.get('/year/:year', (req, res) => {
   const year = req.params.year 
   const showWon = req.query.won 
@@ -40,6 +42,8 @@ app.get('/year/:year', (req, res) => {
   }
   res.json(nominationsFromYear)
 })
+
+// Use to /year/2020 test endpoint!
 
 app.get('/category/:category', (req, res) => {
   const category = req.params.category;
@@ -53,6 +57,7 @@ app.get('/category/:category', (req, res) => {
   res.json(nominationsInCategory);
 });
 
+// Use /category , /category/Best%20Motion%20Picture%20-%20Drama to test endpoint!
 
 // Start the server
 app.listen(port, () => {
