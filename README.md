@@ -9,3 +9,10 @@ For this project I used the resources available from the Technigo bootcamp and f
 ## View it live
 
 https://cocofnas-expressapi.onrender.com
+https://cocofnas-expressapi.onrender.com/titles
+Get Title by ID:
+Example: https://cocofnas-expressapi.onrender.com/titles/123 (replace 123 with an actual ID)
+Get Titles by Director:
+Example: https://cocofnas-expressapi.onrender.com/director/Replacewithnameofdirector
+Get Titles by Release Year:
+Example: https://cocofnas-expressapi.onrender.com/year/YYYY
