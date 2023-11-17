@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is to start my backend journey by creating an API using Express. My API should have at least a couple of RESTful endpoints which return either an array of data or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I think the material was easy to follow and the proble I had was mostly with the deployment. I started with Cloud Run but after lots of try and errors I change to Render and was really easy to deploy.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-xk6w.onrender.com
