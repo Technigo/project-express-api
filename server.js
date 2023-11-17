@@ -13,6 +13,14 @@ const app = require('express')();
 app.use(cors());
 app.use(express.json());
 
+/**
+ * @api {get} / Display API documentation or a welcome message
+ * @apiName GetAPIDocumentation
+ * @apiGroup Documentation
+ *
+ * @apiParam {String} [showEndpoints=false] Set to "true" to display API endpoints.
+ */
+
 app.get("/", (req, res) => {
      // If the query parameter 'showEndpoints' is true, display the API documentation.
     // Otherwise, provide a welcome message.
@@ -24,6 +32,18 @@ app.get("/", (req, res) => {
     }
 });
 
+/**
+ * @api {get} /games Get all board games
+ * @apiName GetBoardGames
+ * @apiGroup BoardGames
+ *
+ * @apiParam {Number} [year] Filter games by year.
+ * @apiParam {String} [gametype] Filter games by type (e.g., strategy, family, party).
+ * @apiParam {String} [sortBy] Sort games by rating or other criteria.
+ * @apiParam {String} [name] Search games by name.
+ * @apiParam {Number} [page=1] Page number for pagination.
+ * @apiParam {Number|String} [pageSize=20] Number of games per page, 'all' for all games.
+ */
 
 // Define a route to get all board games.
 app.get("/games", (req, res) => {
@@ -80,12 +100,21 @@ app.get("/games", (req, res) => {
     if (paginatedGames.length === 0) {
         return res.status(404).json({ error: "No matching games found" });
     }
-    
+
     res.json(paginatedGames);
 
     // Test URL: http://localhost:8080/games?page=1&pageSize=all&name=pand&sortBy=rating
     // Response: all pandemic games sorted by rating
 });
+
+/**
+ * @api {get} /games/:rank Get a specific board game by rank
+ * @apiName GetBoardGameByRank
+ * @apiGroup BoardGames
+ *
+ * @apiParam {Number} rank The rank of the board game.
+ */
+
 
 // Define a route to get a specific board game based on its rank.
 app.get("/games/:rank", (req, res) => {
