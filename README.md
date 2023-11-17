@@ -1,12 +1,10 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week, I'm diving into backend development, kicking things off by crafting my own API using Express. I'm aiming to design an API featuring aa few RESTful endpoints, each equipped to deliver either an array of data or a single item. It's an exciting step forward in my coding journey!
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+At first it was hard to grasp what I was supposed to do. But through googleing and discussions with my team, I realized that switching from Frontend-thinking to Backend-thinking wasn't as hard as I initially thougt. It's bacically the same thing from two different perspectives. Once I grasped the basics with it I started playing around to create different endpoints.
 
 ## View it live
 

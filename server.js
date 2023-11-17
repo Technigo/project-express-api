@@ -3,8 +3,7 @@ import cors from "cors";
 import booksData from "./data/books.json";
 import listEndpoints from "express-list-endpoints";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
+// Defines the port the app will run on. Defaults to 8080, but can be overridden when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
@@ -40,15 +39,14 @@ app.get("/books/:id", (req, res) => {
 
 // Get all books by author
 app.get("/books/authors/:author", (req, res) => {
-  const inputAuthor = req.params.author.toLowerCase(); // Convert input to lowercase for case-insensitive matching
+  const inputAuthor = req.params.author.toLowerCase(); // Convert input to lowercase for case-insensitive search
 
   // Filter the array of books by author
   const booksByAuthor = booksData.filter(
-    (item) => item.authors.toLowerCase().includes(inputAuthor) // Show the author een if only part of the name is insertd
+    (item) => item.authors.toLowerCase().includes(inputAuthor) // Show the author even if only part of the name is inserted
   );
-
+  // if the array is not empty
   if (booksByAuthor.length > 0) {
-    // if the array is not empty
     res.json(booksByAuthor); // return the array
   } else {
     res.status(404).json({ error: "Author not found" }); // else return error message
@@ -58,17 +56,21 @@ app.get("/books/authors/:author", (req, res) => {
 // Get all books with rating above the given rating
 app.get("/books/average_rating/:rating", (req, res) => {
   const rating = req.params.rating;
+  // const {rating} = req.params;  same as above, saved for future reference
 
   // Filter the array of books by rating above the given rating
   const booksAboveRating = booksData.filter(
     (item) => item.average_rating > +rating // +rating converts the string to a number
   );
 
+  // if the array is not empty
   if (booksAboveRating.length > 0) {
-    // if the array is not empty
     res.json(booksAboveRating); // return the array
   } else {
-    res.status(404).json({ error: "No books with rating above 5 were found." });
+    res.status(404).json({
+      // else return error message
+      error: "No books starting with your selected rating were found.",
+    });
   }
 });
 
