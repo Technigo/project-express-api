@@ -30,10 +30,13 @@ app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
+// Get all avocado data
 app.get("/avocadoData", (req, res) => {
   res.json(avocadoSalesData);
+  res.status(501).send("Not Implemented");
 });
 
+// Get avocado data by price
 app.get("/price/:price", (req, res) => {
   const price = req.params.price;
   console.log({ price });
@@ -70,6 +73,7 @@ app.get("/avocadoData/:avocadoId", (req, res) => {
   }
 });
 
+// Get avocado data by total volume
 app.get("/totalVolume/:volume", (req, res) => {
   const volume = parseFloat(req.params.volume); // parseFloat because it's a number, could be used instead of + on volume in line 77 aswell
   console.log({ volume });
@@ -86,6 +90,67 @@ app.get("/totalVolume/:volume", (req, res) => {
   } else {
     res.json(avocadosWithVolume);
   }
+});
+
+// Get the top-selling region
+app.get("/topSellingRegion", (req, res) => {
+  const regions = [
+    ...new Set(avocadoSalesData.map((avocado) => avocado.region)),
+  ];
+  let topSellingRegion = "";
+  let maxTotalBagsSold = 0;
+
+  regions.forEach((region) => {
+    const totalBagsSoldInRegion = avocadoSalesData
+      .filter((avocado) => avocado.region === region)
+      .reduce((sum, avocado) => sum + avocado.totalBagsSold, 0);
+
+    if (totalBagsSoldInRegion > maxTotalBagsSold) {
+      maxTotalBagsSold = totalBagsSoldInRegion;
+      topSellingRegion = region;
+    }
+  });
+
+  res.json({ topSellingRegion });
+});
+
+// Get the average price of avocados in a specific region
+app.get("/averagePrice/:region", (req, res) => {
+  const region = req.params.region.toLowerCase();
+  const avocadosInRegion = avocadoSalesData.filter(
+    (avocado) => avocado.region.toLowerCase() === region
+  );
+
+  if (avocadosInRegion.length === 0) {
+    res.status(404).send("Sorry, no avocados found for this region");
+  } else {
+    const averagePrice =
+      avocadosInRegion.reduce((sum, avocado) => sum + avocado.averagePrice, 0) /
+      avocadosInRegion.length;
+    res.json({ averagePrice });
+  }
+});
+
+// Get the total number of avocados sold
+app.get("/totalAvocadoCount", (req, res) => {
+  const totalAvocadoCount = avocadoSalesData.reduce(
+    (sum, avocado) => sum + avocado.totalBagsSold,
+    0
+  );
+  res.json({ totalAvocadoCount });
+});
+
+//dummys/empty endpoints
+app.get("/totalSmallBagsSold", (req, res) => {
+  res.status(501).send("Not Implemented");
+});
+
+app.get("/totalLargeBagsSold", (req, res) => {
+  res.status(501).send("Not Implemented");
+});
+
+app.get("/totalXlargeBagsSold", (req, res) => {
+  res.status(501).send("Not Implemented");
 });
 
 // Start the server

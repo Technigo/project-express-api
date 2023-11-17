@@ -1,6 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This is my first backend project and it's an API were i used express. It includes RESTful endpoints and you can return either an array of data or a single item.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
