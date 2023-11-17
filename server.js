@@ -13,10 +13,10 @@ const app = require('express')();
 app.use(cors());
 app.use(express.json());
 
-// Define a route for the root path ('/') to display a welcome message
-// or return the list of all endpoints based on a query parameter
-// http://localhost:8080/?showEndpoints=true
 app.get("/", (req, res) => {
+     // If the query parameter 'showEndpoints' is true, display the API documentation.
+    // Otherwise, provide a welcome message.
+    // http://localhost:8080/?showEndpoints=true
     if (req.query.showEndpoints === "true") {
         res.json(listEndpoints(app));
     } else {
@@ -27,6 +27,8 @@ app.get("/", (req, res) => {
 
 // Define a route to get all board games.
 app.get("/games", (req, res) => {
+     // Retrieve a list of board games based on specified filters and pagination.
+    // Supports filtering by year, game type, sorting by rating, searching by name, and pagination.
 
     const { year, gametype, sortBy, name, page = 1, pageSize = 20 } = req.query;
 
@@ -55,6 +57,8 @@ app.get("/games", (req, res) => {
 
     // Search by name:
     // /games?name=Gloomhaven
+    // /games?name=GlooM
+    // /games?name=haVen
     if (name) {
         filteredGames = filteredGames.filter((game) => game.Name.toLowerCase().includes(name.toLowerCase()));
     }
@@ -72,6 +76,11 @@ app.get("/games", (req, res) => {
     const end = isAllGamesRequested ? filteredGames.length : start + parseInt(pageSize);
     const paginatedGames = filteredGames.slice(start, end);
 
+    // Check if there are no matching games
+    if (paginatedGames.length === 0) {
+        return res.status(404).json({ error: "No matching games found" });
+    }
+    
     res.json(paginatedGames);
 
     // Test URL: http://localhost:8080/games?page=1&pageSize=all&name=pand&sortBy=rating
@@ -81,6 +90,7 @@ app.get("/games", (req, res) => {
 // Define a route to get a specific board game based on its rank.
 app.get("/games/:rank", (req, res) => {
 
+     // Retrieve a specific board game based on its rank.
     const gameRank = parseInt(req.params.rank);
 
     const game = boardGameData.find((game) => game.Rank === gameRank);
