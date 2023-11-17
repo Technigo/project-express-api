@@ -9,7 +9,7 @@ import listEndpoints from "express-list-endpoints";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
+// Add middlewares to enable cors
 app.use(cors());
 app.use(express.json());
 
@@ -28,7 +28,7 @@ app.get("/books", (req, res) => {
 app.get("/books/:id", (req, res) => {
   const id = req.params.id;
   // const {id} = req.params; // same as above, saved for future reference
-  const book = booksData.find((item) => item.bookID === +id);
+  const book = booksData.find((item) => item.bookID === +id); // +id converts the string to a number
 
   if (book) {
     // if book is found
@@ -40,11 +40,12 @@ app.get("/books/:id", (req, res) => {
 
 // Get all books by author
 app.get("/books/authors/:author", (req, res) => {
-  const author = req.params.author;
-  // const {author} = req.params; // same as above, saved for future reference
+  const inputAuthor = req.params.author.toLowerCase(); // Convert input to lowercase for case-insensitive matching
 
   // Filter the array of books by author
-  const booksByAuthor = booksData.filter((item) => item.authors === author);
+  const booksByAuthor = booksData.filter(
+    (item) => item.authors.toLowerCase().includes(inputAuthor) // Show the author een if only part of the name is insertd
+  );
 
   if (booksByAuthor.length > 0) {
     // if the array is not empty
@@ -52,6 +53,45 @@ app.get("/books/authors/:author", (req, res) => {
   } else {
     res.status(404).json({ error: "Author not found" }); // else return error message
   }
+});
+
+// Get all books with rating above the given rating
+app.get("/books/average_rating/:rating", (req, res) => {
+  const rating = req.params.rating;
+
+  // Filter the array of books by rating above the given rating
+  const booksAboveRating = booksData.filter(
+    (item) => item.average_rating > +rating // +rating converts the string to a number
+  );
+
+  if (booksAboveRating.length > 0) {
+    // if the array is not empty
+    res.json(booksAboveRating); // return the array
+  } else {
+    res.status(404).json({ error: "No books with rating above 5 were found." });
+  }
+});
+
+// Get book by isbn
+app.get("/isbn/:isbn", (req, res) => {
+  const isbn = req.params.isbn;
+  // const {isbn} = req.params;  same as above, saved for future reference
+
+  const bookByIsbn = booksData.find((item) => item.isbn === +isbn); // +isbn converts the string to a number
+
+  if (bookByIsbn) {
+    // if book is found
+    res.json(bookByIsbn); // return the book
+  } else {
+    res
+      .status(404)
+      .json({ error: "Book not found. Please check the inserted isbn." }); // else return error message
+  }
+});
+
+// Dummy endpoint for future development
+app.get("/dummy", (req, res) => {
+  res.json({ message: "This is a dummy endpoint for future development." });
 });
 
 // Start the server

@@ -1,0 +1,39 @@
+[debug] [2023-11-15T14:59:36.481Z] ----------------------------------------------------------------------
+[debug] [2023-11-15T14:59:36.483Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Susanne\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-15T14:59:36.484Z] CLI Version:   12.9.0
+[debug] [2023-11-15T14:59:36.484Z] Platform:      win32
+[debug] [2023-11-15T14:59:36.484Z] Node Version:  v18.17.1
+[debug] [2023-11-15T14:59:36.486Z] Time:          Wed Nov 15 2023 15:59:36 GMT+0100 (Central European Standard Time)
+[debug] [2023-11-15T14:59:36.486Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-15T14:59:36.494Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-15T14:59:36.495Z] > authorizing via signed-in user (susanne.ekenheim@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Susanne\Desktop\technigo-projects\project-express-api
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2023-11-15T15:04:31.139Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2023-11-15T15:04:31.139Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"project-express-api","name":"project-express-api"}
+[debug] [2023-11-15T15:04:31.960Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2023-11-15T15:04:31.960Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2023-11-15T15:04:31.962Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at responseToError (C:\Users\Susanne\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Susanne\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:285:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project because there is already a project with ID project-express-api. Please try again with a unique project ID.
