@@ -97,7 +97,6 @@ app.get("/avocado-sales/average-price", (req, res) => {
   // Create an array of all possible regions
   const allRegions = [...new Set(avocadoSalesData.map((avocadoSale) => avocadoSale.region))];
 
-
   // Error handling and hint for the user
   // If for example the user tries to search for Vermont: http://localhost:8080/avocado-sales/average-price?avgPrice=Vermont
   if (salesInRegion.length === 0) {
