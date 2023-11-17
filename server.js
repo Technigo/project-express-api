@@ -12,19 +12,37 @@ app.use(cors());
 app.use(express.json());
 
 // Root endpoint
-app.get("/", (req, res) => {
-  res.send(routePaths);
-});
-
-// Endpoint for manual route information
+//file created in order to provide example of routes for a dear reviewer 
 app.get("/routeInfo", (req, res) => {
   res.json(routePaths);
+});
+
+
+// Nominations endpoint with filters
+app.get("/nominations", (req, res) => {
+  const { year, category, winner } = req.query;
+  let filteredNominations = [...data];
+
+  if (year) {
+    filteredNominations = filteredNominations.filter((item) => item.year_award === +year);
+  }
+
+  if (category) {
+    filteredNominations = filteredNominations.filter((item) => item.category === category);
+  }
+
+  if (winner !== undefined) {
+    const isWinner = winner.toLowerCase() === 'true';
+    filteredNominations = filteredNominations.filter((item) => item.win === isWinner);
+  }
+
+  res.json(filteredNominations);
 });
 
 // Nominee endpoint
 app.get("/nominee/:nominee", (req, res) => {
   const nominee = req.params.nominee;
-  const nominationsByNominee = data.filter((item) => item.nominee === nominee);
+  const nominationsByNominee = data.find((item) => item.nominee === nominee);
 
   res.json(nominationsByNominee);
 });
@@ -32,7 +50,7 @@ app.get("/nominee/:nominee", (req, res) => {
 // movie endpoint
 app.get("/movie/:movie", (req, res) => {
   const movie = req.params.movie;
-  const nominationsBymovie = data.filter((item) => item.film === movie);
+  const nominationsBymovie = data.find((item) => item.film === movie);
 
   res.json(nominationsBymovie);
 });
@@ -62,30 +80,8 @@ app.get("/awardYear/:awardYear", (req, res) => {
 });
 
 
-// Nominations endpoint with filters
-app.get("/nominations", (req, res) => {
-  const { year, category, winner } = req.query;
-  let filteredNominations = [...data];
 
-  if (year) {
-    filteredNominations = filteredNominations.filter((item) => item.year_award === +year);
-  }
-
-  if (category) {
-    filteredNominations = filteredNominations.filter((item) => item.category === category);
-  }
-
-  if (winner !== undefined) {
-    const isWinner = winner.toLowerCase() === 'true';
-    filteredNominations = filteredNominations.filter((item) => item.win === isWinner);
-  }
-
-  res.json(filteredNominations);
-});
-
-
-
-// Single nomination by ID endpoint, not found
+// Single nomination by ID endpoint, not found (could be used if data has an ID, this one doesnt)
 app.get("/nomination/:id", (req, res) => {
   const nominationId = req.params.id;
   const nomination = data.find((item) => item.id === +nominationId);
