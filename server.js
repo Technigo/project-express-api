@@ -1,4 +1,5 @@
 const express = require("express");
+const expressListEndpoints = require("express-list-endpoints");
 const app = express();
 const PORT = process.env.PORT || 9000;
 
@@ -10,20 +11,19 @@ const data = require("./data/books.json");
 
 app.get("/", (req, res) => {
   const welcomeMessage =
-    "Welcome to Book API!\n\n" +
-    "Available Routes:\n" +
-    "- /collection: Returns a collection of books, with optional filtering by author.\n" +
-    "- /authors: Returns a collection of unique authors from the book data.\n" +
-    "- /collection/:id: Returns a single book based on the provided book ID.";
+    "<h1>Welcome to Book API!</h1>" +
+    "<p>Available Routes:</p>" +
+    "<ul>" +
+    "<li><a href='/collection'>/collection</a>: Returns a collection of books, with optional filtering by author.</li>" +
+    "<li><a href='/authors'>/authors</a>: Returns a collection of unique authors from the book data.</li>" +
+    "<li><a href='/collection/:id'>/collection/:id</a>: Returns a single book based on the provided book ID.</li>" +
+    "</ul>";
 
   res.send(welcomeMessage);
 });
 
 app.get("/collection", (req, res) => {
   const { author } = req.query;
-
-  console.log("Query Parameters:", req.query);
-
   let filteredData = data;
 
   if (author) {
@@ -34,8 +34,6 @@ app.get("/collection", (req, res) => {
       )
     );
   }
-
-  console.log("Filtered Data:", filteredData);
 
   res.json(filteredData);
 });
@@ -59,4 +57,9 @@ app.get("/collection/:id", (req, res) => {
   }
 
   res.json(item);
+});
+
+app.get("/list-endpoints", (req, res) => {
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
