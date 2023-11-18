@@ -15,6 +15,23 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+// QUERY PARAMETER//
+//Reminder: Query is shown in url after the "?"
+
+// SLICE for getting top books by average rating
+// URL: books/top?count=5 (can change number)
+app.get('/books/top', (req, res) => {
+  // Default count to 5 if not specified or invalid
+  let count = parseInt(req.query.count, 10);
+  if (!count || isNaN(count)) {
+    count = 5;
+  }
+  const sortedBooks = [...booksData].sort((a, b) => b.average_rating - a.average_rating);   // Sort books by average rating in descending order and slice to get the top books
+  const topBooks = sortedBooks.slice(0, count); //The slice method is used to get the top books according to the specified count in url
+  // Return the top books
+  res.json(topBooks);
+});
+
 
 //ROUTE PARAMETERS//
 
@@ -22,8 +39,8 @@ app.get("/", (req, res) => {
 //This had to be before find by ID in order to work
 //URL: /books/TitleOfBook
 app.get('/books/:title', (req, res) => {
-  const requestedTitle = req.params.title.replace(/%20/g, ' ');
-  const bookWithTitle = booksData.find((book) => book.title === requestedTitle);
+  const requestedTitle = decodeURIComponent(req.params.title).toLowerCase();
+  const bookWithTitle = booksData.find((book) => book.title.toLowerCase().includes(requestedTitle));
   if (bookWithTitle) {
     res.json(bookWithTitle);
   } else {
@@ -44,10 +61,8 @@ app.get('/books/:bookID', (req, res) => {
   }
 })
 
-//QUERY PARAMETERS//
+// QUERY PARAMETER//
 //Reminder: Query is shown in url after the "?"
-
-// ROUTE PARAMETER//
 // Get all books or FILTER by author
 // URL: /books or /books?author=AuthorName
 app.get('/books', (req, res) => {
@@ -62,22 +77,6 @@ app.get('/books', (req, res) => {
     res.json(booksData);
   }
 });
-
-/*TRIED THE SLICE METHOD, BUT DID NOT MAKE IT WORK :(
-// SLICE for getting top books by average rating
-// URL: books/top?count=5 (can change number)
-app.get('/books/top', (req, res) => {
-  const count = parseInt(req.query.count, 10);
-  console.log('count:', count);
-
-  // Sort books by average rating in descending order and slice to get the top books
-  const topBooks = booksData
-    .sort((a, b) => b.average_rating - a.average_rating) //Sort books sorted in descending order
-    .slice(0, count); //The slice method is used to get the top books according to the specified count in url
-  console.log('topBooks:', topBooks);
-  // Return 
-  res.json(topBooks);
-});*/
 
 // Start the server
 app.listen(port, () => {

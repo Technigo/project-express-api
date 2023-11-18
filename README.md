@@ -7,8 +7,6 @@ Add routes to different data from the API
 Route params were okay
 Query params were harder
 
-Tried to use the slice method, did not make it. Commented out.
-
 Wrote URL examples in comments as they were hard to remember
 
 ## View it live
