@@ -44,22 +44,23 @@ app.get('/books/:bookID', (req, res) => {
   }
 })
 
-
 //QUERY PARAMETERS//
 //Reminder: Query is shown in url after the "?"
 
-// FILTER books by author
-//URL: /books?author=AuthorName
+// ROUTE PARAMETER//
+// Get all books or FILTER by author
+// URL: /books or /books?author=AuthorName
 app.get('/books', (req, res) => {
   const authorName = req.query.author;
-  if (!authorName) {
-    return res.status(400).send('Author not found');
+  if (authorName) {
+    const lowercasedAuthorName = authorName.toLowerCase();
+    const booksByAuthor = booksData.filter((book) =>
+      book.authors.toLowerCase().includes(lowercasedAuthorName)
+    );
+    res.json(booksByAuthor);
+  } else {
+    res.json(booksData);
   }
-  const lowercasedAuthorName = authorName.toLowerCase();//To make sure the author is uncluded even if the name should be spelled with different casing
-  const booksByAuthor = booksData.filter((book) =>
-    book.authors.toLowerCase().includes(lowercasedAuthorName)
-  );
-  res.json(booksByAuthor);
 });
 
 /*TRIED THE SLICE METHOD, BUT DID NOT MAKE IT WORK :(
@@ -77,13 +78,6 @@ app.get('/books/top', (req, res) => {
   // Return 
   res.json(topBooks);
 });*/
-
-//ROUTE PARAMETER//
-//Get all books
-//URL: /books
-app.get('/books', (req, res) => {
-  res.json(booksData)
-})
 
 // Start the server
 app.listen(port, () => {
