@@ -8,7 +8,7 @@ I decided that I wanted to choose a different set of data through Kaggle. Sharks
 
 In '/shark-attacks/:id' you can change ':id' to a number.
 
-In the query param in the 'Year of shark attacks' endpoint, you have the possibility to filter if the shark attacks from the specified year were unprovoked or not. They can be labelled as 'provoked', 'unprovoked' or 'questionable' so there are three alternatives to try out. You can for example try typing in: /shark-attacks/year/2023?type=unprovoked
+In the query param in the 'Year of shark attacks' endpoint, you have the possibility to filter if the shark attacks from the specified year were unprovoked or not. They can be labelled for example as 'provoked', 'unprovoked' or 'questionable' so there are some alternatives to try out. You can for example try typing in: /shark-attacks/year/2023?type=unprovoked
 
 In /species, please note that the same type of shark can be displayed many times because of how the data is structured. For example you can in the list find: 'white shark', 'white sharks', 'white shark, 3 M' and 'white shark, 3M' etc.
 
