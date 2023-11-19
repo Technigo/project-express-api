@@ -17,6 +17,7 @@
     "express-list-endpoints": "^6.0.0",
     "nodemon": "^3.0.1"
   },
+  "type": "module",
   "engines": {
     "node": ">=21.0.0 <23.0.0"
   }
