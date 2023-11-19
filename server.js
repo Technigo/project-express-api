@@ -17,9 +17,15 @@ const app = express();
 
 const listEndPoints = require("express-list-endpoints");
 
+const logger = (req, res, next) => {
+    console.log("Hello hello");
+    next();
+};
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+app.use(logger);
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -82,12 +88,65 @@ app.get("/books/most-popular", (req, res) => {
         (a, b) => b.ratings_count - a.ratings_count
     );
 
-    const top20Books = mostPopularBooks.slice(0, 20);
+    const top20Popular = mostPopularBooks.slice(0, 20);
 
-    if (top20Books.length > 0) {
-        res.json(top20Books);
+    if (top20Popular.length > 0) {
+        res.json(top20Popular);
     } else {
         res.status(404).send("No popular books found");
+    }
+});
+
+app.get("/books/highest-rated", (req, res) => {
+    const highestRatedBooks = [...booksData].sort(
+        (a, b) => b.average_rating - a.average_rating
+    );
+
+    const top20Rated = highestRatedBooks.slice(0, 20);
+
+    if (top20Rated.length > 0) {
+        res.json(top20Rated);
+    } else {
+        res.status(404).send("No highest-rated books found");
+    }
+});
+
+// creating category short stories, using Math random to select 20 items from the array of books.
+app.get("/books/short-stories", (req, res) => {
+    const shortStories = booksData.filter((book) => book.num_pages < 100);
+
+    // Shuffle the array randomly using Fisher-Yates algorithm
+    /* Fisher-Yates: randomizing the sort of the books array futher.
+        Compares pairs of books. Instead of comparing them in a regular order, 
+        we subtract a random value between -0.5 and 0.5 from each comparison.
+        If the result is negative, one book goes before the other.
+        If the result is positive, the other book goes first.
+        If the result is zero, their order doesn't change.*/
+    const shuffledBooks = booksLessThan100Pages.sort(() => Math.random() - 0.5);
+
+    // Return the first 20 items
+    const randomBooks = shuffledBooks.slice(0, 20);
+
+    if (novels.length > 0) {
+        res.json(shortStories);
+    } else {
+        res.status(404).send("No novels found");
+    }
+});
+
+app.get("/books/novels", (req, res) => {
+    const novels = booksData.filter((book) => book.num_pages > 100);
+
+    // Shuffle the array randomly using Fisher-Yates algorithm
+    const shuffledBooks = booksLessThan100Pages.sort(() => Math.random() - 0.5);
+
+    // Return the first 20 items
+    const randomBooks = shuffledBooks.slice(0, 20);
+
+    if (novels.length > 0) {
+        res.json(novels);
+    } else {
+        res.status(404).send("No novels found");
     }
 });
 
