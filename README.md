@@ -1,13 +1,17 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This week's project is to start a backend journey by creating an API using Express. This API should have a couple of RESTful endpoints which return either an array of data or a single item.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A hard-coded set of data, stored as a JSON file, is used in this project: books.json (consisting of 450 books).
 
-## The problem
+## Implementation
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The installed Nodemon is a utility monitoring for any changes in your source and automatically restarting your Node.js application when your code changes. Perfect for development.
+
+`npm install -g nodemon`
+
+The endpoint "/" returns documentation of your API using [Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to the deployed project:https://express-book-library-api-project.onrender.com
