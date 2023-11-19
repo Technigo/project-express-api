@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Card } from "./components/Card";
 import { NobelRes } from "./types/type";
+import { Spinner } from "./components/Spinner";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -48,8 +49,8 @@ function App() {
     })();
   }, [query]);
 
-  if (isLoading || totalPage === 0) return <p>Loading</p>;
-  console.log(nobels);
+  if (isLoading || totalPage === 0) return <Spinner />;
+
   return (
     <main className="bg-green-500 font-bold py-20 w-screen">
       <div className="min-h-screen max-w-[900px] mx-auto flex items-center flex-col">
