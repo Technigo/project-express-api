@@ -17,19 +17,10 @@ app.use(express.json());
  * @api {get} / Display API documentation or a welcome message
  * @apiName GetAPIDocumentation
  * @apiGroup Documentation
- *
- * @apiParam {String} [showEndpoints=false] Set to "true" to display API endpoints.
  */
 
 app.get("/", (req, res) => {
-     // If the query parameter 'showEndpoints' is true, display the API documentation.
-    // Otherwise, provide a welcome message.
-    // http://localhost:8080/?showEndpoints=true
-    if (req.query.showEndpoints === "true") {
         res.json(listEndpoints(app));
-    } else {
-        res.send("Welcome to the Top 100 Board Games API!");
-    }
 });
 
 /**
