@@ -18,21 +18,21 @@ app.get('/', (req, res) => {
   res.send( ` Welcome to the Books API! Here are some quick links to get you started:
   <br>
   <br>
-  <a href="http://localhost:8080/books">All books</a>
+  <a href="https://express-api-s8aj.onrender.com/books">All books</a>
   <br>
-  <a href="http://localhost:8080/books/1">Individual book by ID</a>
+  <a href="https://express-api-s8aj.onrender.com/books/1">Individual book by ID</a>
   <br>
-  <a href="http://localhost:8080/language/eng">All books in a language</a>
+  <a href="https://express-api-s8aj.onrender.com/language/eng">All books in a language</a>
   <br>
-  <a href="http://localhost:8080/languages">All languages</a>
+  <a href="https://express-api-s8aj.onrender.com/languages">All languages</a>
   <br>
-  <a href="http://localhost:8080/author/J.K.%20Rowling">All books by an author</a>
+  <a href="https://express-api-s8aj.onrender.com/author/J.K.%20Rowling">All books by an author</a>
   <br>
-  <a href="http://localhost:8080/authors">All authors</a>
+  <a href="https://express-api-s8aj.onrender.com/authors">All authors</a>
   <br>
-  <a href="http://localhost:8080/ratings">All book ratings</a>
+  <a href="https://express-api-s8aj.onrender.com/ratings">All book ratings</a>
   <br>
-  <a href="http://localhost:8080/stats">Statistics</a>
+  <a href="https://express-api-s8aj.onrender.com/stats">Statistics</a>
   <br>
   
   `);
@@ -73,7 +73,7 @@ app.get('/languages', (req, res) => {
   const allLanguagesWithLink = allLanguages.map((language) => {
     return {
       language: language,
-      link: `http://localhost:8080/language/${language}`
+      link: `https://express-api-s8aj.onrender.com/${language}`
     }
   })
   res.json(allLanguagesWithLink);
@@ -103,7 +103,7 @@ app.get('/authors', (req, res) => {
   const allAuthorsWithLink = allAuthors.map((author) => {
     return {
       author: author,
-      link: `http://localhost:8080/author/${formatAuthorName(author)}`
+      link: `https://express-api-s8aj.onrender.com/author/${formatAuthorName(author)}`
     }
   })
 
@@ -128,7 +128,7 @@ app.get('/ratings', (req, res) => {
   const allRatingsWithLink = allRatings.map((rating) => {
     return {
       rating: rating,
-      link: `http://localhost:8080/rating/${rating}`
+      link: `https://express-api-s8aj.onrender.com/rating/${rating}`
     }
   })
 
@@ -148,7 +148,7 @@ app.get('/stats', (req, res) => {
     numberOfBooks: numberOfBooks,
     numberOfAuthors: numberOfAuthors,
     numberOfLanguages: numberOfLanguages,
-    link: `http://localhost:8080/`
+    link: `https://express-api-s8aj.onrender.com/`
   });
 }
 );
@@ -172,6 +172,8 @@ app.put('/books/:id', (req, res) => {
   res.json(updatedBook);
 }
 );
+
+
 
 
 // DELETE: This method is used to delete a specified resource
