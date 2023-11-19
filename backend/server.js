@@ -19,6 +19,7 @@ app.get("/api/v1/novel_award", (req, res) => {
   const dataPerPage = data.slice((pageNum - 1) * dataPerPageNum, pageNum * dataPerPageNum);
   if (pageNum)
     return res.status(200).send({ status: 200, length: data.length, data: { items: dataPerPage } });
+
   res.status(200).send({ status: 200, length: data.length, data: { items: data } });
 });
 
@@ -34,6 +35,7 @@ app.get("/api/v1/novel_award/year/:year", (req, res) => {
 app.get("/api/v1/novel_award/laureates/:id", (req, res) => {
   const id = req.params.id;
   const item = data.find((obj) => obj?.laureates?.find((p) => p?.id === id));
+
   if (!item) return res.status(404).send({ status: 404, data: "No data is available" });
   res.status(200).send({ status: 200, length: item.length, data: { item } });
 });
