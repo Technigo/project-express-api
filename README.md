@@ -1,13 +1,12 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a project where I created an API using Express.js!
+There are a few paths sorting the data, and also paths defined by query params to sort through the array. I also made a frontend to test it out! This is a link to the deployed frontend page: express-api-frontend-vera.netlify.app
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project was pretty straight forward. It was interesting getting a deeper understanding of how API's are built and how to construct systems that go from backend to frontend!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-vera.onrender.com
