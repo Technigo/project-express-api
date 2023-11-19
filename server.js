@@ -21,21 +21,21 @@ const listEndpoints = require('express-list-endpoints')
 app.use(cors());
 app.use(express.json());
 
-// Start defining your RESTful routes here
 
-//Documentation of API
+// ------- Defining RESTful routes here -----------
+
+//---- Documentation of API ----
 app.get("/", (req, res) => {
-  //res.send("Welcome to our book library!  Here you have access to 450 books!\n");
   const endpoints = listEndpoints(app);
   res.json(endpoints)
 });
 
-//all books
+//---- All books ----
 app.get("/books",(req,response)=>{
 response.json(books)
 })
 
-//one book based on Id
+//---- Finding one book based on Id ----
 app.get("/books/:bookId", (req, response)=>{  
   const {bookId}=req.params
   
@@ -44,47 +44,49 @@ app.get("/books/:bookId", (req, response)=>{
   if(ID){
     response.json(ID)
   }else{
-    response.status(404).send("Unfortunately, no such book was found in our library!")
+    response.status(404).send(`Unfortunately, no book with matching id ${bookId} was found in our library!`)
   }
   
 })
 
-//Arrays of books based on a searched author -bug(only single author with simple name accepted)
-app.get("/books/author/:author", (req, response)=>{
-  const {author} =req.params
-  const singleAuthor= books.filter((book)=>book.authors.toLowerCase().replace(/ /g,'')=== author.toLowerCase())
+//---- Arrays of books based on a searched author -bug(only single author with simple name accepted) ----
+// app.get("/books/author/:author", (req, response)=>{
+//   const {author} =req.params
+//   const singleAuthor= books.filter((book)=>book.authors.toLowerCase().replace(/ /g,'')=== author.toLowerCase())
 
-  if(singleAuthor.length>0){
-    response.json(singleAuthor)
-  }else{
-    response.status(404).send("Unfortunately, no such author could be found in our library!")
-  }
-})
+//   if(singleAuthor.length>0){
+//     response.json(singleAuthor)
+//   }else{
+//     response.status(404).send(`Unfortunately, no author named ${author} could be found in our library!`)
+//   }
+// })
 
 //On 01/01/2007 ISBN system switched from a 10-digit long to a 13-digit long format
 //To date, a 13-digit ISBN includes 978-prefix, which allowed systems to contain both 10- and 13-digit ASBNs for all books.  However, a 13-digit ISBN starting with 979 does not have an equivalent 10-digit ISBN.  Aim: only 13-digit ISBNs with 978- and 979-prefix should be used to identify a book.
 //ISBN agency in an English-speaking region assigns ISBNs starting with 
 //either 978-0 or 978-1, or 979-8 (unique to the US)
 
-//one unique book based on International Standard Book Number (ISBN)
+//---- Find one unique book based on International Standard Book Number(ISBN)- 13digits ----
 app.get("/books/isbn/:isbn13", (req, response)=>{
   const {isbn13} = req.params
   const Isbn13Digits= books.find((book)=>book.isbn13===+isbn13)
+
   if(Isbn13Digits){
     response.json(Isbn13Digits)
   }else{
-    response.status(404).send("Unfortunately, no book with such ISBN was found in our library!")
+    response.status(404).send(`Unfortunately, no book with ISBN ${isbn13} was found in our library!`)
   }
 })
 
-//For librairies using old 10-digit ISBN format, find one unique book:
+//---- For librairies using old 10-digit ISBN format, find one unique book ----
 app.get("/books/oisbn/:isbn10",(req,response)=>{
   const {isbn10}=req.params
   const Isbn10Digits= books.find((book)=>book.isbn===+isbn10)
+
   if(Isbn10Digits){
     response.json(Isbn10Digits)
   }else{
-    response.status(404).send("Unfortunately, this ISBN was not found in our library!  Please try with 13-digit ISBN instead.")
+    response.status(404).send(`Unfortunately, this ISBN ${isbn10} was not found in our library!  Please try with 13-digit ISBN instead.`)
   }
 })
 
@@ -92,11 +94,17 @@ app.get("/books/oisbn/:isbn10",(req,response)=>{
 // https://stackoverflow.com/questions/494035/how-do-you-use-a-variable-in-a-regular-expression
 
 //Searching filters by:
-//---author---
+
+//--- author ---
 app.get("/author", (req, response)=>{
   
   const authorPattern = req.query.search
+  //authorPattern is used as the pattern to search for in the string
+  //"i" means the search should be case-insensitive
+  //"g" means it will find all the matches in the given string
   let regex = new RegExp(authorPattern, "gi");
+
+  //filtering into a new array "matchingAuthor" if the "authors"' value of the book matches the regex (!=null) 
   const matchingAuthor= books.filter((book)=>book.authors.match(regex)!= null)
 
   if(matchingAuthor.length>0){
@@ -106,15 +114,24 @@ app.get("/author", (req, response)=>{
   }
 })
 
-//----title----
+//--- title ---
 
 app.get("/bookTitle", (req, response)=>{
   
   const titlePattern = req.query.search
+  const author=req.query.author
   let regex = new RegExp(titlePattern, "gi");
+  let regexAuthor = new RegExp(author, "gi");
+
+  //filtering into a new array "matchingTitle" if the title's value of the book matches the regex (!=null)
   const matchingTitle= books.filter((book)=>book.title.match(regex)!= null)
 
-  if(matchingTitle.length>0){
+  //chaining the 2 queries to get 1st filter on matching book's title and 2nd on matching author
+  if(matchingTitle.length>0 && author!=null){
+    const filteredByAuthor = matchingTitle.filter((book)=>book.authors.match(regexAuthor)!= null)
+    response.json(filteredByAuthor)
+    //1st array of matching book title only
+  }else if(matchingTitle.length>0){
     response.json(matchingTitle)
   }else{
     response.status(404).send("Unfortunately, no such title could be found in our library database!")
@@ -124,7 +141,7 @@ app.get("/bookTitle", (req, response)=>{
 // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
 
 //sorted array for slice method
-//Top 10 rated books
+//---- Top 10 rated books ----
 app.get("/top10",(req,response)=>{
   const sortedDescendingRatings = books.sort((a, b) => (a.average_rating < b.average_rating) ? 1 : (a.average_rating === b.average_rating) ? ((a.ratings_count < b.ratings_count) ? 1 : -1) : -1 );
   const sliced = sortedDescendingRatings.slice(0,10);
@@ -132,7 +149,7 @@ app.get("/top10",(req,response)=>{
   response.json(sliced)
 })
 
-//Bottom 10 rated books
+//---- Bottom 10 rated books ----
 app.get("/bottom10",(req,response)=>{
   const sortedAscendingRatings = books.sort((a, b) => (a.average_rating > b.average_rating) ? 1 : (a.average_rating === b.average_rating) ? ((a.ratings_count < b.ratings_count) ? 1 : -1) : -1 );
   const sliced = sortedAscendingRatings.slice(0,10);
@@ -140,7 +157,7 @@ app.get("/bottom10",(req,response)=>{
   response.json(sliced)
 })
 
-//returning an array of all unique "language_code" values of the database
+//---- Array of all unique "language_code" values of the database ----
 
 //use Set to store unique language codes
 const uniqueLanguageCodes = new Set (books.map(book=>book.language_code))
@@ -151,21 +168,22 @@ console.log(uniqueLanguageCodesArray)
 app.get("/lang",(req,response)=>{
   const uniqueLanguageCodes = new Set (books.map(book=>book.language_code))
   const uniqueLanguageCodesArray = Array.from(uniqueLanguageCodes)
+
   if(uniqueLanguageCodesArray.length>0){
     response.json(uniqueLanguageCodesArray)
   }else{
-    response.status(404).send("Unfortunately, this ISBN was not found in our library!  Please try with 13-digit ISBN instead.")
+    response.status(404).send("No such language code was found in our database.")
   }
 })
 
-//filtering new array with selected language
+//--- Filtering new array with selected language ----
 app.get("/books/lang/:lang",(req,response)=>{
   const {lang}=req.params
   const listBooksByLang= books.filter((book)=>book.language_code===lang)
   if(listBooksByLang.length>0){
     response.json(listBooksByLang)
   }else{
-    response.status(404).send("Unfortunately, this ISBN was not found in our library!  Please try with 13-digit ISBN instead.")
+    response.status(404).send(`Unfortunately, this language was not found in our library!`)
   }
 })
 
