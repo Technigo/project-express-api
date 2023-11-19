@@ -1,8 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A small fullstack project accessing data about Nobel Laureates via an API created using Express.
 
 ## The problem
 
@@ -11,3 +9,5 @@ Describe how you approached to problem, and what tools and techniques you used t
 ## View it live
 
 View live server at: https://nobel-prize-data.onrender.com/
+
+View deployed site at: 
