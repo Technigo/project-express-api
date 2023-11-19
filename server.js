@@ -122,13 +122,13 @@ app.get("/books/short-stories", (req, res) => {
         If the result is negative, one book goes before the other.
         If the result is positive, the other book goes first.
         If the result is zero, their order doesn't change.*/
-    const shuffledBooks = booksLessThan100Pages.sort(() => Math.random() - 0.5);
+    const shuffledShortStories = shortStories.sort(() => Math.random() - 0.5);
 
     // Return the first 20 items
-    const randomBooks = shuffledBooks.slice(0, 20);
+    const randomShortStories = shuffledShortStories.slice(0, 20);
 
-    if (novels.length > 0) {
-        res.json(shortStories);
+    if (randomShortStories.length > 0) {
+        res.json(randomShortStories);
     } else {
         res.status(404).send("No novels found");
     }
@@ -138,13 +138,13 @@ app.get("/books/novels", (req, res) => {
     const novels = booksData.filter((book) => book.num_pages > 100);
 
     // Shuffle the array randomly using Fisher-Yates algorithm
-    const shuffledBooks = booksLessThan100Pages.sort(() => Math.random() - 0.5);
+    const shuffledNovels = novels.sort(() => Math.random() - 0.5);
 
     // Return the first 20 items
-    const randomBooks = shuffledBooks.slice(0, 20);
+    const randomNovels = shuffledNovels.slice(0, 20);
 
-    if (novels.length > 0) {
-        res.json(novels);
+    if (randomNovels.length > 0) {
+        res.json(randomNovels);
     } else {
         res.status(404).send("No novels found");
     }
