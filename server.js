@@ -1,13 +1,6 @@
 import express from "express";
 import cors from "cors";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import netflixData from "./data/netflix-titles.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -20,8 +13,41 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+
+// All shows - FUNKAR as of söndag
+
+app.get("/shows", (req, res) => {
+  res.json(netflixData);
+});
+
+//One show based on Country
+
+app.get("/shows/country/:countryData", (req, res) => {
+  const { countryData } = req.params;
+
+  const country = netflixData.find((show) => show.country === countryData);
+
+  console.log("countryData", countryData, typeof countryData);
+
+  if (country) {
+    res.json(country);
+  } else {
+    res.status(404).send("No such country was found");
+  }
+});
+
+// One show based on id FUNKAR as of söndag- kanske lägga till shows/id separat också?
+
+app.get("/shows/id/:showId", (req, res) => {
+  const { showId } = req.params;
+
+  const show = netflixData.find((show) => show.show_id === +showId);
+
+  if (show) {
+    res.json(show);
+  } else {
+    res.status(404).send("No show was found");
+  }
 });
 
 // Start the server
