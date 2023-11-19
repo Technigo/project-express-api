@@ -48,7 +48,7 @@ app.get("/api/v1/novel_award/category/:category", (req, res) => {
   const category = req.params.category;
   const items = data.filter(
     (obj) =>
-      obj.category.en.toLowerCase().replaceAll(" ", "") ===
+      obj?.category?.en?.toLowerCase().replaceAll(" ", "") ===
       category.toLowerCase().replaceAll(" ", "")
   );
 
