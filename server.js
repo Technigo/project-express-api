@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Let´s check our some books!");
 });
 
 // QUERY PARAMETER//

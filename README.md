@@ -11,4 +11,10 @@ Wrote URL examples in comments as they were hard to remember
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://mc-express-api.onrender.com/
+
+/books
+/books/8 (or any book id number)
+/books/title (replace title with the actual title of a book)
+/books?author=AuthorName (replace AuthorName with the actual author name)
+/books/top?count=5 (or any amount of top books you would like to see, 5 is default)
