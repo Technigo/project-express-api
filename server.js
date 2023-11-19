@@ -73,7 +73,7 @@ app.get('/languages', (req, res) => {
   const allLanguagesWithLink = allLanguages.map((language) => {
     return {
       language: language,
-      link: `https://express-api-s8aj.onrender.com/${language}`
+      link: `https://express-api-s8aj.onrender.com/language/${language}`
     }
   })
   res.json(allLanguagesWithLink);
