@@ -1,5 +1,3 @@
-
-
 const routePaths = [
     {
         path: "/",
@@ -44,20 +42,6 @@ const routePaths = [
     {
         path: "/nomination/:id",
         methods: ["GET"],
-        middlewares: ["anonymous"]
-    }, {
-        path: "/nominations",
-        methods: ["POST"],
-        middlewares: ["anonymous"]
-    },
-    {
-        path: "/nomination/:id",
-        methods: ["PUT"],
-        middlewares: ["anonymous"]
-    },
-    {
-        path: "/nomination/:id",
-        methods: ["DELETE"],
         middlewares: ["anonymous"]
     }
 ];

@@ -13,10 +13,10 @@ app.use(express.json());
 
 // Root endpoint
 //file created in order to provide example of routes for a dear reviewer 
-app.get("/routeInfo", (req, res) => {
+console.log(routePaths); // Add this line
+app.get("/", (req, res) => {
   res.json(routePaths);
 });
-
 
 // Nominations endpoint with filters
 app.get("/nominations", (req, res) => {
