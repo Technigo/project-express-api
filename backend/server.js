@@ -1,7 +1,11 @@
 import express from "express";
 import cors from "cors";
-import data from "./data/award.json" assert { type: "json" };
+
 import listEndpoints from "express-list-endpoints";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+
+const data = require("./data/award.json");
 
 const port = process.env.PORT || 8080;
 const app = express();
