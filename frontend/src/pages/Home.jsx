@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { SearchBar } from '../components/SearchBar';
-import { SearchResultsList } from '../components/SearchResultsList';
 import styled from 'styled-components';
 import { Header } from '../components/Header';
 
