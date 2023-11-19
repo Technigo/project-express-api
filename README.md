@@ -1,13 +1,27 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+Week 13 project at Technigo (first week of getting to know the backend). Creating an API using Express with RESTful endpoints.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Course material and ChatGPT was used as well as discussing within our team.
+
+Next step would be to use the API building a frontend project. I decided to focus on and spending time on backend going through more material to learn more.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://first-express-api-l78k.onrender.com/
+
+Endpoints
+"/" Returns documentation of API
+"/books" Returns an array of all books
+"/books/:bookID" Returns Returns a single book
+
+To get a list of books with optional filtering
+/books
+    query params:
+        "title" Filter books by title
+        "authors" Filters books by author/s
+
+Example: "/books?authors=J.K.%20Rowling&title=Half-Blood"
