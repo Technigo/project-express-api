@@ -21,6 +21,7 @@ function App() {
       try {
         const res = await fetch(`${API_URL}api/v1/novel_award/category/${query}?${pagesQuery}`);
         const data = await res.json();
+        console.log(data);
         const nobelData = data.data.items as Array<NobelRes>;
         setNobels(nobelData);
       } catch (err) {
@@ -37,6 +38,7 @@ function App() {
       try {
         const res = await fetch(`${API_URL}api/v1/novel_award/category/${query}`);
         const data = await res.json();
+        console.log(data);
         const nobelData = data.data.items as Array<NobelRes>;
         setTotalPage(Math.ceil(nobelData?.length / 20));
       } catch (err) {
