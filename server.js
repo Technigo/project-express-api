@@ -8,17 +8,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Base URL
+// base URL
 app.get("/", (req, res) => {
   res.send("Welcome to the Book API!");
 });
 
-// Route for getting top N books by average rating
+// route for getting top N books by average rating
 // URL example: /books/top?count=5
 app.get('/books/top', (req, res) => {
   let count = parseInt(req.query.count, 10);
   if (isNaN(count)) {
-    count = 5; // Default value if count is not provided or invalid
+    count = 5; // default value if count is not provided or invalid
   }
 
   const sortedBooks = [...booksData].sort((a, b) => b.average_rating - a.average_rating);
@@ -31,7 +31,7 @@ app.get('/books/top', (req, res) => {
   }
 });
 
-// Find book by title
+// find book by title
 // URL example: /books/{title}
 app.get('/books/:title', (req, res) => {
   const requestedTitle = req.params.title.replace(/%20/g, ' ');
@@ -43,40 +43,24 @@ app.get('/books/:title', (req, res) => {
   }
 });
 
-// Find book by ID
-// URL example: /books/{bookID}
-app.get('/books/:bookID', (req, res) => {
-  const bookID = req.params.bookID;
-  const singleBook = booksData.find((book) => book.bookID === +bookID);
-  if (singleBook) {
-    res.json(singleBook);
-  } else {
-    res.status(404).send("No book was found");
-  }
-});
-
-// Filter books by author
-// URL example: /books?author={authorName}
+// get all books or filter by author
+// URL example: /books or /books?author=AuthorName
 app.get('/books', (req, res) => {
   const authorName = req.query.author;
-  if (!authorName) {
-    return res.status(400).send('Author not found');
+  if (authorName) {
+    // Filtering books by author name (case insensitive)
+    const lowercasedAuthorName = authorName.toLowerCase();
+    const booksByAuthor = booksData.filter((book) =>
+      book.authors.toLowerCase().includes(lowercasedAuthorName)
+    );
+    res.json(booksByAuthor);
+  } else {
+    // Return all books when no author query parameter is provided
+    res.json(booksData);
   }
-  const lowercasedAuthorName = authorName.toLowerCase();
-  const booksByAuthor = booksData.filter((book) =>
-    book.authors.toLowerCase().includes(lowercasedAuthorName)
-  );
-  res.json(booksByAuthor);
 });
 
-// Get all books
-// URL example: /books
-app.get('/books', (_, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(booksData, null, 2));
-});
-
-// Start the server
+// start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
