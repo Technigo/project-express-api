@@ -31,6 +31,8 @@ If you had more time, what would be next?: I want to get my frontend and backend
 
 ## View it live
 
+UPDATE: Working deployed frontend from my other repo can be found here: https://wk13-iata-airportfinder-6b4f7f.netlify.app/
+
 Dataset for Airport codes is from here: https://www.kaggle.com/datasets/joebeachcapital/airport-codes/
 
 I used Render to deploy this project
