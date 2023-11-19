@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import data from "./data/award.json";
+import data from "./data/award.json" assert { type: "json" };
 import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
