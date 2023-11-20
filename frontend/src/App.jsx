@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { Physics } from './pages/Physics';
-
+import { CategoryPage } from './pages/CategoryPage';
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/category/physics" element={<Physics />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
       </Routes>
     </BrowserRouter>
   );
