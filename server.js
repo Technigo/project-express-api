@@ -95,13 +95,13 @@ app.listen(port, () => {
 
 // Dummy endpoints
 app.post("/nominations", (req, res) => {
-  res.status(501).json({ error: "I'm too dummy to be implemented yet" });
+  res.status(501).json({ error: "Not Implemented: POST method is not supported for this endpoint" });
 });
 
 app.put("/nomination/:id", (req, res) => {
-  res.status(501).json({ error: "I'm too dummy to be implemented yet" });
+  res.status(501).json({ error: "Not Implemented: PUT method is not supported for this endpoint" });
 });
 
 app.delete("/nomination/:id", (req, res) => {
-  res.status(501).json({ error: "I'm too dummy to be implemented yet)" });
+  res.status(501).json({ error: "Not Implemented: DELETE method is not supported for this endpoint" });
 });
