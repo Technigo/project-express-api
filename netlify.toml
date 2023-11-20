@@ -1,4 +1,4 @@
 [build]
   base = "frontend/"
-  publish = "src/"
-  command = "npm run build"
+  publish = "dist/"
+  command = "vite build"
