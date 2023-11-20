@@ -35,17 +35,27 @@ const BackButton = styled(Link)`
   }
 `;
 
+const LoadingMessage = styled.div`
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #555;
+`;
+
 export const CategoryPage = () => {
   const { category } = useParams();
   const [laureates, setLaureates] = useState([]);
+  const [loading, setLoading] = useState(true); // Introduce loading state
 
   useEffect(() => {
     const fetchLaureates = async () => {
       try {
         const laureateList = await getLaureates(category);
         setLaureates(laureateList);
+        setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.log('Error fetching laureates: ', error);
+        setLoading(false); // Set loading to false in case of an error
       }
     };
     fetchLaureates();
@@ -55,11 +65,15 @@ export const CategoryPage = () => {
     <>
       <Header />
       <BackButton to="/">Go Back</BackButton>
-      <LaureateList>
-        {laureates.map((laureate, index) => (
-          <LaureateCard key={index} laureate={laureate} />
-        ))}
-      </LaureateList>
+      {loading ? ( // Conditional rendering based on loading state 
+        <LoadingMessage>Loading...</LoadingMessage>
+      ) : (
+        <LaureateList>
+          {laureates.map((laureate, index) => (
+            <LaureateCard key={index} laureate={laureate} />
+          ))}
+        </LaureateList>
+      )}
     </>
   );
 };
