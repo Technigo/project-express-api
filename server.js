@@ -1,9 +1,7 @@
-// server.js
-
 import express from "express";
 import cors from "cors";
 import data from "./data/golden-globes.json";
-import routePaths from "./routeInfo";
+import listEndpoints from "express-list-endpoints";
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -12,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 // Root endpoint
-//file created in order to provide example of routes for a dear reviewer 
-console.log(routePaths); // Add this line
 app.get("/", (req, res) => {
-  res.json(routePaths);
+  // Generate API documentation using express-list-endpoints
+  const endpoints = listEndpoints(app);
+  res.json({ endpoints });
 });
 
 // Nominations endpoint with filters
@@ -79,9 +77,7 @@ app.get("/awardYear/:awardYear", (req, res) => {
   res.json(nominationsFromYear);
 });
 
-
-
-// Single nomination by ID endpoint, not found (could be used if data has an ID, this one doesnt)
+// Single nomination by ID endpoint
 app.get("/nomination/:id", (req, res) => {
   const nominationId = req.params.id;
   const nomination = data.find((item) => item.id === +nominationId);
@@ -89,7 +85,6 @@ app.get("/nomination/:id", (req, res) => {
   if (!nomination) {
     return res.status(404).json({ error: "Nomination not found" });
   }
-
   res.json(nomination);
 });
 
