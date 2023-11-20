@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Start defining your routes here
 
-// All shows - FUNKAR as of söndag
+// All shows in the Netflix data
 
 app.get("/shows", (req, res) => {
   res.json(netflixData);
@@ -22,10 +22,16 @@ app.get("/shows", (req, res) => {
 
 //One show based on Country
 
-app.get("/shows/country/:countryData", (req, res) => {
+app.get("/shows/countries/:countryData", (req, res) => {
   const { countryData } = req.params;
 
-  const country = netflixData.find((show) => show.country === countryData);
+  //Corrects so that you can type the country without spacing or capital letters
+  const sanitizedCountryData = countryData.replace(/\s/g, "").toLowerCase();
+
+  const country = netflixData.find(
+    (show) =>
+      show.country.replace(/\s/g, "").toLowerCase() === sanitizedCountryData
+  );
 
   console.log("countryData", countryData, typeof countryData);
 
@@ -36,17 +42,37 @@ app.get("/shows/country/:countryData", (req, res) => {
   }
 });
 
-// One show based on id FUNKAR as of söndag- kanske lägga till shows/id separat också?
+// One show based on id
 
 app.get("/shows/id/:showId", (req, res) => {
   const { showId } = req.params;
 
   const show = netflixData.find((show) => show.show_id === +showId);
 
+  console.log("showID", showId, typeof +showId);
+
   if (show) {
     res.json(show);
   } else {
     res.status(404).send("No show was found");
+  }
+});
+
+//All shows from that year
+
+app.get("/shows/year/:year", (req, res) => {
+  const { year: showYear } = req.params;
+
+  const showFromYear = netflixData.filter(
+    (show) => show.release_year === +showYear
+  );
+
+  console.log("showYear", showYear, typeof +showYear);
+
+  if (showFromYear) {
+    res.json(showFromYear);
+  } else {
+    res.status(404).send("No show from that year was found");
   }
 });
 
