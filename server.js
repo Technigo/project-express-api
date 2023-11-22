@@ -78,6 +78,20 @@ app.get(`/author/:authors`, (req, res) => {
   }
 });
 
+app.get(`/book/:bookID`, (req, res) => {
+  const findBookID = req.params.bookID;
+  const foundBook = booksData.find((item) => {
+    return item.bookID === findBookID;
+  });
+  if (foundBook) {
+    // Send the found book as a response
+    res.status(200).json(foundBook);
+  } else {
+    // If the book is not found, send a 404 Not Found status
+    res.status(404).json({ message: "Book not found" });
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
