@@ -81,8 +81,9 @@ app.get(`/author/:authors`, (req, res) => {
 app.get(`/book/:bookID`, (req, res) => {
   const findBookID = req.params.bookID;
   const foundBook = booksData.find((item) => {
-    return item.bookID === findBookID;
+    return item.bookID === Number(findBookID);
   });
+
   if (foundBook) {
     // Send the found book as a response
     res.status(200).json(foundBook);
