@@ -33,10 +33,10 @@ I was interested in my data and encouraged to try impliment a frontend, I was ab
 
 <ins>UPDATE</ins>: Working deployed frontend from my other repo can be found here: https://wk13-iata-airportfinder-6b4f7f.netlify.app/
 
-<ins>Dataset for Airport codes is from here</ins>: https://www.kaggle.com/datasets/joebeachcapital/airport-codes/
+<ins>Dataset</ins> for Airport codes is from here: https://www.kaggle.com/datasets/joebeachcapital/airport-codes/
 
 I used Render to deploy this project
 
-View it live here: https://project-express-api-hcmb.onrender.com/
+View it <ins>live</ins> here: https://project-express-api-hcmb.onrender.com/
 
-You can see my frontend on bec-frontend branch or on my other repo: https://github.com/BeckieMorton/wk13-expressapi-frontandback (I will try to deply this and wanted to make a new repo so that I do not effect my project)
+You can see my <ins>frontend</ins> on bec-frontend branch or on my other repo: https://github.com/BeckieMorton/wk13-expressapi-frontandback (I will try to deply this and wanted to make a new repo so that I do not effect my project)
