@@ -13,4 +13,4 @@ so under Node 15, doesn't support it. So I changed it replace with regex, and it
 If I could do it again, I would work more with error handlings. As my knowdlege of Node.js/express is not much, I could not do a lot of them. So definetly, I would like to add that in the future.
 
 API:https://my-first-api-91k4.onrender.com/
-Deployed site:https://cosmic-strudel-6f1e10.netlify.app/
+Deployed site:https://nobel-awards.netlify.app/
