@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import expresslistEndpoints from "express-list-endpoints";
 import netflixData from "./data/netflix-titles.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -13,6 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+
+app.get("/", (req, res) => {
+  const endpoints = expresslistEndpoints(app);
+  res.json({ endpoints });
+});
 
 // All shows in the Netflix data
 
