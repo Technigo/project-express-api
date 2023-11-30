@@ -28,7 +28,6 @@ app.get("/", (req, res) => {
 // Test by adding / ( you will recieve the endpoint structure as an answer )
 
 app.get('/nominations', (req, res) => {
-<<<<<<< HEAD
   if (!Array.isArray(goldenGlobesData)) {
     res.status(500).send('Server error: Unable to retrieve data');
   } else {
@@ -50,7 +49,7 @@ app.get('/nominee/:nominee', (req, res) => {
 });
 
 // Test by adding tex  /nominee/Kathryn%20Bigelow
-=======
+
   if (goldenGlobesData && goldenGlobesData.length > 0) {
     res.json(goldenGlobesData);
   } else {
@@ -58,16 +57,15 @@ app.get('/nominee/:nominee', (req, res) => {
   }
 });
 
->>>>>>> 660eee2 (express list endpoint)
+
 
 // use to /nominations test endpoint!
 
 app.get('/year/:year', (req, res) => {
-<<<<<<< HEAD
   const year = req.params.year;
   const showWon = req.query.won;
   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_film === +year);
-=======
+
   const year = parseInt(req.params.year);
   if (isNaN(year)) {
     return res.status(400).json({ error: 'Invalid year format' });
@@ -75,12 +73,12 @@ app.get('/year/:year', (req, res) => {
 
   const showWon = req.query.won;
   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === year);
->>>>>>> 660eee2 (express list endpoint)
+
 
   if (showWon) {
     nominationsFromYear = nominationsFromYear.filter((item) => item.win);
   }
-<<<<<<< HEAD
+
   
   // Error handling for no matching results
   if (nominationsFromYear.length === 0) {
@@ -90,7 +88,7 @@ app.get('/year/:year', (req, res) => {
   }
 });
 // Test by adding tex /year/2009 or /year/2009?won=true
-=======
+
 
   if (nominationsFromYear.length > 0) {
     res.json(nominationsFromYear);
@@ -98,7 +96,7 @@ app.get('/year/:year', (req, res) => {
     res.status(404).json({ error: `No nominations found for year ${year}` });
   }
 });
->>>>>>> 660eee2 (express list endpoint)
+
 
 
 // Use to /year/2020 test endpoint!
@@ -112,17 +110,17 @@ app.get('/category/:category', (req, res) => {
     nominationsInCategory = nominationsInCategory.filter((item) => item.film.includes(film));
   }
 
-<<<<<<< HEAD
+
   if (nominationsInCategory.length === 0) {
     res.status(404).send(`No nominations found for category '${category}'` + (film ? ` with film '${film}'` : ''));
   } else {
     res.json(nominationsInCategory);
-=======
+
   if (nominationsInCategory.length > 0) {
     res.json(nominationsInCategory);
   } else {
     res.status(404).json({ error: `No nominations found in category '${category}'` });
->>>>>>> 660eee2 (express list endpoint)
+
   }
 });
 // Test by adding /category/Best%20Director%20-%20Motion%20Picture or somthing like this /category/Best%20Director%20-%20Motion%20Picture?film=Avatar
