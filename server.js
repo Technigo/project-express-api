@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 // Test by adding / ( you will recieve the endpoint structure as an answer )
 
 app.get('/nominations', (req, res) => {
+<<<<<<< HEAD
   if (!Array.isArray(goldenGlobesData)) {
     res.status(500).send('Server error: Unable to retrieve data');
   } else {
@@ -49,17 +50,37 @@ app.get('/nominee/:nominee', (req, res) => {
 });
 
 // Test by adding tex  /nominee/Kathryn%20Bigelow
+=======
+  if (goldenGlobesData && goldenGlobesData.length > 0) {
+    res.json(goldenGlobesData);
+  } else {
+    res.status(500).json({ error: 'Data could not be retrieved' });
+  }
+});
+
+>>>>>>> 660eee2 (express list endpoint)
 
 // use to /nominations test endpoint!
 
 app.get('/year/:year', (req, res) => {
+<<<<<<< HEAD
   const year = req.params.year;
   const showWon = req.query.won;
   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_film === +year);
+=======
+  const year = parseInt(req.params.year);
+  if (isNaN(year)) {
+    return res.status(400).json({ error: 'Invalid year format' });
+  }
+
+  const showWon = req.query.won;
+  let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === year);
+>>>>>>> 660eee2 (express list endpoint)
 
   if (showWon) {
     nominationsFromYear = nominationsFromYear.filter((item) => item.win);
   }
+<<<<<<< HEAD
   
   // Error handling for no matching results
   if (nominationsFromYear.length === 0) {
@@ -69,6 +90,15 @@ app.get('/year/:year', (req, res) => {
   }
 });
 // Test by adding tex /year/2009 or /year/2009?won=true
+=======
+
+  if (nominationsFromYear.length > 0) {
+    res.json(nominationsFromYear);
+  } else {
+    res.status(404).json({ error: `No nominations found for year ${year}` });
+  }
+});
+>>>>>>> 660eee2 (express list endpoint)
 
 
 // Use to /year/2020 test endpoint!
@@ -82,15 +112,58 @@ app.get('/category/:category', (req, res) => {
     nominationsInCategory = nominationsInCategory.filter((item) => item.film.includes(film));
   }
 
+<<<<<<< HEAD
   if (nominationsInCategory.length === 0) {
     res.status(404).send(`No nominations found for category '${category}'` + (film ? ` with film '${film}'` : ''));
   } else {
     res.json(nominationsInCategory);
+=======
+  if (nominationsInCategory.length > 0) {
+    res.json(nominationsInCategory);
+  } else {
+    res.status(404).json({ error: `No nominations found in category '${category}'` });
+>>>>>>> 660eee2 (express list endpoint)
   }
 });
 // Test by adding /category/Best%20Director%20-%20Motion%20Picture or somthing like this /category/Best%20Director%20-%20Motion%20Picture?film=Avatar
 
+
 // Use /category , /category/Best%20Motion%20Picture%20-%20Drama to test endpoint!
+
+app.get('/search', (req, res) => {
+  const { year_film, category, nominee } = req.query;
+
+  // Validate year_film if it's provided
+  if (year_film && isNaN(parseInt(year_film))) {
+    return res.status(400).json({ error: 'Invalid year format. Year must be a number.' });
+  }
+
+  let results = goldenGlobesData;
+
+  // Filter by year_film if provided
+  if (year_film) {
+    results = results.filter(item => item.year_film === parseInt(year_film));
+  }
+
+  // Filter by category if provided
+  if (category) {
+    results = results.filter(item => item.category === category);
+  }
+
+  // Filter by nominee if provided
+  if (nominee) {
+    results = results.filter(item => item.nominee && item.nominee.includes(nominee));
+  }
+
+  // Return the first match or an appropriate message
+  if (results.length > 0) {
+    res.json(results[0]);
+  } else {
+    res.status(404).json({ error: 'No matching movie found.' });
+  }
+});
+
+// Used for testing endpoint /search?nominee=Meryl%20Streep
 
 // Start the server
 app.listen(port, () => {
