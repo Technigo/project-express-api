@@ -33,9 +33,7 @@ app.get('/books', (req, res) => {
     res.json(booksData);
   }
 });
-
 // Changed to ensure consistent case-insensitive author name filtering.
-
 
 
 // Route for getting top rated books by average rating
@@ -61,8 +59,6 @@ app.get('/books/top', (req, res) => {
 // If count is greater than 100, it's limited to 100.
 
 
-
-
 // Find book by title
 // Update: Now the search works even if you don't type the whole title exactly as it is in the book. It ignores upper/lower case and finds the book as long as the title you type is part of the actual book title.
 app.get('/books/:title', (req, res) => {
@@ -77,8 +73,6 @@ app.get('/books/:title', (req, res) => {
     res.status(404).send("No book with that title was found");
   }
 });
-
-
 
 
 // Start the server
