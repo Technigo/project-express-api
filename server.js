@@ -1,13 +1,10 @@
 import express from "express";
 import cors from "cors";
-
 import goldenGlobesData from "./data/golden-globes.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -16,23 +13,28 @@ app.use(express.static('public'));
 
 
 // Endpoint: Using an HTML response:
+// Endpoint: Using an HTML response with links
 app.get("/", (req, res) => {
-  res.send(`
-    <h1 style= "color: blue">Welcome to the Golden Globes API</h1>
-    <p>This API provides information about Golden Globes nominations.</p>
-    <p>Available endpoints:</p>
-    <ul>
-      <li>
-      <a href="/nominations">/nominations</a> - Get all nominations</li>
-      <li>
-      <a href="/year/2010">/year/2010</a> - Get nominations for a specific year, example 2010</li>
-      <li>
-      <a href="/year/2010?won=true">/year/2010?won=true</a> - Get winning nominations for a specific year</li>
-    </ul>
+  const endpoints = listEndpoints(app);
+  const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>API Endpoints</title>
+    </head>
+    <body>
+      <h1>API Endpoints</h1>
+      <ul>
+        ${endpoints.map(endpoint => `<li><a href="${endpoint.path}">${endpoint.path}</a></li>`).join('\n')}
+      </ul>
     </body>
     </html>
-  `);
+  `;
+  res.send(html);
 });
+
 
 
 // Endpoint: (baseurl/nominations)
@@ -54,13 +56,18 @@ app.get('/year/:year', (req, res) => {
   res.json(nominationsFromYear)
 })
 
-// app.get('/category/:category', (req,res) => {
-//   const category = req.params.category;
-//   const nominationsByCategory = goldenGlobesData.filter((item) => item.category)
-//   res.json(nominationsByCategory)
-// }
-// )
-// Additional error handling for invalid routes
+// Endpoint: (baseurl/film/:filmName)
+app.get('/film/:filmName', (req, res) => {
+  const filmName = req.params.filmName;
+  const filmDetails = goldenGlobesData.find((item) => item.nominee.toLowerCase() === filmName.toLowerCase());
+
+  if (filmDetails) {
+    res.json(filmDetails);
+  } else {
+    res.status(404).json({ error: "Film not found" });
+  }
+});
+
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');
