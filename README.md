@@ -6,6 +6,8 @@ This project is a basic Express.js application that serves as a book information
 
 I faced a  challenge in organizing the routes correctly. Specifically, both authors and books were being accessed through the same /books route, and I would get errors. Figuring out how to separate these two functionalities within the same path was a bit tricky. I still don't quite understand why we solved it the way we did as I was collaborating with someone else. This experience taught me a lot about organizing a web project in a way that makes sense and is easy to navigate.
 
+The second time around I included express list endpoints, and this seemed to solve some issues when I changed some of the routes. 
+
 ## View it live
 
 https://mc-express-api.onrender.com/
