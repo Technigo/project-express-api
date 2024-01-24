@@ -12,11 +12,6 @@ app.use(express.json());
 // Serving static files from the 'public' directory
 app.use(express.static('public'));
 
-// Endpoint for API documentation
-app.get('/api-docs', (req, res) => {
-  const endpoints = expressListEndpoints(app);
-  res.json({ endpoints });
-});
 
 // Updated route for the root path
 app.get("/", (req, res) => {
