@@ -1,30 +1,61 @@
+// server.js
+
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
+import exercisesData from "./data/exercises.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+    res.json(listEndpoints(app));
 });
 
-// Start the server
+// Updated Route to return all exercises with optional filtering and pagination
+app.get("/exercises", (req, res) => {
+    let { page, limit, level } = req.query;
+    page = page ? parseInt(page) : 1;
+    limit = limit ? parseInt(limit) : exercisesData.exercises.length;
+    let exercises = exercisesData.exercises;
+
+    if (level) {
+        exercises = exercises.filter(e => e.level === level);
+    }
+
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const paginatedExercises = exercises.slice(startIndex, endIndex);
+
+    res.json(paginatedExercises);
+});
+
+app.get("/exercises/:name", (req, res) => {
+    const { name } = req.params;
+    const exercise = exercisesData.exercises.find(e => e.name.toLowerCase() === name.toLowerCase());
+    if (!exercise) {
+        return res.status(404).send({ error: "Exercise not found" });
+    }
+    res.json(exercise);
+});
+
+app.get("/exercises/target/:muscle", (req, res) => {
+    const { muscle } = req.params;
+    const targetedExercises = exercisesData.exercises.filter(exercise => 
+        exercise.primaryMuscles.includes(muscle.toLowerCase()) || 
+        exercise.secondaryMuscles.includes(muscle.toLowerCase())
+    ).map(exercise => exercise.name);
+
+    if (targetedExercises.length === 0) {
+        return res.status(404).send({ error: "No exercises found for the specified muscle" });
+    }
+
+    res.json(targetedExercises);
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
