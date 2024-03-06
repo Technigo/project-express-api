@@ -56,6 +56,7 @@ app.get("/exercises/target/:muscle", (req, res) => {
     res.json(targetedExercises);
 });
 
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
