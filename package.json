@@ -9,11 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.17.9",
     "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "express-list-endpoints": "^6.0.0",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3"
   }
 }
