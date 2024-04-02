@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
-    "start": "babel-node data/server.js",
+    "start": "babel-node server.js",
     "build": "babel data --out-dir dist",
-    "dev": "nodemon data/server.js --exec babel-node"
+    "dev": "nodemon server.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
