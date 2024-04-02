@@ -8,7 +8,7 @@ import listEndpoints from "express-list-endpoints";
 import booksData from "./data/books.json";
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -27,13 +27,15 @@ try {
 
 app.get("/", (req, res) => {
   const welcomeMessage =
-    "<h1>Welcome to my book store!</h1>" +
-    "<p>So nice of you to come here. Here you have all of the available routes to find your dream book:</p>" +
-    "<ul>" +
-    "<li><a href='/collection'>/collection</a>: Returns a collection of books, with optional filtering by author.</li>" +
+    "<div style='background-color: lightblue; padding: 165px; text-align: center;'>" +
+    "<h1 style='font-size: 36px; color: black;'>Welcome to my book store!</h1>" +
+    "<p style='font-size: 18px; margin-top: 20px;'>So nice of you to come here. Here you have all of the available routes to find your dream book:</p>" +
+    "<ul style='font-size: 16px; text-align: left;'>" +
+    "<li><a href='/collection'>/collection</a>: Returns a collection of books.</li>" +
     "<li><a href='/authors'>/authors</a>: Returns a collection of unique authors from the book data.</li>" +
     "<li><a href='/collection/:id'>/collection/:id</a>: Returns a single book based on the provided book ID.</li>" +
-    "</ul>";
+    "</ul>" +
+    "</div>";
 
   res.send(welcomeMessage);
 });
