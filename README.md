@@ -8,8 +8,24 @@ I don't know if I've missunderstood the assignment or if it's really simple this
 Half of it was done out of the box - most of the rest was just copy paste from this weeks materials.
 
 I installed Express List Endpoints and added the route method, and played around a bit with filters.
-
+Added pages beacuse, why not.
 Instead of creating a front though, I think I'll will move on to next weeks project...
+
+### Available endpoints
+
+- "/", API overview
+- "/books", all books
+- "/books/popular", top 10 books by average rating
+- "/books/:bookId", specific book by ID
+- "authors/:author", books by specific author
+- "search", with query - search for anything in books value
+
+### Available queries
+
+- "page", pagination, 10 books per page
+- "lang", all books with specific language code
+- "isbn", specific book by isbn
+- "isbn13", specific book by isbn13
 
 ### Requirements
 

@@ -53,6 +53,13 @@ app.route("/books").get((req, res) => {
   const ISBN13 = req.query.isbn13;
   ISBN13 && (books = books.filter(book => book.isbn13 === +ISBN13));
 
+  // Pages with 20 books on each
+  const page = req.query.page;
+  const start = (page - 1) * 10;
+  const end = start + 10;
+  console.log(start, end);
+  page && (books = books.slice(start, end));
+
   // Show books
   books && books.length > 0
     ? res.json(books)
@@ -74,7 +81,7 @@ app.route("/books/:bookId").get((req, res) => {
 });
 
 // Collection - get books by Author
-app.route("/author/:author").get((req, res) => {
+app.route("/authors/:author").get((req, res) => {
   const author = req.params.author;
   const books = booksData.filter(b => b.authors.includes(author));
   books
