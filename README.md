@@ -1,13 +1,17 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+For this weeks project we're using Express.js to create an API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+### Requirements
+
+- Your API should have at least 3 routes. Try to push yourself to do more, though!
+  - The endpoint "/" should return documentation of your API using e.g. [Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints)
+  - A minimum of one endpoint to return a **collection** of results (array of elements).
+  - A minimum of one endpoint to return a **single** result (single element).
+- Your API should be [RESTful](https://www.notion.so/23473abe980e40aaa932914751055d22?pvs=21).
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Project Express API on render.com](https://project-express-api-d6i6.onrender.com)
