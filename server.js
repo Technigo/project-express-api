@@ -19,7 +19,24 @@ app.get('/', (req, res) => {
   res.json(endpoints)
 })
 app.get('/accomodations', (req, res) => {
-  res.json(airbnbData)
+  const showRoomType = req.query.room_type
+  const showNeighbourhood = req.query.neighbourhood
+  let filteredAccomodation = airbnbData
+  if (showRoomType) {
+    filteredAccomodation = filteredAccomodation.filter(
+      (item) => item.room_type === showRoomType
+    )
+  }
+  if (showNeighbourhood) {
+    filteredAccomodation = filteredAccomodation.filter(
+      (item) => item.neighbourhood === showNeighbourhood
+    )
+  }
+  if (filteredAccomodation.length > 0) {
+    res.json(filteredAccomodation)
+  } else {
+    res.status(404).json({ error: 'Accommodations not found' })
+  }
 })
 app.get('/accomodations/:accomodation', (req, res) => {
   const accomodation = req.params.accomodation
@@ -31,15 +48,27 @@ app.get('/accomodations/:accomodation', (req, res) => {
     }
   })
 })
-app.get('/neighbourhood/:neighbourhood', (req, res) => {
+app.get('/neighbourhoods/:neighbourhood', (req, res) => {
   const neighbourhood = req.params.neighbourhood
-  const filteredNeighbourhood = airbnbData.filter((item) => {
-    if (item.neighbourhood === neighbourhood) {
-      res.json(filteredNeighbourhood)
-    } else {
-      res.status(404).json({ error: 'Accommodation not found' })
-    }
-  })
+  const showRoomType = req.query.room_type
+
+  let filteredNeighbourhood = airbnbData.filter(
+    (item) => item.neighbourhood === neighbourhood
+  )
+
+  if (showRoomType) {
+    filteredNeighbourhood = filteredNeighbourhood.filter(
+      (item) => item.room_type === showRoomType
+    )
+  }
+
+  if (filteredNeighbourhood.length > 0) {
+    res.json(filteredNeighbourhood)
+  } else {
+    res
+      .status(404)
+      .json({ error: 'Accommodations not found in this neighbourhood' })
+  }
 })
 app.post('/accomodations', (req, res) => {
   const newAccomodation = req.body
