@@ -22,6 +22,7 @@ Instead of creating a front though, I think I'll will move on to next weeks proj
 
 ### Available queries
 
+- "q", search
 - "page", pagination, 10 books per page
 - "lang", all books with specific language code
 - "isbn", specific book by isbn
