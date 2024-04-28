@@ -1,13 +1,7 @@
 import express from "express";
 import cors from "cors";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import avocadoSalesData from "./data/avocado-sales.json";
+import expressListEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,7 +15,53 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  const documentation = endpoints.map((endpoint) => ({
+    method: endpoint.methods.join(", "),
+    path: endpoint.path,
+  }));
+  res.json(documentation);
+});
+
+app.get("/avocado-sales/region", (req, res) => {
+  const avocadoSalesByRegion = {};
+  avocadoSalesData.forEach((item) => {
+    //access the original data
+    const region = item.region; // assign item.region to a variable
+
+    if (!avocadoSalesByRegion[region]) {
+      //if there is no such region in the avocadoSalesByRegion object, create an arr for that region and push in the item.
+      avocadoSalesByRegion[region] = [];
+    }
+    avocadoSalesByRegion[region].push(item); //if the region exist, just push in the item into the matched region
+  });
+  res.json(avocadoSalesByRegion);
+});
+
+app.get("/avocado-sales/region/:regionName", (req, res) => {
+  const regionName = req.params.regionName;
+  const avocadoSalesByRegion = avocadoSalesData.filter(
+    (item) => item.region === regionName
+  );
+
+  if (avocadoSalesByRegion.length === 0) {
+    return res.status(404).json({ error: "Region not found!" });
+  }
+
+  res.json(avocadoSalesByRegion);
+});
+
+///avocado-sales this end point needs to be defined after the others
+app.get("/avocado-sales", (req, res) => {
+  res.json(avocadoSalesData);
+});
+
+app.get("/avocado-sales/:date", (req, res) => {
+  const date = req.params.date;
+  const avocadoSalesFromDate = avocadoSalesData.filter(
+    (item) => item.date === date
+  );
+  res.json(avocadoSalesFromDate);
 });
 
 // Start the server
