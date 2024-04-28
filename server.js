@@ -24,7 +24,7 @@ app
     req.send("Change something");
   })
   .delete((req, res) => {
-    req.send("Delete somethiing");
+    req.send("Delete something");
   });
 
 // Collection endpoint - get all books
@@ -63,7 +63,7 @@ app.route("/books").get((req, res) => {
   // Show books
   books && books.length > 0
     ? res.json(books)
-    : res.send("Could not find any books");
+    : res.status(404).send({ error: "Could not find any books" });
 });
 
 // Collection - get books by Author
@@ -77,7 +77,9 @@ app.route("/books/popular").get((req, res) => {
 app.route("/books/:bookId").get((req, res) => {
   const bookId = req.params.bookId;
   const book = booksData.find(b => b.bookID === +bookId);
-  book ? res.json(book) : res.status(404).send(`Book ID ${bookId} not found`);
+  book
+    ? res.json(book)
+    : res.status(404).send({ error: `Book ID ${bookId} not found` });
 });
 
 // Collection - get books by Author
@@ -86,7 +88,7 @@ app.route("/authors/:author").get((req, res) => {
   const books = booksData.filter(b => b.authors.includes(author));
   books
     ? res.json(books)
-    : res.status(404).send("No books found by that author");
+    : res.status(404).send({ error: `No books by ${author} found` });
 });
 
 app.route("/search").get((req, res) => {
@@ -99,7 +101,7 @@ app.route("/search").get((req, res) => {
   // Show result
   result && result.length > 0
     ? res.json(result)
-    : res.send("No search results");
+    : res.status(404).send({ error: "No search results" });
 });
 
 // Start the server
