@@ -23,17 +23,23 @@ app.get('/accomodations', (req, res) => {
 })
 app.get('/accomodations/:accomodation', (req, res) => {
   const accomodation = req.params.accomodation
-  const singleaccomodation = airbnbData.filter(
-    (item) => item.id === +accomodation
-  )
-  res.json(singleaccomodation)
+  const singleaccomodation = airbnbData.filter((item) => {
+    if (item.id === +accomodation) {
+      res.json(singleaccomodation)
+    } else {
+      res.status(404).json({ error: 'Accommodation not found' })
+    }
+  })
 })
 app.get('/neighbourhood/:neighbourhood', (req, res) => {
   const neighbourhood = req.params.neighbourhood
-  const filteredNeighbourhood = airbnbData.filter(
-    (item) => item.neighbourhood === neighbourhood
-  )
-  res.json(filteredNeighbourhood)
+  const filteredNeighbourhood = airbnbData.filter((item) => {
+    if (item.neighbourhood === neighbourhood) {
+      res.json(filteredNeighbourhood)
+    } else {
+      res.status(404).json({ error: 'Accommodation not found' })
+    }
+  })
 })
 app.post('/accomodations', (req, res) => {
   const newAccomodation = req.body
