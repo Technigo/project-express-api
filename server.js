@@ -1,30 +1,70 @@
-import express from "express";
-import cors from "cors";
+import express from 'express'
+import cors from 'cors'
+import expressListEndpoints from 'express-list-endpoints'
+import airbnbData from './data/airbnb.json'
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
-const app = express();
+const port = process.env.PORT || 8080
+const app = express()
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
-app.use(express.json());
-
+app.use(cors())
+app.use(express.json())
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
+app.get('/', (req, res) => {
+  const endpoints = expressListEndpoints(app)
+  res.json(endpoints)
+})
+app.get('/accomodations', (req, res) => {
+  res.json(airbnbData)
+})
+app.get('/accomodations/:accomodation', (req, res) => {
+  const accomodation = req.params.accomodation
+  const singleaccomodation = airbnbData.filter(
+    (item) => item.id === +accomodation
+  )
+  res.json(singleaccomodation)
+})
+app.get('/neighbourhood/:neighbourhood', (req, res) => {
+  const neighbourhood = req.params.neighbourhood
+  const filteredNeighbourhood = airbnbData.filter(
+    (item) => item.neighbourhood === neighbourhood
+  )
+  res.json(filteredNeighbourhood)
+})
+app.post('/accomodations', (req, res) => {
+  const newAccomodation = req.body
+  newId = airbnbData.length > 0 ? airbnbData[airbnbData.length - 1].id + 1 : 1
+  newAccomodation.id = newId
+
+  airbnbData.push(newAccomodation)
+  res.status(201).json({
+    message: 'Accommodation created successfully',
+    data: newAccomodation,
+  })
+})
+app.put('/accomodations/:accomodation', (req, res) => {
+  const accomodationId = req.params.id
+  const updatedData = req.body
+  const index = airbnbData.findIndex(
+    (accomodation) => accomodation.id === +accomodationId
+  )
+  if (index != -1) {
+    airbnbData[index] = { ...airbnbData[index], ...updatedData }
+
+    res.json({
+      message: 'Accommodation updated successfully',
+      data: airbnbData[index],
+    })
+  } else {
+    res.status(404).json({ error: 'Accommodation not found' })
+  }
+})
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+  console.log(`Server running on http://localhost:${port}`)
+})
