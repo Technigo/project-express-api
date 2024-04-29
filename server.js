@@ -14,11 +14,29 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-app.get("/", (req, res) => {
-  // res.send("Hello Technigo!");
-  const endpoints = expressListEndpoints(app);
-  res.json(endpoints);
-});
+app
+  .route("/")
+  .all((req, res, next) => {
+    console.log("Add authentication middleware");
+    next();
+  })
+  .get((req, res) => {
+    const endpoints = expressListEndpoints(app);
+    res.json(endpoints);
+  })
+  .post((req, res) => {
+    res.send("Add a song");
+  })
+  .put((req, res) => {
+    res.send("Update a song");
+  })
+  .delete((req, res) => {
+    res.send("Delete a song");
+  });
+// app.get("/", (req, res) => {
+//   const endpoints = expressListEndpoints(app);
+//   res.json(endpoints);
+// });
 
 // display all songs
 app.get("/songs", (req, res) => {
