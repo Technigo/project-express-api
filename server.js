@@ -15,7 +15,9 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  // res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
 // display all songs
