@@ -22,13 +22,22 @@ app.get("/", (req, res) => {
 
 // display all songs
 app.get("/songs", (req, res) => {
-  res.json(topMusicData);
+  const genre = req.query.genre;
+  let songs = topMusicData;
+  if (genre) {
+    songs = topMusicData.filter(song => song.genre === genre);
+  }
+  // no songs matching with the genre
+  if (songs.length === 0) {
+    res.send(`There are no songs matching the ${genre} genre...`);
+  }
+  res.json(songs);
 });
 
 //display a single song
 app.get("/songs/:songId", (req, res) => {
   const songId = req.params.songId;
-  const song = topMusicData.find(song => song.id === parseInt(songId));
+  const song = topMusicData.find(song => song.id === +songId);
   res.json(song);
 });
 
