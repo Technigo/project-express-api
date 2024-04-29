@@ -60,7 +60,7 @@ app
   .route("/")
   .all((req, res, next) => {
     if (req.method !== "GET") {
-      res.status(501).json(handle501Error(req.method));
+      return res.status(501).json(handle501Error(req.method));
     }
     next();
   })
@@ -74,7 +74,7 @@ app
   .route("/songs")
   .all((req, res, next) => {
     if (req.method !== "GET") {
-      res.status(501).json(handle501Error(req.method));
+      return res.status(501).json(handle501Error(req.method));
     }
     next();
   })
@@ -108,7 +108,7 @@ app
   .route("/songs/:songId")
   .all((req, res, next) => {
     if (req.method !== "GET") {
-      res.status(501).json(handle501Error(req.method));
+      return res.status(501).json(handle501Error(req.method));
     }
     next();
   })
@@ -122,7 +122,7 @@ app
       res.json(song);
     } else {
       res
-        .status(400)
+        .status(404)
         .json(
           handle404Error(
             `There are no songs matching the id: ${songId}... Make sure you are inquering id from 1 - 50.`
