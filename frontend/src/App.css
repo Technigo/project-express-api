@@ -1,0 +1,48 @@
+.Titlepage,
+h1 {
+  margin-bottom: 15px;
+  font-family: "Yeseva One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+}
+
+.Page {
+  margin: 25px;
+  background-color: #C8BE86;
+  padding: 20px;
+}
+
+.p-style {
+  margin-bottom: 50px;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+a {
+
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  /* Visa understreckning när man hovrar över länken */
+}
+
+@media (min-width: 650px) {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    /* Visa understreckning när man hovrar över länken */
+  }
+}
