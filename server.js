@@ -29,7 +29,7 @@ app.get("/songs", (req, res) => {
   }
   // no songs matching with the genre
   if (songs.length === 0) {
-    res.send(`There are no songs matching the ${genre} genre...`);
+    res.status(400).send(`There are no songs matching the ${genre} genre...`);
   }
   res.json(songs);
 });
@@ -38,7 +38,15 @@ app.get("/songs", (req, res) => {
 app.get("/songs/:songId", (req, res) => {
   const songId = req.params.songId;
   const song = topMusicData.find(song => song.id === +songId);
-  res.json(song);
+  if (song) {
+    res.json(song);
+  } else {
+    res
+      .status(400)
+      .send(
+        `There are no songs matching the id: ${songId}... Make sure you are inquering id from 1 - 50.`
+      );
+  }
 });
 
 // Start the server
