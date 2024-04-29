@@ -22,14 +22,14 @@ app.get("/", (req, res) => {
 
 // display all songs
 app.get("/songs", (req, res) => {
-  res.send(topMusicData);
+  res.json(topMusicData);
 });
 
 //display a single song
 app.get("/songs/:songId", (req, res) => {
   const songId = req.params.songId;
   const song = topMusicData.find(song => song.id === parseInt(songId));
-  res.send(song);
+  res.json(song);
 });
 
 // Start the server
