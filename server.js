@@ -1,13 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+
+import goldenGlobesData from "./data/golden-globes.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -19,11 +14,29 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+
+// this returns the whole data set
+// app is the express object
+app.get("/nominations", (req, res) => {
+  res.json(goldenGlobesData);
+});
+
+app.get("/nominations/:id", (req, res) => {
+  const id = req.params.id;
+  const nomination = goldenGlobesData[parseInt(id)];
+  
+  if (nomination) {
+    res.json(nomination);
+  } else {
+    res.status(404).send(`No nomination with id ${id} found.`);
+  }
+});
+
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
