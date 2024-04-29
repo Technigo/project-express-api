@@ -79,24 +79,28 @@ app
     next();
   })
   .get((req, res) => {
-    const genre = req.query.genre;
-    if (!genre) {
-      return res.status(501).json(handle400Error());
+    const queryParams = req.query;
+    const { genre } = queryParams;
+
+    // if no genre param and query param is not empty -> bad request
+    if (!genre && Object.keys(queryParams).length !== 0) {
+      return res.status(400).json(handle400Error());
     }
+
     let songs = topMusicData;
+
     if (genre) {
       songs = topMusicData.filter(song => song.genre === genre);
     }
     // no songs matching with the genre
     if (songs.length === 0) {
-      res
-        .status(400)
-        .send(
+      return res
+        .status(404)
+        .json(
           handle404Error(`There are no songs matching the ${genre} genre...`)
         );
-    } else {
-      res.json(songs);
     }
+    res.json(songs);
   });
 
 //display a single song
@@ -110,7 +114,7 @@ app
   })
   .get((req, res) => {
     const songId = req.params.songId;
-    if (!+songId || +songId % 1 !== 0) {
+    if (+songId % 1 !== 0) {
       return res.status(400).json(handle400Error());
     }
     const song = topMusicData.find(song => song.id === +songId);
@@ -119,7 +123,7 @@ app
     } else {
       res
         .status(400)
-        .send(
+        .json(
           handle404Error(
             `There are no songs matching the id: ${songId}... Make sure you are inquering id from 1 - 50.`
           )
