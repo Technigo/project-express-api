@@ -1,16 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+import topMusicData from "./data/top-music.json";
+import expressListEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -27,8 +18,16 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+// display all songs
 app.get("/songs", (req, res) => {
-  res.sendFile(__dirname + "/data/top-music.json");
+  res.send(topMusicData);
+});
+
+//display a single song
+app.get("/songs/:songId", (req, res) => {
+  const songId = req.params.songId;
+  const song = topMusicData.find(song => song.id === parseInt(songId));
+  res.send(song);
 });
 
 // Start the server
