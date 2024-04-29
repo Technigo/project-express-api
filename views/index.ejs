@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>My API Project</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Welcome to Wen's API</h1>
+    <main>
+      <div style="padding-left: 2em">
+        <h2>Endpoints</h2>
+        <% data.forEach((endpoint) => { %>
+        <ul style="list-style: none; padding: 0">
+          <li>Path: <%= endpoint.path %></li>
+          <li>Method: <%= endpoint.methods.join(", ") %></li>
+          <li>Middleware: <%= endpoint.middlewares.join(", ") %></li>
+        </ul>
+        <% }) %>
+      </div>
+      <div style="padding-left: 2em">
+        <h2>Instruction</h2>
+        <ol>
+          <li>Try endpoints above to see the data structure</li>
+          <li>
+            Try different HTTP request, such as GET, POST, PUT, DELETE etc. on
+            different endpoints
+          </li>
+          <li>
+            Try adding some query parameters, e.g."?genre=edm" to the /songs
+            endpoint
+          </li>
+        </ol>
+      </div>
+    </main>
+    <footer>&#169; Wen Zhao</footer>
+  </body>
+</html>

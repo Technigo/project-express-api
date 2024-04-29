@@ -12,6 +12,7 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 // Start defining your routes here
 app
@@ -22,7 +23,8 @@ app
   })
   .get((req, res) => {
     const endpoints = expressListEndpoints(app);
-    res.json(endpoints);
+    res.render("index.ejs", { data: endpoints });
+    // res.json(endpoints);
   })
   .post((req, res) => {
     res.send("Add a song");
