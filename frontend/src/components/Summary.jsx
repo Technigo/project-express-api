@@ -1,9 +1,36 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Amenities } from './Amenities'
 import styled from 'styled-components'
+import { LeftArrow } from './LeftArrow'
 
 const StyledSummary = styled.div`
+  background-color: white;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 10px 3px;
+  position: relative;
+
+  svg {
+    padding: 5px;
+    background-color: #ffffffa7;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    z-index: 20;
+    &:hover path {
+      fill: black;
+    }
+    &:hover {
+      background-color: white;
+      transition: width 2s ease-in-out, height 2s ease-in-out,
+        background-color 2s ease-in-out;
+    }
+  }
   h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
@@ -81,6 +108,14 @@ const StyledSummary = styled.div`
       border-radius: 20px;
       height: auto;
     }
+    margin: 10px;
+    padding: 20px 5px;
+    svg {
+      top: 5%;
+      left: 35%;
+      width: 40px;
+      height: 40px;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -90,6 +125,14 @@ const StyledSummary = styled.div`
       border-radius: 20px;
       height: auto;
     }
+    svg {
+      width: 50px;
+      height: 50px;
+      top: 8%;
+      left: 35%;
+    }
+    margin: 40px;
+    padding: 50px 20px;
   }
 `
 
@@ -124,6 +167,9 @@ export const Summary = () => {
 
   return (
     <StyledSummary>
+      <Link to="/">
+        <LeftArrow />
+      </Link>
       <img
         src={accommodationDetails.image}
         alt="accommodation-image"

@@ -7,7 +7,7 @@ const StyledCard = styled.div`
   box-sizing: border-box;
   padding: 10px;
   flex-direction: column;
-  /* align-items: center; */
+
   .content {
     padding: 20px;
     color: black;
@@ -17,6 +17,12 @@ const StyledCard = styled.div`
     width: 90vw;
     border-radius: 20px;
     height: 300px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+      filter: brightness(70%);
+    }
   }
   @media (min-width: 669px) and (max-width: 1024px) {
     img {
