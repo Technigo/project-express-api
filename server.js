@@ -1,7 +1,8 @@
-import express from "express";
 import cors from "cors";
-import topMusicData from "./data/top-music.json";
+import express from "express";
 import expressListEndpoints from "express-list-endpoints";
+
+import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -80,19 +81,29 @@ app
   })
   .get((req, res) => {
     const queryParams = req.query;
-    const { genre } = queryParams;
-
-    // if no genre param and query param is not empty -> bad request
-    if (!genre && Object.keys(queryParams).length !== 0) {
-      return res.status(400).json(handle400Error());
-    }
-
+    const { genre, artist } = queryParams;
     let songs = topMusicData;
 
-    if (genre) {
-      songs = topMusicData.filter(song => song.genre === genre);
+    if (Object.keys(queryParams).length > 0) {
+      if (genre && artist) {
+        songs = topMusicData.filter(
+          song =>
+            song.genre.toLowerCase() === genre.toLowerCase() &&
+            song.artistName.toLowerCase() === artist.toLowerCase()
+        );
+      } else if (genre) {
+        songs = topMusicData.filter(
+          song => song.genre.toLowerCase() === genre.toLowerCase()
+        );
+      } else if (artist) {
+        songs = topMusicData.filter(
+          song => song.artistName.toLowerCase() === artist.toLowerCase()
+        );
+      } else {
+        return res.status(400).json(handle400Error());
+      }
     }
-    // no songs matching with the genre
+
     if (songs.length === 0) {
       return res
         .status(404)
@@ -114,6 +125,7 @@ app
   })
   .get((req, res) => {
     const songId = req.params.songId;
+    //Bad request: songID is NOT an int
     if (+songId % 1 !== 0) {
       return res.status(400).json(handle400Error());
     }
