@@ -23,12 +23,46 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
+
   res.json(endpoints);
 });
 
-// Get all books
+// Filter books
+const filterBooks = (booksData, query) => {
+  let filteredBooks = [...booksData];
+
+  // Filter by title
+  if (query.title) {
+    const titleRegex = new RegExp(query.title, "i");
+    filteredBooks = filteredBooks.filter((book) => titleRegex.test(book.title));
+  }
+
+  // Filter by author
+  if (query.authors) {
+    const authorsRegex = new RegExp(query.authors, "i");
+    filteredBooks = filteredBooks.filter((book) =>
+      authorsRegex.test(book.authors)
+    );
+  }
+
+  // Filter by minimum rating
+  if (query.minRating) {
+    const minRating = parseFloat(query.minRating);
+    filteredBooks = filteredBooks.filter(
+      (book) => book.average_rating >= minRating
+    );
+  }
+  // Response if no books are found
+  if (filteredBooks.length === 0) {
+    return "Not found";
+  }
+
+  return filteredBooks;
+};
+// Get list of books
 app.get("/books", (req, res) => {
-  res.json(booksData);
+  const filteredBooks = filterBooks(booksData, req.query);
+  res.json(filteredBooks);
 });
 
 // Get info about a particular book
@@ -41,6 +75,19 @@ app.get("/books/:bookId", (req, res) => {
   } else {
     res.status(404).send("Could not find book");
   }
+});
+
+// Empty/dummy endpoints
+app.post("/books", (req, res) => {
+  // Placeholder
+});
+
+app.put("/books:bookId", (req, res) => {
+  // Placeholder
+});
+
+app.delete("/books:bookId", (req, res) => {
+  // Placeholder
 });
 
 // Start the server
