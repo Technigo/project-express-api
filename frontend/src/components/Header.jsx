@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { SearchBar } from './SearchBar'
-import Logo from '/logo-hotel.png'
+import Logo from '/logo-hotel.svg'
 
 const StyledHeader = styled.header`
   padding: 0 30px;

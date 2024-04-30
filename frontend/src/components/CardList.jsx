@@ -51,10 +51,12 @@ const StyledContainer = styled.main`
 `
 
 export const CardList = () => {
+  // retrieve data from the store
   const { accommodations, loading, searchResults, searchTerm } = useAppContext()
   if (loading)
     return (
       <StyledContainer>
+        {/* loading gif */}
         <img className="loadingGif" src={Loading} alt="loading-gif" />
       </StyledContainer>
     )
@@ -62,6 +64,7 @@ export const CardList = () => {
   return (
     <>
       <StyledContainer>
+        {/* display no result in case someone typing in the searchbar and the results are 0 */}
         {searchTerm !== '' && searchResults.length === 0 ? (
           <div className="containerResult">
             <img className="noResult" src={NoResult} alt="no-results-found" />
@@ -72,6 +75,7 @@ export const CardList = () => {
           </div>
         ) : (
           <>
+            {/* if there is some seacrhresult mathcing then display the results only */}
             {searchTerm !== ''
               ? searchResults.map((accommodation) => (
                   <SingleCard
@@ -98,6 +102,7 @@ export const CardList = () => {
           </>
         )}
       </StyledContainer>
+      {/* set of 2 buttons to navigate between pages */}
       <NextPageBtn />
     </>
   )

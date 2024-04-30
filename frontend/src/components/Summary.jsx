@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Amenities } from './Amenities'
 import styled from 'styled-components'
 import { LeftArrow } from './LeftArrow'
+import Loading from '/loading.gif'
 
 const StyledSummary = styled.div`
   background-color: white;
@@ -141,17 +142,16 @@ export const Summary = () => {
 
   const [accommodationDetails, setAccommodationDetails] = useState(null)
   const [loading, setLoading] = useState(false)
-
+  // fetching with get request the accommodation details specifically for the id, the accomodation id it's a query parameter
   useEffect(() => {
     if (!accommodation) return // Make sure accommodationId is available
-    console.log(accommodation)
+
     setLoading(true)
     fetch(
       `https://project-express-api-7pjc.onrender.com/accommodations/${accommodation}`
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setAccommodationDetails(data)
 
         setLoading(false)
@@ -162,11 +162,13 @@ export const Summary = () => {
       })
   }, [accommodation])
 
-  if (loading) return <div>Loading...</div>
+  if (loading)
+    return <img className="loadingGif" src={Loading} alt="loading-gif" />
   if (!accommodationDetails) return <div>No accommodation details found.</div>
 
   return (
     <StyledSummary>
+      {/* arrow button to go back to home */}
       <Link to="/">
         <LeftArrow />
       </Link>

@@ -25,14 +25,19 @@ export const NextPageBtn = () => {
     }
   `
   return (
+    // render buttons conditionally
     <StyledNavigation>
-      <button onClick={previousPage}>
-        <LeftArrow />
-      </button>
+      {currentPage !== 1 && (
+        <button onClick={previousPage}>
+          <LeftArrow />
+        </button>
+      )}
       <p>Page {currentPage}</p>
-      <button onClick={nextPage}>
-        <RightArrow />
-      </button>
+      {currentPage !== 5 && (
+        <button onClick={nextPage}>
+          <RightArrow />
+        </button>
+      )}
     </StyledNavigation>
   )
 }

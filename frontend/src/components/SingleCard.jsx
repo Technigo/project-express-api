@@ -51,6 +51,7 @@ export const SingleCard = ({
   image,
 }) => {
   return (
+    // link the whole card to the single accomodation page
     <Link to={`accommodations/${accommodationId}`}>
       <StyledCard>
         <img src={image} alt="accommodation-image" />

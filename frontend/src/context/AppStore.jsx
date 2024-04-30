@@ -12,10 +12,10 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true)
-    fetchAccommodations(currentPage) // Fetch accommodations for initial page
-  }, [currentPage]) // Re-run effect whenever currentPage changes
+    fetchAccommodations(currentPage)
+  }, [currentPage])
 
-  // Function to fetch accommodations based on page number
+  //  fetch accommodations based on page number
   const fetchAccommodations = (page) => {
     setLoading(true)
     fetch(
@@ -32,7 +32,7 @@ export const AppProvider = ({ children }) => {
       })
   }
 
-  // Function to handle search
+  // handle search function
   const handleSearch = (e) => {
     e.preventDefault()
     const results = accommodations.filter((item) =>
@@ -41,12 +41,12 @@ export const AppProvider = ({ children }) => {
     setSearchResults(results)
   }
 
-  // Function to handle next page
+  // handle next page function
   const nextPage = () => {
     setCurrentPage(currentPage + 1)
   }
 
-  // Function to handle previous page
+  //previous page function
   const previousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1)
