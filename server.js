@@ -26,6 +26,18 @@ app.get("/books", (req, res) => {
   res.json(booksData);
 });
 
+app.get("/books/:bookId", (req, res) => {
+  const { bookId } = req.params;
+
+  const book = booksData.find((book) => +bookId === book.bookID);
+
+  if (book) {
+    res.json(book);
+  } else {
+    res.status(404).send("Sorry, there is no book with that Id.");
+  }
+});
+
 // Getting all endpoint with express List Endpoints
 const endpoints = expressListEndpoints(app);
 
