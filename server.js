@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
 // to get started!
@@ -21,7 +22,8 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Here there be books");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
 // Get all books
@@ -32,7 +34,6 @@ app.get("/books", (req, res) => {
 // Get info about a particular book
 app.get("/books/:bookId", (req, res) => {
   const { bookId } = req.params;
-
   const book = booksData.find((book) => +bookId === book.bookID);
 
   if (book) {
