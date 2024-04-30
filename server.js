@@ -1,17 +1,8 @@
 import express from "express";
 import cors from "cors";
+import netflixData from "./data/netflix-titles.json";
+import expressListEndpoints from "express-list-endpoints";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -21,7 +12,47 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(expressListEndpoints(app));
+});
+
+app.get("/titles", (req, res) => {
+  const year = req.query.year;
+  if (year !== undefined) {
+    res.send(
+      netflixData.filter((title) => title.release_year.toString() === year)
+    );
+  } else {
+    res.send(netflixData);
+  }
+});
+
+app.get("/movies", (req, res) => {
+  res.send(netflixData.filter((title) => title.type === "Movie"));
+});
+
+app.get("/id/:id", (req, res) => {
+  const id = req.params.id;
+  const result = netflixData.find((title) => title.show_id.toString() === id);
+  if (result !== undefined) {
+    res.send(result);
+  } else {
+    res.status(404).send("ID not founnd");
+  }
+});
+
+app.get("/rating/:rating", (req, res) => {
+  const rating = req.params.rating;
+  res.send(netflixData.filter((title) => title.rating === rating));
+});
+
+app.get("/movies/duration/:titleDuration", (req, res) => {
+  const titleDuration = req.params.titleDuration;
+  const movieList = netflixData.filter((title) => title.type === "Movie");
+  const result = movieList.filter((movie) => {
+    const movieDuration = movie.duration.slice(0, -4);
+    return +movieDuration <= +titleDuration;
+  });
+  res.send(result);
 });
 
 // Start the server
