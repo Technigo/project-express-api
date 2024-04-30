@@ -10,6 +10,7 @@ const StyledCard = styled.div`
   /* align-items: center; */
   .content {
     padding: 20px;
+    color: black;
   }
   img {
     object-fit: cover;
@@ -44,7 +45,7 @@ export const SingleCard = ({
   image,
 }) => {
   return (
-    <Link to={`/accommodations/${accommodationId}`}>
+    <Link to={`accommodations/${accommodationId}`}>
       <StyledCard>
         <img src={image} alt="accommodation-image" />
         <div className="content">

@@ -22,18 +22,19 @@ const GlobalStyles = createGlobalStyle`
     color: #333;
     background-color: #f0f0f0;
   }
-
+  a{
+    text-decoration: none;
+  }
  
-
-  
- 
-  
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
   }
   h2{
-    font-size:15px;
+    font-size:20px;
+  }
+  h5{
+    font-size: 18px;
   }
 
   p {
@@ -51,7 +52,10 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
+ul,li{
+  text-decoration: none;
+  list-style: none;
+}
   
   
   .icon {
@@ -65,13 +69,18 @@ const GlobalStyles = createGlobalStyle`
       font-size: 32px;
     }
 
-
+h2{
+  font-size: 24px;
+}
     p {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     button {
       font-size: 18px;
+    }
+    h5{
+      font-size: 20px;
     }
 
     .icon {
@@ -87,7 +96,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/accommodations/:accommodation" element={<Summary />} />
+          <Route path="accommodations/:accommodation" element={<Summary />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>
