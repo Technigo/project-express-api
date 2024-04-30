@@ -1,0 +1,34 @@
+{
+  "topics": [
+    {
+      "name": "JavaScript basics",
+      "tags": ["JavaScript", "Basics", "Programming"],
+      "subtopics": [
+        {
+          "name": "Introduction to JavaScript",
+          "questions": [
+            {
+              "question": "What is JavaScript?",
+              "answer": "JavaScript is a versatile and widely-used programming language primarily known for its ability to add interactivity and dynamic content to websites. Initially developed by Netscape, JavaScript is now supported by all major web browsers, making it an essential part of web development. It is a high-level, interpreted language that can be executed directly in the browser, allowing developers to create responsive and interactive user interfaces."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The DOM, Functions and Scope",
+      "tags": ["DOM", "Functions", "Scope"],
+      "subtopics": [
+        {
+          "name": "Document Object Model (DOM)",
+          "questions": [
+            {
+              "question": "What is the Document Object Model (DOM)?",
+              "answer": "The DOM is a programming interface for web documents that represents the structure and content of a web page. It allows JavaScript to interact with HTML elements and modify their properties, styles, and content."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
