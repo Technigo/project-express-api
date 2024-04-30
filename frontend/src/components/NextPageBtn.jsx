@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import { LeftArrow } from './LeftArrow'
 import { RightArrow } from './RightArrow'
+import { useAppContext } from '../context/AppStore'
 
 export const NextPageBtn = () => {
+  const { nextPage, previousPage, currentPage } = useAppContext()
   const StyledNavigation = styled.div`
     padding: 40px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
     width: 100%;
     button {
@@ -23,10 +26,11 @@ export const NextPageBtn = () => {
   `
   return (
     <StyledNavigation>
-      <button>
+      <button onClick={previousPage}>
         <LeftArrow />
       </button>
-      <button>
+      <p>Page {currentPage}</p>
+      <button onClick={nextPage}>
         <RightArrow />
       </button>
     </StyledNavigation>
