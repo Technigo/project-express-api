@@ -18,9 +18,15 @@ const extractTopicNames = () => topics.map((topic) => topic.name);
 // Function to find a topic name
 const findTopicName = (topics, topicName) => {
   return topics.find((topic) => topic.name === topicName);
-}
+};
 
+// Function to find topic with specified name
+const findSubTopics = (topics, topicName) => {
+  const topic = topics.find((topic) => topic.name === topicName);
 
+  // If topic is found then return it´s subtopic, if not return null
+  return topic ? topic.subtopics : null;
+};
 
 // // Start defining your routes here
 // Get welcome text
@@ -46,15 +52,25 @@ app.get("/topics/:name", (req, res) => {
 
   const topic = findTopicName(topics, topicName);
 
-  if(topic) {
+  if (topic) {
     res.json(topic);
   } else {
-    res.status(404).json({"error: Topic not found"});
+    res.status(404).json({ error: "Topic not found" });
   }
-
 });
 
 // Get all subtopics of a specific topic
+app.get("/topics/:name/subtopics", (req, res) => {
+  const topicName = req.params.name;
+
+  const subtopics = findSubTopics(topics, topicName);
+
+  if (subtopics) {
+    res.json(subtopics);
+  } else {
+    res.status(404).json({ error: "Subtopics not found" });
+  }
+});
 
 // Get all questions related to a specific topic
 
@@ -72,4 +88,3 @@ app.get("/topics/:name", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
