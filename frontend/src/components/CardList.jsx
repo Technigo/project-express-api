@@ -74,10 +74,25 @@ export const CardList = () => {
           <>
             {searchTerm !== ''
               ? searchResults.map((accommodation) => (
-                  <SingleCard key={accommodation.id} {...accommodation} />
+                  <SingleCard
+                    key={accommodation.id}
+                    image={accommodation.image}
+                    price={accommodation.price}
+                    roomType={accommodation.room_type}
+                    name={accommodation.name}
+                    neighbourhood={accommodation.neighbourhood}
+                    accommodationId={accommodation.id}
+                  />
                 ))
               : accommodations.map((accommodation) => (
-                  <SingleCard key={accommodation.id} {...accommodation} />
+                  <SingleCard
+                    key={accommodation.id}
+                    price={accommodation.price}
+                    roomType={accommodation.room_type}
+                    name={accommodation.name}
+                    neighbourhood={accommodation.neighbourhood}
+                    accommodationId={accommodation.id}
+                  />
                 ))}
           </>
         )}

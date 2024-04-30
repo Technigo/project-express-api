@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 /* eslint-disable react/prop-types */
 const StyledCard = styled.div`
@@ -34,16 +35,25 @@ const StyledCard = styled.div`
     }
   }
 `
-export const SingleCard = ({ price, roomType, name, neighbourhood }) => {
+export const SingleCard = ({
+  price,
+  roomType,
+  name,
+  neighbourhood,
+  accommodationId,
+  image,
+}) => {
   return (
-    <StyledCard>
-      <img src="/new-york.jpg" alt="new-york" />
-      <div className="content">
-        <h2>{name.toUpperCase()}</h2>
-        <h5>{neighbourhood}</h5>
-        <p>{roomType}</p>
-        <span>From {price} CHF</span>
-      </div>
-    </StyledCard>
+    <Link to={`/accommodations/${accommodationId}`}>
+      <StyledCard>
+        <img src={image} alt="accommodation-image" />
+        <div className="content">
+          <h2>{name.toUpperCase()}</h2>
+          <h5>{neighbourhood}</h5>
+          <p>{roomType}</p>
+          <span>From {price} CHF</span>
+        </div>
+      </StyledCard>
+    </Link>
   )
 }

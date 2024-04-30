@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './components/Home'
 import { createGlobalStyle } from 'styled-components'
 import { AppProvider } from './context/AppStore'
+import { Summary } from './components/Summary'
 
 const GlobalStyles = createGlobalStyle`
   /* Reset styles */
@@ -86,6 +87,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/accommodations/:accommodation" element={<Summary />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>
