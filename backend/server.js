@@ -47,15 +47,18 @@ app.get('/accommodations', (req, res) => {
   })
 })
 app.get('/accommodations/:accommodation', (req, res) => {
-  const accommodation = req.params.accommodation
-  const singleaccommodation = airbnbData.filter((item) => {
-    if (item.id === +accommodation) {
-      res.json(singleaccommodation)
-    } else {
-      res.status(404).json({ error: 'Accommodation not found' })
-    }
-  })
+  const accommodationId = req.params.accommodation
+  const singleAccommodation = airbnbData.find(
+    (item) => item.id === +accommodationId
+  )
+  if (singleAccommodation) {
+    res.json(singleAccommodation)
+    console.log(item.id)
+  } else {
+    res.status(404).json({ error: 'Accommodation not found' })
+  }
 })
+
 app.get('/neighbourhoods/:neighbourhood', (req, res) => {
   const neighbourhood = req.params.neighbourhood
   const showRoomType = req.query.room_type

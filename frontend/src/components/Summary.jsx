@@ -31,7 +31,7 @@ export const Summary = () => {
 
   return (
     <>
-      <img src="/new-york.jpg" alt="new-york" />
+      <img src={accommodationDetails.image} alt="accommodation-image" />
       <div className="content">
         <h2>{accommodationDetails.name}</h2>
         <h5>{accommodationDetails.neighbourhood}</h5>

@@ -92,6 +92,7 @@ export const CardList = () => {
                     name={accommodation.name}
                     neighbourhood={accommodation.neighbourhood}
                     accommodationId={accommodation.id}
+                    image={accommodation.image}
                   />
                 ))}
           </>

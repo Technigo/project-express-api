@@ -15,7 +15,6 @@ export const AppProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         setAccommodations(data.data)
-        console.log(data)
 
         setLoading(false)
       })

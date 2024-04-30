@@ -48,7 +48,7 @@ export const SingleCard = ({
       <StyledCard>
         <img src={image} alt="accommodation-image" />
         <div className="content">
-          <h2>{name.toUpperCase()}</h2>
+          <h2>{name}</h2>
           <h5>{neighbourhood}</h5>
           <p>{roomType}</p>
           <span>From {price} CHF</span>
