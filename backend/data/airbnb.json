@@ -1,829 +1,792 @@
-{
-  "accommodations": [
-    {
-      "id": 1,
-      "name": "Cozy Loft in Downtown",
-      "neighbourhood": "Downtown",
-      "room_type": "Entire Loft",
-      "price": 120,
-      "accommodationId": "cozy-loft-downtown",
-      "host_name": "John Doe",
-      "rating": 4.8,
-      "description": "A cozy loft apartment located in the heart of downtown. Perfect for couples or solo travelers.",
-      "amenities": ["Wi-Fi", "Kitchen", "TV", "Air Conditioning"],
-      "image": "https://source.unsplash.com/random/800x600/?loft"
-    },
-    {
-      "id": 2,
-      "name": "Luxury Villa with Ocean View",
-      "neighbourhood": "Beachfront",
-      "room_type": "Private Villa",
-      "price": 350,
-      "accommodationId": "luxury-villa-ocean-view",
-      "host_name": "Jane Smith",
-      "rating": 4.9,
-      "description": "Experience luxury living with breathtaking ocean views. Ideal for family vacations or romantic getaways.",
-      "amenities": [
-        "Infinity Pool",
-        "Private Beach Access",
-        "Gourmet Kitchen",
-        "Spa"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?villa"
-    },
-    {
-      "id": 3,
-      "name": "Charming Cottage in the Woods",
-      "neighbourhood": "Rural",
-      "room_type": "Entire Cottage",
-      "price": 90,
-      "accommodationId": "charming-cottage-woods",
-      "host_name": "Emily Johnson",
-      "rating": 4.5,
-      "description": "Escape to nature in this charming cottage nestled in the woods. Perfect for nature lovers and outdoor enthusiasts.",
-      "amenities": [
-        "Fireplace",
-        "Hiking Trails",
-        "Outdoor Grill",
-        "Pet Friendly"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?cottage"
-    },
-    {
-      "id": 4,
-      "name": "Modern Apartment in the City Center",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Apartment",
-      "price": 180,
-      "accommodationId": "modern-apartment-city-center",
-      "host_name": "Michael Brown",
-      "rating": 4.6,
-      "description": "A stylish and modern apartment located in the heart of the city. Close to shops, restaurants, and attractions.",
-      "amenities": ["Gym", "Balcony", "Parking", "Laundry"],
-      "image": "https://source.unsplash.com/random/800x600/?apartment"
-    },
-    {
-      "id": 5,
-      "name": "Seaside Bungalow with Pool",
-      "neighbourhood": "Beachfront",
-      "room_type": "Entire Bungalow",
-      "price": 250,
-      "accommodationId": "seaside-bungalow-pool",
-      "host_name": "Sarah Wilson",
-      "rating": 4.7,
-      "description": "Relax and unwind in this charming seaside bungalow. Enjoy private access to the beach and a refreshing pool.",
-      "amenities": ["Pool", "Beach Access", "Outdoor Shower", "Sun Loungers"],
-      "image": "https://source.unsplash.com/random/800x600/?bungalow"
-    },
-    {
-      "id": 6,
-      "name": "Mountain Chalet with Hot Tub",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire Chalet",
-      "price": 280,
-      "accommodationId": "mountain-chalet-hot-tub",
-      "host_name": "Mark Johnson",
-      "rating": 4.7,
-      "description": "Experience ultimate relaxation in this charming mountain chalet. Features a private hot tub with stunning views.",
-      "amenities": ["Hot Tub", "Mountain Views", "Fireplace", "Deck"],
-      "image": "https://source.unsplash.com/random/800x600/?chalet"
-    },
-    {
-      "id": 7,
-      "name": "Urban Studio Apartment",
-      "neighbourhood": "City Center",
-      "room_type": "Studio Apartment",
-      "price": 100,
-      "accommodationId": "urban-studio-apartment",
-      "host_name": "Emma Davis",
-      "rating": 4.5,
-      "description": "A cozy studio apartment in the heart of the city. Ideal for solo travelers or couples exploring the urban lifestyle.",
-      "amenities": ["Wi-Fi", "Kitchenette", "TV", "Central Location"],
-      "image": "https://source.unsplash.com/random/800x600/?studio"
-    },
-    {
-      "id": 8,
-      "name": "Secluded Beach House",
-      "neighbourhood": "Secluded Beach",
-      "room_type": "Entire House",
-      "price": 300,
-      "accommodationId": "secluded-beach-house",
-      "host_name": "Olivia Wilson",
-      "rating": 4.9,
-      "description": "Escape to paradise in this secluded beach house. Enjoy peace and tranquility with direct access to a pristine beach.",
-      "amenities": [
-        "Private Beach",
-        "Ocean Views",
-        "Outdoor Dining",
-        "BBQ Grill"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beach-house"
-    },
-    {
-      "id": 9,
-      "name": "Riverside Cabin Retreat",
-      "neighbourhood": "Riverside",
-      "room_type": "Entire Cabin",
-      "price": 160,
-      "accommodationId": "riverside-cabin-retreat",
-      "host_name": "William Brown",
-      "rating": 4.6,
-      "description": "Experience the serenity of riverside living in this charming cabin retreat. Perfect for fishing and outdoor adventures.",
-      "amenities": ["Riverside Views", "Fishing Dock", "Fire Pit", "Deck"],
-      "image": "https://source.unsplash.com/random/800x600/?riverside-cabin"
-    },
-    {
-      "id": 10,
-      "name": "Luxury Penthouse with Skyline Views",
-      "neighbourhood": "City Center",
-      "room_type": "Penthouse",
-      "price": 500,
-      "accommodationId": "luxury-penthouse-skyline-views",
-      "host_name": "James Anderson",
-      "rating": 5.0,
-      "description": "Indulge in luxury living with panoramic skyline views from this stunning penthouse. Perfect for discerning travelers.",
-      "amenities": [
-        "Roof Terrace",
-        "Jacuzzi",
-        "Gourmet Kitchen",
-        "Concierge Service"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?penthouse"
-    },
-    {
-      "id": 11,
-      "name": "Tranquil Lakeside Retreat",
-      "neighbourhood": "Lakeside",
-      "room_type": "Entire House",
-      "price": 220,
-      "accommodationId": "tranquil-lakeside-retreat",
-      "host_name": "Sophia Taylor",
-      "rating": 4.8,
-      "description": "Escape the hustle and bustle in this tranquil lakeside retreat. Perfect for fishing, kayaking, and nature lovers.",
-      "amenities": [
-        "Lakeside Views",
-        "Boat Dock",
-        "Fire Pit",
-        "Screened Porch"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?lakeside-retreat"
-    },
-    {
-      "id": 12,
-      "name": "Eco-Friendly Treehouse Getaway",
-      "neighbourhood": "Forest",
-      "room_type": "Entire Treehouse",
-      "price": 180,
-      "accommodationId": "eco-friendly-treehouse-getaway",
-      "host_name": "Ethan Clark",
-      "rating": 4.7,
-      "description": "Experience the magic of nature in this eco-friendly treehouse getaway. Nestled in the forest canopy for a unique stay.",
-      "amenities": [
-        "Treehouse Views",
-        "Hammocks",
-        "Outdoor Shower",
-        "Nature Trails"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?treehouse"
-    },
-    {
-      "id": 13,
-      "name": "Ski-In/Ski-Out Chalet",
-      "neighbourhood": "Ski Resort",
-      "room_type": "Entire Chalet",
-      "price": 350,
-      "accommodationId": "ski-in-ski-out-chalet",
-      "host_name": "Abigail Moore",
-      "rating": 4.9,
-      "description": "Hit the slopes from this ski-in/ski-out chalet. Enjoy luxury living with direct access to the ski resort.",
-      "amenities": [
-        "Ski-In/Ski-Out Access",
-        "Hot Tub",
-        "Fireplace",
-        "Ski Storage"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?ski-chalet"
-    },
-    {
-      "id": 14,
-      "name": "Tropical Villa with Private Pool",
-      "neighbourhood": "Tropical Paradise",
-      "room_type": "Private Villa",
-      "price": 400,
-      "accommodationId": "tropical-villa-private-pool",
-      "host_name": "Ava Garcia",
-      "rating": 4.8,
-      "description": "Escape to a tropical paradise in this luxurious villa with a private pool. Perfect for relaxation and indulgence.",
-      "amenities": [
-        "Private Pool",
-        "Tropical Gardens",
-        "Outdoor Lounge",
-        "Gourmet Kitchen"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?tropical-villa"
-    },
-    {
-      "id": 15,
-      "name": "Quaint Farmhouse Retreat",
-      "neighbourhood": "Countryside",
-      "room_type": "Entire Farmhouse",
-      "price": 200,
-      "accommodationId": "quaint-farmhouse-retreat",
-      "host_name": "Daniel Martinez",
-      "rating": 4.6,
-      "description": "Experience country living in this charming farmhouse retreat. Perfect for a peaceful getaway surrounded by nature.",
-      "amenities": [
-        "Farm Views",
-        "Wraparound Porch",
-        "Fire Pit",
-        "Outdoor Dining"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?farmhouse"
-    },
-    {
-      "id": 16,
-      "name": "Historic Mansion in the Heart of the City",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Mansion",
-      "price": 800,
-      "accommodationId": "historic-mansion-city-center",
-      "host_name": "Lucas Brown",
-      "rating": 5.0,
-      "description": "Step back in time in this beautifully restored historic mansion. Luxury living with modern amenities in the city center.",
-      "amenities": [
-        "Historic Charm",
-        "Grand Ballroom",
-        "Gardens",
-        "Concierge Service"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?mansion"
-    },
-    {
-      "id": 17,
-      "name": "Rustic Log Cabin with Mountain Views",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire Cabin",
-      "price": 170,
-      "accommodationId": "rustic-log-cabin-mountain-views",
-      "host_name": "Sophie Johnson",
-      "rating": 4.7,
-      "description": "Experience the beauty of the mountains in this rustic log cabin. Stunning views and cozy interiors for a memorable stay.",
-      "amenities": [
-        "Mountain Views",
-        "Wood-Burning Stove",
-        "Deck",
-        "BBQ Grill"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?log-cabin"
-    },
-    {
-      "id": 18,
-      "name": "City View Loft with Rooftop Terrace",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Loft",
-      "price": 180,
-      "accommodationId": "city-view-loft-rooftop-terrace",
-      "host_name": "Oliver Taylor",
-      "rating": 4.8,
-      "description": "Enjoy panoramic city views from this stylish loft apartment. Features a private rooftop terrace for al fresco dining.",
-      "amenities": [
-        "City Views",
-        "Rooftop Terrace",
-        "Modern Design",
-        "Free Parking"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?city-loft"
-    },
-    {
-      "id": 19,
-      "name": "Serenity by the Sea - Beachfront Villa",
-      "neighbourhood": "Beachfront",
-      "room_type": "Private Villa",
-      "price": 450,
-      "accommodationId": "serenity-sea-beachfront-villa",
-      "host_name": "Isabella Anderson",
-      "rating": 4.9,
-      "description": "Experience serenity by the sea in this luxurious beachfront villa. Direct access to the beach and breathtaking ocean views.",
-      "amenities": [
-        "Private Beach",
-        "Infinity Pool",
-        "Outdoor Lounge",
-        "Gourmet Kitchen"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beachfront-villa"
-    },
-    {
-      "id": 20,
-      "name": "Chic Urban Loft with Skyline Views",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Loft",
-      "price": 220,
-      "accommodationId": "chic-urban-loft-skyline-views",
-      "host_name": "Sophia Martinez",
-      "rating": 4.7,
-      "description": "Indulge in urban chic living with panoramic skyline views from this stylish loft. Perfect for city explorers.",
-      "amenities": [
-        "City Views",
-        "Modern Design",
-        "Gourmet Kitchen",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?urban-loft"
-    },
-    {
-      "id": 21,
-      "name": "Idyllic Countryside Cottage",
-      "neighbourhood": "Countryside",
-      "room_type": "Entire Cottage",
-      "price": 150,
-      "accommodationId": "idyllic-countryside-cottage",
-      "host_name": "Ella Brown",
-      "rating": 4.6,
-      "description": "Escape to the idyllic countryside in this charming cottage. Peaceful surroundings and rural charm for a relaxing stay.",
-      "amenities": [
-        "Countryside Views",
-        "Garden",
-        "Fire Pit",
-        "Outdoor Dining"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?countryside-cottage"
-    },
-    {
-      "id": 22,
-      "name": "Rustic Barn Conversion",
-      "neighbourhood": "Rural",
-      "room_type": "Entire Barn",
-      "price": 190,
-      "accommodationId": "rustic-barn-conversion",
-      "host_name": "William Johnson",
-      "rating": 4.7,
-      "description": "Experience the charm of rural living in this rustic barn conversion. Perfect for a unique and memorable getaway.",
-      "amenities": [
-        "Rural Charm",
-        "Open Plan Living",
-        "Outdoor Space",
-        "Pet Friendly"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?barn"
-    },
-    {
-      "id": 23,
-      "name": "Urban Oasis with Private Garden",
-      "neighbourhood": "City Center",
-      "room_type": "Entire House",
-      "price": 280,
-      "accommodationId": "urban-oasis-private-garden",
-      "host_name": "Olivia Taylor",
-      "rating": 4.8,
-      "description": "Escape the city hustle in this urban oasis with a private garden. Tranquil retreat in the heart of the city.",
-      "amenities": [
-        "Private Garden",
-        "Outdoor Dining",
-        "Fire Pit",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?urban-garden"
-    },
-    {
-      "id": 24,
-      "name": "Secluded Mountain Retreat",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire House",
-      "price": 250,
-      "accommodationId": "secluded-mountain-retreat",
-      "host_name": "Jacob Moore",
-      "rating": 4.9,
-      "description": "Find peace and tranquility in this secluded mountain retreat. Stunning views and nature trails await.",
-      "amenities": ["Mountain Views", "Hiking Trails", "Deck", "BBQ Grill"],
-      "image": "https://source.unsplash.com/random/800x600/?mountain-retreat"
-    },
-    {
-      "id": 25,
-      "name": "Sunny Beachfront Apartment",
-      "neighbourhood": "Beachfront",
-      "room_type": "Entire Apartment",
-      "price": 180,
-      "accommodationId": "sunny-beachfront-apartment",
-      "host_name": "Lucas Wilson",
-      "rating": 4.7,
-      "description": "Enjoy sun, sand, and sea from this sunny beachfront apartment. Perfect for beach lovers and water enthusiasts.",
-      "amenities": ["Beach Access", "Ocean Views", "Balcony", "Outdoor Dining"],
-      "image": "https://source.unsplash.com/random/800x600/?beach-apartment"
-    },
-    {
-      "id": 26,
-      "name": "Charming Riverside Cottage",
-      "neighbourhood": "Riverside",
-      "room_type": "Entire Cottage",
-      "price": 160,
-      "accommodationId": "charming-riverside-cottage",
-      "host_name": "Emma Martinez",
-      "rating": 4.6,
-      "description": "Escape to the riverside in this charming cottage retreat. Peaceful surroundings and river views for a relaxing stay.",
-      "amenities": ["Riverside Views", "Garden", "Deck", "Fire Pit"],
-      "image": "https://source.unsplash.com/random/800x600/?riverside-cottage"
-    },
-    {
-      "id": 27,
-      "name": "Modern Beach House with Pool",
-      "neighbourhood": "Beachfront",
-      "room_type": "Entire House",
-      "price": 350,
-      "accommodationId": "modern-beach-house-pool",
-      "host_name": "Sophie Moore",
-      "rating": 4.8,
-      "description": "Experience modern beach living in this stylish beach house. Features a private pool and direct beach access.",
-      "amenities": [
-        "Private Pool",
-        "Beach Access",
-        "Outdoor Lounge",
-        "Gourmet Kitchen"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beach-house-pool"
-    },
-    {
-      "id": 28,
-      "name": "Rustic Mountain Lodge",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire Lodge",
-      "price": 300,
-      "accommodationId": "rustic-mountain-lodge",
-      "host_name": "Noah Anderson",
-      "rating": 4.9,
-      "description": "Escape to the mountains in this rustic lodge retreat. Cozy interiors and mountain views for a memorable stay.",
-      "amenities": ["Mountain Views", "Fireplace", "Outdoor Deck", "BBQ Grill"],
-      "image": "https://source.unsplash.com/random/800x600/?mountain-lodge"
-    },
-    {
-      "id": 29,
-      "name": "Urban Chic Apartment with Balcony",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Apartment",
-      "price": 160,
-      "accommodationId": "urban-chic-apartment-balcony",
-      "host_name": "Mia Johnson",
-      "rating": 4.7,
-      "description": "Experience urban chic living in this stylish apartment with a private balcony. Perfect for city explorers.",
-      "amenities": [
-        "City Views",
-        "Balcony",
-        "Modern Design",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?urban-apartment"
-    },
-    {
-      "id": 30,
-      "name": "Ski Lodge Retreat",
-      "neighbourhood": "Ski Resort",
-      "room_type": "Entire Lodge",
-      "price": 280,
-      "accommodationId": "ski-lodge-retreat",
-      "host_name": "Ethan Wilson",
-      "rating": 4.8,
-      "description": "Indulge in cozy mountain living in this ski lodge retreat. Perfect for ski vacations and winter getaways.",
-      "amenities": [
-        "Ski-In/Ski-Out Access",
-        "Hot Tub",
-        "Fireplace",
-        "Games Room"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?ski-lodge"
-    },
-    {
-      "id": 31,
-      "name": "Modern City Apartment with River Views",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Apartment",
-      "price": 200,
-      "accommodationId": "modern-city-apartment-river-views",
-      "host_name": "Oliver Brown",
-      "rating": 4.9,
-      "description": "Enjoy modern city living with stunning river views from this stylish apartment. Ideal for urban explorers.",
-      "amenities": [
-        "River Views",
-        "Modern Design",
-        "Balcony",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?city-apartment"
-    },
-    {
-      "id": 32,
-      "name": "Cozy Cabin with Lake Views",
-      "neighbourhood": "Lakeside",
-      "room_type": "Entire Cabin",
-      "price": 180,
-      "accommodationId": "cozy-cabin-lake-views",
-      "host_name": "Ava Johnson",
-      "rating": 4.8,
-      "description": "Escape to the lakeside in this cozy cabin retreat. Stunning lake views and serene surroundings for a peaceful stay.",
-      "amenities": ["Lake Views", "Fireplace", "Deck", "BBQ Grill"],
-      "image": "https://source.unsplash.com/random/800x600/?lake-cabin"
-    },
-    {
-      "id": 33,
-      "name": "Luxury Villa with Mountain Views",
-      "neighbourhood": "Mountain",
-      "room_type": "Private Villa",
-      "price": 500,
-      "accommodationId": "luxury-villa-mountain-views",
-      "host_name": "Ella Johnson",
-      "rating": 5.0,
-      "description": "Indulge in luxury living with panoramic mountain views from this stunning villa. Perfect for a relaxing retreat.",
-      "amenities": [
-        "Mountain Views",
-        "Infinity Pool",
-        "Gourmet Kitchen",
-        "Spa"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?villa-mountain"
-    },
-    {
-      "id": 34,
-      "name": "Seaside Cottage with Stunning Views",
-      "neighbourhood": "Seaside",
-      "room_type": "Entire Cottage",
-      "price": 220,
-      "accommodationId": "seaside-cottage-stunning-views",
-      "host_name": "Sophia Wilson",
-      "rating": 4.7,
-      "description": "Experience seaside living in this charming cottage with stunning ocean views. Perfect for a coastal getaway.",
-      "amenities": ["Ocean Views", "Private Deck", "Fire Pit", "Beach Access"],
-      "image": "https://source.unsplash.com/random/800x600/?seaside-cottage"
-    },
-    {
-      "id": 35,
-      "name": "Urban Loft with Industrial Chic Design",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Loft",
-      "price": 180,
-      "accommodationId": "urban-loft-industrial-chic-design",
-      "host_name": "Mia Moore",
-      "rating": 4.8,
-      "description": "Indulge in urban chic living with industrial design elements in this stylish loft apartment. Perfect for city explorers.",
-      "amenities": [
-        "Industrial Design",
-        "City Views",
-        "Modern Kitchen",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?industrial-loft"
-    },
-    {
-      "id": 36,
-      "name": "Eco-Friendly Beach Bungalow",
-      "neighbourhood": "Beachfront",
-      "room_type": "Entire Bungalow",
-      "price": 250,
-      "accommodationId": "eco-friendly-beach-bungalow",
-      "host_name": "Oliver Martinez",
-      "rating": 4.9,
-      "description": "Experience eco-friendly beach living in this charming bungalow. Perfect for sustainable travelers and nature lovers.",
-      "amenities": [
-        "Eco-Friendly Design",
-        "Beach Access",
-        "Outdoor Shower",
-        "Sun Loungers"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beach-bungalow"
-    },
-    {
-      "id": 37,
-      "name": "Mountain View Retreat",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire House",
-      "price": 220,
-      "accommodationId": "mountain-view-retreat",
-      "host_name": "Noah Wilson",
-      "rating": 4.8,
-      "description": "Escape to the mountains in this serene retreat with panoramic mountain views. Perfect for nature lovers and outdoor enthusiasts.",
-      "amenities": ["Mountain Views", "Deck", "Fire Pit", "Hiking Trails"],
-      "image": "https://source.unsplash.com/random/800x600/?mountain-view"
-    },
-    {
-      "id": 38,
-      "name": "Chic City Apartment with Rooftop Terrace",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Apartment",
-      "price": 190,
-      "accommodationId": "chic-city-apartment-rooftop-terrace",
-      "host_name": "Ethan Moore",
-      "rating": 4.7,
-      "description": "Indulge in city living with a private rooftop terrace in this chic apartment. Ideal for urban explorers.",
-      "amenities": [
-        "City Views",
-        "Rooftop Terrace",
-        "Modern Design",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?city-apartment-terrace"
-    },
-    {
-      "id": 39,
-      "name": "Cozy Lakeside Cabin",
-      "neighbourhood": "Lakeside",
-      "room_type": "Entire Cabin",
-      "price": 170,
-      "accommodationId": "cozy-lakeside-cabin",
-      "host_name": "Ava Moore",
-      "rating": 4.6,
-      "description": "Escape to the lakeside in this cozy cabin retreat. Peaceful surroundings and lake views for a relaxing getaway.",
-      "amenities": ["Lake Views", "Dock", "Fire Pit", "Deck"],
-      "image": "https://source.unsplash.com/random/800x600/?lakeside-cabin"
-    },
-    {
-      "id": 40,
-      "name": "Luxury Beachfront Villa",
-      "neighbourhood": "Beachfront",
-      "room_type": "Private Villa",
-      "price": 600,
-      "accommodationId": "luxury-beachfront-villa",
-      "host_name": "Sophie Brown",
-      "rating": 5.0,
-      "description": "Indulge in luxury beach living in this stunning villa with direct beach access. Perfect for a lavish seaside retreat.",
-      "amenities": [
-        "Private Beach",
-        "Infinity Pool",
-        "Outdoor Lounge",
-        "Gourmet Kitchen"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beachfront-villa-luxury"
-    },
-    {
-      "id": 41,
-      "name": "Charming Countryside Cottage",
-      "neighbourhood": "Countryside",
-      "room_type": "Entire Cottage",
-      "price": 180,
-      "accommodationId": "charming-countryside-cottage",
-      "host_name": "Olivia Moore",
-      "rating": 4.7,
-      "description": "Escape to the countryside in this charming cottage retreat. Tranquil surroundings and rural charm for a relaxing stay.",
-      "amenities": [
-        "Countryside Views",
-        "Garden",
-        "Fire Pit",
-        "Outdoor Dining"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?countryside-cottage-charming"
-    },
-    {
-      "id": 42,
-      "name": "Rustic Mountain Cabin",
-      "neighbourhood": "Mountain",
-      "room_type": "Entire Cabin",
-      "price": 190,
-      "accommodationId": "rustic-mountain-cabin",
-      "host_name": "Jacob Wilson",
-      "rating": 4.8,
-      "description": "Escape to the mountains in this rustic cabin retreat. Cozy interiors and mountain views for a memorable stay.",
-      "amenities": [
-        "Mountain Views",
-        "Wood-Burning Stove",
-        "Deck",
-        "Hiking Trails"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?mountain-cabin"
-    },
-    {
-      "id": 43,
-      "name": "City Center Penthouse with Panoramic Views",
-      "neighbourhood": "City Center",
-      "room_type": "Penthouse",
-      "price": 700,
-      "accommodationId": "city-center-penthouse-panoramic-views",
-      "host_name": "Ella Moore",
-      "rating": 5.0,
-      "description": "Indulge in luxury city living with panoramic views from this stunning penthouse. Perfect for a lavish urban retreat.",
-      "amenities": [
-        "Panoramic Views",
-        "Roof Terrace",
-        "Jacuzzi",
-        "Concierge Service"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?penthouse-city"
-    },
-    {
-      "id": 44,
-      "name": "Secluded Forest Cabin",
-      "neighbourhood": "Forest",
-      "room_type": "Entire Cabin",
-      "price": 220,
-      "accommodationId": "secluded-forest-cabin",
-      "host_name": "Lucas Moore",
-      "rating": 4.9,
-      "description": "Find peace and tranquility in this secluded forest cabin. Surrounded by nature for a serene getaway.",
-      "amenities": [
-        "Forest Views",
-        "Wood-Burning Stove",
-        "Deck",
-        "Hiking Trails"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?forest-cabin"
-    },
-    {
-      "id": 45,
-      "name": "Modern Urban Apartment with Balcony",
-      "neighbourhood": "City Center",
-      "room_type": "Entire Apartment",
-      "price": 200,
-      "accommodationId": "modern-urban-apartment-balcony",
-      "host_name": "Noah Moore",
-      "rating": 4.8,
-      "description": "Experience modern city living with a private balcony in this stylish apartment. Perfect for urban explorers.",
-      "amenities": [
-        "City Views",
-        "Balcony",
-        "Modern Design",
-        "Central Location"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?urban-apartment-balcony"
-    },
-    {
-      "id": 46,
-      "name": "Tropical Beach Bungalow",
-      "neighbourhood": "Beachfront",
-      "room_type": "Entire Bungalow",
-      "price": 280,
-      "accommodationId": "tropical-beach-bungalow",
-      "host_name": "Ava Moore",
-      "rating": 4.9,
-      "description": "Escape to a tropical paradise in this charming beach bungalow. Perfect for a romantic getaway or family vacation.",
-      "amenities": [
-        "Private Beach",
-        "Tropical Gardens",
-        "Outdoor Lounge",
-        "Gourmet Kitchen"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?beach-bungalow-tropical"
-    },
-    {
-      "id": 47,
-      "name": "Ski Chalet with Mountain Views",
-      "neighbourhood": "Ski Resort",
-      "room_type": "Entire Chalet",
-      "price": 350,
-      "accommodationId": "ski-chalet-mountain-views",
-      "host_name": "Sophia Moore",
-      "rating": 4.9,
-      "description": "Hit the slopes from this charming ski chalet with panoramic mountain views. Ideal for winter sports enthusiasts.",
-      "amenities": [
-        "Ski-In/Ski-Out Access",
-        "Hot Tub",
-        "Fireplace",
-        "Ski Storage"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?ski-chalet-mountain"
-    },
-    {
-      "id": 48,
-      "name": "Rural Farmhouse Retreat",
-      "neighbourhood": "Rural",
-      "room_type": "Entire Farmhouse",
-      "price": 220,
-      "accommodationId": "rural-farmhouse-retreat",
-      "host_name": "William Moore",
-      "rating": 4.8,
-      "description": "Escape to the countryside in this rustic farmhouse retreat. Tranquil surroundings and rural charm for a relaxing stay.",
-      "amenities": [
-        "Farm Views",
-        "Wraparound Porch",
-        "Fire Pit",
-        "Outdoor Dining"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?rural-farmhouse"
-    },
-    {
-      "id": 49,
-      "name": "Charming Seaside Cottage",
-      "neighbourhood": "Seaside",
-      "room_type": "Entire Cottage",
-      "price": 200,
-      "accommodationId": "charming-seaside-cottage",
-      "host_name": "Ethan Moore",
-      "rating": 4.8,
-      "description": "Escape to the seaside in this charming cottage retreat. Perfect for a coastal getaway with stunning ocean views.",
-      "amenities": ["Ocean Views", "Private Deck", "Fire Pit", "Beach Access"],
-      "image": "https://source.unsplash.com/random/800x600/?seaside-cottage-charming"
-    },
-    {
-      "id": 50,
-      "name": "Luxury City Penthouse with Skyline Views",
-      "neighbourhood": "City Center",
-      "room_type": "Penthouse",
-      "price": 1000,
-      "accommodationId": "luxury-city-penthouse-skyline-views",
-      "host_name": "Emma Moore",
-      "rating": 5.0,
-      "description": "Indulge in luxury city living with breathtaking skyline views from this stunning penthouse. Perfect for a lavish urban retreat.",
-      "amenities": [
-        "Skyline Views",
-        "Private Elevator",
-        "Roof Terrace",
-        "Concierge Service"
-      ],
-      "image": "https://source.unsplash.com/random/800x600/?city-penthouse-luxury"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Cozy Loft in Downtown",
+    "neighbourhood": "Downtown",
+    "room_type": "Entire Loft",
+    "price": 120,
+    "accommodationId": "cozy-loft-downtown",
+    "host_name": "John Doe",
+    "rating": 4.8,
+    "description": "A cozy loft apartment located in the heart of downtown. Perfect for couples or solo travelers.",
+    "amenities": ["Wi-Fi", "Kitchen", "TV", "Air Conditioning"],
+    "image": "https://source.unsplash.com/random/800x600/?loft"
+  },
+  {
+    "id": 2,
+    "name": "Luxury Villa with Ocean View",
+    "neighbourhood": "Beachfront",
+    "room_type": "Private Villa",
+    "price": 350,
+    "accommodationId": "luxury-villa-ocean-view",
+    "host_name": "Jane Smith",
+    "rating": 4.9,
+    "description": "Experience luxury living with breathtaking ocean views. Ideal for family vacations or romantic getaways.",
+    "amenities": [
+      "Infinity Pool",
+      "Private Beach Access",
+      "Gourmet Kitchen",
+      "Spa"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?villa"
+  },
+  {
+    "id": 3,
+    "name": "Charming Cottage in the Woods",
+    "neighbourhood": "Rural",
+    "room_type": "Entire Cottage",
+    "price": 90,
+    "accommodationId": "charming-cottage-woods",
+    "host_name": "Emily Johnson",
+    "rating": 4.5,
+    "description": "Escape to nature in this charming cottage nestled in the woods. Perfect for nature lovers and outdoor enthusiasts.",
+    "amenities": [
+      "Fireplace",
+      "Hiking Trails",
+      "Outdoor Grill",
+      "Pet Friendly"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?cottage"
+  },
+  {
+    "id": 4,
+    "name": "Modern Apartment in the City Center",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Apartment",
+    "price": 180,
+    "accommodationId": "modern-apartment-city-center",
+    "host_name": "Michael Brown",
+    "rating": 4.6,
+    "description": "A stylish and modern apartment located in the heart of the city. Close to shops, restaurants, and attractions.",
+    "amenities": ["Gym", "Balcony", "Parking", "Laundry"],
+    "image": "https://source.unsplash.com/random/800x600/?apartment"
+  },
+  {
+    "id": 5,
+    "name": "Seaside Bungalow with Pool",
+    "neighbourhood": "Beachfront",
+    "room_type": "Entire Bungalow",
+    "price": 250,
+    "accommodationId": "seaside-bungalow-pool",
+    "host_name": "Sarah Wilson",
+    "rating": 4.7,
+    "description": "Relax and unwind in this charming seaside bungalow. Enjoy private access to the beach and a refreshing pool.",
+    "amenities": ["Pool", "Beach Access", "Outdoor Shower", "Sun Loungers"],
+    "image": "https://source.unsplash.com/random/800x600/?bungalow"
+  },
+  {
+    "id": 6,
+    "name": "Mountain Chalet with Hot Tub",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire Chalet",
+    "price": 280,
+    "accommodationId": "mountain-chalet-hot-tub",
+    "host_name": "Mark Johnson",
+    "rating": 4.7,
+    "description": "Experience ultimate relaxation in this charming mountain chalet. Features a private hot tub with stunning views.",
+    "amenities": ["Hot Tub", "Mountain Views", "Fireplace", "Deck"],
+    "image": "https://source.unsplash.com/random/800x600/?chalet"
+  },
+  {
+    "id": 7,
+    "name": "Urban Studio Apartment",
+    "neighbourhood": "City Center",
+    "room_type": "Studio Apartment",
+    "price": 100,
+    "accommodationId": "urban-studio-apartment",
+    "host_name": "Emma Davis",
+    "rating": 4.5,
+    "description": "A cozy studio apartment in the heart of the city. Ideal for solo travelers or couples exploring the urban lifestyle.",
+    "amenities": ["Wi-Fi", "Kitchenette", "TV", "Central Location"],
+    "image": "https://source.unsplash.com/random/800x600/?studio"
+  },
+  {
+    "id": 8,
+    "name": "Secluded Beach House",
+    "neighbourhood": "Secluded Beach",
+    "room_type": "Entire House",
+    "price": 300,
+    "accommodationId": "secluded-beach-house",
+    "host_name": "Olivia Wilson",
+    "rating": 4.9,
+    "description": "Escape to paradise in this secluded beach house. Enjoy peace and tranquility with direct access to a pristine beach.",
+    "amenities": [
+      "Private Beach",
+      "Ocean Views",
+      "Outdoor Dining",
+      "BBQ Grill"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beach-house"
+  },
+  {
+    "id": 9,
+    "name": "Riverside Cabin Retreat",
+    "neighbourhood": "Riverside",
+    "room_type": "Entire Cabin",
+    "price": 160,
+    "accommodationId": "riverside-cabin-retreat",
+    "host_name": "William Brown",
+    "rating": 4.6,
+    "description": "Experience the serenity of riverside living in this charming cabin retreat. Perfect for fishing and outdoor adventures.",
+    "amenities": ["Riverside Views", "Fishing Dock", "Fire Pit", "Deck"],
+    "image": "https://source.unsplash.com/random/800x600/?riverside-cabin"
+  },
+  {
+    "id": 10,
+    "name": "Luxury Penthouse with Skyline Views",
+    "neighbourhood": "City Center",
+    "room_type": "Penthouse",
+    "price": 500,
+    "accommodationId": "luxury-penthouse-skyline-views",
+    "host_name": "James Anderson",
+    "rating": 5.0,
+    "description": "Indulge in luxury living with panoramic skyline views from this stunning penthouse. Perfect for discerning travelers.",
+    "amenities": [
+      "Roof Terrace",
+      "Jacuzzi",
+      "Gourmet Kitchen",
+      "Concierge Service"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?penthouse"
+  },
+  {
+    "id": 11,
+    "name": "Tranquil Lakeside Retreat",
+    "neighbourhood": "Lakeside",
+    "room_type": "Entire House",
+    "price": 220,
+    "accommodationId": "tranquil-lakeside-retreat",
+    "host_name": "Sophia Taylor",
+    "rating": 4.8,
+    "description": "Escape the hustle and bustle in this tranquil lakeside retreat. Perfect for fishing, kayaking, and nature lovers.",
+    "amenities": ["Lakeside Views", "Boat Dock", "Fire Pit", "Screened Porch"],
+    "image": "https://source.unsplash.com/random/800x600/?lakeside-retreat"
+  },
+  {
+    "id": 12,
+    "name": "Eco-Friendly Treehouse Getaway",
+    "neighbourhood": "Forest",
+    "room_type": "Entire Treehouse",
+    "price": 180,
+    "accommodationId": "eco-friendly-treehouse-getaway",
+    "host_name": "Ethan Clark",
+    "rating": 4.7,
+    "description": "Experience the magic of nature in this eco-friendly treehouse getaway. Nestled in the forest canopy for a unique stay.",
+    "amenities": [
+      "Treehouse Views",
+      "Hammocks",
+      "Outdoor Shower",
+      "Nature Trails"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?treehouse"
+  },
+  {
+    "id": 13,
+    "name": "Ski-In/Ski-Out Chalet",
+    "neighbourhood": "Ski Resort",
+    "room_type": "Entire Chalet",
+    "price": 350,
+    "accommodationId": "ski-in-ski-out-chalet",
+    "host_name": "Abigail Moore",
+    "rating": 4.9,
+    "description": "Hit the slopes from this ski-in/ski-out chalet. Enjoy luxury living with direct access to the ski resort.",
+    "amenities": [
+      "Ski-In/Ski-Out Access",
+      "Hot Tub",
+      "Fireplace",
+      "Ski Storage"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?ski-chalet"
+  },
+  {
+    "id": 14,
+    "name": "Tropical Villa with Private Pool",
+    "neighbourhood": "Tropical Paradise",
+    "room_type": "Private Villa",
+    "price": 400,
+    "accommodationId": "tropical-villa-private-pool",
+    "host_name": "Ava Garcia",
+    "rating": 4.8,
+    "description": "Escape to a tropical paradise in this luxurious villa with a private pool. Perfect for relaxation and indulgence.",
+    "amenities": [
+      "Private Pool",
+      "Tropical Gardens",
+      "Outdoor Lounge",
+      "Gourmet Kitchen"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?tropical-villa"
+  },
+  {
+    "id": 15,
+    "name": "Quaint Farmhouse Retreat",
+    "neighbourhood": "Countryside",
+    "room_type": "Entire Farmhouse",
+    "price": 200,
+    "accommodationId": "quaint-farmhouse-retreat",
+    "host_name": "Daniel Martinez",
+    "rating": 4.6,
+    "description": "Experience country living in this charming farmhouse retreat. Perfect for a peaceful getaway surrounded by nature.",
+    "amenities": [
+      "Farm Views",
+      "Wraparound Porch",
+      "Fire Pit",
+      "Outdoor Dining"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?farmhouse"
+  },
+  {
+    "id": 16,
+    "name": "Historic Mansion in the Heart of the City",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Mansion",
+    "price": 800,
+    "accommodationId": "historic-mansion-city-center",
+    "host_name": "Lucas Brown",
+    "rating": 5.0,
+    "description": "Step back in time in this beautifully restored historic mansion. Luxury living with modern amenities in the city center.",
+    "amenities": [
+      "Historic Charm",
+      "Grand Ballroom",
+      "Gardens",
+      "Concierge Service"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?mansion"
+  },
+  {
+    "id": 17,
+    "name": "Rustic Log Cabin with Mountain Views",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire Cabin",
+    "price": 170,
+    "accommodationId": "rustic-log-cabin-mountain-views",
+    "host_name": "Sophie Johnson",
+    "rating": 4.7,
+    "description": "Experience the beauty of the mountains in this rustic log cabin. Stunning views and cozy interiors for a memorable stay.",
+    "amenities": ["Mountain Views", "Wood-Burning Stove", "Deck", "BBQ Grill"],
+    "image": "https://source.unsplash.com/random/800x600/?log-cabin"
+  },
+  {
+    "id": 18,
+    "name": "City View Loft with Rooftop Terrace",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Loft",
+    "price": 180,
+    "accommodationId": "city-view-loft-rooftop-terrace",
+    "host_name": "Oliver Taylor",
+    "rating": 4.8,
+    "description": "Enjoy panoramic city views from this stylish loft apartment. Features a private rooftop terrace for al fresco dining.",
+    "amenities": [
+      "City Views",
+      "Rooftop Terrace",
+      "Modern Design",
+      "Free Parking"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?city-loft"
+  },
+  {
+    "id": 19,
+    "name": "Serenity by the Sea - Beachfront Villa",
+    "neighbourhood": "Beachfront",
+    "room_type": "Private Villa",
+    "price": 450,
+    "accommodationId": "serenity-sea-beachfront-villa",
+    "host_name": "Isabella Anderson",
+    "rating": 4.9,
+    "description": "Experience serenity by the sea in this luxurious beachfront villa. Direct access to the beach and breathtaking ocean views.",
+    "amenities": [
+      "Private Beach",
+      "Infinity Pool",
+      "Outdoor Lounge",
+      "Gourmet Kitchen"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beachfront-villa"
+  },
+  {
+    "id": 20,
+    "name": "Chic Urban Loft with Skyline Views",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Loft",
+    "price": 220,
+    "accommodationId": "chic-urban-loft-skyline-views",
+    "host_name": "Sophia Martinez",
+    "rating": 4.7,
+    "description": "Indulge in urban chic living with panoramic skyline views from this stylish loft. Perfect for city explorers.",
+    "amenities": [
+      "City Views",
+      "Modern Design",
+      "Gourmet Kitchen",
+      "Central Location"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?urban-loft"
+  },
+  {
+    "id": 21,
+    "name": "Idyllic Countryside Cottage",
+    "neighbourhood": "Countryside",
+    "room_type": "Entire Cottage",
+    "price": 150,
+    "accommodationId": "idyllic-countryside-cottage",
+    "host_name": "Ella Brown",
+    "rating": 4.6,
+    "description": "Escape to the idyllic countryside in this charming cottage. Peaceful surroundings and rural charm for a relaxing stay.",
+    "amenities": ["Countryside Views", "Garden", "Fire Pit", "Outdoor Dining"],
+    "image": "https://source.unsplash.com/random/800x600/?countryside-cottage"
+  },
+  {
+    "id": 22,
+    "name": "Rustic Barn Conversion",
+    "neighbourhood": "Rural",
+    "room_type": "Entire Barn",
+    "price": 190,
+    "accommodationId": "rustic-barn-conversion",
+    "host_name": "William Johnson",
+    "rating": 4.7,
+    "description": "Experience the charm of rural living in this rustic barn conversion. Perfect for a unique and memorable getaway.",
+    "amenities": [
+      "Rural Charm",
+      "Open Plan Living",
+      "Outdoor Space",
+      "Pet Friendly"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?barn"
+  },
+  {
+    "id": 23,
+    "name": "Urban Oasis with Private Garden",
+    "neighbourhood": "City Center",
+    "room_type": "Entire House",
+    "price": 280,
+    "accommodationId": "urban-oasis-private-garden",
+    "host_name": "Olivia Taylor",
+    "rating": 4.8,
+    "description": "Escape the city hustle in this urban oasis with a private garden. Tranquil retreat in the heart of the city.",
+    "amenities": [
+      "Private Garden",
+      "Outdoor Dining",
+      "Fire Pit",
+      "Central Location"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?urban-garden"
+  },
+  {
+    "id": 24,
+    "name": "Secluded Mountain Retreat",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire House",
+    "price": 250,
+    "accommodationId": "secluded-mountain-retreat",
+    "host_name": "Jacob Moore",
+    "rating": 4.9,
+    "description": "Find peace and tranquility in this secluded mountain retreat. Stunning views and nature trails await.",
+    "amenities": ["Mountain Views", "Hiking Trails", "Deck", "BBQ Grill"],
+    "image": "https://source.unsplash.com/random/800x600/?mountain-retreat"
+  },
+  {
+    "id": 25,
+    "name": "Sunny Beachfront Apartment",
+    "neighbourhood": "Beachfront",
+    "room_type": "Entire Apartment",
+    "price": 180,
+    "accommodationId": "sunny-beachfront-apartment",
+    "host_name": "Lucas Wilson",
+    "rating": 4.7,
+    "description": "Enjoy sun, sand, and sea from this sunny beachfront apartment. Perfect for beach lovers and water enthusiasts.",
+    "amenities": ["Beach Access", "Ocean Views", "Balcony", "Outdoor Dining"],
+    "image": "https://source.unsplash.com/random/800x600/?beach-apartment"
+  },
+  {
+    "id": 26,
+    "name": "Charming Riverside Cottage",
+    "neighbourhood": "Riverside",
+    "room_type": "Entire Cottage",
+    "price": 160,
+    "accommodationId": "charming-riverside-cottage",
+    "host_name": "Emma Martinez",
+    "rating": 4.6,
+    "description": "Escape to the riverside in this charming cottage retreat. Peaceful surroundings and river views for a relaxing stay.",
+    "amenities": ["Riverside Views", "Garden", "Deck", "Fire Pit"],
+    "image": "https://source.unsplash.com/random/800x600/?riverside-cottage"
+  },
+  {
+    "id": 27,
+    "name": "Modern Beach House with Pool",
+    "neighbourhood": "Beachfront",
+    "room_type": "Entire House",
+    "price": 350,
+    "accommodationId": "modern-beach-house-pool",
+    "host_name": "Sophie Moore",
+    "rating": 4.8,
+    "description": "Experience modern beach living in this stylish beach house. Features a private pool and direct beach access.",
+    "amenities": [
+      "Private Pool",
+      "Beach Access",
+      "Outdoor Lounge",
+      "Gourmet Kitchen"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beach-house-pool"
+  },
+  {
+    "id": 28,
+    "name": "Rustic Mountain Lodge",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire Lodge",
+    "price": 300,
+    "accommodationId": "rustic-mountain-lodge",
+    "host_name": "Noah Anderson",
+    "rating": 4.9,
+    "description": "Escape to the mountains in this rustic lodge retreat. Cozy interiors and mountain views for a memorable stay.",
+    "amenities": ["Mountain Views", "Fireplace", "Outdoor Deck", "BBQ Grill"],
+    "image": "https://source.unsplash.com/random/800x600/?mountain-lodge"
+  },
+  {
+    "id": 29,
+    "name": "Urban Chic Apartment with Balcony",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Apartment",
+    "price": 160,
+    "accommodationId": "urban-chic-apartment-balcony",
+    "host_name": "Mia Johnson",
+    "rating": 4.7,
+    "description": "Experience urban chic living in this stylish apartment with a private balcony. Perfect for city explorers.",
+    "amenities": ["City Views", "Balcony", "Modern Design", "Central Location"],
+    "image": "https://source.unsplash.com/random/800x600/?urban-apartment"
+  },
+  {
+    "id": 30,
+    "name": "Ski Lodge Retreat",
+    "neighbourhood": "Ski Resort",
+    "room_type": "Entire Lodge",
+    "price": 280,
+    "accommodationId": "ski-lodge-retreat",
+    "host_name": "Ethan Wilson",
+    "rating": 4.8,
+    "description": "Indulge in cozy mountain living in this ski lodge retreat. Perfect for ski vacations and winter getaways.",
+    "amenities": [
+      "Ski-In/Ski-Out Access",
+      "Hot Tub",
+      "Fireplace",
+      "Games Room"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?ski-lodge"
+  },
+  {
+    "id": 31,
+    "name": "Modern City Apartment with River Views",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Apartment",
+    "price": 200,
+    "accommodationId": "modern-city-apartment-river-views",
+    "host_name": "Oliver Brown",
+    "rating": 4.9,
+    "description": "Enjoy modern city living with stunning river views from this stylish apartment. Ideal for urban explorers.",
+    "amenities": [
+      "River Views",
+      "Modern Design",
+      "Balcony",
+      "Central Location"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?city-apartment"
+  },
+  {
+    "id": 32,
+    "name": "Cozy Cabin with Lake Views",
+    "neighbourhood": "Lakeside",
+    "room_type": "Entire Cabin",
+    "price": 180,
+    "accommodationId": "cozy-cabin-lake-views",
+    "host_name": "Ava Johnson",
+    "rating": 4.8,
+    "description": "Escape to the lakeside in this cozy cabin retreat. Stunning lake views and serene surroundings for a peaceful stay.",
+    "amenities": ["Lake Views", "Fireplace", "Deck", "BBQ Grill"],
+    "image": "https://source.unsplash.com/random/800x600/?lake-cabin"
+  },
+  {
+    "id": 33,
+    "name": "Luxury Villa with Mountain Views",
+    "neighbourhood": "Mountain",
+    "room_type": "Private Villa",
+    "price": 500,
+    "accommodationId": "luxury-villa-mountain-views",
+    "host_name": "Ella Johnson",
+    "rating": 5.0,
+    "description": "Indulge in luxury living with panoramic mountain views from this stunning villa. Perfect for a relaxing retreat.",
+    "amenities": ["Mountain Views", "Infinity Pool", "Gourmet Kitchen", "Spa"],
+    "image": "https://source.unsplash.com/random/800x600/?villa-mountain"
+  },
+  {
+    "id": 34,
+    "name": "Seaside Cottage with Stunning Views",
+    "neighbourhood": "Seaside",
+    "room_type": "Entire Cottage",
+    "price": 220,
+    "accommodationId": "seaside-cottage-stunning-views",
+    "host_name": "Sophia Wilson",
+    "rating": 4.7,
+    "description": "Experience seaside living in this charming cottage with stunning ocean views. Perfect for a coastal getaway.",
+    "amenities": ["Ocean Views", "Private Deck", "Fire Pit", "Beach Access"],
+    "image": "https://source.unsplash.com/random/800x600/?seaside-cottage"
+  },
+  {
+    "id": 35,
+    "name": "Urban Loft with Industrial Chic Design",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Loft",
+    "price": 180,
+    "accommodationId": "urban-loft-industrial-chic-design",
+    "host_name": "Mia Moore",
+    "rating": 4.8,
+    "description": "Indulge in urban chic living with industrial design elements in this stylish loft apartment. Perfect for city explorers.",
+    "amenities": [
+      "Industrial Design",
+      "City Views",
+      "Modern Kitchen",
+      "Central Location"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?industrial-loft"
+  },
+  {
+    "id": 36,
+    "name": "Eco-Friendly Beach Bungalow",
+    "neighbourhood": "Beachfront",
+    "room_type": "Entire Bungalow",
+    "price": 250,
+    "accommodationId": "eco-friendly-beach-bungalow",
+    "host_name": "Oliver Martinez",
+    "rating": 4.9,
+    "description": "Experience eco-friendly beach living in this charming bungalow. Perfect for sustainable travelers and nature lovers.",
+    "amenities": [
+      "Eco-Friendly Design",
+      "Beach Access",
+      "Outdoor Shower",
+      "Sun Loungers"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beach-bungalow"
+  },
+  {
+    "id": 37,
+    "name": "Mountain View Retreat",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire House",
+    "price": 220,
+    "accommodationId": "mountain-view-retreat",
+    "host_name": "Noah Wilson",
+    "rating": 4.8,
+    "description": "Escape to the mountains in this serene retreat with panoramic mountain views. Perfect for nature lovers and outdoor enthusiasts.",
+    "amenities": ["Mountain Views", "Deck", "Fire Pit", "Hiking Trails"],
+    "image": "https://source.unsplash.com/random/800x600/?mountain-view"
+  },
+  {
+    "id": 38,
+    "name": "Chic City Apartment with Rooftop Terrace",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Apartment",
+    "price": 190,
+    "accommodationId": "chic-city-apartment-rooftop-terrace",
+    "host_name": "Ethan Moore",
+    "rating": 4.7,
+    "description": "Indulge in city living with a private rooftop terrace in this chic apartment. Ideal for urban explorers.",
+    "amenities": [
+      "City Views",
+      "Rooftop Terrace",
+      "Modern Design",
+      "Central Location"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?city-apartment-terrace"
+  },
+  {
+    "id": 39,
+    "name": "Cozy Lakeside Cabin",
+    "neighbourhood": "Lakeside",
+    "room_type": "Entire Cabin",
+    "price": 170,
+    "accommodationId": "cozy-lakeside-cabin",
+    "host_name": "Ava Moore",
+    "rating": 4.6,
+    "description": "Escape to the lakeside in this cozy cabin retreat. Peaceful surroundings and lake views for a relaxing getaway.",
+    "amenities": ["Lake Views", "Dock", "Fire Pit", "Deck"],
+    "image": "https://source.unsplash.com/random/800x600/?lakeside-cabin"
+  },
+  {
+    "id": 40,
+    "name": "Luxury Beachfront Villa",
+    "neighbourhood": "Beachfront",
+    "room_type": "Private Villa",
+    "price": 600,
+    "accommodationId": "luxury-beachfront-villa",
+    "host_name": "Sophie Brown",
+    "rating": 5.0,
+    "description": "Indulge in luxury beach living in this stunning villa with direct beach access. Perfect for a lavish seaside retreat.",
+    "amenities": [
+      "Private Beach",
+      "Infinity Pool",
+      "Outdoor Lounge",
+      "Gourmet Kitchen"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beachfront-villa-luxury"
+  },
+  {
+    "id": 41,
+    "name": "Charming Countryside Cottage",
+    "neighbourhood": "Countryside",
+    "room_type": "Entire Cottage",
+    "price": 180,
+    "accommodationId": "charming-countryside-cottage",
+    "host_name": "Olivia Moore",
+    "rating": 4.7,
+    "description": "Escape to the countryside in this charming cottage retreat. Tranquil surroundings and rural charm for a relaxing stay.",
+    "amenities": ["Countryside Views", "Garden", "Fire Pit", "Outdoor Dining"],
+    "image": "https://source.unsplash.com/random/800x600/?countryside-cottage-charming"
+  },
+  {
+    "id": 42,
+    "name": "Rustic Mountain Cabin",
+    "neighbourhood": "Mountain",
+    "room_type": "Entire Cabin",
+    "price": 190,
+    "accommodationId": "rustic-mountain-cabin",
+    "host_name": "Jacob Wilson",
+    "rating": 4.8,
+    "description": "Escape to the mountains in this rustic cabin retreat. Cozy interiors and mountain views for a memorable stay.",
+    "amenities": [
+      "Mountain Views",
+      "Wood-Burning Stove",
+      "Deck",
+      "Hiking Trails"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?mountain-cabin"
+  },
+  {
+    "id": 43,
+    "name": "City Center Penthouse with Panoramic Views",
+    "neighbourhood": "City Center",
+    "room_type": "Penthouse",
+    "price": 700,
+    "accommodationId": "city-center-penthouse-panoramic-views",
+    "host_name": "Ella Moore",
+    "rating": 5.0,
+    "description": "Indulge in luxury city living with panoramic views from this stunning penthouse. Perfect for a lavish urban retreat.",
+    "amenities": [
+      "Panoramic Views",
+      "Roof Terrace",
+      "Jacuzzi",
+      "Concierge Service"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?penthouse-city"
+  },
+  {
+    "id": 44,
+    "name": "Secluded Forest Cabin",
+    "neighbourhood": "Forest",
+    "room_type": "Entire Cabin",
+    "price": 220,
+    "accommodationId": "secluded-forest-cabin",
+    "host_name": "Lucas Moore",
+    "rating": 4.9,
+    "description": "Find peace and tranquility in this secluded forest cabin. Surrounded by nature for a serene getaway.",
+    "amenities": [
+      "Forest Views",
+      "Wood-Burning Stove",
+      "Deck",
+      "Hiking Trails"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?forest-cabin"
+  },
+  {
+    "id": 45,
+    "name": "Modern Urban Apartment with Balcony",
+    "neighbourhood": "City Center",
+    "room_type": "Entire Apartment",
+    "price": 200,
+    "accommodationId": "modern-urban-apartment-balcony",
+    "host_name": "Noah Moore",
+    "rating": 4.8,
+    "description": "Experience modern city living with a private balcony in this stylish apartment. Perfect for urban explorers.",
+    "amenities": ["City Views", "Balcony", "Modern Design", "Central Location"],
+    "image": "https://source.unsplash.com/random/800x600/?urban-apartment-balcony"
+  },
+  {
+    "id": 46,
+    "name": "Tropical Beach Bungalow",
+    "neighbourhood": "Beachfront",
+    "room_type": "Entire Bungalow",
+    "price": 280,
+    "accommodationId": "tropical-beach-bungalow",
+    "host_name": "Ava Moore",
+    "rating": 4.9,
+    "description": "Escape to a tropical paradise in this charming beach bungalow. Perfect for a romantic getaway or family vacation.",
+    "amenities": [
+      "Private Beach",
+      "Tropical Gardens",
+      "Outdoor Lounge",
+      "Gourmet Kitchen"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?beach-bungalow-tropical"
+  },
+  {
+    "id": 47,
+    "name": "Ski Chalet with Mountain Views",
+    "neighbourhood": "Ski Resort",
+    "room_type": "Entire Chalet",
+    "price": 350,
+    "accommodationId": "ski-chalet-mountain-views",
+    "host_name": "Sophia Moore",
+    "rating": 4.9,
+    "description": "Hit the slopes from this charming ski chalet with panoramic mountain views. Ideal for winter sports enthusiasts.",
+    "amenities": [
+      "Ski-In/Ski-Out Access",
+      "Hot Tub",
+      "Fireplace",
+      "Ski Storage"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?ski-chalet-mountain"
+  },
+  {
+    "id": 48,
+    "name": "Rural Farmhouse Retreat",
+    "neighbourhood": "Rural",
+    "room_type": "Entire Farmhouse",
+    "price": 220,
+    "accommodationId": "rural-farmhouse-retreat",
+    "host_name": "William Moore",
+    "rating": 4.8,
+    "description": "Escape to the countryside in this rustic farmhouse retreat. Tranquil surroundings and rural charm for a relaxing stay.",
+    "amenities": [
+      "Farm Views",
+      "Wraparound Porch",
+      "Fire Pit",
+      "Outdoor Dining"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?rural-farmhouse"
+  },
+  {
+    "id": 49,
+    "name": "Charming Seaside Cottage",
+    "neighbourhood": "Seaside",
+    "room_type": "Entire Cottage",
+    "price": 200,
+    "accommodationId": "charming-seaside-cottage",
+    "host_name": "Ethan Moore",
+    "rating": 4.8,
+    "description": "Escape to the seaside in this charming cottage retreat. Perfect for a coastal getaway with stunning ocean views.",
+    "amenities": ["Ocean Views", "Private Deck", "Fire Pit", "Beach Access"],
+    "image": "https://source.unsplash.com/random/800x600/?seaside-cottage-charming"
+  },
+  {
+    "id": 50,
+    "name": "Luxury City Penthouse with Skyline Views",
+    "neighbourhood": "City Center",
+    "room_type": "Penthouse",
+    "price": 1000,
+    "accommodationId": "luxury-city-penthouse-skyline-views",
+    "host_name": "Emma Moore",
+    "rating": 5.0,
+    "description": "Indulge in luxury city living with breathtaking skyline views from this stunning penthouse. Perfect for a lavish urban retreat.",
+    "amenities": [
+      "Skyline Views",
+      "Private Elevator",
+      "Roof Terrace",
+      "Concierge Service"
+    ],
+    "image": "https://source.unsplash.com/random/800x600/?city-penthouse-luxury"
+  }
+]
