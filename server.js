@@ -1,13 +1,10 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+// to get started
+import booksData from "./data/books.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -21,8 +18,16 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json(endpoints);
+  console.log(endpoints);
 });
+
+app.get("/books", (req, res) => {
+  res.json(booksData);
+});
+
+// Getting all endpoint with express List Endpoints
+const endpoints = expressListEndpoints(app);
 
 // Start the server
 app.listen(port, () => {
