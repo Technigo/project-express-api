@@ -19,9 +19,50 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Importing data from JSON file
+import songs from "./data/top-music.json";
+
+// Define API documentation route
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({
+    endpoints: [
+      {
+        method: "GET",
+        path: "/songs",
+        description: "Returns an array of all songs",
+      },
+      {
+        method: "GET",
+        path: "/songs/:id",
+        description: "Returns a single song by ID",
+      },
+      {
+        method: "GET",
+        path: "/songs",
+        query: "?genre=pop",
+        description: "Filters songs by genre",
+      },
+    ],
+  });
+});
+
+// Route to return all songs with optional filtering
+app.get("/songs", (req, res) => {
+  const { genre } = req.query;
+  const filteredSongs = genre
+    ? songs.filter(song => song.genre.toLowerCase() === genre.toLowerCase())
+    : songs;
+  res.json(filteredSongs);
+});
+
+// Route to return a single song by ID
+app.get("/songs/:id", (req, res) => {
+  const song = songs.find(song => song.id === parseInt(req.params.id));
+  if (song) {
+    res.json(song);
+  } else {
+    res.status(404).send("Song not found");
+  }
 });
 
 // Start the server
