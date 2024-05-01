@@ -1,0 +1,17 @@
+Instructions:
+
+- Use JSON file along with find, filter, slice, to create API endpoints
+- RESTful routes: plural term for data
+
+Requirements:
+
+- 3 routes
+- 1 should return a collection (array)
+- 1 should return a single result
+- it should be RESTful
+
+Stretch:
+
+- Handle when single item data don't exist
+- Accept filters via query params
+- Build a frontend to show the data
