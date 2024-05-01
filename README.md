@@ -1,13 +1,17 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this weeks introduction to backend we had to create an API using Express and generate a couple of RESTful endpoints to return an array or single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I generated a json file with horses for sale. I played around with some filters and decided to create the following endpoints:
+
+- "/", API overview
+- "/horses", all horses
+- "/year/:year", horses born a specific year (query to filter only winning horses available by adding "?won=true")
+- "/gender/:gender", horses of a specific gender
+- "/horses/:horseId", horse by ID
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://horses-for-sale.onrender.com/

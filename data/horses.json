@@ -464,7 +464,7 @@
       {
         "id": 43,
         "name": "Buddy",
-        "year_birth": 2015,
+        "year_birth": 2008,
         "gender": "Gelding",
         "color": "Palomino",
         "breed": "Mustang",
@@ -486,7 +486,7 @@
       {
         "id": 45,
         "name": "Sunny",
-        "year_birth": 2015,
+        "year_birth": 2020,
         "gender": "Mare",
         "color": "Black",
         "breed": "Thoroughbred",
@@ -508,7 +508,7 @@
       {
         "id": 47,
         "name": "Duke",
-        "year_birth": 2017,
+        "year_birth": 2020,
         "gender": "Stallion",
         "color": "Palomino",
         "breed": "Quarter Horse",

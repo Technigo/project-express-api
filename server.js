@@ -6,7 +6,7 @@ import horseData from "./data/horses.json"
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -29,33 +29,45 @@ app.get("/horses", (req, res) => {
 //Get horses born a specific year
 app.get("/year/:year", (req, res) => {
   const year = req.params.year
-  const horsesFromYear = horseData.filter((item) => item.year_birth === +year)
-  if (horsesFromYear.length > 0) {
-    res.json(horsesFromYear)
-  } else {
-    res
+  const showWon = req.query.won
+  let horsesFromYear = horseData.filter((item) => item.year_birth === +year)
+
+  if (showWon) {
+    horsesFromYear = horsesFromYear.filter((item) => item.competitions_won)
+  }
+
+  if (horsesFromYear.length === 0) {
+    return res
       .status(404)
       .send(
-        "No horses found from this year, try adding a different year at the end of the URL"
+        "No horses found with this criteria, try adding a different year at the end of the URL"
       )
   }
+
+  res.json(horsesFromYear)
 })
 
 //Get horses of a specific gender
 app.get("/gender/:gender", (req, res) => {
   const gender = req.params.gender
-  const horsesOfGender = horseData.filter(
+  const showWon = req.query.won
+  let horsesOfGender = horseData.filter(
     (item) => item.gender.toLowerCase() === gender
   )
-  if (horsesOfGender.length > 0) {
-    res.json(horsesOfGender)
-  } else {
-    res
+
+  if (showWon) {
+    horsesOfGender = horsesOfGender.filter((item) => item.competitions_won)
+  }
+
+  if (horsesOfGender.length === 0) {
+    return res
       .status(404)
       .send(
         "Try adding an existing gender at the end of the URL - stallion, gelding or mare"
       )
   }
+
+  res.json(horsesOfGender)
 })
 
 //Get one horse based on ID
@@ -68,7 +80,7 @@ app.get("/horses/:horseId", (req, res) => {
     res
       .status(404)
       .send(
-        "No horse with that ID. There are only 50 horses for sale, try adding and ID between 1-50 at the end of the URL"
+        "No horse found with this ID. There are only 50 horses for sale, try adding and ID between 1-50 at the end of the URL"
       )
   }
 })
