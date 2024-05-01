@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import flowerData from "./data/old-flowers.json";
 
+// console.log(flowerData.length);
+
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080;
 const app = express();
@@ -43,15 +45,21 @@ app.get("/flowers/:flowerId", (req, res) => {
 });
 
 // Get flowers based on color
-flowerData.forEach((flower) => {
-  flower.color.forEach((color) => {
-    app.get(`/flowers/color/${color.toLowerCase()}`, (req, res) => {
-      const flowersWithColor = flowerData.filter((flower) =>
-        flower.color.includes(color)
-      );
-      res.json(flowersWithColor);
-    });
-  });
+app.get("/flowers/color/:color", (req, res) => {
+  const color = req.params.color.toLowerCase();
+  const flowersWithColor = flowerData.filter((flower) =>
+    flower.color.some(
+      (c) =>
+        replaceSwedishCharacters(c.toLowerCase()) ===
+        replaceSwedishCharacters(color)
+    )
+  );
+
+  if (flowersWithColor.length > 0) {
+    res.json(flowersWithColor);
+  } else {
+    res.status(404).send("No flowers with that color were found");
+  }
 });
 
 // Get flowers based on type
