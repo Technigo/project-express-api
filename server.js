@@ -3,13 +3,6 @@ import expressListEndpoints from "express-list-endpoints";
 import cors from "cors";
 import data from "./data/nobel-prize-women.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -60,6 +53,21 @@ app.get("/year/:year", (req, res) => {
     res.status(404).send("No female award winners was found that year");
   } else {
     res.json(awardsFromYear);
+  }
+});
+
+// Get awards won in a specific category
+// http://localhost:8080/category/chemistry for example
+app.get("/category/:category", (req, res) => {
+  const requestedCategory = req.params.category.toLowerCase();
+  const awardsInCategory = data.filter((item) =>
+    item.Category.toLowerCase().includes(requestedCategory)
+  );
+
+  if (awardsInCategory.length === 0) {
+    res.status(404).send("No female award winners was found in this category");
+  } else {
+    res.json(awardsInCategory);
   }
 });
 
