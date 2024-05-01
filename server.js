@@ -23,7 +23,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  res.json(booksData);
+  const showTitle = req.query.title;
+
+  if (showTitle) {
+    const titleSearch = booksData.filter((book) =>
+      book.title.toLowerCase().includes(showTitle.toLowerCase())
+    );
+
+    if (titleSearch.length > 0) {
+      res.json(titleSearch);
+    } else {
+      res.status(404).send("Sorry, there is no book with that title.");
+    }
+  } else {
+    res.json(booksData);
+  }
 });
 
 app.get("/books/:bookId", (req, res) => {
