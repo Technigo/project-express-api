@@ -15,3 +15,11 @@ Stretch:
 - Handle when single item data don't exist
 - Accept filters via query params
 - Build a frontend to show the data
+
+Available endpoints
+"/", API overview
+"/horses", all horses
+"/year/:year", horses born a specific year
+"/horses/won", horses that have won competitions
+"/horses/:horseId", specific book by ID
+"search", with query - search for anything in books value
