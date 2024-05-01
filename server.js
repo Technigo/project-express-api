@@ -23,6 +23,21 @@ app.get("/songs", (req, res) => {
   res.json(topMusicData)
 })
 
+//routeparam
+app.get("/songs/:songId", (req, res) => {
+  const { songId } = req.params
+
+  const song = topMusicData.find(song => +songId === song.id)
+
+
+  if (song) {
+  res.json(song)
+  } else {
+    res.status(404).send("song not found")
+  }
+})
+
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
