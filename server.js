@@ -73,12 +73,14 @@ app.get("/tracks", (req, res) => {
 //Get one song based on id
 app.get("/tracks/:trackId", (req, res) => {
   const { trackId } = req.params;
-  
 
   const track = topMusicData.find((track) => +trackId === track.id);
 
   if (track) {
     res.json(track);
+  } else {
+    // If track not found, return 404 with a custom error message
+    res.status(404).json({ error: "Track not found" });
   }
 });
 
@@ -89,5 +91,5 @@ app.use((req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  
+  console.log(`Server running on http://localhost:${port}`);
 });
