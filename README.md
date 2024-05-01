@@ -1,13 +1,30 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a basic Express.js application that serves as a book information API. Through the routes, the user can look up (get) books, books by author, books by title, and see a list of top-rated books. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I faced a  challenge in organizing the routes correctly. Specifically, both authors and books were being accessed through the same /books route, and I would get errors. Figuring out how to separate these two functionalities within the same path was a bit tricky. I still don't quite understand why we solved it the way we did as I was collaborating with someone else. This experience taught me a lot about organizing a web project in a way that makes sense and is easy to navigate.
+
+The second time around I included express list endpoints, and this seemed to solve some issues when I changed some of the routes. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://mc-express-api.onrender.com/
+
+## Routes
+
+URL: /
+- Displays API documentation.
+
+URL: /books
+- Lists all books.
+
+URL: /books?author=AuthorName
+- Shows books by a specific author. Replace 'AuthorName' with the author's name. Do not need the whole name to get results.
+
+URL: /books/top?count=R
+- Shows top rated books by average rating. Replace 'R' with a number (default is 5).
+
+URL: /books/:title
+- Retrieves a book that includes the specified substring in its title. Replace ':title' with the part of the book's title you are searching for. (!) Only returns one book.
