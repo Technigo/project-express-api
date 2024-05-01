@@ -2,8 +2,6 @@ import cors from "cors";
 import express from "express";
 import expressListEndpoints from "express-list-endpoints";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started
 import booksData from "./data/books.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden

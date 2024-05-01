@@ -1,12 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is the first Backend Week and we are building our first API with Express.js.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by installing all dependencies and the doing the basic routes in server.js. Additionally I wanted to add a query route wich I did for searching the book titles.
+If I would have more time I would build the frontend.
 
 ## View it live
 
