@@ -16,9 +16,10 @@
         <h2>Endpoints</h2>
         <% data.forEach((endpoint) => { %>
         <ul style="list-style: none; padding: 0">
-          <li>Path: <%= endpoint.path %></li>
+          <li>Endpoint: <%= endpoint.path %></li>
           <li>Method: <%= endpoint.methods.join(", ") %></li>
           <li>Middleware: <%= endpoint.middlewares.join(", ") %></li>
+          <li>Description: <%= endpoint.description %></li>
         </ul>
         <% }) %>
       </div>
@@ -31,8 +32,8 @@
             different endpoints
           </li>
           <li>
-            Try adding some query parameters, e.g."?genre=edm" to the /songs
-            endpoint
+            Try adding some query parameters, e.g."?genre=edm" and/or
+            "artist=Shawn Mendes" to the /songs endpoint
           </li>
         </ol>
       </div>
