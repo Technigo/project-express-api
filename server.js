@@ -1,6 +1,8 @@
 import express from "express";
 import expressListEndpoints from "express-list-endpoints";
 import cors from "cors";
+
+// Import json file converted from dataset Women in Nobel Prize (1901-2019) (https://www.kaggle.com/datasets/mbogernetto/women-in-nobel-prize-19012019?select=nobel_prize_awarded_women_details_1901_2019.csv)
 import data from "./data/nobel-prize-women.json";
 
 
@@ -50,7 +52,7 @@ app.get("/year/:year", (req, res) => {
   const awardsFromYear = data.filter((item) => item.Year === +year);
 
   if (awardsFromYear.length === 0) {
-    res.status(404).send("No female award winners was found that year");
+    res.status(404).send("No female award winners was found that year. Note that this dataset showcases female winners between the years of 1901 and 2019. ");
   } else {
     res.json(awardsFromYear);
   }
@@ -65,7 +67,7 @@ app.get("/category/:category", (req, res) => {
   );
 
   if (awardsInCategory.length === 0) {
-    res.status(404).send("No female award winners was found in this category");
+    res.status(404).send("No female award winners was found in requested category");
   } else {
     res.json(awardsInCategory);
   }
