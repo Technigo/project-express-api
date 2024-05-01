@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was to create an Express backend API with at least three RESTful endpoints, returning arrays or single items using hard-coded JSON data and array methods. The API was supposed to be RESTful and there should be API-documentation at the "/"-endpoint.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started reading the documentation for the express-list-endpoints and how to implement that. Once it was implemented, I started building the first tracks-endpoint. Then the Id-endpoint and further on I added filter-functionalities with the help of query-params to the tracks-endpoint.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://top-music.onrender.com/

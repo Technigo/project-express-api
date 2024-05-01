@@ -14,13 +14,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Route to show documentation of your API
+// Route to show documentation of the API
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
   res.json(endpoints);
 });
 
 // Start defining your routes here
+
 // Get all topMusicData
 app.get("/tracks", (req, res) => {
   const { artist, genre, bpm, trackName, popularity, danceability } = req.query;
@@ -72,7 +73,7 @@ app.get("/tracks", (req, res) => {
 //Get one song based on id
 app.get("/tracks/:trackId", (req, res) => {
   const { trackId } = req.params;
-  console.log(trackId);
+  
 
   const track = topMusicData.find((track) => +trackId === track.id);
 
@@ -88,22 +89,5 @@ app.use((req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  
 });
-
-/* {
-    "id": 1,
-    "trackName": "Señorita",
-    "artistName": "Shawn Mendes",
-    "genre": "canadian pop",
-    "bpm": 117,
-    "energy": 55,
-    "danceability": 76,
-    "loudness": -6,
-    "liveness": 8,
-    "valence": 75,
-    "length": 191,
-    "acousticness": 4,
-    "speechiness": 3,
-    "popularity": 79
-  }, */
