@@ -29,12 +29,20 @@ app.get("/songs/:songId", (req, res) => {
 
   const song = topMusicData.find(song => +songId === song.id)
 
-
   if (song) {
   res.json(song)
   } else {
     res.status(404).send("song not found")
   }
+})
+
+app.get("./songs/:sortArtists", (req, res) => {
+  const { sortArtists } = req.params
+  console.log(sortArtists)
+
+  const artistDecending = topMusicData.sort()
+
+  res.json(artistDecending)
 })
 
 
