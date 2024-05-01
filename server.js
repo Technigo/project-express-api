@@ -56,10 +56,10 @@ app.get("/year/:year", (req, res) => {
   const year = req.params.year;
   const awardsFromYear = data.filter((item) => item.Year === +year);
 
-  if (awardsFromYear) {
-    res.json(awardsFromYear);
+  if (awardsFromYear.length === 0) {
+    res.status(404).send("No female award winners was found that year");
   } else {
-    res.status(404).send("Awards from that year was not found");
+    res.json(awardsFromYear);
   }
 });
 
