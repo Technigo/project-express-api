@@ -1,5 +1,5 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import expressListEndpoints from "express-list-endpoints";
 
 // If you're using one of our datasets, uncomment the appropriate import below
@@ -29,12 +29,30 @@ app.get("/books", (req, res) => {
 app.get("/books/:bookId", (req, res) => {
   const { bookId } = req.params;
 
-  const book = booksData.find((book) => +bookId === book.bookID);
+  const book = booksData.find((book) => book.bookID === +bookId);
+
+  console.log(book);
 
   if (book) {
     res.json(book);
   } else {
     res.status(404).send("Sorry, there is no book with that Id.");
+  }
+});
+
+app.get("/averageratings/:ratingNum", (req, res) => {
+  const { ratingNum } = req.params;
+
+  const rating = booksData.filter(
+    (rating) => Math.round(rating.average_rating) === +ratingNum
+  );
+  console.log(rating);
+  console.log(rating.length);
+
+  if (rating.length > 0) {
+    res.json(rating);
+  } else if (rating.length === 0) {
+    res.status(404).send("Sorry, there are no books with that average rating.");
   }
 });
 
