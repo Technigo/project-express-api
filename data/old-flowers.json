@@ -1,0 +1,291 @@
+[
+    {
+      "id": 1,
+      "name": "Pion",
+      "latin_name": "Paeonia",
+      "description": "Pioner är prunkande perenner med stora och doftande blommor i olika färger. Deras elegans och skönhet gör dem till en favorit i trädgården.",
+      "color": ["Rosa", "Vit", "Röd"],
+      "type": "Perenn"
+    },
+    {
+      "id": 2,
+      "name": "Daglilja",
+      "latin_name": "Hemerocallis",
+      "description": "Dagliljor är tåliga perenner med trumpetformade blommor som blommar under en enda dag. Deras färgglada blommor och låga underhåll gör dem till populära val för trädgården.",
+      "color": ["Orange", "Gul", "Röd", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 3,
+      "name": "Stjärnflocka",
+      "latin_name": "Astrantia major",
+      "description": "Stjärnflocka är en gammal trädgårdsväxt med små blommor som liknar stjärnor. Dess frodiga tillväxt och tåliga natur gör den till en populär val för trädgårdsentusiaster.",
+      "color": ["Röd", "Rosa", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 4,
+      "name": "Riddarsporre",
+      "latin_name": "Delphinium",
+      "description": "Riddarsporrar är imponerande perenner med långa, spikliknande blomklasar i olika färger. Deras ståtliga utseende och färgsprakande blommor gör dem till en spektakulär syn i trädgården.",
+      "color": ["Blå", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 5,
+      "name": "Bolltistel",
+      "latin_name": "Echinops",
+      "description": "Bolltistlar är robusta perenner med klotformade blommor på långa stjälkar. Deras exotiska utseende och tåliga natur gör dem till en populär val för trädgården.",
+      "color": ["Blå"],
+      "type": "Perenn"
+    },
+    {
+      "id": 6,
+      "name": "Nepeta",
+      "latin_name": "Nepeta",
+      "description": "Nepeta, även känd som kattmynta, är en tålig perenn med små, lila blommor och aromatiskt lövverk. Dess lockande doft och attraktiva utseende gör den till en favorit hos trädgårdsägare.",
+      "color": ["Lila"],
+      "type": "Perenn"
+    },
+    {
+      "id": 7,
+      "name": "Iris",
+      "latin_name": "Iris",
+      "description": "Irisar är eleganta perenner med svärdliknande blad och stora, färgglada blommor. Deras distinkta utseende och mångfald av färger gör dem till en populär val för trädgården.",
+      "color": ["Blå", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 8,
+      "name": "Vallmo",
+      "latin_name": "Papaver",
+      "description": "Vallmo är vackra perenner eller ettåriga växter med stora, mjuka blommor i olika färger. Deras lättskötta natur och frodiga blomning gör dem till en uppskattad växt i trädgården.",
+      "color": ["Röd", "Orange", "Gul", "Vit"],
+      "type": "Ettårig sommarblomma"
+    },
+    {
+      "id": 9,
+      "name": "Flox",
+      "latin_name": "Phlox",
+      "description": "Floxar är färgglada perenner med klasar av små blommor på upprätta stjälkar. Deras intensiva doft och långa blomningstid gör dem till en populär val för rabatter och gränser i trädgården.",
+      "color": ["Rosa", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 10,
+      "name": "Löjtnantshjärta",
+      "latin_name": "Dicentra spectabilis",
+      "description": "Löjtnantshjärta är en klassisk perenn med sina hängande, hjärtformade blommor i rosa eller vit. Dess romantiska utseende och lättskötta natur gör den till en favorit i gamla svenska trädgårdar.",
+      "color": ["Rosa", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 11,
+      "name": "Kaprifol",
+      "latin_name": "Lonicera",
+      "description": "Kaprifol är en traditionell svensk klätterväxt med sina doftande blommor och vackra lövverk. Dess snabba tillväxt och förmåga att täcka staket eller pergolor gör den till en idealisk växt för gamla trädgårdar.",
+      "color": ["Vit", "Rosa"],
+      "type": "Klätterväxt"
+    },
+    {
+      "id": 12,
+      "name": "Prästkrage",
+      "latin_name": "Leucanthemum vulgare",
+      "description": "Prästkrage är en av de mest klassiska svenska blommorna för rabatter. Deras vita kronblad och gula centrum lyser upp trädgården och lockar till sig bin och fjärilar.",
+      "color": ["Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 13,
+      "name": "Blåklint",
+      "latin_name": "Centaurea cyanus",
+      "description": "Blåklint är en gammal favorit med sina vackra, blå blommor och frodiga gröna blad. Dess tåliga natur och enkelhet gör den till en populär val för gamla trädgårdar.",
+      "color": ["Blå"],
+      "type": "Ettårig sommarblomma"
+    },
+    {
+      "id": 14,
+      "name": "Fingerborgsblomma",
+      "latin_name": "Digitalis",
+      "description": "Fingerborgsblomma är en traditionell perenn med ståtliga blomklasar och tubformade blommor. Deras attraktiva utseende och lockande doft gör dem till en välkommen inslag i trädgården.",
+      "color": ["Rosa", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 15,
+      "name": "Iris",
+      "latin_name": "Iris",
+      "description": "Irisar är eleganta perenner med svärdliknande blad och stora, färgglada blommor. Deras distinkta utseende och mångfald av färger gör dem till en populär val för trädgården.",
+      "color": ["Blå", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 16,
+      "name": "Kärleksört",
+      "latin_name": "Lychnis chalcedonica",
+      "description": "Kärleksört är en traditionell perenn med tätare klasar av röda eller rosa blommor på upprätta stjälkar. Dess lättskötta natur och livliga färg gör den till en populär val för trädgården.",
+      "color": ["Röd", "Rosa"],
+      "type": "Perenn"
+    },
+    {
+      "id": 17,
+      "name": "Akleja",
+      "latin_name": "Aquilegia",
+      "description": "Akleja är en charmig perenn med spännande formade blommor i olika färger. Dess frodiga tillväxt och lockande utseende gör den till en favorit i trädgården.",
+      "color": ["Rosa", "Lila", "Blå", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 18,
+      "name": "Lavendel",
+      "latin_name": "Lavandula",
+      "description": "Lavendel är en aromatisk perenn med doftande blommor och silvergrönt bladverk. Dess lockande doft och tåliga natur gör den till en populär val för trädgården.",
+      "color": ["Lila"],
+      "type": "Perenn"
+    },
+    {
+      "id": 19,
+      "name": "Malva",
+      "latin_name": "Malva",
+      "description": "Malvor är vackra perenner med stora och färgglada blommor på upprätta stjälkar. Deras frodiga tillväxt och långa blomningstid gör dem till en populär val för trädgården.",
+      "color": ["Rosa", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 20,
+      "name": "Krollilja",
+      "latin_name": "Fritillaria meleagris",
+      "description": "Krollilja är en traditionell perenn med klockformade blommor i olika färger. Dess unika utseende och charmiga blommor gör den till en populär val för trädgården.",
+      "color": ["Rosa", "Vit"],
+      "type": "Lökväxt"
+    },
+    {
+      "id": 21,
+      "name": "Såpnejlika",
+      "latin_name": "Saponaria officinalis",
+      "description": "Såpnejlika är en gammal trädgårdsväxt med rosa eller vita blommor och frodigt lövverk. Dess tåliga natur och doftande blommor gör den till en populär val för rabatter och gränser.",
+      "color": ["Rosa", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 22,
+      "name": "Jättevallmo",
+      "latin_name": "Papaver orientale",
+      "description": "Jättevallmo är en imponerande perenn med stora och lysande röda blommor på upprätta stjälkar. Dess dramatiska utseende och frodiga tillväxt gör den till en spektakulär inslag i trädgården.",
+      "color": ["Röd"],
+      "type": "Perenn"
+    },
+    {
+      "id": 23,
+      "name": "Gullviva",
+      "latin_name": "Primula veris",
+      "description": "Gullviva är en traditionell vårblomma med gula blommor och frodigt grönt bladverk. Dess tidiga blomning och delikata utseende gör den till en populär val för vårens rabatter.",
+      "color": ["Gul"],
+      "type": "Perenn"
+    },
+    {
+      "id": 24,
+      "name": "Praktlysing",
+      "latin_name": "Digitalis purpurea",
+      "description": "Praktlysing är en imponerande perenn med ståtliga blomklasar och tubformade blommor. Deras attraktiva utseende och lockande doft gör dem till en välkommen inslag i trädgården.",
+      "color": ["Rosa", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 25,
+      "name": "Höstanemon",
+      "latin_name": "Anemone hupehensis",
+      "description": "Höstanemoner är charmiga perenner med en mängd små blommor på upprätta stjälkar. Deras långa blomningstid och attraktiva utseende gör dem till en populär val för trädgården.",
+      "color": ["Rosa", "Lila", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 26,
+      "name": "Guldboll",
+      "latin_name": "Echinops ritro",
+      "description": "Guldbollar är robusta perenner med klotformade blommor på långa stjälkar. Deras exotiska utseende och tåliga natur gör dem till en populär val för trädgården.",
+      "color": ["Gul"],
+      "type": "Perenn"
+    },
+    {
+      "id": 27,
+      "name": "Påsklilja",
+      "latin_name": "Narcissus",
+      "description": "Påskliljor är tidiga vårblommor med klockformade blommor och frisk grönska. Deras livliga färger och långa blomningstid gör dem till en populär val för vårens rabatter.",
+      "color": ["Gul", "Vit"],
+      "type": "Lökväxt"
+    },
+    {
+      "id": 28,
+      "name": "Pärlhyacint",
+      "latin_name": "Muscari",
+      "description": "Pärlhyacinter är små perenner med klockformade blommor på korta stjälkar. Deras kompakta form och blåa färg gör dem till en charmig inslag i trädgården.",
+      "color": ["Blå"],
+      "type": "Lökväxt"
+    },
+    {
+      "id": 29,
+      "name": "Doftschersmin",
+      "latin_name": "Philadelphus",
+      "description": "Doftschersmin är en tålig buske med doftande vita blommor och frodigt grönt lövverk. Dess lockande doft och lättskötta natur gör den till en populär val för trädgården.",
+      "color": ["Vit"],
+      "type": "Buske"
+    },
+    {
+      "id": 30,
+      "name": "Syren",
+      "latin_name": "Syringa vulgaris",
+      "description": "Syren är en klassisk buske med doftande blommor i olika färger. Deras livliga färger och lockande doft gör dem till en favorit bland trädgårdsägare.",
+      "color": ["Lila", "Vit"],
+      "type": "Buske"
+    },
+    {
+      "id": 31,
+      "name": "Ormrot",
+      "latin_name": "Polygonatum",
+      "description": "Ormrot är en charmig perenn med hängande klockformade blommor i olika färger. Dess elegans och lättskötta natur gör den till en populär val för trädgården.",
+      "color": ["Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 32,
+      "name": "Plymspirea",
+      "latin_name": "Astilbe",
+      "description": "Plymspirea är en tålig perenn med fjäderlika blommor på upprätta stjälkar. Deras frodiga tillväxt och långa blomningstid gör dem till en populär val för skuggiga områden i trädgården.",
+      "color": ["Rosa", "Vit", "Lila"],
+      "type": "Perenn"
+    },
+    {
+      "id": 33,
+      "name": "Toppklocka",
+      "latin_name": "Campanula",
+      "description": "Toppklocka är en charmig perenn med klockformade blommor på långa stjälkar. Dess lockande utseende och lättskötta natur gör den till en populär val för trädgården.",
+      "color": ["Blå", "Vit"],
+      "type": "Perenn"
+    },
+    {
+      "id": 34,
+      "name": "Ros",
+      "latin_name": "Rosa",
+      "description": "Rosor är klassiska trädgårdsväxter med stora och doftande blommor i olika färger. Deras elegans och skönhet gör dem till en favorit bland trädgårdsägare.",
+      "color": ["Flerfärgad"],
+      "type": "Buske"
+    },
+    {
+      "id": 35,
+      "name": "Bolltistel",
+      "latin_name": "Echinops",
+      "description": "Bolltistlar är robusta perenner med klotformade blommor på långa stjälkar. Deras exotiska utseende och tåliga natur gör dem till en populär val för trädgården.",
+      "color": ["Blå"],
+      "type": "Perenn"
+    },
+    {
+      "id": 36,
+      "name": "Gullboll",
+      "latin_name": "Echinops ritro",
+      "description": "Guldbollar är robusta perenner med klotformade blommor på långa stjälkar. Deras exotiska utseende och tåliga natur gör dem till en populär val för trädgården.",
+      "color": ["Gul"],
+      "type": "Perenn"
+    }
+  ]
+  
