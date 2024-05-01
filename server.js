@@ -29,7 +29,7 @@ app.get('/artists/:id', (req, res) => {
   if (artistWithId.lenght > 0) {
     res.json(artistWithId)
   } else {
-    res.status(404).json({ error: 'Could not find any artist with this ID' })
+    res.status(404).json({ error: 'Could not find any artist with this ID, try with a number withing 1-64' })
   }
 })
 
@@ -51,7 +51,7 @@ app.get('/gender/:gender', (req, res) => {
   if (artistsOfGender.length > 0) {
     res.json(artistsOfGender)
   } else {
-    res.status(404).json({ error: 'Could not find artists of this kind' })
+    res.status(404).json({ error: 'Could not find artists of this kind, try endpoints: female / male' })
   }
 })
 
@@ -68,7 +68,7 @@ app.get('/technique/:technique', (req, res) => {
   } else {
     res
       .status(404)
-      .json({ error: 'Could not find artists making art of this kind' })
+      .json({ error: 'Could not find artists making art of this kind, try endpoints like: painting / installation / sculpture / performance / film etc' })
   }
 })
 
