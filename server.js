@@ -17,7 +17,6 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.json(endpoints);
-  console.log(endpoints);
 });
 
 app.get("/books", (req, res) => {
@@ -43,8 +42,6 @@ app.get("/books/:bookId", (req, res) => {
 
   const book = booksData.find((book) => book.bookID === +bookId);
 
-  console.log(book);
-
   if (book) {
     res.json(book);
   } else {
@@ -58,8 +55,6 @@ app.get("/averageratings/:ratingNum", (req, res) => {
   const rating = booksData.filter(
     (rating) => Math.round(rating.average_rating) === +ratingNum
   );
-  console.log(rating);
-  console.log(rating.length);
 
   if (rating.length > 0) {
     res.json(rating);
