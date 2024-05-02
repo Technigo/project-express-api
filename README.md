@@ -6,7 +6,9 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Week 13 project was about creating our first API using Express. I decided to choose the Netflix data because I thought I will have more information to work with. I installed Express List Endpoints and follow Jenni´s class recordings as guidance to complete this project. 
+
+If I had more time, I would have done the first Advanced Streach Goals, building a "nice" frontend display.
 
 ## View it live
 
