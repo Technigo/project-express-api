@@ -21,9 +21,9 @@ app.get("/nominations", (req, res) => {
 });
 
 app.get("/nominations/:id", (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // if /nominations/1, req.params.id is 1
   const nomination = goldenGlobesData[parseInt(id)];
-
+// if we find something with that id, we return it. if not we return a 404.
   if (nomination) {
     res.json(nomination);
   } else {
@@ -33,6 +33,7 @@ app.get("/nominations/:id", (req, res) => {
 });
 
 // Start defining your routes here
+// https://www.npmjs.com/package/express-list-endpoints ... the string "/nominations" is the endpoint.
 app.get("/", (req, res) => {
   res.send(expressListEndpoints(app));
 });
