@@ -20,19 +20,35 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.route("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
 app.get(`/books`, (req, res) => {
-  res.json(booksData);
-});
+  let filterBooks = [...booksData];
+  const authorSearch = req.query.author;
+  const languageSearch = req.query.lang;
+  const ratingSearch = parseFloat(req.query.rating);
 
-app.get(`/author/:author`, (req, res) => {
-  const author = req.params.author.toLowerCase();
-  const booksFromAuthor = booksData.filter((item) => item.authors.toLowerCase().includes(author));
-  res.json(booksFromAuthor);
+  if (authorSearch) {
+    filterBooks = filterBooks.filter((item) => item.authors.toLowerCase().includes(authorSearch.toLowerCase()));
+  }
+
+  if (languageSearch) {
+    filterBooks = filterBooks.filter((item) => item.language_code.toLowerCase().includes(languageSearch.toLowerCase()));
+  }
+
+  if (ratingSearch) {
+    filterBooks = filterBooks.filter(
+      (item) => item.average_rating >= ratingSearch && item.average_rating < ratingSearch + 1
+    );
+  }
+
+  if (filterBooks.length > 0) {
+    res.json(filterBooks);
+  } else {
+    res.status(404).send("No book was found, based on your search.");
+  }
 });
 
 app.get(`/title/:title`, (req, res) => {
@@ -41,10 +57,14 @@ app.get(`/title/:title`, (req, res) => {
   res.json(bookTitle);
 });
 
-app.get(`/rating/:rating`, (req, res) => {
-  const rating = req.params.rating;
-  const bookRating = booksData.filter((item) => item.average_rating >= rating && item.average_rating < rating + 1);
-  res.json(bookRating);
+app.get(`/isbn/:isbn`, (req, res) => {
+  const isbn = req.params.isbn;
+  const isbnNumber = booksData.find((item) => item.isbn === +isbn);
+  if (isbnNumber) {
+    res.json(isbnNumber);
+  } else {
+    res.status(404).send("No book was found, based on your search.");
+  }
 });
 
 // Start the server
