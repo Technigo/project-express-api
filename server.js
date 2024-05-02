@@ -20,8 +20,15 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+// http://localhost:8080/
 app.get("/", (req, res) => {
   res.send("Hello Technigo!");
+});
+
+// Get all topMusicData
+// http://localhost:8080/songs
+app.get("/songs", (req, res) => {
+  res.json(topMusicData);
 });
 
 // Start the server
