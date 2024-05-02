@@ -17,38 +17,31 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
+  const { title, author, minPages, maxPages } = req.query;
   let filterBooks = [...booksData];
-  // res.json(filterBooks);
 
   //query for /books?title=
-  const searchTitle = req.query.title;
-  if (searchTitle) {
+  if (title) {
     filterBooks = filterBooks.filter((book) =>
-      book.title.toLowerCase().includes(searchTitle.toLowerCase())
+      book.title.toLowerCase().includes(title.toLowerCase())
     );
-    res.json(filterBooks);
   }
-
   //query for /books?author=
-  const searchAuthor = req.query.author;
-  if (searchAuthor) {
+  if (author) {
     filterBooks = filterBooks.filter((book) =>
-      book.authors.toLowerCase().includes(searchAuthor.toLowerCase())
+      book.authors.toLowerCase().includes(author.toLowerCase())
     );
-    res.json(filterBooks);
   }
-
   //query for /books?pages=
-  const { minPages, maxPages } = req.query;
-
-  filterBooks = filterBooks.filter(
-    (book) => book.num_pages >= minPages && book.num_pages <= maxPages
-  );
-
-  if (minPages && maxPages && filterBooks.length > 0) {
-    res.json(filterBooks);
-  } else {
+  if (minPages && maxPages) {
+    filterBooks = filterBooks.filter(
+      (book) => book.num_pages >= minPages && book.num_pages <= maxPages
+    );
+  }
+  if (filterBooks.length === 0) {
     res.status(404).send("No books found based on search");
+  } else {
+    res.json(filterBooks);
   }
 });
 
@@ -57,12 +50,12 @@ app.get("/books/:bookId", (req, res) => {
 
   const { bookId } = req.params;
 
-  const byId = filterBooks.find((book) => +bookId === book.bookID);
+  const byId = filterBooks.find((book) => book.bookID === +bookId);
 
   if (byId) {
     res.json(byId);
   } else {
-    res.status(404).send("No book was found");
+    res.status(404).send("No book was found based on ID");
   }
 });
 
@@ -71,9 +64,10 @@ app.get("/books/ratings/:bookRating", (req, res) => {
 
   const { bookRating } = req.params;
 
-  const byRating = filterBooks.filter((book) => 
-    book.average_rating.toString().startsWith(bookRating))
-    
+  const byRating = filterBooks.filter((book) =>
+    book.average_rating.toString().startsWith(bookRating)
+  );
+
   if (byRating.length > 0) {
     res.json(byRating);
   } else {
@@ -82,16 +76,16 @@ app.get("/books/ratings/:bookRating", (req, res) => {
 });
 
 app.get("/books/year/:yearPublished", (req, res) => {
-  let filterBooks = [...booksData]
+  let filterBooks = [...booksData];
 
-  const { yearPublished } = req.params
+  const { yearPublished } = req.params;
 
-  const byYear = filterBooks.filter(book => book.year === yearPublished)
+  const byYear = filterBooks.filter((book) => book.year === yearPublished);
 
   if (byYear) {
-    res.json(byYear)
+    res.json(byYear);
   }
-})
+});
 
 // Start the server
 app.listen(port, () => {
