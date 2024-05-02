@@ -24,9 +24,29 @@ app.get("/", (req, res) => {
 
 // Get all topMusicData
 app.get("/tracks", (req, res) => {
-  const { artist, genre, bpm, trackName, popularity, danceability } = req.query;
+  const {
+    artist,
+    genre,
+    bpm,
+    trackName,
+    popularity,
+    danceability,
+    page,
+    pageSize,
+  } = req.query;
+
+  // Convert page and pageSize to numbers (default to 1 and 10 if not provided)
+  const pageNumber = parseInt(page) || 1;
+  const limit = parseInt(pageSize) || 10;
+
+  // Calculate the start and end indices for pagination
+  const startIndex = (pageNumber - 1) * limit;
+  const endIndex = pageNumber * limit;
+
+  //Copy original data for filtering
   let filteredTracks = [...topMusicData];
 
+  //Apply filters
   if (artist) {
     const artistName = artist.toLowerCase();
     filteredTracks = filteredTracks.filter(
@@ -66,8 +86,15 @@ app.get("/tracks", (req, res) => {
       (track) => track.danceability === danceabilityValue
     );
   }
-
-  res.json(filteredTracks);
+  // Get subset of tracks based on pagination
+  const paginatedTracks = filteredTracks.slice(startIndex, endIndex);
+  //return paginated tracks along with metadata
+  res.json({
+    total: filteredTracks.length,
+    page: pageNumber,
+    pageSize: limit,
+    data: paginatedTracks,
+  });
 });
 
 //Get one song based on id
@@ -104,7 +131,22 @@ app.get("/documentation", (req, res) => {
       <li>Filter by genre: <a href="https://top-music.onrender.com/tracks?genre=reggaeton%20flow">https://top-music.onrender.com/tracks?genre=reggaeton%20flow</a></li>
     </ul>
     <p>Supported query parameters: artist, genre, bpm, popularity, danceability, trackName</p>
-     `;
+     
+    <h2>Pagination:</h2>
+    <p>You can paginate through the list of tracks by using the following query parameters:</p>
+    <ul>
+      <li><strong>page</strong> (optional): Specifies the page number to retrieve. Defaults to 1 if not provided.</li>
+      <li><strong>pageSize</strong> (optional): Specifies the number of items per page. Defaults to 10 if not provided.</li>
+    </ul>
+    <p>Example usage:</p>
+    <ul>
+      <li>Get the first page with default page size:<br>
+        <code>GET /tracks?page=1</code>
+      </li>
+      <li>Get the second page with a custom page size of 20:<br>
+        <code>GET /tracks?page=2&pageSize=20</code>
+      </li>
+    </ul>`;
   res.send(documentation);
 });
 
