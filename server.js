@@ -56,6 +56,18 @@ app.get('/favorites', (req, res) => {
 	}
 })
 
+app.get('/favorites/:top10', (req, res) => {
+	const top10Songs = topMusicData
+		.sort((a, b) => +b.popularity - +a.popularity)
+		.slice(0, 10)
+
+	if (top10Songs.length > 0) {
+		res.json(top10Songs)
+	} else {
+		res.status(404).send('could not show top 10 songs')
+	}
+})
+
 // Start the server
 app.listen(port, () => {
 	console.log(`Server running on http://localhost:${port}`)
