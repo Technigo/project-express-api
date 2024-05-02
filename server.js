@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import expressListEndpoints from 'express-list-endpoints'
 
 import topMusicData from './data/top-music.json'
 
@@ -12,13 +13,12 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-	res.send('Hello Technigo!')
+	const endpoints = expressListEndpoints(app)
+	res.json(endpoints)
 })
 app.get('/songs', (req, res) => {
 	res.json(topMusicData)
 })
-
-//routeparams
 
 //route to find and show song by id
 app.get('/songs/:songId', (req, res) => {
