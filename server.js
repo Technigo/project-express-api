@@ -22,13 +22,27 @@ app.use(express.json());
 // Start defining your routes here
 // http://localhost:8080/
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send("Top 50 popular songs on spotify");
 });
 
-// Get all topMusicData
+// Get all songs
 // http://localhost:8080/songs
 app.get("/songs", (req, res) => {
   res.json(topMusicData);
+});
+
+// Get one song based on id
+// http://localhost:8080/songs/2
+app.get("/songs/:songId", (req, res) => {
+  const { songId } = req.params;
+
+  const song = topMusicData.find((song) => +songId === song.id);
+
+  if (song) {
+    res.json(song);
+  } else {
+    res.send("No song was found");
+  }
 });
 
 // Start the server
