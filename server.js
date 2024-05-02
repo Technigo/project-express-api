@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
   res.send(expressListEndpoints(app));
 });
 // Start the server
+// this is where i create the server. i tell the server to listen to the port. the port is defined at the top of the file.
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
