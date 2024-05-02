@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import listEndpoints from "express-list-endpoints";
 
 import netflixData from "./data/netflix-titles.json";
 
@@ -21,46 +22,68 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//console.log("Total of movies:", netflixData.length)
-
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({
+    message: "Welcome to the Netflix API!",
+    endpoints: listEndpoints(app),
+  });
 });
-
-/* // Define the indexed Netflix data with shoerter IDs
-const indexedNetflixData = netflixData.map((item, index) => ({
-  ...item,
-  id: index + 1, //Asign a shorter ID starting from 1
-})); */
 
 // Return all the movies
+//http://localhost:9000/movies?title=Atlantics
 app.get("/movies", (req, res) => {
-  res.json(netflixData);
-});
+  const movieTitle = req.query.title;
 
-// return one movie by Id
-app.get("/movies/:showId", (req, res) => {
-  const { showId } = req.params;
-  /*  const parsedId = parseInt(showId, 10); */
+  if (movieTitle) {
+    const titleSearch = netflixData.filter((movie) =>
+      movie.title.toLowerCase().includes(movieTitle.toLowerCase())
+    );
 
-  const movie = netflixData.find((item) => item.show_id === parseInt(showId));
-  if (movie) {
-    res.json(movie);
+    if (titleSearch.length > 0) {
+      res.json(titleSearch);
+    } else {
+      res.status(404).send("No movie is available with that title");
+    }
   } else {
-    res.status(404).send("Movies not found");
+    res.json(netflixData);
   }
 });
 
-// get movie type
+//Filter movies based on the released year
+//http://localhost:9000/movies/by-year?year=2019
 
-app.get("/movies", (req, res) => {
-  const { type } = req.query;
-  if (type) {
-    const filteredMovies = netflixData.filter((item) => item.type === type);
-    res.json(filteredMovies);
+app.get("/movies/by-year", (req, res) => {
+  const { year } = req.query; // Extract the year from the query parameter
+
+  if (!year) {
+    return res.status(400).json({ error: "Year parameter is required" });
+  }
+
+  const moviesByYear = netflixData.filter(
+    (movie) => movie.release_year.toString() === year
+  );
+
+  if (moviesByYear.length) {
+    // if there any movies matching the given year
+    res.json(moviesByYear); // return the filtered movies
   } else {
-    res.status(400).send("Type parameter is required");
+    res.status(404).json({ error: "No movies found this year" });
+  }
+});
+
+// Return one movie by show_id
+//http://localhost:9000/movies/81197050
+
+app.get("/movies/:showId", (req, res) => {
+  const { showId } = req.params;
+  const parseId = parseInt(showId, 10);
+
+  const movie = netflixData.find((item) => item.show_id === parseId);
+  if (movie) {
+    res.json(movie); //return the movie with the matching Id
+  } else {
+    res.status(404).json({ error: "Movie not found" });
   }
 });
 
