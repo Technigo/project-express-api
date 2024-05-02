@@ -11,15 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// //Raplece ÅÄÖ with A and O in url
-// function replaceSwedishCharacters(text) {
-//   return text
-//     .toLowerCase()
-//     .replace(/å/g, "a")
-//     .replace(/ä/g, "a")
-//     .replace(/ö/g, "o");
-// }
-
 // Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
@@ -46,6 +37,14 @@ app.get("/flowers", (req, res) => {
     filterFlowers = filterFlowers.filter((flower) =>
       flower.type.toLowerCase().includes(typeFilter.toLowerCase())
     );
+  }
+
+  // Query for sorting flowers alphabetically (a-ö)(ö-a)
+  const sortByAtoZ = req.query.sort === "asc";
+  if (sortByAtoZ) {
+    filterFlowers.sort((a, b) => a.name.localeCompare(b.name, "sv"));
+  } else {
+    filterFlowers.sort((a, b) => b.name.localeCompare(a.name, "sv"));
   }
 
   if (filterFlowers.length > 0) {
