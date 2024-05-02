@@ -27,7 +27,6 @@ RESTful routing can take a little time to get used to. Try to think of what the 
   - A minimum of one endpoint to return a **single** result (single element).
 - Your API should be [RESTful](https://www.notion.so/23473abe980e40aaa932914751055d22?pvs=21).
 
-
 ## Stretch goals
 So you’ve completed the requirements? Great job! Make sure you've committed and pushed a version of your project before starting on the stretch goals. Remember that the stretch goals are optional.
 
