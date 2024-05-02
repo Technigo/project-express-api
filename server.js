@@ -84,6 +84,30 @@ app.get("/tracks/:trackId", (req, res) => {
   }
 });
 
+//API-documentation-page
+app.get("/documentation", (req, res) => {
+  const documentation = `
+  <h1> API Endpoint Usage Instructions </h1>
+  <h2>Get all tracks:</h2>
+  <p>Endpoint: <a href="https://top-music.onrender.com/tracks">https://top-music.onrender.com/tracks</a></p>
+  <p>Method: GET</p>
+  <h2>Get a specific track by ID:</h2>
+  <p>Endpoint: <a href="https://top-music.onrender.com/tracks/:trackId">https://top-music.onrender.com/tracks/:trackId</a></p>
+  <p>Example: <a href="https://top-music.onrender.com/tracks/15">https://top-music.onrender.com/tracks/15</a></p>
+  <p>Method: GET</p>
+  <h2>Filter tracks by query parameters:</h2>
+  <p>To filter tracks, append query parameters to the /tracks endpoint.</p>
+  <p>Example filters:</p>
+    <ul>
+      <li>Filter by artist: <a href="https://top-music.onrender.com/tracks?artist=Shawn%20Mendes">https://top-music.onrender.com/tracks?artist=Shawn%20Mendes</a></li>
+      <li>Filter by popularity: <a href="https://top-music.onrender.com/tracks?popularity=85">https://top-music.onrender.com/tracks?popularity=85</a></li>
+      <li>Filter by genre: <a href="https://top-music.onrender.com/tracks?genre=reggaeton%20flow">https://top-music.onrender.com/tracks?genre=reggaeton%20flow</a></li>
+    </ul>
+    <p>Supported query parameters: artist, genre, bpm, popularity, danceability, trackName</p>
+     `;
+  res.send(documentation);
+});
+
 // Catch-all route handler for invalid URLs
 app.use((req, res) => {
   res.status(404).send("404 - Not Found");
