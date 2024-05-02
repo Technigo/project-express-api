@@ -30,7 +30,7 @@ app.get("/movies", (req, res) => {
   res.send(netflixData.filter((title) => title.type === "Movie"));
 });
 
-app.get("/id/:id", (req, res) => {
+app.get("/show/:id", (req, res) => {
   const id = req.params.id;
   const result = netflixData.find((title) => title.show_id.toString() === id);
   if (result !== undefined) {
@@ -40,7 +40,7 @@ app.get("/id/:id", (req, res) => {
   }
 });
 
-app.get("/rating/:rating", (req, res) => {
+app.get("/shows/:rating", (req, res) => {
   const rating = req.params.rating;
   res.send(netflixData.filter((title) => title.rating === rating));
 });
