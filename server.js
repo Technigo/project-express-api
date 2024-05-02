@@ -11,14 +11,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Raplece ÅÄÖ with A and O in url
-function replaceSwedishCharacters(text) {
-  return text
-    .toLowerCase()
-    .replace(/å/g, "a")
-    .replace(/ä/g, "a")
-    .replace(/ö/g, "o");
-}
+// //Raplece ÅÄÖ with A and O in url
+// function replaceSwedishCharacters(text) {
+//   return text
+//     .toLowerCase()
+//     .replace(/å/g, "a")
+//     .replace(/ä/g, "a")
+//     .replace(/ö/g, "o");
+// }
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -28,7 +28,31 @@ app.get("/", (req, res) => {
 
 // Get all flowers
 app.get("/flowers", (req, res) => {
-  res.json(flowerData);
+  let filterFlowers = [...flowerData];
+
+  // Query for flower color
+  const colorFilter = req.query.color;
+  if (colorFilter) {
+    filterFlowers = filterFlowers.filter((flower) =>
+      flower.color
+        .map((color) => color.toLowerCase())
+        .includes(colorFilter.toLowerCase())
+    );
+  }
+
+  // Query for flower type
+  const typeFilter = req.query.type;
+  if (typeFilter) {
+    filterFlowers = filterFlowers.filter((flower) =>
+      flower.type.toLowerCase().includes(typeFilter.toLowerCase())
+    );
+  }
+
+  if (filterFlowers.length > 0) {
+    res.json(filterFlowers);
+  } else {
+    res.status(404).send("No flower was found");
+  }
 });
 
 // Get one flower based on id
@@ -41,41 +65,6 @@ app.get("/flowers/:flowerId", (req, res) => {
     res.json(flower);
   } else {
     res.status(404).send("No flower was found");
-  }
-});
-
-// Get flowers based on color
-app.get("/flowers/colors/:color", (req, res) => {
-  const color = req.params.color.toLowerCase();
-  const flowersWithColor = flowerData.filter((flower) =>
-    flower.color.some(
-      (c) =>
-        replaceSwedishCharacters(c.toLowerCase()) ===
-        replaceSwedishCharacters(color)
-    )
-  );
-
-  if (flowersWithColor.length > 0) {
-    res.json(flowersWithColor);
-  } else {
-    res.status(404).send("No flowers with that color were found");
-  }
-});
-
-// Get flowers based on type
-app.get("/flowers/types/:flowerType", (req, res) => {
-  const { flowerType } = req.params;
-  const sanitizedType = replaceSwedishCharacters(flowerType);
-
-  const flowersWithType = flowerData.filter(
-    (flower) =>
-      replaceSwedishCharacters(flower.type.toLowerCase()) === sanitizedType
-  );
-
-  if (flowersWithType.length > 0) {
-    res.json(flowersWithType);
-  } else {
-    res.status(404).send("No flowers of that type were found");
   }
 });
 
