@@ -1,13 +1,8 @@
-console.log('hello world')
-
 import express from 'express'
 import cors from 'cors'
 
 import topMusicData from './data/top-music.json'
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -23,7 +18,9 @@ app.get('/songs', (req, res) => {
 	res.json(topMusicData)
 })
 
-//routeparam
+//routeparams
+
+//route to find and show song by id
 app.get('/songs/:songId', (req, res) => {
 	const { songId } = req.params
 
@@ -36,6 +33,7 @@ app.get('/songs/:songId', (req, res) => {
 	}
 })
 
+// route to map all the artists names
 app.get('/artists', (req, res) => {
 	const artistNames = topMusicData.map((song) => song.artistName)
 
@@ -46,6 +44,7 @@ app.get('/artists', (req, res) => {
 	}
 })
 
+//route to sort all the songs by popylarity
 app.get('/favorites', (req, res) => {
 	const popular = topMusicData.sort((a, b) => +b.popularity - +a.popularity)
 
@@ -56,6 +55,7 @@ app.get('/favorites', (req, res) => {
 	}
 })
 
+//route to sort by popularity and show the top ten songs by slice
 app.get('/favorites/:top10', (req, res) => {
 	const top10Songs = topMusicData
 		.sort((a, b) => +b.popularity - +a.popularity)
@@ -65,6 +65,19 @@ app.get('/favorites/:top10', (req, res) => {
 		res.json(top10Songs)
 	} else {
 		res.status(404).send('could not show top 10 songs')
+	}
+})
+
+//route to filter bpm 128 = sweet spot
+app.get('/bpms', (req, res) => {
+	const sweetSpot = topMusicData.filter(
+		(song) => song.bpm >= 124 && song.bpm <= 135
+	)
+
+	if (sweetSpot.length > 0) {
+		res.json(sweetSpot)
+	} else {
+		res.status(404).send('could not find the perfect bpm')
 	}
 })
 
