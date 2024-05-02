@@ -9,7 +9,7 @@ I generated a json file with horses for sale. I played around with some filters 
 - "/", API overview
 - "/horses", all horses
 - "/year/:year", horses born a specific year (query to filter only winning horses available by adding "?won=true")
-- "/gender/:gender", horses of a specific gender
+- "/gender/:gender", horses of a specific gender (query to filter only winning horses available by adding "?won=true")
 - "/horses/:horseId", horse by ID
 
 ## View it live
