@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import animalsData from "./data/zoo-animals.json"
+import expressListEndpoints from "express-list-endpoints"
 
 const port = process.env.PORT || 8080
 const app = express()
@@ -11,7 +12,7 @@ app.use(express.json())
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!")
+  res.send(endpoints)
 })
 
 app.get("/animals", (req, res) => {
@@ -60,6 +61,8 @@ app.get("/type/:type", (req, res) => {
       )
   }
 })
+
+const endpoints = expressListEndpoints(app)
 
 // Start the server
 app.listen(port, () => {
