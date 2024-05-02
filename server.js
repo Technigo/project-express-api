@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 import flowerData from "./data/old-flowers.json";
-
-// console.log(flowerData.length);
+import expressListEndpoints from "express-list-endpoints";
 
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080;
@@ -23,15 +22,16 @@ function replaceSwedishCharacters(text) {
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Flowers for an old garden");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
-//Get all flowers
+// Get all flowers
 app.get("/flowers", (req, res) => {
   res.json(flowerData);
 });
 
-//Get one flower based on id
+// Get one flower based on id
 app.get("/flowers/:flowerId", (req, res) => {
   const { flowerId } = req.params;
 
@@ -45,7 +45,7 @@ app.get("/flowers/:flowerId", (req, res) => {
 });
 
 // Get flowers based on color
-app.get("/flowers/color/:color", (req, res) => {
+app.get("/flowers/colors/:color", (req, res) => {
   const color = req.params.color.toLowerCase();
   const flowersWithColor = flowerData.filter((flower) =>
     flower.color.some(
@@ -63,7 +63,7 @@ app.get("/flowers/color/:color", (req, res) => {
 });
 
 // Get flowers based on type
-app.get("/flowers/type/:flowerType", (req, res) => {
+app.get("/flowers/types/:flowerType", (req, res) => {
   const { flowerType } = req.params;
   const sanitizedType = replaceSwedishCharacters(flowerType);
 
