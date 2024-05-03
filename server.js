@@ -2,9 +2,6 @@ import express from "express";
 import cors from "cors";
 import goldenGlobesData from "./data/golden-globes.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -25,9 +22,9 @@ app.get("/year/:year", (req, res) => {
   const year = req.params.year
   const showWon = req.query.won
   let nominationsFromYear = goldenGlobesData.filter((item) => item.year_award === +year)
-  if (showWon==="true") {
+  if (showWon === "true") {
     nominationsFromYear = nominationsFromYear.filter((item) => item.win);
-  } else {
+  } else if (showWon === "false") {
     nominationsFromYear = nominationsFromYear.filter((item) => !item.win)
   }
   res.json(nominationsFromYear)
@@ -37,6 +34,35 @@ app.get("/nominee/:nominee", (req, res) => {
   const nominee = req.params.nominee.toLowerCase();
   const nomineeName = goldenGlobesData.filter ((item) => item.nominee.toLowerCase() === nominee)
   res.json(nomineeName)
+})
+
+app.get("/ceremony/:ceremony", (req, res) => {
+  const ceremony = req.params.ceremony
+  const showWon = req.query.won
+  let ceremonyYear = goldenGlobesData.filter((item) => item.ceremony === +ceremony)
+  if (showWon === "true"){
+    ceremonyYear = ceremonyYear.filter((item) => item.win)
+  } else if (showWon === "false") {
+    ceremonyYear = ceremonyYear.filter ((item) => !item.win)
+  }
+  res.json(ceremonyYear)
+})
+
+app.get("/category/:category", (req, res) => {
+  const category = req.params.category.toLowerCase();
+  const { won, year } = req.query
+
+  let categoryName = goldenGlobesData.filter((item) =>
+    item.category.toLowerCase().includes(category)
+  )
+
+  categoryName = year ? categoryName.filter((item) => item.year_award === +year) : categoryName
+
+  categoryName = won ? 
+    (won === "true" ? categoryName = categoryName.filter((item) => item.win) : won === "false" ? categoryName = categoryName.filter ((item) => !item.win) : categoryName) 
+  : categoryName
+
+  res.json(categoryName)
 })
 
 // Start the server
