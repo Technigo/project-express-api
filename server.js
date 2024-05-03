@@ -53,6 +53,7 @@ const filterBooks = (booksData, query) => {
 
   return filteredBooks;
 };
+
 // Get list of books
 app.get("/books", (req, res) => {
   const filteredBooks = filterBooks(booksData, req.query);
@@ -63,7 +64,6 @@ app.get("/books", (req, res) => {
 app.get("/books/:bookId", (req, res) => {
   const { bookId } = req.params;
   const book = booksData.find((book) => +bookId === book.bookID);
-
   if (book) {
     res.json(book);
   } else {
@@ -73,15 +73,15 @@ app.get("/books/:bookId", (req, res) => {
 
 // Empty/dummy endpoints
 app.post("/books", (req, res) => {
-  // Placeholder
+  // This would add another book to the booksData
 });
 
 app.put("/books/:bookId", (req, res) => {
-  // Placeholder
+  // This would update the info of a specific book
 });
 
 app.delete("/books/:bookId", (req, res) => {
-  // Placeholder
+  // This would delete a specific book
 });
 
 // Start the server
