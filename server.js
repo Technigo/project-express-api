@@ -1,7 +1,5 @@
 import express from "express";
 import cors from "cors";
-
-// Import the data
 import cartooncharsData from "./data/cartoonchars.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -10,7 +8,7 @@ import cartooncharsData from "./data/cartoonchars.json";
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
+// Middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
@@ -23,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 // Get all the cartoon characters with optional filtering by show
-// http://localhost:8080/cartoonchars?show=The Powerpuff Girls (The Powerpuff Girls as example)
+// Add /cartoonchars?show=The Powerpuff Girls (The Powerpuff Girls for example)
 app.get("/cartoonchars", (req, res) => {
   const { show } = req.query;
 
@@ -48,7 +46,7 @@ app.get("/cartoonchars", (req, res) => {
 
 // Get cartoon character based on id
 // The "/cartoonchars/:cartooncharID" route to return a single cartoon character (add number)
-// http://localhost:8080/cartoonchars/12 (random number)
+// Add /cartoonchars/12 (random number 12 added)
 app.get("/cartoonchars/:cartooncharID", (req, res) => {
   const { cartooncharID } = req.params;
 
