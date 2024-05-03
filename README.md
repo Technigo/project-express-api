@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A solo project were I created an API using data from a hardcoded jsonfile. It includes 5 endpoints that GET data using the methods .sort(), .map(), .find(), .filter() and .slice()
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I used the Technigo boilerplate and followed the instructions. First I tried using a cheese-api but somewhere in the json I created, there was a problem and I didn't have time to solve it so I settled for the music data from the assignment. I chose some fun data to create endpoins for.
+
+If I had more time I'd do the cheese-api. That is for the future!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-1-5qze.onrender.com/

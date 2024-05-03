@@ -7,15 +7,19 @@ import topMusicData from './data/top-music.json'
 const port = process.env.PORT || 8080
 const app = express()
 
-// Add middlewares to enable cors and json body parsing
+//middleware
 app.use(cors())
 app.use(express.json())
 
-// Start defining your routes here
+//routes
+
+//showing documentation of endpoints
 app.get('/', (req, res) => {
 	const endpoints = expressListEndpoints(app)
 	res.json(endpoints)
 })
+
+//route that shows all data from jsonfile
 app.get('/songs', (req, res) => {
 	res.json(topMusicData)
 })
@@ -73,7 +77,6 @@ app.get('/bpms', (req, res) => {
 	const sweetSpot = topMusicData.filter(
 		(song) => song.bpm >= 124 && song.bpm <= 135
 	)
-
 	if (sweetSpot.length > 0) {
 		res.json(sweetSpot)
 	} else {
