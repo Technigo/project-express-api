@@ -8,4 +8,4 @@ The concept was simple. Still I had some difficulties to wrap my head around it.
 
 ## View it live
 
-Find the live version here.
+[Find the live version here.](https://netflix-database-project.onrender.com)
