@@ -17,7 +17,6 @@ app.get("/", (req, res) => {
   const info = endpoints.map((endpoint) => ({
     path: endpoint.path,
     methods: endpoint.methods.join(", "),
-    description: endpoint.descriptor,
   }));
   res.json(info);
 });
@@ -64,11 +63,11 @@ app.get("/artists", (req, res) => {
   res.json(uniqueArtists);
 })
 
-app.get("/songs/artists/:artistName", (req, res) => {
+app.get("/artists/:artistName", (req, res) => {
   const artistName = req.params.artistName
   const nameOfArtist = topMusicData.filter(song => song.artistName.replaceAll(" ", "").toLowerCase() === artistName)
-  if (nameOfArtist) {
-    res.json(nameOfArtist.length !== 0);
+  if (nameOfArtist.length !== 0) {
+    res.json(nameOfArtist);
   } else {
     res.status(404).send("No such artist was found");
   }
