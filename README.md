@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+this week we chose a json who we would like to use as our basedata for out API
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+looked at the data to figure out what could be interesting for the user to fetch.
+after I  made a bunch of routes, I made one query filter who could also be used to filter the data as well.
+then i looked into how to document the api, and write that to a file who would be updated if the file changed to make sure the api always is updated.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[check it out here](https://golden-globe-api.onrender.com/)
