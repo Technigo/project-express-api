@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Avocado sales API by using Express. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Fisrt week of backend, need to change the logic from fronted to backed of using APIs. When I was working on the function, I didn't understand the goal of this function for. I checked videos on YouTube and coded along with coach, found out when to use query and param. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+avocado-express-api.onrender.com

@@ -3,18 +3,7 @@ import cors from "cors";
 import avocadoData from "./data/avocado-sales.json"
 import expressListEndpoints from 'express-list-endpoints';
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
@@ -35,7 +24,7 @@ app.get("/avocados", (req, res) => {
 app.get("/avocados/:avocadoId", (req, res) => {
   const {avocadoId} = req.params
 
-  const avocado = avocadoData.filter(avocado => +avocadoId === avocado.id)
+  const avocado = avocadoData.find(avocado => +avocadoId === avocado.id)
   
   if(avocado){
     res.json(avocado)
@@ -44,30 +33,35 @@ app.get("/avocados/:avocadoId", (req, res) => {
   }
 })
 
-app.get("/avocados/:date", (req, res) => {
-  const {date} = req.params
+app.get("/date", (req, res) => {
+  const avocadoDate = req.query.date
 
-  const avocadoDate = avocadoData.filter (item => date === item.date)
+  let newAvocado = [...avocadoData]
 
-  if(avocadoDate){
-     res.json(avocadoDate)
-  }else {
-    res.status (404).send ('Avocado is not found')
+  if(avocadoDate) {
+    newAvocado = newAvocado.filter(item => item.date.includes(avocadoDate))
+  } 
+  if(!avocadoDate){
+    res.json(newAvocado)
+  } else{
+    res.status(404).send ('Avocado is not found')
   }})
 
-app.get("/avocados/region", (req, res) => {
+  
+app.get("/region", (req, res) => {
+  const regionName = req.query.region
 
-  const regions = { }
+  let countryName = [...avocadoData]
 
-  avocadoData.forEach((item) => {
+  if(regionName) {
+    countryName = countryName.filter(item => item.region.toLowerCase().includes(regionName.toLowerCase()))
+  }
 
-    const regionName = item.region
-
-    if (!regions[regionName]){
-     regions[regionName] = []
-    } regions[regionName].push(item)
-  })
-  res.json(regions)
+  if(regionName.length>0){
+    res.json(countryName)
+  } else {
+    res.status(404).send ('Avocado is not found')
+  }
 
 })
 
