@@ -30,7 +30,7 @@ app.get("/year/:year", (req, res) => {
   res.json(nominationsFromYear)
 })
 
-app.get("/nominee/:nominee", (req, res) => {
+app.get("/nominations/:nominee", (req, res) => {
   const nominee = req.params.nominee.toLowerCase();
   const nomineeName = goldenGlobesData.filter ((item) => item.nominee.toLowerCase() === nominee)
   res.json(nomineeName)
