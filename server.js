@@ -28,18 +28,24 @@ app.get("/animals", (req, res) => {
     filterAnimals = filterAnimals.filter((animal) => animal.predator.toString() === predator)
   }
 
-  if (filterAnimals.length > 0) {
+  if (filterAnimals.length === 0 && animalName) {
+    res.status(404).send("Sorry, either the animal you searched for doesn't exist or it escaped from the zoo!")
+  } else if (filterAnimals.length > 0){
     res.json(filterAnimals)
   } else {
-    res.status(404).send("Sorry, looks like the animal you searched for has escaped from the zoo!")
+    res.status(404).send("Sorry, looks like the zoo is empty. No animals can be found!")
   }
 })
 
 app.get("/animals/:animalId", (req, res) => {
   const id = req.params.animalId
-  console.log(id)
   const animal = animalsData.find(item => item.id === +id)
-  res.json(animal)
+
+  if (animal) {
+    res.json(animal)
+  } else {
+    res.status(404).send("Sorry, either that animal doesn't exist or it escaped from the zoo!")
+  }
 })
 
 app.get("/type/:type", (req, res) => {
@@ -54,11 +60,7 @@ app.get("/type/:type", (req, res) => {
   if (filterByType.length > 0) {
     res.json(filterByType)
   } else {
-    res
-      .status(404)
-      .send(
-        "Sorry, looks like that sort of animal can't be found in this zoo!"
-      )
+    res.status(404).send("Sorry, looks like that sort of animal can't be found in this zoo!")
   }
 })
 
