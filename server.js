@@ -10,6 +10,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const pagination = (data, pageNumber) => {
+  const pageSize = 20;
+  const startIndex = (pageNumber - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const itemsOnPage = data.slice(startIndex, endIndex);
+
+  const returnObject = {
+    page_size: pageSize,
+    page: pageNumber,
+    num_of_pages: Math.ceil(data.length / pageSize),
+    items_on_page: itemsOnPage.length,
+    results: itemsOnPage,
+  };
+  return returnObject;
+};
 // Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
@@ -17,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  const { title, author, minPages, maxPages } = req.query;
+  const { title, author, minPage, maxPage } = req.query;
   let filterBooks = [...booksData];
 
   //query for /books?title=
@@ -32,16 +47,19 @@ app.get("/books", (req, res) => {
       book.authors.toLowerCase().includes(author.toLowerCase())
     );
   }
-  //query for /books?pages=
-  if (minPages && maxPages) {
+  //query for /books?booklength
+  if (minPage && maxPage) {
     filterBooks = filterBooks.filter(
-      (book) => book.num_pages >= minPages && book.num_pages <= maxPages
+      (book) => book.num_pages >= minPage && book.num_pages <= maxPage
     );
   }
+
+  const pageNumber = parseInt(req.query.page) || 1;
+  const paginatedBooks = pagination(filterBooks, pageNumber);
   if (filterBooks.length === 0) {
     res.status(404).send("No books found based on search");
   } else {
-    res.json(filterBooks);
+    res.json(paginatedBooks);
   }
 });
 
