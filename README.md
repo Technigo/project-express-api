@@ -1,8 +1,6 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is to start our backend journey by creating an API using Express. Our API should have at least a couple of RESTful endpoints which return either an array of data or a single item.
 
 ## The problem
 
