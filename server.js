@@ -22,14 +22,31 @@ app.get("/", (req, res) => {
   );
 });
 
-// Get all the cartoon characters
-// The "/cartoonchars" route to return a collection of cartoon characters
-// http://localhost:8080/cartoonchars
+// Get all the cartoon characters with optional filtering by show
+// http://localhost:8080/cartoonchars?show=The Powerpuff Girls (The Powerpuff Girls as example)
 app.get("/cartoonchars", (req, res) => {
-  res.json(cartooncharsData);
+  const { show } = req.query;
+
+  let filteredCartoonChars = cartooncharsData;
+
+  if (show) {
+    // Filter the data by show
+    filteredCartoonChars = filteredCartoonChars.filter(
+      (cartoonchar) => cartoonchar.show.toLowerCase() === show.toLowerCase()
+    );
+
+    // If no characters match the provided show, return a 404 error
+    if (filteredCartoonChars.length === 0) {
+      return res
+        .status(404)
+        .json({ error: `Cartoon characters from show "${show}" not found.` });
+    }
+  }
+
+  res.json(filteredCartoonChars);
 });
 
-// Get one cartoon character based on id
+// Get cartoon character based on id
 // The "/cartoonchars/:cartooncharID" route to return a single cartoon character (add number)
 // http://localhost:8080/cartoonchars/12 (random number)
 app.get("/cartoonchars/:cartooncharID", (req, res) => {
@@ -39,12 +56,15 @@ app.get("/cartoonchars/:cartooncharID", (req, res) => {
     (cartoonchar) => +cartooncharID === cartoonchar.id
   );
 
-  console.log(cartooncharID);
-
+  // If the cartoon character is found, send it in the response
+  // Otherwise, send a 404 error response
   if (cartoonchar) {
     res.json(cartoonchar);
   } else {
-    res.status(404).send("no cartoon character found");
+    res.status(404).json({
+      error: `Cartoon character with ID ${cartooncharID} not found. Please make sure you provided a valid ID between 1 and ${cartooncharsData.length}.`,
+      id: cartooncharID,
+    });
   }
 });
 
