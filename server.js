@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.json(documentation);
 });
 
-app.get("/avocado-sales/region", (req, res) => {
+app.get("/avocado-sales/region", async (req, res) => {
   const avocadoSalesByRegion = {};
   avocadoSalesData.forEach((item) => {
     //access the original data
@@ -38,8 +38,24 @@ app.get("/avocado-sales/region", (req, res) => {
   res.json(avocadoSalesByRegion);
 });
 
+app.get("/avocado-sales/region/:regionName/:date", (req, res) => {
+  const regionName = req.params.regionName;
+  const date = req.params.date;
+
+  const avocadoSalesByRegion = avocadoSalesData.filter(
+    (item) => item.region === regionName && item.date === date
+  );
+
+  if (avocadoSalesByRegion.length === 0) {
+    return res.status(404).json({ error: "Item not found!" });
+  }
+
+  res.json(avocadoSalesByRegion);
+});
+
 app.get("/avocado-sales/region/:regionName", (req, res) => {
   const regionName = req.params.regionName;
+
   const avocadoSalesByRegion = avocadoSalesData.filter(
     (item) => item.region === regionName
   );
@@ -61,6 +77,11 @@ app.get("/avocado-sales/:date", (req, res) => {
   const avocadoSalesFromDate = avocadoSalesData.filter(
     (item) => item.date === date
   );
+
+  if (avocadoSalesFromDate.length === 0) {
+    return res.status(404).json({ error: "Date not found!" });
+  }
+
   res.json(avocadoSalesFromDate);
 });
 
