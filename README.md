@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was to create an API using Express. The API were to have at least a couple of RESTful endpoints which return either an array of data or a single item.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This weeks code sessions were a good help. I followed the example and added some query param filtering.
+
+If I had more time, I would have tried out building a frontend part.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-kzf7.onrender.com/
