@@ -1,7 +1,8 @@
 import express from "express"
 import cors from "cors"
-import avocadoSalesData from "./data/avocado-sales.json"
+import avocadoSalesData from "../../data/avocado-sales.json"
 import listEndpoints from "express-list-endpoints"
+import serverless from "serverless-http"
 
 const app = express()
 const port = 3000
@@ -233,6 +234,8 @@ app.get("/sales/:id", (req, res) => {
   }
 })
 
-app.listen(port, () => {
+/*app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
-})
+})*/
+
+export const handler = serverless(app)

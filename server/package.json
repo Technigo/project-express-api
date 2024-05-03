@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-list-endpoints": "^7.1.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "serverless-http": "^3.2.0"
   }
 }
