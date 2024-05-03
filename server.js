@@ -56,7 +56,7 @@ app.get("/movies", (req, res) => {
 
 // get a movies who won
 app.get("/movies/:win", (req, res) => {
-  let WinningMovies = goldenGlobesData.filter((item) => item.win === true);
+  const WinningMovies = goldenGlobesData.filter((item) => item.win === true);
   if (WinningMovies.length === 0) {
     res.status(404).send(`No movies found`);
   }
@@ -104,7 +104,7 @@ app.get("/movies/year/:year/category/:category", (req, res) => {
 
 app.get("/movies/year/:year/:win", (req, res) => {
   const year = req.params.year;
-  let WinningMoviesFromYear = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year);
+  const WinningMoviesFromYear = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year);
   if (WinningMoviesFromYear.length === 0) {
     res.status(404).send(`No movies found in this category and year`);
   }
@@ -118,7 +118,7 @@ app.get("/movies/year/:year/:win", (req, res) => {
 app.get("/movies/year/:year/category/:category/:win", (req, res) => {
   const year = req.params.year;
   const category = req.params.category;
-  let WinningMoviesFromYearAndCategory = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year && item.category.toLowerCase().includes(category.toLowerCase()));
+  const WinningMoviesFromYearAndCategory = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year && item.category.toLowerCase().includes(category.toLowerCase()));
   if (WinningMoviesFromYearAndCategory.length === 0) {
     res.status(404).send(`No movies found in this category and year`);
   }
@@ -130,7 +130,7 @@ app.get("/movies/year/:year/category/:category/:win", (req, res) => {
 app.get("/movies/nominee/:nominee/category/:category", (req, res) => {
   const category = req.params.category;
   const nominee = req.params.nominee;
-  let ActorInCategory = goldenGlobesData.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()) && item.nominee.toLowerCase().includes(nominee.toLowerCase()));
+  const ActorInCategory = goldenGlobesData.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()) && item.nominee.toLowerCase().includes(nominee.toLowerCase()));
   if (ActorInCategory.length === 0) {
     res.status(404).send(`No movies found for this nominee in this category`);
   }
@@ -144,7 +144,7 @@ app.get("/movies/nominee/:nominee/category/:category", (req, res) => {
 app.get("/movies/nominee/:nominee/category/:category/:win", (req, res) => {
   const category = req.params.category;
   const nominee = req.params.nominee;
-  let WinningActorInCategory = goldenGlobesData.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()) && item.nominee.toLowerCase().includes(nominee.toLowerCase()) && item.win === true);
+  const WinningActorInCategory = goldenGlobesData.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()) && item.nominee.toLowerCase().includes(nominee.toLowerCase()) && item.win === true);
   if (WinningActorInCategory.length === 0) {
     res.status(404).send(`No winning movies found for this nominee in this category`);
   }
@@ -167,7 +167,7 @@ app.get("/movies/nominee/:nominee", (req, res) => {
 // return all wins for a certain nominee
 app.get("/movies/nominee/:nominee/:win", (req, res) => {
   const nominee = req.params.nominee;
-  let WinningNominee = goldenGlobesData.filter((item) => item.win === true && item.nominee.toLowerCase().includes(nominee.toLowerCase()));
+  const WinningNominee = goldenGlobesData.filter((item) => item.win === true && item.nominee.toLowerCase().includes(nominee.toLowerCase()));
   if (WinningNominee.length === 0) {
     res.status(404).send(`No movies found`);
   } else {
