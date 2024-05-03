@@ -35,8 +35,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
 @media (min-width: 650px) {
   a {
     text-decoration: none;
@@ -45,6 +43,5 @@ a:hover {
 
   a:hover {
     text-decoration: underline;
-    /* Visa understreckning när man hovrar över länken */
   }
 }
