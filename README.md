@@ -4,8 +4,8 @@ This week's project is to start our backend journey by creating an API using Exp
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The concept was simple. Still I had some difficulties to wrap my head around it. I feel backend won't be my main interesed. Nevertheless, it's cool to see what we can do with so little.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Find the live version here.
