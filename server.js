@@ -1,13 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+// Import the data
+import cartooncharsData from "./data/cartoonchars.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -20,8 +15,37 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
+// Root route ("/") to greet users
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(
+    "Welcome to the Cartoon Character API! 🎉 Explore your favorite cartoon characters by accessing the '/cartoonchars' endpoint."
+  );
+});
+
+// Get all the cartoon characters
+// The "/cartoonchars" route to return a collection of cartoon characters
+// http://localhost:8080/cartoonchars
+app.get("/cartoonchars", (req, res) => {
+  res.json(cartooncharsData);
+});
+
+// Get one cartoon character based on id
+// The "/cartoonchars/:cartooncharID" route to return a single cartoon character (add number)
+// http://localhost:8080/cartoonchars/12 (random number)
+app.get("/cartoonchars/:cartooncharID", (req, res) => {
+  const { cartooncharID } = req.params;
+
+  const cartoonchar = cartooncharsData.find(
+    (cartoonchar) => +cartooncharID === cartoonchar.id
+  );
+
+  console.log(cartooncharID);
+
+  if (cartoonchar) {
+    res.json(cartoonchar);
+  } else {
+    res.status(404).send("no cartoon character found");
+  }
 });
 
 // Start the server
