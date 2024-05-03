@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "episode_title": "The Time of the Doctor",
+    "doctor_actor": "Matt Smith",
+    "companion": "Clara Oswald",
+    "summary": "The Doctor faces the final battle in Trenzalore and must confront the Time Lords to ensure the safety of the universe.",
+    "air_date": "2013-12-25"
+  },
+  {
+    "id": 2,
+    "episode_title": "The Eleventh Hour",
+    "doctor_actor": "Matt Smith",
+    "companion": "Amy Pond",
+    "summary": "The newly regenerated Eleventh Doctor crashes into Amy Pond's garden and must stop an alien threat from destroying Earth.",
+    "air_date": "2010-04-03"
+  },
+  {
+    "id": 3,
+    "episode_title": "The Day of the Doctor",
+    "doctor_actor": "David Tennant, Matt Smith, John Hurt",
+    "companion": "Clara Oswald",
+    "summary": "Multiple incarnations of the Doctor unite to solve the mystery of the Time War and make a choice that will define the future of the universe.",
+    "air_date": "2013-11-23"
+  },
+  {
+    "id": 4,
+    "episode_title": "Blink",
+    "doctor_actor": "David Tennant",
+    "companion": "Martha Jones",
+    "summary": "Sally Sparrow, an ordinary person, discovers the deadly Weeping Angels and must solve a mystery involving the Tenth Doctor and time travel.",
+    "air_date": "2007-06-09"
+  },
+  {
+    "id": 5,
+    "episode_title": "The Girl in the Fireplace",
+    "doctor_actor": "David Tennant",
+    "companion": "Rose Tyler",
+    "summary": "The Doctor encounters Madame de Pompadour in 18th-century France and must protect her from clockwork robots with sinister plans.",
+    "air_date": "2006-05-06"
+  },
+  {
+    "id": 6,
+    "episode_title": "The Christmas Invasion",
+    "doctor_actor": "David Tennant",
+    "companion": "Rose Tyler",
+    "summary": "The newly regenerated Tenth Doctor recovers as the Sycorax attempt to take over Earth. Rose must find a way to wake the Doctor.",
+    "air_date": "2005-12-25"
+  },
+  {
+    "id": 7,
+    "episode_title": "Rose",
+    "doctor_actor": "Christopher Eccleston",
+    "companion": "Rose Tyler",
+    "summary": "Rose Tyler meets the Ninth Doctor, who takes her on a journey through time and space, starting with an Auton invasion.",
+    "air_date": "2005-03-26"
+  },
+  {
+    "id": 8,
+    "episode_title": "The Empty Child",
+    "doctor_actor": "Christopher Eccleston",
+    "companion": "Rose Tyler",
+    "summary": "The Doctor and Rose visit London during the Blitz, encountering a mysterious child asking for his mummy and uncovering a dark secret.",
+    "air_date": "2005-05-21"
+  },
+  {
+    "id": 9,
+    "episode_title": "The Doctor Dances",
+    "doctor_actor": "Christopher Eccleston",
+    "companion": "Rose Tyler",
+    "summary": "Continuing from 'The Empty Child,' the Doctor and Rose must solve the mystery of the gas-mask zombies and save London from disaster.",
+    "air_date": "2005-05-28"
+  },
+  {
+    "id": 10,
+    "episode_title": "Human Nature",
+    "doctor_actor": "David Tennant",
+    "companion": "Martha Jones",
+    "summary": "The Doctor transforms into a human to hide from the Family of Blood, while Martha must protect him from imminent danger.",
+    "air_date": "2007-05-26"
+  },
+  {
+    "id": 11,
+    "episode_title": "The Family of Blood",
+    "doctor_actor": "David Tennant",
+    "companion": "Martha Jones",
+    "summary": "The Doctor, still in human form, must decide whether to return to his Time Lord identity to stop the Family of Blood.",
+    "air_date": "2007-06-02"
+  },
+  {
+    "id": 12,
+    "episode_title": "The End of Time",
+    "doctor_actor": "David Tennant",
+    "companion": "Wilfred Mott",
+    "summary": "The Tenth Doctor faces his final challenge as the Master returns and the Time Lords reappear, leading to a dramatic regeneration.",
+    "air_date": "2009-12-25"
+  },
+  {
+    "id": 13,
+    "episode_title": "The Stolen Earth",
+    "doctor_actor": "David Tennant",
+    "companion": "Donna Noble",
+    "summary": "The Doctor and his companions must save Earth as the Daleks return, threatening the entire universe.",
+    "air_date": "2008-06-28"
+  },
+  {
+    "id": 14,
+    "episode_title": "Journey's End",
+    "doctor_actor": "David Tennant",
+    "companion": "Donna Noble",
+    "summary": "In the continuation from 'The Stolen Earth,' the Doctor confronts Davros and the Daleks in a battle for Earth's survival.",
+    "air_date": "2008-07-05"
+  },
+  {
+    "id": 15,
+    "episode_title": "Vincent and the Doctor",
+    "doctor_actor": "Matt Smith",
+    "companion": "Amy Pond",
+    "summary": "The Doctor and Amy visit Vincent van Gogh and help him face a mysterious creature while exploring his mental health struggles.",
+    "air_date": "2010-06-05"
+  },
+  {
+    "id": 16,
+    "episode_title": "The Wedding of River Song",
+    "doctor_actor": "Matt Smith",
+    "companion": "River Song",
+    "summary": "The Doctor must unravel the mystery of Lake Silencio, where he's destined to die, leading to a pivotal moment with River Song.",
+    "air_date": "2011-10-01"
+  },
+  {
+    "id": 17,
+    "episode_title": "A Good Man Goes to War",
+    "doctor_actor": "Matt Smith",
+    "companion": "Amy Pond",
+    "summary": "The Doctor assembles an army to rescue Amy and her newborn child, leading to a shocking revelation about River Song.",
+    "air_date": "2011-06-04"
+  },
+  {
+    "id": 18,
+    "episode_title": "The Impossible Astronaut",
+    "doctor_actor": "Matt Smith",
+    "companion": "River Song",
+    "summary": "The Doctor, Amy, Rory, and River Song embark on a journey to 1960s America, where they encounter a new enemy: the Silence.",
+    "air_date": "2011-04-23"
+  },
+  {
+    "id": 19,
+    "episode_title": "The Pandorica Opens",
+    "doctor_actor": "Matt Smith",
+    "companion": "Amy Pond",
+    "summary": "The Doctor discovers a legendary prison known as the Pandorica, leading to a confrontation with his greatest enemies.",
+    "air_date": "2010-06-19"
+  },
+  {
+    "id": 20,
+    "episode_title": "The Big Bang",
+    "doctor_actor": "Matt Smith",
+    "companion": "Amy Pond",
+    "summary": "In the continuation from 'The Pandorica Opens,' the Doctor must reset the universe to save reality from collapsing.",
+    "air_date": "2010-06-26"
+  }
+]
