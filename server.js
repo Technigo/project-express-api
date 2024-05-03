@@ -71,7 +71,7 @@ app.get("/episodes/actor/:actorName", (req, res) => {
   }
 });
 
-//5️⃣ endpoint to get list of all doctor names
+//5️⃣ endpoint to get a list of all doctor names
 //example: http://localhost:8080/doctors
 app.get("/doctors", (req, res) => {
   const doctorNames = whoData
@@ -81,7 +81,7 @@ app.get("/doctors", (req, res) => {
   res.json(doctorNames);
 });
 
-//6️⃣ endpoint to get list of all companion names
+//6️⃣ endpoint to get a list of all companion names
 //example: http://localhost:8080/companions
 app.get("/companions", (req, res) => {
   const companionNames = whoData
@@ -91,7 +91,7 @@ app.get("/companions", (req, res) => {
   res.json(companionNames);
 });
 
-//7️⃣ endpoint to get list episodes per year based on air_date
+//7️⃣ endpoint to get a list of episodes per year based on air_date
 //example: http://localhost:8080/episodes/year/2010
 app.get("/episodes/year/:year", (req, res) => {
   const { year } = req.params;

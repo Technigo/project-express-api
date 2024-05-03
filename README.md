@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+We started with backend this week. The task was to create an API with a few RESTful enpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created my own JSON file, because I wanted to have some fun data to work with. I created some endpoints based on year, air date, doctors, companions, id and actors playing the doctor.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://doctorwho-express-api.onrender.com/
