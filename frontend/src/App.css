@@ -16,6 +16,7 @@ h2 {
   margin: 25px;
   background-color: #C8BE86;
   padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .p-style {
@@ -32,8 +33,9 @@ a {
 
 a:hover {
   text-decoration: underline;
-  /* Visa understreckning när man hovrar över länken */
 }
+
+
 
 @media (min-width: 650px) {
   a {

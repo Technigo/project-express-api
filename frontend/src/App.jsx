@@ -6,29 +6,23 @@ import MostExpensiveAvocados from "./MostExpensiveAvocados"
 import CheapestAvocados from "./CheapestAvocados"
 import HomePage from "./HomePage"
 import "./Navbar.css"
+import UnderMenu from "./UnderMenu"
 
 function App() {
   return (
     <Router>
       <nav className="Navbar">
+        <div className="logo-title">
+          <h1>Avocado Haven</h1>
+          <img src="/logo.png" alt="Logo" />
+        </div>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/avocados">Top sells</Link>
-          </li>
-          <li>
-            <Link to="/regions">Areas</Link>
-          </li>
-          <li>
-            <Link to="/most-expensive">Expensive</Link>
-          </li>
-          <li>
-            <Link to="/cheapest">Cheapest</Link>
-          </li>
         </ul>
       </nav>
+      <UnderMenu />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
