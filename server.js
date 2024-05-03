@@ -35,7 +35,7 @@ app.get("/avocados", (req, res) => {
 app.get("/avocados/:avocadoId", (req, res) => {
   const {avocadoId} = req.params
 
-  const avocado = avocadoData.find (avocado => +avocadoId === avocado.id)
+  const avocado = avocadoData.filter(avocado => +avocadoId === avocado.id)
   
   if(avocado){
     res.json(avocado)
@@ -60,7 +60,7 @@ app.get("/avocados/region", (req, res) => {
   const regions = { }
 
   avocadoData.forEach((item) => {
-    
+
     const regionName = item.region
 
     if (!regions[regionName]){
