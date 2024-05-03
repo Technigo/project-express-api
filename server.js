@@ -39,11 +39,12 @@ app.get("/flowers", (req, res) => {
     );
   }
 
-  // Query for sorting flowers alphabetically (a-ö)(ö-a)
+  // Check if sorting query parameter is present
   const sortByAtoZ = req.query.sort === "asc";
+
   if (sortByAtoZ) {
     filterFlowers.sort((a, b) => a.name.localeCompare(b.name, "sv"));
-  } else {
+  } else if (req.query.sort === "desc") {
     filterFlowers.sort((a, b) => b.name.localeCompare(a.name, "sv"));
   }
 
