@@ -6,7 +6,7 @@ function CheapestAvocados() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/sales/cheapest")
+      .get("/api/sales/cheapest")
       .then((response) => {
         setAvocados(response.data)
       })

@@ -7,7 +7,7 @@ function MostExpensiveAvocados() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/sales/mostExpensive")
+      .get("/api/sales/mostExpensive")
       .then((response) => {
         setAvocados(response.data)
       })

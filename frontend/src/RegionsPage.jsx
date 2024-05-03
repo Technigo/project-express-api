@@ -7,7 +7,7 @@ function RegionsPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/regions")
+      .get("/api/regions")
       .then((response) => {
         setRegions(response.data)
       })

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import "./App.css"
@@ -7,7 +8,7 @@ function AvocadoPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/sales/topBagsSold")
+      .get("/api/sales/topBagsSold")
       .then((response) => {
         setAvocados(response.data)
       })
