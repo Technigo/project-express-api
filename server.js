@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 
 //  make filter with query params
-app.get("/movies", (req, res) => {
+app.get("/movies/filter", (req, res) => {
   const { category, year, win, nominee, film } = req.query;
   let filteredMovies = goldenGlobesData;
 

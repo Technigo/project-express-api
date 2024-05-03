@@ -9,6 +9,15 @@
     ]
   },
   {
+    "path": "/movies/filter",
+    "methods": [
+      "GET"
+    ],
+    "middlewares": [
+      "anonymous"
+    ]
+  },
+  {
     "path": "/movies",
     "methods": [
       "GET"
