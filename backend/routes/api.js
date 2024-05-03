@@ -1,20 +1,10 @@
-import express from "express"
-import cors from "cors"
-import avocadoSalesData from "../../data/avocado-sales.json"
-import listEndpoints from "express-list-endpoints"
+import express, { Router } from "express"
 import serverless from "serverless-http"
+import listEndpoints from "express-list-endpoints"
+import avocadoSalesData from "../data/avocado-sales.json"
 
-const app = express()
-const port = 3000
-
-app.use(cors())
-
-function getTopSales() {
-  const sortedSales = avocadoSalesData.sort(
-    (a, b) => b.totalBagsSold - a.totalBagsSold
-  )
-  return sortedSales
-}
+const api = express()
+const router = Router()
 
 function getSalesByDate() {
   const salesWithDateObjects = avocadoSalesData.map((sale) => ({
@@ -36,12 +26,12 @@ function getSalesByDate() {
   return formattedSales
 }
 
-app.get("/", (req, res) => {
-  const endpoints = listEndpoints(app)
+router.get("/", (req, res) => {
+  const endpoints = listEndpoints(api)
   res.json(endpoints)
 })
 
-app.get("/sales", (req, res) => {
+router.get("/sales", (req, res) => {
   const page = parseInt(req.query.page, 10) || 1
   const limit = parseInt(req.query.limit, 10) || 10
   const startIndex = (page - 1) * limit
@@ -77,12 +67,12 @@ app.get("/sales", (req, res) => {
   })
 })
 
-app.get("/regions", (req, res) => {
+router.get("/regions", (req, res) => {
   const regions = [...new Set(avocadoSalesData.map((sale) => sale.region))]
   res.json(regions)
 })
 
-app.get("/sales/regions/:region", (req, res) => {
+router.get("/sales/regions/:region", (req, res) => {
   const region = req.params.region
   const salesInRegion = avocadoSalesData.filter(
     (sale) => sale.region === region
@@ -90,14 +80,14 @@ app.get("/sales/regions/:region", (req, res) => {
   res.json(salesInRegion)
 })
 
-app.get("/sales/topBagsSold", (req, res) => {
+router.get("/sales/topBagsSold", (req, res) => {
   const topSales = avocadoSalesData
     .sort((a, b) => b.totalBagsSold - a.totalBagsSold)
     .slice(0, 5)
   res.json(topSales)
 })
 
-app.get("/sales/mostExpensive", (req, res) => {
+router.get("/sales/mostExpensive", (req, res) => {
   const salesByRegion = {}
 
   avocadoSalesData.forEach((sale) => {
@@ -116,19 +106,19 @@ app.get("/sales/mostExpensive", (req, res) => {
   res.json(mostExpensive)
 })
 
-app.get("/sales/cheapest", (req, res) => {
+router.get("/sales/cheapest", (req, res) => {
   const cheapestSales = avocadoSalesData
     .sort((a, b) => a.averagePrice - b.averagePrice)
     .slice(0, 5)
   res.json(cheapestSales)
 })
 
-app.get("/sales/latest", (req, res) => {
+router.get("/sales/latest", (req, res) => {
   const latestSales = getSalesByDate()
   res.json(latestSales)
 })
 
-app.get("/sales/filtered", (req, res) => {
+router.get("/sales/filtered", (req, res) => {
   const hasQueryParams = Object.keys(req.query).length > 0
 
   if (!hasQueryParams) {
@@ -170,7 +160,7 @@ app.get("/sales/filtered", (req, res) => {
   }
 })
 
-app.get("/sales/summary", (req, res) => {
+router.get("/sales/summary", (req, res) => {
   const totalSales = avocadoSalesData.length
   const totalBagsSold = avocadoSalesData.reduce(
     (total, sale) => total + sale.totalBagsSold,
@@ -203,13 +193,13 @@ app.get("/sales/summary", (req, res) => {
   })
 })
 
-app.get("/sales/futureFeature", (req, res) => {
+router.get("/sales/futureFeature", (req, res) => {
   res.json({
     message: "This endpoint will be used for a future feature.",
   })
 })
 
-app.get("/sales/:id", (req, res) => {
+router.get("/sales/:id", (req, res) => {
   const id = parseInt(req.params.id, 10)
 
   if (isNaN(id)) {
@@ -234,8 +224,7 @@ app.get("/sales/:id", (req, res) => {
   }
 })
 
-/*app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
-})*/
 
-export const handler = serverless(app)
+api.use("/api/", router)
+
+export const handler = serverless(api)
