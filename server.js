@@ -31,23 +31,24 @@ app.get("/", (req, res) => {
   res.json(endpoints);
 });
 
+//endpoint for all books
 app.get("/books", (req, res) => {
   const { title, author, minPage, maxPage } = req.query;
   let filterBooks = [...booksData];
 
-  //query for /books?title=
+  //filter by title
   if (title) {
     filterBooks = filterBooks.filter((book) =>
       book.title.toLowerCase().includes(title.toLowerCase())
     );
   }
-  //query for /books?author=
+  //filter by author
   if (author) {
     filterBooks = filterBooks.filter((book) =>
       book.authors.toLowerCase().includes(author.toLowerCase())
     );
   }
-  //query for /books?booklength
+  //filter by book length
   if (minPage && maxPage) {
     filterBooks = filterBooks.filter(
       (book) => book.num_pages >= minPage && book.num_pages <= maxPage
@@ -65,7 +66,6 @@ app.get("/books", (req, res) => {
 
 app.get("/books/:bookId", (req, res) => {
   let filterBooks = [...booksData];
-
   const { bookId } = req.params;
 
   const byId = filterBooks.find((book) => book.bookID === +bookId);
@@ -79,7 +79,6 @@ app.get("/books/:bookId", (req, res) => {
 
 app.get("/books/ratings/:bookRating", (req, res) => {
   let filterBooks = [...booksData];
-
   const { bookRating } = req.params;
 
   const byRating = filterBooks.filter((book) =>
@@ -93,16 +92,9 @@ app.get("/books/ratings/:bookRating", (req, res) => {
   }
 });
 
-app.get("/books/year/:yearPublished", (req, res) => {
-  let filterBooks = [...booksData];
-
-  const { yearPublished } = req.params;
-
-  const byYear = filterBooks.filter((book) => book.year === yearPublished);
-
-  if (byYear) {
-    res.json(byYear);
-  }
+//dummy endpoint
+app.get("/books/:genres", (req, res) => {
+  //get book based on genre
 });
 
 // Start the server
