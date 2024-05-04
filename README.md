@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Project to develop an Express API that provides data from a JSON file with RESTful endpoints. This API is designed to handle multiple requests, offering filtered collections and specific individual items based on the user's needs.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+It was my first backend project and challenging in a way that there are many new terms and concepts. Understanding REST principles and working with query parameters to retrieve data accurately was confusing.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://mai-express-api.onrender.com
