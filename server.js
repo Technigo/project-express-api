@@ -39,8 +39,7 @@ app.get("/netflix-titles", (req, res) => {
   res.json(netflixData);
 });
 
-app.get("/netflix-titles?:id"),
-  (req, res) => {
+app.get("/netflix-titles/:id"), (req, res) => {
     const id = req.param.id;
     const title = netflixData.find((item) => item.show_id === id);
 
