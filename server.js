@@ -25,20 +25,33 @@ app.get("/", (req, res) => {
 });
 
 app.get("/netflix-titles", (req, res) => {
-  res.json(netflixData);
+  let titles = netflixData;
+
+  if (req.query.genre) {
+    titles = titles.filter(
+      (item) => item.genre.toLowerCase() === req.query.genre.toLowerCase()
+    );
+  }
+
+  if (req.query.year) {
+    titles = titles.filter(
+      (item) => item.release_year === parseInt(req.query.year)
+    );
+  }
+
+  res.json(titles);
 });
 
-app.get("/netflix-titles/:id"),
-  (req, res) => {
-    const id = req.params.id;
-    const title = netflixData.find((item) => item.show_id === id);
+app.get("/netflix-titles/:id", (req, res) => {
+  const id = req.params.id;
+  const title = netflixData.find((item) => item.show_id === id);
 
-    if (title) {
-      res.json(title);
-    } else {
-      res.status(404).json({ error: "Titles not found" });
-    }
-  };
+  if (title) {
+    res.json(title);
+  } else {
+    res.status(404).json({ error: "Title not found" });
+  }
+});
 
 // Start the server
 app.listen(port, () => {
