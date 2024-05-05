@@ -1,5 +1,5 @@
 import express from "express";
-//import expressListEndpoints from "express-list-endpoints";
+import expressListEndpoints from "express-list-endpoints";
 import cors from "cors";
 import gratefulDeadData from "./data/grateful-dead.json";
 
@@ -13,9 +13,8 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-
-  // const endpoints = expressListEndpoints(app);
-  // res.json(endpoints);
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
 //Get all albums
