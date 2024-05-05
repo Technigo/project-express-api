@@ -26,7 +26,7 @@ app.get('/artists', (req, res) => {
 app.get('/artists/:id', (req, res) => {
   const id = req.params.id
   const artistWithId = artistData.filter((artist) => artist.id === +id)
-  if (artistWithId.lenght > 0) {
+  if (artistWithId.length > 0) {
     res.json(artistWithId)
   } else {
     res.status(404).json({ error: 'Could not find any artist with this ID, try with a number withing 1-64' })
