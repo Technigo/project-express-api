@@ -1,13 +1,11 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+First project to make my own API and explore the surface of backend development.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with having chat GPT creating a JSON list with data entry for all albums made by the band The Grateful Dead. Next, I created routes with endpoints for showing all albums, for searching for one album using query params, for listing albums by a given id and for album sorted by the year it was released. I used GET method to make the api respond.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-2tom.onrender.com/
