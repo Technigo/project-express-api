@@ -1,22 +1,30 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 import { topics } from "./data/topics.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8000;
-const app = express();
+let app = express();
 
-// // Add middlewares to enable cors and json body parsing
+// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Function to extraxt all topic names
+// ____________________ FUNCTIONS ____________________
+
+// Function to extract param
+const extractParam = (req, param) => {
+  return req.params[param];
+};
+
+// Function to extract all topic names
 const extractTopicNames = () => topics.map((topic) => topic.name);
 
 // Function to find a topic name
-const findTopicName = (topics, topicName) => {
+const findTopicByName = (topics, topicName) => {
   return topics.find((topic) => topic.name === topicName);
 };
 
@@ -28,10 +36,12 @@ const findSubTopics = (topics, topicName) => {
   return topic ? topic.subtopics : null;
 };
 
+// ____________________ ROUTES ____________________
+
 // // Start defining your routes here
-// Get welcome text
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.route("/").get((req, res) => {
+  const endpoints = expressListEndpoints(app);
+  res.send(endpoints);
 });
 
 // Route to get all topics
@@ -46,11 +56,12 @@ app.get("/topics/name", (req, res) => {
 });
 
 // Get a specific topic by name
-// localhost:8000/topics/JavaScript%20basics
+// /topics/JavaScript%20basics
 app.get("/topics/:name", (req, res) => {
-  const topicName = req.params.name;
+  const topicName = extractParam(req, "name");
 
-  const topic = findTopicName(topics, topicName);
+  // Passing topics and topics name as params
+  const topic = findTopicByName(topics, topicName);
 
   if (topic) {
     res.json(topic);
@@ -60,9 +71,10 @@ app.get("/topics/:name", (req, res) => {
 });
 
 // Get all subtopics of a specific topic
+// /topics/JavaScript%20basics/subtopics
 app.get("/topics/:name/subtopics", (req, res) => {
-  const topicName = req.params.name;
-
+  const topicName = extractParam(req, "name");
+  // Passing topics and topics name as params
   const subtopics = findSubTopics(topics, topicName);
 
   if (subtopics) {
@@ -73,6 +85,13 @@ app.get("/topics/:name/subtopics", (req, res) => {
 });
 
 // Get all questions related to a specific topic
+app.get("/topics/:name/questions", (req, res) => {
+  const topicName = extractParam(req, "name");
+  // Passing topics and topics name as params
+  const topic = findTopicByName(topics, topicName);
+
+  res.json(topic);
+});
 
 // Search for topics or questions by keyword
 
