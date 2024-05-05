@@ -5,7 +5,7 @@
     "name": "Nike Air Yeezy 2",
     "price": 500,
     "color": "Black/Solar Red",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "name": "Adidas Yeezy Boost 350 V2",
     "price": 220,
     "color": "Zebra",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "name": "Air Jordan 1 Off-White",
     "price": 1500,
     "color": "Chicago",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "name": "Nike Air Mag",
     "price": 10000,
     "color": "Grey",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "name": "Adidas Pharrell NMD Hu",
     "price": 250,
     "color": "Yellow",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "name": "Travis Scott x Air Jordan 1",
     "price": 2000,
     "color": "Mocha",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "name": "Nike Air Fear of God 1",
     "price": 350,
     "color": "Black",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "name": "Adidas Yeezy Boost 700",
     "price": 300,
     "color": "Wave Runner",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "name": "Air Jordan 4 Retro Kaws",
     "price": 1000,
     "color": "Cool Grey",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "name": "Nike Air Presto Off-White",
     "price": 800,
     "color": "Black/White",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "name": "Adidas Yeezy Boost 750",
     "price": 350,
     "color": "Light Grey",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "name": "Air Jordan 3 Retro '88",
     "price": 500,
     "color": "White/Cement Grey",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "name": "Nike Air Foamposite One Paranorman",
     "price": 3500,
     "color": "Black/Green",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@
     "name": "Adidas Human Race NMD Pharrell x Chanel",
     "price": 1200,
     "color": "Black",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@
     "name": "Air Jordan 5 Retro Tokyo T23",
     "price": 1200,
     "color": "White/Varsity Maize",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 16,
@@ -125,7 +125,7 @@
     "name": "Nike Dunk SB Low 'Paris'",
     "price": 2500,
     "color": "Grey/Blue",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 17,
@@ -133,7 +133,7 @@
     "name": "Adidas Ultra Boost x Hypebeast",
     "price": 300,
     "color": "Black",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 18,
@@ -141,7 +141,7 @@
     "name": "Air Jordan 11 Retro 'Space Jam'",
     "price": 220,
     "color": "Black/Concord",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@
     "name": "Nike SB Dunk Low 'What The Dunk'",
     "price": 3000,
     "color": "Multi-Color",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 20,
@@ -157,7 +157,7 @@
     "name": "Adidas NMD R1 PK 'OG'",
     "price": 250,
     "color": "Black/Red-Blue",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 21,
@@ -165,7 +165,7 @@
     "name": "Air Jordan 6 Retro 'Doernbecher'",
     "price": 1000,
     "color": "Navy/Varsity Red-Metallic Gold",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 22,
@@ -173,7 +173,7 @@
     "name": "Nike Air Zoom Kobe 1 'Black Mamba'",
     "price": 400,
     "color": "Black/Yellow",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 23,
@@ -181,7 +181,7 @@
     "name": "Adidas Yeezy Boost 350 V1 'Turtle Dove'",
     "price": 2500,
     "color": "Turtle Dove/Blue Grey-White",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 24,
@@ -189,7 +189,7 @@
     "name": "Air Jordan 12 Retro 'Flu Game'",
     "price": 190,
     "color": "Black/Varsity Red",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@
     "name": "Nike Air Force 1 Low Travis Scott",
     "price": 1500,
     "color": "White/Sail",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 26,
@@ -205,7 +205,7 @@
     "name": "Adidas Yeezy Boost 350 V2 'Semi-Frozen Yellow'",
     "price": 220,
     "color": "Semi Frozen Yellow/Raw Steel/Red",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 27,
@@ -213,7 +213,7 @@
     "name": "Air Jordan 13 Retro 'He Got Game'",
     "price": 190,
     "color": "White/Black/True Red",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 28,
@@ -221,7 +221,7 @@
     "name": "Nike Air Yeezy 1 'Zen Grey'",
     "price": 3000,
     "color": "Zen Grey/Light Charcoal",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 29,
@@ -229,7 +229,7 @@
     "name": "Adidas Yeezy Boost 350 V2 'Beluga'",
     "price": 220,
     "color": "Steel Grey/Beluga/Solar Red",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 30,
@@ -237,7 +237,7 @@
     "name": "Air Jordan 1 Retro High OG 'Shattered Backboard'",
     "price": 160,
     "color": "Black/Starfish-Sail",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 31,
@@ -245,7 +245,7 @@
     "name": "Nike SB Dunk Low 'Diamond Supply Co. Black'",
     "price": 3000,
     "color": "Black/Black-Chrome",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 32,
@@ -253,7 +253,7 @@
     "name": "Adidas Ultra Boost 1.0 'OG'",
     "price": 350,
     "color": "Core Black/Purple",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 33,
@@ -261,7 +261,7 @@
     "name": "Air Jordan 4 Retro 'Bred'",
     "price": 220,
     "color": "Black/Cement Grey-Fire Red",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 34,
@@ -269,7 +269,7 @@
     "name": "Nike Air Presto Off-White 'White'",
     "price": 1000,
     "color": "White/Black-Cone",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 35,
@@ -277,7 +277,7 @@
     "name": "Adidas Yeezy Boost 350 V2 'Static'",
     "price": 220,
     "color": "Static/Static/Static",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 36,
@@ -285,7 +285,7 @@
     "name": "Air Jordan 6 Retro 'Infrared'",
     "price": 200,
     "color": "Black/Infrared",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 37,
@@ -293,7 +293,7 @@
     "name": "Nike Dunk SB Low 'Supreme Red Cement'",
     "price": 3000,
     "color": "White/Fire Red-Cement Grey-Black",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 38,
@@ -301,7 +301,7 @@
     "name": "Adidas NMD R1 PK 'Nice Kicks'",
     "price": 2000,
     "color": "Red/Black",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@
     "name": "Air Jordan 1 Retro High OG 'Royal Blue'",
     "price": 160,
     "color": "Black/Royal/White",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 40,
@@ -317,7 +317,7 @@
     "name": "Nike Air Foamposite One 'Galaxy'",
     "price": 4000,
     "color": "Obsidian/Anthracite-Black",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 41,
@@ -325,7 +325,7 @@
     "name": "Adidas Yeezy Boost 350 V2 'Cream White'",
     "price": 220,
     "color": "Cream White/Cream White",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 42,
@@ -333,7 +333,7 @@
     "name": "Air Jordan 11 Retro '72-10'",
     "price": 220,
     "color": "Black/Gym Red-White-Anthracite",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 43,
@@ -341,7 +341,7 @@
     "name": "Nike SB Dunk Low 'De La Soul'",
     "price": 2500,
     "color": "Baroque Brown/Altitude Green",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 44,
@@ -349,7 +349,7 @@
     "name": "Adidas Human Race NMD Pharrell x BBC",
     "price": 1200,
     "color": "Scarlet/White",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 45,
@@ -357,7 +357,7 @@
     "name": "Air Jordan 13 Retro 'Flint'",
     "price": 190,
     "color": "White/Navy-University Blue",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 46,
@@ -365,7 +365,7 @@
     "name": "Nike Dunk SB Low 'Paris'",
     "price": 2500,
     "color": "Grey/Blue",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 47,
@@ -373,7 +373,7 @@
     "name": "Adidas Ultra Boost x Hypebeast",
     "price": 300,
     "color": "Black",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 48,
@@ -381,7 +381,7 @@
     "name": "Air Jordan 11 Retro 'Space Jam'",
     "price": 220,
     "color": "Black/Concord",
-    "in_stock": true
+    "inStock": true
   },
   {
     "id": 49,
@@ -389,7 +389,7 @@
     "name": "Nike SB Dunk Low 'What The Dunk'",
     "price": 3000,
     "color": "Multi-Color",
-    "in_stock": false
+    "inStock": false
   },
   {
     "id": 50,
@@ -397,7 +397,6 @@
     "name": "Adidas NMD R1 PK 'OG'",
     "price": 250,
     "color": "Black/Red-Blue",
-    "in_stock": true
+    "inStock": true
   }
 ]
-
