@@ -10,6 +10,31 @@
             {
               "question": "What is JavaScript?",
               "answer": "JavaScript is a versatile and widely-used programming language primarily known for its ability to add interactivity and dynamic content to websites. Initially developed by Netscape, JavaScript is now supported by all major web browsers, making it an essential part of web development. It is a high-level, interpreted language that can be executed directly in the browser, allowing developers to create responsive and interactive user interfaces."
+            },
+            {
+              "question": "Why do we use JavaScript?",
+              "answer": "JavaScript is a versatile and widely-used programming language primarily known for its ability to add interactivity and dynamic content to websites. Initially developed by Netscape, JavaScript is now supported by all major web browsers, making it an essential part of web development. It is a high-level, interpreted language that can be executed directly in the browser, allowing developers to create responsive and interactive user interfaces."
+            },
+            {
+              "question": "What are the data types in JavaScript?",
+              "answer": "In JavaScript, there are six primitive data types: string, number, boolean, null, undefined, and symbol. Additionally, there is one complex data type, which is object."
+            }
+          ]
+        },
+        {
+          "name": "Variables and data types",
+          "questions": [
+            {
+              "question": "What is a variable in JavaScript?",
+              "answer": "A variable in JavaScript is a named container that stores a value, which can be a number, string, object, or any other data type.."
+            },
+            {
+              "question": "Can I declare a variable without assigning a value to it?",
+              "answer": "Yes, you can declare a variable without assigning a value to it. In such cases, the variable will have the value undefined until a value is assigned to it."
+            },
+            {
+              "question": "What is variable scope in JavaScript?",
+              "answer": "Variable scope refers to the accessibility or visibility of variables within certain parts of your code. JavaScript has function scope and block scope."
             }
           ]
         }
@@ -25,6 +50,10 @@
             {
               "question": "What is the Document Object Model (DOM)?",
               "answer": "The DOM is a programming interface for web documents that represents the structure and content of a web page. It allows JavaScript to interact with HTML elements and modify their properties, styles, and content."
+            },
+            {
+              "question": "How does the DOM work?",
+              "answer": "When a web page is loaded, the browser creates a Document Object Model (DOM) representation of the page's structure. This DOM is a hierarchical tree-like structure that consists of nodes representing every element, attribute, and piece of text in the HTML document. JavaScript can manipulate the DOM dynamically, allowing developers to change the content, structure, and style of a webpage in response to user actions or other events."
             }
           ]
         }
