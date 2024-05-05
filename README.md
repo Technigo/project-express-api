@@ -1,13 +1,25 @@
+<h1 align="center">
+  <a href="">
+    <img src="/public/Api of art.jpg" alt="Project Banner Image">
+  </a>
+</h1>
+
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is about creating a API using Exress.js for the first time. The choice of API was free and it was possible to also create a frontend using the deployed data. 
 
 ## The problem
+I created my own API using ChatGpt and added some hand picked images representing the art to make sure I was happy with the visual. It was quite handy, also to be able to ask Chatgpt to update the whole list with whether the artist is alive or not, to not have to go through it one by one. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This was the first backend project, and therefore the methods were quite new, but since the project was still quite small in complexity it was easily manageble and was more like an introduction. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+(https://izabels-first-api.onrender.com)
+
+Endpoints are:  /artists
+                /artists/:id
+                /gender/:gender
+                /gender/:gender?alive=true / false
+                /technique/:technique
+

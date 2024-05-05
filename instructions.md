@@ -42,3 +42,5 @@ So you’ve completed the requirements? Great job! Make sure you've committed an
 - Build a frontend which uses your API in some way to show the data in a nice way (use the [react-starter](https://github.com/Technigo/react-starter) template to get up and running fast).
 
 - If your dataset is large, try implementing 'pages' using `.slice()` to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
+
+(save in case I will do stretch goals)

@@ -51,7 +51,7 @@ app.get('/gender/:gender', (req, res) => {
   if (artistsOfGender.length > 0) {
     res.json(artistsOfGender)
   } else {
-    res.status(404).json({ error: 'Could not find artists of this kind, try endpoints: female / male' })
+    res.status(404).json({ error: 'Could not find artists of this kind, try endpoints: female / male. You can also add alive=true or alive=false at the end' })
   }
 })
 

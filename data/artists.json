@@ -215,6 +215,7 @@
     "technique": ["Installation", "Printmaking", "Sculpture"],
     "year_of_birth": 1954,
     "info_link": "https://www.artsy.net/artist/kiki-smith",
+    "image": "https://news.artnet.com/app/news-upload/2019/03/SMITH_inst_2010_vO.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -225,18 +226,21 @@
     "technique": ["Painting", "Sculpture"],
     "year_of_birth": 1968,
     "info_link": "https://www.artsy.net/artist/chris-ofili",
+    "image": "https://www.davidzwirner.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fjuzvn5an%2Frelease-adp%2F38f089ef9f168a099983d1af6c1991d206004abb-1441x1080.png&w=3840&q=75",
     "gender": "Male",
     "alive": false
   },
   {
     "id": 22,
-    "name": "Julie Mehretu",
-    "birthplace": "Addis Ababa, Ethiopia",
+    "name": "Henri Rousseau",
+    "birthplace": "Laval, France",
     "technique": ["Painting"],
-    "year_of_birth": 1970,
-    "info_link": "https://www.artsy.net/artist/julie-mehretu",
-    "gender": "Female",
-    "alive": true
+    "year_of_birth": 1844,
+    "year_of_death": 1910,
+    "info_link": "https://www.artsy.net/artist/henri-rousseau",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Henri_Rousseau_-_Le_R%C3%AAve_-_Google_Art_Project.jpg",
+    "gender": "male",
+    "alive": false
   },
   {
     "id": 23,
@@ -245,6 +249,7 @@
     "technique": ["Sculpture"],
     "year_of_birth": 1939,
     "info_link": "https://www.artsy.net/artist/richard-serra",
+    "image": "https://www.lacma.org/sites/default/files/styles/exhibition_image/public/primary_image/2019-02/M2007_122-SF2126_013.jpg?itok=IcEnl3Lc",
     "gender": "Male",
     "alive": true
   },
@@ -255,6 +260,7 @@
     "technique": ["Drawing", "Painting", "Silhouette"],
     "year_of_birth": 1969,
     "info_link": "https://www.artsy.net/artist/kara-walker",
+    "image": "https://media.npr.org/assets/img/2014/05/16/489164461_wide-d2fb81ee023ec76499b42ffa70b23d362307b553.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -265,6 +271,7 @@
     "technique": ["Film", "Sculpture"],
     "year_of_birth": 1967,
     "info_link": "https://www.artsy.net/artist/matthew-barney",
+    "image": "https://cdn.shopify.com/s/files/1/0093/8541/0645/files/64c57920115d38695a6e9b6f_sx1t9BEo5VJsOmII6h7STjDgyGaiPpW7Cm8ozkLH9-A.jpg?v=1695123557",
     "gender": "Male",
     "alive": true
   },
@@ -275,6 +282,7 @@
     "technique": ["Painting", "Video"],
     "year_of_birth": 1946,
     "info_link": "https://www.artsy.net/artist/nalini-malani",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRIG8qDwiIqmEtLdHLO3RBAoTM0OJPMP5atiyz_MPPaV8U2W5imzqpa_2rgexocHAcV4wz2X7Rw3XUOPHCj5C0K-yHT97ezHgSbDGIQBRNhjYIHDCLPPpkbnvMnPMozOqtDnwDVnXxXqg/s1508/W14464PartObject.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -285,6 +293,7 @@
     "technique": ["Painting"],
     "year_of_birth": 1961,
     "info_link": "https://www.artsy.net/artist/mark-bradford",
+    "image": "https://bordercrossingsmag.com/images/articles/_resized/C_10._MB_01.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -295,6 +304,7 @@
     "technique": ["Photography"],
     "year_of_birth": 1961,
     "info_link": "https://www.artsy.net/artist/catherine-opie",
+    "image": "https://schollcreative.com/wp-content/uploads/2021/08/Catherine-Opie-scaled.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -305,6 +315,7 @@
     "technique": ["Conceptual", "Installation"],
     "year_of_birth": 1936,
     "info_link": "https://www.artsy.net/artist/hans-haacke",
+    "image": "https://modernartnotespodcast.files.wordpress.com/2014/11/haacke-blue-sail.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -315,6 +326,7 @@
     "technique": ["Painting"],
     "year_of_birth": 1970,
     "info_link": "https://www.artsy.net/artist/jenny-saville",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpQqCMZcShKlyMyq_VKFB72PYBXYMC-Fh1-n-Mb9UKkQ&s",
     "gender": "Female",
     "alive": true
   },
@@ -325,6 +337,7 @@
     "technique": ["Sculpture"],
     "year_of_birth": 1955,
     "info_link": "https://www.artsy.net/artist/roni-horn",
+    "image": "https://images.e-flux-systems.com/579100_4be01cea99f30e90adf8019281199bf1.jpg,1600",
     "gender": "Female",
     "alive": true
   },
@@ -335,6 +348,7 @@
     "technique": ["Collage", "Sculpture"],
     "year_of_birth": 1972,
     "info_link": "https://www.artsy.net/artist/wangechi-mutu",
+    "image": "https://theartmomentum.com/wp-content/uploads/2019/12/WM201905WANG06-1200x857.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -345,6 +359,7 @@
     "technique": ["Sculpture"],
     "year_of_birth": 1950,
     "info_link": "https://www.artsy.net/artist/antony-gormley",
+    "image": "https://storage.googleapis.com/rail-legacy-media/production/content/article_image/image/25411/pateman-gormley-1.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -355,6 +370,7 @@
     "technique": ["Photography"],
     "year_of_birth": 1953,
     "info_link": "https://www.artsy.net/artist/carrie-mae-weems",
+    "image": "https://i0.wp.com/mweditions.com/wp-content/uploads/2021/12/Carrie-Mae-Weems-Detail-01.jpg?fit=2000%2C1126&ssl=1",
     "gender": "Female",
     "alive": true
   },
@@ -365,6 +381,7 @@
     "technique": ["Painting", "Sculpture"],
     "year_of_birth": 1974,
     "info_link": "https://www.artsy.net/artist/raqib-shaw",
+    "image": "https://www.pacegallery.com/media/images/69817.width-2000.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -375,6 +392,7 @@
     "technique": ["Painting"],
     "year_of_birth": 1955,
     "info_link": "https://www.artsy.net/artist/kerry-james-marshall",
+    "image": "https://media.newyorker.com/photos/610439564b7e6806bf23b4ed/master/pass/210809_r38771.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -385,6 +403,7 @@
     "technique": ["Painting"],
     "year_of_birth": 1970,
     "info_link": "https://www.artsy.net/artist/julie-mehretu",
+    "image": "https://static01.nyt.com/images/2017/08/06/arts/06MEHRETUJP1/06MEHRETUJP1-superJumbo.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -395,6 +414,7 @@
     "technique": ["Conceptual", "Installation"],
     "year_of_birth": 1948,
     "info_link": "https://www.artsy.net/artist/adrian-piper",
+    "image": "https://www.moma.org/d/c/installation_images/W1siZiIsIjQ0MjIxMSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=1a7b38407bb17235",
     "gender": "Female",
     "alive": true
   },
@@ -405,6 +425,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1962,
     "info_link": "https://www.artsy.net/artist/do-ho-suh",
+    "image": "https://backend.artreview.com/wp-content/uploads/2023/03/040_Do_Ho_Suh__MCA_credit_AnnaKucera-scaled.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -415,6 +436,7 @@
     "technique": ["Drawing", "Sculpture"],
     "year_of_birth": 1962,
     "info_link": "https://www.artsy.net/artist/gabriel-orozco",
+    "image": "https://imageobjecttext.com/wp-content/uploads/2014/02/orozco-dark-wave-2006.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -425,6 +447,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1911,
     "info_link": "https://www.artsy.net/artist/louise-bourgeois",
+    "image": "https://media.cnn.com/api/v1/images/stellar/prod/230425121432-01-louise-bourgeois-spider.jpg?c=original",
     "gender": "Female",
     "alive": false
   },
@@ -435,6 +458,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1957,
     "info_link": "https://www.artsy.net/artist/thomas-hirschhorn",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIAs8rPBrT93-mmvEJqdEcNQZlIVwKiAt6NHAR0DlUow&s",
     "gender": "Male",
     "alive": true
   },
@@ -445,6 +469,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1980,
     "info_link": "https://www.artsy.net/artist/adrian-villar-rojas",
+    "image": "https://artlogic-res.cloudinary.com/w_2400,h_1800,c_limit,f_auto,fl_lossy,q_auto/ws-mariangoodman/usr/artists/images/67/avr-2013-la-inocencia-de-los-animales.png",
     "gender": "Male",
     "alive": true
   },
@@ -455,6 +480,7 @@
     "technique": ["Painting"],
     "year_of_birth": 1965,
     "info_link": "https://www.artsy.net/artist/elizabeth-peyton",
+    "image": "https://www.guggenheim.org/wp-content/uploads/2004/01/2005.13_ph_web-1.jpg",
     "gender": "Female",
     "alive": true
   },
@@ -465,6 +491,7 @@
     "technique": ["Installation", "Performance"],
     "year_of_birth": 1961,
     "info_link": "https://www.artsy.net/artist/rirkrit-tiravanija",
+    "image": "https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_Hong_Kong_Rirkrit_Tiravanija_Gladstone_Gallery_3.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -475,16 +502,7 @@
     "technique": ["Photography"],
     "year_of_birth": 1948,
     "info_link": "https://www.artsy.net/artist/hiroshi-sugimoto",
-    "gender": "Male",
-    "alive": true
-  },
-  {
-    "id": 47,
-    "name": "Wolfgang Tillmans",
-    "birthplace": "Remscheid, Germany",
-    "technique": ["Photography"],
-    "year_of_birth": 1968,
-    "info_link": "https://www.artsy.net/artist/wolfgang-tillmans",
+    "image": "https://futureoftruth.uconn.edu/wp-content/uploads/sites/2921/2021/10/Sugimoto2-scaled.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -495,6 +513,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1956,
     "info_link": "https://www.artsy.net/artist/cornelia-parker",
+    "image": "https://www.zestandcuriosity.com/wp-content/uploads/2020/02/1E7D1316-5831-4E91-A6E2-3EEBEA450314-scaled.jpeg",
     "gender": "Female",
     "alive": true
   },
@@ -505,6 +524,7 @@
     "technique": ["Installation", "Performance", "Sculpture"],
     "year_of_birth": 1959,
     "info_link": "https://www.artsy.net/artist/nick-cave",
+    "image": "https://www.selvedge.org/cdn/shop/articles/Nick_Cave_Soundsuits_1.jpg?v=1572971557",
     "gender": "Male",
     "alive": true
   },
@@ -515,6 +535,7 @@
     "technique": ["Painting", "Sculpture"],
     "year_of_birth": 1940,
     "info_link": "https://www.artsy.net/artist/elizabeth-murray",
+    "image": "https://listart.mit.edu/sites/default/files/media/images/exhibitions/1987_elizabeth_murray_installation_1.jpg",
     "gender": "Female",
     "alive": false
   },
@@ -524,7 +545,7 @@
     "birthplace": "Hongcheon-gun, South Korea",
     "technique": ["Painting", "Sculpture"],
     "year_of_birth": 1944,
-    "info_link": "",
+    "info_link": "https://www.artsy.net/artist/chun-kwang-young",
     "image": "https://www.operagallery.com/storage/news/Unknown1.jpeg",
     "gender": "Male",
     "alive": true
