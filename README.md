@@ -1,13 +1,7 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This Express.js application creates a RESTful API for accessing cartoon character data. It includes middleware for enhanced server functionality, defines routes for various endpoints, handles dynamic routing and query parameters, implements error handling, configures the server port for flexibility and logs server startup information.
 
 ## View it live
 
-API: https://project-express-api-9yb8.onrender.com/
+https://project-express-api-9yb8.onrender.com/
