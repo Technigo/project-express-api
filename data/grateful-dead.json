@@ -1,0 +1,117 @@
+[
+    {
+      "id": 1,
+      "title": "The Grateful Dead",
+      "year": 1967,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 2,
+      "title": "Anthem of the Sun",
+      "year": 1968,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 3,
+      "title": "Aoxomoxoa",
+      "year": 1969,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 4,
+      "title": "Live/Dead",
+      "year": 1969,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 5,
+      "title": "Workingman's Dead",
+      "year": 1970,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 6,
+      "title": "American Beauty",
+      "year": 1970,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 7,
+      "title": "Grateful Dead (Skull & Roses)",
+      "year": 1971,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 8,
+      "title": "Europe '72",
+      "year": 1972,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 9,
+      "title": "History of the Grateful Dead, Volume One (Bear's Choice)",
+      "year": 1973,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 10,
+      "title": "Wake of the Flood",
+      "year": 1973,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 11,
+      "title": "Grateful Dead from the Mars Hotel",
+      "year": 1974,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 12,
+      "title": "Blues for Allah",
+      "year": 1975,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 13,
+      "title": "Terrapin Station",
+      "year": 1977,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 14,
+      "title": "Shakedown Street",
+      "year": 1978,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 15,
+      "title": "Go to Heaven",
+      "year": 1980,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 16,
+      "title": "Reckoning",
+      "year": 1981,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 17,
+      "title": "Dead Set",
+      "year": 1981,
+      "live_or_studio": "Live"
+    },
+    {
+      "id": 18,
+      "title": "In the Dark",
+      "year": 1987,
+      "live_or_studio": "Studio"
+    },
+    {
+      "id": 19,
+      "title": "Built to Last",
+      "year": 1989,
+      "live_or_studio": "Studio"
+    }
+  ]
+  
