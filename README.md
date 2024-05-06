@@ -15,11 +15,14 @@ This was the first backend project, and therefore the methods were quite new, bu
 
 ## View it live
 
-(https://izabels-first-api.onrender.com)
+https://izabels-first-api.onrender.com
 
 Endpoints are:  /artists
-                /artists/:id
+                /artists/:name
                 /gender/:gender
                 /gender/:gender?alive=true / false
                 /technique/:technique
 
+
+## View frontend
+https://artsome.netlify.app/

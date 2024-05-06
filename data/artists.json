@@ -226,7 +226,7 @@
     "technique": ["Painting", "Sculpture"],
     "year_of_birth": 1968,
     "info_link": "https://www.artsy.net/artist/chris-ofili",
-    "image": "https://www.davidzwirner.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fjuzvn5an%2Frelease-adp%2F38f089ef9f168a099983d1af6c1991d206004abb-1441x1080.png&w=3840&q=75",
+    "image": "https://static01.nyt.com/images/2014/10/31/arts/design/20141031-OFILI-slide-KT3N/20141031-OFILI-slide-KT3N-superJumbo.jpg",
     "gender": "Male",
     "alive": false
   },
@@ -458,7 +458,7 @@
     "technique": ["Installation", "Sculpture"],
     "year_of_birth": 1957,
     "info_link": "https://www.artsy.net/artist/thomas-hirschhorn",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIAs8rPBrT93-mmvEJqdEcNQZlIVwKiAt6NHAR0DlUow&s",
+    "image": "https://www.artworksforchange.org/wp-content/uploads/2016/02/T_Hirschhorn_TooTooMuchMuch1.jpg",
     "gender": "Male",
     "alive": true
   },
@@ -688,5 +688,27 @@
     "image": "https://images.squarespace-cdn.com/content/v1/610e8a1442e2e073cafbc00f/749b4153-d063-4536-9c88-83c4f1d02ef1/Jeff-Koons-balloondog_blue_KUB-feature.jpg",
     "gender": "Male",
     "alive": true
-  }
+  },
+  {
+    "id": 65,
+    "name": "Joyce Joumaa",
+    "birthplace": "Beirut, Lebanon",
+    "technique": ["Film", "Video"],
+    "year_of_birth": 1990,
+    "info_link": "https://joycejoumaa.com/",
+    "image": "https://lefifa.com/uploads/images/carte-blanche-joyce-joumaa-montreal/_large/19168604/ATER_Floreal_01.jpg",
+    "gender": "Female",
+    "alive": true
+  },
+  {
+    "id": 66,
+    "name": "Raul Jorge Gourgel",
+    "birthplace": "Luanda, Angola",
+    "technique": ["Photography", "Mixed Media"],
+    "year_of_birth": 1980,
+    "info_link": "https://thesoleadventurer.com/tag/raul-jorge-gourgel/",
+    "image": "https://thesoleadventurer.com/wp-content/uploads/2019/11/DSC_9669-scaled.jpg",
+    "gender": "Male",
+    "alive": true
+}
 ]
