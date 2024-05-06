@@ -22,16 +22,17 @@ app.get('/artists', (req, res) => {
   res.json(artistData)
 })
 
-//Endpoint unique id
-app.get('/artists/:id', (req, res) => {
-  const id = req.params.id
-  const artistWithId = artistData.filter((artist) => artist.id === +id)
-  if (artistWithId.length > 0) {
-    res.json(artistWithId)
+
+app.get('/artists/:name', (req, res) => {
+  const name = req.params.name
+  const artistWithName = artistData.filter((artist) => artist.name.replace(/ /g,"_") === name)
+  if (artistWithName.length > 0) {
+    res.json(artistWithName)
   } else {
-    res.status(404).json({ error: 'Could not find any artist with this ID, try with a number withing 1-64' })
+    res.status(404).json({ error: 'Could not find an artist with this name. Try capitalizing the first letter of each name and underscoring the space between, like this: Damien_Hirst'})
+    } 
   }
-})
+)
 
 // Endpoint gender
 app.get('/gender/:gender', (req, res) => {
