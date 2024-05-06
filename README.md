@@ -1,8 +1,20 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+For this project I created a RESTful API using Express in Node.js. It serves endpoints to retrieve information about different topics and their subtopics from a JSON file. The API allows clients to fetch all topics, topic names, specific topics by name ecc
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I´ve added a list of enpoints below 👇
+
+# Setting up project
+
+npm init
+npm install nodemon @babel/core @babel/preset -env @babel/node
+
+# Endpoints
+
+- /topics
+- /topics/name
+- /topics/:name
+- /topics/:name/subtopics
 
 ## The problem
 
@@ -10,4 +22,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Express API](https://technigo-project-express-api.onrender.com/)
