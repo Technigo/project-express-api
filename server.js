@@ -2,9 +2,7 @@ import express from "express";
 import cors from "cors";
 import cartooncharsData from "./data/cartoonchars.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+// Defines the port the app will run on. Defaults to 8080
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -12,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 // Root route ("/") to greet users
 app.get("/", (req, res) => {
   res.send(
