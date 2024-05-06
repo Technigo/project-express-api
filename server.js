@@ -10,7 +10,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-// express is the framework.
+// express is the framework/library for backend
 app.use(cors());
 app.use(express.json());
 
