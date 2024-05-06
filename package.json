@@ -8,6 +8,7 @@
   },
   "author": "Pernilla Sterner",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@babel/core": "^7.24.4",
     "@babel/node": "^7.23.9",
