@@ -21,15 +21,6 @@ function logRequests(req, res, next) {
 
 app.use(logRequests);
 
-// Authentication middleware
-const authenticate = (req, res, next) => {
-  if (req.headers.authorization) {
-    console.log("Authenticated successfully");
-    next(); // Proceed if the request is authorized
-  } else {
-    res.status(403).send("Unauthorized"); // Send an error if not authorized
-  }
-};
 
 // Load JSON data dynamically
 function loadSongsData() {
