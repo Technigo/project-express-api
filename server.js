@@ -21,7 +21,6 @@ function logRequests(req, res, next) {
 
 app.use(logRequests);
 
-
 // Load JSON data dynamically
 function loadSongsData() {
   try {
@@ -37,25 +36,17 @@ app.get("/", (req, res) => {
   res.json({
     Welcome: "Welcome to the Music API",
     Endpoints: listEndpoints(app).map((endpoint) => {
-      // Determine the middleware used for each endpoint dynamically
-      const middlewares = [];
-      if (endpoint.path === "/songs") {
-        middlewares.push("authenticate (for genre filtering)");
-      } else {
-        middlewares.push("anonymous"); // Using 'anonymous' for all other routes that don't specifically list middleware
-      }
-
       return {
         path: endpoint.path,
         methods: endpoint.methods,
-        middlewares: middlewares,
+        middlewares: ["logRequests"], 
       };
     }),
   });
 });
 
 // Routes
-app.get("/songs", authenticate, (req, res) => {
+app.get("/songs", (req, res) => {
   try {
     const songs = loadSongsData();
     const { genre } = req.query;
