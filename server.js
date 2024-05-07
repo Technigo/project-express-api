@@ -60,7 +60,7 @@ app.get('/favorites', (req, res) => {
 })
 
 //route to sort by popularity and show the top ten songs by slice
-app.get('/favorites/:top10', (req, res) => {
+app.get('/favorites/top10', (req, res) => {
 	const top10Songs = topMusicData
 		.sort((a, b) => +b.popularity - +a.popularity)
 		.slice(0, 10)
