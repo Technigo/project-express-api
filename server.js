@@ -17,7 +17,13 @@ app.use(express.json())
 //http://localhost:8080/
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app)
-  res.json(endpoints)
+
+  const endpointsList = endpoints.map((endpoint) => {
+    if (endpoint.path === "/sneakers") {
+      endpoint.query = ["name", "brand", "color", "price"]
+    } return endpoint
+  })
+  res.json(endpointsList)
 })
 
 //Get all sneakers
