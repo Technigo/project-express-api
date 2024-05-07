@@ -18,13 +18,13 @@ app
     res.send(endpoints);
   })
   .post((req, res) => {
-    req.send("Post a new book");
+    res.send("Post a new book");
   })
   .put((req, res) => {
-    req.send("Change something");
+    res.send("Change something");
   })
   .delete((req, res) => {
-    req.send("Delete something");
+    res.send("Delete something");
   });
 
 // Collection endpoint - get all books
