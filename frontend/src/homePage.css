@@ -1,0 +1,19 @@
+.Pone {
+  margin-bottom: 15px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Ptwo {
+  margin-top: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.HomePage-image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}

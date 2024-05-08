@@ -1,0 +1,12 @@
+@media (min-width: 650px) {
+  .areas {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .area {
+    width: 50%;
+    box-sizing: border-box;
+  }
+}
