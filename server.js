@@ -16,6 +16,8 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
+  // Getting all endpoint with express List Endpoints
+  const endpoints = expressListEndpoints(app);
   res.json(endpoints);
 });
 
@@ -62,9 +64,6 @@ app.get("/averageratings/:ratingNum", (req, res) => {
     res.status(404).send("Sorry, there are no books with that average rating.");
   }
 });
-
-// Getting all endpoint with express List Endpoints
-const endpoints = expressListEndpoints(app);
 
 // Start the server
 app.listen(port, () => {
