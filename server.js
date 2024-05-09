@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 
 import topMusicData from "./data/top-music.json";
 
@@ -16,7 +17,9 @@ app.use(express.json());
 // Start defining your routes here
 // http://localhost:8080/
 app.get("/", (req, res) => {
-  res.send("Top 50 popular songs on spotify");
+  const endpoints = expressListEndpoints(app);
+
+  res.json(endpoints);
 });
 
 // Get all songs
