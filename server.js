@@ -14,7 +14,26 @@ app.use(express.json());
 // Start with showing the updated documentation for the api
 app.get("/", (req, res) => {
   const endpoints = listEndpoints(app);
-  res.json(endpoints);
+  const updatedEndpoints = endpoints.map((endpoint) => {
+    if (endpoint.path === "/movies/filter") {
+      return {
+        path: endpoint.path,
+        methods: endpoint.methods,
+        queryParameters: [
+          {name: "category", description:"filter by category"},
+          {name:"year", description:"filter by year"},
+          {name:"win", description:"filter by true or false"},
+          {name:"nominee", description:"filter by nomination"},
+          {name:"film", description:"filter by the film"},
+          ]
+      };
+    }
+    return {
+      path: endpoint.path,
+      methods: endpoint.methods
+    };
+  });
+  res.json(updatedEndpoints);
 });
 
 
