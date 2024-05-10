@@ -20,11 +20,11 @@ app.get("/", (req, res) => {
         path: endpoint.path,
         methods: endpoint.methods,
         queryParameters: [
-          {name: "category", description:"filter by category"},
-          {name:"year", description:"filter by year"},
-          {name:"win", description:"filter by true or false"},
-          {name:"nominee", description:"filter by nomination"},
-          {name:"film", description:"filter by the film"},
+          {name: "category", description:"filter by category, example: /movies/filter?category=Best Motion Picture. Can be chained with other parameters. Example: /movies/filter?category=Best Motion Picture&year=2020"},
+          {name:"year", description:"filter by year, example: /movies/filter?year=2020. Can be chained with other parameters. Example: /movies/filter?year=2020&category=Best Motion Picture"},
+          {name:"win", description:"filter by true or false, example: /movies/filter?win=true.  Can be chained with other parameters. Example: /movies/filter?win=true&category=Best Motion Picture"},
+          {name:"nominee", description:"filter by nomination, example: /movies/filter?nominee=Tom Hanks. Can be chained with other parameters. Example: /movies/filter?nominee=Tom Hanks&category=Best Motion Picture"},
+          {name:"film", description:"filter by the film example: /movies/filter?film=The Crown. Can be chained with other parameters. Example: /movies/filter?film=The Crown&category=Best Motion Picture&year=2020"},
           ]
       };
     }
@@ -40,28 +40,40 @@ app.get("/", (req, res) => {
 
 //  make filter with query params
 app.get("/movies/filter", (req, res) => {
-  const { category, year, win, nominee, film } = req.query;
-  let filteredMovies = goldenGlobesData;
+  try {
+    let query = {};  // Create an empty object to store the query parameters
+    let filteredMovies = goldenGlobesData; // Create a variable to store the filtered movies
+    const { category, year, win, nominee, film } = req.query;
 
-  if (category) {
-    filteredMovies = filteredMovies.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()));
+    if (category) {
+      query.category = category;
+      filteredMovies = filteredMovies.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()));
+    }
+    if (year) {
+      query.year  = year;
+      filteredMovies = filteredMovies.filter((item) => item.year_award === +year);
+    }
+    if (win) {
+      query.win = win;
+      filteredMovies = filteredMovies.filter((item) => item.win === true);
+    }
+    if (nominee) {
+      query.nominee = nominee;
+      filteredMovies = filteredMovies.filter((item) => item.nominee.toLowerCase().includes(nominee.toLowerCase()));
+    }
+    if (film) {
+      query.film = film;
+      filteredMovies = filteredMovies.filter((item) => item.film.toLowerCase().includes(film.toLowerCase()));
+    }
+
+    if (filteredMovies.length === 0) {
+      res.status(404).send(`No movies found`);
+    } else {
+      res.json(filteredMovies);
+    }
+  } catch (error) {
+    res.status(500).send(`Internal Server Error`);
   }
-  if (year) {
-    filteredMovies = filteredMovies.filter((item) => item.year_award === +year);
-  }
-  if (win) {
-    filteredMovies = filteredMovies.filter((item) => item.win === true);
-  }
-  if (nominee) {
-    filteredMovies = filteredMovies.filter((item) => item.nominee.toLowerCase().includes(nominee.toLowerCase()));
-  }
-  if (film) {
-    filteredMovies = filteredMovies.filter((item) => item.film.toLowerCase().includes(film.toLowerCase()));
-  }
-  if (filteredMovies.length === 0) {
-    res.status(404).send(`No movies found`);
-  }
-  res.json(filteredMovies);
 });
 
 
