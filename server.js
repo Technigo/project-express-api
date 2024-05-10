@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import goldenGlobesData from "./data/golden-globes.json";
 import listEndpoints from "express-list-endpoints";
-import docu from "./docu.json";
 
 const fs = require("fs");
 const port = process.env.PORT || 5190;
@@ -14,7 +13,8 @@ app.use(express.json());
 
 // Start with showing the updated documentation for the api
 app.get("/", (req, res) => {
-  res.send(docu);
+  const endpoints = listEndpoints(app);
+  res.json(endpoints);
 });
 
 
@@ -35,12 +35,9 @@ app.get("/movies/filter", (req, res) => {
   }
   if (nominee) {
     filteredMovies = filteredMovies.filter((item) => item.nominee.toLowerCase().includes(nominee.toLowerCase()));
-
   }
   if (film) {
-
     filteredMovies = filteredMovies.filter((item) => item.film.toLowerCase().includes(film.toLowerCase()));
-
   }
   if (filteredMovies.length === 0) {
     res.status(404).send(`No movies found`);
@@ -77,7 +74,6 @@ app.get("/movies/year/:year", (req, res) => {
 
 
 // get movies from a certain category
-
 app.get("/movies/category/:category", (req, res) => {
   const category = req.params.category;
   const moviesFromCategory = goldenGlobesData.filter((item) => item.category.toLowerCase().includes(category.toLowerCase()));
@@ -97,14 +93,13 @@ app.get("/movies/year/:year/category/:category", (req, res) => {
     res.status(404).send(`No movies found in this category and year`);
   }
   res.json(moviesFromCategoryAndYear);
-}
-);
+});
 
 // return all winning movies from a certain year, if win=true
-
 app.get("/movies/year/:year/:win", (req, res) => {
   const year = req.params.year;
-  const WinningMoviesFromYear = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year);
+  const WinningMoviesFromYear = goldenGlobesData.filter((item) => item.win === true && item.year_award === +year
+  );
   if (WinningMoviesFromYear.length === 0) {
     res.status(404).send(`No movies found in this category and year`);
   }
@@ -200,37 +195,8 @@ app.get("/movies/film/:film/:win", (req, res) => {
 }
 );
 
-
-
 // Get the list of endpoints
 const endpoints = listEndpoints(app);
-
-// Convert the endpoints to a JSON string
-const jsonEndpoints = JSON.stringify(endpoints, null, 2);
-
-// New content
-const updatedContent = JSON.stringify(endpoints, null, 2);
-
-// Read the current content of the file
-fs.readFile('docu.json', 'utf8', (err, currentContent) => {
-  if (err) {
-    console.error('Error reading file:', err);
-    return;
-  }
-
-  // Compare the current content with the new content
-  if (currentContent !== updatedContent) {
-    // If the content is different, update the file
-    fs.writeFile('docu.json', updatedContent, (err) => {
-      if (err) {
-        console.error('Error writing file:', err);
-      } else {
-        console.log('Successfully wrote new content to docu.json');
-      }
-    });
-  }
-});
-
 
 
 // Start the server

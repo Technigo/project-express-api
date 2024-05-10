@@ -18,6 +18,22 @@
     ]
   },
   {
+    "path": "/movies/filter",
+    "methods": [
+      "GET"
+    ],
+    "middlewares": [
+      "anonymous"
+    ],
+    "query_params": {
+      "category": "Filter movies by category",
+      "year": "Filter movies by year",
+      "win": "Filter movies by win status (true/false)",
+      "nominee": "Filter movies by nominee",
+      "film": "Filter movies by film or series name"
+    }
+  },
+  {
     "path": "/movies/:win",
     "methods": [
       "GET"
