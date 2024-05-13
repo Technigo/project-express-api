@@ -11,7 +11,3 @@ Would like to continue buildling the frontend.
 
 Backend:
 https://project-express-api-books.onrender.com
-
-Frontend:
-https://melodic-gnome-35f6b0.netlify.app/
-https://github.com/jyy009/project-mongo-api-frontend
