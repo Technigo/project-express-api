@@ -25,9 +25,17 @@ app.get('/books', (req, res) => {
   let filterBooks = [...booksData]
 
   // Query for a book title
+  // http://localhost:8080/books?title=harry
   const titleSearch = req.query.title
   if (titleSearch) {
     filterBooks = filterBooks.filter(book => book.title.toLowerCase().includes(titleSearch.toLowerCase()))
+  }
+
+  // Query to show books with an average rating equal to or greater than given value
+  // http://localhost:8080/books?minRating=2.5
+  const minRating = parseFloat(req.query.minRating)
+  if (!isNaN(minRating)) {
+    filterBooks = filterBooks.filter(book => book.average_rating >= minRating)
   }
 
   if (filterBooks.length > 0) {
@@ -36,10 +44,6 @@ app.get('/books', (req, res) => {
     res.status(404).send('No books were found based on the filters')
   }
 })
-
-// Query for a book author
-
-// Query for average rating
 
 // Get one book based on ID
 // http://localhost:8080/books/7
