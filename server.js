@@ -21,8 +21,25 @@ app.get("/", (req, res) => {
 // Get all books
 // http://localhost:8080/books
 app.get('/books', (req, res) => {
-  res.json(booksData)
+
+  let filterBooks = [...booksData]
+
+  // Query for a book title
+  const titleSearch = req.query.title
+  if (titleSearch) {
+    filterBooks = filterBooks.filter(book => book.title.toLowerCase().includes(titleSearch.toLowerCase()))
+  }
+
+  if (filterBooks.length > 0) {
+    res.json(filterBooks)
+  } else {
+    res.status(404).send('No books were found based on the filters')
+  }
 })
+
+// Query for a book author
+
+// Query for average rating
 
 // Get one book based on ID
 // http://localhost:8080/books/7
