@@ -19,8 +19,23 @@ app.get("/", (req, res) => {
 });
 
 // Get all books
+// http://localhost:8080/books
 app.get('/books', (req, res) => {
   res.json(booksData)
+})
+
+// Get one book based on ID
+// http://localhost:8080/books/7
+app.get('/books/:bookID', (req, res) => {
+  const { bookID } = req.params
+
+  const book = booksData.find(book => +bookID === book.bookID)
+
+  if (book) {
+    res.json(book)
+  } else {
+    res.status(404).send('No book was found')
+  }
 })
 
 // Start the server
