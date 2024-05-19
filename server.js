@@ -21,7 +21,13 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
-  res.send(endpoints);
+  const updatedEndpoints = endpoints.map((endpoint) => {
+    if (endpoint.path === '/netflix-titles') {
+      endpoint.query = ['year']; 
+    }
+    return endpoint;
+  });
+  res.json(updatedEndpoints);
 });
 
 app.get("/netflix-titles", (req, res) => {
