@@ -5,7 +5,7 @@ import expressListEndpoints from "express-list-endpoints";
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-import netflixData from "./data/netflix-titles.json" assert { type: "json" };
+import netflixData from "./data/netflix-titles.json" with { type: "json" };
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -43,7 +43,7 @@ app.get("/netflix-titles", (req, res) => {
 });
 
 app.get("/netflix-titles/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const title = netflixData.find((item) => item.show_id === id);
 
   if (title) {
