@@ -27,12 +27,6 @@ app.get("/", (req, res) => {
 app.get("/netflix-titles", (req, res) => {
   let titles = netflixData;
 
-  if (req.query.genre) {
-    titles = titles.filter(
-      (item) => item.genre.toLowerCase() === req.query.genre.toLowerCase()
-    );
-  }
-
   if (req.query.year) {
     titles = titles.filter(
       (item) => item.release_year === parseInt(req.query.year)
