@@ -1,13 +1,15 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+An API for Avocado Sales data. Several endpoints are available, all of which can be seen on the root route "/".  
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Creating my first API was both daunting and exciting. It was really hard to grasp what was going on at first, but once I got going it was actually quite fun. I wanted to integrate my own CSV file, but it ended up being too big unfortunately. So I decided to go with one of the provided data sets. Whilst looking at the code, I ahd to google a lot and ask chat gpt what was going on. By looking at the lines one by one I eventually started to understand each part. 
+
+There was some back and forth on the creation of path names, at first it was difficult to know what to exactly name the paths, but once I started to get deeper into the creation of different get-methods, I also started to figure out the correct naming easier. 
+
+Understanding how to display the endpoints was basically the hardest point, event though the documentation was pretty clear. It tooks some time until I realized all I had to do was to "send" the actual variable I had created that held the endpoints data, instead of logging it to the console.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://avocado-sales-api.onrender.com
