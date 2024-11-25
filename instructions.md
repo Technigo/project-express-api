@@ -26,6 +26,7 @@ RESTful routing can take a little time to get used to. Try to think of what the 
   - A minimum of one endpoint to return a **collection** of results (array of elements).
   - A minimum of one endpoint to return a **single** result (single element).
 - Your API should be [RESTful](https://www.notion.so/23473abe980e40aaa932914751055d22?pvs=21).
+- You should follow the guidelines on how to write clean code.
 
 
 ## Stretch goals
