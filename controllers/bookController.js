@@ -23,6 +23,7 @@ const saveBooks = (books) => {
 // Get all books
 export const getBooks = (req, res) => {
   const startsWith = req.query.startsWith;
+  const author = req.query.author;
   const books = loadBooks();
 
   // Get all books that starts with the given letter
@@ -35,8 +36,39 @@ export const getBooks = (req, res) => {
     return res.json(filteredBooks);
   }
 
+  // Get all books from a certain author
+  if (author) {
+    const filteredBooks = books.filter((book) =>
+      book.authors.toLowerCase().includes(author.toLowerCase())
+    );
+
+    if (filteredBooks.length === 0) {
+      return res
+        .status(404)
+        .json({ error: "No books found for the given author" });
+    }
+
+    return res.json(filteredBooks);
+  }
+
   // If no filter is applied, return all books
   res.json(books);
+};
+
+// Get a specific book by ID
+export const getBookByID = (req, res) => {
+  const books = loadBooks();
+  const id = req.params.id;
+
+  const book = books.find((book) => book.bookID === +id);
+
+  if (book) {
+    res.json(book);
+  } else {
+    return res
+      .status(404)
+      .json({ error: "A book with this bookID does not exist." });
+  }
 };
 
 // Add a new book
@@ -44,11 +76,28 @@ export const addBook = (req, res) => {
   const newBook = req.body;
   const books = loadBooks();
 
+  // Helper function to generate ID for new books
+  const generateID = (books) => {
+    if (books.length === 0) return 1; // Start from 1 if no books exist
+    const maxID = Math.max(...books.map((book) => book.bookID));
+    return maxID + 1;
+  };
+
+  // Generate a unique ID
+  newBook.bookID = generateID(books);
+
   // Ensure unique bookID
   if (books.some((book) => book.bookID === newBook.bookID)) {
     return res
       .status(400)
       .json({ error: "Book with this bookID already exists" });
+  }
+
+  // Ensure there are no duplicate titles or ISBNs
+  if (books.some((book) => book.isbn === newBook.isbn)) {
+    return res
+      .status(400)
+      .json({ error: "A book with this ISBN already exists" });
   }
 
   books.push(newBook);

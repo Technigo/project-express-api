@@ -1,7 +1,6 @@
 import { body, validationResult } from "express-validator";
 
 export const validateBook = [
-  body("bookID").isInt().withMessage("bookID must be an integer"),
   body("title").isString().notEmpty().withMessage("Title is required"),
   body("authors").isString().notEmpty().withMessage("Authors are required"),
   body("average_rating")
