@@ -2,9 +2,9 @@
   {
     "id": 1,
     "name": "El Capitan",
-    "type": "Big Wall",
+    "type": "Wall",
     "location": "Yosemite National Park, USA",
-    "difficulty": "5.13c",
+    "difficulty": "low",
     "height": 914
   },
   {
@@ -12,7 +12,7 @@
     "name": "The Nose",
     "type": "Trad",
     "location": "Yosemite National Park, USA",
-    "difficulty": "5.14a",
+    "difficulty": "average",
     "height": 900
   },
   {
@@ -20,7 +20,7 @@
     "name": "Sharma's Route",
     "type": "Sport",
     "location": "Oliana, Spain",
-    "difficulty": "5.15c",
+    "difficulty": "high",
     "height": 40
   },
   {
@@ -28,7 +28,7 @@
     "name": "La Rambla",
     "type": "Sport",
     "location": "Siurana, Spain",
-    "difficulty": "5.15a",
+    "difficulty": "low",
     "height": 41
   },
   {
@@ -36,7 +36,7 @@
     "name": "Silence",
     "type": "Sport",
     "location": "Flatanger Cave, Norway",
-    "difficulty": "5.15d",
+    "difficulty": "high",
     "height": 45
   },
   {
@@ -44,7 +44,7 @@
     "name": "Midnight Lightning",
     "type": "Bouldering",
     "location": "Yosemite National Park, USA",
-    "difficulty": "V8",
+    "difficulty": "high",
     "height": 7
   },
   {
@@ -52,15 +52,15 @@
     "name": "Action Directe",
     "type": "Sport",
     "location": "Frankenjura, Germany",
-    "difficulty": "5.14d",
+    "difficulty": "average",
     "height": 20
   },
   {
     "id": 8,
     "name": "Mount Thor",
-    "type": "Big Wall",
+    "type": "Wall",
     "location": "Baffin Island, Canada",
-    "difficulty": "5.12b",
+    "difficulty": "low",
     "height": 1250
   }
 ]
