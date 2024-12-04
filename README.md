@@ -1,13 +1,18 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This project involves building a RESTful API using Node.js and Express to manage and display information about board games. The goal is to implement multiple endpoints that meet specific requirements:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Documentation at the root (/) endpoint: The API should include a root endpoint providing documentation about all available endpoints and their functionalities.
 
-## The problem
+Data management endpoints: At least three endpoints should be implemented to handle and return:
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+A collection of results (e.g., an array of board games).
+
+A single result (e.g., a specific board game based on a unique identifier).
+
+RESTful structure: The API must follow REST principles and adhere to clean coding guidelines.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+
