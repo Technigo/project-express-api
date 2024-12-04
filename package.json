@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "nodemon": "^3.0.1"
