@@ -3,9 +3,3 @@
     "@babel/preset-env"
   ]
 }
-
-{
-  "plugins": [
-    "@babel/plugin-syntax-json-strings"
-  ]
-}

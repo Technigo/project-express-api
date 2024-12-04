@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import boardgames from "./data/boardgames.json" assert { type: "json" };
+import boardgames from "./data/boardgames.json";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors());
@@ -50,7 +50,7 @@ app.get("/maxPlayers", (req, res) => {
   res.json(filteredMaxPlayers);
 });
 
-// Return a specific boardgames by ID
+// Return a specific boardgame by ID
 app.get("/boardgames/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
   const boardgame = boardgames.find(game => game.id === id);

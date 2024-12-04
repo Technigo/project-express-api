@@ -1,7 +1,6 @@
 {
   "name": "project-express-api",
   "version": "1.0.0",
-  "type": "module",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
     "start": "babel-node server.js",
@@ -12,11 +11,9 @@
   "dependencies": {
     "@babel/core": "^7.26.0",
     "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "cors": "^2.8.5",
-    "express": "^4.17.3",
-    "nodemon": "^3.0.1"
-  },
-  "devDependencies": {
-    "@babel/plugin-syntax-json-strings": "^7.8.3"
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
   }
 }
