@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Abyssinian",
+    "breed": "Abyssinian",
     "fur_length": "Short",
     "fur_color": "Ruddy",
     "personality": "Active",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "name": "American Shorthair",
+    "breed": "American Shorthair",
     "fur_length": "Short",
     "fur_color": "Silver",
     "personality": "Friendly",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "name": "Bengal",
+    "breed": "Bengal",
     "fur_length": "Short",
     "fur_color": "Spotted",
     "personality": "Energetic",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "name": "Birman",
+    "breed": "Birman",
     "fur_length": "Long",
     "fur_color": "Seal Point",
     "personality": "Affectionate",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "name": "British Shorthair",
+    "breed": "British Shorthair",
     "fur_length": "Short",
     "fur_color": "Blue",
     "personality": "Calm",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "name": "Maine Coon",
+    "breed": "Maine Coon",
     "fur_length": "Long",
     "fur_color": "Brown Tabby",
     "personality": "Gentle",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "name": "Persian",
+    "breed": "Persian",
     "fur_length": "Long",
     "fur_color": "White",
     "personality": "Docile",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "name": "Siamese",
+    "breed": "Siamese",
     "fur_length": "Short",
     "fur_color": "Chocolate Point",
     "personality": "Vocal",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "name": "Ragdoll",
+    "breed": "Ragdoll",
     "fur_length": "Long",
     "fur_color": "Blue Point",
     "personality": "Affectionate",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "name": "Scottish Fold",
+    "breed": "Scottish Fold",
     "fur_length": "Short",
     "fur_color": "Gray",
     "personality": "Adaptable",
@@ -91,7 +91,7 @@
   },
   {
     "id": 11,
-    "name": "Sphynx",
+    "breed": "Sphynx",
     "fur_length": "Hairless",
     "fur_color": "Pink",
     "personality": "Social",
@@ -100,7 +100,7 @@
   },
   {
     "id": 12,
-    "name": "Norwegian Forest",
+    "breed": "Norwegian Forest",
     "fur_length": "Long",
     "fur_color": "Brown",
     "personality": "Independent",
@@ -109,7 +109,7 @@
   },
   {
     "id": 13,
-    "name": "Oriental Shorthair",
+    "breed": "Oriental Shorthair",
     "fur_length": "Short",
     "fur_color": "Ebony",
     "personality": "Curious",
@@ -118,7 +118,7 @@
   },
   {
     "id": 14,
-    "name": "Burmese",
+    "breed": "Burmese",
     "fur_length": "Short",
     "fur_color": "Sable",
     "personality": "Playful",
@@ -127,7 +127,7 @@
   },
   {
     "id": 15,
-    "name": "Chartreux",
+    "breed": "Chartreux",
     "fur_length": "Short",
     "fur_color": "Blue",
     "personality": "Quiet",
@@ -136,7 +136,7 @@
   },
   {
     "id": 16,
-    "name": "Russian Blue",
+    "breed": "Russian Blue",
     "fur_length": "Short",
     "fur_color": "Blue",
     "personality": "Reserved",
@@ -145,7 +145,7 @@
   },
   {
     "id": 17,
-    "name": "Savannah",
+    "breed": "Savannah",
     "fur_length": "Short",
     "fur_color": "Spotted",
     "personality": "Energetic",
@@ -154,7 +154,7 @@
   },
   {
     "id": 18,
-    "name": "Egyptian Mau",
+    "breed": "Egyptian Mau",
     "fur_length": "Short",
     "fur_color": "Silver",
     "personality": "Agile",
@@ -163,7 +163,7 @@
   },
   {
     "id": 19,
-    "name": "Devon Rex",
+    "breed": "Devon Rex",
     "fur_length": "Short",
     "fur_color": "Brown",
     "personality": "Mischievous",
@@ -172,7 +172,7 @@
   },
   {
     "id": 20,
-    "name": "Cornish Rex",
+    "breed": "Cornish Rex",
     "fur_length": "Short",
     "fur_color": "White",
     "personality": "Active",
@@ -181,7 +181,7 @@
   },
   {
     "id": 21,
-    "name": "Balinese",
+    "breed": "Balinese",
     "fur_length": "Long",
     "fur_color": "Lilac Point",
     "personality": "Graceful",
@@ -190,7 +190,7 @@
   },
   {
     "id": 22,
-    "name": "Himalayan",
+    "breed": "Himalayan",
     "fur_length": "Long",
     "fur_color": "Seal Point",
     "personality": "Calm",
@@ -199,7 +199,7 @@
   },
   {
     "id": 23,
-    "name": "Manx",
+    "breed": "Manx",
     "fur_length": "Short",
     "fur_color": "Tabby",
     "personality": "Playful",
@@ -208,7 +208,7 @@
   },
   {
     "id": 24,
-    "name": "Tonkinese",
+    "breed": "Tonkinese",
     "fur_length": "Short",
     "fur_color": "Champagne",
     "personality": "Affectionate",
@@ -217,16 +217,7 @@
   },
   {
     "id": 25,
-    "name": "Ocicat",
-    "fur_length": "Short",
-    "fur_color": "Spotted",
-    "personality": "Social",
-    "eye_color": "Gold",
-    "commonality": "Less Common"
-  },
-  {
-    "id": 26,
-    "name": "Turkish Van",
+    "breed": "Turkish Van",
     "fur_length": "Long",
     "fur_color": "White and Red",
     "personality": "Energetic",
@@ -234,8 +225,8 @@
     "commonality": "Rare"
   },
   {
-    "id": 27,
-    "name": "Burmilla",
+    "id": 26,
+    "breed": "Burmilla",
     "fur_length": "Short",
     "fur_color": "Silver",
     "personality": "Gentle",
@@ -243,8 +234,8 @@
     "commonality": "Less Common"
   },
   {
-    "id": 28,
-    "name": "Korat",
+    "id": 27,
+    "breed": "Korat",
     "fur_length": "Short",
     "fur_color": "Blue",
     "personality": "Loyal",
@@ -252,8 +243,8 @@
     "commonality": "Rare"
   },
   {
-    "id": 29,
-    "name": "American Bobtail",
+    "id": 28,
+    "breed": "American Bobtail",
     "fur_length": "Medium",
     "fur_color": "Brown Tabby",
     "personality": "Adaptable",
@@ -261,8 +252,8 @@
     "commonality": "Less Common"
   },
   {
-    "id": 30,
-    "name": "Japanese Bobtail",
+    "id": 29,
+    "breed": "Japanese Bobtail",
     "fur_length": "Short",
     "fur_color": "Calico",
     "personality": "Active",
@@ -270,8 +261,8 @@
     "commonality": "Less Common"
   },
   {
-    "id": 31,
-    "name": "LaPerm",
+    "id": 30,
+    "breed": "LaPerm",
     "fur_length": "Curly",
     "fur_color": "Tortoiseshell",
     "personality": "Affectionate",
@@ -279,8 +270,8 @@
     "commonality": "Rare"
   },
   {
-    "id": 32,
-    "name": "Selkirk Rex",
+    "id": 31,
+    "breed": "Selkirk Rex",
     "fur_length": "Curly",
     "fur_color": "Cream",
     "personality": "Laid-back",
@@ -288,62 +279,152 @@
     "commonality": "Less Common"
   },
   {
-    "id": 33,
-    "name": "Singapura",
+    "id": 32,
+    "breed": "Singapura",
     "fur_length": "Short",
-    "fur_color": "Sepia",
+    "fur_color": "Tan",
     "personality": "Playful",
     "eye_color": "Green",
     "commonality": "Rare"
   },
   {
-    "id": 34,
-    "name": "American Curl",
-    "fur_length": "Short",
+    "id": 33,
+    "breed": "Cymric",
+    "fur_length": "Long",
     "fur_color": "Black",
-    "personality": "Curious",
+    "personality": "Friendly",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 34,
+    "breed": "Toyger",
+    "fur_length": "Short",
+    "fur_color": "Orange Striped",
+    "personality": "Energetic",
     "eye_color": "Gold",
     "commonality": "Less Common"
   },
   {
     "id": 35,
-    "name": "Cymric",
-    "fur_length": "Medium",
-    "fur_color": "Tabby",
-    "personality": "Playful",
-    "eye_color": "Gold",
-    "commonality": "Rare"
+    "breed": "Australian Mist",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Friendly",
+    "eye_color": "Green",
+    "commonality": "Less Common"
   },
   {
     "id": 36,
-    "name": "Munchkin",
+    "breed": "Chausie",
     "fur_length": "Short",
-    "fur_color": "Various",
-    "personality": "Friendly",
+    "fur_color": "Gold",
+    "personality": "Energetic",
+    "eye_color": "Yellow",
+    "commonality": "Rare"
+  },
+  {
+    "id": 37,
+    "breed": "Munchkin",
+    "fur_length": "Short",
+    "fur_color": "Tortoiseshell",
+    "personality": "Playful",
     "eye_color": "Gold",
     "commonality": "Common"
   },
   {
-    "id": 37,
-    "name": "Peterbald",
-    "fur_length": "Hairless",
-    "fur_color": "Pink",
+    "id": 38,
+    "breed": "Ragamuffin",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 39,
+    "breed": "American Curl",
+    "fur_length": "Short",
+    "fur_color": "Cream",
+    "personality": "Playful",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 40,
+    "breed": "Havana Brown",
+    "fur_length": "Short",
+    "fur_color": "Brown",
     "personality": "Loyal",
     "eye_color": "Green",
     "commonality": "Rare"
   },
   {
-    "id": 38,
-    "name": "Shorthair Persian",
+    "id": 41,
+    "breed": "American Wirehair",
     "fur_length": "Short",
-    "fur_color": "Chinchilla",
-    "personality": "Affectionate",
-    "eye_color": "Green",
+    "fur_color": "Gray",
+    "personality": "Friendly",
+    "eye_color": "Gold",
     "commonality": "Less Common"
   },
   {
-    "id": 39,
-    "name": "Somali",
+    "id": 42,
+    "breed": "Javanese",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Gentle",
+    "eye_color": "Blue",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 43,
+    "breed": "Singapura",
+    "fur_length": "Short",
+    "fur_color": "Tan",
+    "personality": "Playful",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 44,
+    "breed": "Turkish Angora",
+    "fur_length": "Long",
+    "fur_color": "White",
+    "personality": "Graceful",
+    "eye_color": "Amber",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 45,
+    "breed": "Pixie Bob",
+    "fur_length": "Medium",
+    "fur_color": "Brown Tabby",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 46,
+    "breed": "Snowshoe",
+    "fur_length": "Short",
+    "fur_color": "White",
+    "personality": "Gentle",
+    "eye_color": "Blue",
+    "commonality": "Rare"
+  },
+  {
+    "id": 47,
+    "breed": "Chartreux",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Quiet",
+    "eye_color": "Orange",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 48,
+    "breed": "Somali",
     "fur_length": "Short",
     "fur_color": "Ruddy",
     "personality": "Active",
@@ -351,147 +432,77 @@
     "commonality": "Less Common"
   },
   {
-    "id": 40,
-    "name": "American Wirehair",
-    "fur_length": "Short",
-    "fur_color": "Silver Tabby",
-    "personality": "Independent",
-    "eye_color": "Gold",
-    "commonality": "Rare"
-  },
-  {
-    "id": 41,
-    "name": "Tonkinese",
-    "fur_length": "Short",
-    "fur_color": "Platinum",
-    "personality": "Friendly",
-    "eye_color": "Aquamarine",
-    "commonality": "Less Common"
-  },
-  {
-    "id": 42,
-    "name": "Aegean",
-    "fur_length": "Short",
-    "fur_color": "White with Markings",
-    "personality": "Gentle",
-    "eye_color": "Green",
-    "commonality": "Rare"
-  },
-  {
-    "id": 43,
-    "name": "Turkish Angora",
-    "fur_length": "Long",
-    "fur_color": "White",
-    "personality": "Independent",
-    "eye_color": "Blue",
-    "commonality": "Rare"
-  },
-  {
-    "id": 44,
-    "name": "Khao Manee",
-    "fur_length": "Short",
-    "fur_color": "White",
-    "personality": "Friendly",
-    "eye_color": "Gold",
-    "commonality": "Rare"
-  },
-  {
-    "id": 45,
-    "name": "Chausie",
-    "fur_length": "Short",
-    "fur_color": "Wild-looking",
-    "personality": "Energetic",
-    "eye_color": "Gold",
-    "commonality": "Rare"
-  },
-  {
-    "id": 46,
-    "name": "Cheetoh",
-    "fur_length": "Short",
-    "fur_color": "Spotted",
-    "personality": "Active",
-    "eye_color": "Green",
-    "commonality": "Rare"
-  },
-  {
-    "id": 47,
-    "name": "Caracal",
-    "fur_length": "Short",
-    "fur_color": "Sandy",
-    "personality": "Wild",
-    "eye_color": "Yellow",
-    "commonality": "Rare"
-  },
-  {
-    "id": 48,
-    "name": "African Wildcat",
-    "fur_length": "Short",
-    "fur_color": "Tabby",
-    "personality": "Wild",
-    "eye_color": "Amber",
-    "commonality": "Rare"
-  },
-  {
     "id": 49,
-    "name": "F1 Savannah",
-    "fur_length": "Short",
-    "fur_color": "Spotted",
-    "personality": "Wild",
+    "breed": "Coon Cat",
+    "fur_length": "Long",
+    "fur_color": "Brown Tabby",
+    "personality": "Friendly",
     "eye_color": "Green",
-    "commonality": "Rare"
+    "commonality": "Common"
   },
   {
     "id": 50,
-    "name": "Serval",
+    "breed": "Egyptian Mau",
     "fur_length": "Short",
-    "fur_color": "Spotted",
-    "personality": "Wild",
-    "eye_color": "Amber",
-    "commonality": "Rare"
+    "fur_color": "Silver",
+    "personality": "Agile",
+    "eye_color": "Green",
+    "commonality": "Less Common"
   },
   {
     "id": 51,
-    "name": "Savannah F2",
+    "breed": "Bengal",
     "fur_length": "Short",
     "fur_color": "Spotted",
-    "personality": "Wild",
+    "personality": "Energetic",
     "eye_color": "Green",
-    "commonality": "Rare"
+    "commonality": "Less Common"
   },
   {
     "id": 52,
-    "name": "Kinkalow",
-    "fur_length": "Short",
-    "fur_color": "Tabby",
-    "personality": "Playful",
+    "breed": "LaPerm",
+    "fur_length": "Curly",
+    "fur_color": "Tortoiseshell",
+    "personality": "Affectionate",
     "eye_color": "Gold",
     "commonality": "Rare"
   },
   {
     "id": 53,
-    "name": "Biewer Terrier",
-    "fur_length": "Short",
-    "fur_color": "Tricolor",
-    "personality": "Friendly",
-    "eye_color": "Brown",
-    "commonality": "Rare"
+    "breed": "Ragdoll",
+    "fur_length": "Long",
+    "fur_color": "Blue Point",
+    "personality": "Affectionate",
+    "eye_color": "Blue",
+    "commonality": "Common"
   },
   {
     "id": 54,
-    "name": "Ojos Azules",
-    "fur_length": "Short",
-    "fur_color": "Blue",
-    "personality": "Friendly",
+    "breed": "Javanese",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Gentle",
     "eye_color": "Blue",
-    "commonality": "Rare"
+    "commonality": "Less Common"
   },
   {
     "id": 55,
-    "name": "Turkish Van",
-    "fur_length": "Long",
-    "fur_color": "Red & White",
-    "personality": "Energetic",
-    "eye_color": "Amber",
-    "commonality": "Rare"
-  }
+    "breed": "Sphynx",
+    "fur_length": "Hairless",
+    "fur_color": "Pink",
+    "personality": "Social",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+
+  {
+    "id": 56,
+    "name": "Ocicat",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Social",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+    }
 ]
+
