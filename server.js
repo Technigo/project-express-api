@@ -17,7 +17,8 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
-app.get('/books', (req, res) => {
+// title
+app.get("/books/title", (req, res) => {
   const titleQuery = req.query.title;
 
   if (!titleQuery) {
@@ -31,9 +32,47 @@ app.get('/books', (req, res) => {
   if (filteredBooks.length === 0) {
     return res.status(404).json({ error: "No books found with the given title" });
   }
-
   res.json(filteredBooks);
 });
+
+app.get("/books/authors", (req, res) => {
+  const authorQuery = req.query.author;
+
+  if (!authorQuery) {
+    return res.status(400).json({ error: "Author query parameter is required" });
+  }
+
+  // Filtere Bücher basierend auf dem Autor
+  const filteredBooks = booksData.filter(book => {
+    if (!book.authors) return false; // Verhindere Fehler, wenn keine Autoren vorhanden sind
+    const authorsArray = book.authors.split("-").map(author => author.trim().toLowerCase());
+    return authorsArray.some(author => author.includes(authorQuery.toLowerCase()));
+  });
+
+  if (filteredBooks.length === 0) {
+    return res.status(404).json({ error: "No books found with the given author" });
+  }
+
+  res.status(200).json(filteredBooks); // Antwort mit gefilterten Büchern
+});
+
+
+// ISBN
+app.get("/books/:isbn", (req, res) => {
+  const isbn = req.params.isbn
+
+  const book = booksData.find(book => book.isbn === +isbn)
+  res.json(book); {
+    if (book) {
+      res.status(200).json(book)
+    } else {
+      res.status(404).send("no book found with that ISBN")
+    }
+  }
+})
+
+// Author
+
 
 // Start the server
 app.listen(port, () => {
