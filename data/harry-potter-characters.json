@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "name": "Harry Potter",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 9.8,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 2,
+    "name": "Hermione Granger",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 9.7,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 3,
+    "name": "Ron Weasley",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 9.5,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 4,
+    "name": "Albus Dumbledore",
+    "house": "Gryffindor",
+    "role": "Headmaster",
+    "rating": 9.9,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 5,
+    "name": "Severus Snape",
+    "house": "Slytherin",
+    "role": "Professor",
+    "rating": 9.6,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 6,
+    "name": "Draco Malfoy",
+    "house": "Slytherin",
+    "role": "Student",
+    "rating": 8.7,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 7,
+    "name": "Minerva McGonagall",
+    "house": "Gryffindor",
+    "role": "Professor",
+    "rating": 9.8,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 8,
+    "name": "Rubeus Hagrid",
+    "house": "Gryffindor",
+    "role": "Keeper of Keys",
+    "rating": 9.4,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 9,
+    "name": "Lord Voldemort",
+    "house": "Slytherin",
+    "role": "Antagonist",
+    "rating": 9.2,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 10,
+    "name": "Sirius Black",
+    "house": "Gryffindor",
+    "role": "Order of the Phoenix",
+    "rating": 9.5,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 11,
+    "name": "Remus Lupin",
+    "house": "Gryffindor",
+    "role": "Professor",
+    "rating": 9.6,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 12,
+    "name": "Ginny Weasley",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 8.9,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 13,
+    "name": "Neville Longbottom",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 8.8,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 14,
+    "name": "Luna Lovegood",
+    "house": "Ravenclaw",
+    "role": "Student",
+    "rating": 9.3,
+    "yearIntroduced": 2003
+  },
+  {
+    "id": 15,
+    "name": "Cho Chang",
+    "house": "Ravenclaw",
+    "role": "Student",
+    "rating": 7.8,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 16,
+    "name": "Bellatrix Lestrange",
+    "house": "Slytherin",
+    "role": "Death Eater",
+    "rating": 9.0,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 17,
+    "name": "Fred Weasley",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 8.5,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 18,
+    "name": "George Weasley",
+    "house": "Gryffindor",
+    "role": "Student",
+    "rating": 8.5,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 19,
+    "name": "Lucius Malfoy",
+    "house": "Slytherin",
+    "role": "Death Eater",
+    "rating": 8.2,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 20,
+    "name": "Nymphadora Tonks",
+    "house": "Hufflepuff",
+    "role": "Auror",
+    "rating": 9.1,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 21,
+    "name": "Cedric Diggory",
+    "house": "Hufflepuff",
+    "role": "Student",
+    "rating": 8.4,
+    "yearIntroduced": 1999
+  },
+  {
+    "id": 22,
+    "name": "Molly Weasley",
+    "house": "Gryffindor",
+    "role": "Order of the Phoenix",
+    "rating": 9.2,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 23,
+    "name": "Arthur Weasley",
+    "house": "Gryffindor",
+    "role": "Ministry Worker",
+    "rating": 8.7,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 24,
+    "name": "Peter Pettigrew",
+    "house": "Gryffindor",
+    "role": "Death Eater",
+    "rating": 6.8,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 25,
+    "name": "Fleur Delacour",
+    "house": "Beauxbatons",
+    "role": "Triwizard Champion",
+    "rating": 8.3,
+    "yearIntroduced": 2000
+  },
+  {
+    "id": 26,
+    "name": "Viktor Krum",
+    "house": "Durmstrang",
+    "role": "Triwizard Champion",
+    "rating": 8.1,
+    "yearIntroduced": 2000
+  },
+  {
+    "id": 27,
+    "name": "Moaning Myrtle",
+    "house": "Ravenclaw",
+    "role": "Ghost",
+    "rating": 7.5,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 28,
+    "name": "Nearly Headless Nick",
+    "house": "Gryffindor",
+    "role": "Ghost",
+    "rating": 7.8,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 29,
+    "name": "Dobby",
+    "house": "N/A",
+    "role": "House Elf",
+    "rating": 9.7,
+    "yearIntroduced": 1998
+  },
+  {
+    "id": 30,
+    "name": "Kreacher",
+    "house": "N/A",
+    "role": "House Elf",
+    "rating": 8.0,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 31,
+    "name": "Horace Slughorn",
+    "house": "Slytherin",
+    "role": "Professor",
+    "rating": 8.5,
+    "yearIntroduced": 2006
+  },
+  {
+    "id": 32,
+    "name": "Gilderoy Lockhart",
+    "house": "Ravenclaw",
+    "role": "Professor",
+    "rating": 6.5,
+    "yearIntroduced": 1992
+  },
+  {
+    "id": 33,
+    "name": "Argus Filch",
+    "house": "N/A",
+    "role": "Caretaker",
+    "rating": 5.0,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 34,
+    "name": "Peeves",
+    "house": "N/A",
+    "role": "Poltergeist",
+    "rating": 7.0,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 35,
+    "name": "Barty Crouch Jr.",
+    "house": "Slytherin",
+    "role": "Death Eater",
+    "rating": 8.1,
+    "yearIntroduced": 1994
+  },
+  {
+    "id": 36,
+    "name": "Fenrir Greyback",
+    "house": "N/A",
+    "role": "Werewolf",
+    "rating": 7.2,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 37,
+    "name": "Dolores Umbridge",
+    "house": "Slytherin",
+    "role": "Professor",
+    "rating": 6.0,
+    "yearIntroduced": 1995
+  },
+  {
+    "id": 38,
+    "name": "Mad-Eye Moody",
+    "house": "Hufflepuff",
+    "role": "Auror",
+    "rating": 9.0,
+    "yearIntroduced": 1995
+  },
+  {
+    "id": 39,
+    "name": "Kingsley Shacklebolt",
+    "house": "Hufflepuff",
+    "role": "Auror",
+    "rating": 9.2,
+    "yearIntroduced": 1995
+  },
+  {
+    "id": 40,
+    "name": "Rita Skeeter",
+    "house": "Ravenclaw",
+    "role": "Journalist",
+    "rating": 7.5,
+    "yearIntroduced": 1992
+  },
+  {
+    "id": 41,
+    "name": "The Grey Lady (Helena Ravenclaw)",
+    "house": "Ravenclaw",
+    "role": "Ghost",
+    "rating": 8.3,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 42,
+    "name": "The Bloody Baron",
+    "house": "Slytherin",
+    "role": "Ghost",
+    "rating": 8.0,
+    "yearIntroduced": 1991
+  },
+  {
+    "id": 43,
+    "name": "Salazar Slytherin",
+    "house": "Slytherin",
+    "role": "Founder",
+    "rating": 8.7,
+    "yearIntroduced": 1991
+  },
+  {
+    "id": 44,
+    "name": "Godric Gryffindor",
+    "house": "Gryffindor",
+    "role": "Founder",
+    "rating": 9.5,
+    "yearIntroduced": 1991
+  },
+  {
+    "id": 45,
+    "name": "Helga Hufflepuff",
+    "house": "Hufflepuff",
+    "role": "Founder",
+    "rating": 8.9,
+    "yearIntroduced": 1991
+  },
+  {
+    "id": 46,
+    "name": "Rowena Ravenclaw",
+    "house": "Ravenclaw",
+    "role": "Founder",
+    "rating": 9.2,
+    "yearIntroduced": 1991
+  },
+  {
+    "id": 47,
+    "name": "Horace Slughorn",
+    "house": "Slytherin",
+    "role": "Professor",
+    "rating": 8.4,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 48,
+    "name": "Narcissa Malfoy",
+    "house": "Slytherin",
+    "role": "Mother",
+    "rating": 7.9,
+    "yearIntroduced": 1997
+  },
+  {
+    "id": 49,
+    "name": "Astoria Greengrass",
+    "house": "Slytherin",
+    "role": "Wife",
+    "rating": 7.4,
+    "yearIntroduced": 2007
+  },
+  {
+    "id": 50,
+    "name": "Bill Weasley",
+    "house": "Gryffindor",
+    "role": "Order of the Phoenix",
+    "rating": 8.7,
+    "yearIntroduced": 1994
+  }
+]
