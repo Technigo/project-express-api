@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import boardgames from "./data/boardgames.json";
+import boardgames from "./data/boardgames.json" assert { type: "json" };
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
