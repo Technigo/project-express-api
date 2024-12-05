@@ -3,9 +3,7 @@ import cors from "cors";
 
 import avocadoSalesData from "./data/avocado-sales.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -13,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// API documentation
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to the API!",
@@ -22,14 +20,14 @@ app.get("/", (req, res) => {
       {
         method: "GET",
         path: "/avocadoSalesData",
-        description: "Retrieve avocado sales data, optionally filtered by date or region."
+        description: "Retrieve avocado sales data, optionally filtered by date or region.",
       },
       {
         method: "GET",
         path: "/avocadoSalesData/:id",
-        description: "Retrieve a single avocado sales data entry by ID."
+        description: "Retrieve a single avocado sales data entry by ID.",
       },
-    ]
+    ],
   });
 });
 
@@ -39,27 +37,35 @@ app.get("/avocadoSalesData", (req, res) => {
 
   let filteredData = avocadoSalesData;
 
+  // Filter by date 
   if (date) {
-    filteredData = filteredData.filter(avocados => avocados.date.toLowerCase() === date.toLowerCase());
+    filteredData = filteredData.filter(
+      (avocados) => avocados.date.toLowerCase() === date.toLowerCase()
+    );
   }
 
+  // Filter by region 
   if (region) {
-    filteredData = filteredData.filter(avocados => avocados.region.toLowerCase() === region.toLowerCase());
-
-    res.status(200).json(filteredData);
+    filteredData = filteredData.filter(
+      (avocados) => avocados.region.toLowerCase() === region.toLowerCase()
+    );
   }
 
-
+  // Check if data matches the filters
+  if (filteredData.length > 0) {
+    res.status(200).json(filteredData);
+  } else {
+    res.status(404).send("Avocado not found");
+  }
 });
 
-// Retrieve avocado sales data by ID
+// Filter by ID
 app.get("/avocadoSalesData/:id", (req, res) => {
   const id = req.params.id;
 
-  const avocados = avocadoSalesData.find(item => item.id === +id);
+  const avocados = avocadoSalesData.find((item) => item.id === +id);
   if (avocados) {
     res.status(200).json(avocados);
-
   } else {
     res.status(404).send("No avocado sales data found with the given ID");
   }
