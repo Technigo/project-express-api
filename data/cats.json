@@ -1,0 +1,510 @@
+[
+  {
+    "id": 1,
+    "breed": "Abyssinian",
+    "fur_length": "Short",
+    "fur_color": "Ruddy",
+    "personality": "Active",
+    "eye_color": "Gold",
+    "commonality": "Common"
+  },
+  {
+    "id": 2,
+    "breed": "American Shorthair",
+    "fur_length": "Short",
+    "fur_color": "Silver",
+    "personality": "Friendly",
+    "eye_color": "Gold",
+    "commonality": "Common"
+  },
+  {
+    "id": 3,
+    "breed": "Bengal",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Energetic",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 4,
+    "breed": "Birman",
+    "fur_length": "Long",
+    "fur_color": "Seal Point",
+    "personality": "Affectionate",
+    "eye_color": "Blue",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 5,
+    "breed": "British Shorthair",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Calm",
+    "eye_color": "Orange",
+    "commonality": "Common"
+  },
+  {
+    "id": 6,
+    "breed": "Maine Coon",
+    "fur_length": "Long",
+    "fur_color": "Brown Tabby",
+    "personality": "Gentle",
+    "eye_color": "Green",
+    "commonality": "Common"
+  },
+  {
+    "id": 7,
+    "breed": "Persian",
+    "fur_length": "Long",
+    "fur_color": "White",
+    "personality": "Docile",
+    "eye_color": "Copper",
+    "commonality": "Common"
+  },
+  {
+    "id": 8,
+    "breed": "Siamese",
+    "fur_length": "Short",
+    "fur_color": "Chocolate Point",
+    "personality": "Vocal",
+    "eye_color": "Blue",
+    "commonality": "Common"
+  },
+  {
+    "id": 9,
+    "breed": "Ragdoll",
+    "fur_length": "Long",
+    "fur_color": "Blue Point",
+    "personality": "Affectionate",
+    "eye_color": "Blue",
+    "commonality": "Common"
+  },
+  {
+    "id": 10,
+    "breed": "Scottish Fold",
+    "fur_length": "Short",
+    "fur_color": "Gray",
+    "personality": "Adaptable",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 11,
+    "breed": "Sphynx",
+    "fur_length": "Hairless",
+    "fur_color": "Pink",
+    "personality": "Social",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 12,
+    "breed": "Norwegian Forest",
+    "fur_length": "Long",
+    "fur_color": "Brown",
+    "personality": "Independent",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 13,
+    "breed": "Oriental Shorthair",
+    "fur_length": "Short",
+    "fur_color": "Ebony",
+    "personality": "Curious",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 14,
+    "breed": "Burmese",
+    "fur_length": "Short",
+    "fur_color": "Sable",
+    "personality": "Playful",
+    "eye_color": "Gold",
+    "commonality": "Common"
+  },
+  {
+    "id": 15,
+    "breed": "Chartreux",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Quiet",
+    "eye_color": "Orange",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 16,
+    "breed": "Russian Blue",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Reserved",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 17,
+    "breed": "Savannah",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Energetic",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 18,
+    "breed": "Egyptian Mau",
+    "fur_length": "Short",
+    "fur_color": "Silver",
+    "personality": "Agile",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 19,
+    "breed": "Devon Rex",
+    "fur_length": "Short",
+    "fur_color": "Brown",
+    "personality": "Mischievous",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 20,
+    "breed": "Cornish Rex",
+    "fur_length": "Short",
+    "fur_color": "White",
+    "personality": "Active",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 21,
+    "breed": "Balinese",
+    "fur_length": "Long",
+    "fur_color": "Lilac Point",
+    "personality": "Graceful",
+    "eye_color": "Blue",
+    "commonality": "Rare"
+  },
+  {
+    "id": 22,
+    "breed": "Himalayan",
+    "fur_length": "Long",
+    "fur_color": "Seal Point",
+    "personality": "Calm",
+    "eye_color": "Blue",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 23,
+    "breed": "Manx",
+    "fur_length": "Short",
+    "fur_color": "Tabby",
+    "personality": "Playful",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 24,
+    "breed": "Tonkinese",
+    "fur_length": "Short",
+    "fur_color": "Champagne",
+    "personality": "Affectionate",
+    "eye_color": "Aquamarine",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 25,
+    "breed": "Turkish Van",
+    "fur_length": "Long",
+    "fur_color": "White and Red",
+    "personality": "Energetic",
+    "eye_color": "Amber",
+    "commonality": "Rare"
+  },
+  {
+    "id": 26,
+    "breed": "Burmilla",
+    "fur_length": "Short",
+    "fur_color": "Silver",
+    "personality": "Gentle",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 27,
+    "breed": "Korat",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Loyal",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 28,
+    "breed": "American Bobtail",
+    "fur_length": "Medium",
+    "fur_color": "Brown Tabby",
+    "personality": "Adaptable",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 29,
+    "breed": "Japanese Bobtail",
+    "fur_length": "Short",
+    "fur_color": "Calico",
+    "personality": "Active",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 30,
+    "breed": "LaPerm",
+    "fur_length": "Curly",
+    "fur_color": "Tortoiseshell",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 31,
+    "breed": "Selkirk Rex",
+    "fur_length": "Curly",
+    "fur_color": "Cream",
+    "personality": "Laid-back",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 32,
+    "breed": "Singapura",
+    "fur_length": "Short",
+    "fur_color": "Tan",
+    "personality": "Playful",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 33,
+    "breed": "Cymric",
+    "fur_length": "Long",
+    "fur_color": "Black",
+    "personality": "Friendly",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 34,
+    "breed": "Toyger",
+    "fur_length": "Short",
+    "fur_color": "Orange Striped",
+    "personality": "Energetic",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 35,
+    "breed": "Australian Mist",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Friendly",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 36,
+    "breed": "Chausie",
+    "fur_length": "Short",
+    "fur_color": "Gold",
+    "personality": "Energetic",
+    "eye_color": "Yellow",
+    "commonality": "Rare"
+  },
+  {
+    "id": 37,
+    "breed": "Munchkin",
+    "fur_length": "Short",
+    "fur_color": "Tortoiseshell",
+    "personality": "Playful",
+    "eye_color": "Gold",
+    "commonality": "Common"
+  },
+  {
+    "id": 38,
+    "breed": "Ragamuffin",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 39,
+    "breed": "American Curl",
+    "fur_length": "Short",
+    "fur_color": "Cream",
+    "personality": "Playful",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 40,
+    "breed": "Havana Brown",
+    "fur_length": "Short",
+    "fur_color": "Brown",
+    "personality": "Loyal",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 41,
+    "breed": "American Wirehair",
+    "fur_length": "Short",
+    "fur_color": "Gray",
+    "personality": "Friendly",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 42,
+    "breed": "Javanese",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Gentle",
+    "eye_color": "Blue",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 43,
+    "breed": "Singapura",
+    "fur_length": "Short",
+    "fur_color": "Tan",
+    "personality": "Playful",
+    "eye_color": "Green",
+    "commonality": "Rare"
+  },
+  {
+    "id": 44,
+    "breed": "Turkish Angora",
+    "fur_length": "Long",
+    "fur_color": "White",
+    "personality": "Graceful",
+    "eye_color": "Amber",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 45,
+    "breed": "Pixie Bob",
+    "fur_length": "Medium",
+    "fur_color": "Brown Tabby",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 46,
+    "breed": "Snowshoe",
+    "fur_length": "Short",
+    "fur_color": "White",
+    "personality": "Gentle",
+    "eye_color": "Blue",
+    "commonality": "Rare"
+  },
+  {
+    "id": 47,
+    "breed": "Chartreux",
+    "fur_length": "Short",
+    "fur_color": "Blue",
+    "personality": "Quiet",
+    "eye_color": "Orange",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 48,
+    "breed": "Somali",
+    "fur_length": "Short",
+    "fur_color": "Ruddy",
+    "personality": "Active",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 49,
+    "breed": "Coon Cat",
+    "fur_length": "Long",
+    "fur_color": "Brown Tabby",
+    "personality": "Friendly",
+    "eye_color": "Green",
+    "commonality": "Common"
+  },
+  {
+    "id": 50,
+    "breed": "Egyptian Mau",
+    "fur_length": "Short",
+    "fur_color": "Silver",
+    "personality": "Agile",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+
+  {
+    "id": 51,
+    "breed": "LaPerm",
+    "fur_length": "Curly",
+    "fur_color": "Tortoiseshell",
+    "personality": "Affectionate",
+    "eye_color": "Gold",
+    "commonality": "Rare"
+  },
+  {
+    "id": 52,
+    "breed": "Ragdoll",
+    "fur_length": "Long",
+    "fur_color": "Blue Point",
+    "personality": "Affectionate",
+    "eye_color": "Blue",
+    "commonality": "Common"
+  },
+  {
+    "id": 53,
+    "breed": "Javanese",
+    "fur_length": "Long",
+    "fur_color": "Colorpoint",
+    "personality": "Gentle",
+    "eye_color": "Blue",
+    "commonality": "Less Common"
+  },
+  {
+    "id": 54,
+    "breed": "Sphynx",
+    "fur_length": "Hairless",
+    "fur_color": "Pink",
+    "personality": "Social",
+    "eye_color": "Green",
+    "commonality": "Less Common"
+  },
+
+  {
+    "id": 55,
+    "breed": "Ocicat",
+    "fur_length": "Short",
+    "fur_color": "Spotted",
+    "personality": "Social",
+    "eye_color": "Gold",
+    "commonality": "Less Common"
+    },
+
+    {
+      "id": 56,
+      "breed": "Siberian",
+      "fur_length": "Long",
+      "fur_color": "Tabby",
+      "personality": "Affectionate",
+      "eye_color": "Blue",
+      "commonality": "Common"
+    }
+]
+
