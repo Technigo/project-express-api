@@ -1,13 +1,7 @@
 import express from "express";
 import cors from "cors";
-
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
 import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import listEndpoints from "express-list-endpoints"
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -19,27 +13,39 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here TEST
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
-});
-
+// Remove technigo and test later on
 app.get("/test", (req, res) => {
   res.send("Hello from test!")
   console.log("Hello from test!")
 })
 
-// Start defining your routes books
+// Books route
 app.get("/books", (req, res) => {
   res.json(booksData)
 })
 
+// Singular book route
 app.get("/books/:bookID", (req, res) => {
   const bookID = req.params.bookID
 
   const book = booksData.find(book => book.bookID === +bookID)
-  res.json(book)
+  if (book) {
+    res.json(book)
+  } else {
+    res.status(404).send("No book found with that ID")
+  }
 })
+
+//Add endpoint for author?
+
+app.get("/", (req, res) => {
+  const endpoints = listEndpoints(app)
+
+  res.json({
+    message: "Hello and welcome to the book API! Look for books at these endpoints:",
+    endpoints: endpoints,
+  });
+});
 
 // Start the server
 app.listen(port, () => {
