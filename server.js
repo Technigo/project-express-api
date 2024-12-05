@@ -59,7 +59,7 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
   })
 
 
-  app.get ("/cats/:breed", (request, response) => {
+  app.get ("/cats/breed/:breed", (request, response) => {
     const breed = request.params.breed.trim().toLowerCase()
 
     const cat = cats.find (cat => cat.breed.toLowerCase() === breed)  //Find specific cat breed.
@@ -71,7 +71,8 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
 })
   
   app.get("/cats/:id", (request, response) => {
-    const id = request.params.id
+    const id = parseInt(request.params.id) // Correctly parse the ID as an integer
+    console.log("Requested ID:", id);  // Log the requested ID
   
     const cat = cats.find(cat => cat.id === +id)   //Find specific ID for a cat.
   if (cat) {
@@ -80,6 +81,7 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
   response.status(404).send("No cat found with that ID")
   }
   })
+
 
 
 // Start the server
