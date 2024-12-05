@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import climbingRoutes from "./data/climbing-routes.json";
+import climbingRoutes from "./data/climbing-routes.json" assert { type: "json" };
 
 const port = process.env.PORT || 9000;
 const app = express();

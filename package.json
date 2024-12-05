@@ -4,6 +4,9 @@
   "description": "Starter project to get up and running with express quickly",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js --exec babel-node"
