@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "El Capitan",
-    "type": "Wall",
+    "type": "Big Wall",
     "location": "Yosemite National Park, USA",
     "difficulty": "low",
     "height": 914
@@ -58,7 +58,7 @@
   {
     "id": 8,
     "name": "Mount Thor",
-    "type": "Wall",
+    "type": "Big Wall",
     "location": "Baffin Island, Canada",
     "difficulty": "low",
     "height": 1250
