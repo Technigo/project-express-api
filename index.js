@@ -45,7 +45,7 @@ app.get("/climbingRoutes/:id", (req, res) => {
   if (climbingRoute) {
     res.json(climbingRoute);
   } else {
-    res.status(404).send("No climbibg route found with that ID");
+    res.status(404).send("No climbing route found with that ID");
   }
 });
 
