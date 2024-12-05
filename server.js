@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 import harryPotterCharactersData from "./data/harry-potter-characters.json";
 
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -13,40 +14,48 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Welcome to the Harry potter page!");
+  const endpoints = listEndpoints(app);
+  res.json({
+    message: "Welcome to the Harry Potter page!",
+    endpoints: endpoints
+  });
 });
 
-//Reoute to get all the characters from the json file - or filter by house 
+// Route to get all characters or filter by house, year, role
 app.get("/harryPotterCharacters", (req, res) => {
-  const house = req.query.house;
+  const house = req.query.house; // Query parameter for house
+  const year = req.query.yearIntroduced; // Query parameter for yearIntroduced
+  const role = req.query.role; // Query parameter for role
 
-  // If a 'house' query parameter is provided....
+  // Filter by house
   if (house) {
     const filteredCharacters = harryPotterCharactersData.filter(character =>
-      character.house.toLocaleLowerCase() === house.toLocaleLowerCase()
+      character.house.toLowerCase() === house.toLowerCase()
     );
-    res.json(filteredCharacters); // ...then return a filtered list based on house 
-  } else {
-    res.json(harryPotterCharactersData); // No filter = respond with all characters
+    res.json(filteredCharacters);
   }
-});
-//_____________________________________________________________
-app.get("/harryPotterCharacters/role/:role", (req, res) => {
-  const role = req.params.role;
-
-  const characterRole = harryPotterCharactersData.filter(character =>
-    character.role.toLocaleLowerCase() === role.toLocaleLowerCase()
-  );
-
-  if (characterRole.length > 0) {
+  // Filter by role
+  else if (role) {
+    const characterRole = harryPotterCharactersData.filter(character =>
+      character.role.toLowerCase() === role.toLowerCase()
+    );
     res.json(characterRole);
-  } else {
-    res.status(404).send("No characters found with that role");
+  }
+  // Filter by yearIntroduced
+  else if (year) {
+    const charactersIntroducedInYear = harryPotterCharactersData.filter(character =>
+      character.yearIntroduced === +year
+    );
+    res.json(charactersIntroducedInYear);
+  }
+  else {
+    res.json(harryPotterCharactersData);  // No filters = return all characters
+
   }
 });
 
-//_____________________________________________________________
-//Sort by id - getting each character based on the id number
+
+//Sort by id - getting each character based on their unique id number
 app.get("/harryPotterCharacters/:id", (req, res) => {
   const id = req.params.id;
 
@@ -54,25 +63,24 @@ app.get("/harryPotterCharacters/:id", (req, res) => {
   if (harryPotterCharacter) {
     res.status(200).json(harryPotterCharacter);
   } else {
-    res.status(404).send("No character found with that id");
+    res.status(404).send("Sorry - no character found with that id");
   }
 });
-// //_____________________________________________________________
-// Filter by yearIntroduced 
-app.get("/harryPotterCharacters/:yearIntroduced", (req, res) => {
-  const year = req.params.yearIntroduced;
 
-  //Filter the characters based on the yearIntroduced property
-  const charactersIntroducedInYear = harryPotterCharactersData.filter(character => character.yearIntroduced === +year);
+// Sort by name - getting each character based on their unique name (adding the extra /name "prefix" to distinguish this route from the /id route)
+app.get("/harryPotterCharacters/name/:name", (req, res) => {
+  const name = req.params.name.toLowerCase();
 
-  if (charactersIntroducedInYear.length > 0) {
-    res.status(200).json(charactersIntroducedInYear);
+  const harryPotterCharacterName = harryPotterCharactersData.find(character =>
+    character.name.toLowerCase() === name
+  );
+
+  if (harryPotterCharacterName) {
+    res.status(200).json(harryPotterCharacterName);
   } else {
-    res.status(404).send("No characters found from that year");
+    res.status(404).send("Sorry - no character found with that name");
   }
 });
-
-//_____________________________________________________________
 
 // Start the server
 app.listen(port, () => {
