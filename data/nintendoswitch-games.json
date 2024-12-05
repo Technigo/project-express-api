@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "name": "The Legend of Zelda: Breath of the Wild",
+        "category": "Action-Adventure",
+        "release_year": 2017,
+        "rating": 9.5
+    },
+    {
+        "id": 2,
+        "name": "Super Mario Odyssey",
+        "category": "Platformer",
+        "release_year": 2017,
+        "rating": 9.4
+    },
+    {
+        "id": 3,
+        "name": "Mario Kart 8 Deluxe",
+        "category": "Racing",
+        "release_year": 2017,
+        "rating": 9.3
+    },
+    {
+        "id": 4,
+        "name": "Super Smash Bros. Ultimate",
+        "category": "Fighting",
+        "release_year": 2018,
+        "rating": 9.2
+    },
+    {
+        "id": 5,
+        "name": "Animal Crossing: New Horizons",
+        "category": "Simulation",
+        "release_year": 2020,
+        "rating": 9.1
+    },
+    {
+        "id": 6,
+        "name": "The Legend of Zelda: Tears of the Kingdom",
+        "category": "Action-Adventure",
+        "release_year": 2023,
+        "rating": 9.0
+    },
+    {
+        "id": 7,
+        "name": "Metroid Dread",
+        "category": "Action",
+        "release_year": 2021,
+        "rating": 8.9
+    },
+    {
+        "id": 8,
+        "name": "Splatoon 2",
+        "category": "Shooter",
+        "release_year": 2017,
+        "rating": 8.8
+    },
+    {
+        "id": 9,
+        "name": "Fire Emblem: Three Houses",
+        "category": "Strategy",
+        "release_year": 2019,
+        "rating": 8.7
+    },
+    {
+        "id": 10,
+        "name": "Xenoblade Chronicles 2",
+        "category": "Role-Playing",
+        "release_year": 2017,
+        "rating": 8.6
+    },
+    {
+        "id": 11,
+        "name": "Luigi's Mansion 3",
+        "category": "Action-Adventure",
+        "release_year": 2019,
+        "rating": 8.5
+    },
+    {
+        "id": 12,
+        "name": "Pokémon Sword and Shield",
+        "category": "Role-Playing",
+        "release_year": 2019,
+        "rating": 8.4
+    },
+    {
+        "id": 13,
+        "name": "Super Mario Party",
+        "category": "Party",
+        "release_year": 2018,
+        "rating": 8.3
+    },
+    {
+        "id": 14,
+        "name": "Octopath Traveler",
+        "category": "Role-Playing",
+        "release_year": 2018,
+        "rating": 8.2
+    },
+    {
+        "id": 15,
+        "name": "Hades",
+        "category": "Action",
+        "release_year": 2020,
+        "rating": 8.1
+    },
+    {
+        "id": 16,
+        "name": "The Witcher 3: Wild Hunt - Complete Edition",
+        "category": "Role-Playing",
+        "release_year": 2019,
+        "rating": 8.0
+    },
+    {
+        "id": 17,
+        "name": "Celeste",
+        "category": "Platformer",
+        "release_year": 2018,
+        "rating": 7.9
+    },
+    {
+        "id": 18,
+        "name": "Hollow Knight",
+        "category": "Action-Adventure",
+        "release_year": 2018,
+        "rating": 7.8
+    },
+    {
+        "id": 19,
+        "name": "Monster Hunter Rise",
+        "category": "Action",
+        "release_year": 2021,
+        "rating": 7.7
+    },
+    {
+        "id": 20,
+        "name": "Ring Fit Adventure",
+        "category": "Fitness",
+        "release_year": 2019,
+        "rating": 7.6
+    },
+    {
+        "id": 21,
+        "name": "Splatoon 3",
+        "category": "Shooter",
+        "release_year": 2022,
+        "rating": 7.5
+    },
+    {
+        "id": 22,
+        "name": "Mario + Rabbids Kingdom Battle",
+        "category": "Strategy",
+        "release_year": 2017,
+        "rating": 7.4
+    },
+    {
+        "id": 23,
+        "name": "Donkey Kong Country: Tropical Freeze",
+        "category": "Platformer",
+        "release_year": 2018,
+        "rating": 7.3
+    },
+    {
+        "id": 24,
+        "name": "Pokémon Legends: Arceus",
+        "category": "Role-Playing",
+        "release_year": 2022,
+        "rating": 7.2
+    },
+    {
+        "id": 25,
+        "name": "Kirby and the Forgotten Land",
+        "category": "Platformer",
+        "release_year": 2022,
+        "rating": 7.1
+    },
+    {
+        "id": 26,
+        "name": "Bayonetta 2",
+        "category": "Action",
+        "release_year": 2018,
+        "rating": 7.0
+    },
+    {
+        "id": 27,
+        "name": "Super Mario Maker 2",
+        "category": "Platformer",
+        "release_year": 2019,
+        "rating": 6.9
+    },
+    {
+        "id": 28,
+        "name": "Xenoblade Chronicles: Definitive Edition",
+        "category": "Role-Playing",
+        "release_year": 2020,
+        "rating": 6.8
+    },
+    {
+        "id": 29,
+        "name": "Astral Chain",
+        "category": "Action",
+        "release_year": 2019,
+        "rating": 6.7
+    },
+    {
+        "id": 30,
+        "name": "Pokémon Let's Go, Pikachu! and Let's Go, Eevee!",
+        "category": "Role-Playing",
+        "release_year": 2018,
+        "rating": 6.6
+    }
+]
