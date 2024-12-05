@@ -8,9 +8,9 @@ The challenge was to design and implement a functional API that adheres to RESTf
 
 I also added optional query parameters for filtering and sorting the dataset, making the API more dynamic and useful. If I had more time, I would consider adding:
 
-Pagination for large datasets.
-A frontend to visualize and interact with the API.
-A connection to a database for persistent data storage.
+- Pagination for large datasets.
+- A frontend to visualize and interact with the API.
+- A connection to a database for persistent data storage.
 
 ## View it live
 
