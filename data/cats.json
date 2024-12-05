@@ -449,17 +449,9 @@
     "eye_color": "Green",
     "commonality": "Less Common"
   },
+
   {
     "id": 51,
-    "breed": "Bengal",
-    "fur_length": "Short",
-    "fur_color": "Spotted",
-    "personality": "Energetic",
-    "eye_color": "Green",
-    "commonality": "Less Common"
-  },
-  {
-    "id": 52,
     "breed": "LaPerm",
     "fur_length": "Curly",
     "fur_color": "Tortoiseshell",
@@ -468,7 +460,7 @@
     "commonality": "Rare"
   },
   {
-    "id": 53,
+    "id": 52,
     "breed": "Ragdoll",
     "fur_length": "Long",
     "fur_color": "Blue Point",
@@ -477,7 +469,7 @@
     "commonality": "Common"
   },
   {
-    "id": 54,
+    "id": 53,
     "breed": "Javanese",
     "fur_length": "Long",
     "fur_color": "Colorpoint",
@@ -486,7 +478,7 @@
     "commonality": "Less Common"
   },
   {
-    "id": 55,
+    "id": 54,
     "breed": "Sphynx",
     "fur_length": "Hairless",
     "fur_color": "Pink",
@@ -496,13 +488,23 @@
   },
 
   {
-    "id": 56,
-    "name": "Ocicat",
+    "id": 55,
+    "breed": "Ocicat",
     "fur_length": "Short",
     "fur_color": "Spotted",
     "personality": "Social",
     "eye_color": "Gold",
     "commonality": "Less Common"
+    },
+
+    {
+      "id": 56,
+      "breed": "Siberian",
+      "fur_length": "Long",
+      "fur_color": "Tabby",
+      "personality": "Affectionate",
+      "eye_color": "Blue",
+      "commonality": "Common"
     }
 ]
 
