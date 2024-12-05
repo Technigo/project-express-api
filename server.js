@@ -7,6 +7,7 @@ import booksData from "./data/books.json";
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -14,7 +15,15 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = listEndpoints(app);
+  res.json({
+    message: "API Documentation",
+    endpoints: endpoints
+  });
+});
+
+app.get("/books", (req, res) => {
+  res.json(booksData);
 });
 
 // title
@@ -35,6 +44,7 @@ app.get("/books/title", (req, res) => {
   res.json(filteredBooks);
 });
 
+// Author
 app.get("/books/authors", (req, res) => {
   const authorQuery = req.query.author;
 
@@ -42,9 +52,9 @@ app.get("/books/authors", (req, res) => {
     return res.status(400).json({ error: "Author query parameter is required" });
   }
 
-  // Filtere Bücher basierend auf dem Autor
   const filteredBooks = booksData.filter(book => {
-    if (!book.authors) return false; // Verhindere Fehler, wenn keine Autoren vorhanden sind
+    if (!book.authors) return false;
+
     const authorsArray = book.authors.split("-").map(author => author.trim().toLowerCase());
     return authorsArray.some(author => author.includes(authorQuery.toLowerCase()));
   });
@@ -53,9 +63,8 @@ app.get("/books/authors", (req, res) => {
     return res.status(404).json({ error: "No books found with the given author" });
   }
 
-  res.status(200).json(filteredBooks); // Antwort mit gefilterten Büchern
+  res.status(200).json(filteredBooks);
 });
-
 
 // ISBN
 app.get("/books/:isbn", (req, res) => {
@@ -71,11 +80,7 @@ app.get("/books/:isbn", (req, res) => {
   }
 })
 
-// Author
-
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
