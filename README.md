@@ -1,13 +1,35 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This project marks the beginning of my backend journey with Express.js, featuring RESTful endpoints that return data from a hard-coded JSON file. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Array methods like .find(), .filter(), and .slice() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch.
+
+## Requirements:
+- The API should have at least 3 routes. 
+  - The endpoint "/" should return documentation of your API using e.g. [Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints)
+  - A minimum of one endpoint to return a **collection** of results (array of elements).
+  - A minimum of one endpoint to return a **single** result (single element).
+- Your API should be RESTful.
+- You should follow the guidelines on how to write clean code.
 
 ## The problem
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
+## If I had more time - Stretch goals
+
+### Intermediate Stretch Goals
+- On routes which return a single item, handle when the item doesn't exist and return some useful data in the response.
+
+- Accept filters via query parameters to filter the data you return from endpoints which return an array of data.
+
+- Create some empty/dummy endpoints which could contain more complex operations in the future.  Find good names for them (think RESTful).
+
+### Advanced Stretch Goals
+- Build a frontend which uses your API in some way to show the data in a nice way (use Vite to get up and running fast).
+
+- If your dataset is large, try implementing 'pages' using `.slice()` to return only a selection of results from the array. You could then use a query parameter to allow the client to ask for the next 'page'.
+
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Netlify link
