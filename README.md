@@ -1,13 +1,7 @@
 # Project Express API
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to create an API using Express including RESTful endpoints. I chose to do a book library and use the data from the included json file.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with re-watching the lesson where Matilda showed how to create an API. First I did a few test endpoints and used console log to see if I understood it correctly and if it worked. Afterwards I continued to work gradually by fetching data for one endpoint at a time. I did a few different versions of the language filter to see which one was the most user friendly. I mainly watched the lesson on disco which was very helpful. I also used google and chatgbt when I couldn't figure out any occouring error's myself. If I would have more time I would continue with the stretch goals and create more endpoints and it would've been fun to work on the frontend too.
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
