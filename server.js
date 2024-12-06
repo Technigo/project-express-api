@@ -1,69 +1,80 @@
 import express from "express";
 import cors from "cors";
 import booksData from "./data/books.json";
-import listEndpoints from "express-list-endpoints"
+import listEndpoints from "express-list-endpoints";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
+// Defines the port the app will run on. Defaults to 8080, but can be overridden when starting the server. 
+// Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(express.json())
+// Middlewares to enable cors and json body parsing
+app.use(cors());
+app.use(express.json());
 
-// Books route
+// Endpoint to fetch all books
 app.get("/books", (req, res) => {
-  res.json(booksData)
-})
+  res.json(booksData);
+});
 
-// Function to filter books by language
+// Function to filter books by their language
 const filterBooksByLanguage = (req, res) => {
-  const { language } = req.query
+  const { language } = req.query;
 
-  // If no language is specified, return error
+  // Return an error if language query parameter is missing
   if (!language) {
-    return res.status(400).send("Language parameter is required")
+    return res.status(400).json({
+      error: "Language parameter is required.",
+      example_usage: "Try this: /books/language?language=spa",
+      query_parameter_required: "language",
+      description: "Filter books by language using the language_code (e.g., 'spa', 'en', 'fr')."
+    });
   }
 
-  // Filter books by language code (case-insensitive)
+  // Filter books matching the specified language
   const filteredBooks = booksData.filter(
     book => book.language_code.toLowerCase() === language.toLowerCase()
-  )
+  );
 
-  // Check if any books match the language
+  // Return the filtered books if matches are found, or show error
   if (filteredBooks.length > 0) {
-    res.json(filteredBooks)
+    res.json(filteredBooks);
   } else {
-    res.status(404).send(`No books found for language: ${language}`)
+    res.status(404).json({
+      error: `No books found for this language: ${language}`,
+      example_usage: "Try this: /books/language?language=spa"
+    });
   }
-}
+};
 
-// Route using the language filter function
-app.get("/books/language", filterBooksByLanguage)
+// Endpoint to fetch books filtered by language
+app.get("/books/language", filterBooksByLanguage);
 
-// Singular book route
+// Endpoint to fetch details for a single book
 app.get("/books/:bookID", (req, res) => {
-  const bookID = req.params.bookID
+  const bookID = req.params.bookID;
 
-  const book = booksData.find(book => book.bookID === +bookID)
+  // Find the book with the matching bookID
+  const book = booksData.find(book => book.bookID === +bookID);
+  // Return book details if found, or an error if no match is found
   if (book) {
-    res.json(book)
+    res.json(book);
   } else {
-    res.status(404).send("No book found with that ID")
+    res.status(404).send("No book found with that ID");
   }
-})
+});
 
+// Root endpoint to list all available API routes dynamically
 app.get("/", (req, res) => {
-  const endpoints = listEndpoints(app); // Get all endpoints
+  const endpoints = listEndpoints(app); // Fetch all endpoints
   res.json({
     message: "Welcome to the Book API 📚 Here are the available endpoints:",
     endpoints: endpoints,
   });
 });
 
-// Start the server
+// Start the server and listen for incoming requests
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
