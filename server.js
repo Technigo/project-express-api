@@ -1,6 +1,7 @@
+const listEndpoints = require('express-list-endpoints');
 const express = require("express");
 const cors = require("cors");
-const dogs = require("./data/dogs.json");
+const dogs = require("./data/dog-breeds.json");
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -21,4 +22,24 @@ app.get("/dogs/:id", (req, res) => {
   } else {
     res.json(dog);
   }
+});
+
+app.get("/dogs", (req, res) => {
+  const category = req.query.category;
+  const filteredDogs = category 
+    ? dogs.filter(dog => dog.category === category)
+    : dogs;
+  res.json(filteredDogs);
+});
+
+app.get("/", (req, res) => {
+  const endpoints = listEndpoints(app);
+  res.json({
+    description: "Dog Breeds API - Information about different dog breeds",
+    endpoints: endpoints
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });

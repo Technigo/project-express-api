@@ -4,7 +4,7 @@
     "name": "German Shepherd",
     "origin": "Germany",
     "category": "Herding",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -12,7 +12,7 @@
     "name": "Labrador Retriever",
     "origin": "Canada",
     "category": "Sporting",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Poodle",
     "origin": "Germany/France",
     "category": "Non-Sporting",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Various"
   },
   {
@@ -28,7 +28,7 @@
     "name": "Golden Retriever",
     "origin": "Scotland",
     "category": "Sporting",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -36,7 +36,7 @@
     "name": "Bulldog",
     "origin": "England",
     "category": "Non-Sporting",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Medium"
   },
   {
@@ -44,7 +44,7 @@
     "name": "Rottweiler",
     "origin": "Germany",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -52,7 +52,7 @@
     "name": "Beagle",
     "origin": "England",
     "category": "Hound",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Small"
   },
   {
@@ -60,7 +60,7 @@
     "name": "Siberian Husky",
     "origin": "Russia",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Medium"
   },
   {
@@ -68,7 +68,7 @@
     "name": "Chihuahua",
     "origin": "Mexico",
     "category": "Toy",
-    "familyFriendly": "No",
+    "familyFriendly": "no",
     "size": "Small"
   },
   {
@@ -76,7 +76,7 @@
     "name": "Great Dane",
     "origin": "Germany",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -84,7 +84,7 @@
     "name": "Pug",
     "origin": "China",
     "category": "Toy",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Small"
   },
   {
@@ -92,7 +92,7 @@
     "name": "Doberman Pinscher",
     "origin": "Germany",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -100,7 +100,7 @@
     "name": "Yorkshire Terrier",
     "origin": "England",
     "category": "Toy",
-    "familyFriendly": "No",
+    "familyFriendly": "no",
     "size": "Small"
   },
   {
@@ -108,7 +108,7 @@
     "name": "Boxer",
     "origin": "Germany",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -116,7 +116,7 @@
     "name": "Shih Tzu",
     "origin": "Tibet",
     "category": "Toy",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Small"
   },
   {
@@ -124,7 +124,7 @@
     "name": "Australian Shepherd",
     "origin": "United States",
     "category": "Herding",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Medium"
   },
   {
@@ -132,7 +132,7 @@
     "name": "Border Collie",
     "origin": "Scotland",
     "category": "Herding",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Medium"
   },
   {
@@ -140,7 +140,7 @@
     "name": "Chow Chow",
     "origin": "China",
     "category": "Non-Sporting",
-    "familyFriendly": "No",
+    "familyFriendly": "no",
     "size": "Medium"
   },
   {
@@ -148,7 +148,7 @@
     "name": "Bernese Mountain Dog",
     "origin": "Switzerland",
     "category": "Working",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Large"
   },
   {
@@ -156,7 +156,87 @@
     "name": "French Bulldog",
     "origin": "France",
     "category": "Non-Sporting",
-    "familyFriendly": "Yes",
+    "familyFriendly": "yes",
     "size": "Small"
+  },
+  {
+    "id": 21,
+    "name": "Dachshund",
+    "origin": "Germany",
+    "category": "Hound",
+    "familyFriendly": "yes",
+    "size": "Small"
+  },
+  {
+    "id": 22,
+    "name": "Saint Bernard",
+    "origin": "Switzerland",
+    "category": "Working",
+    "familyFriendly": "yes",
+    "size": "Large"
+  },
+  {
+    "id": 23,
+    "name": "Corgi",
+    "origin": "Wales",
+    "category": "Herding",
+    "familyFriendly": "yes",
+    "size": "Small"
+  },
+  {
+    "id": 24,
+    "name": "Dalmatian",
+    "origin": "Croatia",
+    "category": "Non-Sporting",
+    "familyFriendly": "yes",
+    "size": "Medium"
+  },
+  {
+    "id": 25,
+    "name": "Afghan Hound",
+    "origin": "Afghanistan",
+    "category": "Hound",
+    "familyFriendly": "no",
+    "size": "Large"
+  },
+  {
+    "id": 26,
+    "name": "Alaskan Malamute",
+    "origin": "United States",
+    "category": "Working",
+    "familyFriendly": "yes",
+    "size": "Large"
+  },
+  {
+    "id": 27,
+    "name": "Bichon Frise",
+    "origin": "Spain",
+    "category": "Non-Sporting",
+    "familyFriendly": "yes",
+    "size": "Small"
+  },
+  {
+    "id": 28,
+    "name": "Bull Terrier",
+    "origin": "England",
+    "category": "Terrier",
+    "familyFriendly": "yes",
+    "size": "Medium"
+  },
+  {
+    "id": 29,
+    "name": "Greyhound",
+    "origin": "Egypt",
+    "category": "Hound",
+    "familyFriendly": "yes",
+    "size": "Large"
+  },
+  {
+    "id": 30,
+    "name": "Newfoundland",
+    "origin": "Canada",
+    "category": "Working",
+    "familyFriendly": "yes",
+    "size": "Large"
   }
 ]
