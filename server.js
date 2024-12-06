@@ -10,19 +10,38 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
-app.use(express.json());
-
-// Remove technigo and test later on
-app.get("/test", (req, res) => {
-  res.send("Hello from test!")
-  console.log("Hello from test!")
-})
+app.use(cors())
+app.use(express.json())
 
 // Books route
 app.get("/books", (req, res) => {
   res.json(booksData)
 })
+
+// Function to filter books by language
+const filterBooksByLanguage = (req, res) => {
+  const { language } = req.query
+
+  // If no language is specified, return error
+  if (!language) {
+    return res.status(400).send("Language parameter is required")
+  }
+
+  // Filter books by language code (case-insensitive)
+  const filteredBooks = booksData.filter(
+    book => book.language_code.toLowerCase() === language.toLowerCase()
+  )
+
+  // Check if any books match the language
+  if (filteredBooks.length > 0) {
+    res.json(filteredBooks)
+  } else {
+    res.status(404).send(`No books found for language: ${language}`)
+  }
+}
+
+// Route using the language filter function
+app.get("/books/language", filterBooksByLanguage)
 
 // Singular book route
 app.get("/books/:bookID", (req, res) => {
@@ -35,17 +54,6 @@ app.get("/books/:bookID", (req, res) => {
     res.status(404).send("No book found with that ID")
   }
 })
-
-//Add endpoint for author?
-
-app.get("/", (req, res) => {
-  const endpoints = listEndpoints(app)
-
-  res.json({
-    message: "Hello and welcome to the book API! Look for books at these endpoints:",
-    endpoints: endpoints,
-  });
-});
 
 // Start the server
 app.listen(port, () => {
