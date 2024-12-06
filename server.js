@@ -55,6 +55,14 @@ app.get("/books/:bookID", (req, res) => {
   }
 })
 
+app.get("/", (req, res) => {
+  const endpoints = listEndpoints(app); // Get all endpoints
+  res.json({
+    message: "Welcome to the Book API 📚 Here are the available endpoints:",
+    endpoints: endpoints,
+  });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
