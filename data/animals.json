@@ -1,273 +1,273 @@
 [
     {
-      "id": 1,
       "name": "Dog",
       "diet": "Omnivore",
       "lifespan": "10-13 years",
       "habitat": "Land",
       "trait": "Loyal",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Cat",
       "diet": "Carnivore",
       "lifespan": "12-16 years",
       "habitat": "Land",
       "trait": "Independent",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 2
     },
     {
-      "id": 3,
       "name": "Horse",
       "diet": "Herbivore",
       "lifespan": "25-30 years",
       "habitat": "Land",
       "trait": "Strong and fast",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 3
     },
     {
-      "id": 4,
       "name": "Cow",
       "diet": "Herbivore",
       "lifespan": "15-20 years",
       "habitat": "Land",
       "trait": "Produces milk",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 4
     },
     {
-      "id": 5,
       "name": "Chicken",
       "diet": "Omnivore",
       "lifespan": "5-10 years",
       "habitat": "Land",
       "trait": "Lays eggs",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 5
     },
     {
-      "id": 6,
       "name": "Goat",
       "diet": "Herbivore",
       "lifespan": "10-15 years",
       "habitat": "Land",
       "trait": "Climbs well",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 6
     },
     {
-      "id": 7,
       "name": "Sheep",
       "diet": "Herbivore",
       "lifespan": "10-12 years",
       "habitat": "Land",
       "trait": "Provides wool",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 7
     },
     {
-      "id": 8,
       "name": "Pig",
       "diet": "Omnivore",
       "lifespan": "10-15 years",
       "habitat": "Land",
       "trait": "Intelligent",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 8
     },
     {
-      "id": 9,
       "name": "Duck",
       "diet": "Omnivore",
       "lifespan": "5-10 years",
       "habitat": "Land and water",
       "trait": "Webbed feet",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 9
     },
     {
-      "id": 10,
       "name": "Rabbit",
       "diet": "Herbivore",
       "lifespan": "8-12 years",
       "habitat": "Land",
       "trait": "Quick and small",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 10
     },
     {
-      "id": 11,
       "name": "Llama",
       "diet": "Herbivore",
       "lifespan": "15-25 years",
       "habitat": "Land",
       "trait": "Soft wool",
-      "region": "South America"
+      "region": "South America",
+      "id": 11
     },
     {
-      "id": 12,
       "name": "Donkey",
       "diet": "Herbivore",
       "lifespan": "25-30 years",
       "habitat": "Land",
       "trait": "Hard worker",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 12
     },
     {
-      "id": 13,
       "name": "Elephant",
       "diet": "Herbivore",
       "lifespan": "60-70 years",
       "habitat": "Land",
       "trait": "Largest land animal",
-      "region": "Africa, Asia"
+      "region": "Africa, Asia",
+      "id": 13
     },
     {
-      "id": 14,
       "name": "Lion",
       "diet": "Carnivore",
       "lifespan": "10-14 years",
       "habitat": "Land",
       "trait": "King of the jungle",
-      "region": "Africa"
+      "region": "Africa",
+      "id": 14
     },
     {
-      "id": 15,
       "name": "Tiger",
       "diet": "Carnivore",
       "lifespan": "10-15 years",
       "habitat": "Land",
       "trait": "Striped fur",
-      "region": "Asia"
+      "region": "Asia",
+      "id": 15
     },
     {
-      "id": 16,
       "name": "Zebra",
       "diet": "Herbivore",
       "lifespan": "20-25 years",
       "habitat": "Land",
       "trait": "Striped body",
-      "region": "Africa"
+      "region": "Africa",
+      "id": 16
     },
     {
-      "id": 17,
       "name": "Giraffe",
       "diet": "Herbivore",
       "lifespan": "25-30 years",
       "habitat": "Land",
       "trait": "Long neck",
-      "region": "Africa"
+      "region": "Africa",
+      "id": 17
     },
     {
-      "id": 18,
       "name": "Kangaroo",
       "diet": "Herbivore",
       "lifespan": "20-23 years",
       "habitat": "Land",
       "trait": "Hops on two legs",
-      "region": "Australia"
+      "region": "Australia",
+      "id": 18
     },
     {
-      "id": 19,
       "name": "Koala",
       "diet": "Herbivore",
       "lifespan": "13-18 years",
       "habitat": "Land",
       "trait": "Sleeps a lot",
-      "region": "Australia"
+      "region": "Australia",
+      "id": 19
     },
     {
-      "id": 20,
       "name": "Panda",
       "diet": "Herbivore",
       "lifespan": "20-30 years",
       "habitat": "Land",
       "trait": "Loves bamboo",
-      "region": "China"
+      "region": "China",
+      "id": 20
     },
     {
-      "id": 21,
       "name": "Chimpanzee",
       "diet": "Omnivore",
       "lifespan": "30-40 years",
       "habitat": "Land",
       "trait": "Tool user",
-      "region": "Africa"
+      "region": "Africa",
+      "id": 21
     },
     {
-      "id": 22,
       "name": "Polar Bear",
       "diet": "Carnivore",
       "lifespan": "20-25 years",
       "habitat": "Land and ice",
       "trait": "Strong swimmer",
-      "region": "Arctic"
+      "region": "Arctic",
+      "id": 22
     },
     {
-      "id": 23,
       "name": "Grizzly Bear",
       "diet": "Omnivore",
       "lifespan": "20-25 years",
       "habitat": "Land",
       "trait": "Powerful predator",
-      "region": "North America"
+      "region": "North America",
+      "id": 23
     },
     {
-      "id": 24,
       "name": "Penguin",
       "diet": "Carnivore",
       "lifespan": "15-20 years",
       "habitat": "Ocean and land",
       "trait": "Cannot fly but swims",
-      "region": "Antarctica"
+      "region": "Antarctica",
+      "id": 24
     },
     {
-      "id": 25,
       "name": "Dolphin",
       "diet": "Carnivore",
       "lifespan": "40-60 years",
       "habitat": "Ocean",
       "trait": "Highly intelligent",
-      "region": "Oceans worldwide"
+      "region": "Oceans worldwide",
+      "id": 25
     },
     {
-      "id": 26,
       "name": "Shark",
       "diet": "Carnivore",
       "lifespan": "20-30 years",
       "habitat": "Ocean",
       "trait": "Apex predator",
-      "region": "Oceans worldwide"
+      "region": "Oceans worldwide",
+      "id": 26
     },
     {
-      "id": 27,
       "name": "Whale",
       "diet": "Carnivore",
       "lifespan": "50-100 years",
       "habitat": "Ocean",
       "trait": "Largest animal",
-      "region": "Oceans worldwide"
+      "region": "Oceans worldwide",
+      "id": 27
     },
     {
-      "id": 28,
       "name": "Octopus",
       "diet": "Carnivore",
       "lifespan": "1-2 years",
       "habitat": "Ocean",
       "trait": "Eight arms",
-      "region": "Oceans worldwide"
+      "region": "Oceans worldwide",
+      "id": 28
     },
     {
-      "id": 29,
       "name": "Wolf",
       "diet": "Carnivore",
       "lifespan": "8-13 years",
       "habitat": "Land",
       "trait": "Pack hunter",
-      "region": "Worldwide (non-domesticated areas)"
+      "region": "Worldwide (non-domesticated areas)",
+      "id": 29
     },
     {
-      "id": 30,
       "name": "Falcon",
       "diet": "Carnivore",
       "lifespan": "12-16 years",
       "habitat": "Sky",
       "trait": "Fastest bird",
-      "region": "Worldwide"
+      "region": "Worldwide",
+      "id": 30
     }
   ]
   

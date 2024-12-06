@@ -24,16 +24,37 @@ app.get("/animals", (req, res) => {
   res.send(animals);
 });
 
+
 // Get all animals from id
 app.get("/animals/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const animal = animals.find((a) => a.id === id);
-  if (animal) {
-    res.json(animal); // Send the specific animal
+  const animalId = animals.find((animal) => animal.id === id);
+  if (animalId) {
+    res.json(animalId); // Send the specific animal
   } else {
     res.status(404).json({ error: "Animal not found" });
   }
 });
+
+
+// Get animals from specific region
+app.get("/animals/region/:region", (req, res) => {
+  const region = req.params.region.toLowerCase();
+
+  console.log("Requested region:", region);
+  console.log("Available animals:", animals);
+
+  const specificRegion = animals.filter((place) => 
+    place.region.toLowerCase().includes(region)
+  );
+
+  if (specificRegion.lenght > 0 ) {
+    res.json(specificRegion);
+  } else {
+    res.status(404).json({ error: "Animal not found" });
+  }
+});
+
 
 // Start the server
 app.listen(port, () => {
