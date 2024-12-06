@@ -37,26 +37,38 @@ app.get("/animals/:id", (req, res) => {
 });
 
 
-// Get animals from specific region
-app.get("/animals/region/:region", (req, res) => {
-  const region = req.params.region.toLowerCase();
+// Get animals from specific regions
+app.get("/regions/:region", (req, res) => {
+  const region = req.params.region;
 
-  console.log("Requested region:", region);
-  console.log("Available animals:", animals);
-
-  const specificRegion = animals.filter((place) => 
-    place.region.toLowerCase().includes(region)
+  const specificRegion = animals.filter((animal) => 
+    animal.region.toLowerCase().includes(region)
   );
-
-  if (specificRegion.lenght > 0 ) {
+  
+  if (specificRegion) {
     res.json(specificRegion);
   } else {
     res.status(404).json({ error: "Animal not found" });
   }
+
 });
 
+
+// Get all animals specific trait
+app.get("/traits/:name", (req, res) => {
+  const name = req.params.name; // Get the name from the route 
+  const animal = animals.find((a) => a.name.toLowerCase() === name); // Find the animal by name
+
+  if (animal) {
+    res.json({ name: animal.name, trait: animal.trait }); // Respond with the name and trait
+  } else {
+    res.status(404).json({ error: "Animal not found" }); // Animal not found
+  }
+
+});
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
