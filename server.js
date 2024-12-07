@@ -1,17 +1,9 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import avocadoSalesData from "./data/avocado-sales.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -19,9 +11,54 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// API documentation with endpoint listing
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = listEndpoints(app);
+  res.json({
+    message: "Welcome to the API!",
+    documentation: "Below are the available endpoints:",
+    endpoints,
+  });
+});
+
+// Filter avocado sales data by date or region
+app.get("/avocadoSalesData", (req, res) => {
+  const { date, region } = req.query;
+
+  let filteredData = avocadoSalesData;
+
+  // Filter by date
+  if (date) {
+    filteredData = filteredData.filter(
+      (avocados) => avocados.date.toLowerCase() === date.toLowerCase()
+    );
+  }
+
+  // Filter by region
+  if (region) {
+    filteredData = filteredData.filter(
+      (avocados) => avocados.region.toLowerCase() === region.toLowerCase()
+    );
+  }
+
+  // Check if data matches the filters
+  if (filteredData.length > 0) {
+    res.status(200).json(filteredData);
+  } else {
+    res.status(404).send("Avocado not found");
+  }
+});
+
+// Filter by ID
+app.get("/avocadoSalesData/:id", (req, res) => {
+  const id = req.params.id;
+
+  const avocados = avocadoSalesData.find((item) => item.id === +id);
+  if (avocados) {
+    res.status(200).json(avocados);
+  } else {
+    res.status(404).send("No avocado sales data found with the given ID");
+  }
 });
 
 // Start the server
