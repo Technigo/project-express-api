@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
     description: {
       "/elves/all": "Get all elves",
       "/elves/titles": "Get all unique elf titles",
-      "/elves/title/:title": "Get elves by title",
+      "/elves/titles/:title": "Get elves by title",
       "/elves/:id": "Get a specific elf by ID",
       "/test": "Test endpoint"
     }
@@ -51,9 +51,11 @@ app.get("/elves/titles", (request, response) => {
 // Path parameter for getting elves based on the provided title
 // If 'title' exists, return elves with titles that match, otherwise, return all elves
 
-app.get("/elves/title/:title", (request, response) => {
+app.get("/elves/titles/:title", (request, response) => {
   const title = request.params.title.toLowerCase();
   const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
+
+  // Return elves with titles that match
   response.json(filteredElves);
 });
 

@@ -13,7 +13,7 @@ My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20da
     - /elves/all - Get all elves  
     - /elves/:id: - Get a specific elf by ID  
     - /elves/titles - Get all unique elf titles  
-    - /elves/title/:title: - Get elves by title  
+    - /elves/titles/:title: - Get elves by title  
     - /test - Test endpoint  
   2. A minimum of one endpoint to return a **collection** of results (array of elements).  
     - elves/all: Returns a collection of elves.  
