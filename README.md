@@ -2,7 +2,9 @@
 
 This project marks the beginning of my backend journey with Express.js, featuring RESTful endpoints that return data from a hard-coded JSON file. 
 
-Array methods like .find(), .filter(), and .slice() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch.
+Array methods like .find() and .filter() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch. 
+
+My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20dasher. 
 
 ## Requirements:  
   1. The API should have at least 3 routes.  
