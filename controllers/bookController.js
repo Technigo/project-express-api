@@ -1,5 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { ERRORS } from "../constants/constants";
+import { generateID } from "../utils/utils";
 
 // Get absolute path to the JSON file
 const booksFilePath = path.resolve("data/books.json");
@@ -9,49 +11,37 @@ const loadBooks = () => {
   try {
     const data = fs.readFileSync(booksFilePath, "utf-8");
     return JSON.parse(data);
-  } catch (err) {
-    console.error("Error loading books:", err);
+  } catch (error) {
+    console.error("Error loading books:", error);
     return [];
   }
 };
 
-// Helper function to save data
+// Save books
 const saveBooks = (books) => {
   fs.writeFileSync(booksFilePath, JSON.stringify(books, null, 2));
 };
 
 // Get all books
 export const getBooks = (req, res) => {
-  const startsWith = req.query.startsWith;
-  const author = req.query.author;
-  const books = loadBooks();
+  const { author, startsWith, language, minRating } = req.query;
+  let books = loadBooks();
 
-  // Get all books that starts with the given letter
-  if (startsWith) {
-    const filteredBooks = books.filter((book) => {
-      if (book.title && book.title.length > 0) {
-        return book.title.charAt(0).toLowerCase() === startsWith.toLowerCase();
-      }
-    });
-    return res.json(filteredBooks);
-  }
+  // Apply all filters in a single loop
+  books = books.filter((book) => {
+    if (author && !book.authors.toLowerCase().includes(author.toLowerCase()))
+      return false;
+    if (
+      startsWith &&
+      book.title.charAt(0).toLowerCase() !== startsWith.toLowerCase()
+    )
+      return false;
+    if (language && book.language_code !== language) return false;
+    if (minRating && book.average_rating < parseFloat(minRating)) return false;
+    return true;
+  });
 
-  // Get all books from a certain author
-  if (author) {
-    const filteredBooks = books.filter((book) =>
-      book.authors.toLowerCase().includes(author.toLowerCase())
-    );
-
-    if (filteredBooks.length === 0) {
-      return res
-        .status(404)
-        .json({ error: "No books found for the given author" });
-    }
-
-    return res.json(filteredBooks);
-  }
-
-  // If no filter is applied, return all books
+  // Return all or filtered books
   res.json(books);
 };
 
@@ -65,42 +55,30 @@ export const getBookByID = (req, res) => {
   if (book) {
     res.json(book);
   } else {
-    return res
-      .status(404)
-      .json({ error: "A book with this bookID does not exist." });
+    return res.status(404).json({ error: ERRORS.BOOK_NOT_FOUND });
   }
 };
 
 // Add a new book
 export const addBook = (req, res) => {
-  const newBook = req.body;
-  const books = loadBooks();
+  try {
+    const newBook = req.body;
+    const books = loadBooks();
 
-  // Helper function to generate ID for new books
-  const generateID = (books) => {
-    if (books.length === 0) return 1; // Start from 1 if no books exist
-    const maxID = Math.max(...books.map((book) => book.bookID));
-    return maxID + 1;
-  };
+    // Generate a unique ID
+    newBook.bookID = generateID(books);
 
-  // Generate a unique ID
-  newBook.bookID = generateID(books);
+    // Ensure no duplicate ISBNs
+    if (books.some((book) => book.isbn === newBook.isbn)) {
+      return res.status(400).json({ error: ERRORS.DUPLICATE_ISBN });
+    }
 
-  // Ensure unique bookID
-  if (books.some((book) => book.bookID === newBook.bookID)) {
-    return res
-      .status(400)
-      .json({ error: "Book with this bookID already exists" });
+    books.push(newBook);
+    saveBooks(books);
+
+    res.status(201).json(newBook);
+  } catch (error) {
+    console.error("Error adding book:", error);
+    res.status(500).json({ error: ERRORS.ADD_BOOK_ERROR });
   }
-
-  // Ensure there are no duplicate titles or ISBNs
-  if (books.some((book) => book.isbn === newBook.isbn)) {
-    return res
-      .status(400)
-      .json({ error: "A book with this ISBN already exists" });
-  }
-
-  books.push(newBook);
-  saveBooks(books);
-  res.status(201).json(newBook);
 };
