@@ -24,7 +24,7 @@ const saveBooks = (books) => {
 
 // Get all books
 export const getBooks = (req, res) => {
-  const { author, startsWith, language, minRating } = req.query;
+  const { author, startsWith, language, minRating, sortBy, order } = req.query;
   let books = loadBooks();
 
   // Apply all filters in a single loop
@@ -41,7 +41,24 @@ export const getBooks = (req, res) => {
     return true;
   });
 
-  // Return all or filtered books
+  // Sort the results
+  if (sortBy) {
+    books.sort((a, b) => {
+      const orderFactor = order === "desc" ? -1 : 1;
+
+      if (sortBy === "average_rating") {
+        return (a.average_rating - b.average_rating) * orderFactor;
+      }
+
+      if (sortBy === "title") {
+        return a.title.localeCompare(b.title) * orderFactor;
+      }
+
+      return 0; // Default: no sorting if field not recognized
+    });
+  }
+
+  // Return all, filtered and/or sorted books
   res.json(books);
 };
 
