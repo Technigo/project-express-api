@@ -21,9 +21,21 @@ app.get("/", (request, response) => {
 });
 
 // Test endpoint
-app.get("/test", (reqesst, response) => {
+app.get("/test", (request, response) => {
   res.send("Testing testing!");
   console.log("Testing testing");
+});
+
+// Endpoint to get all elves, with optional query filter
+app.get("/elves", (req, res) => {
+  const title = req.query.title?.toLowerCase(); 
+  console.log(title);
+
+  const filteredElves = title
+    ? elves.filter((elf) => elf.title.toLowerCase() === title)
+    : elves;
+
+  res.json(filteredElves);
 });
 
 // Start the server
