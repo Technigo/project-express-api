@@ -1,4 +1,4 @@
-# My Express API — Books
+# My Books API using Express.js
 
 In this project I created my first API using Express.js. It's a small API without a database that has a fixed amount of data about some books.
 
@@ -8,7 +8,7 @@ In this project I created my first API using Express.js. It's a small API withou
 
 **GET** `/api/books`
 
-Retrieves all books in the database. Supports filtering and sorting through query parameters.
+Retrieves all books in the "database". Supports filtering and sorting through query parameters.
 
 | Query Parameter | Description                                  | Example                              |
 | --------------- | -------------------------------------------- | ------------------------------------ |
@@ -39,7 +39,7 @@ GET /api/books/1461
 
 **POST** `/api/books`
 
-Add a new book to the database. The `bookID` is auto-generated. You must provide the following fields in the request body:
+Add a new book to the JSON file. The `bookID` is auto-generated. You must provide the following fields in the request body:
 
 | Field                | Type     | Description                 |
 | -------------------- | -------- | --------------------------- |
