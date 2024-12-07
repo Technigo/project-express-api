@@ -21,25 +21,10 @@ app.use(cors());
 app.use(express.json());
 
 // Start defining your routes here
-// app.get("/", (req, res) => {
-//   res.send("Hello Technigo!");
-// });
 
 // Route to return entire song array
 app.get("/songs", (req, res) => {
   res.json(topMusicData);
-});
-
-// Route for single song info by ID
-app.get("/songs/:id", (req, res) => {
-  const songId = Number(req.params.id);
-  const song = topMusicData.find((song) => song.id === songId);
-
-  if (song) {
-    res.json(song);
-  } else {
-    res.status(404).json({ error: "Song not found" });
-  }
 });
 
 // Route for songs by artist
@@ -70,10 +55,45 @@ app.get("/songs/genre/:genre", (req, res) => {
   }
 });
 
+// Filter by bpm and popularity
+app.get("/songs/filter", (req, res) => {
+  const { bpm, popularity } = req.query;
+
+  let filteredSongs = topMusicData;
+
+  if (bpm) {
+    filteredSongs = filteredSongs.filter((song) => song.bpm === Number(bpm));
+  }
+
+  if (popularity) {
+    filteredSongs = filteredSongs.filter(
+      (song) => song.popularity >= Number(popularity)
+    );
+  }
+
+  if (filteredSongs.length > 0) {
+    res.json(filteredSongs);
+  } else {
+    res.status(404).json({ error: "No songs match the given criteria" });
+  }
+});
+
+// Route for single song info by ID
+app.get("/songs/:id", (req, res) => {
+  const songId = Number(req.params.id);
+  const song = topMusicData.find((song) => song.id === songId);
+
+  if (song) {
+    res.json(song);
+  } else {
+    res.status(404).json({ error: "Song not found" });
+  }
+});
+
 // Documentation route
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to the API",
+    message: "Welcome to Joyce's Song API",
     documentation: expressListEndpoints(app),
   });
 });
