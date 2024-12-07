@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
+import listEndpoints from "express-list-endpoints";
 
 import avocadoSalesData from "./data/avocado-sales.json";
-
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -11,23 +11,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API documentation
+// API documentation with endpoint listing
 app.get("/", (req, res) => {
+  const endpoints = listEndpoints(app);
   res.json({
     message: "Welcome to the API!",
     documentation: "Below are the available endpoints:",
-    endpoints: [
-      {
-        method: "GET",
-        path: "/avocadoSalesData",
-        description: "Retrieve avocado sales data, optionally filtered by date or region.",
-      },
-      {
-        method: "GET",
-        path: "/avocadoSalesData/:id",
-        description: "Retrieve a single avocado sales data entry by ID.",
-      },
-    ],
+    endpoints,
   });
 });
 
@@ -37,14 +27,14 @@ app.get("/avocadoSalesData", (req, res) => {
 
   let filteredData = avocadoSalesData;
 
-  // Filter by date 
+  // Filter by date
   if (date) {
     filteredData = filteredData.filter(
       (avocados) => avocados.date.toLowerCase() === date.toLowerCase()
     );
   }
 
-  // Filter by region 
+  // Filter by region
   if (region) {
     filteredData = filteredData.filter(
       (avocados) => avocados.region.toLowerCase() === region.toLowerCase()
