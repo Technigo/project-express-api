@@ -4,7 +4,7 @@
   "description": "Building my very first API.",
   "scripts": {
     "start": "babel-node server.js",
-    "build": "babel-node server.js",
+    "build": "echo 'No build step needed for Express.js'",
     "dev": "nodemon server.js --exec babel-node"
   },
   "author": "",
