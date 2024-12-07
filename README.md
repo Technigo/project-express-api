@@ -12,6 +12,26 @@ Array methods like .find(), .filter(), and .slice() are used to manipulate the d
 - Your API should be RESTful.
 - You should follow the guidelines on how to write clean code.
 
+## Dependency Installation & Startup Development Server
+This project uses npm (Node Package Manager) and Express.js to manage dependencies and run the development server. Follow these steps to get started:
+  1. Install Project Dependencies
+  Run the following commands to install necessary packages and set up the development environment:
+    ```bash
+    npm install
+    npm run dev
+    npm run build
+    ```
+  2. If Express.js is not already installed, initialize your project and install it:
+    ```bash
+    npm init -y
+    npm install express
+    ```
+  3. Start your server
+  Launch the server:
+    ```bash
+    node server.js
+    ```
+
 ## The problem
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?

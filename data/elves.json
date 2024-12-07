@@ -1,0 +1,402 @@
+[
+    {
+        "elfID": 1,
+        "title": "Wish Programmer",
+        "Name": "Joyce",
+        "average_rating": 4.17,
+        "language_code": "en",
+        "text_reviews_count": 10
+    },
+    {
+        "elfID": 2,
+        "title": "Wish Programmer",
+        "Name": "Anna",
+        "average_rating": 4.08,
+        "language_code": "en",
+        "text_reviews_count": 14
+    },
+    {
+        "elfID": 3,
+        "title": "Wish Programmer",
+        "Name": "Erika",
+        "average_rating": 3.67,
+        "language_code": "en",
+        "text_reviews_count": 18
+    },
+    {
+        "elfID": 4,
+        "title": "Wish Programmer",
+        "Name": "Helene",
+        "average_rating": 4.7,
+        "language_code": "en",
+        "text_reviews_count": 16
+    },
+    {
+        "elfID": 5,
+        "title": "Wish Programmer",
+        "Name": "Fanny",
+        "average_rating": 4.47,
+        "language_code": "en",
+        "text_reviews_count": 20
+    },
+    {
+        "elfID": 6,
+        "title": "Wish Programmer",
+        "Name": "Johanna",
+        "average_rating": 4.57,
+        "language_code": "en",
+        "text_reviews_count": 19
+    },
+    {
+        "elfID": 7,
+        "title": "Wish Programmer",
+        "Name": "Gitte",
+        "average_rating": 3.78,
+        "languages": ["en", "de"],
+        "text_reviews_count": 12
+    },
+    {
+        "elfID": 8,
+        "title": "Wish Programmer",
+        "Name": "Gabriella",
+        "average_rating": 3.59,
+        "language_code": "en",
+        "text_reviews_count": 7
+    },
+    {
+        "elfID": 9,
+        "title": "Wish Programmer",
+        "Name": "Kelly",
+        "average_rating": 3.71,
+        "language_code": "en",
+        "text_reviews_count": 13
+    },
+    {
+        "elfID": 10,
+        "title": "Wish Programmer",
+        "Name": "Xing",
+        "average_rating": 4.38,
+        "language_code": "en",
+        "text_reviews_count": 6
+    },
+    {
+        "elfID": 11,
+        "title": "Wish Programmer",
+        "Name": "Zoe",
+        "average_rating": 4.4,
+        "language_code": "en",
+        "text_reviews_count": 10
+    },
+    {
+        "elfID": 12,
+        "title": "Wish Programmer",
+        "Name": "Liselotte",
+        "average_rating": 4.8,
+        "language_code": "en",
+        "text_reviews_count": 5
+    },
+    {
+        "elfID": 13,
+        "title": "Toy Designer",
+        "Name": "Buddy",
+        "average_rating": 3.94,
+        "language_code": "en",
+        "text_reviews_count": 22
+    },
+    {
+        "elfID": 14,
+        "title": "Gift Wrapper",
+        "Name": "Olof",
+        "average_rating": 4.73,
+        "language_code": "en",
+        "text_reviews_count": 24
+    },
+    {
+        "elfID": 15,
+        "title": "Cookie Tester",
+        "Name": "Karl",
+        "average_rating": 4.74,
+        "language_code": "en",
+        "text_reviews_count": 21
+    },
+    {
+        "elfID": 16,
+        "title": "Cookie Tester",
+        "Name": "Elsa",
+        "average_rating": 3.91,
+        "languages": ["en", "de"],
+        "text_reviews_count": 21
+    },
+    {
+        "elfID": 17,
+        "title": "Gift Wrapper",
+        "Name": "Olivia",
+        "average_rating": 4.94,
+        "language_code": "en",
+        "text_reviews_count": 10
+    },
+    {
+        "elfID": 18,
+        "title": "Sleigh Mechanic",
+        "Name": "Liam",
+        "average_rating": 4.12,
+        "language_code": "en",
+        "text_reviews_count": 20
+    },
+    {
+        "elfID": 19,
+        "title": "Toy Designer",
+        "Name": "Sophia",
+        "average_rating": 3.88,
+        "languages": ["en", "de"],
+        "text_reviews_count": 9
+    },
+    {
+        "elfID": 20,
+        "title": "Gift Wrapper",
+        "Name": "Zustand",
+        "average_rating": 3.94,
+        "languages": ["en", "de"],
+        "text_reviews_count": 17
+    },
+    {
+        "elfID": 21,
+        "title": "Gift Wrapper",
+        "Name": "Mia",
+        "average_rating": 4.13,
+        "language_code": "en",
+        "text_reviews_count": 29
+    },
+    {
+        "elfID": 22,
+        "title": "Cookie Tester",
+        "Name": "Ethan",
+        "average_rating": 4.04,
+        "language_code": "en",
+        "text_reviews_count": 27
+    },
+    {
+        "elfID": 23,
+        "title": "Cookie Tester",
+        "Name": "Emily",
+        "average_rating": 3.74,
+        "language_code": "en",
+        "text_reviews_count": 14
+    },
+    {
+        "elfID": 24,
+        "title": "Sleigh Mechanic",
+        "Name": "Logan",
+        "average_rating": 4.97,
+        "language_code": "en",
+        "text_reviews_count": 12
+    },
+    {
+        "elfID": 25,
+        "title": "Cookie Tester",
+        "Name": "Ella",
+        "average_rating": 4.82,
+        "language_code": "en",
+        "text_reviews_count": 18
+    },
+    {
+        "elfID": 26,
+        "title": "Sleigh Mechanic",
+        "Name": "Lucas",
+        "average_rating": 4.15,
+        "language_code": "en",
+        "text_reviews_count": 8
+    },
+    {
+        "elfID": 27,
+        "title": "Sleigh Mechanic",
+        "Name": "Ava",
+        "average_rating": 4.84,
+        "language_code": "en",
+        "text_reviews_count": 7
+    },
+    {
+        "elfID": 28,
+        "title": "Cookie Tester",
+        "Name": "Mason",
+        "average_rating": 4.95,
+        "language_code": "en",
+        "text_reviews_count": 24
+    },
+    {
+        "elfID": 29,
+        "title": "Cookie Tester",
+        "Name": "Isabella",
+        "average_rating": 4.42,
+        "language_code": "en",
+        "text_reviews_count": 26
+    },
+    {
+        "elfID": 30,
+        "title": "Toy Designer",
+        "Name": "Jacob",
+        "average_rating": 4.6,
+        "language_code": "en",
+        "text_reviews_count": 22
+    },
+    {
+        "elfID": 31,
+        "title": "Reindeer Trainer",
+        "Name": "Harper",
+        "average_rating": 4.56,
+        "language_code": "en",
+        "text_reviews_count": 6
+    },
+    {
+        "elfID": 32,
+        "title": "Sleigh Mechanic",
+        "Name": "Elijah",
+        "average_rating": 3.96,
+        "language_code": "en",
+        "text_reviews_count": 28
+    },
+    {
+        "elfID": 33,
+        "title": "Reindeer Trainer",
+        "Name": "Charlotte",
+        "average_rating": 4.78,
+        "language_code": "en",
+        "text_reviews_count": 6
+    },
+    {
+        "elfID": 34,
+        "title": "Sleigh Mechanic",
+        "Name": "Alexander",
+        "average_rating": 4.57,
+        "language_code": "en",
+        "text_reviews_count": 12
+    },
+    {
+        "elfID": 35,
+        "title": "Sleigh Mechanic",
+        "Name": "Amelia",
+        "average_rating": 4.9,
+        "language_code": "en",
+        "text_reviews_count": 18
+    },
+    {
+        "elfID": 36,
+        "title": "Gift Wrapper",
+        "Name": "James",
+        "average_rating": 4.87,
+        "language_code": "en",
+        "text_reviews_count": 22
+    },
+    {
+        "elfID": 37,
+        "title": "Toy Designer",
+        "Name": "Abigail",
+        "average_rating": 4.7,
+        "language_code": "en",
+        "text_reviews_count": 28
+    },
+    {
+        "elfID": 38,
+        "title": "Sleigh Mechanic",
+        "Name": "Benjamin",
+        "average_rating": 4.87,
+        "language_code": "en",
+        "text_reviews_count": 24
+    },
+    {
+        "elfID": 39,
+        "title": "Sleigh Mechanic",
+        "Name": "Sofia",
+        "average_rating": 4.98,
+        "language_code": "en",
+        "text_reviews_count": 10
+    },
+    {
+        "elfID": 40,
+        "title": "Sleigh Mechanic",
+        "Name": "William",
+        "average_rating": 4.03,
+        "language_code": "en",
+        "text_reviews_count": 18
+    },
+    {
+        "elfID": 41,
+        "title": "Reindeer Trainer",
+        "Name": "Emma",
+        "average_rating": 4.15,
+        "language_code": "en",
+        "text_reviews_count": 28
+    },
+    {
+        "elfID": 42,
+        "title": "Reindeer Trainer",
+        "Name": "Oliver",
+        "average_rating": 3.63,
+        "language_code": "en",
+        "text_reviews_count": 19
+    },
+    {
+        "elfID": 43,
+        "title": "Gift Wrapper",
+        "Name": "Aria",
+        "average_rating": 3.73,
+        "language_code": "en",
+        "text_reviews_count": 26
+    },
+    {
+        "elfID": 44,
+        "title": "Toy Designer",
+        "Name": "Henry",
+        "average_rating": 3.58,
+        "language_code": "en",
+        "text_reviews_count": 22
+    },
+    {
+        "elfID": 45,
+        "title": "Toy Designer",
+        "Name": "Scarlett",
+        "average_rating": 4.13,
+        "language_code": "en",
+        "text_reviews_count": 25
+    },
+    {
+        "elfID": 46,
+        "title": "Gift Wrapper",
+        "Name": "Samuel",
+        "average_rating": 4.47,
+        "language_code": "en",
+        "text_reviews_count": 10
+    },
+    {
+        "elfID": 47,
+        "title": "Reindeer Trainer",
+        "Name": "Hannah",
+        "average_rating": 3.52,
+        "language_code": "en",
+        "text_reviews_count": 26
+    },
+    {
+        "elfID": 48,
+        "title": "Cookie Tester",
+        "Name": "Jack",
+        "average_rating": 4.45,
+        "language_code": "en",
+        "text_reviews_count": 7
+    },
+    {
+        "elfID": 49,
+        "title": "Toy Designer",
+        "Name": "Grace",
+        "average_rating": 3.84,
+        "language_code": "en",
+        "text_reviews_count": 5
+    },
+    {
+        "elfID": 50,
+        "title": "Toy Designer",
+        "Name": "Levi",
+        "average_rating": 4.72,
+        "language_code": "en",
+        "text_reviews_count": 15
+    }
+]
