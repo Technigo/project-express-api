@@ -22,7 +22,7 @@ app.get("/", (request, response) => {
       "/elves/titles/:title": "Get elves by title",
       "/elves/:id": "Get a specific elf by ID",
       "/test": "Test endpoint",
-      endpoints: endpoints
+    endpoints: endpoints
     }
   });
 });
