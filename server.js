@@ -36,6 +36,19 @@ app.get("/elves", (request, response) => {
   response.json(filteredElves);
 });
 
+//Get a unique elf by ID
+
+app.get("/elves/:id", (request, response) => {
+  const id = request.params.id;
+
+  const eld = elves.find((event) => event.elfID === +id);
+  if (elf) {
+    response.status(200).json(elf);
+  } else {
+    response.status(404).send("No eld found with that ID");
+  }
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
