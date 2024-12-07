@@ -20,26 +20,20 @@ app.get("/", (request, response) => {
   });
 });
 
-// Test endpoint
-app.get("/test", (request, response) => {
-  response.send("Testing testing!");
-  console.log("Testing testing");
-});
-
 // Endpoint to get all elves, with optional filter
 app.get("/elves", (request, response) => {
   const title = request.query.title?.toLowerCase();
   console.log(`Title filter: ${title}`);
 });
 
-  // Path parameter for getting elves based on the provided title
-  // If 'title' exists, return elves with titles that match, otherwise, return all elves
+// Path parameter for getting elves based on the provided title
+// If 'title' exists, return elves with titles that match, otherwise, return all elves
 
-  app.get("/elves/title/:title", (request, response) => {
-    const title = request.params.title.toLowerCase();
-    const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
-    response.json(filteredElves);
-  });
+app.get("/elves/title/:title", (request, response) => {
+  const title = request.params.title.toLowerCase();
+  const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
+  response.json(filteredElves);
+});
 
 //Get a unique elf by ID
 
@@ -53,6 +47,12 @@ app.get("/elves/:id", (request, response) => {
     response.status(404).send("No elf found with that ID");
   }
 })
+
+// Test endpoint
+app.get("/test", (request, response) => {
+  response.send("Testing testing!");
+  console.log("Testing testing");
+});
 
 // Start the server
 app.listen(port, () => {
