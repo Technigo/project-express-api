@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a RESTful API built with Express.js that uses data from a JSON file of popular songs. It allows users to fetch a list of songs, get details for a specific song, and filter songs by various criteria such as genre, artist, BPM, and popularity.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I planned the project by deciding which endpoints I needed and how to structure the data to handle route logic. I used Express List Endpoints to generate automatic documentation, making it easy to navigate and test the API. I tested using Chrome to verify that each endpoint returned the correct data and returned meaningful error messages for invalid inputs.
+
+If I had more time I would add more filtering capabilities, such as filtering by energy or danceability. I would also build a frontend interface and implement pagination to better organize and display the data.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-f8ka.onrender.com/
