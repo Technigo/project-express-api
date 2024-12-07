@@ -16,13 +16,13 @@ app.get("/", (request, response) => {
   const endpoints = expressListEndpoints(app);
   response.json({
     message: "Welcome to the Elves API! Here are the available endpoints:",
-    endpoints: endpoints,
     description: {
       "/elves/all": "Get all elves",
       "/elves/titles": "Get all unique elf titles",
       "/elves/titles/:title": "Get elves by title",
       "/elves/:id": "Get a specific elf by ID",
-      "/test": "Test endpoint"
+      "/test": "Test endpoint",
+      endpoints: endpoints
     }
   });
 });
