@@ -26,12 +26,17 @@ app.get("/test", (request, response) => {
   console.log("Testing testing");
 });
 
-// Endpoint to get all elves, with optional query filter
+// Endpoint to get all elves, with optional filter
 app.get("/elves", (request, response) => {
-  const title = request.query.title?.toLowerCase(); // 
-  console.log(title);
+  const title = request.query.title?.toLowerCase(); 
+  console.log(`Title filter: ${title}`);
 
-  const filteredElves = elves.filter((event) => event.title.toLocaleLowerCase() === title); 
+  // Filter the elves based on the provided title
+  // If 'title' exists, return elves with titles that match, otherwise, return all elves
+
+  const filteredElves = title
+    ? elves.filter((event) => event.title.toLowerCase() === title)
+    : elves; // Return all elves if no query parameter
 
   response.json(filteredElves);
 });
@@ -41,11 +46,11 @@ app.get("/elves", (request, response) => {
 app.get("/elves/:id", (request, response) => {
   const id = request.params.id;
 
-  const eld = elves.find((event) => event.elfID === +id);
+  const elf = elves.find((event) => event.elfID === +id);
   if (elf) {
     response.status(200).json(elf);
   } else {
-    response.status(404).send("No eld found with that ID");
+    response.status(404).send("No elf found with that ID");
   }
 })
 
