@@ -28,8 +28,9 @@ app.get("/test", (request, response) => {
 
 // Endpoint to get all elves, with optional filter
 app.get("/elves", (request, response) => {
-  const title = request.query.title?.toLowerCase(); 
+  const title = request.query.title?.toLowerCase();
   console.log(`Title filter: ${title}`);
+});
 
   // Path parameter for getting elves based on the provided title
   // If 'title' exists, return elves with titles that match, otherwise, return all elves
