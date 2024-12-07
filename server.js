@@ -22,20 +22,18 @@ app.get("/", (request, response) => {
 
 // Test endpoint
 app.get("/test", (request, response) => {
-  res.send("Testing testing!");
+  response.send("Testing testing!");
   console.log("Testing testing");
 });
 
 // Endpoint to get all elves, with optional query filter
-app.get("/elves", (req, res) => {
-  const title = req.query.title?.toLowerCase(); 
+app.get("/elves", (request, response) => {
+  const title = request.query.title?.toLowerCase(); // 
   console.log(title);
 
-  const filteredElves = title
-    ? elves.filter((elf) => elf.title.toLowerCase() === title)
-    : elves;
+  const filteredElves = elves.filter((event) => event.title.toLocaleLowerCase() === title); 
 
-  res.json(filteredElves);
+  response.json(filteredElves);
 });
 
 // Start the server
