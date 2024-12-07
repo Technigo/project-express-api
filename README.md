@@ -31,6 +31,10 @@ This project uses npm (Node Package Manager) and Express.js to manage dependenci
     ```bash
     node server.js
     ```
+  4. The package used to generate a list of all available API endpoints automatically (shown on the endpoint /). Install it with:
+  ```bash
+  npm install express-list-endpoints
+  ```
 
 ## The problem
 
