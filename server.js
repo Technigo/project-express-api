@@ -31,15 +31,14 @@ app.get("/elves", (request, response) => {
   const title = request.query.title?.toLowerCase(); 
   console.log(`Title filter: ${title}`);
 
-  // Filter the elves based on the provided title
+  // Path parameter for getting elves based on the provided title
   // If 'title' exists, return elves with titles that match, otherwise, return all elves
 
-  const filteredElves = title
-    ? elves.filter((event) => event.title.toLowerCase() === title)
-    : elves; // Return all elves if no query parameter
-
-  response.json(filteredElves);
-});
+  app.get("/elves/title/:title", (request, response) => {
+    const title = request.params.title.toLowerCase();
+    const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
+    response.json(filteredElves);
+  });
 
 //Get a unique elf by ID
 
