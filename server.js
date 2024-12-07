@@ -16,14 +16,36 @@ app.get("/", (request, response) => {
   const endpoints = expressListEndpoints(app);
   response.json({
     message: "Welcome to the Elves API! Here are the available endpoints:",
-    endpoints: endpoints
+    endpoints: endpoints,
+    description: {
+      "/elves/all": "Get all elves",
+      "/elves/titles": "Get all unique elf titles",
+      "/elves/title/:title": "Get elves by title",
+      "/elves/:id": "Get a specific elf by ID",
+      "/test": "Test endpoint"
+    }
   });
 });
 
-// Endpoint to get all elves, with optional filter
-app.get("/elves", (request, response) => {
-  const title = request.query.title?.toLowerCase();
-  console.log(`Title filter: ${title}`);
+// Endpoint to get all elves using a path parameter
+app.get("/elves/all", (request, response) => {
+  
+  // Return all elves
+  response.json(elves);
+});
+
+// Endpoint to get all unique titles of elves
+app.get("/elves/titles", (request, response) => {
+  // Extract titles and remove duplicates
+  const uniqueTitles = [];
+  elves.forEach((event) => {
+    if (!uniqueTitles.includes(event.title)) {
+      uniqueTitles.push(event.title);
+    }
+  });
+
+  // Return the unique titles
+  response.json(uniqueTitles);
 });
 
 // Path parameter for getting elves based on the provided title

@@ -8,6 +8,9 @@ Array methods like .find(), .filter(), and .slice() are used to manipulate the d
   1. The API should have at least 3 routes.  
     This API has the following routes:  
     - /: Returns documentation of the API using express-list-endpoints.[Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints).   
+    - /elves:  
+    - /elves/:id:  
+    - /elves/title/:title:  
   2. A minimum of one endpoint to return a **collection** of results (array of elements).  
     - /elves: Returns a collection of elves, with optional filtering by query parameter (?title=).  
     - /elves/title/:title: Returns elves by their title using a path parameter.  
