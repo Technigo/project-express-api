@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
-    "start": "babel-node server.js",
-    "dev": "nodemon server.js --exec babel-node"
+    "build": "babel server.js --out-file server-compiled.js",
+    "start": "node server-compiled.js",
+    "dev": "nodemon server.js --exec babel-node",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +21,9 @@
     "@babel/core": "^7.26.0",
     "@babel/node": "^7.26.0",
     "@babel/preset-env": "^7.26.0"
+  },
+  "engines": {
+    "node": ">=14.x",
+    "npm": ">=6.x"
   }
 }
