@@ -1,12 +1,11 @@
 import express from "express";
 import cors from "cors";
+import expressListEndpoints from "express-list-endpoints";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
 // import avocadoSalesData from "./data/avocado-sales.json";
 // import booksData from "./data/books.json";
 // import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
+import netflixData from "./data/netflix-titles.json" with { type: "json" };
 // import topMusicData from "./data/top-music.json";
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -21,7 +20,37 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  const updatedEndpoints = endpoints.map((endpoint) => {
+    if (endpoint.path === '/netflix-titles') {
+      endpoint.query = ['year']; 
+    }
+    return endpoint;
+  });
+  res.json(updatedEndpoints);
+});
+
+app.get("/netflix-titles", (req, res) => {
+  let titles = netflixData;
+
+  if (req.query.year) {
+    titles = titles.filter(
+      (item) => item.release_year === parseInt(req.query.year)
+    );
+  }
+
+  res.json(titles);
+});
+
+app.get("/netflix-titles/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const title = netflixData.find((item) => item.show_id === id);
+
+  if (title) {
+    res.json(title);
+  } else {
+    res.status(404).json({ error: "Title not found" });
+  }
 });
 
 // Start the server
