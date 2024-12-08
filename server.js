@@ -27,25 +27,32 @@ app.get("/", (request, response) => {
   });
 });
 
-// Endpoint to get all elves using a path parameter
+/**
+ * Endpoint for getting all elves.
+ * This endpoint returns the complete list of elves from the elves.json.
+ */
+
 app.get("/elves/all", (request, response) => {
   
   // Return all elves
   response.json(elves);
 });
 
-// Endpoint to get the top 12 elves, the "TwElves"
-
+/**
+ * Endpoint to get the top 12 elves, the "TwElves"
+ * This endpoint uses .slice() to return the first 12 elves from the elves.json.
+ */
 app.get("/elves/top-twelves", (request, response) => {
-  //Use slice to get the first 12 elves
   const topElves = elves.slice(0, 12);
 
   // Return top 12 elves
   response.json(topElves);
 });
 
-// Path parameter for getting elves based on the provided title
-
+/**
+ * Endpoint for getting elves based on the provided title. 
+ * This endpoint uses .filter() to return the elves with a matching title
+ */
 app.get("/elves/titles/:title", (request, response) => {
   const title = request.params.title.toLowerCase();
   const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
@@ -55,6 +62,12 @@ app.get("/elves/titles/:title", (request, response) => {
 });
 
 //Get a unique elf by ID
+/**
+ * Endpoint for getting elves based on a unique ID. 
+ * This endpoint uses .find() to search for the elf in the elves.json. 
+ * If an elf with the given ID exists, it returns the elf's data with a 200 status.
+ * If no elf is found, it returns with a 404 status and the message: "404 - No elf found with that ID".
+ */
 
 app.get("/elves/:id", (request, response) => {
   const id = request.params.id;
@@ -63,17 +76,23 @@ app.get("/elves/:id", (request, response) => {
   if (elf) {
     response.status(200).json(elf);
   } else {
-    response.status(404).send("No elf found with that ID");
+    response.status(404).send("404 - No elf found with that ID");
   }
 })
 
-// Test endpoint
+/**
+ * Endpoint for testing the server.
+ * This endpoint confirms that the server is running and responds with "Testing testing!"
+ */
 app.get("/test", (request, response) => {
   response.send("Testing testing!");
   console.log("Testing testing");
 });
 
-// Start the server
+/**
+ * Start the server.
+ * The server listens on the specified port and logs the URL to the console.
+ */
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
