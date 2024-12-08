@@ -72,7 +72,7 @@ app.get("/elves/titles/:title", (request, response) => {
 app.get("/elves/:id", (request, response) => {
   const id = request.params.id;
 
-  const elf = elves.find((event) => event.elfID === +id);
+  const elf = elves.find((record) => record.elfID === +id);
   if (elf) {
     response.status(200).json(elf);
   } else {
