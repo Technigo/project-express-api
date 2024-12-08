@@ -55,7 +55,7 @@ app.get("/elves/top-twelves", (request, response) => {
  */
 app.get("/elves/titles/:title", (request, response) => {
   const title = request.params.title.toLowerCase();
-  const filteredElves = elves.filter((event) => event.title.toLowerCase() === title);
+  const filteredElves = elves.filter((elf) => elf.title.toLowerCase() === title);
 
   // Return elves with titles that match
   response.json(filteredElves);
