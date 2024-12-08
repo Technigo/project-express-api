@@ -1,30 +1,69 @@
 import express from "express";
 import cors from "cors";
+import eventsData from "./data/events.json";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get("/events", (req, res) => {
+  let filteredEvents = eventsData;
+
+  const { city, category } = req.query;
+
+  if (city) {
+    filteredEvents = filteredEvents.filter(event => event.city.toLowerCase().includes(city.toLowerCase()));
+  }
+
+  if (category) {
+    filteredEvents = filteredEvents.filter(event =>
+      event.category.some(cat => cat.toLowerCase().includes(category.toLowerCase()))
+    );
+  }
+
+  res.json(filteredEvents);
 });
 
-// Start the server
+
+app.get("/events/:id", (req, res) => {
+  const { id } = req.params;
+  const event = eventsData.find(event => event.id === parseInt(id));
+
+  if (event) {
+    res.json(event);
+  } else {
+    res.status(404).send("Event not found");
+  }
+});
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to the Events API! Here are the available endpoints:",
+    description: {
+      "/events": "Get all events (optionally filter by city or category)",
+      "/events/:id": "Get a specific event by ID",
+      "endpoints": [
+        {
+          path: "/events",
+          methods: ["GET"],
+          middlewares: ["anonymous"],
+          queryParameters: {
+            city: "Filter events by city name (case insensitive)",
+            category: "Filter events by category (e.g., 'music', 'art')"
+          }
+        },
+        {
+          path: "/events/:id",
+          methods: ["GET"],
+          middlewares: ["anonymous"]
+        }
+      ]
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

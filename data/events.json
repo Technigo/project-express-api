@@ -1,0 +1,680 @@
+[
+  {
+    "id": 1,
+    "name": "Stand-Up Comedy Show",
+    "venue": "Malmö Comedy Club",
+    "city": "Malmö",
+    "date": "2025-03-10",
+    "time": "19:30-22:00",
+    "price": 250,
+    "age": 18,
+    "category": [
+      "Comedy"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Malmö Food Festival",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-06-10",
+    "time": "11:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Malmö Film Screening",
+    "venue": "Malmö Film Studio",
+    "city": "Malmö",
+    "date": "2025-04-05",
+    "time": "18:00-21:00",
+    "price": 120,
+    "age": 18,
+    "category": [
+      "Film"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Malmö Theater Performance",
+    "venue": "Malmö City Theater",
+    "city": "Malmö",
+    "date": "2025-05-20",
+    "time": "19:00-22:00",
+    "price": 180,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Malmö Art Exhibition",
+    "venue": "Malmö Art Museum",
+    "city": "Malmö",
+    "date": "2025-07-01",
+    "time": "10:00-17:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Lund Film Festival",
+    "venue": "Lund Film Studio",
+    "city": "Lund",
+    "date": "2025-08-05",
+    "time": "12:00-22:00",
+    "price": 150,
+    "age": 6,
+    "category": [
+      "Family",
+      "Film"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Lund Street Sports Event",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-09-12",
+    "time": "10:00-18:00",
+    "price": 100,
+    "age": 6,
+    "category": [
+      "Family",
+      "Sports"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Lund City Theater Show",
+    "venue": "Lund City Theater",
+    "city": "Lund",
+    "date": "2025-06-15",
+    "time": "18:00-21:00",
+    "price": 160,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Lund Food Market",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-05-05",
+    "time": "09:00-18:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Lund Outdoor Theater Performance",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-07-20",
+    "time": "20:00-23:00",
+    "price": 140,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Malmö Jazz Night",
+    "venue": "Malmö Concert Hall",
+    "city": "Malmö",
+    "date": "2025-09-25",
+    "time": "20:00-23:00",
+    "price": 250,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Lund Photography Workshop",
+    "venue": "Lund Photography Studio",
+    "city": "Lund",
+    "date": "2025-10-02",
+    "time": "10:00-13:00",
+    "price": 150,
+    "age": 6,
+    "category": [
+      "Family",
+      "Film"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Malmö Art & Craft Fair",
+    "venue": "Malmö Art Museum",
+    "city": "Malmö",
+    "date": "2025-11-10",
+    "time": "09:00-18:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Malmö Street Food Festival",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-07-10",
+    "time": "11:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Lund Theater Performance",
+    "venue": "Lund City Theater",
+    "city": "Lund",
+    "date": "2025-10-14",
+    "time": "19:00-22:00",
+    "price": 160,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Malmö Outdoor Theater Performance",
+    "venue": "Malmö Outdoor Theater",
+    "city": "Malmö",
+    "date": "2025-08-18",
+    "time": "20:00-23:00",
+    "price": 150,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Lund Music Festival",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-09-05",
+    "time": "10:00-18:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Music"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Malmö Fashion Show",
+    "venue": "Malmö City Theater",
+    "city": "Malmö",
+    "date": "2025-12-03",
+    "time": "18:00-21:00",
+    "price": 200,
+    "age": 18,
+    "category": [
+      "Fashion"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Lund Sports Tournament",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-10-30",
+    "time": "09:00-16:00",
+    "price": 120,
+    "age": 6,
+    "category": [
+      "Family",
+      "Sports"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Malmö Christmas Market",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-12-10",
+    "time": "09:00-18:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Malmö Jazz Festival",
+    "venue": "Malmö Concert Hall",
+    "city": "Malmö",
+    "date": "2025-08-30",
+    "time": "12:00-22:00",
+    "price": 180,
+    "age": 0,
+    "category": [
+      "Family",
+      "Music"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Lund City Art Show",
+    "venue": "Lund City Hall",
+    "city": "Lund",
+    "date": "2025-09-15",
+    "time": "10:00-17:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Malmö Street Dance Competition",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-06-18",
+    "time": "14:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Dance"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Lund Theatre Festival",
+    "venue": "Lund City Theater",
+    "city": "Lund",
+    "date": "2025-07-22",
+    "time": "10:00-20:00",
+    "price": 120,
+    "age": 6,
+    "category": [
+      "Family",
+      "Theater"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Malmö Vintage Market",
+    "venue": "Malmö Art Museum",
+    "city": "Malmö",
+    "date": "2025-11-20",
+    "time": "09:00-18:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Fashion"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Lund Film Screening",
+    "venue": "Lund Film Studio",
+    "city": "Lund",
+    "date": "2025-10-10",
+    "time": "18:00-21:00",
+    "price": 120,
+    "age": 18,
+    "category": [
+      "Film"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Malmö Science Conference",
+    "venue": "Malmö City Theater",
+    "city": "Malmö",
+    "date": "2025-09-03",
+    "time": "09:00-17:00",
+    "price": 300,
+    "age": 6,
+    "category": [
+      "Family",
+      "Science"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Lund Music Concert",
+    "venue": "Lund City Hall",
+    "city": "Lund",
+    "date": "2025-11-05",
+    "time": "19:00-22:00",
+    "price": 180,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Malmö Modern Art Exhibition",
+    "venue": "Malmö Art Museum",
+    "city": "Malmö",
+    "date": "2025-12-01",
+    "time": "10:00-18:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Lund Outdoor Cinema",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-07-25",
+    "time": "20:00-23:00",
+    "price": 100,
+    "age": 18,
+    "category": [
+      "Film"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Lund Opera Performance",
+    "venue": "Lund City Theater",
+    "city": "Lund",
+    "date": "2025-09-14",
+    "time": "18:00-21:00",
+    "price": 150,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Malmö Outdoor Art Exhibition",
+    "venue": "Malmö Outdoor Theater",
+    "city": "Malmö",
+    "date": "2025-06-28",
+    "time": "11:00-18:00",
+    "price": 40,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Lund Film Screening",
+    "venue": "Lund Film Studio",
+    "city": "Lund",
+    "date": "2025-10-12",
+    "time": "18:00-21:00",
+    "price": 120,
+    "age": 18,
+    "category": [
+      "Film"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Malmö Rock Concert",
+    "venue": "Malmö Concert Hall",
+    "city": "Malmö",
+    "date": "2025-07-10",
+    "time": "19:00-22:00",
+    "price": 180,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Lund Food Festival",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-06-20",
+    "time": "10:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Malmö Dance Performance",
+    "venue": "Malmö City Theater",
+    "city": "Malmö",
+    "date": "2025-09-25",
+    "time": "19:00-22:00",
+    "price": 160,
+    "age": 18,
+    "category": [
+      "Family",
+      "Theater"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Lund Art Gallery Exhibition",
+    "venue": "Lund City Hall",
+    "city": "Lund",
+    "date": "2025-10-20",
+    "time": "10:00-17:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Malmö Jazz Concert",
+    "venue": "Malmö Concert Hall",
+    "city": "Malmö",
+    "date": "2025-08-15",
+    "time": "19:00-22:00",
+    "price": 180,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Lund Poetry Reading",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-09-30",
+    "time": "18:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Literature"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Malmö Food Market",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-10-02",
+    "time": "09:00-18:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Food"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Lund Street Art Festival",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-10-05",
+    "time": "11:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Malmö Theatre Dance Show",
+    "venue": "Malmö City Theater",
+    "city": "Malmö",
+    "date": "2025-11-10",
+    "time": "19:00-22:00",
+    "price": 160,
+    "age": 18,
+    "category": [
+      "Theater"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Lund Outdoor Concert",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-11-12",
+    "time": "19:00-22:00",
+    "price": 150,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Malmö Classical Concert",
+    "venue": "Malmö Concert Hall",
+    "city": "Malmö",
+    "date": "2025-12-05",
+    "time": "19:00-22:00",
+    "price": 180,
+    "age": 18,
+    "category": [
+      "Music"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Lund City Art Performance",
+    "venue": "Lund City Hall",
+    "city": "Lund",
+    "date": "2025-12-15",
+    "time": "10:00-17:00",
+    "price": 50,
+    "age": 0,
+    "category": [
+      "Family",
+      "Art"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Malmö Fashion Show",
+    "venue": "Malmö Art Museum",
+    "city": "Malmö",
+    "date": "2025-11-25",
+    "time": "18:00-21:00",
+    "price": 150,
+    "age": 18,
+    "category": [
+      "Fashion"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Lund Music Festival",
+    "venue": "Lund City Square",
+    "city": "Lund",
+    "date": "2025-11-20",
+    "time": "11:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Music"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Malmö Literature Reading",
+    "venue": "Malmö City Square",
+    "city": "Malmö",
+    "date": "2025-12-20",
+    "time": "18:00-20:00",
+    "price": 0,
+    "age": 0,
+    "category": [
+      "Family",
+      "Literature"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Lund Traditional Dance Show",
+    "venue": "Lund Outdoor Arena",
+    "city": "Lund",
+    "date": "2025-12-01",
+    "time": "19:00-22:00",
+    "price": 150,
+    "age": 18,
+    "category": [
+      "Dance"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Malmö Comedy Show",
+    "venue": "Malmö Comedy Club",
+    "city": "Malmö",
+    "date": "2025-12-10",
+    "time": "19:30-22:00",
+    "price": 120,
+    "age": 18,
+    "category": [
+      "Comedy"
+    ]
+  }
+]

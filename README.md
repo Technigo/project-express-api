@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This project is a RESTful API built with Express.js, designed to manage and provide event data. The API allows users to fetch, filter, and explore events based on categories, cities, and prices. It is hosted on Render and connected to a React-based frontend project for a seamless user experience.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+To approach the task, I started by planning a clear structure for the data and identifying the necessary endpoints to ensure smooth functionality for the frontend. I used Express.js to build the server and added flexible filtering logic, enabling multiple search criteria to work simultaneously. The API also includes basic error handling to manage invalid requests effectively.
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+It was a fun challenge to connect the backend and frontend projects!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-gep6.onrender.com/
+
+https://eventsfordays.netlify.app/events/
