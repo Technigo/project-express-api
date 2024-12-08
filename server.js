@@ -39,13 +39,29 @@ app.get("/events/:id", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send(`
-    API Documentation:
-    - GET /events - Get all events
-    - GET /events/:id - Get a specific event by ID
-    - Query Parameters:
-      - category or city: Filter by category (e.g., 'music', 'art', etc.)
-  `);
+  res.json({
+    message: "Welcome to the Events API! Here are the available endpoints:",
+    description: {
+      "/events": "Get all events (optionally filter by city or category)",
+      "/events/:id": "Get a specific event by ID",
+      "endpoints": [
+        {
+          path: "/events",
+          methods: ["GET"],
+          middlewares: ["anonymous"],
+          queryParameters: {
+            city: "Filter events by city name (case insensitive)",
+            category: "Filter events by category (e.g., 'music', 'art')"
+          }
+        },
+        {
+          path: "/events/:id",
+          methods: ["GET"],
+          middlewares: ["anonymous"]
+        }
+      ]
+    }
+  });
 });
 
 app.listen(port, () => {
