@@ -18,7 +18,7 @@ app.get("/", (request, response) => {
     message: "Welcome to the Elves API! Here are the available endpoints:",
     description: {
       "/elves/all": "Get all elves",
-      "/elves/titles": "Get all unique elf titles",
+      "/elves/top-twelves": "Get the top twelves",
       "/elves/titles/:title": "Get elves by title",
       "/elves/:id": "Get a specific elf by ID",
       "/test": "Test endpoint",
@@ -34,22 +34,17 @@ app.get("/elves/all", (request, response) => {
   response.json(elves);
 });
 
-// Endpoint to get all unique titles of elves
-app.get("/elves/titles", (request, response) => {
-  // Extract titles and remove duplicates
-  const uniqueTitles = [];
-  elves.forEach((event) => {
-    if (!uniqueTitles.includes(event.title)) {
-      uniqueTitles.push(event.title);
-    }
-  });
+// Endpoint to get the top 12 elves, the "TwElves"
 
-  // Return the unique titles
-  response.json(uniqueTitles);
+app.get("/elves/top-twelves", (request, response) => {
+  //Use slice to get the first 12 elves
+  const topElves = elves.slice(0, 12);
+
+  // Return top 12 elves
+  response.json(topElves);
 });
 
 // Path parameter for getting elves based on the provided title
-// If 'title' exists, return elves with titles that match, otherwise, return all elves
 
 app.get("/elves/titles/:title", (request, response) => {
   const title = request.params.title.toLowerCase();

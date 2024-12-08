@@ -2,7 +2,7 @@
 
 This project marks the beginning of my backend journey with Express.js, featuring RESTful endpoints that return data from a hard-coded JSON file. 
 
-Array methods like .find() and .filter() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch. 
+Array methods like .find(), .filter(), and .slice() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch. 
 
 My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20dasher. 
 
@@ -11,18 +11,18 @@ My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20da
     This API has the following routes:  
     - /: Returns documentation of the API using express-list-endpoints.[Express List Endpoints](https://www.npmjs.com/package/express-list-endpoints).   
     - /elves/all - Get all elves  
-    - /elves/:id: - Get a specific elf by ID  
-    - /elves/titles - Get all unique elf titles  
-    - /elves/titles/:title: - Get elves by title  
+    - /elves/top-twelves - Get top TwElves using .slice()  
+    - /elves/:id: - Get a specific elf by ID using .find()    
+    - /elves/titles/:title: - Get elves by title using .filter()
     - /test - Test endpoint  
   2. A minimum of one endpoint to return a **collection** of results (array of elements).  
-    - elves/all: Returns a collection of elves.  
-    - /elves/titles: Returns all unique elf titles.  
-    - /elves/title/:title: Returns elves by their title using a path parameter.  
+    - elves/all: Returns a collection of elves. 
+    - /elves/top-twelves - Get top TwElves.  
+    - /elves/titles/:title: Returns elves by their title.  
   3. A minimum of one endpoint to return a **single** result (single element).  
     - /elves/:id: Returns a single elf by ID.  
   4. Your API should be RESTful.  
-    - Routes (elves) are defined with endpoints such as /elves/:id, and /elves/title/:title.  
+    - Routes (elves) are defined with endpoints such as /elves/:id, and /elves/titles/:title.  
     - HTTP methods are used (GET).  
     - Responses are structured in JSON format.  
   5. You should follow the guidelines on how to write clean code.  
