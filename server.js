@@ -3,11 +3,11 @@ import cors from "cors";
 import booksData from "./data/books.json";
 import listEndpoints from "express-list-endpoints";
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080; // Dynamic port for Render
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Enable CORS
+app.use(express.json()); // Parse JSON bodies
 
 // Documentation endpoint
 app.get("/", (req, res) => {
