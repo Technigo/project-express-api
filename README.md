@@ -1,13 +1,20 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a simple backend API built with Express that returns data from a hard-coded JSON file. It includes RESTful endpoints to fetch a collection of items, filter data using query parameters and retrieve individual items by ID.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I approached the project by first setting up a basic Express server, using middleware like `cors` for cross-origin access and `nodemon` for development. The data is filtered and manipulated using JavaScript array methods like `.find()` and `.filter()`. The API documentation is dynamically generated with express-list-endpoints.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-mqhs.onrender.com/
+
+Climbing Routes
+https://project-express-api-mqhs.onrender.com/climbingRoutes
+
+Climbing Routes - type
+https://project-express-api-mqhs.onrender.com/climbingRoutes/type?type=sport
+
+Climbing Routes - difficulty
+https://project-express-api-mqhs.onrender.com/climbingRoutes/difficulty?difficulty=high
