@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import fs from "fs";
 import path from "path";
-import listEndpoints from "express-list-endpoints"; // Import express-list-endpoints
+import listEndpoints from "express-list-endpoints"; 
 
 // Path to your JSON dataset
 const dataPath = path.resolve("./data/kpop-album-releases.json");
