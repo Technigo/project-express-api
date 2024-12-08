@@ -1,0 +1,243 @@
+[
+    {
+      "id": 1,
+      "name": "Map of the Soul: 7",
+      "artist": "BTS",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 9.5
+    },
+    {
+      "id": 2,
+      "name": "The Album",
+      "artist": "BLACKPINK",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.8
+    },
+    {
+      "id": 3,
+      "name": "Skool Luv Affair",
+      "artist": "BTS",
+      "category": "Mini Album",
+      "year": 2014,
+      "rating": 8.2
+    },
+    {
+      "id": 4,
+      "name": "Noeasy",
+      "artist": "Stray Kids",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.7
+    },
+    {
+      "id": 5,
+      "name": "Hot Sauce",
+      "artist": "NCT Dream",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.5
+    },
+    {
+      "id": 6,
+      "name": "Sticker",
+      "artist": "NCT 127",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.6
+    },
+    {
+      "id": 7,
+      "name": "Love Yourself: Tear",
+      "artist": "BTS",
+      "category": "Full Album",
+      "year": 2018,
+      "rating": 9.0
+    },
+    {
+      "id": 8,
+      "name": "Kill This Love",
+      "artist": "BLACKPINK",
+      "category": "Mini Album",
+      "year": 2019,
+      "rating": 8.3
+    },
+    {
+      "id": 9,
+      "name": "GO生 (Go Live)",
+      "artist": "Stray Kids",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.4
+    },
+    {
+      "id": 10,
+      "name": "Eyes Wide Open",
+      "artist": "TWICE",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.9
+    },
+    {
+      "id": 11,
+      "name": "1 Billion Views",
+      "artist": "EXO-SC",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.1
+    },
+    {
+      "id": 12,
+      "name": "Bloom*Iz",
+      "artist": "IZ*ONE",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.5
+    },
+    {
+      "id": 13,
+      "name": "Dystopia: The Tree of Language",
+      "artist": "Dreamcatcher",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.6
+    },
+    {
+      "id": 14,
+      "name": "Feel Special",
+      "artist": "TWICE",
+      "category": "Mini Album",
+      "year": 2019,
+      "rating": 8.8
+    },
+    {
+      "id": 15,
+      "name": "Don't Call Me",
+      "artist": "SHINee",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.9
+    },
+    {
+      "id": 16,
+      "name": "Querencia",
+      "artist": "Chungha",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.7
+    },
+    {
+      "id": 17,
+      "name": "CRAZY IN LOVE",
+      "artist": "ITZY",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.4
+    },
+    {
+      "id": 18,
+      "name": "LALISA",
+      "artist": "Lisa",
+      "category": "Single Album",
+      "year": 2021,
+      "rating": 8.2
+    },
+    {
+      "id": 19,
+      "name": "DECOHERENCE",
+      "artist": "Dreamcatcher",
+      "category": "Mini Album",
+      "year": 2021,
+      "rating": 8.7
+    },
+    {
+      "id": 20,
+      "name": "Treasure EP.Fin: All To Action",
+      "artist": "ATEEZ",
+      "category": "Full Album",
+      "year": 2019,
+      "rating": 8.5
+    },
+    {
+      "id": 21,
+      "name": "Obsession",
+      "artist": "EXO",
+      "category": "Full Album",
+      "year": 2019,
+      "rating": 8.6
+    },
+    {
+      "id": 22,
+      "name": "The Chaos Chapter: Freeze",
+      "artist": "TXT",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.7
+    },
+    {
+      "id": 23,
+      "name": "Dimension: Dilemma",
+      "artist": "ENHYPEN",
+      "category": "Full Album",
+      "year": 2021,
+      "rating": 8.3
+    },
+    {
+      "id": 24,
+      "name": "Savage",
+      "artist": "aespa",
+      "category": "Mini Album",
+      "year": 2021,
+      "rating": 8.5
+    },
+    {
+      "id": 25,
+      "name": "Take Over the Moon",
+      "artist": "WayV",
+      "category": "Mini Album",
+      "year": 2019,
+      "rating": 8.3
+    },
+    {
+      "id": 26,
+      "name": "2 Baddies",
+      "artist": "NCT 127",
+      "category": "Full Album",
+      "year": 2022,
+      "rating": 8.4
+    },
+    {
+      "id": 27,
+      "name": "LOVEDRUNK",
+      "artist": "Epik High",
+      "category": "Mini Album",
+      "year": 2019,
+      "rating": 8.6
+    },
+    {
+      "id": 28,
+      "name": "Chocolate Factory",
+      "artist": "MAMAMOO",
+      "category": "Full Album",
+      "year": 2022,
+      "rating": 8.5
+    },
+    {
+      "id": 29,
+      "name": "Magic Hour",
+      "artist": "TXT",
+      "category": "Mini Album",
+      "year": 2020,
+      "rating": 8.1
+    },
+    {
+      "id": 30,
+      "name": "RESONANCE Pt. 1",
+      "artist": "NCT",
+      "category": "Full Album",
+      "year": 2020,
+      "rating": 8.6
+    }
+  ]
+  

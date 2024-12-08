@@ -1,27 +1,115 @@
 import express from "express";
 import cors from "cors";
+import fs from "fs";
+import path from "path";
+import listEndpoints from "express-list-endpoints"; 
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+// Path to your JSON dataset
+const dataPath = path.resolve("./data/kpop-album-releases.json");
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+// Load the dataset
+let data = [];
+try {
+  const rawData = fs.readFileSync(dataPath, "utf-8");
+  data = JSON.parse(rawData);
+  console.log("Dataset loaded successfully:", data.length, "records found.");
+} catch (error) {
+  console.error("Error loading dataset:", error.message);
+}
+
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Root Endpoint: API Documentation
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = listEndpoints(app).map((endpoint) => ({
+    path: endpoint.path,
+    methods: endpoint.methods,
+    middlewares: endpoint.middlewares.length ? endpoint.middlewares : ["anonymous"],
+  }));
+  res.json(endpoints);
+});
+
+// Get all albums
+app.get("/api/albums", (req, res) => {
+  if (data.length > 0) {
+    res.json(data);
+  } else {
+    res.status(500).json({ error: "No albums found. Please check your dataset." });
+  }
+});
+
+// Get a specific album by ID
+app.get("/api/albums/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log("Searching for album with ID:", id);
+  console.log("Dataset size:", data.length);
+
+  const album = data.find((album) => album.id === id);
+
+  if (album) {
+    console.log("Album found:", album);
+    res.json(album);
+  } else {
+    console.log("Album not found for ID:", id);
+    res.status(404).json({ error: "Album not found" });
+  }
+});
+
+// Get albums by a specific artist
+app.get("/api/albums/artist/:artist", (req, res) => {
+  const artist = req.params.artist.toLowerCase();
+  const albums = data.filter((album) =>
+    album.artist.toLowerCase().includes(artist)
+  );
+
+  if (albums.length > 0) {
+    res.json(albums);
+  } else {
+    res.status(404).json({ error: "No albums found for the given artist" });
+  }
+});
+
+// Get albums by category
+app.get("/api/albums/category/:category", (req, res) => {
+  const category = req.params.category.toLowerCase();
+  const albums = data.filter(
+    (album) => album.category.toLowerCase() === category
+  );
+
+  if (albums.length > 0) {
+    res.json(albums);
+  } else {
+    res.status(404).json({ error: "No albums found in the given category" });
+  }
+});
+
+// Get albums released in a specific year
+app.get("/api/albums/year/:year", (req, res) => {
+  const year = parseInt(req.params.year);
+  const albums = data.filter((album) => album.year === year);
+
+  if (albums.length > 0) {
+    res.json(albums);
+  } else {
+    res.status(404).json({ error: "No albums found for the given year" });
+  }
+});
+
+// Get albums with a minimum rating
+app.get("/api/albums/rating/:rating", (req, res) => {
+  const rating = parseFloat(req.params.rating);
+  const albums = data.filter((album) => album.rating >= rating);
+
+  if (albums.length > 0) {
+    res.json(albums);
+  } else {
+    res.status(404).json({ error: "No albums found with the given rating" });
+  }
 });
 
 // Start the server
