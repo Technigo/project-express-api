@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import fs from "fs";
 import path from "path";
+import listEndpoints from "express-list-endpoints"; // Import express-list-endpoints
 
 // Path to your JSON dataset
 const dataPath = path.resolve("./data/kpop-album-releases.json");
@@ -25,20 +26,12 @@ app.use(express.json());
 
 // Root Endpoint: API Documentation
 app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to the K-Pop Album Releases API",
-    documentation: {
-      endpoints: {
-        "/": "API documentation",
-        "/api/albums": "Get all albums",
-        "/api/albums/:id": "Get a specific album by ID",
-        "/api/albums/artist/:artist": "Get albums by a specific artist",
-        "/api/albums/category/:category": "Get albums by category",
-        "/api/albums/year/:year": "Get albums released in a specific year",
-        "/api/albums/rating/:rating": "Get albums with a minimum rating",
-      },
-    },
-  });
+  const endpoints = listEndpoints(app).map((endpoint) => ({
+    path: endpoint.path,
+    methods: endpoint.methods,
+    middlewares: endpoint.middlewares.length ? endpoint.middlewares : ["anonymous"],
+  }));
+  res.json(endpoints);
 });
 
 // Get all albums
@@ -52,7 +45,7 @@ app.get("/api/albums", (req, res) => {
 
 // Get a specific album by ID
 app.get("/api/albums/:id", (req, res) => {
-  const id = parseInt(req.params.id); 
+  const id = parseInt(req.params.id);
   console.log("Searching for album with ID:", id);
   console.log("Dataset size:", data.length);
 
