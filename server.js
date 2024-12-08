@@ -1,30 +1,82 @@
 import express from "express";
 import cors from "cors";
 
-// If you're using one of our datasets, uncomment the appropriate import below
-// to get started!
-// import avocadoSalesData from "./data/avocado-sales.json";
-// import booksData from "./data/books.json";
-// import goldenGlobesData from "./data/golden-globes.json";
-// import netflixData from "./data/netflix-titles.json";
-// import topMusicData from "./data/top-music.json";
+import goldenGlobesData from "./data/golden-globes.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
+const expressListEndpoints = require("express-list-endpoints");
+
+const port = process.env.PORT || 9000;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(expressListEndpoints(app));
 });
 
-// Start the server
+app.get("/nominations", (req, res) => {
+  const { win, year_award, category } = req.query;
+
+  let filteredNominations = goldenGlobesData;
+
+  if (win) {
+    if (win !== "true" && win !== "false") {
+      return res
+        .status(400)
+        .json({ error: "win parameter must be 'true' or 'false'" });
+    }
+    filteredNominations = filteredNominations.filter(
+      (nomination) => nomination.win === (win === "true")
+    );
+  }
+
+  if (year_award) {
+    if (+year_award < 2015 || +year_award > 2020) {
+      return res.status(400).json({
+        error: "Invalid year. Please enter a year between 2015 and 2020.",
+      });
+    }
+    filteredNominations = filteredNominations.filter(
+      (nomination) => nomination.year_award === parseInt(year_award)
+    );
+  }
+
+  if (category) {
+    const searchTerms = category.toLowerCase().split(" ");
+    filteredNominations = filteredNominations.filter((nomination) =>
+      searchTerms.every((term) =>
+        nomination.category.toLowerCase().includes(term)
+      )
+    );
+
+    if (filteredNominations.length === 0) {
+      return res.status(404).json({
+        error: "No nominations found. Please enter a valid category.",
+      });
+    }
+  }
+  if (filteredNominations.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No nominations found with chosen filters" });
+  }
+
+  res.json(filteredNominations);
+});
+
+app.get("/nominations/:id", (req, res) => {
+  const nomination = goldenGlobesData.find(
+    (nomination) => nomination.id === +req.params.id
+  );
+
+  if (!nomination) {
+    return res.status(404).json({ error: "Nominee not found" });
+  }
+
+  res.json(nomination);
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
