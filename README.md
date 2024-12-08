@@ -1,12 +1,10 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The task was to create a small API with at least three different endpoints.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I used a json-file about books. I created an endpoints to download the entire json-file of books. One endpoint to get the details about a single book (:bookID) and then an endpoint with books of a certain rating. 
 
 ## View it live
 
