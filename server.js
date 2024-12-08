@@ -82,11 +82,11 @@ app.get("/elves/:id", (request, response) => {
 
 /**
  * Endpoint for testing the server.
- * This endpoint confirms that the server is running and responds with "Testing testing!"
+ * This endpoint confirms that the server is running and responds with "Jingle bells, the server tells, it's up and running well!"
  */
 app.get("/test", (request, response) => {
-  response.send("Testing testing!");
-  console.log("Testing testing");
+  response.send("Jingle bells, the server tells, it's up and running well!");
+  console.log("Jingle bells, the server tells, it's up and running well!");
 });
 
 /**

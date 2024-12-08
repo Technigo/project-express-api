@@ -4,7 +4,7 @@ This project marks the beginning of my backend journey with Express.js, featurin
 
 Array methods like .find(), .filter(), and .slice() are used to manipulate the data. While pre-made datasets are available, I chose to create my own for a personalized touch. 
 
-My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20dasher or /elves/top-twelves 
+My crew of elves, the Backend Dashers, can be found at /elves/title/backend%20dasher or at /elves/top-twelves 
 
 ## Requirements:  
   1. The API should have at least 3 routes.  
