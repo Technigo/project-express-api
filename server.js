@@ -3,19 +3,16 @@ import cors from "cors";
 
 import goldenGlobesData from "./data/golden-globes.json";
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+const expressListEndpoints = require("express-list-endpoints");
+
 const port = process.env.PORT || 9000;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(expressListEndpoints(app));
 });
 
 app.get("/nominations", (req, res) => {
@@ -25,7 +22,7 @@ app.get("/nominations", (req, res) => {
 
   if (win) {
     filteredNominations = filteredNominations.filter(
-      (nomination) => nomination.win
+      (nomination) => nomination.win === (win.toLowerCase() === "true") // convert string to boolean
     );
   }
 
@@ -58,7 +55,6 @@ app.get("/nominations/:id", (req, res) => {
   res.json(nomination);
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
