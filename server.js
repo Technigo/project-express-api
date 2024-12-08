@@ -21,16 +21,27 @@ app.get("/nominations", (req, res) => {
   let filteredNominations = goldenGlobesData;
 
   if (win) {
+    if (win !== "true" && win !== "false") {
+      return res
+        .status(400)
+        .json({ error: "win parameter must be 'true' or 'false'" });
+    }
     filteredNominations = filteredNominations.filter(
-      (nomination) => nomination.win === (win.toLowerCase() === "true") // convert string to boolean
+      (nomination) => nomination.win === (win === "true")
     );
   }
 
   if (year_award) {
+    if (+year_award < 2015 || +year_award > 2020) {
+      return res.status(400).json({
+        error: "Invalid year. Please enter a year between 2015 and 2020.",
+      });
+    }
     filteredNominations = filteredNominations.filter(
       (nomination) => nomination.year_award === parseInt(year_award)
     );
   }
+
   if (category) {
     const searchTerms = category.toLowerCase().split(" ");
     filteredNominations = filteredNominations.filter((nomination) =>
@@ -38,6 +49,17 @@ app.get("/nominations", (req, res) => {
         nomination.category.toLowerCase().includes(term)
       )
     );
+
+    if (filteredNominations.length === 0) {
+      return res.status(404).json({
+        error: "No nominations found. Please enter a valid category.",
+      });
+    }
+  }
+  if (filteredNominations.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No nominations found with chosen filters" });
   }
 
   res.json(filteredNominations);
