@@ -45,6 +45,8 @@ app.get("/elves/all", (request, response) => {
 app.get("/elves/top-twelves", (request, response) => {
   const topElves = elves.slice(0, 12);
 
+  console.log(elves.length);
+
   // Return top 12 elves
   response.json(topElves);
 });
