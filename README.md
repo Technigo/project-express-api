@@ -9,3 +9,12 @@ I approached the project by first setting up a basic Express server, using middl
 ## View it live
 
 https://project-express-api-mqhs.onrender.com/
+
+Climbing Routes
+https://project-express-api-mqhs.onrender.com/climbingRoutes
+
+Climbing Routes - type
+https://project-express-api-mqhs.onrender.com/climbingRoutes/type?type=sport
+
+Climbing Routes - difficulty
+https://project-express-api-mqhs.onrender.com/climbingRoutes/difficulty?difficulty=high
