@@ -64,7 +64,8 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
   app.get ("/cats/breed/:breed", (request, response) => {
     const breed = request.params.breed.trim().toLowerCase()
 
-    const cat = cats.find (cat => cat.breed.toLowerCase() === breed)  //Find specific cat breed.
+    const cat = cats.find (cat => cat.breed.toLowerCase() === breed)  //Find specific cat breed.  
+    //https://project-express-api-cats.onrender.com/cats/breed/russian%20blue
   if (cat) {
     response.status (200).json (cat)
   } else {
@@ -83,8 +84,6 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
   response.status(404).send("No cat found with that ID")
   }
   })
-
-
 
 // Start the server
 app.listen(port, () => {
