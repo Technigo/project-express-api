@@ -1,13 +1,13 @@
 # Project Express API
 
-Replace this readme with your own information about your project.
+This week we started with backend and our first project within the sprint was to create an express API. This was done by using a json file that I got with help from chatGPT. Since I love cats I asked for 55 cat breeds including information on fur length, personality, commonality and more.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I started out by planning for which endpoints and routes to have and decided to have one filter query parameters and conditionals- if/else statements for all cats and filtered by personality, fur_length, or commonality. And then I wanted separate route parameters for breed and ID and used the find method for that. I also added error handling to all routes.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I looked a lot at Matildas live session where she had different examples of query parameters or route parameters and filtering or find methods. I think it was very straight forward but I had one problem with the find method and route paths, there was a conflict between the routes for breed and ID so I needed to add more unique path to the cats breed. "/cats/breed/:breed" instead of "/cats/:breed" which worked.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-express-api-cats.onrender.com/

@@ -1,6 +1,8 @@
-import express from "express"
-import cors from "cors"
-import listEndpoints from "express-list-endpoints"
+
+//Imported dependencies 
+import express from "express" // The web framework used to set up a server and handle HTTP routes.
+import cors from "cors" // Middleware to enable Cross-Origin Resource Sharing, allowing requests from other origins (e.g., a frontend hosted on another domain).
+import listEndpoints from "express-list-endpoints" // Utility to list all the routes defined in my Express app.
 import cats from "./data/cats.json"
 
 
@@ -8,7 +10,7 @@ import cats from "./data/cats.json"
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
 
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 9000  //Changed port to 9000 from 8800
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -26,7 +28,7 @@ app.get("/", (request, response) => {
   })
 })
 
-// Combined cats route filtering on all cats and cats with category query filter for personality, fur length and commonality. 
+// Combined cats query parameter filtering on all cats and cats with category query filter for personality, fur length and commonality. 
 
 app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route for displaying all cat breeds. 
   const {personality, fur_length, commonality}= request.query
@@ -58,7 +60,7 @@ app.get("/cats", (request, response) => {  // http://localhost:9000/cats -route 
     }
   })
 
-
+ // Route parameters with find method. 
   app.get ("/cats/breed/:breed", (request, response) => {
     const breed = request.params.breed.trim().toLowerCase()
 
