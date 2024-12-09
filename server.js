@@ -30,13 +30,34 @@ app.get("/dogs/:id", (req, res) => {
   }
 });
 
-// Route for getting all dogs, with optional category filter
+// Route for getting all dogs, with optional filters
 app.get("/dogs", (req, res) => {
-  const category = req.query.category;  // Get category from query parameter if exists
-  // If category parameter exists, filter dogs by category, otherwise return all dogs
-  const filteredDogs = category 
-    ? dogs.filter(dog => dog.category === category)
-    : dogs;
+  const { category, size, origin, familyFriendly } = req.query;  // Get all filters from query parameters
+  console.log("Query parameters:", req.query);
+  
+  let filteredDogs = [...dogs];
+
+  if (category) {
+    filteredDogs = filteredDogs.filter(dog => 
+      dog.category.toLowerCase() === category.toLowerCase()
+    );
+  }
+  if (size) {
+    filteredDogs = filteredDogs.filter(dog => 
+      dog.size.toLowerCase() === size.toLowerCase()
+    );
+  }
+  if (origin) {
+    filteredDogs = filteredDogs.filter(dog => 
+      dog.origin.toLowerCase() === origin.toLowerCase()
+    );
+  }
+  if (familyFriendly) {
+    filteredDogs = filteredDogs.filter(dog => 
+      dog.familyFriendly.toLowerCase() === familyFriendly.toLowerCase()
+    );
+  }
+  
   res.json(filteredDogs);
 });
 
