@@ -13,11 +13,12 @@ app.use(express.json());
 import bookRoutes from "./routes/bookRoutes.js";
 app.use("/api/books", bookRoutes);
 
-const endpoints = expressListEndpoints(app);
-
 // Root route with documenation
 app.get("/", (req, res) => {
-  res.send(endpoints);
+  res.json({
+    message: "Welcome to the Books API! Here are the available endpoints:",
+    endpoints: expressListEndpoints(app),
+  });
 });
 
 // Start the server
