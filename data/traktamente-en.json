@@ -1,0 +1,1727 @@
+[
+  {
+    "country or territory": "Albania",
+    "standard amount": "265",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Algeria",
+    "standard amount": "376",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Angola",
+    "standard amount": "956",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Antigua and Barbuda",
+    "standard amount": "814",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Argentina",
+    "standard amount": "305",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Armenia",
+    "standard amount": "544",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Australia",
+    "standard amount": "744",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Azerbaijan",
+    "standard amount": "436",
+    "year": "2023"
+  },
+  {
+    "country or territory": "The Bahamas",
+    "standard amount": "1140",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Bahrain",
+    "standard amount": "867",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Bangladesh",
+    "standard amount": "520",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Barbados",
+    "standard amount": "1095",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Belarus",
+    "standard amount": "317",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Belgium",
+    "standard amount": "794",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Belize",
+    "standard amount": "658",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Benin",
+    "standard amount": "531",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Bolivia",
+    "standard amount": "438",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Bosnia and Herzegovina",
+    "standard amount": "345",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Botswana",
+    "standard amount": "379",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Brazil",
+    "standard amount": "430",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Brunei Darussalam",
+    "standard amount": "524",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Bulgaria",
+    "standard amount": "389",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Burkina Faso",
+    "standard amount": "433",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Burma (Myanmar)",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Central African Republic",
+    "standard amount": "461",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Chile",
+    "standard amount": "487",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Colombia",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Costa Rica",
+    "standard amount": "610",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Cyprus",
+    "standard amount": "613",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Denmark",
+    "standard amount": "1051",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Djibouti",
+    "standard amount": "677",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ecuador",
+    "standard amount": "689",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Egypt",
+    "standard amount": "275",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ivory Coast (Côte d’Ivoire)",
+    "standard amount": "693",
+    "year": "2023"
+  },
+  {
+    "country or territory": "El Salvador",
+    "standard amount": "565",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Eritrea",
+    "standard amount": "480",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Estonia",
+    "standard amount": "526",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Eswatini",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ethiopia",
+    "standard amount": "269",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Philippines",
+    "standard amount": "468",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Finland",
+    "standard amount": "786",
+    "year": "2023"
+  },
+  {
+    "country or territory": "France",
+    "standard amount": "852",
+    "year": "2023"
+  },
+  {
+    "country or territory": "United Arab Emirates (UAE)",
+    "standard amount": "1057",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Gabon",
+    "standard amount": "680",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Gambia",
+    "standard amount": "321",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Georgia",
+    "standard amount": "315",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ghana",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Greece",
+    "standard amount": "639",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Grenada",
+    "standard amount": "698",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Greenland",
+    "standard amount": "1051",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Guinea",
+    "standard amount": "694",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Guyana",
+    "standard amount": "660",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Haiti",
+    "standard amount": "700",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Honduras",
+    "standard amount": "490",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Hong Kong",
+    "standard amount": "688",
+    "year": "2023"
+  },
+  {
+    "country or territory": "India",
+    "standard amount": "359",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Indonesia",
+    "standard amount": "483",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Iraq",
+    "standard amount": "659",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Iran",
+    "standard amount": "1880",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ireland",
+    "standard amount": "827",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Iceland",
+    "standard amount": "889",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Israel",
+    "standard amount": "1060",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Italy",
+    "standard amount": "701",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Jamaica",
+    "standard amount": "529",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Japan",
+    "standard amount": "480",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Jordan",
+    "standard amount": "914",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Cambodia",
+    "standard amount": "573",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Cameroon",
+    "standard amount": "517",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Canada",
+    "standard amount": "844",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Kazakhstan",
+    "standard amount": "261",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Kenya",
+    "standard amount": "502",
+    "year": "2023"
+  },
+  {
+    "country or territory": "China (PRC)",
+    "standard amount": "688",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Kyrgyzstan",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Republic of the Congo",
+    "standard amount": "576",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Democratic Republic of the Congo",
+    "standard amount": "808",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Kosovo",
+    "standard amount": "274",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Croatia",
+    "standard amount": "472",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Cuba",
+    "standard amount": "613",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Kuwait",
+    "standard amount": "899",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Laos",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Latvia",
+    "standard amount": "603",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Liberia",
+    "standard amount": "784",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Libya",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Liechtenstein",
+    "standard amount": "1032",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Lithuania",
+    "standard amount": "497",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Luxembourg",
+    "standard amount": "847",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Macao",
+    "standard amount": "688",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Madagascar",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Macedonia (North Macedonia)",
+    "standard amount": "305",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Malawi",
+    "standard amount": "314",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Malaysia",
+    "standard amount": "335",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Maldives",
+    "standard amount": "491",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mali",
+    "standard amount": "467",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Malta",
+    "standard amount": "580",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Morocco",
+    "standard amount": "454",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mauritania",
+    "standard amount": "398",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mauritius",
+    "standard amount": "440",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mexico",
+    "standard amount": "507",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Micronesia",
+    "standard amount": "560",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mozambique",
+    "standard amount": "415",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Moldova",
+    "standard amount": "337",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Monaco",
+    "standard amount": "898",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Mongolia",
+    "standard amount": "395",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Montenegro",
+    "standard amount": "392",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Myanmar",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Netherlands",
+    "standard amount": "721",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Netherlands Antilles",
+    "standard amount": "754",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Nepal",
+    "standard amount": "287",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Nicaragua",
+    "standard amount": "470",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Niger",
+    "standard amount": "361",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Nigeria",
+    "standard amount": "663",
+    "year": "2023"
+  },
+  {
+    "country or territory": "North Macedonia, formerly Macedonia",
+    "standard amount": "305",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Norway",
+    "standard amount": "1019",
+    "year": "2023"
+  },
+  {
+    "country or territory": "New Zealand",
+    "standard amount": "623",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Oman",
+    "standard amount": "915",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Pakistan",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Panama",
+    "standard amount": "682",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Papua New Guinea",
+    "standard amount": "634",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Paraguay",
+    "standard amount": "343",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Peru",
+    "standard amount": "480",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Poland",
+    "standard amount": "457",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Portugal",
+    "standard amount": "499",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Puerto Rico",
+    "standard amount": "1113",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Qatar",
+    "standard amount": "897",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Romania",
+    "standard amount": "357",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Rwanda",
+    "standard amount": "331",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Russia",
+    "standard amount": "727",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Saint Lucia",
+    "standard amount": "681",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Saint Vincent and the Grenadines",
+    "standard amount": "590",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Samoa (Independent State of Samoa)",
+    "standard amount": "608",
+    "year": "2023"
+  },
+  {
+    "country or territory": "San Marino",
+    "standard amount": "701",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Saudi Arabia",
+    "standard amount": "1008",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Switzerland",
+    "standard amount": "1149",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Senegal",
+    "standard amount": "561",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Serbia",
+    "standard amount": "390",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Seychelles",
+    "standard amount": "1058",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Sierra Leone",
+    "standard amount": "262",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Singapore",
+    "standard amount": "862",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Slovakia",
+    "standard amount": "548",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Slovenia",
+    "standard amount": "539",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Spain",
+    "standard amount": "646",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Sri Lanka",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "United Kingdom and Northern Ireland (UK)",
+    "standard amount": "779",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Sudan",
+    "standard amount": "522",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Eswatini (Swaziland)",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "South Africa",
+    "standard amount": "289",
+    "year": "2023"
+  },
+  {
+    "country or territory": "South Korea",
+    "standard amount": "636",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Taiwan",
+    "standard amount": "631",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Tanzania",
+    "standard amount": "462",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Thailand",
+    "standard amount": "546",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Czech Republic",
+    "standard amount": "529",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Togo",
+    "standard amount": "530",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Tonga",
+    "standard amount": "482",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Trinidad and Tobago",
+    "standard amount": "927",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Tunisia",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Turkey",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Turkmenistan",
+    "standard amount": "1533",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Germany",
+    "standard amount": "718",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Uganda",
+    "standard amount": "415",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Ukraine",
+    "standard amount": "331",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Hungary",
+    "standard amount": "385",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Uruguay",
+    "standard amount": "547",
+    "year": "2023"
+  },
+  {
+    "country or territory": "USA (United States of America)",
+    "standard amount": "1113",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Uzbekistan",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Vanuatu",
+    "standard amount": "731",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Venezuela",
+    "standard amount": "367",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Vietnam",
+    "standard amount": "411",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Belarus",
+    "standard amount": "317",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Zambia",
+    "standard amount": "630",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Zimbabwe",
+    "standard amount": "260",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Austria",
+    "standard amount": "669",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Other countries and territories",
+    "standard amount": "456",
+    "year": "2023"
+  },
+  {
+    "country or territory": "Albania",
+    "standard amount": "322",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Algeria",
+    "standard amount": "388",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Angola",
+    "standard amount": "530",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Antigua and Barbuda",
+    "standard amount": "834",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Argentina",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Armenia",
+    "standard amount": "557",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Australia",
+    "standard amount": "817",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Azerbaijan",
+    "standard amount": "471",
+    "year": "2024"
+  },
+  {
+    "country or territory": "The Bahamas",
+    "standard amount": "1267",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Bahrain",
+    "standard amount": "994",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Bangladesh",
+    "standard amount": "499",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Barbados",
+    "standard amount": "1125",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Belarus",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Belgium",
+    "standard amount": "894",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Belize",
+    "standard amount": "681",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Benin",
+    "standard amount": "600",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Bolivia",
+    "standard amount": "432",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Bosnia and Herzegovina",
+    "standard amount": "377",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Botswana",
+    "standard amount": "407",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Brazil",
+    "standard amount": "505",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Brunei Darussalam",
+    "standard amount": "551",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Bulgaria",
+    "standard amount": "431",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Burkina Faso",
+    "standard amount": "478",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Burma (Myanmar)",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Central African Republic",
+    "standard amount": "501",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Chile",
+    "standard amount": "575",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Colombia",
+    "standard amount": "343",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Costa Rica",
+    "standard amount": "772",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Cyprus",
+    "standard amount": "682",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Denmark",
+    "standard amount": "1274",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Djibouti",
+    "standard amount": "697",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ecuador",
+    "standard amount": "703",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Egypt",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ivory Coast (Côte d’Ivoire)",
+    "standard amount": "766",
+    "year": "2024"
+  },
+  {
+    "country or territory": "El Salvador",
+    "standard amount": "574",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Eritrea",
+    "standard amount": "504",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Estonia",
+    "standard amount": "611",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Eswatini",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ethiopia",
+    "standard amount": "310",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Philippines",
+    "standard amount": "563",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Finland",
+    "standard amount": "948",
+    "year": "2024"
+  },
+  {
+    "country or territory": "France",
+    "standard amount": "935",
+    "year": "2024"
+  },
+  {
+    "country or territory": "United Arab Emirates (UAE)",
+    "standard amount": "1060",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Gabon",
+    "standard amount": "731",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Gambia",
+    "standard amount": "321",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Georgia",
+    "standard amount": "381",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ghana",
+    "standard amount": "514",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Greece",
+    "standard amount": "728",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Grenada",
+    "standard amount": "706",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Greenland",
+    "standard amount": "1274",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Guinea",
+    "standard amount": "683",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Guyana",
+    "standard amount": "653",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Haiti",
+    "standard amount": "789",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Honduras",
+    "standard amount": "530",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Hong Kong",
+    "standard amount": "688",
+    "year": "2024"
+  },
+  {
+    "country or territory": "India",
+    "standard amount": "377",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Indonesia",
+    "standard amount": "488",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Iraq",
+    "standard amount": "730",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Iran",
+    "standard amount": "493",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ireland",
+    "standard amount": "1011",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Iceland",
+    "standard amount": "1064",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Israel",
+    "standard amount": "921",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Italy",
+    "standard amount": "856",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Jamaica",
+    "standard amount": "506",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Japan",
+    "standard amount": "486",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Jordan",
+    "standard amount": "950",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Cambodia",
+    "standard amount": "593",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Cameroon",
+    "standard amount": "554",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Canada",
+    "standard amount": "1009",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Kazakhstan",
+    "standard amount": "378",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Kenya",
+    "standard amount": "435",
+    "year": "2024"
+  },
+  {
+    "country or territory": "China (PRC)",
+    "standard amount": "688",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Kyrgyzstan",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Republic of the Congo",
+    "standard amount": "680",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Democratic Republic of the Congo",
+    "standard amount": "697",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Kosovo",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Croatia",
+    "standard amount": "510",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Cuba",
+    "standard amount": "373",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Kuwait",
+    "standard amount": "928",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Laos",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Latvia",
+    "standard amount": "687",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Lebanon",
+    "standard amount": "493",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Liberia",
+    "standard amount": "752",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Libya",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Liechtenstein",
+    "standard amount": "1147",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Lithuania",
+    "standard amount": "599",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Luxembourg",
+    "standard amount": "977",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Macao",
+    "standard amount": "688",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Madagascar",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Macedonia (North Macedonia)",
+    "standard amount": "320",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Malawi",
+    "standard amount": "403",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Malaysia",
+    "standard amount": "319",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Maldives",
+    "standard amount": "477",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mali",
+    "standard amount": "511",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Malta",
+    "standard amount": "655",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Morocco",
+    "standard amount": "470",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mauritania",
+    "standard amount": "404",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mauritius",
+    "standard amount": "432",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mexico",
+    "standard amount": "668",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Micronesia",
+    "standard amount": "619",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mozambique",
+    "standard amount": "438",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Moldova",
+    "standard amount": "389",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Monaco",
+    "standard amount": "1009",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Mongolia",
+    "standard amount": "504",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Montenegro",
+    "standard amount": "416",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Myanmar",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Netherlands",
+    "standard amount": "792",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Netherlands Antilles",
+    "standard amount": "786",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Nepal",
+    "standard amount": "312",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Nicaragua",
+    "standard amount": "542",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Niger",
+    "standard amount": "387",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Nigeria",
+    "standard amount": "435",
+    "year": "2024"
+  },
+  {
+    "country or territory": "North Macedonia",
+    "standard amount": "320",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Norway",
+    "standard amount": "1104",
+    "year": "2024"
+  },
+  {
+    "country or territory": "New Zealand",
+    "standard amount": "656",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Oman",
+    "standard amount": "977",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Pakistan",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Panama",
+    "standard amount": "779",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Papua New Guinea",
+    "standard amount": "662",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Paraguay",
+    "standard amount": "352",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Peru",
+    "standard amount": "504",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Poland",
+    "standard amount": "562",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Portugal",
+    "standard amount": "613",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Puerto Rico",
+    "standard amount": "1168",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Qatar",
+    "standard amount": "967",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Romania",
+    "standard amount": "424",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Rwanda",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Russia",
+    "standard amount": "544",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Saint Lucia",
+    "standard amount": "789",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Saint Vincent and the Grenadines",
+    "standard amount": "564",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Samoa (Independent State of Samoa)",
+    "standard amount": "649",
+    "year": "2024"
+  },
+  {
+    "country or territory": "San Marino",
+    "standard amount": "856",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Saudi Arabia",
+    "standard amount": "1220",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Switzerland",
+    "standard amount": "1365",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Senegal",
+    "standard amount": "652",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Serbia",
+    "standard amount": "453",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Seychelles",
+    "standard amount": "1092",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Sierra Leone",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Singapore",
+    "standard amount": "959",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Slovakia",
+    "standard amount": "691",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Slovenia",
+    "standard amount": "592",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Spain",
+    "standard amount": "691",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Sri Lanka",
+    "standard amount": "471",
+    "year": "2024"
+  },
+  {
+    "country or territory": "United Kingdom and Northern Ireland (UK)",
+    "standard amount": "914",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Sudan",
+    "standard amount": "701",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Eswatini (Swaziland)",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "South Africa",
+    "standard amount": "318",
+    "year": "2024"
+  },
+  {
+    "country or territory": "South Korea",
+    "standard amount": "681",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Taiwan",
+    "standard amount": "615",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Tanzania",
+    "standard amount": "413",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Thailand",
+    "standard amount": "563",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Czech Republic",
+    "standard amount": "735",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Togo",
+    "standard amount": "567",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Tonga",
+    "standard amount": "519",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Trinidad and Tobago",
+    "standard amount": "960",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Tunisia",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Turkey",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Turkmenistan",
+    "standard amount": "1649",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Germany",
+    "standard amount": "800",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Uganda",
+    "standard amount": "422",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Ukraine",
+    "standard amount": "393",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Hungary",
+    "standard amount": "666",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Uruguay",
+    "standard amount": "624",
+    "year": "2024"
+  },
+  {
+    "country or territory": "USA (United States of America)",
+    "standard amount": "1168",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Uzbekistan",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Vanuatu",
+    "standard amount": "743",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Venezuela",
+    "standard amount": "420",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Vietnam",
+    "standard amount": "433",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Belarus",
+    "standard amount": "290",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Zambia",
+    "standard amount": "425",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Zimbabwe",
+    "standard amount": "660",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Austria",
+    "standard amount": "746",
+    "year": "2024"
+  },
+  {
+    "country or territory": "Other countries and territories",
+    "standard amount": "493",
+    "year": "2024"
+  }
+]
