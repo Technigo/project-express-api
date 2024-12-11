@@ -15,5 +15,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "nodemon": "^3.0.1"
-  }
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingyin2024/project-express-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xingyin2024/project-express-api/issues"
+  },
+  "homepage": "https://github.com/xingyin2024/project-express-api#readme"
 }
