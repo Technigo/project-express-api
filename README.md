@@ -16,6 +16,7 @@ The API provides an endpoint that lets you filter allowances by both country and
 
 - **Country (String):**  
   Supports partial matches. For example, `?country=tobago` will return data for "Trinidad and Tobago" because "tobago" is a substring of the full country name.
+  (OBS! complete the name of USA, UK, UAE, PRC in traktamente-en.json)
   
 - **Year (String):**  
   Matches must be exact. For example, `?year=2024` returns data for 2024 allowances only.
