@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starter project to get up and running with express quickly",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "nodemon server.js --exec babel-node",
     "dev": "nodemon server.js --exec babel-node"
   },
   "author": "",
@@ -14,15 +14,8 @@
     "@babel/preset-env": "^7.16.11",
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "nodemon": "^3.0.1"
+    "express-list-endpoints": "^7.1.1",
+    "nodemon": "^3.1.7"
   },
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xingyin2024/project-express-api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/xingyin2024/project-express-api/issues"
-  },
-  "homepage": "https://github.com/xingyin2024/project-express-api#readme"
+  "main": "server.js"
 }
